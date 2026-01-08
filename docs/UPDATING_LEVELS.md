@@ -1,0 +1,206 @@
+# Updating an Existing Level
+
+This guide covers how to integrate a modified or rebuilt level into your all.spawn.
+
+## Prerequisites
+
+- S.T.A.L.K.E.R. SDK (Level Editor)
+- Exported level files from the SDK
+- L.A.M.B.D.A build tools set up
+
+## Step 1: Export Level from SDK
+
+1. Build/compile your level in the SDK
+2. Export the level
+3. Locate the exported files:
+   - `level.ai` - AI navigation mesh
+   - `level.spawn` - Spawn entities
+   - `level.game` - Waypoints and patrols
+
+## Step 2: Configure levels.ini
+
+1. Copy `level.ai`, `level.spawn`, `level.game` to a folder (e.g., `levels/my_modified_level/`)
+
+2. Update `levels.ini` to point to your new files:
+
+```ini
+[level05]
+name = k01_darkscape
+caption = "k01_darkscape"
+offset = 3050.0, 1000.0, 0.0
+path = ../levels/my_modified_darkscape    # Point to your folder
+id = 05
+# See Step 3 for original_* options
+```
+
+## Step 3: Original Data (Optional)
+
+Decide whether to keep or disable the original spawn/patrol/edge data:
+
+```ini
+# OPTION A: Keep originals (better mod compatibility)
+original_spawn = extractedanomalyspawns/k01_darkscape.spawn
+original_patrols = extractedanomalyspawns/k01_darkscape.patrols
+original_edges = extractedanomalyspawns/k01_darkscape.edges.json
+
+# OPTION B: Disable originals (for total overhauls)
+# original_spawn = extractedanomalyspawns/k01_darkscape.spawn
+# original_patrols = extractedanomalyspawns/k01_darkscape.patrols
+# original_edges = extractedanomalyspawns/k01_darkscape.edges.json
+```
+
+**Keep originals** if you want to maintain compatibility with other mods or preserve the vanilla experience.
+
+**Disable originals** for total level overhauls where vanilla spawns/patrols may conflict with your changes.
+
+## Step 4: Configure Level Changers
+
+Edit `level_changers.ini` to set up teleporter connections:
+
+1. Update coordinates for **inbound** connections to your map (where players arrive)
+2. Add entries for any **new** level changers you've placed on your map
+
+```ini
+[k01_darkscape]
+ds_level_changer_to_darkvalley.dest = l04_darkvalley
+ds_level_changer_to_darkvalley.pos = -44.82, 0.43, -542.58
+ds_level_changer_to_darkvalley.dir = 0.00, -0.09, 0.00
+
+ds_level_changer_to_escape.dest = l01_escape
+ds_level_changer_to_escape.pos = 346.87, 15.01, -28.19
+ds_level_changer_to_escape.dir = 0.00, 0.79, 0.00
+```
+
+## Step 5: Initial Build
+
+Run the build:
+
+```bash
+./build_anomaly.sh
+# or
+./build_gamma.sh
+```
+
+## Step 6: Create Graph Edges (if originals disabled)
+
+If you disabled `original_edges`, you need to create new graph connections manually.
+
+### Find Connection Points
+
+1. Launch the visualiser:
+   ```bash
+   ./visualise.sh
+   ```
+
+2. Open your modified map and find **graph nodes** (blue orbs) near the edges that should connect to adjacent maps
+
+3. Note down their X/Y/Z coordinates
+
+4. Open adjacent maps and find corresponding edge nodes that will connect back to your map
+
+### Create edges.json
+
+Create a new `<level>.edges.json` file. Use existing files in `compiler/extractedanomalyspawns/` as reference.
+
+Example for a modified Darkscape with two outbound connections:
+
+```json
+{
+  "level_name": "k01_darkscape",
+  "level_id": 5,
+  "edge_count": 2,
+  "intra_level_edges": 0,
+  "inter_level_edges": 2,
+  "edges": [
+    {
+      "source_x": -236.4866,
+      "source_y": 46.5132,
+      "source_z": -280.0966,
+      "target_x": 391.7981,
+      "target_y": 15.1667,
+      "target_z": -70.5833,
+      "distance": 253.8893,
+      "target_level": "l01_escape"
+    },
+    {
+      "source_x": 64.3509,
+      "source_y": 50.9274,
+      "source_z": 284.4554,
+      "target_x": -47.3282,
+      "target_y": 0.387,
+      "target_z": -601.7765,
+      "distance": 468.4778,
+      "target_level": "l04_darkvalley"
+    }
+  ]
+}
+```
+
+- `source_*`: Coordinates on YOUR map
+- `target_*`: Coordinates on the DESTINATION map
+- `target_level`: Internal name of destination level
+
+### Update Adjacent Maps
+
+For each adjacent map, update its edges.json to include the reverse connection back to your map.
+
+Example addition to Cordon's (`l01_escape`) edges.json:
+
+```json
+{
+  "source_x": 391.7981,
+  "source_y": 15.1667,
+  "source_z": -70.5833,
+  "target_x": -236.4866,
+  "target_y": 46.5132,
+  "target_z": -280.0966,
+  "distance": 253.8893,
+  "target_level": "k01_darkscape"
+}
+```
+
+Note how source/target coordinates are swapped compared to your map's file.
+
+### Point levels.ini to New Edges
+
+```ini
+original_edges = path/to/your/k01_darkscape.edges.json
+```
+
+## Step 7: Final Build and Verify
+
+1. Rebuild:
+   ```bash
+   ./build_anomaly.sh
+   ```
+
+2. Open the visualiser and verify:
+   - Graph nodes appear correctly on your map
+   - Edges connect to adjacent maps (visible as lines between nodes)
+   - Level changers are positioned correctly
+
+## Step 8: Package Your Mod
+
+**Important:** You must include the entire `gamedata/` folder generated by L.A.M.B.D.A as a base for your mod. This folder contains essential scripts for:
+- Spawn location handling
+- Dynamic item spawning
+- Dynamic anomaly spawning
+
+Without these scripts, the game will crash.
+
+Then add your level-specific files:
+- `gamedata/levels/<level_name>/` - Your level files (level.ai, level.spawn, level.game, geometry, textures, etc.)
+
+## Troubleshooting
+
+**NPCs can't pathfind to/from my level**
+- Check that graph edges exist connecting your map to adjacent maps
+- Verify edge coordinates match actual graph node positions
+
+**Level changer doesn't work**
+- Ensure the entity name in level_changers.ini matches exactly
+- Verify destination coordinates are valid (not inside geometry)
+
+**Spawns from vanilla conflict with my changes**
+- Disable original_spawn in levels.ini
+- Add conflicting entities to spawn_blacklist.ini

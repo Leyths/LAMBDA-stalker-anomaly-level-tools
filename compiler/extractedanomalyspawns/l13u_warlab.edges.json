@@ -1,0 +1,1589 @@
+{
+  "level_name": "l13u_warlab",
+  "level_id": 26,
+  "edge_count": 158,
+  "intra_level_edges": 157,
+  "inter_level_edges": 1,
+  "edges": [
+    {
+      "source_x": -9.123,
+      "source_y": 13.5487,
+      "source_z": 22.1881,
+      "target_x": 14.322,
+      "target_y": 1.0084,
+      "target_z": -0.328,
+      "distance": 48.4173,
+      "target_level": "l13u_warlab"
+    },
+    {
+      "source_x": -9.123,
+      "source_y": 13.5487,
+      "source_z": 22.1881,
+      "target_x": 151.2867,
+      "target_y": 19.4524,
+      "target_z": -493.9753,
+      "distance": 578.4051,
+      "target_level": "l13_generators"
+    },
+    {
+      "source_x": 5.746,
+      "source_y": 4.9718,
+      "source_z": 10.683,
+      "target_x": 7.5396,
+      "target_y": -3.1498,
+      "target_z": 7.4336,
+      "distance": 3.7115,
+      "target_level": "l13u_warlab"
+    },
+    {
+      "source_x": 5.746,
+      "source_y": 4.9718,
+      "source_z": 10.683,
+      "target_x": 2.2487,
+      "target_y": -7.3098,
+      "target_z": 10.4146,
+      "distance": 3.5076,
+      "target_level": "l13u_warlab"
+    },
+    {
+      "source_x": 5.8351,
+      "source_y": 1.0102,
+      "source_z": -1.6645,
+      "target_x": 14.663,
+      "target_y": -3.118,
+      "target_z": -1.5773,
+      "distance": 18.3072,
+      "target_level": "l13u_warlab"
+    },
+    {
+      "source_x": 5.8351,
+      "source_y": 1.0102,
+      "source_z": -1.6645,
+      "target_x": 9.9446,
+      "target_y": -7.3326,
+      "target_z": -1.438,
+      "distance": 22.8404,
+      "target_level": "l13u_warlab"
+    },
+    {
+      "source_x": 5.8351,
+      "source_y": 1.0102,
+      "source_z": -1.6645,
+      "target_x": 2.4665,
+      "target_y": -3.0946,
+      "target_z": 4.2225,
+      "distance": 16.1838,
+      "target_level": "l13u_warlab"
+    },
+    {
+      "source_x": 14.322,
+      "source_y": 1.0084,
+      "source_z": -0.328,
+      "target_x": 2.7329,
+      "target_y": -2.2317,
+      "target_z": -11.8504,
+      "distance": 20.2727,
+      "target_level": "l13u_warlab"
+    },
+    {
+      "source_x": 14.322,
+      "source_y": 1.0084,
+      "source_z": -0.328,
+      "target_x": -9.123,
+      "target_y": 13.5487,
+      "target_z": 22.1881,
+      "distance": 48.7243,
+      "target_level": "l13u_warlab"
+    },
+    {
+      "source_x": 14.322,
+      "source_y": 1.0084,
+      "source_z": -0.328,
+      "target_x": 18.6081,
+      "target_y": 1.0102,
+      "target_z": -3.8499,
+      "distance": 13.5594,
+      "target_level": "l13u_warlab"
+    },
+    {
+      "source_x": 18.6081,
+      "source_y": 1.0102,
+      "source_z": -3.8499,
+      "target_x": 32.142,
+      "target_y": -3.1525,
+      "target_z": -4.1179,
+      "distance": 13.5365,
+      "target_level": "l13u_warlab"
+    },
+    {
+      "source_x": 18.6081,
+      "source_y": 1.0102,
+      "source_z": -3.8499,
+      "target_x": 14.322,
+      "target_y": 1.0084,
+      "target_z": -0.328,
+      "distance": 13.6373,
+      "target_level": "l13u_warlab"
+    },
+    {
+      "source_x": 32.142,
+      "source_y": -3.1525,
+      "source_z": -4.1179,
+      "target_x": 37.8005,
+      "target_y": -3.5398,
+      "target_z": -8.4313,
+      "distance": 11.0672,
+      "target_level": "l13u_warlab"
+    },
+    {
+      "source_x": 32.142,
+      "source_y": -3.1525,
+      "source_z": -4.1179,
+      "target_x": 18.6081,
+      "target_y": 1.0102,
+      "target_z": -3.8499,
+      "distance": 13.5365,
+      "target_level": "l13u_warlab"
+    },
+    {
+      "source_x": 37.8005,
+      "source_y": -3.5398,
+      "source_z": -8.4313,
+      "target_x": 32.142,
+      "target_y": -3.1525,
+      "target_z": -4.1179,
+      "distance": 11.5519,
+      "target_level": "l13u_warlab"
+    },
+    {
+      "source_x": 2.7329,
+      "source_y": -2.2317,
+      "source_z": -11.8504,
+      "target_x": 3.5317,
+      "target_y": -3.1498,
+      "target_z": -20.4707,
+      "distance": 14.4322,
+      "target_level": "l13u_warlab"
+    },
+    {
+      "source_x": 2.7329,
+      "source_y": -2.2317,
+      "source_z": -11.8504,
+      "target_x": 15.352,
+      "target_y": -0.9333,
+      "target_z": -18.1865,
+      "distance": 18.5589,
+      "target_level": "l13u_warlab"
+    },
+    {
+      "source_x": 2.7329,
+      "source_y": -2.2317,
+      "source_z": -11.8504,
+      "target_x": 14.322,
+      "target_y": 1.0084,
+      "target_z": -0.328,
+      "distance": 20.5149,
+      "target_level": "l13u_warlab"
+    },
+    {
+      "source_x": 2.7329,
+      "source_y": -2.2317,
+      "source_z": -11.8504,
+      "target_x": -11.1149,
+      "target_y": -3.1479,
+      "target_z": 0.6829,
+      "distance": 27.2134,
+      "target_level": "l13u_warlab"
+    },
+    {
+      "source_x": 8.8951,
+      "source_y": -3.15,
+      "source_z": -12.4396,
+      "target_x": 7.6566,
+      "target_y": -6.5231,
+      "target_z": -15.1168,
+      "distance": 2.9497,
+      "target_level": "l13u_warlab"
+    },
+    {
+      "source_x": 3.5317,
+      "source_y": -3.1498,
+      "source_z": -20.4707,
+      "target_x": 13.036,
+      "target_y": 1.0011,
+      "target_z": -11.1758,
+      "distance": 21.5921,
+      "target_level": "l13u_warlab"
+    },
+    {
+      "source_x": 3.5317,
+      "source_y": -3.1498,
+      "source_z": -20.4707,
+      "target_x": 2.7329,
+      "target_y": -2.2317,
+      "target_z": -11.8504,
+      "distance": 14.4322,
+      "target_level": "l13u_warlab"
+    },
+    {
+      "source_x": 3.5317,
+      "source_y": -3.1498,
+      "source_z": -20.4707,
+      "target_x": -3.5529,
+      "target_y": -3.0827,
+      "target_z": -22.6101,
+      "distance": 8.9867,
+      "target_level": "l13u_warlab"
+    },
+    {
+      "source_x": -3.5529,
+      "source_y": -3.0827,
+      "source_z": -22.6101,
+      "target_x": 3.5317,
+      "target_y": -3.1498,
+      "target_z": -20.4707,
+      "distance": 8.9867,
+      "target_level": "l13u_warlab"
+    },
+    {
+      "source_x": -3.5529,
+      "source_y": -3.0827,
+      "source_z": -22.6101,
+      "target_x": -10.9403,
+      "target_y": -7.2156,
+      "target_z": -17.0466,
+      "distance": 19.1965,
+      "target_level": "l13u_warlab"
+    },
+    {
+      "source_x": -3.5529,
+      "source_y": -3.0827,
+      "source_z": -22.6101,
+      "target_x": -17.6117,
+      "target_y": -3.0827,
+      "target_z": -18.5454,
+      "distance": 21.2258,
+      "target_level": "l13u_warlab"
+    },
+    {
+      "source_x": -13.3946,
+      "source_y": -1.4209,
+      "source_z": -32.1614,
+      "target_x": -7.6402,
+      "target_y": -6.9692,
+      "target_z": -33.4332,
+      "distance": 5.8932,
+      "target_level": "l13u_warlab"
+    },
+    {
+      "source_x": -13.3946,
+      "source_y": -1.4209,
+      "source_z": -32.1614,
+      "target_x": -10.9403,
+      "target_y": -7.2156,
+      "target_z": -17.0466,
+      "distance": 15.3127,
+      "target_level": "l13u_warlab"
+    },
+    {
+      "source_x": -17.6117,
+      "source_y": -3.0827,
+      "source_z": -18.5454,
+      "target_x": -3.5529,
+      "target_y": -3.0827,
+      "target_z": -22.6101,
+      "distance": 22.7339,
+      "target_level": "l13u_warlab"
+    },
+    {
+      "source_x": -17.6117,
+      "source_y": -3.0827,
+      "source_z": -18.5454,
+      "target_x": -16.6671,
+      "target_y": -3.0848,
+      "target_z": -6.2497,
+      "distance": 12.332,
+      "target_level": "l13u_warlab"
+    },
+    {
+      "source_x": -10.9403,
+      "source_y": -7.2156,
+      "source_z": -17.0466,
+      "target_x": -13.3946,
+      "target_y": -1.4209,
+      "target_z": -32.1614,
+      "distance": 15.3127,
+      "target_level": "l13u_warlab"
+    },
+    {
+      "source_x": -10.9403,
+      "source_y": -7.2156,
+      "source_z": -17.0466,
+      "target_x": -3.5529,
+      "target_y": -3.0827,
+      "target_z": -22.6101,
+      "distance": 19.0149,
+      "target_level": "l13u_warlab"
+    },
+    {
+      "source_x": -7.6402,
+      "source_y": -6.9692,
+      "source_z": -33.4332,
+      "target_x": -11.2201,
+      "target_y": -11.7186,
+      "target_z": -35.0496,
+      "distance": 3.9279,
+      "target_level": "l13u_warlab"
+    },
+    {
+      "source_x": -7.6402,
+      "source_y": -6.9692,
+      "source_z": -33.4332,
+      "target_x": -13.3946,
+      "target_y": -1.4209,
+      "target_z": -32.1614,
+      "distance": 5.8932,
+      "target_level": "l13u_warlab"
+    },
+    {
+      "source_x": -11.2201,
+      "source_y": -11.7186,
+      "source_z": -35.0496,
+      "target_x": -7.6402,
+      "target_y": -6.9692,
+      "target_z": -33.4332,
+      "distance": 17.8822,
+      "target_level": "l13u_warlab"
+    },
+    {
+      "source_x": -11.2201,
+      "source_y": -11.7186,
+      "source_z": -35.0496,
+      "target_x": -36.8034,
+      "target_y": -11.8917,
+      "target_z": -35.0179,
+      "distance": 25.5833,
+      "target_level": "l13u_warlab"
+    },
+    {
+      "source_x": -36.8034,
+      "source_y": -11.8917,
+      "source_z": -35.0179,
+      "target_x": -36.8654,
+      "target_y": -11.9692,
+      "target_z": -48.6878,
+      "distance": 13.67,
+      "target_level": "l13u_warlab"
+    },
+    {
+      "source_x": -36.8034,
+      "source_y": -11.8917,
+      "source_z": -35.0179,
+      "target_x": -11.2201,
+      "target_y": -11.7186,
+      "target_z": -35.0496,
+      "distance": 25.5833,
+      "target_level": "l13u_warlab"
+    },
+    {
+      "source_x": -36.8654,
+      "source_y": -11.9692,
+      "source_z": -48.6878,
+      "target_x": -37.2569,
+      "target_y": -12.0457,
+      "target_z": -62.5555,
+      "distance": 13.8733,
+      "target_level": "l13u_warlab"
+    },
+    {
+      "source_x": -36.8654,
+      "source_y": -11.9692,
+      "source_z": -48.6878,
+      "target_x": -15.1404,
+      "target_y": -11.7186,
+      "target_z": -48.482,
+      "distance": 21.726,
+      "target_level": "l13u_warlab"
+    },
+    {
+      "source_x": -36.8654,
+      "source_y": -11.9692,
+      "source_z": -48.6878,
+      "target_x": -36.8034,
+      "target_y": -11.8917,
+      "target_z": -35.0179,
+      "distance": 13.67,
+      "target_level": "l13u_warlab"
+    },
+    {
+      "source_x": -15.1404,
+      "source_y": -11.7186,
+      "source_z": -48.482,
+      "target_x": -36.8654,
+      "target_y": -11.9692,
+      "target_z": -48.6878,
+      "distance": 21.726,
+      "target_level": "l13u_warlab"
+    },
+    {
+      "source_x": -37.2569,
+      "source_y": -12.0457,
+      "source_z": -62.5555,
+      "target_x": -9.3619,
+      "target_y": -11.7186,
+      "target_z": -61.8371,
+      "distance": 27.9042,
+      "target_level": "l13u_warlab"
+    },
+    {
+      "source_x": -37.2569,
+      "source_y": -12.0457,
+      "source_z": -62.5555,
+      "target_x": -36.8654,
+      "target_y": -11.9692,
+      "target_z": -48.6878,
+      "distance": 13.8733,
+      "target_level": "l13u_warlab"
+    },
+    {
+      "source_x": -9.3619,
+      "source_y": -11.7186,
+      "source_z": -61.8371,
+      "target_x": -37.2569,
+      "target_y": -12.0457,
+      "target_z": -62.5555,
+      "distance": 27.9042,
+      "target_level": "l13u_warlab"
+    },
+    {
+      "source_x": -16.6671,
+      "source_y": -3.0848,
+      "source_z": -6.2497,
+      "target_x": -17.6117,
+      "target_y": -3.0827,
+      "target_z": -18.5454,
+      "distance": 12.332,
+      "target_level": "l13u_warlab"
+    },
+    {
+      "source_x": -16.6671,
+      "source_y": -3.0848,
+      "source_z": -6.2497,
+      "target_x": -11.1149,
+      "target_y": -3.1479,
+      "target_z": 0.6829,
+      "distance": 12.4511,
+      "target_level": "l13u_warlab"
+    },
+    {
+      "source_x": -11.1149,
+      "source_y": -3.1479,
+      "source_z": 0.6829,
+      "target_x": -16.6671,
+      "target_y": -3.0848,
+      "target_z": -6.2497,
+      "distance": 11.7947,
+      "target_level": "l13u_warlab"
+    },
+    {
+      "source_x": -11.1149,
+      "source_y": -3.1479,
+      "source_z": 0.6829,
+      "target_x": 2.7329,
+      "target_y": -2.2317,
+      "target_z": -11.8504,
+      "distance": 24.8949,
+      "target_level": "l13u_warlab"
+    },
+    {
+      "source_x": -11.1149,
+      "source_y": -3.1479,
+      "source_z": 0.6829,
+      "target_x": -3.8437,
+      "target_y": -3.1498,
+      "target_z": 6.9634,
+      "distance": 11.3386,
+      "target_level": "l13u_warlab"
+    },
+    {
+      "source_x": -11.1149,
+      "source_y": -3.1479,
+      "source_z": 0.6829,
+      "target_x": -13.6889,
+      "target_y": 1.0034,
+      "target_z": 4.4772,
+      "distance": 4.585,
+      "target_level": "l13u_warlab"
+    },
+    {
+      "source_x": -14.1005,
+      "source_y": -1.1146,
+      "source_z": 11.2751,
+      "target_x": -13.6889,
+      "target_y": 1.0034,
+      "target_z": 4.4772,
+      "distance": 6.8104,
+      "target_level": "l13u_warlab"
+    },
+    {
+      "source_x": -14.1005,
+      "source_y": -1.1146,
+      "source_z": 11.2751,
+      "target_x": -4.8838,
+      "target_y": 1.0034,
+      "target_z": 3.7344,
+      "distance": 16.7619,
+      "target_level": "l13u_warlab"
+    },
+    {
+      "source_x": -13.6889,
+      "source_y": 1.0034,
+      "source_z": 4.4772,
+      "target_x": -11.1149,
+      "target_y": -3.1479,
+      "target_z": 0.6829,
+      "distance": 4.585,
+      "target_level": "l13u_warlab"
+    },
+    {
+      "source_x": -13.6889,
+      "source_y": 1.0034,
+      "source_z": 4.4772,
+      "target_x": -14.1005,
+      "target_y": -1.1146,
+      "target_z": 11.2751,
+      "distance": 6.8104,
+      "target_level": "l13u_warlab"
+    },
+    {
+      "source_x": -4.8838,
+      "source_y": 1.0034,
+      "source_z": 3.7344,
+      "target_x": -6.0819,
+      "target_y": 1.0754,
+      "target_z": 8.8888,
+      "distance": 6.3132,
+      "target_level": "l13u_warlab"
+    },
+    {
+      "source_x": -4.8838,
+      "source_y": 1.0034,
+      "source_z": 3.7344,
+      "target_x": -14.1005,
+      "target_y": -1.1146,
+      "target_z": 11.2751,
+      "distance": 16.5337,
+      "target_level": "l13u_warlab"
+    },
+    {
+      "source_x": -6.0819,
+      "source_y": 1.0754,
+      "source_z": 8.8888,
+      "target_x": -4.8838,
+      "target_y": 1.0034,
+      "target_z": 3.7344,
+      "distance": 6.239,
+      "target_level": "l13u_warlab"
+    },
+    {
+      "source_x": -6.0819,
+      "source_y": 1.0754,
+      "source_z": 8.8888,
+      "target_x": 2.2591,
+      "target_y": 1.0752,
+      "target_z": 20.6176,
+      "distance": 14.9501,
+      "target_level": "l13u_warlab"
+    },
+    {
+      "source_x": -6.0819,
+      "source_y": 1.0754,
+      "source_z": 8.8888,
+      "target_x": -6.0617,
+      "target_y": 5.4746,
+      "target_z": 18.4445,
+      "distance": 17.4177,
+      "target_level": "l13u_warlab"
+    },
+    {
+      "source_x": 2.2591,
+      "source_y": 1.0752,
+      "source_z": 20.6176,
+      "target_x": -6.0819,
+      "target_y": 1.0754,
+      "target_z": 8.8888,
+      "distance": 15.4236,
+      "target_level": "l13u_warlab"
+    },
+    {
+      "source_x": -3.8437,
+      "source_y": -3.1498,
+      "source_z": 6.9634,
+      "target_x": -11.1149,
+      "target_y": -3.1479,
+      "target_z": 0.6829,
+      "distance": 14.0243,
+      "target_level": "l13u_warlab"
+    },
+    {
+      "source_x": -3.8437,
+      "source_y": -3.1498,
+      "source_z": 6.9634,
+      "target_x": 2.4665,
+      "target_y": -3.0946,
+      "target_z": 4.2225,
+      "distance": 23.0934,
+      "target_level": "l13u_warlab"
+    },
+    {
+      "source_x": 7.5396,
+      "source_y": -3.1498,
+      "source_z": 7.4336,
+      "target_x": 5.746,
+      "target_y": 4.9718,
+      "target_z": 10.683,
+      "distance": 3.7115,
+      "target_level": "l13u_warlab"
+    },
+    {
+      "source_x": 2.4665,
+      "source_y": -3.0946,
+      "source_z": 4.2225,
+      "target_x": -3.8437,
+      "target_y": -3.1498,
+      "target_z": 6.9634,
+      "distance": 23.7774,
+      "target_level": "l13u_warlab"
+    },
+    {
+      "source_x": 2.4665,
+      "source_y": -3.0946,
+      "source_z": 4.2225,
+      "target_x": 5.8351,
+      "target_y": 1.0102,
+      "target_z": -1.6645,
+      "distance": 16.7789,
+      "target_level": "l13u_warlab"
+    },
+    {
+      "source_x": 3.4894,
+      "source_y": -5.5531,
+      "source_z": -0.6505,
+      "target_x": 4.0316,
+      "target_y": -11.4497,
+      "target_z": 0.3679,
+      "distance": 1.1538,
+      "target_level": "l13u_warlab"
+    },
+    {
+      "source_x": 9.9446,
+      "source_y": -7.3326,
+      "source_z": -1.438,
+      "target_x": 14.0601,
+      "target_y": -11.3965,
+      "target_z": -1.3524,
+      "distance": 4.1164,
+      "target_level": "l13u_warlab"
+    },
+    {
+      "source_x": 9.9446,
+      "source_y": -7.3326,
+      "source_z": -1.438,
+      "target_x": 4.0316,
+      "target_y": -11.4497,
+      "target_z": 0.3679,
+      "distance": 7.7241,
+      "target_level": "l13u_warlab"
+    },
+    {
+      "source_x": 9.9446,
+      "source_y": -7.3326,
+      "source_z": -1.438,
+      "target_x": 2.6715,
+      "target_y": -15.3466,
+      "target_z": 18.108,
+      "distance": 28.3404,
+      "target_level": "l13u_warlab"
+    },
+    {
+      "source_x": -0.3739,
+      "source_y": -7.3098,
+      "source_z": -6.1347,
+      "target_x": 14.663,
+      "target_y": -3.118,
+      "target_z": -1.5773,
+      "distance": 20.931,
+      "target_level": "l13u_warlab"
+    },
+    {
+      "source_x": -0.3739,
+      "source_y": -7.3098,
+      "source_z": -6.1347,
+      "target_x": -4.1616,
+      "target_y": -7.1252,
+      "target_z": -2.2297,
+      "distance": 7.029,
+      "target_level": "l13u_warlab"
+    },
+    {
+      "source_x": -4.1616,
+      "source_y": -7.1252,
+      "source_z": -2.2297,
+      "target_x": -0.3739,
+      "target_y": -7.3098,
+      "target_z": -6.1347,
+      "distance": 6.3455,
+      "target_level": "l13u_warlab"
+    },
+    {
+      "source_x": -4.1616,
+      "source_y": -7.1252,
+      "source_z": -2.2297,
+      "target_x": -5.9839,
+      "target_y": -7.0841,
+      "target_z": 2.8711,
+      "distance": 6.1707,
+      "target_level": "l13u_warlab"
+    },
+    {
+      "source_x": -5.9839,
+      "source_y": -7.0841,
+      "source_z": 2.8711,
+      "target_x": -4.1616,
+      "target_y": -7.1252,
+      "target_z": -2.2297,
+      "distance": 5.6199,
+      "target_level": "l13u_warlab"
+    },
+    {
+      "source_x": -5.9839,
+      "source_y": -7.0841,
+      "source_z": 2.8711,
+      "target_x": 2.2487,
+      "target_y": -7.3098,
+      "target_z": 10.4146,
+      "distance": 12.5303,
+      "target_level": "l13u_warlab"
+    },
+    {
+      "source_x": 2.2487,
+      "source_y": -7.3098,
+      "source_z": 10.4146,
+      "target_x": 5.746,
+      "target_y": 4.9718,
+      "target_z": 10.683,
+      "distance": 3.5076,
+      "target_level": "l13u_warlab"
+    },
+    {
+      "source_x": 2.2487,
+      "source_y": -7.3098,
+      "source_z": 10.4146,
+      "target_x": -5.9839,
+      "target_y": -7.0841,
+      "target_z": 2.8711,
+      "distance": 11.546,
+      "target_level": "l13u_warlab"
+    },
+    {
+      "source_x": 15.352,
+      "source_y": -0.9333,
+      "source_z": -18.1865,
+      "target_x": 14.449,
+      "target_y": -11.446,
+      "target_z": -7.3479,
+      "distance": 24.4512,
+      "target_level": "l13u_warlab"
+    },
+    {
+      "source_x": 15.352,
+      "source_y": -0.9333,
+      "source_z": -18.1865,
+      "target_x": 2.7329,
+      "target_y": -2.2317,
+      "target_z": -11.8504,
+      "distance": 17.9368,
+      "target_level": "l13u_warlab"
+    },
+    {
+      "source_x": 15.352,
+      "source_y": -0.9333,
+      "source_z": -18.1865,
+      "target_x": 7.6566,
+      "target_y": -6.5231,
+      "target_z": -15.1168,
+      "distance": 13.7624,
+      "target_level": "l13u_warlab"
+    },
+    {
+      "source_x": 13.036,
+      "source_y": 1.0011,
+      "source_z": -11.1758,
+      "target_x": 3.5317,
+      "target_y": -3.1498,
+      "target_z": -20.4707,
+      "distance": 21.0798,
+      "target_level": "l13u_warlab"
+    },
+    {
+      "source_x": 13.036,
+      "source_y": 1.0011,
+      "source_z": -11.1758,
+      "target_x": 3.8529,
+      "target_y": 1.1375,
+      "target_z": -15.938,
+      "distance": 12.3523,
+      "target_level": "l13u_warlab"
+    },
+    {
+      "source_x": 3.8529,
+      "source_y": 1.1375,
+      "source_z": -15.938,
+      "target_x": 13.036,
+      "target_y": 1.0011,
+      "target_z": -11.1758,
+      "distance": 12.3523,
+      "target_level": "l13u_warlab"
+    },
+    {
+      "source_x": 7.6566,
+      "source_y": -6.5231,
+      "source_z": -15.1168,
+      "target_x": 15.352,
+      "target_y": -0.9333,
+      "target_z": -18.1865,
+      "distance": 14.0908,
+      "target_level": "l13u_warlab"
+    },
+    {
+      "source_x": 7.6566,
+      "source_y": -6.5231,
+      "source_z": -15.1168,
+      "target_x": 8.8951,
+      "target_y": -3.15,
+      "target_z": -12.4396,
+      "distance": 2.9497,
+      "target_level": "l13u_warlab"
+    },
+    {
+      "source_x": 14.449,
+      "source_y": -11.446,
+      "source_z": -7.3479,
+      "target_x": 15.352,
+      "target_y": -0.9333,
+      "target_z": -18.1865,
+      "distance": 21.0082,
+      "target_level": "l13u_warlab"
+    },
+    {
+      "source_x": 14.449,
+      "source_y": -11.446,
+      "source_z": -7.3479,
+      "target_x": 7.1238,
+      "target_y": -11.3728,
+      "target_z": -9.6493,
+      "distance": 7.9368,
+      "target_level": "l13u_warlab"
+    },
+    {
+      "source_x": 7.1238,
+      "source_y": -11.3728,
+      "source_z": -9.6493,
+      "target_x": 14.449,
+      "target_y": -11.446,
+      "target_z": -7.3479,
+      "distance": 8.9815,
+      "target_level": "l13u_warlab"
+    },
+    {
+      "source_x": 7.1238,
+      "source_y": -11.3728,
+      "source_z": -9.6493,
+      "target_x": -4.4616,
+      "target_y": -11.4698,
+      "target_z": -3.0666,
+      "distance": 14.6293,
+      "target_level": "l13u_warlab"
+    },
+    {
+      "source_x": -4.4616,
+      "source_y": -11.4698,
+      "source_z": -3.0666,
+      "target_x": 7.1238,
+      "target_y": -11.3728,
+      "target_z": -9.6493,
+      "distance": 14.3153,
+      "target_level": "l13u_warlab"
+    },
+    {
+      "source_x": -4.4616,
+      "source_y": -11.4698,
+      "source_z": -3.0666,
+      "target_x": 4.0316,
+      "target_y": -11.4497,
+      "target_z": 0.3679,
+      "distance": 12.1874,
+      "target_level": "l13u_warlab"
+    },
+    {
+      "source_x": -4.4616,
+      "source_y": -11.4698,
+      "source_z": -3.0666,
+      "target_x": -16.0962,
+      "target_y": -15.2244,
+      "target_z": 5.4763,
+      "distance": 17.9457,
+      "target_level": "l13u_warlab"
+    },
+    {
+      "source_x": -4.4616,
+      "source_y": -11.4698,
+      "source_z": -3.0666,
+      "target_x": -12.1412,
+      "target_y": -11.4698,
+      "target_z": -4.5743,
+      "distance": 7.8262,
+      "target_level": "l13u_warlab"
+    },
+    {
+      "source_x": -12.1412,
+      "source_y": -11.4698,
+      "source_z": -4.5743,
+      "target_x": -4.4616,
+      "target_y": -11.4698,
+      "target_z": -3.0666,
+      "distance": 7.8262,
+      "target_level": "l13u_warlab"
+    },
+    {
+      "source_x": -12.1412,
+      "source_y": -11.4698,
+      "source_z": -4.5743,
+      "target_x": -24.6635,
+      "target_y": -11.4698,
+      "target_z": -5.2416,
+      "distance": 12.54,
+      "target_level": "l13u_warlab"
+    },
+    {
+      "source_x": -24.6635,
+      "source_y": -11.4698,
+      "source_z": -5.2416,
+      "target_x": -12.1412,
+      "target_y": -11.4698,
+      "target_z": -4.5743,
+      "distance": 12.54,
+      "target_level": "l13u_warlab"
+    },
+    {
+      "source_x": -24.6635,
+      "source_y": -11.4698,
+      "source_z": -5.2416,
+      "target_x": -30.441,
+      "target_y": -19.8796,
+      "target_z": 14.2923,
+      "distance": 25.6998,
+      "target_level": "l13u_warlab"
+    },
+    {
+      "source_x": -4.3642,
+      "source_y": -11.4698,
+      "source_z": 12.395,
+      "target_x": -3.4541,
+      "target_y": -15.3136,
+      "target_z": 12.3033,
+      "distance": 0.9147,
+      "target_level": "l13u_warlab"
+    },
+    {
+      "source_x": 4.0316,
+      "source_y": -11.4497,
+      "source_z": 0.3679,
+      "target_x": 3.4894,
+      "target_y": -5.5531,
+      "target_z": -0.6505,
+      "distance": 1.1538,
+      "target_level": "l13u_warlab"
+    },
+    {
+      "source_x": 4.0316,
+      "source_y": -11.4497,
+      "source_z": 0.3679,
+      "target_x": 9.9446,
+      "target_y": -7.3326,
+      "target_z": -1.438,
+      "distance": 8.472,
+      "target_level": "l13u_warlab"
+    },
+    {
+      "source_x": 4.0316,
+      "source_y": -11.4497,
+      "source_z": 0.3679,
+      "target_x": -4.4616,
+      "target_y": -11.4698,
+      "target_z": -3.0666,
+      "distance": 12.171,
+      "target_level": "l13u_warlab"
+    },
+    {
+      "source_x": 1.0971,
+      "source_y": -11.4698,
+      "source_z": 20.7685,
+      "target_x": 2.6715,
+      "target_y": -15.3466,
+      "target_z": 18.108,
+      "distance": 3.0914,
+      "target_level": "l13u_warlab"
+    },
+    {
+      "source_x": 1.0971,
+      "source_y": -11.4698,
+      "source_z": 20.7685,
+      "target_x": 9.5088,
+      "target_y": -15.4282,
+      "target_z": 14.2279,
+      "distance": 17.0189,
+      "target_level": "l13u_warlab"
+    },
+    {
+      "source_x": 1.0971,
+      "source_y": -11.4698,
+      "source_z": 20.7685,
+      "target_x": -3.4541,
+      "target_y": -15.3136,
+      "target_z": 12.3033,
+      "distance": 9.6111,
+      "target_level": "l13u_warlab"
+    },
+    {
+      "source_x": 9.5088,
+      "source_y": -15.4282,
+      "source_z": 14.2279,
+      "target_x": 9.8634,
+      "target_y": -19.7016,
+      "target_z": 12.3398,
+      "distance": 1.9211,
+      "target_level": "l13u_warlab"
+    },
+    {
+      "source_x": 9.5088,
+      "source_y": -15.4282,
+      "source_z": 14.2279,
+      "target_x": 1.0971,
+      "target_y": -11.4698,
+      "target_z": 20.7685,
+      "distance": 17.0189,
+      "target_level": "l13u_warlab"
+    },
+    {
+      "source_x": 9.5088,
+      "source_y": -15.4282,
+      "source_z": 14.2279,
+      "target_x": 3.961,
+      "target_y": -19.7016,
+      "target_z": 16.4885,
+      "distance": 9.5555,
+      "target_level": "l13u_warlab"
+    },
+    {
+      "source_x": -3.4541,
+      "source_y": -15.3136,
+      "source_z": 12.3033,
+      "target_x": -4.3642,
+      "target_y": -11.4698,
+      "target_z": 12.395,
+      "distance": 0.9147,
+      "target_level": "l13u_warlab"
+    },
+    {
+      "source_x": -3.4541,
+      "source_y": -15.3136,
+      "source_z": 12.3033,
+      "target_x": 1.0971,
+      "target_y": -11.4698,
+      "target_z": 20.7685,
+      "distance": 9.6111,
+      "target_level": "l13u_warlab"
+    },
+    {
+      "source_x": 4.5568,
+      "source_y": -19.7016,
+      "source_z": 6.4358,
+      "target_x": 9.8634,
+      "target_y": -19.7016,
+      "target_z": 12.3398,
+      "distance": 10.6148,
+      "target_level": "l13u_warlab"
+    },
+    {
+      "source_x": 4.5568,
+      "source_y": -19.7016,
+      "source_z": 6.4358,
+      "target_x": -1.5373,
+      "target_y": -19.599,
+      "target_z": 11.4301,
+      "distance": 9.7966,
+      "target_level": "l13u_warlab"
+    },
+    {
+      "source_x": 9.8634,
+      "source_y": -19.7016,
+      "source_z": 12.3398,
+      "target_x": 9.5088,
+      "target_y": -15.4282,
+      "target_z": 14.2279,
+      "distance": 1.9211,
+      "target_level": "l13u_warlab"
+    },
+    {
+      "source_x": 9.8634,
+      "source_y": -19.7016,
+      "source_z": 12.3398,
+      "target_x": 4.5568,
+      "target_y": -19.7016,
+      "target_z": 6.4358,
+      "distance": 10.6336,
+      "target_level": "l13u_warlab"
+    },
+    {
+      "source_x": -1.5373,
+      "source_y": -19.599,
+      "source_z": 11.4301,
+      "target_x": 4.5568,
+      "target_y": -19.7016,
+      "target_z": 6.4358,
+      "distance": 10.4592,
+      "target_level": "l13u_warlab"
+    },
+    {
+      "source_x": -1.5373,
+      "source_y": -19.599,
+      "source_z": 11.4301,
+      "target_x": 3.961,
+      "target_y": -19.7016,
+      "target_z": 16.4885,
+      "distance": 9.4226,
+      "target_level": "l13u_warlab"
+    },
+    {
+      "source_x": 3.961,
+      "source_y": -19.7016,
+      "source_z": 16.4885,
+      "target_x": 9.5088,
+      "target_y": -15.4282,
+      "target_z": 14.2279,
+      "distance": 9.8399,
+      "target_level": "l13u_warlab"
+    },
+    {
+      "source_x": 3.961,
+      "source_y": -19.7016,
+      "source_z": 16.4885,
+      "target_x": -1.5373,
+      "target_y": -19.599,
+      "target_z": 11.4301,
+      "distance": 9.4226,
+      "target_level": "l13u_warlab"
+    },
+    {
+      "source_x": 14.0601,
+      "source_y": -11.3965,
+      "source_z": -1.3524,
+      "target_x": 9.9446,
+      "target_y": -7.3326,
+      "target_z": -1.438,
+      "distance": 4.1164,
+      "target_level": "l13u_warlab"
+    },
+    {
+      "source_x": 14.0601,
+      "source_y": -11.3965,
+      "source_z": -1.3524,
+      "target_x": 12.9585,
+      "target_y": -3.1425,
+      "target_z": 5.9951,
+      "distance": 31.3636,
+      "target_level": "l13u_warlab"
+    },
+    {
+      "source_x": 2.6715,
+      "source_y": -15.3466,
+      "source_z": 18.108,
+      "target_x": 9.9446,
+      "target_y": -7.3326,
+      "target_z": -1.438,
+      "distance": 25.7687,
+      "target_level": "l13u_warlab"
+    },
+    {
+      "source_x": 2.6715,
+      "source_y": -15.3466,
+      "source_z": 18.108,
+      "target_x": 1.0971,
+      "target_y": -11.4698,
+      "target_z": 20.7685,
+      "distance": 3.0914,
+      "target_level": "l13u_warlab"
+    },
+    {
+      "source_x": -23.4718,
+      "source_y": -15.2999,
+      "source_z": 8.5078,
+      "target_x": -16.0962,
+      "target_y": -15.2244,
+      "target_z": 5.4763,
+      "distance": 14.1865,
+      "target_level": "l13u_warlab"
+    },
+    {
+      "source_x": -16.0962,
+      "source_y": -15.2244,
+      "source_z": 5.4763,
+      "target_x": -4.4616,
+      "target_y": -11.4698,
+      "target_z": -3.0666,
+      "distance": 17.8756,
+      "target_level": "l13u_warlab"
+    },
+    {
+      "source_x": -16.0962,
+      "source_y": -15.2244,
+      "source_z": 5.4763,
+      "target_x": -23.4718,
+      "target_y": -15.2999,
+      "target_z": 8.5078,
+      "distance": 14.1907,
+      "target_level": "l13u_warlab"
+    },
+    {
+      "source_x": -6.0617,
+      "source_y": 5.4746,
+      "source_z": 18.4445,
+      "target_x": -6.0819,
+      "target_y": 1.0754,
+      "target_z": 8.8888,
+      "distance": 15.776,
+      "target_level": "l13u_warlab"
+    },
+    {
+      "source_x": 15.2903,
+      "source_y": -0.5389,
+      "source_z": 26.5346,
+      "target_x": 12.9585,
+      "target_y": -3.1425,
+      "target_z": 5.9951,
+      "distance": 21.7274,
+      "target_level": "l13u_warlab"
+    },
+    {
+      "source_x": 12.2691,
+      "source_y": -0.5465,
+      "source_z": 15.6643,
+      "target_x": 13.978,
+      "target_y": -5.025,
+      "target_z": 15.6884,
+      "distance": 1.709,
+      "target_level": "l13u_warlab"
+    },
+    {
+      "source_x": 12.9585,
+      "source_y": -3.1425,
+      "source_z": 5.9951,
+      "target_x": 14.0601,
+      "target_y": -11.3965,
+      "target_z": -1.3524,
+      "distance": 30.6758,
+      "target_level": "l13u_warlab"
+    },
+    {
+      "source_x": 12.9585,
+      "source_y": -3.1425,
+      "source_z": 5.9951,
+      "target_x": 22.2533,
+      "target_y": -4.9941,
+      "target_z": 13.7777,
+      "distance": 15.5872,
+      "target_level": "l13u_warlab"
+    },
+    {
+      "source_x": 12.9585,
+      "source_y": -3.1425,
+      "source_z": 5.9951,
+      "target_x": 15.2903,
+      "target_y": -0.5389,
+      "target_z": 26.5346,
+      "distance": 21.6766,
+      "target_level": "l13u_warlab"
+    },
+    {
+      "source_x": 19.7678,
+      "source_y": -3.4002,
+      "source_z": 6.0861,
+      "target_x": 27.7173,
+      "target_y": -7.4432,
+      "target_z": 5.2792,
+      "distance": 7.9904,
+      "target_level": "l13u_warlab"
+    },
+    {
+      "source_x": 28.4254,
+      "source_y": -3.3607,
+      "source_z": 5.2051,
+      "target_x": 29.9104,
+      "target_y": -5.0692,
+      "target_z": 17.261,
+      "distance": 13.1737,
+      "target_level": "l13u_warlab"
+    },
+    {
+      "source_x": 28.4254,
+      "source_y": -3.3607,
+      "source_z": 5.2051,
+      "target_x": 27.7173,
+      "target_y": -7.4432,
+      "target_z": 5.2792,
+      "distance": 0.7119,
+      "target_level": "l13u_warlab"
+    },
+    {
+      "source_x": 22.2533,
+      "source_y": -4.9941,
+      "source_z": 13.7777,
+      "target_x": 12.9585,
+      "target_y": -3.1425,
+      "target_z": 5.9951,
+      "distance": 17.3577,
+      "target_level": "l13u_warlab"
+    },
+    {
+      "source_x": 22.2533,
+      "source_y": -4.9941,
+      "source_z": 13.7777,
+      "target_x": 13.978,
+      "target_y": -5.025,
+      "target_z": 15.6884,
+      "distance": 13.4333,
+      "target_level": "l13u_warlab"
+    },
+    {
+      "source_x": 13.978,
+      "source_y": -5.025,
+      "source_z": 15.6884,
+      "target_x": 12.2691,
+      "target_y": -0.5465,
+      "target_z": 15.6643,
+      "distance": 1.709,
+      "target_level": "l13u_warlab"
+    },
+    {
+      "source_x": 13.978,
+      "source_y": -5.025,
+      "source_z": 15.6884,
+      "target_x": 22.2533,
+      "target_y": -4.9941,
+      "target_z": 13.7777,
+      "distance": 13.4333,
+      "target_level": "l13u_warlab"
+    },
+    {
+      "source_x": 13.978,
+      "source_y": -5.025,
+      "source_z": 15.6884,
+      "target_x": 29.9104,
+      "target_y": -5.0692,
+      "target_z": 17.261,
+      "distance": 22.7936,
+      "target_level": "l13u_warlab"
+    },
+    {
+      "source_x": 29.9104,
+      "source_y": -5.0692,
+      "source_z": 17.261,
+      "target_x": 28.4254,
+      "target_y": -3.3607,
+      "target_z": 5.2051,
+      "distance": 16.806,
+      "target_level": "l13u_warlab"
+    },
+    {
+      "source_x": 29.9104,
+      "source_y": -5.0692,
+      "source_z": 17.261,
+      "target_x": 13.978,
+      "target_y": -5.025,
+      "target_z": 15.6884,
+      "distance": 22.7936,
+      "target_level": "l13u_warlab"
+    },
+    {
+      "source_x": 27.7173,
+      "source_y": -7.4432,
+      "source_z": 5.2792,
+      "target_x": 28.4254,
+      "target_y": -3.3607,
+      "target_z": 5.2051,
+      "distance": 0.7119,
+      "target_level": "l13u_warlab"
+    },
+    {
+      "source_x": 27.7173,
+      "source_y": -7.4432,
+      "source_z": 5.2792,
+      "target_x": 19.7678,
+      "target_y": -3.4002,
+      "target_z": 6.0861,
+      "distance": 7.9904,
+      "target_level": "l13u_warlab"
+    },
+    {
+      "source_x": 14.663,
+      "source_y": -3.118,
+      "source_z": -1.5773,
+      "target_x": -0.3739,
+      "target_y": -7.3098,
+      "target_z": -6.1347,
+      "distance": 19.9162,
+      "target_level": "l13u_warlab"
+    },
+    {
+      "source_x": 14.663,
+      "source_y": -3.118,
+      "source_z": -1.5773,
+      "target_x": 5.8351,
+      "target_y": 1.0102,
+      "target_z": -1.6645,
+      "distance": 17.8087,
+      "target_level": "l13u_warlab"
+    },
+    {
+      "source_x": -30.0878,
+      "source_y": -19.7692,
+      "source_z": 54.6951,
+      "target_x": -20.6289,
+      "target_y": -19.8609,
+      "target_z": 45.1439,
+      "distance": 19.1871,
+      "target_level": "l13u_warlab"
+    },
+    {
+      "source_x": -30.0878,
+      "source_y": -19.7692,
+      "source_z": 54.6951,
+      "target_x": -40.4239,
+      "target_y": -19.8609,
+      "target_z": 49.1163,
+      "distance": 11.7455,
+      "target_level": "l13u_warlab"
+    },
+    {
+      "source_x": -30.2111,
+      "source_y": -19.7884,
+      "source_z": 31.8498,
+      "target_x": -30.441,
+      "target_y": -19.8796,
+      "target_z": 14.2923,
+      "distance": 17.559,
+      "target_level": "l13u_warlab"
+    },
+    {
+      "source_x": -30.2111,
+      "source_y": -19.7884,
+      "source_z": 31.8498,
+      "target_x": -20.6289,
+      "target_y": -19.8609,
+      "target_z": 45.1439,
+      "distance": 16.3876,
+      "target_level": "l13u_warlab"
+    },
+    {
+      "source_x": -30.2111,
+      "source_y": -19.7884,
+      "source_z": 31.8498,
+      "target_x": -39.9398,
+      "target_y": -19.8609,
+      "target_z": 45.0358,
+      "distance": 16.3865,
+      "target_level": "l13u_warlab"
+    },
+    {
+      "source_x": -30.441,
+      "source_y": -19.8796,
+      "source_z": 14.2923,
+      "target_x": -24.6635,
+      "target_y": -11.4698,
+      "target_z": -5.2416,
+      "distance": 25.6998,
+      "target_level": "l13u_warlab"
+    },
+    {
+      "source_x": -30.441,
+      "source_y": -19.8796,
+      "source_z": 14.2923,
+      "target_x": -30.2111,
+      "target_y": -19.7884,
+      "target_z": 31.8498,
+      "distance": 17.559,
+      "target_level": "l13u_warlab"
+    },
+    {
+      "source_x": -20.6289,
+      "source_y": -19.8609,
+      "source_z": 45.1439,
+      "target_x": -30.2111,
+      "target_y": -19.7884,
+      "target_z": 31.8498,
+      "distance": 16.3876,
+      "target_level": "l13u_warlab"
+    },
+    {
+      "source_x": -20.6289,
+      "source_y": -19.8609,
+      "source_z": 45.1439,
+      "target_x": -30.0878,
+      "target_y": -19.7692,
+      "target_z": 54.6951,
+      "distance": 14.3634,
+      "target_level": "l13u_warlab"
+    },
+    {
+      "source_x": -39.9398,
+      "source_y": -19.8609,
+      "source_z": 45.0358,
+      "target_x": -30.2111,
+      "target_y": -19.7884,
+      "target_z": 31.8498,
+      "distance": 16.3865,
+      "target_level": "l13u_warlab"
+    },
+    {
+      "source_x": -39.9398,
+      "source_y": -19.8609,
+      "source_z": 45.0358,
+      "target_x": -40.4239,
+      "target_y": -19.8609,
+      "target_z": 49.1163,
+      "distance": 4.1091,
+      "target_level": "l13u_warlab"
+    },
+    {
+      "source_x": -40.4239,
+      "source_y": -19.8609,
+      "source_z": 49.1163,
+      "target_x": -39.9398,
+      "target_y": -19.8609,
+      "target_z": 45.0358,
+      "distance": 4.1091,
+      "target_level": "l13u_warlab"
+    },
+    {
+      "source_x": -40.4239,
+      "source_y": -19.8609,
+      "source_z": 49.1163,
+      "target_x": -30.0878,
+      "target_y": -19.7692,
+      "target_z": 54.6951,
+      "distance": 11.7455,
+      "target_level": "l13u_warlab"
+    }
+  ]
+}

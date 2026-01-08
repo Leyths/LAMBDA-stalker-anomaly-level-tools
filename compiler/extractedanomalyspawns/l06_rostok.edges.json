@@ -1,0 +1,3469 @@
+{
+  "level_name": "l06_rostok",
+  "level_id": 8,
+  "edge_count": 346,
+  "intra_level_edges": 337,
+  "inter_level_edges": 9,
+  "edges": [
+    {
+      "source_x": 40.2519,
+      "source_y": -0.0,
+      "source_z": 129.9229,
+      "target_x": 31.432,
+      "target_y": -0.6322,
+      "target_z": 140.408,
+      "distance": 16.7324,
+      "target_level": "l06_rostok"
+    },
+    {
+      "source_x": 40.2519,
+      "source_y": -0.0,
+      "source_z": 129.9229,
+      "target_x": -232.794,
+      "target_y": -0.0,
+      "target_z": 189.2277,
+      "distance": 279.412,
+      "target_level": "l05_bar"
+    },
+    {
+      "source_x": -56.7252,
+      "source_y": 0.0,
+      "source_z": 140.5751,
+      "target_x": -57.1945,
+      "target_y": -0.0,
+      "target_z": 119.8518,
+      "distance": 20.7287,
+      "target_level": "l06_rostok"
+    },
+    {
+      "source_x": -56.7252,
+      "source_y": 0.0,
+      "source_z": 140.5751,
+      "target_x": -37.1178,
+      "target_y": 0.0008,
+      "target_z": 138.3317,
+      "distance": 20.9872,
+      "target_level": "l06_rostok"
+    },
+    {
+      "source_x": -56.7252,
+      "source_y": 0.0,
+      "source_z": 140.5751,
+      "target_x": -77.2826,
+      "target_y": -0.0,
+      "target_z": 131.7536,
+      "distance": 22.3702,
+      "target_level": "l06_rostok"
+    },
+    {
+      "source_x": -77.2826,
+      "source_y": -0.0,
+      "source_z": 131.7536,
+      "target_x": -56.7252,
+      "target_y": 0.0,
+      "target_z": 140.5751,
+      "distance": 22.3702,
+      "target_level": "l06_rostok"
+    },
+    {
+      "source_x": -77.2826,
+      "source_y": -0.0,
+      "source_z": 131.7536,
+      "target_x": -88.4,
+      "target_y": 0.0,
+      "target_z": 122.7,
+      "distance": 15.5648,
+      "target_level": "l06_rostok"
+    },
+    {
+      "source_x": -77.2826,
+      "source_y": -0.0,
+      "source_z": 131.7536,
+      "target_x": -82.6608,
+      "target_y": 1.959,
+      "target_z": 157.1502,
+      "distance": 26.3887,
+      "target_level": "l06_rostok"
+    },
+    {
+      "source_x": -101.4358,
+      "source_y": 0.0,
+      "source_z": 142.163,
+      "target_x": -95.8169,
+      "target_y": -0.0,
+      "target_z": 148.4687,
+      "distance": 8.5847,
+      "target_level": "l06_rostok"
+    },
+    {
+      "source_x": -101.4358,
+      "source_y": 0.0,
+      "source_z": 142.163,
+      "target_x": -116.4616,
+      "target_y": -0.0966,
+      "target_z": 140.4095,
+      "distance": 15.1278,
+      "target_level": "l06_rostok"
+    },
+    {
+      "source_x": -116.4616,
+      "source_y": -0.0966,
+      "source_z": 140.4095,
+      "target_x": -113.6921,
+      "target_y": -0.0,
+      "target_z": 123.5476,
+      "distance": 19.2431,
+      "target_level": "l06_rostok"
+    },
+    {
+      "source_x": -116.4616,
+      "source_y": -0.0966,
+      "source_z": 140.4095,
+      "target_x": -101.4358,
+      "target_y": 0.0,
+      "target_z": 142.163,
+      "distance": 15.1278,
+      "target_level": "l06_rostok"
+    },
+    {
+      "source_x": -116.4616,
+      "source_y": -0.0966,
+      "source_z": 140.4095,
+      "target_x": -140.0275,
+      "target_y": -0.0107,
+      "target_z": 141.1126,
+      "distance": 23.5764,
+      "target_level": "l06_rostok"
+    },
+    {
+      "source_x": -140.0275,
+      "source_y": -0.0107,
+      "source_z": 141.1126,
+      "target_x": -116.4616,
+      "target_y": -0.0966,
+      "target_z": 140.4095,
+      "distance": 23.5764,
+      "target_level": "l06_rostok"
+    },
+    {
+      "source_x": -140.0275,
+      "source_y": -0.0107,
+      "source_z": 141.1126,
+      "target_x": -135.5998,
+      "target_y": 1.594,
+      "target_z": 156.6534,
+      "distance": 17.5986,
+      "target_level": "l06_rostok"
+    },
+    {
+      "source_x": -140.0275,
+      "source_y": -0.0107,
+      "source_z": 141.1126,
+      "target_x": -160.3516,
+      "target_y": 0.0001,
+      "target_z": 136.5011,
+      "distance": 20.8407,
+      "target_level": "l06_rostok"
+    },
+    {
+      "source_x": -160.3516,
+      "source_y": 0.0001,
+      "source_z": 136.5011,
+      "target_x": -153.5434,
+      "target_y": 0.007,
+      "target_z": 124.1333,
+      "distance": 14.1178,
+      "target_level": "l06_rostok"
+    },
+    {
+      "source_x": -160.3516,
+      "source_y": 0.0001,
+      "source_z": 136.5011,
+      "target_x": -140.0275,
+      "target_y": -0.0107,
+      "target_z": 141.1126,
+      "distance": 20.8407,
+      "target_level": "l06_rostok"
+    },
+    {
+      "source_x": -160.3516,
+      "source_y": 0.0001,
+      "source_z": 136.5011,
+      "target_x": -175.4323,
+      "target_y": -0.0,
+      "target_z": 149.3627,
+      "distance": 19.8204,
+      "target_level": "l06_rostok"
+    },
+    {
+      "source_x": -160.3516,
+      "source_y": 0.0001,
+      "source_z": 136.5011,
+      "target_x": -178.5963,
+      "target_y": -0.0,
+      "target_z": 116.7196,
+      "distance": 26.9105,
+      "target_level": "l06_rostok"
+    },
+    {
+      "source_x": -160.6892,
+      "source_y": -0.0449,
+      "source_z": 160.1119,
+      "target_x": -157.0695,
+      "target_y": -0.0,
+      "target_z": 160.7537,
+      "distance": 13.2747,
+      "target_level": "l06_rostok"
+    },
+    {
+      "source_x": -160.6892,
+      "source_y": -0.0449,
+      "source_z": 160.1119,
+      "target_x": -175.4323,
+      "target_y": -0.0,
+      "target_z": 149.3627,
+      "distance": 22.5882,
+      "target_level": "l06_rostok"
+    },
+    {
+      "source_x": -135.5998,
+      "source_y": 1.594,
+      "source_z": 156.6534,
+      "target_x": -111.8187,
+      "target_y": 1.0,
+      "target_z": 155.996,
+      "distance": 27.5426,
+      "target_level": "l06_rostok"
+    },
+    {
+      "source_x": -135.5998,
+      "source_y": 1.594,
+      "source_z": 156.6534,
+      "target_x": -140.0275,
+      "target_y": -0.0107,
+      "target_z": 141.1126,
+      "distance": 17.9905,
+      "target_level": "l06_rostok"
+    },
+    {
+      "source_x": -111.8187,
+      "source_y": 1.0,
+      "source_z": 155.996,
+      "target_x": -135.5998,
+      "target_y": 1.594,
+      "target_z": 156.6534,
+      "distance": 26.1161,
+      "target_level": "l06_rostok"
+    },
+    {
+      "source_x": -123.0874,
+      "source_y": 0.1,
+      "source_z": 166.9494,
+      "target_x": -157.0695,
+      "target_y": -0.0,
+      "target_z": 160.7537,
+      "distance": 48.3442,
+      "target_level": "l06_rostok"
+    },
+    {
+      "source_x": -123.0874,
+      "source_y": 0.1,
+      "source_z": 166.9494,
+      "target_x": -161.6403,
+      "target_y": -0.0,
+      "target_z": 174.6326,
+      "distance": 41.0267,
+      "target_level": "l06_rostok"
+    },
+    {
+      "source_x": -153.5434,
+      "source_y": 0.007,
+      "source_z": 124.1333,
+      "target_x": -160.3516,
+      "target_y": 0.0001,
+      "target_z": 136.5011,
+      "distance": 14.1178,
+      "target_level": "l06_rostok"
+    },
+    {
+      "source_x": -153.5434,
+      "source_y": 0.007,
+      "source_z": 124.1333,
+      "target_x": -158.6432,
+      "target_y": -0.0,
+      "target_z": 115.492,
+      "distance": 10.1248,
+      "target_level": "l06_rostok"
+    },
+    {
+      "source_x": -158.6432,
+      "source_y": -0.0,
+      "source_z": 115.492,
+      "target_x": -164.2656,
+      "target_y": -0.0,
+      "target_z": 105.9372,
+      "distance": 11.0863,
+      "target_level": "l06_rostok"
+    },
+    {
+      "source_x": -158.6432,
+      "source_y": -0.0,
+      "source_z": 115.492,
+      "target_x": -153.5434,
+      "target_y": 0.007,
+      "target_z": 124.1333,
+      "distance": 10.2628,
+      "target_level": "l06_rostok"
+    },
+    {
+      "source_x": -164.2656,
+      "source_y": -0.0,
+      "source_z": 105.9372,
+      "target_x": -171.2321,
+      "target_y": -0.0,
+      "target_z": 93.1517,
+      "distance": 14.5602,
+      "target_level": "l06_rostok"
+    },
+    {
+      "source_x": -164.2656,
+      "source_y": -0.0,
+      "source_z": 105.9372,
+      "target_x": -158.6432,
+      "target_y": -0.0,
+      "target_z": 115.492,
+      "distance": 11.0863,
+      "target_level": "l06_rostok"
+    },
+    {
+      "source_x": -171.2321,
+      "source_y": -0.0,
+      "source_z": 93.1517,
+      "target_x": -163.339,
+      "target_y": -0.0,
+      "target_z": 94.4648,
+      "distance": 9.5545,
+      "target_level": "l06_rostok"
+    },
+    {
+      "source_x": -171.2321,
+      "source_y": -0.0,
+      "source_z": 93.1517,
+      "target_x": -164.2656,
+      "target_y": -0.0,
+      "target_z": 105.9372,
+      "distance": 14.5602,
+      "target_level": "l06_rostok"
+    },
+    {
+      "source_x": -171.2321,
+      "source_y": -0.0,
+      "source_z": 93.1517,
+      "target_x": -187.8446,
+      "target_y": 0.0036,
+      "target_z": 94.2406,
+      "distance": 18.0392,
+      "target_level": "l06_rostok"
+    },
+    {
+      "source_x": -187.8446,
+      "source_y": 0.0036,
+      "source_z": 94.2406,
+      "target_x": -171.2321,
+      "target_y": -0.0,
+      "target_z": 93.1517,
+      "distance": 19.3514,
+      "target_level": "l06_rostok"
+    },
+    {
+      "source_x": -187.8446,
+      "source_y": 0.0036,
+      "source_z": 94.2406,
+      "target_x": -196.0674,
+      "target_y": 0.0098,
+      "target_z": 82.3174,
+      "distance": 14.4837,
+      "target_level": "l06_rostok"
+    },
+    {
+      "source_x": -178.5963,
+      "source_y": -0.0,
+      "source_z": 116.7196,
+      "target_x": -160.3516,
+      "target_y": 0.0001,
+      "target_z": 136.5011,
+      "distance": 26.9105,
+      "target_level": "l06_rostok"
+    },
+    {
+      "source_x": -178.5963,
+      "source_y": -0.0,
+      "source_z": 116.7196,
+      "target_x": -196.8952,
+      "target_y": -0.0292,
+      "target_z": 112.7521,
+      "distance": 22.6484,
+      "target_level": "l06_rostok"
+    },
+    {
+      "source_x": -175.4323,
+      "source_y": -0.0,
+      "source_z": 149.3627,
+      "target_x": -160.3516,
+      "target_y": 0.0001,
+      "target_z": 136.5011,
+      "distance": 19.8204,
+      "target_level": "l06_rostok"
+    },
+    {
+      "source_x": -175.4323,
+      "source_y": -0.0,
+      "source_z": 149.3627,
+      "target_x": -160.6892,
+      "target_y": -0.0449,
+      "target_z": 160.1119,
+      "distance": 19.955,
+      "target_level": "l06_rostok"
+    },
+    {
+      "source_x": -175.4323,
+      "source_y": -0.0,
+      "source_z": 149.3627,
+      "target_x": -188.3462,
+      "target_y": -0.001,
+      "target_z": 136.5149,
+      "distance": 22.2528,
+      "target_level": "l06_rostok"
+    },
+    {
+      "source_x": -188.3462,
+      "source_y": -0.001,
+      "source_z": 136.5149,
+      "target_x": -175.4323,
+      "target_y": -0.0,
+      "target_z": 149.3627,
+      "distance": 20.952,
+      "target_level": "l06_rostok"
+    },
+    {
+      "source_x": -188.3462,
+      "source_y": -0.001,
+      "source_z": 136.5149,
+      "target_x": -192.6117,
+      "target_y": -0.0008,
+      "target_z": 128.1012,
+      "distance": 10.8736,
+      "target_level": "l06_rostok"
+    },
+    {
+      "source_x": -157.0695,
+      "source_y": -0.0,
+      "source_z": 160.7537,
+      "target_x": -123.0874,
+      "target_y": 0.1,
+      "target_z": 166.9494,
+      "distance": 51.9387,
+      "target_level": "l06_rostok"
+    },
+    {
+      "source_x": -157.0695,
+      "source_y": -0.0,
+      "source_z": 160.7537,
+      "target_x": -160.6892,
+      "target_y": -0.0449,
+      "target_z": 160.1119,
+      "distance": 13.9318,
+      "target_level": "l06_rostok"
+    },
+    {
+      "source_x": -161.6403,
+      "source_y": -0.0,
+      "source_z": 174.6326,
+      "target_x": -123.0874,
+      "target_y": 0.1,
+      "target_z": 166.9494,
+      "distance": 40.9699,
+      "target_level": "l06_rostok"
+    },
+    {
+      "source_x": -161.6403,
+      "source_y": -0.0,
+      "source_z": 174.6326,
+      "target_x": -161.2473,
+      "target_y": 0.1,
+      "target_z": 186.7095,
+      "distance": 21.4542,
+      "target_level": "l06_rostok"
+    },
+    {
+      "source_x": -161.6403,
+      "source_y": -0.0,
+      "source_z": 174.6326,
+      "target_x": -182.7509,
+      "target_y": -0.0,
+      "target_z": 169.6369,
+      "distance": 21.6937,
+      "target_level": "l06_rostok"
+    },
+    {
+      "source_x": -161.2473,
+      "source_y": 0.1,
+      "source_z": 186.7095,
+      "target_x": -161.6403,
+      "target_y": -0.0,
+      "target_z": 174.6326,
+      "distance": 22.4032,
+      "target_level": "l06_rostok"
+    },
+    {
+      "source_x": -161.2473,
+      "source_y": 0.1,
+      "source_z": 186.7095,
+      "target_x": -187.619,
+      "target_y": 0.3,
+      "target_z": 186.8626,
+      "distance": 26.3721,
+      "target_level": "l06_rostok"
+    },
+    {
+      "source_x": -187.619,
+      "source_y": 0.3,
+      "source_z": 186.8626,
+      "target_x": -182.7509,
+      "target_y": -0.0,
+      "target_z": 169.6369,
+      "distance": 17.9004,
+      "target_level": "l06_rostok"
+    },
+    {
+      "source_x": -187.619,
+      "source_y": 0.3,
+      "source_z": 186.8626,
+      "target_x": -161.2473,
+      "target_y": 0.1,
+      "target_z": 186.7095,
+      "distance": 26.3721,
+      "target_level": "l06_rostok"
+    },
+    {
+      "source_x": -187.619,
+      "source_y": 0.3,
+      "source_z": 186.8626,
+      "target_x": -206.8917,
+      "target_y": -0.0,
+      "target_z": 189.8537,
+      "distance": 19.5034,
+      "target_level": "l06_rostok"
+    },
+    {
+      "source_x": -182.7509,
+      "source_y": -0.0,
+      "source_z": 169.6369,
+      "target_x": -161.6403,
+      "target_y": -0.0,
+      "target_z": 174.6326,
+      "distance": 21.6937,
+      "target_level": "l06_rostok"
+    },
+    {
+      "source_x": -182.7509,
+      "source_y": -0.0,
+      "source_z": 169.6369,
+      "target_x": -196.2319,
+      "target_y": 0.0838,
+      "target_z": 154.386,
+      "distance": 20.355,
+      "target_level": "l06_rostok"
+    },
+    {
+      "source_x": -182.7509,
+      "source_y": -0.0,
+      "source_z": 169.6369,
+      "target_x": -187.619,
+      "target_y": 0.3,
+      "target_z": 186.8626,
+      "distance": 17.9004,
+      "target_level": "l06_rostok"
+    },
+    {
+      "source_x": -182.7509,
+      "source_y": -0.0,
+      "source_z": 169.6369,
+      "target_x": -204.931,
+      "target_y": -0.0,
+      "target_z": 169.1816,
+      "distance": 24.1027,
+      "target_level": "l06_rostok"
+    },
+    {
+      "source_x": -204.931,
+      "source_y": -0.0,
+      "source_z": 169.1816,
+      "target_x": -182.7509,
+      "target_y": -0.0,
+      "target_z": 169.6369,
+      "distance": 23.8178,
+      "target_level": "l06_rostok"
+    },
+    {
+      "source_x": -204.931,
+      "source_y": -0.0,
+      "source_z": 169.1816,
+      "target_x": -206.8917,
+      "target_y": -0.0,
+      "target_z": 189.8537,
+      "distance": 20.7649,
+      "target_level": "l06_rostok"
+    },
+    {
+      "source_x": -204.931,
+      "source_y": -0.0,
+      "source_z": 169.1816,
+      "target_x": -214.057,
+      "target_y": -0.0,
+      "target_z": 165.3982,
+      "distance": 9.8791,
+      "target_level": "l06_rostok"
+    },
+    {
+      "source_x": -206.8917,
+      "source_y": -0.0,
+      "source_z": 189.8537,
+      "target_x": -204.931,
+      "target_y": -0.0,
+      "target_z": 169.1816,
+      "distance": 20.7649,
+      "target_level": "l06_rostok"
+    },
+    {
+      "source_x": -206.8917,
+      "source_y": -0.0,
+      "source_z": 189.8537,
+      "target_x": -187.619,
+      "target_y": 0.3,
+      "target_z": 186.8626,
+      "distance": 19.5034,
+      "target_level": "l06_rostok"
+    },
+    {
+      "source_x": -206.8917,
+      "source_y": -0.0,
+      "source_z": 189.8537,
+      "target_x": -226.8364,
+      "target_y": 0.1492,
+      "target_z": 191.0352,
+      "distance": 19.9797,
+      "target_level": "l06_rostok"
+    },
+    {
+      "source_x": -226.8364,
+      "source_y": 0.1492,
+      "source_z": 191.0352,
+      "target_x": -206.8917,
+      "target_y": -0.0,
+      "target_z": 189.8537,
+      "distance": 19.9797,
+      "target_level": "l06_rostok"
+    },
+    {
+      "source_x": -226.8364,
+      "source_y": 0.1492,
+      "source_z": 191.0352,
+      "target_x": -248.8266,
+      "target_y": -0.0,
+      "target_z": 187.6959,
+      "distance": 22.2423,
+      "target_level": "l06_rostok"
+    },
+    {
+      "source_x": -214.057,
+      "source_y": -0.0,
+      "source_z": 165.3982,
+      "target_x": -230.1327,
+      "target_y": -0.0,
+      "target_z": 157.1516,
+      "distance": 21.3014,
+      "target_level": "l06_rostok"
+    },
+    {
+      "source_x": -214.057,
+      "source_y": -0.0,
+      "source_z": 165.3982,
+      "target_x": -204.931,
+      "target_y": -0.0,
+      "target_z": 169.1816,
+      "distance": 9.8791,
+      "target_level": "l06_rostok"
+    },
+    {
+      "source_x": -239.7377,
+      "source_y": 0.8,
+      "source_z": 169.8106,
+      "target_x": -247.2068,
+      "target_y": -0.0,
+      "target_z": 154.9066,
+      "distance": 20.0157,
+      "target_level": "l06_rostok"
+    },
+    {
+      "source_x": -239.7377,
+      "source_y": 0.8,
+      "source_z": 169.8106,
+      "target_x": -261.7376,
+      "target_y": 0.8,
+      "target_z": 172.6067,
+      "distance": 24.6958,
+      "target_level": "l06_rostok"
+    },
+    {
+      "source_x": -248.8266,
+      "source_y": -0.0,
+      "source_z": 187.6959,
+      "target_x": -226.8364,
+      "target_y": 0.1492,
+      "target_z": 191.0352,
+      "distance": 22.2423,
+      "target_level": "l06_rostok"
+    },
+    {
+      "source_x": -248.8266,
+      "source_y": -0.0,
+      "source_z": 187.6959,
+      "target_x": -252.7245,
+      "target_y": -0.0,
+      "target_z": 198.657,
+      "distance": 16.8838,
+      "target_level": "l06_rostok"
+    },
+    {
+      "source_x": -248.8266,
+      "source_y": -0.0,
+      "source_z": 187.6959,
+      "target_x": -266.4166,
+      "target_y": -0.0,
+      "target_z": 187.9807,
+      "distance": 17.5924,
+      "target_level": "l06_rostok"
+    },
+    {
+      "source_x": -252.7245,
+      "source_y": -0.0,
+      "source_z": 198.657,
+      "target_x": -248.8266,
+      "target_y": -0.0,
+      "target_z": 187.6959,
+      "distance": 16.3684,
+      "target_level": "l06_rostok"
+    },
+    {
+      "source_x": -252.7245,
+      "source_y": -0.0,
+      "source_z": 198.657,
+      "target_x": -251.1055,
+      "target_y": -0.0,
+      "target_z": 205.5002,
+      "distance": 7.0321,
+      "target_level": "l06_rostok"
+    },
+    {
+      "source_x": -266.4166,
+      "source_y": -0.0,
+      "source_z": 187.9807,
+      "target_x": -248.8266,
+      "target_y": -0.0,
+      "target_z": 187.6959,
+      "distance": 17.5924,
+      "target_level": "l06_rostok"
+    },
+    {
+      "source_x": -266.4166,
+      "source_y": -0.0,
+      "source_z": 187.9807,
+      "target_x": -283.0785,
+      "target_y": -0.0,
+      "target_z": 187.5521,
+      "distance": 16.6673,
+      "target_level": "l06_rostok"
+    },
+    {
+      "source_x": -283.0785,
+      "source_y": -0.0,
+      "source_z": 187.5521,
+      "target_x": -266.4166,
+      "target_y": -0.0,
+      "target_z": 187.9807,
+      "distance": 16.6673,
+      "target_level": "l06_rostok"
+    },
+    {
+      "source_x": -283.0785,
+      "source_y": -0.0,
+      "source_z": 187.5521,
+      "target_x": -281.8996,
+      "target_y": 0.8,
+      "target_z": 172.356,
+      "distance": 21.237,
+      "target_level": "l06_rostok"
+    },
+    {
+      "source_x": -281.8996,
+      "source_y": 0.8,
+      "source_z": 172.356,
+      "target_x": -261.7376,
+      "target_y": 0.8,
+      "target_z": 172.6067,
+      "distance": 23.9879,
+      "target_level": "l06_rostok"
+    },
+    {
+      "source_x": -281.8996,
+      "source_y": 0.8,
+      "source_z": 172.356,
+      "target_x": -283.0785,
+      "target_y": -0.0,
+      "target_z": 187.5521,
+      "distance": 21.7132,
+      "target_level": "l06_rostok"
+    },
+    {
+      "source_x": -261.7376,
+      "source_y": 0.8,
+      "source_z": 172.6067,
+      "target_x": -264.0608,
+      "target_y": 0.0002,
+      "target_z": 159.696,
+      "distance": 13.4059,
+      "target_level": "l06_rostok"
+    },
+    {
+      "source_x": -261.7376,
+      "source_y": 0.8,
+      "source_z": 172.6067,
+      "target_x": -239.7377,
+      "target_y": 0.8,
+      "target_z": 169.8106,
+      "distance": 25.2305,
+      "target_level": "l06_rostok"
+    },
+    {
+      "source_x": -261.7376,
+      "source_y": 0.8,
+      "source_z": 172.6067,
+      "target_x": -281.8996,
+      "target_y": 0.8,
+      "target_z": 172.356,
+      "distance": 24.0316,
+      "target_level": "l06_rostok"
+    },
+    {
+      "source_x": -283.8401,
+      "source_y": -0.0,
+      "source_z": 160.7557,
+      "target_x": -279.7565,
+      "target_y": -0.0,
+      "target_z": 145.5585,
+      "distance": 15.7362,
+      "target_level": "l06_rostok"
+    },
+    {
+      "source_x": -283.8401,
+      "source_y": -0.0,
+      "source_z": 160.7557,
+      "target_x": -264.0608,
+      "target_y": 0.0002,
+      "target_z": 159.696,
+      "distance": 19.8701,
+      "target_level": "l06_rostok"
+    },
+    {
+      "source_x": -264.0608,
+      "source_y": 0.0002,
+      "source_z": 159.696,
+      "target_x": -247.2068,
+      "target_y": -0.0,
+      "target_z": 154.9066,
+      "distance": 17.5213,
+      "target_level": "l06_rostok"
+    },
+    {
+      "source_x": -264.0608,
+      "source_y": 0.0002,
+      "source_z": 159.696,
+      "target_x": -260.4702,
+      "target_y": 0.0273,
+      "target_z": 144.2431,
+      "distance": 21.2763,
+      "target_level": "l06_rostok"
+    },
+    {
+      "source_x": -264.0608,
+      "source_y": 0.0002,
+      "source_z": 159.696,
+      "target_x": -261.7376,
+      "target_y": 0.8,
+      "target_z": 172.6067,
+      "distance": 13.2484,
+      "target_level": "l06_rostok"
+    },
+    {
+      "source_x": -264.0608,
+      "source_y": 0.0002,
+      "source_z": 159.696,
+      "target_x": -283.8401,
+      "target_y": -0.0,
+      "target_z": 160.7557,
+      "distance": 19.9056,
+      "target_level": "l06_rostok"
+    },
+    {
+      "source_x": -247.2068,
+      "source_y": -0.0,
+      "source_z": 154.9066,
+      "target_x": -236.6892,
+      "target_y": -0.0,
+      "target_z": 145.3952,
+      "distance": 14.1805,
+      "target_level": "l06_rostok"
+    },
+    {
+      "source_x": -247.2068,
+      "source_y": -0.0,
+      "source_z": 154.9066,
+      "target_x": -239.7377,
+      "target_y": 0.8,
+      "target_z": 169.8106,
+      "distance": 20.1192,
+      "target_level": "l06_rostok"
+    },
+    {
+      "source_x": -247.2068,
+      "source_y": -0.0,
+      "source_z": 154.9066,
+      "target_x": -264.0608,
+      "target_y": 0.0002,
+      "target_z": 159.696,
+      "distance": 17.5213,
+      "target_level": "l06_rostok"
+    },
+    {
+      "source_x": -230.1327,
+      "source_y": -0.0,
+      "source_z": 157.1516,
+      "target_x": -236.6892,
+      "target_y": -0.0,
+      "target_z": 145.3952,
+      "distance": 13.461,
+      "target_level": "l06_rostok"
+    },
+    {
+      "source_x": -230.1327,
+      "source_y": -0.0,
+      "source_z": 157.1516,
+      "target_x": -214.057,
+      "target_y": -0.0,
+      "target_z": 165.3982,
+      "distance": 20.3615,
+      "target_level": "l06_rostok"
+    },
+    {
+      "source_x": -236.6892,
+      "source_y": -0.0,
+      "source_z": 145.3952,
+      "target_x": -233.1344,
+      "target_y": -0.0,
+      "target_z": 131.186,
+      "distance": 17.2971,
+      "target_level": "l06_rostok"
+    },
+    {
+      "source_x": -236.6892,
+      "source_y": -0.0,
+      "source_z": 145.3952,
+      "target_x": -232.6412,
+      "target_y": 0.1655,
+      "target_z": 143.5088,
+      "distance": 4.466,
+      "target_level": "l06_rostok"
+    },
+    {
+      "source_x": -236.6892,
+      "source_y": -0.0,
+      "source_z": 145.3952,
+      "target_x": -230.1327,
+      "target_y": -0.0,
+      "target_z": 157.1516,
+      "distance": 13.461,
+      "target_level": "l06_rostok"
+    },
+    {
+      "source_x": -236.6892,
+      "source_y": -0.0,
+      "source_z": 145.3952,
+      "target_x": -247.2068,
+      "target_y": -0.0,
+      "target_z": 154.9066,
+      "distance": 14.1805,
+      "target_level": "l06_rostok"
+    },
+    {
+      "source_x": -236.6892,
+      "source_y": -0.0,
+      "source_z": 145.3952,
+      "target_x": -243.2934,
+      "target_y": -0.0,
+      "target_z": 139.8667,
+      "distance": 12.614,
+      "target_level": "l06_rostok"
+    },
+    {
+      "source_x": -260.4702,
+      "source_y": 0.0273,
+      "source_z": 144.2431,
+      "target_x": -264.0608,
+      "target_y": 0.0002,
+      "target_z": 159.696,
+      "distance": 22.2621,
+      "target_level": "l06_rostok"
+    },
+    {
+      "source_x": -260.4702,
+      "source_y": 0.0273,
+      "source_z": 144.2431,
+      "target_x": -266.1298,
+      "target_y": 0.0013,
+      "target_z": 133.4472,
+      "distance": 14.0831,
+      "target_level": "l06_rostok"
+    },
+    {
+      "source_x": -279.7565,
+      "source_y": -0.0,
+      "source_z": 145.5585,
+      "target_x": -279.2251,
+      "target_y": -1.5384,
+      "target_z": 128.5136,
+      "distance": 17.0532,
+      "target_level": "l06_rostok"
+    },
+    {
+      "source_x": -279.7565,
+      "source_y": -0.0,
+      "source_z": 145.5585,
+      "target_x": -266.1298,
+      "target_y": 0.0013,
+      "target_z": 133.4472,
+      "distance": 20.4256,
+      "target_level": "l06_rostok"
+    },
+    {
+      "source_x": -279.7565,
+      "source_y": -0.0,
+      "source_z": 145.5585,
+      "target_x": -283.8401,
+      "target_y": -0.0,
+      "target_z": 160.7557,
+      "distance": 15.7362,
+      "target_level": "l06_rostok"
+    },
+    {
+      "source_x": -279.7565,
+      "source_y": -0.0,
+      "source_z": 145.5585,
+      "target_x": -294.9542,
+      "target_y": 0.0001,
+      "target_z": 138.0715,
+      "distance": 20.959,
+      "target_level": "l06_rostok"
+    },
+    {
+      "source_x": -294.9542,
+      "source_y": 0.0001,
+      "source_z": 138.0715,
+      "target_x": -289.2253,
+      "target_y": -0.0,
+      "target_z": 120.7945,
+      "distance": 18.3441,
+      "target_level": "l06_rostok"
+    },
+    {
+      "source_x": -294.9542,
+      "source_y": 0.0001,
+      "source_z": 138.0715,
+      "target_x": -279.7565,
+      "target_y": -0.0,
+      "target_z": 145.5585,
+      "distance": 17.029,
+      "target_level": "l06_rostok"
+    },
+    {
+      "source_x": -279.2251,
+      "source_y": -1.5384,
+      "source_z": 128.5136,
+      "target_x": -278.9908,
+      "target_y": -5.9928,
+      "target_z": 112.2732,
+      "distance": 16.2422,
+      "target_level": "l06_rostok"
+    },
+    {
+      "source_x": -279.2251,
+      "source_y": -1.5384,
+      "source_z": 128.5136,
+      "target_x": -279.7565,
+      "target_y": -0.0,
+      "target_z": 145.5585,
+      "distance": 17.0532,
+      "target_level": "l06_rostok"
+    },
+    {
+      "source_x": -243.2934,
+      "source_y": -0.0,
+      "source_z": 139.8667,
+      "target_x": -236.6892,
+      "target_y": -0.0,
+      "target_z": 145.3952,
+      "distance": 12.7968,
+      "target_level": "l06_rostok"
+    },
+    {
+      "source_x": -232.6412,
+      "source_y": 0.1655,
+      "source_z": 143.5088,
+      "target_x": -226.871,
+      "target_y": 0.0536,
+      "target_z": 141.2814,
+      "distance": 6.6016,
+      "target_level": "l06_rostok"
+    },
+    {
+      "source_x": -232.6412,
+      "source_y": 0.1655,
+      "source_z": 143.5088,
+      "target_x": -236.6892,
+      "target_y": -0.0,
+      "target_z": 145.3952,
+      "distance": 4.466,
+      "target_level": "l06_rostok"
+    },
+    {
+      "source_x": -226.871,
+      "source_y": 0.0536,
+      "source_z": 141.2814,
+      "target_x": -232.6412,
+      "target_y": 0.1655,
+      "target_z": 143.5088,
+      "distance": 6.8213,
+      "target_level": "l06_rostok"
+    },
+    {
+      "source_x": -233.1344,
+      "source_y": -0.0,
+      "source_z": 131.186,
+      "target_x": -246.9349,
+      "target_y": -0.0,
+      "target_z": 109.3725,
+      "distance": 31.1142,
+      "target_level": "l06_rostok"
+    },
+    {
+      "source_x": -233.1344,
+      "source_y": -0.0,
+      "source_z": 131.186,
+      "target_x": -236.6892,
+      "target_y": -0.0,
+      "target_z": 145.3952,
+      "distance": 14.919,
+      "target_level": "l06_rostok"
+    },
+    {
+      "source_x": -266.1298,
+      "source_y": 0.0013,
+      "source_z": 133.4472,
+      "target_x": -259.2991,
+      "target_y": 0.0013,
+      "target_z": 129.7746,
+      "distance": 8.0924,
+      "target_level": "l06_rostok"
+    },
+    {
+      "source_x": -266.1298,
+      "source_y": 0.0013,
+      "source_z": 133.4472,
+      "target_x": -260.4702,
+      "target_y": 0.0273,
+      "target_z": 144.2431,
+      "distance": 14.2085,
+      "target_level": "l06_rostok"
+    },
+    {
+      "source_x": -266.1298,
+      "source_y": 0.0013,
+      "source_z": 133.4472,
+      "target_x": -279.7565,
+      "target_y": -0.0,
+      "target_z": 145.5585,
+      "distance": 23.4148,
+      "target_level": "l06_rostok"
+    },
+    {
+      "source_x": -266.1298,
+      "source_y": 0.0013,
+      "source_z": 133.4472,
+      "target_x": -272.6779,
+      "target_y": 0.1,
+      "target_z": 105.2137,
+      "distance": 30.2471,
+      "target_level": "l06_rostok"
+    },
+    {
+      "source_x": -259.2991,
+      "source_y": 0.0013,
+      "source_z": 129.7746,
+      "target_x": -261.1115,
+      "target_y": 0.0013,
+      "target_z": 118.2358,
+      "distance": 11.6802,
+      "target_level": "l06_rostok"
+    },
+    {
+      "source_x": -259.2991,
+      "source_y": 0.0013,
+      "source_z": 129.7746,
+      "target_x": -266.1298,
+      "target_y": 0.0013,
+      "target_z": 133.4472,
+      "distance": 8.1777,
+      "target_level": "l06_rostok"
+    },
+    {
+      "source_x": -261.1115,
+      "source_y": 0.0013,
+      "source_z": 118.2358,
+      "target_x": -259.2991,
+      "target_y": 0.0013,
+      "target_z": 129.7746,
+      "distance": 11.6802,
+      "target_level": "l06_rostok"
+    },
+    {
+      "source_x": -246.9349,
+      "source_y": -0.0,
+      "source_z": 109.3725,
+      "target_x": -242.3998,
+      "target_y": -0.1,
+      "target_z": 91.0451,
+      "distance": 40.0848,
+      "target_level": "l06_rostok"
+    },
+    {
+      "source_x": -246.9349,
+      "source_y": -0.0,
+      "source_z": 109.3725,
+      "target_x": -233.1344,
+      "target_y": -0.0,
+      "target_z": 131.186,
+      "distance": 31.0557,
+      "target_level": "l06_rostok"
+    },
+    {
+      "source_x": -246.9349,
+      "source_y": -0.0,
+      "source_z": 109.3725,
+      "target_x": -272.6779,
+      "target_y": 0.1,
+      "target_z": 105.2137,
+      "distance": 26.0768,
+      "target_level": "l06_rostok"
+    },
+    {
+      "source_x": -246.9349,
+      "source_y": -0.0,
+      "source_z": 109.3725,
+      "target_x": -255.0042,
+      "target_y": -0.0,
+      "target_z": 86.8745,
+      "distance": 23.9013,
+      "target_level": "l06_rostok"
+    },
+    {
+      "source_x": -257.7371,
+      "source_y": -0.15,
+      "source_z": 96.2494,
+      "target_x": -265.0412,
+      "target_y": -5.8,
+      "target_z": 97.8969,
+      "distance": 14.158,
+      "target_level": "l06_rostok"
+    },
+    {
+      "source_x": -257.7371,
+      "source_y": -0.15,
+      "source_z": 96.2494,
+      "target_x": -251.1295,
+      "target_y": -6.0,
+      "target_z": 95.8836,
+      "distance": 9.6769,
+      "target_level": "l06_rostok"
+    },
+    {
+      "source_x": -272.6779,
+      "source_y": 0.1,
+      "source_z": 105.2137,
+      "target_x": -278.0988,
+      "target_y": -0.0926,
+      "target_z": 95.8938,
+      "distance": 10.7817,
+      "target_level": "l06_rostok"
+    },
+    {
+      "source_x": -272.6779,
+      "source_y": 0.1,
+      "source_z": 105.2137,
+      "target_x": -246.9349,
+      "target_y": -0.0,
+      "target_z": 109.3725,
+      "distance": 26.0768,
+      "target_level": "l06_rostok"
+    },
+    {
+      "source_x": -272.6779,
+      "source_y": 0.1,
+      "source_z": 105.2137,
+      "target_x": -289.2253,
+      "target_y": -0.0,
+      "target_z": 120.7945,
+      "distance": 34.5373,
+      "target_level": "l06_rostok"
+    },
+    {
+      "source_x": -272.6779,
+      "source_y": 0.1,
+      "source_z": 105.2137,
+      "target_x": -266.1298,
+      "target_y": 0.0013,
+      "target_z": 133.4472,
+      "distance": 29.6905,
+      "target_level": "l06_rostok"
+    },
+    {
+      "source_x": -268.5431,
+      "source_y": -0.0,
+      "source_z": 84.2064,
+      "target_x": -268.7168,
+      "target_y": -0.0,
+      "target_z": 64.7397,
+      "distance": 19.7849,
+      "target_level": "l06_rostok"
+    },
+    {
+      "source_x": -268.5431,
+      "source_y": -0.0,
+      "source_z": 84.2064,
+      "target_x": -255.0042,
+      "target_y": -0.0,
+      "target_z": 86.8745,
+      "distance": 20.6323,
+      "target_level": "l06_rostok"
+    },
+    {
+      "source_x": -268.5431,
+      "source_y": -0.0,
+      "source_z": 84.2064,
+      "target_x": -278.0988,
+      "target_y": -0.0926,
+      "target_z": 95.8938,
+      "distance": 15.0966,
+      "target_level": "l06_rostok"
+    },
+    {
+      "source_x": -242.3998,
+      "source_y": -0.1,
+      "source_z": 91.0451,
+      "target_x": -247.7943,
+      "target_y": 0.1,
+      "target_z": 68.586,
+      "distance": 29.9862,
+      "target_level": "l06_rostok"
+    },
+    {
+      "source_x": -242.3998,
+      "source_y": -0.1,
+      "source_z": 91.0451,
+      "target_x": -227.7714,
+      "target_y": -0.0368,
+      "target_z": 85.6241,
+      "distance": 19.1689,
+      "target_level": "l06_rostok"
+    },
+    {
+      "source_x": -242.3998,
+      "source_y": -0.1,
+      "source_z": 91.0451,
+      "target_x": -246.9349,
+      "target_y": -0.0,
+      "target_z": 109.3725,
+      "distance": 38.6626,
+      "target_level": "l06_rostok"
+    },
+    {
+      "source_x": -196.2319,
+      "source_y": 0.0838,
+      "source_z": 154.386,
+      "target_x": -200.9707,
+      "target_y": -0.0041,
+      "target_z": 138.7699,
+      "distance": 19.4042,
+      "target_level": "l06_rostok"
+    },
+    {
+      "source_x": -196.2319,
+      "source_y": 0.0838,
+      "source_z": 154.386,
+      "target_x": -182.7509,
+      "target_y": -0.0,
+      "target_z": 169.6369,
+      "distance": 20.355,
+      "target_level": "l06_rostok"
+    },
+    {
+      "source_x": -213.7068,
+      "source_y": 1.4,
+      "source_z": 140.7335,
+      "target_x": -200.9707,
+      "target_y": -0.0041,
+      "target_z": 138.7699,
+      "distance": 21.4264,
+      "target_level": "l06_rostok"
+    },
+    {
+      "source_x": -213.7068,
+      "source_y": 1.4,
+      "source_z": 140.7335,
+      "target_x": -219.3733,
+      "target_y": 1.4,
+      "target_z": 131.9338,
+      "distance": 10.4663,
+      "target_level": "l06_rostok"
+    },
+    {
+      "source_x": -219.3733,
+      "source_y": 1.4,
+      "source_z": 131.9338,
+      "target_x": -213.7068,
+      "target_y": 1.4,
+      "target_z": 140.7335,
+      "distance": 10.4663,
+      "target_level": "l06_rostok"
+    },
+    {
+      "source_x": -219.3733,
+      "source_y": 1.4,
+      "source_z": 131.9338,
+      "target_x": -226.9242,
+      "target_y": 1.4,
+      "target_z": 119.5715,
+      "distance": 14.4859,
+      "target_level": "l06_rostok"
+    },
+    {
+      "source_x": -219.3733,
+      "source_y": 1.4,
+      "source_z": 131.9338,
+      "target_x": -233.1344,
+      "target_y": -0.0,
+      "target_z": 131.186,
+      "distance": 16.4891,
+      "target_level": "l06_rostok"
+    },
+    {
+      "source_x": -226.9242,
+      "source_y": 1.4,
+      "source_z": 119.5715,
+      "target_x": -219.3733,
+      "target_y": 1.4,
+      "target_z": 131.9338,
+      "distance": 14.4859,
+      "target_level": "l06_rostok"
+    },
+    {
+      "source_x": -200.9707,
+      "source_y": -0.0041,
+      "source_z": 138.7699,
+      "target_x": -196.2319,
+      "target_y": 0.0838,
+      "target_z": 154.386,
+      "distance": 16.8284,
+      "target_level": "l06_rostok"
+    },
+    {
+      "source_x": -200.9707,
+      "source_y": -0.0041,
+      "source_z": 138.7699,
+      "target_x": -213.7068,
+      "target_y": 1.4,
+      "target_z": 140.7335,
+      "distance": 21.4731,
+      "target_level": "l06_rostok"
+    },
+    {
+      "source_x": -196.8952,
+      "source_y": -0.0292,
+      "source_z": 112.7521,
+      "target_x": -178.5963,
+      "target_y": -0.0,
+      "target_z": 116.7196,
+      "distance": 25.917,
+      "target_level": "l06_rostok"
+    },
+    {
+      "source_x": -196.8952,
+      "source_y": -0.0292,
+      "source_z": 112.7521,
+      "target_x": -210.7693,
+      "target_y": 1.4,
+      "target_z": 121.5693,
+      "distance": 17.7339,
+      "target_level": "l06_rostok"
+    },
+    {
+      "source_x": -210.7693,
+      "source_y": 1.4,
+      "source_z": 121.5693,
+      "target_x": -196.8952,
+      "target_y": -0.0292,
+      "target_z": 112.7521,
+      "distance": 17.6736,
+      "target_level": "l06_rostok"
+    },
+    {
+      "source_x": -210.7693,
+      "source_y": 1.4,
+      "source_z": 121.5693,
+      "target_x": -216.97,
+      "target_y": 1.4,
+      "target_z": 111.8216,
+      "distance": 11.5527,
+      "target_level": "l06_rostok"
+    },
+    {
+      "source_x": -216.97,
+      "source_y": 1.4,
+      "source_z": 111.8216,
+      "target_x": -210.7693,
+      "target_y": 1.4,
+      "target_z": 121.5693,
+      "distance": 11.5527,
+      "target_level": "l06_rostok"
+    },
+    {
+      "source_x": -216.97,
+      "source_y": 1.4,
+      "source_z": 111.8216,
+      "target_x": -226.7581,
+      "target_y": 1.4,
+      "target_z": 95.6712,
+      "distance": 18.885,
+      "target_level": "l06_rostok"
+    },
+    {
+      "source_x": -226.7581,
+      "source_y": 1.4,
+      "source_z": 95.6712,
+      "target_x": -216.3853,
+      "target_y": 0.8,
+      "target_z": 83.5729,
+      "distance": 17.843,
+      "target_level": "l06_rostok"
+    },
+    {
+      "source_x": -226.7581,
+      "source_y": 1.4,
+      "source_z": 95.6712,
+      "target_x": -216.97,
+      "target_y": 1.4,
+      "target_z": 111.8216,
+      "distance": 18.885,
+      "target_level": "l06_rostok"
+    },
+    {
+      "source_x": -196.0674,
+      "source_y": 0.0098,
+      "source_z": 82.3174,
+      "target_x": -187.8446,
+      "target_y": 0.0036,
+      "target_z": 94.2406,
+      "distance": 14.4837,
+      "target_level": "l06_rostok"
+    },
+    {
+      "source_x": -196.0674,
+      "source_y": 0.0098,
+      "source_z": 82.3174,
+      "target_x": -206.7511,
+      "target_y": 0.8,
+      "target_z": 93.2278,
+      "distance": 15.2702,
+      "target_level": "l06_rostok"
+    },
+    {
+      "source_x": -196.0674,
+      "source_y": 0.0098,
+      "source_z": 82.3174,
+      "target_x": -207.1636,
+      "target_y": -0.0,
+      "target_z": 68.4347,
+      "distance": 17.7723,
+      "target_level": "l06_rostok"
+    },
+    {
+      "source_x": -206.7511,
+      "source_y": 0.8,
+      "source_z": 93.2278,
+      "target_x": -196.0674,
+      "target_y": 0.0098,
+      "target_z": 82.3174,
+      "distance": 15.2702,
+      "target_level": "l06_rostok"
+    },
+    {
+      "source_x": -206.7511,
+      "source_y": 0.8,
+      "source_z": 93.2278,
+      "target_x": -216.3853,
+      "target_y": 0.8,
+      "target_z": 83.5729,
+      "distance": 14.8142,
+      "target_level": "l06_rostok"
+    },
+    {
+      "source_x": -207.1636,
+      "source_y": -0.0,
+      "source_z": 68.4347,
+      "target_x": -196.0674,
+      "target_y": 0.0098,
+      "target_z": 82.3174,
+      "distance": 17.7723,
+      "target_level": "l06_rostok"
+    },
+    {
+      "source_x": -207.1636,
+      "source_y": -0.0,
+      "source_z": 68.4347,
+      "target_x": -210.4256,
+      "target_y": 0.0089,
+      "target_z": 60.8985,
+      "distance": 8.2119,
+      "target_level": "l06_rostok"
+    },
+    {
+      "source_x": -207.1636,
+      "source_y": -0.0,
+      "source_z": 68.4347,
+      "target_x": -227.7714,
+      "target_y": -0.0368,
+      "target_z": 85.6241,
+      "distance": 33.0852,
+      "target_level": "l06_rostok"
+    },
+    {
+      "source_x": -210.4256,
+      "source_y": 0.0089,
+      "source_z": 60.8985,
+      "target_x": -211.6928,
+      "target_y": 0.0059,
+      "target_z": 51.9224,
+      "distance": 9.0651,
+      "target_level": "l06_rostok"
+    },
+    {
+      "source_x": -210.4256,
+      "source_y": 0.0089,
+      "source_z": 60.8985,
+      "target_x": -207.1636,
+      "target_y": -0.0,
+      "target_z": 68.4347,
+      "distance": 8.2119,
+      "target_level": "l06_rostok"
+    },
+    {
+      "source_x": -210.4256,
+      "source_y": 0.0089,
+      "source_z": 60.8985,
+      "target_x": -234.4543,
+      "target_y": -0.0,
+      "target_z": 61.3882,
+      "distance": 27.6392,
+      "target_level": "l06_rostok"
+    },
+    {
+      "source_x": -251.1295,
+      "source_y": -6.0,
+      "source_z": 95.8836,
+      "target_x": -241.5026,
+      "target_y": 0.1,
+      "target_z": 82.1092,
+      "distance": 26.7812,
+      "target_level": "l06_rostok"
+    },
+    {
+      "source_x": -251.1295,
+      "source_y": -6.0,
+      "source_z": 95.8836,
+      "target_x": -257.7371,
+      "target_y": -0.15,
+      "target_z": 96.2494,
+      "distance": 10.3009,
+      "target_level": "l06_rostok"
+    },
+    {
+      "source_x": -248.7158,
+      "source_y": -5.8,
+      "source_z": 89.1014,
+      "target_x": -255.0042,
+      "target_y": -0.0,
+      "target_z": 86.8745,
+      "distance": 16.3626,
+      "target_level": "l06_rostok"
+    },
+    {
+      "source_x": -265.0412,
+      "source_y": -5.8,
+      "source_z": 97.8969,
+      "target_x": -257.7371,
+      "target_y": -0.15,
+      "target_z": 96.2494,
+      "distance": 14.3623,
+      "target_level": "l06_rostok"
+    },
+    {
+      "source_x": -265.0412,
+      "source_y": -5.8,
+      "source_z": 97.8969,
+      "target_x": -278.9908,
+      "target_y": -5.9928,
+      "target_z": 112.2732,
+      "distance": 24.806,
+      "target_level": "l06_rostok"
+    },
+    {
+      "source_x": -278.9908,
+      "source_y": -5.9928,
+      "source_z": 112.2732,
+      "target_x": -265.0412,
+      "target_y": -5.8,
+      "target_z": 97.8969,
+      "distance": 28.8692,
+      "target_level": "l06_rostok"
+    },
+    {
+      "source_x": -278.9908,
+      "source_y": -5.9928,
+      "source_z": 112.2732,
+      "target_x": -279.2251,
+      "target_y": -1.5384,
+      "target_z": 128.5136,
+      "distance": 16.2422,
+      "target_level": "l06_rostok"
+    },
+    {
+      "source_x": -216.3853,
+      "source_y": 0.8,
+      "source_z": 83.5729,
+      "target_x": -206.7511,
+      "target_y": 0.8,
+      "target_z": 93.2278,
+      "distance": 15.3673,
+      "target_level": "l06_rostok"
+    },
+    {
+      "source_x": -216.3853,
+      "source_y": 0.8,
+      "source_z": 83.5729,
+      "target_x": -226.7581,
+      "target_y": 1.4,
+      "target_z": 95.6712,
+      "distance": 16.8994,
+      "target_level": "l06_rostok"
+    },
+    {
+      "source_x": -227.7714,
+      "source_y": -0.0368,
+      "source_z": 85.6241,
+      "target_x": -207.1636,
+      "target_y": -0.0,
+      "target_z": 68.4347,
+      "distance": 32.2457,
+      "target_level": "l06_rostok"
+    },
+    {
+      "source_x": -227.7714,
+      "source_y": -0.0368,
+      "source_z": 85.6241,
+      "target_x": -242.3998,
+      "target_y": -0.1,
+      "target_z": 91.0451,
+      "distance": 16.4402,
+      "target_level": "l06_rostok"
+    },
+    {
+      "source_x": -241.5026,
+      "source_y": 0.1,
+      "source_z": 82.1092,
+      "target_x": -251.1295,
+      "target_y": -6.0,
+      "target_z": 95.8836,
+      "distance": 26.6797,
+      "target_level": "l06_rostok"
+    },
+    {
+      "source_x": -247.7943,
+      "source_y": 0.1,
+      "source_z": 68.586,
+      "target_x": -263.5806,
+      "target_y": -0.0,
+      "target_z": 53.8553,
+      "distance": 21.5917,
+      "target_level": "l06_rostok"
+    },
+    {
+      "source_x": -247.7943,
+      "source_y": 0.1,
+      "source_z": 68.586,
+      "target_x": -234.4543,
+      "target_y": -0.0,
+      "target_z": 61.3882,
+      "distance": 20.1404,
+      "target_level": "l06_rostok"
+    },
+    {
+      "source_x": -247.7943,
+      "source_y": 0.1,
+      "source_z": 68.586,
+      "target_x": -242.3998,
+      "target_y": -0.1,
+      "target_z": 91.0451,
+      "distance": 24.507,
+      "target_level": "l06_rostok"
+    },
+    {
+      "source_x": -247.7943,
+      "source_y": 0.1,
+      "source_z": 68.586,
+      "target_x": -255.0042,
+      "target_y": -0.0,
+      "target_z": 86.8745,
+      "distance": 24.2204,
+      "target_level": "l06_rostok"
+    },
+    {
+      "source_x": -234.4543,
+      "source_y": -0.0,
+      "source_z": 61.3882,
+      "target_x": -235.6751,
+      "target_y": -0.0,
+      "target_z": 49.7238,
+      "distance": 12.8637,
+      "target_level": "l06_rostok"
+    },
+    {
+      "source_x": -234.4543,
+      "source_y": -0.0,
+      "source_z": 61.3882,
+      "target_x": -210.4256,
+      "target_y": 0.0089,
+      "target_z": 60.8985,
+      "distance": 28.6053,
+      "target_level": "l06_rostok"
+    },
+    {
+      "source_x": -234.4543,
+      "source_y": -0.0,
+      "source_z": 61.3882,
+      "target_x": -247.7943,
+      "target_y": 0.1,
+      "target_z": 68.586,
+      "distance": 18.5548,
+      "target_level": "l06_rostok"
+    },
+    {
+      "source_x": -211.6928,
+      "source_y": 0.0059,
+      "source_z": 51.9224,
+      "target_x": -210.4256,
+      "target_y": 0.0089,
+      "target_z": 60.8985,
+      "distance": 9.0651,
+      "target_level": "l06_rostok"
+    },
+    {
+      "source_x": -211.6928,
+      "source_y": 0.0059,
+      "source_z": 51.9224,
+      "target_x": -224.7182,
+      "target_y": -0.0,
+      "target_z": 45.2142,
+      "distance": 24.5941,
+      "target_level": "l06_rostok"
+    },
+    {
+      "source_x": -224.7182,
+      "source_y": -0.0,
+      "source_z": 45.2142,
+      "target_x": -211.6928,
+      "target_y": 0.0059,
+      "target_z": 51.9224,
+      "distance": 25.261,
+      "target_level": "l06_rostok"
+    },
+    {
+      "source_x": -224.7182,
+      "source_y": -0.0,
+      "source_z": 45.2142,
+      "target_x": -235.6751,
+      "target_y": -0.0,
+      "target_z": 49.7238,
+      "distance": 14.3867,
+      "target_level": "l06_rostok"
+    },
+    {
+      "source_x": -224.7182,
+      "source_y": -0.0,
+      "source_z": 45.2142,
+      "target_x": -231.358,
+      "target_y": 4.811,
+      "target_z": 43.8067,
+      "distance": 27.794,
+      "target_level": "l06_rostok"
+    },
+    {
+      "source_x": -235.6751,
+      "source_y": -0.0,
+      "source_z": 49.7238,
+      "target_x": -224.7182,
+      "target_y": -0.0,
+      "target_z": 45.2142,
+      "distance": 14.6238,
+      "target_level": "l06_rostok"
+    },
+    {
+      "source_x": -235.6751,
+      "source_y": -0.0,
+      "source_z": 49.7238,
+      "target_x": -234.4543,
+      "target_y": -0.0,
+      "target_z": 61.3882,
+      "distance": 11.903,
+      "target_level": "l06_rostok"
+    },
+    {
+      "source_x": -235.6751,
+      "source_y": -0.0,
+      "source_z": 49.7238,
+      "target_x": -250.1939,
+      "target_y": -0.0,
+      "target_z": 42.3952,
+      "distance": 19.7145,
+      "target_level": "l06_rostok"
+    },
+    {
+      "source_x": -231.358,
+      "source_y": 4.811,
+      "source_z": 43.8067,
+      "target_x": -223.5717,
+      "target_y": 6.9425,
+      "target_z": 37.5137,
+      "distance": 13.1148,
+      "target_level": "l06_rostok"
+    },
+    {
+      "source_x": -231.358,
+      "source_y": 4.811,
+      "source_z": 43.8067,
+      "target_x": -224.7182,
+      "target_y": -0.0,
+      "target_z": 45.2142,
+      "distance": 26.5856,
+      "target_level": "l06_rostok"
+    },
+    {
+      "source_x": -231.358,
+      "source_y": 4.811,
+      "source_z": 43.8067,
+      "target_x": -240.8139,
+      "target_y": 4.5581,
+      "target_z": 49.0367,
+      "distance": 10.9982,
+      "target_level": "l06_rostok"
+    },
+    {
+      "source_x": -240.8139,
+      "source_y": 4.5581,
+      "source_z": 49.0367,
+      "target_x": -231.358,
+      "target_y": 4.811,
+      "target_z": 43.8067,
+      "distance": 10.922,
+      "target_level": "l06_rostok"
+    },
+    {
+      "source_x": -223.5717,
+      "source_y": 6.9425,
+      "source_z": 37.5137,
+      "target_x": -234.1876,
+      "target_y": 9.3637,
+      "target_z": 48.9233,
+      "distance": 17.3147,
+      "target_level": "l06_rostok"
+    },
+    {
+      "source_x": -223.5717,
+      "source_y": 6.9425,
+      "source_z": 37.5137,
+      "target_x": -231.358,
+      "target_y": 4.811,
+      "target_z": 43.8067,
+      "distance": 10.0114,
+      "target_level": "l06_rostok"
+    },
+    {
+      "source_x": -234.1876,
+      "source_y": 9.3637,
+      "source_z": 48.9233,
+      "target_x": -223.5717,
+      "target_y": 6.9425,
+      "target_z": 37.5137,
+      "distance": 16.9106,
+      "target_level": "l06_rostok"
+    },
+    {
+      "source_x": -263.5806,
+      "source_y": -0.0,
+      "source_z": 53.8553,
+      "target_x": -250.1939,
+      "target_y": -0.0,
+      "target_z": 42.3952,
+      "distance": 23.2618,
+      "target_level": "l06_rostok"
+    },
+    {
+      "source_x": -263.5806,
+      "source_y": -0.0,
+      "source_z": 53.8553,
+      "target_x": -247.7943,
+      "target_y": 0.1,
+      "target_z": 68.586,
+      "distance": 21.5917,
+      "target_level": "l06_rostok"
+    },
+    {
+      "source_x": -263.5806,
+      "source_y": -0.0,
+      "source_z": 53.8553,
+      "target_x": -268.7168,
+      "target_y": -0.0,
+      "target_z": 64.7397,
+      "distance": 12.0354,
+      "target_level": "l06_rostok"
+    },
+    {
+      "source_x": -250.1939,
+      "source_y": -0.0,
+      "source_z": 42.3952,
+      "target_x": -235.6751,
+      "target_y": -0.0,
+      "target_z": 49.7238,
+      "distance": 18.6107,
+      "target_level": "l06_rostok"
+    },
+    {
+      "source_x": -250.1939,
+      "source_y": -0.0,
+      "source_z": 42.3952,
+      "target_x": -248.9101,
+      "target_y": -0.0,
+      "target_z": 31.4779,
+      "distance": 12.6417,
+      "target_level": "l06_rostok"
+    },
+    {
+      "source_x": -250.1939,
+      "source_y": -0.0,
+      "source_z": 42.3952,
+      "target_x": -263.5806,
+      "target_y": -0.0,
+      "target_z": 53.8553,
+      "distance": 21.3668,
+      "target_level": "l06_rostok"
+    },
+    {
+      "source_x": -238.4321,
+      "source_y": 0.25,
+      "source_z": 23.5645,
+      "target_x": -244.8479,
+      "target_y": -0.0,
+      "target_z": 9.1561,
+      "distance": 15.7723,
+      "target_level": "l06_rostok"
+    },
+    {
+      "source_x": -238.4321,
+      "source_y": 0.25,
+      "source_z": 23.5645,
+      "target_x": -248.9101,
+      "target_y": -0.0,
+      "target_z": 31.4779,
+      "distance": 13.275,
+      "target_level": "l06_rostok"
+    },
+    {
+      "source_x": -260.3475,
+      "source_y": -0.0,
+      "source_z": 14.0895,
+      "target_x": -244.8479,
+      "target_y": -0.0,
+      "target_z": 9.1561,
+      "distance": 20.6737,
+      "target_level": "l06_rostok"
+    },
+    {
+      "source_x": -260.3475,
+      "source_y": -0.0,
+      "source_z": 14.0895,
+      "target_x": -250.6371,
+      "target_y": 1.1849,
+      "target_z": 15.3928,
+      "distance": 11.3586,
+      "target_level": "l06_rostok"
+    },
+    {
+      "source_x": -244.8479,
+      "source_y": -0.0,
+      "source_z": 9.1561,
+      "target_x": -228.8067,
+      "target_y": -0.0,
+      "target_z": 0.4868,
+      "distance": 18.2339,
+      "target_level": "l06_rostok"
+    },
+    {
+      "source_x": -244.8479,
+      "source_y": -0.0,
+      "source_z": 9.1561,
+      "target_x": -238.4321,
+      "target_y": 0.25,
+      "target_z": 23.5645,
+      "distance": 15.7723,
+      "target_level": "l06_rostok"
+    },
+    {
+      "source_x": -244.8479,
+      "source_y": -0.0,
+      "source_z": 9.1561,
+      "target_x": -260.3475,
+      "target_y": -0.0,
+      "target_z": 14.0895,
+      "distance": 20.5268,
+      "target_level": "l06_rostok"
+    },
+    {
+      "source_x": -228.8067,
+      "source_y": -0.0,
+      "source_z": 0.4868,
+      "target_x": -238.7861,
+      "target_y": -0.0,
+      "target_z": -18.8419,
+      "distance": 21.7528,
+      "target_level": "l06_rostok"
+    },
+    {
+      "source_x": -228.8067,
+      "source_y": -0.0,
+      "source_z": 0.4868,
+      "target_x": -217.0453,
+      "target_y": -0.0,
+      "target_z": 18.787,
+      "distance": 21.7538,
+      "target_level": "l06_rostok"
+    },
+    {
+      "source_x": -228.8067,
+      "source_y": -0.0,
+      "source_z": 0.4868,
+      "target_x": -244.8479,
+      "target_y": -0.0,
+      "target_z": 9.1561,
+      "distance": 18.2339,
+      "target_level": "l06_rostok"
+    },
+    {
+      "source_x": -217.0453,
+      "source_y": -0.0,
+      "source_z": 18.787,
+      "target_x": -228.8067,
+      "target_y": -0.0,
+      "target_z": 0.4868,
+      "distance": 21.7538,
+      "target_level": "l06_rostok"
+    },
+    {
+      "source_x": -238.7861,
+      "source_y": -0.0,
+      "source_z": -18.8419,
+      "target_x": -248.8231,
+      "target_y": -0.0,
+      "target_z": -37.7943,
+      "distance": 21.4462,
+      "target_level": "l06_rostok"
+    },
+    {
+      "source_x": -238.7861,
+      "source_y": -0.0,
+      "source_z": -18.8419,
+      "target_x": -228.8067,
+      "target_y": -0.0,
+      "target_z": 0.4868,
+      "distance": 21.7528,
+      "target_level": "l06_rostok"
+    },
+    {
+      "source_x": -248.8231,
+      "source_y": -0.0,
+      "source_z": -37.7943,
+      "target_x": -228.6292,
+      "target_y": -0.0,
+      "target_z": -48.6467,
+      "distance": 22.9253,
+      "target_level": "l06_rostok"
+    },
+    {
+      "source_x": -248.8231,
+      "source_y": -0.0,
+      "source_z": -37.7943,
+      "target_x": -238.7861,
+      "target_y": -0.0,
+      "target_z": -18.8419,
+      "distance": 21.4462,
+      "target_level": "l06_rostok"
+    },
+    {
+      "source_x": -228.6292,
+      "source_y": -0.0,
+      "source_z": -48.6467,
+      "target_x": -210.5789,
+      "target_y": -0.9592,
+      "target_z": -59.3695,
+      "distance": 20.995,
+      "target_level": "l06_rostok"
+    },
+    {
+      "source_x": -228.6292,
+      "source_y": -0.0,
+      "source_z": -48.6467,
+      "target_x": -248.8231,
+      "target_y": -0.0,
+      "target_z": -37.7943,
+      "distance": 22.9253,
+      "target_level": "l06_rostok"
+    },
+    {
+      "source_x": -210.5789,
+      "source_y": -0.9592,
+      "source_z": -59.3695,
+      "target_x": -190.5088,
+      "target_y": -5.9998,
+      "target_z": -71.0819,
+      "distance": 23.2377,
+      "target_level": "l06_rostok"
+    },
+    {
+      "source_x": -210.5789,
+      "source_y": -0.9592,
+      "source_z": -59.3695,
+      "target_x": -228.6292,
+      "target_y": -0.0,
+      "target_z": -48.6467,
+      "distance": 20.995,
+      "target_level": "l06_rostok"
+    },
+    {
+      "source_x": -190.5088,
+      "source_y": -5.9998,
+      "source_z": -71.0819,
+      "target_x": -179.1286,
+      "target_y": -5.7999,
+      "target_z": -77.0957,
+      "distance": 14.7064,
+      "target_level": "l06_rostok"
+    },
+    {
+      "source_x": -190.5088,
+      "source_y": -5.9998,
+      "source_z": -71.0819,
+      "target_x": -210.5789,
+      "target_y": -0.9592,
+      "target_z": -59.3695,
+      "distance": 23.2377,
+      "target_level": "l06_rostok"
+    },
+    {
+      "source_x": -179.1286,
+      "source_y": -5.7999,
+      "source_z": -77.0957,
+      "target_x": -165.4042,
+      "target_y": -5.7998,
+      "target_z": -85.5747,
+      "distance": 17.161,
+      "target_level": "l06_rostok"
+    },
+    {
+      "source_x": -179.1286,
+      "source_y": -5.7999,
+      "source_z": -77.0957,
+      "target_x": -190.5088,
+      "target_y": -5.9998,
+      "target_z": -71.0819,
+      "distance": 13.7084,
+      "target_level": "l06_rostok"
+    },
+    {
+      "source_x": -165.4042,
+      "source_y": -5.7998,
+      "source_z": -85.5747,
+      "target_x": -152.3635,
+      "target_y": -5.7998,
+      "target_z": -92.7285,
+      "distance": 15.7755,
+      "target_level": "l06_rostok"
+    },
+    {
+      "source_x": -165.4042,
+      "source_y": -5.7998,
+      "source_z": -85.5747,
+      "target_x": -179.1286,
+      "target_y": -5.7999,
+      "target_z": -77.0957,
+      "distance": 18.985,
+      "target_level": "l06_rostok"
+    },
+    {
+      "source_x": -152.3635,
+      "source_y": -5.7998,
+      "source_z": -92.7285,
+      "target_x": -137.3403,
+      "target_y": -6.0,
+      "target_z": -101.0906,
+      "distance": 18.1563,
+      "target_level": "l06_rostok"
+    },
+    {
+      "source_x": -152.3635,
+      "source_y": -5.7998,
+      "source_z": -92.7285,
+      "target_x": -165.4042,
+      "target_y": -5.7998,
+      "target_z": -85.5747,
+      "distance": 15.9158,
+      "target_level": "l06_rostok"
+    },
+    {
+      "source_x": -137.3403,
+      "source_y": -6.0,
+      "source_z": -101.0906,
+      "target_x": -116.6619,
+      "target_y": -6.0928,
+      "target_z": -113.4903,
+      "distance": 24.1112,
+      "target_level": "l06_rostok"
+    },
+    {
+      "source_x": -137.3403,
+      "source_y": -6.0,
+      "source_z": -101.0906,
+      "target_x": -152.3635,
+      "target_y": -5.7998,
+      "target_z": -92.7285,
+      "distance": 19.8651,
+      "target_level": "l06_rostok"
+    },
+    {
+      "source_x": -103.2606,
+      "source_y": -14.1356,
+      "source_z": -225.5465,
+      "target_x": -76.6573,
+      "target_y": -15.7663,
+      "target_z": -210.4594,
+      "distance": 30.5836,
+      "target_level": "l06_rostok"
+    },
+    {
+      "source_x": -103.2606,
+      "source_y": -14.1356,
+      "source_z": -225.5465,
+      "target_x": -142.1783,
+      "target_y": -13.5319,
+      "target_z": -251.4206,
+      "distance": 46.7339,
+      "target_level": "l06_rostok"
+    },
+    {
+      "source_x": -150.615,
+      "source_y": -13.1765,
+      "source_z": -364.2102,
+      "target_x": -162.6934,
+      "target_y": -10.5846,
+      "target_z": -341.274,
+      "distance": 25.9221,
+      "target_level": "l06_rostok"
+    },
+    {
+      "source_x": -150.615,
+      "source_y": -13.1765,
+      "source_z": -364.2102,
+      "target_x": 285.3812,
+      "target_y": 7.1049,
+      "target_z": -283.2045,
+      "distance": 373.4596,
+      "target_level": "l08_yantar"
+    },
+    {
+      "source_x": -268.7168,
+      "source_y": -0.0,
+      "source_z": 64.7397,
+      "target_x": -263.5806,
+      "target_y": -0.0,
+      "target_z": 53.8553,
+      "distance": 12.0354,
+      "target_level": "l06_rostok"
+    },
+    {
+      "source_x": -268.7168,
+      "source_y": -0.0,
+      "source_z": 64.7397,
+      "target_x": -268.5431,
+      "target_y": -0.0,
+      "target_z": 84.2064,
+      "distance": 20.4669,
+      "target_level": "l06_rostok"
+    },
+    {
+      "source_x": -255.0042,
+      "source_y": -0.0,
+      "source_z": 86.8745,
+      "target_x": -247.7943,
+      "target_y": 0.1,
+      "target_z": 68.586,
+      "distance": 24.253,
+      "target_level": "l06_rostok"
+    },
+    {
+      "source_x": -255.0042,
+      "source_y": -0.0,
+      "source_z": 86.8745,
+      "target_x": -268.5431,
+      "target_y": -0.0,
+      "target_z": 84.2064,
+      "distance": 20.8958,
+      "target_level": "l06_rostok"
+    },
+    {
+      "source_x": -255.0042,
+      "source_y": -0.0,
+      "source_z": 86.8745,
+      "target_x": -248.7158,
+      "target_y": -5.8,
+      "target_z": 89.1014,
+      "distance": 16.1994,
+      "target_level": "l06_rostok"
+    },
+    {
+      "source_x": -255.0042,
+      "source_y": -0.0,
+      "source_z": 86.8745,
+      "target_x": -246.9349,
+      "target_y": -0.0,
+      "target_z": 109.3725,
+      "distance": 23.9013,
+      "target_level": "l06_rostok"
+    },
+    {
+      "source_x": -278.0988,
+      "source_y": -0.0926,
+      "source_z": 95.8938,
+      "target_x": -268.5431,
+      "target_y": -0.0,
+      "target_z": 84.2064,
+      "distance": 15.0966,
+      "target_level": "l06_rostok"
+    },
+    {
+      "source_x": -278.0988,
+      "source_y": -0.0926,
+      "source_z": 95.8938,
+      "target_x": -272.6779,
+      "target_y": 0.1,
+      "target_z": 105.2137,
+      "distance": 10.7817,
+      "target_level": "l06_rostok"
+    },
+    {
+      "source_x": -278.0988,
+      "source_y": -0.0926,
+      "source_z": 95.8938,
+      "target_x": -282.8579,
+      "target_y": -0.0,
+      "target_z": 85.2835,
+      "distance": 13.049,
+      "target_level": "l06_rostok"
+    },
+    {
+      "source_x": 31.432,
+      "source_y": -0.6322,
+      "source_z": 140.408,
+      "target_x": 40.2519,
+      "target_y": -0.0,
+      "target_z": 129.9229,
+      "distance": 16.7114,
+      "target_level": "l06_rostok"
+    },
+    {
+      "source_x": 31.432,
+      "source_y": -0.6322,
+      "source_z": 140.408,
+      "target_x": 12.0342,
+      "target_y": -0.5307,
+      "target_z": 141.2251,
+      "distance": 19.415,
+      "target_level": "l06_rostok"
+    },
+    {
+      "source_x": 12.0342,
+      "source_y": -0.5307,
+      "source_z": 141.2251,
+      "target_x": 13.6843,
+      "target_y": -0.0,
+      "target_z": 121.8977,
+      "distance": 20.5116,
+      "target_level": "l06_rostok"
+    },
+    {
+      "source_x": 12.0342,
+      "source_y": -0.5307,
+      "source_z": 141.2251,
+      "target_x": 31.432,
+      "target_y": -0.6322,
+      "target_z": 140.408,
+      "distance": 19.415,
+      "target_level": "l06_rostok"
+    },
+    {
+      "source_x": 12.0342,
+      "source_y": -0.5307,
+      "source_z": 141.2251,
+      "target_x": -13.1737,
+      "target_y": -0.2446,
+      "target_z": 140.5036,
+      "distance": 36.8206,
+      "target_level": "l06_rostok"
+    },
+    {
+      "source_x": 13.6843,
+      "source_y": -0.0,
+      "source_z": 121.8977,
+      "target_x": 12.0342,
+      "target_y": -0.5307,
+      "target_z": 141.2251,
+      "distance": 20.663,
+      "target_level": "l06_rostok"
+    },
+    {
+      "source_x": 13.6843,
+      "source_y": -0.0,
+      "source_z": 121.8977,
+      "target_x": -11.8827,
+      "target_y": -0.0,
+      "target_z": 123.3353,
+      "distance": 25.6073,
+      "target_level": "l06_rostok"
+    },
+    {
+      "source_x": -13.1737,
+      "source_y": -0.2446,
+      "source_z": 140.5036,
+      "target_x": -11.8827,
+      "target_y": -0.0,
+      "target_z": 123.3353,
+      "distance": 18.7295,
+      "target_level": "l06_rostok"
+    },
+    {
+      "source_x": -13.1737,
+      "source_y": -0.2446,
+      "source_z": 140.5036,
+      "target_x": 12.0342,
+      "target_y": -0.5307,
+      "target_z": 141.2251,
+      "distance": 36.7053,
+      "target_level": "l06_rostok"
+    },
+    {
+      "source_x": -13.1737,
+      "source_y": -0.2446,
+      "source_z": 140.5036,
+      "target_x": -29.85,
+      "target_y": 0.0711,
+      "target_z": 148.8274,
+      "distance": 26.3525,
+      "target_level": "l06_rostok"
+    },
+    {
+      "source_x": -11.8827,
+      "source_y": -0.0,
+      "source_z": 123.3353,
+      "target_x": 13.6843,
+      "target_y": -0.0,
+      "target_z": 121.8977,
+      "distance": 25.6073,
+      "target_level": "l06_rostok"
+    },
+    {
+      "source_x": -11.8827,
+      "source_y": -0.0,
+      "source_z": 123.3353,
+      "target_x": -13.1737,
+      "target_y": -0.2446,
+      "target_z": 140.5036,
+      "distance": 17.3324,
+      "target_level": "l06_rostok"
+    },
+    {
+      "source_x": -11.8827,
+      "source_y": -0.0,
+      "source_z": 123.3353,
+      "target_x": -38.0965,
+      "target_y": -0.0,
+      "target_z": 121.2288,
+      "distance": 26.2983,
+      "target_level": "l06_rostok"
+    },
+    {
+      "source_x": -37.1178,
+      "source_y": 0.0008,
+      "source_z": 138.3317,
+      "target_x": -38.0965,
+      "target_y": -0.0,
+      "target_z": 121.2288,
+      "distance": 17.1309,
+      "target_level": "l06_rostok"
+    },
+    {
+      "source_x": -37.1178,
+      "source_y": 0.0008,
+      "source_z": 138.3317,
+      "target_x": -29.85,
+      "target_y": 0.0711,
+      "target_z": 148.8274,
+      "distance": 14.6978,
+      "target_level": "l06_rostok"
+    },
+    {
+      "source_x": -37.1178,
+      "source_y": 0.0008,
+      "source_z": 138.3317,
+      "target_x": -56.7252,
+      "target_y": 0.0,
+      "target_z": 140.5751,
+      "distance": 20.7894,
+      "target_level": "l06_rostok"
+    },
+    {
+      "source_x": -38.0965,
+      "source_y": -0.0,
+      "source_z": 121.2288,
+      "target_x": -11.8827,
+      "target_y": -0.0,
+      "target_z": 123.3353,
+      "distance": 26.2983,
+      "target_level": "l06_rostok"
+    },
+    {
+      "source_x": -38.0965,
+      "source_y": -0.0,
+      "source_z": 121.2288,
+      "target_x": -37.1178,
+      "target_y": 0.0008,
+      "target_z": 138.3317,
+      "distance": 17.1309,
+      "target_level": "l06_rostok"
+    },
+    {
+      "source_x": -38.0965,
+      "source_y": -0.0,
+      "source_z": 121.2288,
+      "target_x": -57.1945,
+      "target_y": -0.0,
+      "target_z": 119.8518,
+      "distance": 19.1477,
+      "target_level": "l06_rostok"
+    },
+    {
+      "source_x": -57.1945,
+      "source_y": -0.0,
+      "source_z": 119.8518,
+      "target_x": -38.0965,
+      "target_y": -0.0,
+      "target_z": 121.2288,
+      "distance": 19.1477,
+      "target_level": "l06_rostok"
+    },
+    {
+      "source_x": -57.1945,
+      "source_y": -0.0,
+      "source_z": 119.8518,
+      "target_x": -56.7252,
+      "target_y": 0.0,
+      "target_z": 140.5751,
+      "distance": 20.7287,
+      "target_level": "l06_rostok"
+    },
+    {
+      "source_x": -82.6608,
+      "source_y": 1.959,
+      "source_z": 157.1502,
+      "target_x": -77.2826,
+      "target_y": -0.0,
+      "target_z": 131.7536,
+      "distance": 29.5804,
+      "target_level": "l06_rostok"
+    },
+    {
+      "source_x": -88.4,
+      "source_y": 0.0,
+      "source_z": 122.7,
+      "target_x": -77.2826,
+      "target_y": -0.0,
+      "target_z": 131.7536,
+      "distance": 19.9692,
+      "target_level": "l06_rostok"
+    },
+    {
+      "source_x": -88.4,
+      "source_y": 0.0,
+      "source_z": 122.7,
+      "target_x": -88.8,
+      "target_y": 0.0,
+      "target_z": 147.7,
+      "distance": 25.0032,
+      "target_level": "l06_rostok"
+    },
+    {
+      "source_x": -88.8,
+      "source_y": 0.0,
+      "source_z": 147.7,
+      "target_x": -88.4,
+      "target_y": 0.0,
+      "target_z": 122.7,
+      "distance": 25.0032,
+      "target_level": "l06_rostok"
+    },
+    {
+      "source_x": -88.8,
+      "source_y": 0.0,
+      "source_z": 147.7,
+      "target_x": -95.8169,
+      "target_y": -0.0,
+      "target_z": 148.4687,
+      "distance": 7.2248,
+      "target_level": "l06_rostok"
+    },
+    {
+      "source_x": -248.9101,
+      "source_y": -0.0,
+      "source_z": 31.4779,
+      "target_x": -238.4321,
+      "target_y": 0.25,
+      "target_z": 23.5645,
+      "distance": 13.8857,
+      "target_level": "l06_rostok"
+    },
+    {
+      "source_x": -248.9101,
+      "source_y": -0.0,
+      "source_z": 31.4779,
+      "target_x": -250.1939,
+      "target_y": -0.0,
+      "target_z": 42.3952,
+      "distance": 12.1521,
+      "target_level": "l06_rostok"
+    },
+    {
+      "source_x": -250.6371,
+      "source_y": 1.1849,
+      "source_z": 15.3928,
+      "target_x": -260.3475,
+      "target_y": -0.0,
+      "target_z": 14.0895,
+      "distance": 11.1864,
+      "target_level": "l06_rostok"
+    },
+    {
+      "source_x": -72.6543,
+      "source_y": -4.0383,
+      "source_z": -108.4337,
+      "target_x": -70.3261,
+      "target_y": -13.3671,
+      "target_z": -124.2407,
+      "distance": 15.9775,
+      "target_level": "l06_rostok"
+    },
+    {
+      "source_x": -116.6619,
+      "source_y": -6.0928,
+      "source_z": -113.4903,
+      "target_x": -96.3774,
+      "target_y": -11.0777,
+      "target_z": -124.4472,
+      "distance": 23.0546,
+      "target_level": "l06_rostok"
+    },
+    {
+      "source_x": -116.6619,
+      "source_y": -6.0928,
+      "source_z": -113.4903,
+      "target_x": -137.3403,
+      "target_y": -6.0,
+      "target_z": -101.0906,
+      "distance": 24.1112,
+      "target_level": "l06_rostok"
+    },
+    {
+      "source_x": -54.3172,
+      "source_y": -2.8844,
+      "source_z": -119.0297,
+      "target_x": -43.211,
+      "target_y": -2.7683,
+      "target_z": -145.2795,
+      "distance": 28.5026,
+      "target_level": "l06_rostok"
+    },
+    {
+      "source_x": -54.3172,
+      "source_y": -2.8844,
+      "source_z": -119.0297,
+      "target_x": -70.3261,
+      "target_y": -13.3671,
+      "target_z": -124.2407,
+      "distance": 16.8357,
+      "target_level": "l06_rostok"
+    },
+    {
+      "source_x": -77.3533,
+      "source_y": -13.7613,
+      "source_z": -140.5497,
+      "target_x": -66.2255,
+      "target_y": -14.1957,
+      "target_z": -160.6313,
+      "distance": 22.9586,
+      "target_level": "l06_rostok"
+    },
+    {
+      "source_x": -77.3533,
+      "source_y": -13.7613,
+      "source_z": -140.5497,
+      "target_x": -70.3261,
+      "target_y": -13.3671,
+      "target_z": -124.2407,
+      "distance": 18.0532,
+      "target_level": "l06_rostok"
+    },
+    {
+      "source_x": -77.3533,
+      "source_y": -13.7613,
+      "source_z": -140.5497,
+      "target_x": -96.3774,
+      "target_y": -11.0777,
+      "target_z": -124.4472,
+      "distance": 24.924,
+      "target_level": "l06_rostok"
+    },
+    {
+      "source_x": -43.211,
+      "source_y": -2.7683,
+      "source_z": -145.2795,
+      "target_x": -54.3172,
+      "target_y": -2.8844,
+      "target_z": -119.0297,
+      "distance": 28.5026,
+      "target_level": "l06_rostok"
+    },
+    {
+      "source_x": -43.211,
+      "source_y": -2.7683,
+      "source_z": -145.2795,
+      "target_x": -66.2255,
+      "target_y": -14.1957,
+      "target_z": -160.6313,
+      "distance": 27.6649,
+      "target_level": "l06_rostok"
+    },
+    {
+      "source_x": -66.2255,
+      "source_y": -14.1957,
+      "source_z": -160.6313,
+      "target_x": -64.2286,
+      "target_y": -15.2922,
+      "target_z": -187.1854,
+      "distance": 26.6759,
+      "target_level": "l06_rostok"
+    },
+    {
+      "source_x": -66.2255,
+      "source_y": -14.1957,
+      "source_z": -160.6313,
+      "target_x": -43.211,
+      "target_y": -2.7683,
+      "target_z": -145.2795,
+      "distance": 27.6649,
+      "target_level": "l06_rostok"
+    },
+    {
+      "source_x": -66.2255,
+      "source_y": -14.1957,
+      "source_z": -160.6313,
+      "target_x": -77.3533,
+      "target_y": -13.7613,
+      "target_z": -140.5497,
+      "distance": 22.9586,
+      "target_level": "l06_rostok"
+    },
+    {
+      "source_x": -64.2286,
+      "source_y": -15.2922,
+      "source_z": -187.1854,
+      "target_x": -76.6573,
+      "target_y": -15.7663,
+      "target_z": -210.4594,
+      "distance": 26.3847,
+      "target_level": "l06_rostok"
+    },
+    {
+      "source_x": -64.2286,
+      "source_y": -15.2922,
+      "source_z": -187.1854,
+      "target_x": -44.2239,
+      "target_y": -13.7406,
+      "target_z": -175.8798,
+      "distance": 22.9783,
+      "target_level": "l06_rostok"
+    },
+    {
+      "source_x": -64.2286,
+      "source_y": -15.2922,
+      "source_z": -187.1854,
+      "target_x": -66.2255,
+      "target_y": -14.1957,
+      "target_z": -160.6313,
+      "distance": 28.0951,
+      "target_level": "l06_rostok"
+    },
+    {
+      "source_x": -44.2239,
+      "source_y": -13.7406,
+      "source_z": -175.8798,
+      "target_x": -27.0687,
+      "target_y": -3.4145,
+      "target_z": -179.823,
+      "distance": 17.6026,
+      "target_level": "l06_rostok"
+    },
+    {
+      "source_x": -44.2239,
+      "source_y": -13.7406,
+      "source_z": -175.8798,
+      "target_x": -64.2286,
+      "target_y": -15.2922,
+      "target_z": -187.1854,
+      "distance": 22.9783,
+      "target_level": "l06_rostok"
+    },
+    {
+      "source_x": -158.6363,
+      "source_y": -10.6797,
+      "source_z": -290.9983,
+      "target_x": -162.6934,
+      "target_y": -10.5846,
+      "target_z": -341.274,
+      "distance": 50.4967,
+      "target_level": "l06_rostok"
+    },
+    {
+      "source_x": -158.6363,
+      "source_y": -10.6797,
+      "source_z": -290.9983,
+      "target_x": -142.1783,
+      "target_y": -13.5319,
+      "target_z": -251.4206,
+      "distance": 42.8633,
+      "target_level": "l06_rostok"
+    },
+    {
+      "source_x": -142.1783,
+      "source_y": -13.5319,
+      "source_z": -251.4206,
+      "target_x": -103.2606,
+      "target_y": -14.1356,
+      "target_z": -225.5465,
+      "distance": 46.7339,
+      "target_level": "l06_rostok"
+    },
+    {
+      "source_x": -142.1783,
+      "source_y": -13.5319,
+      "source_z": -251.4206,
+      "target_x": -158.6363,
+      "target_y": -10.6797,
+      "target_z": -290.9983,
+      "distance": 42.8633,
+      "target_level": "l06_rostok"
+    },
+    {
+      "source_x": -76.6573,
+      "source_y": -15.7663,
+      "source_z": -210.4594,
+      "target_x": -42.9662,
+      "target_y": -7.145,
+      "target_z": -212.1163,
+      "distance": 33.7318,
+      "target_level": "l06_rostok"
+    },
+    {
+      "source_x": -76.6573,
+      "source_y": -15.7663,
+      "source_z": -210.4594,
+      "target_x": -64.2286,
+      "target_y": -15.2922,
+      "target_z": -187.1854,
+      "distance": 26.3847,
+      "target_level": "l06_rostok"
+    },
+    {
+      "source_x": -76.6573,
+      "source_y": -15.7663,
+      "source_z": -210.4594,
+      "target_x": -103.2606,
+      "target_y": -14.1356,
+      "target_z": -225.5465,
+      "distance": 30.5836,
+      "target_level": "l06_rostok"
+    },
+    {
+      "source_x": -96.3774,
+      "source_y": -11.0777,
+      "source_z": -124.4472,
+      "target_x": -77.3533,
+      "target_y": -13.7613,
+      "target_z": -140.5497,
+      "distance": 24.924,
+      "target_level": "l06_rostok"
+    },
+    {
+      "source_x": -96.3774,
+      "source_y": -11.0777,
+      "source_z": -124.4472,
+      "target_x": -116.6619,
+      "target_y": -6.0928,
+      "target_z": -113.4903,
+      "distance": 23.0546,
+      "target_level": "l06_rostok"
+    },
+    {
+      "source_x": -18.3374,
+      "source_y": -1.318,
+      "source_z": -179.1877,
+      "target_x": 7.2021,
+      "target_y": -0.1969,
+      "target_z": -177.9266,
+      "distance": 25.5706,
+      "target_level": "l06_rostok"
+    },
+    {
+      "source_x": -18.3374,
+      "source_y": -1.318,
+      "source_z": -179.1877,
+      "target_x": -27.0687,
+      "target_y": -3.4145,
+      "target_z": -179.823,
+      "distance": 8.7543,
+      "target_level": "l06_rostok"
+    },
+    {
+      "source_x": 7.2021,
+      "source_y": -0.1969,
+      "source_z": -177.9266,
+      "target_x": 45.0213,
+      "target_y": 0.003,
+      "target_z": -170.608,
+      "distance": 41.4735,
+      "target_level": "l06_rostok"
+    },
+    {
+      "source_x": 7.2021,
+      "source_y": -0.1969,
+      "source_z": -177.9266,
+      "target_x": -18.3374,
+      "target_y": -1.318,
+      "target_z": -179.1877,
+      "distance": 25.5706,
+      "target_level": "l06_rostok"
+    },
+    {
+      "source_x": 45.0213,
+      "source_y": 0.003,
+      "source_z": -170.608,
+      "target_x": 69.4238,
+      "target_y": 1.0912,
+      "target_z": -149.9793,
+      "distance": 31.9874,
+      "target_level": "l06_rostok"
+    },
+    {
+      "source_x": 45.0213,
+      "source_y": 0.003,
+      "source_z": -170.608,
+      "target_x": 7.2021,
+      "target_y": -0.1969,
+      "target_z": -177.9266,
+      "distance": 39.896,
+      "target_level": "l06_rostok"
+    },
+    {
+      "source_x": 69.4238,
+      "source_y": 1.0912,
+      "source_z": -149.9793,
+      "target_x": 80.92,
+      "target_y": 2.3491,
+      "target_z": -149.4715,
+      "distance": 11.5074,
+      "target_level": "l06_rostok"
+    },
+    {
+      "source_x": 69.4238,
+      "source_y": 1.0912,
+      "source_z": -149.9793,
+      "target_x": 45.0213,
+      "target_y": 0.003,
+      "target_z": -170.608,
+      "distance": 33.1192,
+      "target_level": "l06_rostok"
+    },
+    {
+      "source_x": 95.115,
+      "source_y": 5.6187,
+      "source_z": -162.5449,
+      "target_x": 80.92,
+      "target_y": 2.3491,
+      "target_z": -149.4715,
+      "distance": 23.7125,
+      "target_level": "l06_rostok"
+    },
+    {
+      "source_x": 95.115,
+      "source_y": 5.6187,
+      "source_z": -162.5449,
+      "target_x": -247.3789,
+      "target_y": 4.5286,
+      "target_z": 260.157,
+      "distance": 647.1684,
+      "target_level": "l02_garbage"
+    },
+    {
+      "source_x": -27.0687,
+      "source_y": -3.4145,
+      "source_z": -179.823,
+      "target_x": -42.9662,
+      "target_y": -7.145,
+      "target_z": -212.1163,
+      "distance": 35.9943,
+      "target_level": "l06_rostok"
+    },
+    {
+      "source_x": -27.0687,
+      "source_y": -3.4145,
+      "source_z": -179.823,
+      "target_x": -18.3374,
+      "target_y": -1.318,
+      "target_z": -179.1877,
+      "distance": 8.7543,
+      "target_level": "l06_rostok"
+    },
+    {
+      "source_x": -27.0687,
+      "source_y": -3.4145,
+      "source_z": -179.823,
+      "target_x": -44.2239,
+      "target_y": -13.7406,
+      "target_z": -175.8798,
+      "distance": 17.6026,
+      "target_level": "l06_rostok"
+    },
+    {
+      "source_x": -42.9662,
+      "source_y": -7.145,
+      "source_z": -212.1163,
+      "target_x": -27.0687,
+      "target_y": -3.4145,
+      "target_z": -179.823,
+      "distance": 35.9943,
+      "target_level": "l06_rostok"
+    },
+    {
+      "source_x": -42.9662,
+      "source_y": -7.145,
+      "source_z": -212.1163,
+      "target_x": -76.6573,
+      "target_y": -15.7663,
+      "target_z": -210.4594,
+      "distance": 33.7318,
+      "target_level": "l06_rostok"
+    },
+    {
+      "source_x": -70.3261,
+      "source_y": -13.3671,
+      "source_z": -124.2407,
+      "target_x": -77.3533,
+      "target_y": -13.7613,
+      "target_z": -140.5497,
+      "distance": 18.1492,
+      "target_level": "l06_rostok"
+    },
+    {
+      "source_x": -70.3261,
+      "source_y": -13.3671,
+      "source_z": -124.2407,
+      "target_x": -54.3172,
+      "target_y": -2.8844,
+      "target_z": -119.0297,
+      "distance": 16.8357,
+      "target_level": "l06_rostok"
+    },
+    {
+      "source_x": -70.3261,
+      "source_y": -13.3671,
+      "source_z": -124.2407,
+      "target_x": -72.6543,
+      "target_y": -4.0383,
+      "target_z": -108.4337,
+      "distance": 15.9775,
+      "target_level": "l06_rostok"
+    },
+    {
+      "source_x": -95.8169,
+      "source_y": -0.0,
+      "source_z": 148.4687,
+      "target_x": -88.8,
+      "target_y": 0.0,
+      "target_z": 147.7,
+      "distance": 7.1618,
+      "target_level": "l06_rostok"
+    },
+    {
+      "source_x": -95.8169,
+      "source_y": -0.0,
+      "source_z": 148.4687,
+      "target_x": -101.4358,
+      "target_y": 0.0,
+      "target_z": 142.163,
+      "distance": 8.5847,
+      "target_level": "l06_rostok"
+    },
+    {
+      "source_x": -29.85,
+      "source_y": 0.0711,
+      "source_z": 148.8274,
+      "target_x": -37.1178,
+      "target_y": 0.0008,
+      "target_z": 138.3317,
+      "distance": 14.8991,
+      "target_level": "l06_rostok"
+    },
+    {
+      "source_x": -29.85,
+      "source_y": 0.0711,
+      "source_z": 148.8274,
+      "target_x": -13.1737,
+      "target_y": -0.2446,
+      "target_z": 140.5036,
+      "distance": 22.1834,
+      "target_level": "l06_rostok"
+    },
+    {
+      "source_x": -289.2253,
+      "source_y": -0.0,
+      "source_z": 120.7945,
+      "target_x": -272.6779,
+      "target_y": 0.1,
+      "target_z": 105.2137,
+      "distance": 29.5203,
+      "target_level": "l06_rostok"
+    },
+    {
+      "source_x": -289.2253,
+      "source_y": -0.0,
+      "source_z": 120.7945,
+      "target_x": -294.9542,
+      "target_y": 0.0001,
+      "target_z": 138.0715,
+      "distance": 19.2266,
+      "target_level": "l06_rostok"
+    },
+    {
+      "source_x": -192.6117,
+      "source_y": -0.0008,
+      "source_z": 128.1012,
+      "target_x": -188.3462,
+      "target_y": -0.001,
+      "target_z": 136.5149,
+      "distance": 9.9866,
+      "target_level": "l06_rostok"
+    },
+    {
+      "source_x": -251.1055,
+      "source_y": -0.0,
+      "source_z": 205.5002,
+      "target_x": -252.7245,
+      "target_y": -0.0,
+      "target_z": 198.657,
+      "distance": 7.0321,
+      "target_level": "l06_rostok"
+    },
+    {
+      "source_x": -251.1055,
+      "source_y": -0.0,
+      "source_z": 205.5002,
+      "target_x": -387.1924,
+      "target_y": -21.2862,
+      "target_z": 1.3679,
+      "distance": 796.1755,
+      "target_level": "l07_military"
+    },
+    {
+      "source_x": -113.6921,
+      "source_y": -0.0,
+      "source_z": 123.5476,
+      "target_x": -116.4616,
+      "target_y": -0.0966,
+      "target_z": 140.4095,
+      "distance": 20.1597,
+      "target_level": "l06_rostok"
+    },
+    {
+      "source_x": -113.6921,
+      "source_y": -0.0,
+      "source_z": 123.5476,
+      "target_x": 69.3059,
+      "target_y": 10.9151,
+      "target_z": 208.4672,
+      "distance": 1051.0863,
+      "target_level": "l03_agroprom"
+    },
+    {
+      "source_x": -163.339,
+      "source_y": -0.0,
+      "source_z": 94.4648,
+      "target_x": -171.2321,
+      "target_y": -0.0,
+      "target_z": 93.1517,
+      "distance": 8.7316,
+      "target_level": "l06_rostok"
+    },
+    {
+      "source_x": -163.339,
+      "source_y": -0.0,
+      "source_z": 94.4648,
+      "target_x": -187.5341,
+      "target_y": 1.5334,
+      "target_z": 204.858,
+      "distance": 889.9823,
+      "target_level": "l02_garbage"
+    },
+    {
+      "source_x": 80.92,
+      "source_y": 2.3491,
+      "source_z": -149.4715,
+      "target_x": 95.115,
+      "target_y": 5.6187,
+      "target_z": -162.5449,
+      "distance": 22.8537,
+      "target_level": "l06_rostok"
+    },
+    {
+      "source_x": 80.92,
+      "source_y": 2.3491,
+      "source_z": -149.4715,
+      "target_x": 69.4238,
+      "target_y": 1.0912,
+      "target_z": -149.9793,
+      "distance": 11.5074,
+      "target_level": "l06_rostok"
+    },
+    {
+      "source_x": 80.92,
+      "source_y": 2.3491,
+      "source_z": -149.4715,
+      "target_x": -261.1015,
+      "target_y": 10.185,
+      "target_z": 229.3885,
+      "distance": 686.4058,
+      "target_level": "l02_garbage"
+    },
+    {
+      "source_x": -162.6934,
+      "source_y": -10.5846,
+      "source_z": -341.274,
+      "target_x": -150.615,
+      "target_y": -13.1765,
+      "target_z": -364.2102,
+      "distance": 25.9221,
+      "target_level": "l06_rostok"
+    },
+    {
+      "source_x": -162.6934,
+      "source_y": -10.5846,
+      "source_z": -341.274,
+      "target_x": -158.6363,
+      "target_y": -10.6797,
+      "target_z": -290.9983,
+      "distance": 51.4536,
+      "target_level": "l06_rostok"
+    },
+    {
+      "source_x": -162.6934,
+      "source_y": -10.5846,
+      "source_z": -341.274,
+      "target_x": 272.6356,
+      "target_y": 6.9297,
+      "target_z": -283.7401,
+      "distance": 369.5969,
+      "target_level": "l08_yantar"
+    },
+    {
+      "source_x": -282.8579,
+      "source_y": -0.0,
+      "source_z": 85.2835,
+      "target_x": -278.0988,
+      "target_y": -0.0926,
+      "target_z": 95.8938,
+      "distance": 12.6558,
+      "target_level": "l06_rostok"
+    },
+    {
+      "source_x": -282.8579,
+      "source_y": -0.0,
+      "source_z": 85.2835,
+      "target_x": 166.7554,
+      "target_y": -6.3759,
+      "target_z": -61.0375,
+      "distance": 379.7648,
+      "target_level": "l08_yantar"
+    }
+  ]
+}

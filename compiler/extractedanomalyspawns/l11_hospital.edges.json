@@ -1,0 +1,1229 @@
+{
+  "level_name": "l11_hospital",
+  "level_id": 15,
+  "edge_count": 122,
+  "intra_level_edges": 116,
+  "inter_level_edges": 6,
+  "edges": [
+    {
+      "source_x": -96.3964,
+      "source_y": 25.0624,
+      "source_z": 731.8946,
+      "target_x": -84.0,
+      "target_y": 24.83,
+      "target_z": 732.2,
+      "distance": 13.9248,
+      "target_level": "l11_hospital"
+    },
+    {
+      "source_x": -96.3964,
+      "source_y": 25.0624,
+      "source_z": 731.8946,
+      "target_x": -96.6259,
+      "target_y": 31.9593,
+      "target_z": 727.8423,
+      "distance": 28.0304,
+      "target_level": "l11_hospital"
+    },
+    {
+      "source_x": -75.6174,
+      "source_y": 25.0624,
+      "source_z": 731.2549,
+      "target_x": -72.1223,
+      "target_y": 25.0912,
+      "target_z": 727.9821,
+      "distance": 7.3787,
+      "target_level": "l11_hospital"
+    },
+    {
+      "source_x": -75.6174,
+      "source_y": 25.0624,
+      "source_z": 731.2549,
+      "target_x": -84.0,
+      "target_y": 24.83,
+      "target_z": 732.2,
+      "distance": 11.3242,
+      "target_level": "l11_hospital"
+    },
+    {
+      "source_x": -75.6174,
+      "source_y": 25.0624,
+      "source_z": 731.2549,
+      "target_x": -80.4358,
+      "target_y": 24.9593,
+      "target_z": 723.3647,
+      "distance": 13.0487,
+      "target_level": "l11_hospital"
+    },
+    {
+      "source_x": -80.4358,
+      "source_y": 24.9593,
+      "source_z": 723.3647,
+      "target_x": -92.3704,
+      "target_y": 24.9593,
+      "target_z": 711.6055,
+      "distance": 26.2483,
+      "target_level": "l11_hospital"
+    },
+    {
+      "source_x": -80.4358,
+      "source_y": 24.9593,
+      "source_z": 723.3647,
+      "target_x": -75.6174,
+      "target_y": 25.0624,
+      "target_z": 731.2549,
+      "distance": 12.4937,
+      "target_level": "l11_hospital"
+    },
+    {
+      "source_x": -71.5552,
+      "source_y": 25.1024,
+      "source_z": 722.2338,
+      "target_x": -72.1223,
+      "target_y": 25.0912,
+      "target_z": 727.9821,
+      "distance": 6.4909,
+      "target_level": "l11_hospital"
+    },
+    {
+      "source_x": -72.1223,
+      "source_y": 25.0912,
+      "source_z": 727.9821,
+      "target_x": -71.5552,
+      "target_y": 25.1024,
+      "target_z": 722.2338,
+      "distance": 5.9285,
+      "target_level": "l11_hospital"
+    },
+    {
+      "source_x": -72.1223,
+      "source_y": 25.0912,
+      "source_z": 727.9821,
+      "target_x": -75.6174,
+      "target_y": 25.0624,
+      "target_z": 731.2549,
+      "distance": 7.8304,
+      "target_level": "l11_hospital"
+    },
+    {
+      "source_x": -72.1223,
+      "source_y": 25.0912,
+      "source_z": 727.9821,
+      "target_x": -72.1437,
+      "target_y": 28.623,
+      "target_z": 720.9914,
+      "distance": 8.6227,
+      "target_level": "l11_hospital"
+    },
+    {
+      "source_x": -72.1437,
+      "source_y": 28.623,
+      "source_z": 720.9914,
+      "target_x": -75.891,
+      "target_y": 31.9593,
+      "target_z": 727.2494,
+      "distance": 12.3499,
+      "target_level": "l11_hospital"
+    },
+    {
+      "source_x": -72.1437,
+      "source_y": 28.623,
+      "source_z": 720.9914,
+      "target_x": -72.1223,
+      "target_y": 25.0912,
+      "target_z": 727.9821,
+      "distance": 8.9783,
+      "target_level": "l11_hospital"
+    },
+    {
+      "source_x": -75.891,
+      "source_y": 31.9593,
+      "source_z": 727.2494,
+      "target_x": -72.1437,
+      "target_y": 28.623,
+      "target_z": 720.9914,
+      "distance": 12.3499,
+      "target_level": "l11_hospital"
+    },
+    {
+      "source_x": -75.891,
+      "source_y": 31.9593,
+      "source_z": 727.2494,
+      "target_x": -85.3683,
+      "target_y": 32.1131,
+      "target_z": 698.5167,
+      "distance": 37.5456,
+      "target_level": "l11_hospital"
+    },
+    {
+      "source_x": -75.891,
+      "source_y": 31.9593,
+      "source_z": 727.2494,
+      "target_x": -86.5334,
+      "target_y": 31.9603,
+      "target_z": 741.8168,
+      "distance": 23.1497,
+      "target_level": "l11_hospital"
+    },
+    {
+      "source_x": -86.5334,
+      "source_y": 31.9603,
+      "source_z": 741.8168,
+      "target_x": -96.6259,
+      "target_y": 31.9593,
+      "target_z": 727.8423,
+      "distance": 20.8074,
+      "target_level": "l11_hospital"
+    },
+    {
+      "source_x": -86.5334,
+      "source_y": 31.9603,
+      "source_z": 741.8168,
+      "target_x": -75.891,
+      "target_y": 31.9593,
+      "target_z": 727.2494,
+      "distance": 23.2946,
+      "target_level": "l11_hospital"
+    },
+    {
+      "source_x": -86.5334,
+      "source_y": 31.9603,
+      "source_z": 741.8168,
+      "target_x": -92.7387,
+      "target_y": 24.8514,
+      "target_z": 755.9063,
+      "distance": 36.9633,
+      "target_level": "l11_hospital"
+    },
+    {
+      "source_x": -96.6259,
+      "source_y": 31.9593,
+      "source_z": 727.8423,
+      "target_x": -86.5334,
+      "target_y": 31.9603,
+      "target_z": 741.8168,
+      "distance": 22.4246,
+      "target_level": "l11_hospital"
+    },
+    {
+      "source_x": -96.6259,
+      "source_y": 31.9593,
+      "source_z": 727.8423,
+      "target_x": -96.3964,
+      "target_y": 25.0624,
+      "target_z": 731.8946,
+      "distance": 27.5141,
+      "target_level": "l11_hospital"
+    },
+    {
+      "source_x": -92.6321,
+      "source_y": 31.9599,
+      "source_z": 710.0086,
+      "target_x": -96.2735,
+      "target_y": 31.9593,
+      "target_z": 701.0187,
+      "distance": 11.5836,
+      "target_level": "l11_hospital"
+    },
+    {
+      "source_x": -92.8086,
+      "source_y": 31.9598,
+      "source_z": 689.1472,
+      "target_x": -88.2042,
+      "target_y": 31.9613,
+      "target_z": 681.8727,
+      "distance": 10.927,
+      "target_level": "l11_hospital"
+    },
+    {
+      "source_x": -92.8086,
+      "source_y": 31.9598,
+      "source_z": 689.1472,
+      "target_x": -88.982,
+      "target_y": 36.9593,
+      "target_z": 697.9404,
+      "distance": 19.3014,
+      "target_level": "l11_hospital"
+    },
+    {
+      "source_x": -88.2042,
+      "source_y": 31.9613,
+      "source_z": 681.8727,
+      "target_x": -92.8086,
+      "target_y": 31.9598,
+      "target_z": 689.1472,
+      "distance": 10.927,
+      "target_level": "l11_hospital"
+    },
+    {
+      "source_x": -79.3103,
+      "source_y": 31.9597,
+      "source_z": 681.2552,
+      "target_x": -85.3683,
+      "target_y": 32.1131,
+      "target_z": 698.5167,
+      "distance": 22.9228,
+      "target_level": "l11_hospital"
+    },
+    {
+      "source_x": -85.3683,
+      "source_y": 32.1131,
+      "source_z": 698.5167,
+      "target_x": -88.982,
+      "target_y": 36.9593,
+      "target_z": 697.9404,
+      "distance": 15.9889,
+      "target_level": "l11_hospital"
+    },
+    {
+      "source_x": -85.3683,
+      "source_y": 32.1131,
+      "source_z": 698.5167,
+      "target_x": -79.3103,
+      "target_y": 31.9597,
+      "target_z": 681.2552,
+      "distance": 22.3962,
+      "target_level": "l11_hospital"
+    },
+    {
+      "source_x": -85.3683,
+      "source_y": 32.1131,
+      "source_z": 698.5167,
+      "target_x": -75.891,
+      "target_y": 31.9593,
+      "target_z": 727.2494,
+      "distance": 40.3207,
+      "target_level": "l11_hospital"
+    },
+    {
+      "source_x": -88.7556,
+      "source_y": 24.9585,
+      "source_z": 684.6909,
+      "target_x": -85.0791,
+      "target_y": 25.4372,
+      "target_z": 681.2171,
+      "distance": 7.9968,
+      "target_level": "l11_hospital"
+    },
+    {
+      "source_x": -88.7556,
+      "source_y": 24.9585,
+      "source_z": 684.6909,
+      "target_x": -92.3704,
+      "target_y": 24.9593,
+      "target_z": 711.6055,
+      "distance": 29.8301,
+      "target_level": "l11_hospital"
+    },
+    {
+      "source_x": -92.3704,
+      "source_y": 24.9593,
+      "source_z": 711.6055,
+      "target_x": -88.7556,
+      "target_y": 24.9585,
+      "target_z": 684.6909,
+      "distance": 30.6542,
+      "target_level": "l11_hospital"
+    },
+    {
+      "source_x": -92.3704,
+      "source_y": 24.9593,
+      "source_z": 711.6055,
+      "target_x": -80.4358,
+      "target_y": 24.9593,
+      "target_z": 723.3647,
+      "distance": 24.7385,
+      "target_level": "l11_hospital"
+    },
+    {
+      "source_x": -91.2653,
+      "source_y": 24.9593,
+      "source_z": 666.0399,
+      "target_x": -92.5374,
+      "target_y": 24.9593,
+      "target_z": 646.8276,
+      "distance": 19.2544,
+      "target_level": "l11_hospital"
+    },
+    {
+      "source_x": -91.2653,
+      "source_y": 24.9593,
+      "source_z": 666.0399,
+      "target_x": -85.0791,
+      "target_y": 25.4372,
+      "target_z": 681.2171,
+      "distance": 19.6234,
+      "target_level": "l11_hospital"
+    },
+    {
+      "source_x": -91.2653,
+      "source_y": 24.9593,
+      "source_z": 666.0399,
+      "target_x": -76.0404,
+      "target_y": 31.9615,
+      "target_z": 664.8303,
+      "distance": 57.6231,
+      "target_level": "l11_hospital"
+    },
+    {
+      "source_x": -91.2653,
+      "source_y": 24.9593,
+      "source_z": 666.0399,
+      "target_x": -95.89,
+      "target_y": 31.95,
+      "target_z": 667.79,
+      "distance": 12.4959,
+      "target_level": "l11_hospital"
+    },
+    {
+      "source_x": -80.3336,
+      "source_y": 24.9593,
+      "source_z": 636.6595,
+      "target_x": -75.521,
+      "target_y": 31.9593,
+      "target_z": 624.8637,
+      "distance": 57.4874,
+      "target_level": "l11_hospital"
+    },
+    {
+      "source_x": -80.3336,
+      "source_y": 24.9593,
+      "source_z": 636.6595,
+      "target_x": -92.5374,
+      "target_y": 24.9593,
+      "target_z": 646.8276,
+      "distance": 19.8371,
+      "target_level": "l11_hospital"
+    },
+    {
+      "source_x": -92.5374,
+      "source_y": 24.9593,
+      "source_z": 646.8276,
+      "target_x": -80.3336,
+      "target_y": 24.9593,
+      "target_z": 636.6595,
+      "distance": 19.7472,
+      "target_level": "l11_hospital"
+    },
+    {
+      "source_x": -92.5374,
+      "source_y": 24.9593,
+      "source_z": 646.8276,
+      "target_x": -91.2653,
+      "target_y": 24.9593,
+      "target_z": 666.0399,
+      "distance": 19.2544,
+      "target_level": "l11_hospital"
+    },
+    {
+      "source_x": -82.8415,
+      "source_y": 31.9621,
+      "source_z": 677.1973,
+      "target_x": -75.806,
+      "target_y": 31.9603,
+      "target_z": 675.9926,
+      "distance": 7.769,
+      "target_level": "l11_hospital"
+    },
+    {
+      "source_x": -82.8415,
+      "source_y": 31.9621,
+      "source_z": 677.1973,
+      "target_x": -96.9353,
+      "target_y": 31.9598,
+      "target_z": 676.05,
+      "distance": 17.0873,
+      "target_level": "l11_hospital"
+    },
+    {
+      "source_x": -75.806,
+      "source_y": 31.9603,
+      "source_z": 675.9926,
+      "target_x": -76.0404,
+      "target_y": 31.9615,
+      "target_z": 664.8303,
+      "distance": 11.3138,
+      "target_level": "l11_hospital"
+    },
+    {
+      "source_x": -75.806,
+      "source_y": 31.9603,
+      "source_z": 675.9926,
+      "target_x": -82.8415,
+      "target_y": 31.9621,
+      "target_z": 677.1973,
+      "distance": 7.2574,
+      "target_level": "l11_hospital"
+    },
+    {
+      "source_x": -76.0404,
+      "source_y": 31.9615,
+      "source_z": 664.8303,
+      "target_x": -91.2653,
+      "target_y": 24.9593,
+      "target_z": 666.0399,
+      "distance": 57.4181,
+      "target_level": "l11_hospital"
+    },
+    {
+      "source_x": -76.0404,
+      "source_y": 31.9615,
+      "source_z": 664.8303,
+      "target_x": -75.806,
+      "target_y": 31.9603,
+      "target_z": 675.9926,
+      "distance": 11.8735,
+      "target_level": "l11_hospital"
+    },
+    {
+      "source_x": -76.0404,
+      "source_y": 31.9615,
+      "source_z": 664.8303,
+      "target_x": -76.4157,
+      "target_y": 31.9612,
+      "target_z": 648.3867,
+      "distance": 16.5183,
+      "target_level": "l11_hospital"
+    },
+    {
+      "source_x": -76.4157,
+      "source_y": 31.9612,
+      "source_z": 648.3867,
+      "target_x": -75.521,
+      "target_y": 31.9593,
+      "target_z": 624.8637,
+      "distance": 24.2238,
+      "target_level": "l11_hospital"
+    },
+    {
+      "source_x": -76.4157,
+      "source_y": 31.9612,
+      "source_z": 648.3867,
+      "target_x": -76.0404,
+      "target_y": 31.9615,
+      "target_z": 664.8303,
+      "distance": 17.7871,
+      "target_level": "l11_hospital"
+    },
+    {
+      "source_x": -75.521,
+      "source_y": 31.9593,
+      "source_z": 624.8637,
+      "target_x": -80.3336,
+      "target_y": 24.9593,
+      "target_z": 636.6595,
+      "distance": 57.4439,
+      "target_level": "l11_hospital"
+    },
+    {
+      "source_x": -75.521,
+      "source_y": 31.9593,
+      "source_z": 624.8637,
+      "target_x": -92.375,
+      "target_y": 30.5717,
+      "target_z": 595.6313,
+      "distance": 51.6751,
+      "target_level": "l11_hospital"
+    },
+    {
+      "source_x": -75.521,
+      "source_y": 31.9593,
+      "source_z": 624.8637,
+      "target_x": -76.4157,
+      "target_y": 31.9612,
+      "target_z": 648.3867,
+      "distance": 23.8138,
+      "target_level": "l11_hospital"
+    },
+    {
+      "source_x": -96.9353,
+      "source_y": 31.9598,
+      "source_z": 676.05,
+      "target_x": -82.8415,
+      "target_y": 31.9621,
+      "target_z": 677.1973,
+      "distance": 16.5734,
+      "target_level": "l11_hospital"
+    },
+    {
+      "source_x": -96.9353,
+      "source_y": 31.9598,
+      "source_z": 676.05,
+      "target_x": -96.7465,
+      "target_y": 31.9603,
+      "target_z": 661.7548,
+      "distance": 15.0056,
+      "target_level": "l11_hospital"
+    },
+    {
+      "source_x": -96.9353,
+      "source_y": 31.9598,
+      "source_z": 676.05,
+      "target_x": -95.89,
+      "target_y": 31.95,
+      "target_z": 667.79,
+      "distance": 47.0713,
+      "target_level": "l11_hospital"
+    },
+    {
+      "source_x": -96.7465,
+      "source_y": 31.9603,
+      "source_z": 661.7548,
+      "target_x": -97.0627,
+      "target_y": 31.9601,
+      "target_z": 632.1209,
+      "distance": 34.3837,
+      "target_level": "l11_hospital"
+    },
+    {
+      "source_x": -96.7465,
+      "source_y": 31.9603,
+      "source_z": 661.7548,
+      "target_x": -96.9353,
+      "target_y": 31.9598,
+      "target_z": 676.05,
+      "distance": 15.3031,
+      "target_level": "l11_hospital"
+    },
+    {
+      "source_x": -97.0627,
+      "source_y": 31.9601,
+      "source_z": 632.1209,
+      "target_x": -96.29,
+      "target_y": 31.96,
+      "target_z": 632.1,
+      "distance": 0.773,
+      "target_level": "l11_hospital"
+    },
+    {
+      "source_x": -97.0627,
+      "source_y": 31.9601,
+      "source_z": 632.1209,
+      "target_x": -96.7465,
+      "target_y": 31.9603,
+      "target_z": 661.7548,
+      "distance": 34.2743,
+      "target_level": "l11_hospital"
+    },
+    {
+      "source_x": -104.3043,
+      "source_y": 27.3886,
+      "source_z": 624.379,
+      "target_x": -100.4338,
+      "target_y": 25.0624,
+      "target_z": 613.2749,
+      "distance": 16.0131,
+      "target_level": "l11_hospital"
+    },
+    {
+      "source_x": -100.4338,
+      "source_y": 25.0624,
+      "source_z": 613.2749,
+      "target_x": -92.1166,
+      "target_y": 24.7842,
+      "target_z": 609.5961,
+      "distance": 12.0731,
+      "target_level": "l11_hospital"
+    },
+    {
+      "source_x": -100.4338,
+      "source_y": 25.0624,
+      "source_z": 613.2749,
+      "target_x": -104.3043,
+      "target_y": 27.3886,
+      "target_z": 624.379,
+      "distance": 16.0131,
+      "target_level": "l11_hospital"
+    },
+    {
+      "source_x": -92.1166,
+      "source_y": 24.7842,
+      "source_z": 609.5961,
+      "target_x": -85.3894,
+      "target_y": 24.8076,
+      "target_z": 609.4185,
+      "distance": 6.7296,
+      "target_level": "l11_hospital"
+    },
+    {
+      "source_x": -92.1166,
+      "source_y": 24.7842,
+      "source_z": 609.5961,
+      "target_x": -100.4338,
+      "target_y": 25.0624,
+      "target_z": 613.2749,
+      "distance": 14.0162,
+      "target_level": "l11_hospital"
+    },
+    {
+      "source_x": -85.3894,
+      "source_y": 24.8076,
+      "source_z": 609.4185,
+      "target_x": -84.6747,
+      "target_y": 23.8306,
+      "target_z": 597.8224,
+      "distance": 13.1027,
+      "target_level": "l11_hospital"
+    },
+    {
+      "source_x": -85.3894,
+      "source_y": 24.8076,
+      "source_z": 609.4185,
+      "target_x": -92.1166,
+      "target_y": 24.7842,
+      "target_z": 609.5961,
+      "distance": 6.7296,
+      "target_level": "l11_hospital"
+    },
+    {
+      "source_x": -84.6747,
+      "source_y": 23.8306,
+      "source_z": 597.8224,
+      "target_x": -79.5138,
+      "target_y": 29.8428,
+      "target_z": 599.5486,
+      "distance": 11.7798,
+      "target_level": "l11_hospital"
+    },
+    {
+      "source_x": -84.6747,
+      "source_y": 23.8306,
+      "source_z": 597.8224,
+      "target_x": -85.3894,
+      "target_y": 24.8076,
+      "target_z": 609.4185,
+      "distance": 12.9345,
+      "target_level": "l11_hospital"
+    },
+    {
+      "source_x": -84.6747,
+      "source_y": 23.8306,
+      "source_z": 597.8224,
+      "target_x": -88.7421,
+      "target_y": 22.1255,
+      "target_z": 586.0842,
+      "distance": 16.8694,
+      "target_level": "l11_hospital"
+    },
+    {
+      "source_x": -88.7421,
+      "source_y": 22.1255,
+      "source_z": 586.0842,
+      "target_x": -85.4497,
+      "target_y": 21.8406,
+      "target_z": 568.7873,
+      "distance": 29.5871,
+      "target_level": "l11_hospital"
+    },
+    {
+      "source_x": -88.7421,
+      "source_y": 22.1255,
+      "source_z": 586.0842,
+      "target_x": -83.2345,
+      "target_y": 33.7991,
+      "target_z": 583.409,
+      "distance": 31.9905,
+      "target_level": "l11_hospital"
+    },
+    {
+      "source_x": -88.7421,
+      "source_y": 22.1255,
+      "source_z": 586.0842,
+      "target_x": -84.6747,
+      "target_y": 23.8306,
+      "target_z": 597.8224,
+      "distance": 24.2517,
+      "target_level": "l11_hospital"
+    },
+    {
+      "source_x": -92.375,
+      "source_y": 30.5717,
+      "source_z": 595.6313,
+      "target_x": -96.671,
+      "target_y": 28.4705,
+      "target_z": 566.7173,
+      "distance": 32.3342,
+      "target_level": "l11_hospital"
+    },
+    {
+      "source_x": -92.375,
+      "source_y": 30.5717,
+      "source_z": 595.6313,
+      "target_x": -75.521,
+      "target_y": 31.9593,
+      "target_z": 624.8637,
+      "distance": 57.0999,
+      "target_level": "l11_hospital"
+    },
+    {
+      "source_x": -79.5138,
+      "source_y": 29.8428,
+      "source_z": 599.5486,
+      "target_x": -84.6747,
+      "target_y": 23.8306,
+      "target_z": 597.8224,
+      "distance": 11.8408,
+      "target_level": "l11_hospital"
+    },
+    {
+      "source_x": -79.4474,
+      "source_y": 27.8643,
+      "source_z": 576.963,
+      "target_x": -84.4753,
+      "target_y": 26.6598,
+      "target_z": 558.2253,
+      "distance": 30.1301,
+      "target_level": "l11_hospital"
+    },
+    {
+      "source_x": -79.4474,
+      "source_y": 27.8643,
+      "source_z": 576.963,
+      "target_x": -83.2345,
+      "target_y": 33.7991,
+      "target_z": 583.409,
+      "distance": 12.5552,
+      "target_level": "l11_hospital"
+    },
+    {
+      "source_x": -77.9808,
+      "source_y": 32.3418,
+      "source_z": 845.393,
+      "target_x": -77.6901,
+      "target_y": 32.9667,
+      "target_z": 820.0229,
+      "distance": 26.5462,
+      "target_level": "l11_hospital"
+    },
+    {
+      "source_x": -77.9808,
+      "source_y": 32.3418,
+      "source_z": 845.393,
+      "target_x": -75.6027,
+      "target_y": 28.5955,
+      "target_z": 866.2715,
+      "distance": 21.0135,
+      "target_level": "l11_hospital"
+    },
+    {
+      "source_x": -75.6027,
+      "source_y": 28.5955,
+      "source_z": 866.2715,
+      "target_x": -77.9808,
+      "target_y": 32.3418,
+      "target_z": 845.393,
+      "distance": 21.0135,
+      "target_level": "l11_hospital"
+    },
+    {
+      "source_x": -75.6027,
+      "source_y": 28.5955,
+      "source_z": 866.2715,
+      "target_x": 92.6909,
+      "target_y": 3.9677,
+      "target_z": 407.5659,
+      "distance": 1482.2007,
+      "target_level": "l10_limansk"
+    },
+    {
+      "source_x": -77.6901,
+      "source_y": 32.9667,
+      "source_z": 820.0229,
+      "target_x": -77.9808,
+      "target_y": 32.3418,
+      "target_z": 845.393,
+      "distance": 28.4202,
+      "target_level": "l11_hospital"
+    },
+    {
+      "source_x": -77.6901,
+      "source_y": 32.9667,
+      "source_z": 820.0229,
+      "target_x": -82.593,
+      "target_y": 32.7143,
+      "target_z": 814.366,
+      "distance": 7.8037,
+      "target_level": "l11_hospital"
+    },
+    {
+      "source_x": -82.593,
+      "source_y": 32.7143,
+      "source_z": 814.366,
+      "target_x": -84.5488,
+      "target_y": 32.103,
+      "target_z": 803.4013,
+      "distance": 11.1378,
+      "target_level": "l11_hospital"
+    },
+    {
+      "source_x": -82.593,
+      "source_y": 32.7143,
+      "source_z": 814.366,
+      "target_x": -77.6901,
+      "target_y": 32.9667,
+      "target_z": 820.0229,
+      "distance": 8.37,
+      "target_level": "l11_hospital"
+    },
+    {
+      "source_x": -84.5488,
+      "source_y": 32.103,
+      "source_z": 803.4013,
+      "target_x": -82.593,
+      "target_y": 32.7143,
+      "target_z": 814.366,
+      "distance": 11.1378,
+      "target_level": "l11_hospital"
+    },
+    {
+      "source_x": -84.5488,
+      "source_y": 32.103,
+      "source_z": 803.4013,
+      "target_x": -87.1735,
+      "target_y": 32.5871,
+      "target_z": 782.1743,
+      "distance": 26.3274,
+      "target_level": "l11_hospital"
+    },
+    {
+      "source_x": -87.1735,
+      "source_y": 32.5871,
+      "source_z": 782.1743,
+      "target_x": -92.7387,
+      "target_y": 24.8514,
+      "target_z": 755.9063,
+      "distance": 35.0051,
+      "target_level": "l11_hospital"
+    },
+    {
+      "source_x": -87.1735,
+      "source_y": 32.5871,
+      "source_z": 782.1743,
+      "target_x": -84.5488,
+      "target_y": 32.103,
+      "target_z": 803.4013,
+      "distance": 26.9591,
+      "target_level": "l11_hospital"
+    },
+    {
+      "source_x": -92.7387,
+      "source_y": 24.8514,
+      "source_z": 755.9063,
+      "target_x": -86.5334,
+      "target_y": 31.9603,
+      "target_z": 741.8168,
+      "distance": 37.681,
+      "target_level": "l11_hospital"
+    },
+    {
+      "source_x": -92.7387,
+      "source_y": 24.8514,
+      "source_z": 755.9063,
+      "target_x": -87.1735,
+      "target_y": 32.5871,
+      "target_z": 782.1743,
+      "distance": 35.5323,
+      "target_level": "l11_hospital"
+    },
+    {
+      "source_x": -84.0,
+      "source_y": 24.83,
+      "source_z": 732.2,
+      "target_x": -75.6174,
+      "target_y": 25.0624,
+      "target_z": 731.2549,
+      "distance": 11.3425,
+      "target_level": "l11_hospital"
+    },
+    {
+      "source_x": -84.0,
+      "source_y": 24.83,
+      "source_z": 732.2,
+      "target_x": -96.3964,
+      "target_y": 25.0624,
+      "target_z": 731.8946,
+      "distance": 14.7055,
+      "target_level": "l11_hospital"
+    },
+    {
+      "source_x": -66.5012,
+      "source_y": 19.204,
+      "source_z": 565.8151,
+      "target_x": -76.7023,
+      "target_y": 19.8968,
+      "target_z": 567.0157,
+      "distance": 11.65,
+      "target_level": "l11_hospital"
+    },
+    {
+      "source_x": -66.5012,
+      "source_y": 19.204,
+      "source_z": 565.8151,
+      "target_x": 137.3881,
+      "target_y": 0.1501,
+      "target_z": 340.9939,
+      "distance": 1442.4183,
+      "target_level": "l12_stancia_2"
+    },
+    {
+      "source_x": -95.89,
+      "source_y": 31.95,
+      "source_z": 667.79,
+      "target_x": -91.2653,
+      "target_y": 24.9593,
+      "target_z": 666.0399,
+      "distance": 13.4399,
+      "target_level": "l11_hospital"
+    },
+    {
+      "source_x": -95.89,
+      "source_y": 31.95,
+      "source_z": 667.79,
+      "target_x": -96.9353,
+      "target_y": 31.9598,
+      "target_z": 676.05,
+      "distance": 45.7072,
+      "target_level": "l11_hospital"
+    },
+    {
+      "source_x": -96.29,
+      "source_y": 31.96,
+      "source_z": 632.1,
+      "target_x": -97.0627,
+      "target_y": 31.9601,
+      "target_z": 632.1209,
+      "distance": 0.773,
+      "target_level": "l11_hospital"
+    },
+    {
+      "source_x": -76.7023,
+      "source_y": 19.8968,
+      "source_z": 567.0157,
+      "target_x": -66.5012,
+      "target_y": 19.204,
+      "target_z": 565.8151,
+      "distance": 12.4794,
+      "target_level": "l11_hospital"
+    },
+    {
+      "source_x": -76.7023,
+      "source_y": 19.8968,
+      "source_z": 567.0157,
+      "target_x": -85.4497,
+      "target_y": 21.8406,
+      "target_z": 568.7873,
+      "distance": 16.018,
+      "target_level": "l11_hospital"
+    },
+    {
+      "source_x": -88.982,
+      "source_y": 36.9593,
+      "source_z": 697.9404,
+      "target_x": -85.3683,
+      "target_y": 32.1131,
+      "target_z": 698.5167,
+      "distance": 15.4114,
+      "target_level": "l11_hospital"
+    },
+    {
+      "source_x": -88.982,
+      "source_y": 36.9593,
+      "source_z": 697.9404,
+      "target_x": -92.8086,
+      "target_y": 31.9598,
+      "target_z": 689.1472,
+      "distance": 18.7238,
+      "target_level": "l11_hospital"
+    },
+    {
+      "source_x": -88.982,
+      "source_y": 36.9593,
+      "source_z": 697.9404,
+      "target_x": -96.2735,
+      "target_y": 31.9593,
+      "target_z": 701.0187,
+      "distance": 23.9561,
+      "target_level": "l11_hospital"
+    },
+    {
+      "source_x": -83.2345,
+      "source_y": 33.7991,
+      "source_z": 583.409,
+      "target_x": -79.4474,
+      "target_y": 27.8643,
+      "target_z": 576.963,
+      "distance": 12.8568,
+      "target_level": "l11_hospital"
+    },
+    {
+      "source_x": -83.2345,
+      "source_y": 33.7991,
+      "source_z": 583.409,
+      "target_x": -88.7421,
+      "target_y": 22.1255,
+      "target_z": 586.0842,
+      "distance": 30.9582,
+      "target_level": "l11_hospital"
+    },
+    {
+      "source_x": -85.0791,
+      "source_y": 25.4372,
+      "source_z": 681.2171,
+      "target_x": -91.2653,
+      "target_y": 24.9593,
+      "target_z": 666.0399,
+      "distance": 22.576,
+      "target_level": "l11_hospital"
+    },
+    {
+      "source_x": -85.0791,
+      "source_y": 25.4372,
+      "source_z": 681.2171,
+      "target_x": -88.7556,
+      "target_y": 24.9585,
+      "target_z": 684.6909,
+      "distance": 7.4948,
+      "target_level": "l11_hospital"
+    },
+    {
+      "source_x": -85.4497,
+      "source_y": 21.8406,
+      "source_z": 568.7873,
+      "target_x": -76.7023,
+      "target_y": 19.8968,
+      "target_z": 567.0157,
+      "distance": 15.8435,
+      "target_level": "l11_hospital"
+    },
+    {
+      "source_x": -85.4497,
+      "source_y": 21.8406,
+      "source_z": 568.7873,
+      "target_x": -88.7421,
+      "target_y": 22.1255,
+      "target_z": 586.0842,
+      "distance": 31.5537,
+      "target_level": "l11_hospital"
+    },
+    {
+      "source_x": -100.4076,
+      "source_y": 32.0574,
+      "source_z": 695.9184,
+      "target_x": -96.2735,
+      "target_y": 31.9593,
+      "target_z": 701.0187,
+      "distance": 9.8558,
+      "target_level": "l11_hospital"
+    },
+    {
+      "source_x": -100.4076,
+      "source_y": 32.0574,
+      "source_z": 695.9184,
+      "target_x": 115.9158,
+      "target_y": 3.3453,
+      "target_z": 263.1573,
+      "distance": 1448.8916,
+      "target_level": "l10_limansk"
+    },
+    {
+      "source_x": -96.2735,
+      "source_y": 31.9593,
+      "source_z": 701.0187,
+      "target_x": -92.6321,
+      "target_y": 31.9599,
+      "target_z": 710.0086,
+      "distance": 11.9432,
+      "target_level": "l11_hospital"
+    },
+    {
+      "source_x": -96.2735,
+      "source_y": 31.9593,
+      "source_z": 701.0187,
+      "target_x": -88.982,
+      "target_y": 36.9593,
+      "target_z": 697.9404,
+      "distance": 24.219,
+      "target_level": "l11_hospital"
+    },
+    {
+      "source_x": -96.2735,
+      "source_y": 31.9593,
+      "source_z": 701.0187,
+      "target_x": -100.4076,
+      "target_y": 32.0574,
+      "target_z": 695.9184,
+      "distance": 9.7285,
+      "target_level": "l11_hospital"
+    },
+    {
+      "source_x": -96.2735,
+      "source_y": 31.9593,
+      "source_z": 701.0187,
+      "target_x": -31.9035,
+      "target_y": 12.9728,
+      "target_z": 209.6223,
+      "distance": 1535.6787,
+      "target_level": "l10_limansk"
+    },
+    {
+      "source_x": -84.4753,
+      "source_y": 26.6598,
+      "source_z": 558.2253,
+      "target_x": -79.4474,
+      "target_y": 27.8643,
+      "target_z": 576.963,
+      "distance": 27.8843,
+      "target_level": "l11_hospital"
+    },
+    {
+      "source_x": -84.4753,
+      "source_y": 26.6598,
+      "source_z": 558.2253,
+      "target_x": -96.671,
+      "target_y": 28.4705,
+      "target_z": 566.7173,
+      "distance": 18.8659,
+      "target_level": "l11_hospital"
+    },
+    {
+      "source_x": -84.4753,
+      "source_y": 26.6598,
+      "source_z": 558.2253,
+      "target_x": 164.4914,
+      "target_y": 0.1501,
+      "target_z": 346.5562,
+      "distance": 1475.606,
+      "target_level": "l12_stancia_2"
+    },
+    {
+      "source_x": -96.671,
+      "source_y": 28.4705,
+      "source_z": 566.7173,
+      "target_x": -84.4753,
+      "target_y": 26.6598,
+      "target_z": 558.2253,
+      "distance": 18.928,
+      "target_level": "l11_hospital"
+    },
+    {
+      "source_x": -96.671,
+      "source_y": 28.4705,
+      "source_z": 566.7173,
+      "target_x": -92.375,
+      "target_y": 30.5717,
+      "target_z": 595.6313,
+      "distance": 31.927,
+      "target_level": "l11_hospital"
+    },
+    {
+      "source_x": -96.671,
+      "source_y": 28.4705,
+      "source_z": 566.7173,
+      "target_x": -38.0594,
+      "target_y": 0.0045,
+      "target_z": 441.3074,
+      "distance": 1473.0035,
+      "target_level": "l12_stancia_2"
+    }
+  ]
+}

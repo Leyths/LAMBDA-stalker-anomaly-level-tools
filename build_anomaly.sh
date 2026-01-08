@@ -1,0 +1,34 @@
+#!/bin/bash
+# Build all.spawn - main game graph compilation script
+#
+# Usage:
+#   ./build_anomaly.sh              # Normal build
+#   ./build_anomaly.sh --force      # Force rebuild all cross tables
+
+SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+
+# Find python
+if command -v python3 &> /dev/null; then
+    PYTHON=python3
+elif command -v python &> /dev/null; then
+    PYTHON=python
+else
+    echo "Error: python not found" >&2
+    exit 1
+fi
+
+# Check for required dependencies
+if ! $PYTHON -c "import numpy" &> /dev/null; then
+    echo "Error: numpy is not installed" >&2
+    echo "Install it with: $PYTHON -m pip install numpy" >&2
+    exit 1
+fi
+
+cd "$SCRIPT_DIR/compiler" || exit 1
+
+$PYTHON build_all_spawn.py \
+    --config ../levels.ini \
+    --output ../gamedata/spawns/all.spawn \
+    --blacklist ../spawn_blacklist.ini \
+    --basemod anomaly
+    "$@"

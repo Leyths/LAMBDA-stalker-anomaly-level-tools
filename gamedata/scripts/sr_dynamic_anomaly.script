@@ -1,0 +1,86 @@
+--[[
+    sr_dynamic_anomaly.script
+
+    Space restrictor scheme for triggering dynamic anomaly spawning.
+    One restrictor per level triggers sr_dynamic_anomaly_manager to spawn
+    all anomalies for that level from dynamic_anomaly_locations.ltx.
+
+    Custom data format:
+    [logic]
+    active = sr_dynamic_anomaly
+
+    Updated: 2026/1/19 - Refactored to one restrictor per level
+--]]
+
+local function log(fmt, ...)
+    printf("sr_dynamic_anomaly | " .. fmt, ...)
+end
+
+-- Log that script is loaded
+printf("sr_dynamic_anomaly.script LOADED")
+
+class "action_dynamic_anomaly"
+
+function action_dynamic_anomaly:__init(obj, storage)
+    self.object = obj
+    self.st = storage
+    self.triggered = false
+end
+
+function action_dynamic_anomaly:reset_scheme()
+    self.st.signals = empty_table(self.st.signals)
+    log("reset_scheme called for %s", self.object:name())
+end
+
+function action_dynamic_anomaly:deactivate()
+    -- Deactivate this scheme to stop per-frame updates
+    local root_st = db.storage[self.object:id()]
+    if root_st then
+        root_st.active_section = nil
+        root_st.active_scheme = nil
+    end
+    log("Deactivated restrictor: %s", self.object:name())
+end
+
+function action_dynamic_anomaly:update(delta)
+    -- Only trigger once
+    if self.triggered then
+        self:deactivate()
+        return
+    end
+
+    -- Get current level name from restrictor name: sr_dynamic_anomaly_<level>
+    local restrictor_name = self.object:name()
+    local level_name = string.match(restrictor_name, "^sr_dynamic_anomaly_(.+)$")
+
+    if not level_name then
+        -- Fallback to current level name
+        level_name = level.name()
+    end
+
+    log("Triggering anomaly spawn for level: %s", level_name)
+
+    -- Tell manager to spawn all anomalies for this level
+    if sr_dynamic_anomaly_manager and sr_dynamic_anomaly_manager.spawn_all_anomalies_for_level then
+        sr_dynamic_anomaly_manager.spawn_all_anomalies_for_level(level_name)
+        log("Successfully triggered anomaly spawn for level %s", level_name)
+    else
+        log("ERROR: sr_dynamic_anomaly_manager.spawn_all_anomalies_for_level not available!")
+    end
+
+    self.triggered = true
+    self:deactivate()
+end
+
+--------------------------------------------------------------------------------
+-- Standard scheme functions
+--------------------------------------------------------------------------------
+function add_to_binder(npc, ini, scheme, section, storage)
+    local action = action_dynamic_anomaly(npc, storage)
+    xr_logic.subscribe_action_for_events(npc, storage, action)
+end
+
+function set_scheme(obj, ini, scheme, section, gulag_name)
+    local st = xr_logic.assign_storage_and_bind(obj, ini, scheme, section)
+    st.logic = xr_logic.cfg_get_switch_conditions(ini, section, obj)
+end

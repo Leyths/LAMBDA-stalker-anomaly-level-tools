@@ -1,0 +1,1149 @@
+{
+  "level_name": "jupiter_underground",
+  "level_id": 29,
+  "edge_count": 114,
+  "intra_level_edges": 112,
+  "inter_level_edges": 2,
+  "edges": [
+    {
+      "source_x": -49.4079,
+      "source_y": 8.0083,
+      "source_z": 457.4517,
+      "target_x": -53.4028,
+      "target_y": 8.0082,
+      "target_z": 429.4887,
+      "distance": 30.6886,
+      "target_level": "jupiter_underground"
+    },
+    {
+      "source_x": -49.4079,
+      "source_y": 8.0083,
+      "source_z": 457.4517,
+      "target_x": 332.3063,
+      "target_y": 20.5166,
+      "target_z": -329.9749,
+      "distance": 900.503,
+      "target_level": "jupiter"
+    },
+    {
+      "source_x": -48.4222,
+      "source_y": 8.0677,
+      "source_z": 425.3758,
+      "target_x": -30.0067,
+      "target_y": 8.0677,
+      "target_z": 406.2691,
+      "distance": 29.1476,
+      "target_level": "jupiter_underground"
+    },
+    {
+      "source_x": -48.4222,
+      "source_y": 8.0677,
+      "source_z": 425.3758,
+      "target_x": -53.4028,
+      "target_y": 8.0082,
+      "target_z": 429.4887,
+      "distance": 6.4593,
+      "target_level": "jupiter_underground"
+    },
+    {
+      "source_x": -30.0067,
+      "source_y": 8.0677,
+      "source_z": 406.2691,
+      "target_x": 2.5593,
+      "target_y": 8.0677,
+      "target_z": 405.5759,
+      "distance": 32.6031,
+      "target_level": "jupiter_underground"
+    },
+    {
+      "source_x": -30.0067,
+      "source_y": 8.0677,
+      "source_z": 406.2691,
+      "target_x": -48.4222,
+      "target_y": 8.0677,
+      "target_z": 425.3758,
+      "distance": 29.2046,
+      "target_level": "jupiter_underground"
+    },
+    {
+      "source_x": 2.5593,
+      "source_y": 8.0677,
+      "source_z": 405.5759,
+      "target_x": 5.2549,
+      "target_y": 8.0677,
+      "target_z": 380.8425,
+      "distance": 27.0927,
+      "target_level": "jupiter_underground"
+    },
+    {
+      "source_x": 2.5593,
+      "source_y": 8.0677,
+      "source_z": 405.5759,
+      "target_x": 4.2178,
+      "target_y": 8.0677,
+      "target_z": 429.0443,
+      "distance": 25.3911,
+      "target_level": "jupiter_underground"
+    },
+    {
+      "source_x": 2.5593,
+      "source_y": 8.0677,
+      "source_z": 405.5759,
+      "target_x": -30.0067,
+      "target_y": 8.0677,
+      "target_z": 406.2691,
+      "distance": 32.6051,
+      "target_level": "jupiter_underground"
+    },
+    {
+      "source_x": 4.2178,
+      "source_y": 8.0677,
+      "source_z": 429.0443,
+      "target_x": 2.5593,
+      "target_y": 8.0677,
+      "target_z": 405.5759,
+      "distance": 24.7035,
+      "target_level": "jupiter_underground"
+    },
+    {
+      "source_x": 5.2549,
+      "source_y": 8.0677,
+      "source_z": 380.8425,
+      "target_x": 6.3049,
+      "target_y": 8.0677,
+      "target_z": 350.6032,
+      "distance": 30.2763,
+      "target_level": "jupiter_underground"
+    },
+    {
+      "source_x": 5.2549,
+      "source_y": 8.0677,
+      "source_z": 380.8425,
+      "target_x": 2.5593,
+      "target_y": 8.0677,
+      "target_z": 405.5759,
+      "distance": 25.0134,
+      "target_level": "jupiter_underground"
+    },
+    {
+      "source_x": 6.3049,
+      "source_y": 8.0677,
+      "source_z": 350.6032,
+      "target_x": 5.8799,
+      "target_y": 8.0677,
+      "target_z": 323.1288,
+      "distance": 27.4777,
+      "target_level": "jupiter_underground"
+    },
+    {
+      "source_x": 6.3049,
+      "source_y": 8.0677,
+      "source_z": 350.6032,
+      "target_x": 5.2549,
+      "target_y": 8.0677,
+      "target_z": 380.8425,
+      "distance": 31.2427,
+      "target_level": "jupiter_underground"
+    },
+    {
+      "source_x": 5.8799,
+      "source_y": 8.0677,
+      "source_z": 323.1288,
+      "target_x": 8.4375,
+      "target_y": 7.9977,
+      "target_z": 302.2085,
+      "distance": 21.0761,
+      "target_level": "jupiter_underground"
+    },
+    {
+      "source_x": 5.8799,
+      "source_y": 8.0677,
+      "source_z": 323.1288,
+      "target_x": 6.3049,
+      "target_y": 8.0677,
+      "target_z": 350.6032,
+      "distance": 27.4777,
+      "target_level": "jupiter_underground"
+    },
+    {
+      "source_x": 8.4375,
+      "source_y": 7.9977,
+      "source_z": 302.2085,
+      "target_x": 5.7364,
+      "target_y": 8.0677,
+      "target_z": 267.7318,
+      "distance": 36.0317,
+      "target_level": "jupiter_underground"
+    },
+    {
+      "source_x": 8.4375,
+      "source_y": 7.9977,
+      "source_z": 302.2085,
+      "target_x": 5.8799,
+      "target_y": 8.0677,
+      "target_z": 323.1288,
+      "distance": 21.0761,
+      "target_level": "jupiter_underground"
+    },
+    {
+      "source_x": 5.7364,
+      "source_y": 8.0677,
+      "source_z": 267.7318,
+      "target_x": 28.3958,
+      "target_y": 8.0677,
+      "target_z": 259.115,
+      "distance": 31.6937,
+      "target_level": "jupiter_underground"
+    },
+    {
+      "source_x": 5.7364,
+      "source_y": 8.0677,
+      "source_z": 267.7318,
+      "target_x": 8.4375,
+      "target_y": 7.9977,
+      "target_z": 302.2085,
+      "distance": 35.6848,
+      "target_level": "jupiter_underground"
+    },
+    {
+      "source_x": 28.3958,
+      "source_y": 8.0677,
+      "source_z": 259.115,
+      "target_x": 5.7364,
+      "target_y": 8.0677,
+      "target_z": 267.7318,
+      "distance": 31.8507,
+      "target_level": "jupiter_underground"
+    },
+    {
+      "source_x": 28.3958,
+      "source_y": 8.0677,
+      "source_z": 259.115,
+      "target_x": 6.3291,
+      "target_y": 8.0677,
+      "target_z": 228.4698,
+      "distance": 65.0346,
+      "target_level": "jupiter_underground"
+    },
+    {
+      "source_x": 6.3291,
+      "source_y": 8.0677,
+      "source_z": 228.4698,
+      "target_x": 6.2421,
+      "target_y": 8.0677,
+      "target_z": 196.0623,
+      "distance": 33.8714,
+      "target_level": "jupiter_underground"
+    },
+    {
+      "source_x": 6.3291,
+      "source_y": 8.0677,
+      "source_z": 228.4698,
+      "target_x": 28.3958,
+      "target_y": 8.0677,
+      "target_z": 259.115,
+      "distance": 65.2383,
+      "target_level": "jupiter_underground"
+    },
+    {
+      "source_x": 6.2421,
+      "source_y": 8.0677,
+      "source_z": 196.0623,
+      "target_x": 16.8661,
+      "target_y": 9.4082,
+      "target_z": 184.2009,
+      "distance": 18.251,
+      "target_level": "jupiter_underground"
+    },
+    {
+      "source_x": 6.2421,
+      "source_y": 8.0677,
+      "source_z": 196.0623,
+      "target_x": 6.3291,
+      "target_y": 8.0677,
+      "target_z": 228.4698,
+      "distance": 33.5227,
+      "target_level": "jupiter_underground"
+    },
+    {
+      "source_x": 16.8661,
+      "source_y": 9.4082,
+      "source_z": 184.2009,
+      "target_x": 39.1896,
+      "target_y": 4.7043,
+      "target_z": 182.2679,
+      "distance": 23.3688,
+      "target_level": "jupiter_underground"
+    },
+    {
+      "source_x": 16.8661,
+      "source_y": 9.4082,
+      "source_z": 184.2009,
+      "target_x": 6.2421,
+      "target_y": 8.0677,
+      "target_z": 196.0623,
+      "distance": 18.251,
+      "target_level": "jupiter_underground"
+    },
+    {
+      "source_x": 39.1896,
+      "source_y": 4.7043,
+      "source_z": 182.2679,
+      "target_x": 51.8245,
+      "target_y": 0.0292,
+      "target_z": 181.8381,
+      "distance": 12.6421,
+      "target_level": "jupiter_underground"
+    },
+    {
+      "source_x": 39.1896,
+      "source_y": 4.7043,
+      "source_z": 182.2679,
+      "target_x": 16.8661,
+      "target_y": 9.4082,
+      "target_z": 184.2009,
+      "distance": 23.541,
+      "target_level": "jupiter_underground"
+    },
+    {
+      "source_x": 51.8245,
+      "source_y": 0.0292,
+      "source_z": 181.8381,
+      "target_x": 51.3909,
+      "target_y": -0.3931,
+      "target_z": 154.8991,
+      "distance": 27.5544,
+      "target_level": "jupiter_underground"
+    },
+    {
+      "source_x": 51.8245,
+      "source_y": 0.0292,
+      "source_z": 181.8381,
+      "target_x": 39.1896,
+      "target_y": 4.7043,
+      "target_z": 182.2679,
+      "distance": 12.6421,
+      "target_level": "jupiter_underground"
+    },
+    {
+      "source_x": 51.3909,
+      "source_y": -0.3931,
+      "source_z": 154.8991,
+      "target_x": 55.4364,
+      "target_y": -0.4132,
+      "target_z": 132.8444,
+      "distance": 24.9574,
+      "target_level": "jupiter_underground"
+    },
+    {
+      "source_x": 51.3909,
+      "source_y": -0.3931,
+      "source_z": 154.8991,
+      "target_x": 51.5437,
+      "target_y": 5.609,
+      "target_z": 153.2452,
+      "distance": 1.6609,
+      "target_level": "jupiter_underground"
+    },
+    {
+      "source_x": 51.3909,
+      "source_y": -0.3931,
+      "source_z": 154.8991,
+      "target_x": 51.8245,
+      "target_y": 0.0292,
+      "target_z": 181.8381,
+      "distance": 26.966,
+      "target_level": "jupiter_underground"
+    },
+    {
+      "source_x": 55.4364,
+      "source_y": -0.4132,
+      "source_z": 132.8444,
+      "target_x": 66.498,
+      "target_y": 0.0,
+      "target_z": 118.9248,
+      "distance": 17.7795,
+      "target_level": "jupiter_underground"
+    },
+    {
+      "source_x": 55.4364,
+      "source_y": -0.4132,
+      "source_z": 132.8444,
+      "target_x": 51.3909,
+      "target_y": -0.3931,
+      "target_z": 154.8991,
+      "distance": 22.8025,
+      "target_level": "jupiter_underground"
+    },
+    {
+      "source_x": 66.498,
+      "source_y": 0.0,
+      "source_z": 118.9248,
+      "target_x": 46.5691,
+      "target_y": 0.0,
+      "target_z": 98.2615,
+      "distance": 30.2806,
+      "target_level": "jupiter_underground"
+    },
+    {
+      "source_x": 66.498,
+      "source_y": 0.0,
+      "source_z": 118.9248,
+      "target_x": 55.4364,
+      "target_y": -0.4132,
+      "target_z": 132.8444,
+      "distance": 17.7795,
+      "target_level": "jupiter_underground"
+    },
+    {
+      "source_x": 46.5691,
+      "source_y": 0.0,
+      "source_z": 98.2615,
+      "target_x": 31.8423,
+      "target_y": -0.0,
+      "target_z": 77.459,
+      "distance": 26.8927,
+      "target_level": "jupiter_underground"
+    },
+    {
+      "source_x": 46.5691,
+      "source_y": 0.0,
+      "source_z": 98.2615,
+      "target_x": 66.498,
+      "target_y": 0.0,
+      "target_z": 118.9248,
+      "distance": 29.9252,
+      "target_level": "jupiter_underground"
+    },
+    {
+      "source_x": 31.8423,
+      "source_y": -0.0,
+      "source_z": 77.459,
+      "target_x": 22.9006,
+      "target_y": 0.0,
+      "target_z": 60.3151,
+      "distance": 20.6733,
+      "target_level": "jupiter_underground"
+    },
+    {
+      "source_x": 31.8423,
+      "source_y": -0.0,
+      "source_z": 77.459,
+      "target_x": 46.5691,
+      "target_y": 0.0,
+      "target_z": 98.2615,
+      "distance": 26.8484,
+      "target_level": "jupiter_underground"
+    },
+    {
+      "source_x": 22.9006,
+      "source_y": 0.0,
+      "source_z": 60.3151,
+      "target_x": 31.8423,
+      "target_y": -0.0,
+      "target_z": 77.459,
+      "distance": 26.8419,
+      "target_level": "jupiter_underground"
+    },
+    {
+      "source_x": 22.9006,
+      "source_y": 0.0,
+      "source_z": 60.3151,
+      "target_x": 15.5772,
+      "target_y": 0.0001,
+      "target_z": 38.3184,
+      "distance": 26.8602,
+      "target_level": "jupiter_underground"
+    },
+    {
+      "source_x": 51.5437,
+      "source_y": 5.609,
+      "source_z": 153.2452,
+      "target_x": 51.3909,
+      "target_y": -0.3931,
+      "target_z": 154.8991,
+      "distance": 1.6609,
+      "target_level": "jupiter_underground"
+    },
+    {
+      "source_x": 15.5772,
+      "source_y": 0.0001,
+      "source_z": 38.3184,
+      "target_x": 7.4436,
+      "target_y": 0.201,
+      "target_z": 14.5101,
+      "distance": 25.1593,
+      "target_level": "jupiter_underground"
+    },
+    {
+      "source_x": 15.5772,
+      "source_y": 0.0001,
+      "source_z": 38.3184,
+      "target_x": 25.0625,
+      "target_y": 0.0002,
+      "target_z": 17.0954,
+      "distance": 23.2462,
+      "target_level": "jupiter_underground"
+    },
+    {
+      "source_x": 15.5772,
+      "source_y": 0.0001,
+      "source_z": 38.3184,
+      "target_x": 22.9006,
+      "target_y": 0.0,
+      "target_z": 60.3151,
+      "distance": 26.9863,
+      "target_level": "jupiter_underground"
+    },
+    {
+      "source_x": 15.5772,
+      "source_y": 0.0001,
+      "source_z": 38.3184,
+      "target_x": -8.1634,
+      "target_y": 0.0001,
+      "target_z": 41.8844,
+      "distance": 24.0441,
+      "target_level": "jupiter_underground"
+    },
+    {
+      "source_x": 47.5822,
+      "source_y": -0.5,
+      "source_z": 31.1191,
+      "target_x": 25.0625,
+      "target_y": 0.0002,
+      "target_z": 17.0954,
+      "distance": 35.3488,
+      "target_level": "jupiter_underground"
+    },
+    {
+      "source_x": -8.1634,
+      "source_y": 0.0001,
+      "source_z": 41.8844,
+      "target_x": -13.6627,
+      "target_y": 1.5921,
+      "target_z": -0.2957,
+      "distance": 45.6127,
+      "target_level": "jupiter_underground"
+    },
+    {
+      "source_x": -8.1634,
+      "source_y": 0.0001,
+      "source_z": 41.8844,
+      "target_x": 15.5772,
+      "target_y": 0.0001,
+      "target_z": 38.3184,
+      "distance": 24.0608,
+      "target_level": "jupiter_underground"
+    },
+    {
+      "source_x": -8.1634,
+      "source_y": 0.0001,
+      "source_z": 41.8844,
+      "target_x": -29.7059,
+      "target_y": 16.9034,
+      "target_z": 29.8983,
+      "distance": 48.1025,
+      "target_level": "jupiter_underground"
+    },
+    {
+      "source_x": 7.4436,
+      "source_y": 0.201,
+      "source_z": 14.5101,
+      "target_x": 8.9579,
+      "target_y": 0.3757,
+      "target_z": -11.8341,
+      "distance": 26.4076,
+      "target_level": "jupiter_underground"
+    },
+    {
+      "source_x": 7.4436,
+      "source_y": 0.201,
+      "source_z": 14.5101,
+      "target_x": 15.5772,
+      "target_y": 0.0001,
+      "target_z": 38.3184,
+      "distance": 25.1593,
+      "target_level": "jupiter_underground"
+    },
+    {
+      "source_x": 8.9579,
+      "source_y": 0.3757,
+      "source_z": -11.8341,
+      "target_x": 31.3717,
+      "target_y": 1.5923,
+      "target_z": -15.1614,
+      "distance": 23.163,
+      "target_level": "jupiter_underground"
+    },
+    {
+      "source_x": 8.9579,
+      "source_y": 0.3757,
+      "source_z": -11.8341,
+      "target_x": 7.4436,
+      "target_y": 0.201,
+      "target_z": 14.5101,
+      "distance": 27.5302,
+      "target_level": "jupiter_underground"
+    },
+    {
+      "source_x": 8.9579,
+      "source_y": 0.3757,
+      "source_z": -11.8341,
+      "target_x": -5.236,
+      "target_y": 0.0004,
+      "target_z": -36.0941,
+      "distance": 46.0229,
+      "target_level": "jupiter_underground"
+    },
+    {
+      "source_x": -13.6627,
+      "source_y": 1.5921,
+      "source_z": -0.2957,
+      "target_x": -24.0992,
+      "target_y": 1.5934,
+      "target_z": -20.8494,
+      "distance": 25.2435,
+      "target_level": "jupiter_underground"
+    },
+    {
+      "source_x": -13.6627,
+      "source_y": 1.5921,
+      "source_z": -0.2957,
+      "target_x": -8.1634,
+      "target_y": 0.0001,
+      "target_z": 41.8844,
+      "distance": 46.0721,
+      "target_level": "jupiter_underground"
+    },
+    {
+      "source_x": -13.6627,
+      "source_y": 1.5921,
+      "source_z": -0.2957,
+      "target_x": -30.3449,
+      "target_y": 3.1845,
+      "target_z": 16.4927,
+      "distance": 27.212,
+      "target_level": "jupiter_underground"
+    },
+    {
+      "source_x": -30.3449,
+      "source_y": 3.1845,
+      "source_z": 16.4927,
+      "target_x": -13.6627,
+      "target_y": 1.5921,
+      "target_z": -0.2957,
+      "distance": 26.0824,
+      "target_level": "jupiter_underground"
+    },
+    {
+      "source_x": -30.3449,
+      "source_y": 3.1845,
+      "source_z": 16.4927,
+      "target_x": -29.7059,
+      "target_y": 16.9034,
+      "target_z": 29.8983,
+      "distance": 43.2711,
+      "target_level": "jupiter_underground"
+    },
+    {
+      "source_x": -24.0992,
+      "source_y": 1.5934,
+      "source_z": -20.8494,
+      "target_x": -5.236,
+      "target_y": 0.0004,
+      "target_z": -36.0941,
+      "distance": 32.3063,
+      "target_level": "jupiter_underground"
+    },
+    {
+      "source_x": -24.0992,
+      "source_y": 1.5934,
+      "source_z": -20.8494,
+      "target_x": -13.6627,
+      "target_y": 1.5921,
+      "target_z": -0.2957,
+      "distance": 24.6486,
+      "target_level": "jupiter_underground"
+    },
+    {
+      "source_x": -5.236,
+      "source_y": 0.0004,
+      "source_z": -36.0941,
+      "target_x": -0.2285,
+      "target_y": 26.47,
+      "target_z": -41.6707,
+      "distance": 7.4949,
+      "target_level": "jupiter_underground"
+    },
+    {
+      "source_x": -5.236,
+      "source_y": 0.0004,
+      "source_z": -36.0941,
+      "target_x": 8.9579,
+      "target_y": 0.3757,
+      "target_z": -11.8341,
+      "distance": 30.6654,
+      "target_level": "jupiter_underground"
+    },
+    {
+      "source_x": -5.236,
+      "source_y": 0.0004,
+      "source_z": -36.0941,
+      "target_x": -24.0992,
+      "target_y": 1.5934,
+      "target_z": -20.8494,
+      "distance": 30.6239,
+      "target_level": "jupiter_underground"
+    },
+    {
+      "source_x": 19.9818,
+      "source_y": 0.15,
+      "source_z": -38.9598,
+      "target_x": 43.8224,
+      "target_y": 0.0,
+      "target_z": -36.4939,
+      "distance": 26.1218,
+      "target_level": "jupiter_underground"
+    },
+    {
+      "source_x": 19.9818,
+      "source_y": 0.15,
+      "source_z": -38.9598,
+      "target_x": -3.328,
+      "target_y": 0.0193,
+      "target_z": -61.8334,
+      "distance": 39.9372,
+      "target_level": "jupiter_underground"
+    },
+    {
+      "source_x": 19.9818,
+      "source_y": 0.15,
+      "source_z": -38.9598,
+      "target_x": -0.2285,
+      "target_y": 26.47,
+      "target_z": -41.6707,
+      "distance": 20.3913,
+      "target_level": "jupiter_underground"
+    },
+    {
+      "source_x": 43.8224,
+      "source_y": 0.0,
+      "source_z": -36.4939,
+      "target_x": 31.3717,
+      "target_y": 1.5923,
+      "target_z": -15.1614,
+      "distance": 26.0406,
+      "target_level": "jupiter_underground"
+    },
+    {
+      "source_x": 43.8224,
+      "source_y": 0.0,
+      "source_z": -36.4939,
+      "target_x": 19.9818,
+      "target_y": 0.15,
+      "target_z": -38.9598,
+      "distance": 27.0632,
+      "target_level": "jupiter_underground"
+    },
+    {
+      "source_x": 31.3717,
+      "source_y": 1.5923,
+      "source_z": -15.1614,
+      "target_x": 43.8224,
+      "target_y": 0.0,
+      "target_z": -36.4939,
+      "distance": 32.1049,
+      "target_level": "jupiter_underground"
+    },
+    {
+      "source_x": 31.3717,
+      "source_y": 1.5923,
+      "source_z": -15.1614,
+      "target_x": 8.9579,
+      "target_y": 0.3757,
+      "target_z": -11.8341,
+      "distance": 22.9946,
+      "target_level": "jupiter_underground"
+    },
+    {
+      "source_x": 31.3717,
+      "source_y": 1.5923,
+      "source_z": -15.1614,
+      "target_x": 63.6653,
+      "target_y": 3.0946,
+      "target_z": 4.2027,
+      "distance": 48.8805,
+      "target_level": "jupiter_underground"
+    },
+    {
+      "source_x": 31.3717,
+      "source_y": 1.5923,
+      "source_z": -15.1614,
+      "target_x": 25.0625,
+      "target_y": 0.0002,
+      "target_z": 17.0954,
+      "distance": 35.4744,
+      "target_level": "jupiter_underground"
+    },
+    {
+      "source_x": 63.6653,
+      "source_y": 3.0946,
+      "source_z": 4.2027,
+      "target_x": 31.3717,
+      "target_y": 1.5923,
+      "target_z": -15.1614,
+      "distance": 47.6713,
+      "target_level": "jupiter_underground"
+    },
+    {
+      "source_x": -0.2285,
+      "source_y": 26.47,
+      "source_z": -41.6707,
+      "target_x": 19.9818,
+      "target_y": 0.15,
+      "target_z": -38.9598,
+      "distance": 20.3913,
+      "target_level": "jupiter_underground"
+    },
+    {
+      "source_x": -0.2285,
+      "source_y": 26.47,
+      "source_z": -41.6707,
+      "target_x": -5.236,
+      "target_y": 0.0004,
+      "target_z": -36.0941,
+      "distance": 7.4949,
+      "target_level": "jupiter_underground"
+    },
+    {
+      "source_x": -29.7059,
+      "source_y": 16.9034,
+      "source_z": 29.8983,
+      "target_x": -30.3449,
+      "target_y": 3.1845,
+      "target_z": 16.4927,
+      "distance": 42.7318,
+      "target_level": "jupiter_underground"
+    },
+    {
+      "source_x": -29.7059,
+      "source_y": 16.9034,
+      "source_z": 29.8983,
+      "target_x": -8.1634,
+      "target_y": 0.0001,
+      "target_z": 41.8844,
+      "distance": 53.8685,
+      "target_level": "jupiter_underground"
+    },
+    {
+      "source_x": 25.0625,
+      "source_y": 0.0002,
+      "source_z": 17.0954,
+      "target_x": 31.3717,
+      "target_y": 1.5923,
+      "target_z": -15.1614,
+      "distance": 37.0615,
+      "target_level": "jupiter_underground"
+    },
+    {
+      "source_x": 25.0625,
+      "source_y": 0.0002,
+      "source_z": 17.0954,
+      "target_x": 47.5822,
+      "target_y": -0.5,
+      "target_z": 31.1191,
+      "distance": 30.582,
+      "target_level": "jupiter_underground"
+    },
+    {
+      "source_x": 25.0625,
+      "source_y": 0.0002,
+      "source_z": 17.0954,
+      "target_x": 15.5772,
+      "target_y": 0.0001,
+      "target_z": 38.3184,
+      "distance": 23.2462,
+      "target_level": "jupiter_underground"
+    },
+    {
+      "source_x": -3.328,
+      "source_y": 0.0193,
+      "source_z": -61.8334,
+      "target_x": -13.2524,
+      "target_y": 0.1472,
+      "target_z": -74.6794,
+      "distance": 18.6279,
+      "target_level": "jupiter_underground"
+    },
+    {
+      "source_x": -3.328,
+      "source_y": 0.0193,
+      "source_z": -61.8334,
+      "target_x": 19.9818,
+      "target_y": 0.15,
+      "target_z": -38.9598,
+      "distance": 40.7988,
+      "target_level": "jupiter_underground"
+    },
+    {
+      "source_x": -13.2524,
+      "source_y": 0.1472,
+      "source_z": -74.6794,
+      "target_x": -1.3221,
+      "target_y": 4.7043,
+      "target_z": -93.3998,
+      "distance": 24.4099,
+      "target_level": "jupiter_underground"
+    },
+    {
+      "source_x": -13.2524,
+      "source_y": 0.1472,
+      "source_z": -74.6794,
+      "target_x": -3.328,
+      "target_y": 0.0193,
+      "target_z": -61.8334,
+      "distance": 18.0357,
+      "target_level": "jupiter_underground"
+    },
+    {
+      "source_x": -1.3221,
+      "source_y": 4.7043,
+      "source_z": -93.3998,
+      "target_x": 12.3893,
+      "target_y": 4.2874,
+      "target_z": -112.9029,
+      "distance": 23.8405,
+      "target_level": "jupiter_underground"
+    },
+    {
+      "source_x": -1.3221,
+      "source_y": 4.7043,
+      "source_z": -93.3998,
+      "target_x": -13.2524,
+      "target_y": 0.1472,
+      "target_z": -74.6794,
+      "distance": 23.5668,
+      "target_level": "jupiter_underground"
+    },
+    {
+      "source_x": 12.3893,
+      "source_y": 4.2874,
+      "source_z": -112.9029,
+      "target_x": 15.9078,
+      "target_y": 4.2874,
+      "target_z": -135.9506,
+      "distance": 23.7749,
+      "target_level": "jupiter_underground"
+    },
+    {
+      "source_x": 12.3893,
+      "source_y": 4.2874,
+      "source_z": -112.9029,
+      "target_x": -1.3221,
+      "target_y": 4.7043,
+      "target_z": -93.3998,
+      "distance": 23.8405,
+      "target_level": "jupiter_underground"
+    },
+    {
+      "source_x": 15.9078,
+      "source_y": 4.2874,
+      "source_z": -135.9506,
+      "target_x": 36.5409,
+      "target_y": 4.2874,
+      "target_z": -145.7976,
+      "distance": 24.0722,
+      "target_level": "jupiter_underground"
+    },
+    {
+      "source_x": 15.9078,
+      "source_y": 4.2874,
+      "source_z": -135.9506,
+      "target_x": 12.3893,
+      "target_y": 4.2874,
+      "target_z": -112.9029,
+      "distance": 24.695,
+      "target_level": "jupiter_underground"
+    },
+    {
+      "source_x": 36.5409,
+      "source_y": 4.2874,
+      "source_z": -145.7976,
+      "target_x": 36.9804,
+      "target_y": 4.2838,
+      "target_z": -165.3819,
+      "distance": 19.5892,
+      "target_level": "jupiter_underground"
+    },
+    {
+      "source_x": 36.5409,
+      "source_y": 4.2874,
+      "source_z": -145.7976,
+      "target_x": 15.9078,
+      "target_y": 4.2874,
+      "target_z": -135.9506,
+      "distance": 26.1289,
+      "target_level": "jupiter_underground"
+    },
+    {
+      "source_x": 36.9804,
+      "source_y": 4.2838,
+      "source_z": -165.3819,
+      "target_x": 52.9086,
+      "target_y": 3.9889,
+      "target_z": -155.6688,
+      "distance": 19.8668,
+      "target_level": "jupiter_underground"
+    },
+    {
+      "source_x": 36.9804,
+      "source_y": 4.2838,
+      "source_z": -165.3819,
+      "target_x": 36.5409,
+      "target_y": 4.2874,
+      "target_z": -145.7976,
+      "distance": 19.5892,
+      "target_level": "jupiter_underground"
+    },
+    {
+      "source_x": 52.9086,
+      "source_y": 3.9889,
+      "source_z": -155.6688,
+      "target_x": 53.9328,
+      "target_y": 3.9889,
+      "target_z": -181.0335,
+      "distance": 25.3853,
+      "target_level": "jupiter_underground"
+    },
+    {
+      "source_x": 52.9086,
+      "source_y": 3.9889,
+      "source_z": -155.6688,
+      "target_x": 36.9804,
+      "target_y": 4.2838,
+      "target_z": -165.3819,
+      "distance": 20.7212,
+      "target_level": "jupiter_underground"
+    },
+    {
+      "source_x": 53.9328,
+      "source_y": 3.9889,
+      "source_z": -181.0335,
+      "target_x": 65.8345,
+      "target_y": 3.9889,
+      "target_z": -204.3889,
+      "distance": 33.126,
+      "target_level": "jupiter_underground"
+    },
+    {
+      "source_x": 53.9328,
+      "source_y": 3.9889,
+      "source_z": -181.0335,
+      "target_x": 52.9086,
+      "target_y": 3.9889,
+      "target_z": -155.6688,
+      "distance": 25.3853,
+      "target_level": "jupiter_underground"
+    },
+    {
+      "source_x": 65.8345,
+      "source_y": 3.9889,
+      "source_z": -204.3889,
+      "target_x": 66.5692,
+      "target_y": 3.9889,
+      "target_z": -231.7511,
+      "distance": 28.2682,
+      "target_level": "jupiter_underground"
+    },
+    {
+      "source_x": 65.8345,
+      "source_y": 3.9889,
+      "source_z": -204.3889,
+      "target_x": 53.9328,
+      "target_y": 3.9889,
+      "target_z": -181.0335,
+      "distance": 28.4889,
+      "target_level": "jupiter_underground"
+    },
+    {
+      "source_x": 66.5692,
+      "source_y": 3.9889,
+      "source_z": -231.7511,
+      "target_x": 71.5051,
+      "target_y": 4.2335,
+      "target_z": -236.6345,
+      "distance": 6.9434,
+      "target_level": "jupiter_underground"
+    },
+    {
+      "source_x": 66.5692,
+      "source_y": 3.9889,
+      "source_z": -231.7511,
+      "target_x": 80.5243,
+      "target_y": 4.0223,
+      "target_z": -222.5933,
+      "distance": 18.262,
+      "target_level": "jupiter_underground"
+    },
+    {
+      "source_x": 66.5692,
+      "source_y": 3.9889,
+      "source_z": -231.7511,
+      "target_x": 65.8345,
+      "target_y": 3.9889,
+      "target_z": -204.3889,
+      "distance": 27.8315,
+      "target_level": "jupiter_underground"
+    },
+    {
+      "source_x": 71.5051,
+      "source_y": 4.2335,
+      "source_z": -236.6345,
+      "target_x": 66.5692,
+      "target_y": 3.9889,
+      "target_z": -231.7511,
+      "distance": 6.9434,
+      "target_level": "jupiter_underground"
+    },
+    {
+      "source_x": 71.5051,
+      "source_y": 4.2335,
+      "source_z": -236.6345,
+      "target_x": 186.212,
+      "target_y": -0.5065,
+      "target_z": -255.1059,
+      "distance": 1378.7285,
+      "target_level": "pripyat"
+    },
+    {
+      "source_x": 80.5243,
+      "source_y": 4.0223,
+      "source_z": -222.5933,
+      "target_x": 66.5692,
+      "target_y": 3.9889,
+      "target_z": -231.7511,
+      "distance": 21.0781,
+      "target_level": "jupiter_underground"
+    },
+    {
+      "source_x": -53.4028,
+      "source_y": 8.0082,
+      "source_z": 429.4887,
+      "target_x": -48.4222,
+      "target_y": 8.0677,
+      "target_z": 425.3758,
+      "distance": 6.4593,
+      "target_level": "jupiter_underground"
+    },
+    {
+      "source_x": -53.4028,
+      "source_y": 8.0082,
+      "source_z": 429.4887,
+      "target_x": -49.4079,
+      "target_y": 8.0083,
+      "target_z": 457.4517,
+      "distance": 28.3629,
+      "target_level": "jupiter_underground"
+    }
+  ]
+}

@@ -1,0 +1,9 @@
+/.tmp/
+/levels/
+__pycache__/
+/gamedata/
+/build.log
+.idea
+/misc/Universal-ACDC-main/my_unpacked_spawn/
+/my-env/
+/gamesources/

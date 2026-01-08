@@ -1,0 +1,5969 @@
+{
+  "level_name": "k02_trucks_cemetery",
+  "level_id": 32,
+  "edge_count": 596,
+  "intra_level_edges": 588,
+  "inter_level_edges": 8,
+  "edges": [
+    {
+      "source_x": -142.5345,
+      "source_y": 7.0584,
+      "source_z": -289.9093,
+      "target_x": -104.8017,
+      "target_y": 6.4255,
+      "target_z": -305.5844,
+      "distance": 40.8591,
+      "target_level": "k02_trucks_cemetery"
+    },
+    {
+      "source_x": -142.5345,
+      "source_y": 7.0584,
+      "source_z": -289.9093,
+      "target_x": -118.5463,
+      "target_y": 5.7326,
+      "target_z": -268.6628,
+      "distance": 40.2609,
+      "target_level": "k02_trucks_cemetery"
+    },
+    {
+      "source_x": -142.5345,
+      "source_y": 7.0584,
+      "source_z": -289.9093,
+      "target_x": -196.8184,
+      "target_y": 8.4288,
+      "target_z": -314.8112,
+      "distance": 69.0686,
+      "target_level": "k02_trucks_cemetery"
+    },
+    {
+      "source_x": -104.8017,
+      "source_y": 6.4255,
+      "source_z": -305.5844,
+      "target_x": -115.6685,
+      "target_y": 7.8314,
+      "target_z": -331.0501,
+      "distance": 39.7892,
+      "target_level": "k02_trucks_cemetery"
+    },
+    {
+      "source_x": -104.8017,
+      "source_y": 6.4255,
+      "source_z": -305.5844,
+      "target_x": -97.1712,
+      "target_y": 6.5437,
+      "target_z": -301.5398,
+      "distance": 8.6362,
+      "target_level": "k02_trucks_cemetery"
+    },
+    {
+      "source_x": -104.8017,
+      "source_y": 6.4255,
+      "source_z": -305.5844,
+      "target_x": -142.5345,
+      "target_y": 7.0584,
+      "target_z": -289.9093,
+      "distance": 40.8591,
+      "target_level": "k02_trucks_cemetery"
+    },
+    {
+      "source_x": -118.5463,
+      "source_y": 5.7326,
+      "source_z": -268.6628,
+      "target_x": -126.3367,
+      "target_y": 6.1334,
+      "target_z": -236.54,
+      "distance": 33.475,
+      "target_level": "k02_trucks_cemetery"
+    },
+    {
+      "source_x": -118.5463,
+      "source_y": 5.7326,
+      "source_z": -268.6628,
+      "target_x": -142.5345,
+      "target_y": 7.0584,
+      "target_z": -289.9093,
+      "distance": 43.8941,
+      "target_level": "k02_trucks_cemetery"
+    },
+    {
+      "source_x": -126.3367,
+      "source_y": 6.1334,
+      "source_z": -236.54,
+      "target_x": -118.5463,
+      "target_y": 5.7326,
+      "target_z": -268.6628,
+      "distance": 35.8367,
+      "target_level": "k02_trucks_cemetery"
+    },
+    {
+      "source_x": -126.3367,
+      "source_y": 6.1334,
+      "source_z": -236.54,
+      "target_x": -95.7518,
+      "target_y": 6.5647,
+      "target_z": -221.6921,
+      "distance": 34.1096,
+      "target_level": "k02_trucks_cemetery"
+    },
+    {
+      "source_x": -126.3367,
+      "source_y": 6.1334,
+      "source_z": -236.54,
+      "target_x": -179.3057,
+      "target_y": 6.3581,
+      "target_z": -222.6153,
+      "distance": 61.9958,
+      "target_level": "k02_trucks_cemetery"
+    },
+    {
+      "source_x": -95.7518,
+      "source_y": 6.5647,
+      "source_z": -221.6921,
+      "target_x": -49.5665,
+      "target_y": 13.506,
+      "target_z": -197.4394,
+      "distance": 56.959,
+      "target_level": "k02_trucks_cemetery"
+    },
+    {
+      "source_x": -95.7518,
+      "source_y": 6.5647,
+      "source_z": -221.6921,
+      "target_x": -91.1271,
+      "target_y": 5.238,
+      "target_z": -173.4108,
+      "distance": 49.8639,
+      "target_level": "k02_trucks_cemetery"
+    },
+    {
+      "source_x": -95.7518,
+      "source_y": 6.5647,
+      "source_z": -221.6921,
+      "target_x": -126.3367,
+      "target_y": 6.1334,
+      "target_z": -236.54,
+      "distance": 39.1256,
+      "target_level": "k02_trucks_cemetery"
+    },
+    {
+      "source_x": -179.3057,
+      "source_y": 6.3581,
+      "source_z": -222.6153,
+      "target_x": -126.3367,
+      "target_y": 6.1334,
+      "target_z": -236.54,
+      "distance": 63.9174,
+      "target_level": "k02_trucks_cemetery"
+    },
+    {
+      "source_x": -179.3057,
+      "source_y": 6.3581,
+      "source_z": -222.6153,
+      "target_x": -188.6806,
+      "target_y": 7.898,
+      "target_z": -268.4941,
+      "distance": 55.8817,
+      "target_level": "k02_trucks_cemetery"
+    },
+    {
+      "source_x": -179.3057,
+      "source_y": 6.3581,
+      "source_z": -222.6153,
+      "target_x": -202.3338,
+      "target_y": 5.2326,
+      "target_z": -170.7489,
+      "distance": 76.4747,
+      "target_level": "k02_trucks_cemetery"
+    },
+    {
+      "source_x": -179.3057,
+      "source_y": 6.3581,
+      "source_z": -222.6153,
+      "target_x": -225.6859,
+      "target_y": 7.3826,
+      "target_z": -234.2373,
+      "distance": 55.6636,
+      "target_level": "k02_trucks_cemetery"
+    },
+    {
+      "source_x": -188.6806,
+      "source_y": 7.898,
+      "source_z": -268.4941,
+      "target_x": -196.8184,
+      "target_y": 8.4288,
+      "target_z": -314.8112,
+      "distance": 50.9895,
+      "target_level": "k02_trucks_cemetery"
+    },
+    {
+      "source_x": -188.6806,
+      "source_y": 7.898,
+      "source_z": -268.4941,
+      "target_x": -179.3057,
+      "target_y": 6.3581,
+      "target_z": -222.6153,
+      "distance": 49.7978,
+      "target_level": "k02_trucks_cemetery"
+    },
+    {
+      "source_x": -196.8184,
+      "source_y": 8.4288,
+      "source_z": -314.8112,
+      "target_x": -211.7147,
+      "target_y": 8.9635,
+      "target_z": -370.596,
+      "distance": 62.1388,
+      "target_level": "k02_trucks_cemetery"
+    },
+    {
+      "source_x": -196.8184,
+      "source_y": 8.4288,
+      "source_z": -314.8112,
+      "target_x": -142.5345,
+      "target_y": 7.0584,
+      "target_z": -289.9093,
+      "distance": 71.6024,
+      "target_level": "k02_trucks_cemetery"
+    },
+    {
+      "source_x": -196.8184,
+      "source_y": 8.4288,
+      "source_z": -314.8112,
+      "target_x": -188.6806,
+      "target_y": 7.898,
+      "target_z": -268.4941,
+      "distance": 47.5531,
+      "target_level": "k02_trucks_cemetery"
+    },
+    {
+      "source_x": -196.8184,
+      "source_y": 8.4288,
+      "source_z": -314.8112,
+      "target_x": -237.1733,
+      "target_y": 9.8451,
+      "target_z": -284.5288,
+      "distance": 59.3796,
+      "target_level": "k02_trucks_cemetery"
+    },
+    {
+      "source_x": -115.6685,
+      "source_y": 7.8314,
+      "source_z": -331.0501,
+      "target_x": -115.9836,
+      "target_y": 10.7243,
+      "target_z": -375.4888,
+      "distance": 44.4398,
+      "target_level": "k02_trucks_cemetery"
+    },
+    {
+      "source_x": -115.6685,
+      "source_y": 7.8314,
+      "source_z": -331.0501,
+      "target_x": -104.8017,
+      "target_y": 6.4255,
+      "target_z": -305.5844,
+      "distance": 38.7112,
+      "target_level": "k02_trucks_cemetery"
+    },
+    {
+      "source_x": -57.7318,
+      "source_y": 7.1288,
+      "source_z": -326.0316,
+      "target_x": -42.3681,
+      "target_y": 6.5649,
+      "target_z": -372.8459,
+      "distance": 51.7883,
+      "target_level": "k02_trucks_cemetery"
+    },
+    {
+      "source_x": -57.7318,
+      "source_y": 7.1288,
+      "source_z": -326.0316,
+      "target_x": -11.3911,
+      "target_y": 5.6334,
+      "target_z": -310.8993,
+      "distance": 48.7488,
+      "target_level": "k02_trucks_cemetery"
+    },
+    {
+      "source_x": -57.7318,
+      "source_y": 7.1288,
+      "source_z": -326.0316,
+      "target_x": -97.1712,
+      "target_y": 6.5437,
+      "target_z": -301.5398,
+      "distance": 55.4347,
+      "target_level": "k02_trucks_cemetery"
+    },
+    {
+      "source_x": -11.3911,
+      "source_y": 5.6334,
+      "source_z": -310.8993,
+      "target_x": -1.7976,
+      "target_y": 5.2614,
+      "target_z": -308.7455,
+      "distance": 9.8323,
+      "target_level": "k02_trucks_cemetery"
+    },
+    {
+      "source_x": -11.3911,
+      "source_y": 5.6334,
+      "source_z": -310.8993,
+      "target_x": -34.3883,
+      "target_y": 7.5243,
+      "target_z": -280.9048,
+      "distance": 37.7961,
+      "target_level": "k02_trucks_cemetery"
+    },
+    {
+      "source_x": -11.3911,
+      "source_y": 5.6334,
+      "source_z": -310.8993,
+      "target_x": -57.7318,
+      "target_y": 7.1288,
+      "target_z": -326.0316,
+      "distance": 48.7488,
+      "target_level": "k02_trucks_cemetery"
+    },
+    {
+      "source_x": -34.3883,
+      "source_y": 7.5243,
+      "source_z": -280.9048,
+      "target_x": -11.3911,
+      "target_y": 5.6334,
+      "target_z": -310.8993,
+      "distance": 37.7961,
+      "target_level": "k02_trucks_cemetery"
+    },
+    {
+      "source_x": -34.3883,
+      "source_y": 7.5243,
+      "source_z": -280.9048,
+      "target_x": -3.1924,
+      "target_y": 21.4403,
+      "target_z": -260.6235,
+      "distance": 41.6757,
+      "target_level": "k02_trucks_cemetery"
+    },
+    {
+      "source_x": -34.3883,
+      "source_y": 7.5243,
+      "source_z": -280.9048,
+      "target_x": -39.4711,
+      "target_y": 18.5676,
+      "target_z": -236.4445,
+      "distance": 46.9408,
+      "target_level": "k02_trucks_cemetery"
+    },
+    {
+      "source_x": -39.4711,
+      "source_y": 18.5676,
+      "source_z": -236.4445,
+      "target_x": -34.3883,
+      "target_y": 7.5243,
+      "target_z": -280.9048,
+      "distance": 46.6357,
+      "target_level": "k02_trucks_cemetery"
+    },
+    {
+      "source_x": -39.4711,
+      "source_y": 18.5676,
+      "source_z": -236.4445,
+      "target_x": -16.2237,
+      "target_y": 25.4936,
+      "target_z": -218.8261,
+      "distance": 35.7994,
+      "target_level": "k02_trucks_cemetery"
+    },
+    {
+      "source_x": -39.4711,
+      "source_y": 18.5676,
+      "source_z": -236.4445,
+      "target_x": -49.5665,
+      "target_y": 13.506,
+      "target_z": -197.4394,
+      "distance": 40.2905,
+      "target_level": "k02_trucks_cemetery"
+    },
+    {
+      "source_x": -91.1271,
+      "source_y": 5.238,
+      "source_z": -173.4108,
+      "target_x": -95.7518,
+      "target_y": 6.5647,
+      "target_z": -221.6921,
+      "distance": 48.5774,
+      "target_level": "k02_trucks_cemetery"
+    },
+    {
+      "source_x": -91.1271,
+      "source_y": 5.238,
+      "source_z": -173.4108,
+      "target_x": -80.0321,
+      "target_y": 5.266,
+      "target_z": -119.2989,
+      "distance": 58.3935,
+      "target_level": "k02_trucks_cemetery"
+    },
+    {
+      "source_x": -153.2759,
+      "source_y": -4.6923,
+      "source_z": -155.447,
+      "target_x": -148.6075,
+      "target_y": -9.1049,
+      "target_z": -102.9356,
+      "distance": 61.5658,
+      "target_level": "k02_trucks_cemetery"
+    },
+    {
+      "source_x": -153.2759,
+      "source_y": -4.6923,
+      "source_z": -155.447,
+      "target_x": -202.3338,
+      "target_y": 5.2326,
+      "target_z": -170.7489,
+      "distance": 73.7576,
+      "target_level": "k02_trucks_cemetery"
+    },
+    {
+      "source_x": -202.3338,
+      "source_y": 5.2326,
+      "source_z": -170.7489,
+      "target_x": -179.3057,
+      "target_y": 6.3581,
+      "target_z": -222.6153,
+      "distance": 68.1423,
+      "target_level": "k02_trucks_cemetery"
+    },
+    {
+      "source_x": -202.3338,
+      "source_y": 5.2326,
+      "source_z": -170.7489,
+      "target_x": -153.2759,
+      "target_y": -4.6923,
+      "target_z": -155.447,
+      "distance": 63.3039,
+      "target_level": "k02_trucks_cemetery"
+    },
+    {
+      "source_x": -202.3338,
+      "source_y": 5.2326,
+      "source_z": -170.7489,
+      "target_x": -197.7031,
+      "target_y": 4.5966,
+      "target_z": -110.7487,
+      "distance": 61.4514,
+      "target_level": "k02_trucks_cemetery"
+    },
+    {
+      "source_x": -202.3338,
+      "source_y": 5.2326,
+      "source_z": -170.7489,
+      "target_x": -283.8712,
+      "target_y": 10.8422,
+      "target_z": -181.6189,
+      "distance": 82.2588,
+      "target_level": "k02_trucks_cemetery"
+    },
+    {
+      "source_x": -197.7031,
+      "source_y": 4.5966,
+      "source_z": -110.7487,
+      "target_x": -202.3338,
+      "target_y": 5.2326,
+      "target_z": -170.7489,
+      "distance": 60.1899,
+      "target_level": "k02_trucks_cemetery"
+    },
+    {
+      "source_x": -197.7031,
+      "source_y": 4.5966,
+      "source_z": -110.7487,
+      "target_x": -148.6075,
+      "target_y": -9.1049,
+      "target_z": -102.9356,
+      "distance": 75.1311,
+      "target_level": "k02_trucks_cemetery"
+    },
+    {
+      "source_x": -197.7031,
+      "source_y": 4.5966,
+      "source_z": -110.7487,
+      "target_x": -189.8007,
+      "target_y": 4.5417,
+      "target_z": -54.5504,
+      "distance": 57.3091,
+      "target_level": "k02_trucks_cemetery"
+    },
+    {
+      "source_x": -197.7031,
+      "source_y": 4.5966,
+      "source_z": -110.7487,
+      "target_x": -284.4014,
+      "target_y": 13.7841,
+      "target_z": -115.4864,
+      "distance": 101.7364,
+      "target_level": "k02_trucks_cemetery"
+    },
+    {
+      "source_x": -148.6075,
+      "source_y": -9.1049,
+      "source_z": -102.9356,
+      "target_x": -153.2759,
+      "target_y": -4.6923,
+      "target_z": -155.447,
+      "distance": 59.3998,
+      "target_level": "k02_trucks_cemetery"
+    },
+    {
+      "source_x": -148.6075,
+      "source_y": -9.1049,
+      "source_z": -102.9356,
+      "target_x": -107.1647,
+      "target_y": 4.8971,
+      "target_z": -115.7905,
+      "distance": 52.0947,
+      "target_level": "k02_trucks_cemetery"
+    },
+    {
+      "source_x": -148.6075,
+      "source_y": -9.1049,
+      "source_z": -102.9356,
+      "target_x": -197.7031,
+      "target_y": 4.5966,
+      "target_z": -110.7487,
+      "distance": 74.3254,
+      "target_level": "k02_trucks_cemetery"
+    },
+    {
+      "source_x": -107.1647,
+      "source_y": 4.8971,
+      "source_z": -115.7905,
+      "target_x": -80.0321,
+      "target_y": 5.266,
+      "target_z": -119.2989,
+      "distance": 27.3586,
+      "target_level": "k02_trucks_cemetery"
+    },
+    {
+      "source_x": -107.1647,
+      "source_y": 4.8971,
+      "source_z": -115.7905,
+      "target_x": -111.7515,
+      "target_y": 3.9518,
+      "target_z": -65.4419,
+      "distance": 50.557,
+      "target_level": "k02_trucks_cemetery"
+    },
+    {
+      "source_x": -107.1647,
+      "source_y": 4.8971,
+      "source_z": -115.7905,
+      "target_x": -148.6075,
+      "target_y": -9.1049,
+      "target_z": -102.9356,
+      "distance": 58.1582,
+      "target_level": "k02_trucks_cemetery"
+    },
+    {
+      "source_x": -215.325,
+      "source_y": 5.5076,
+      "source_z": -35.2955,
+      "target_x": -189.8007,
+      "target_y": 4.5417,
+      "target_z": -54.5504,
+      "distance": 45.5141,
+      "target_level": "k02_trucks_cemetery"
+    },
+    {
+      "source_x": -215.325,
+      "source_y": 5.5076,
+      "source_z": -35.2955,
+      "target_x": -220.6584,
+      "target_y": 6.3431,
+      "target_z": 49.3554,
+      "distance": 84.8187,
+      "target_level": "k02_trucks_cemetery"
+    },
+    {
+      "source_x": -215.325,
+      "source_y": 5.5076,
+      "source_z": -35.2955,
+      "target_x": -282.5917,
+      "target_y": 13.1373,
+      "target_z": -42.6361,
+      "distance": 70.8915,
+      "target_level": "k02_trucks_cemetery"
+    },
+    {
+      "source_x": -157.2903,
+      "source_y": -4.2163,
+      "source_z": -27.3599,
+      "target_x": -106.3135,
+      "target_y": 2.172,
+      "target_z": -25.3946,
+      "distance": 59.6762,
+      "target_level": "k02_trucks_cemetery"
+    },
+    {
+      "source_x": -157.2903,
+      "source_y": -4.2163,
+      "source_z": -27.3599,
+      "target_x": -179.3422,
+      "target_y": 4.3264,
+      "target_z": 37.2051,
+      "distance": 71.407,
+      "target_level": "k02_trucks_cemetery"
+    },
+    {
+      "source_x": -157.2903,
+      "source_y": -4.2163,
+      "source_z": -27.3599,
+      "target_x": -189.8007,
+      "target_y": 4.5417,
+      "target_z": -54.5504,
+      "distance": 58.7917,
+      "target_level": "k02_trucks_cemetery"
+    },
+    {
+      "source_x": -106.3135,
+      "source_y": 2.172,
+      "source_z": -25.3946,
+      "target_x": -111.7515,
+      "target_y": 3.9518,
+      "target_z": -65.4419,
+      "distance": 40.4148,
+      "target_level": "k02_trucks_cemetery"
+    },
+    {
+      "source_x": -106.3135,
+      "source_y": 2.172,
+      "source_z": -25.3946,
+      "target_x": -105.8858,
+      "target_y": 1.6544,
+      "target_z": 23.9255,
+      "distance": 49.3374,
+      "target_level": "k02_trucks_cemetery"
+    },
+    {
+      "source_x": -106.3135,
+      "source_y": 2.172,
+      "source_z": -25.3946,
+      "target_x": -157.2903,
+      "target_y": -4.2163,
+      "target_z": -27.3599,
+      "distance": 61.8551,
+      "target_level": "k02_trucks_cemetery"
+    },
+    {
+      "source_x": -105.8858,
+      "source_y": 1.6544,
+      "source_z": 23.9255,
+      "target_x": -106.3135,
+      "target_y": 2.172,
+      "target_z": -25.3946,
+      "distance": 49.3274,
+      "target_level": "k02_trucks_cemetery"
+    },
+    {
+      "source_x": -105.8858,
+      "source_y": 1.6544,
+      "source_z": 23.9255,
+      "target_x": -81.975,
+      "target_y": 1.5329,
+      "target_z": 30.5023,
+      "distance": 25.1769,
+      "target_level": "k02_trucks_cemetery"
+    },
+    {
+      "source_x": -105.8858,
+      "source_y": 1.6544,
+      "source_z": 23.9255,
+      "target_x": -137.1499,
+      "target_y": 3.2106,
+      "target_z": 71.1174,
+      "distance": 71.532,
+      "target_level": "k02_trucks_cemetery"
+    },
+    {
+      "source_x": -179.3422,
+      "source_y": 4.3264,
+      "source_z": 37.2051,
+      "target_x": -157.2903,
+      "target_y": -4.2163,
+      "target_z": -27.3599,
+      "distance": 77.1503,
+      "target_level": "k02_trucks_cemetery"
+    },
+    {
+      "source_x": -179.3422,
+      "source_y": 4.3264,
+      "source_z": 37.2051,
+      "target_x": -137.1499,
+      "target_y": 3.2106,
+      "target_z": 71.1174,
+      "distance": 69.989,
+      "target_level": "k02_trucks_cemetery"
+    },
+    {
+      "source_x": -179.3422,
+      "source_y": 4.3264,
+      "source_z": 37.2051,
+      "target_x": -220.6584,
+      "target_y": 6.3431,
+      "target_z": 49.3554,
+      "distance": 53.2535,
+      "target_level": "k02_trucks_cemetery"
+    },
+    {
+      "source_x": -36.9681,
+      "source_y": 16.7831,
+      "source_z": -59.542,
+      "target_x": -43.0711,
+      "target_y": 9.3948,
+      "target_z": -117.7521,
+      "distance": 61.9217,
+      "target_level": "k02_trucks_cemetery"
+    },
+    {
+      "source_x": -36.9681,
+      "source_y": 16.7831,
+      "source_z": -59.542,
+      "target_x": -7.6478,
+      "target_y": 20.3186,
+      "target_z": -71.6957,
+      "distance": 41.9311,
+      "target_level": "k02_trucks_cemetery"
+    },
+    {
+      "source_x": -36.9681,
+      "source_y": 16.7831,
+      "source_z": -59.542,
+      "target_x": -79.7073,
+      "target_y": 3.8924,
+      "target_z": -65.9355,
+      "distance": 46.7644,
+      "target_level": "k02_trucks_cemetery"
+    },
+    {
+      "source_x": -43.0711,
+      "source_y": 9.3948,
+      "source_z": -117.7521,
+      "target_x": -9.7704,
+      "target_y": 18.4162,
+      "target_z": -120.2084,
+      "distance": 36.3787,
+      "target_level": "k02_trucks_cemetery"
+    },
+    {
+      "source_x": -43.0711,
+      "source_y": 9.3948,
+      "source_z": -117.7521,
+      "target_x": -36.9681,
+      "target_y": 16.7831,
+      "target_z": -59.542,
+      "distance": 61.8184,
+      "target_level": "k02_trucks_cemetery"
+    },
+    {
+      "source_x": -43.0711,
+      "source_y": 9.3948,
+      "source_z": -117.7521,
+      "target_x": -80.0321,
+      "target_y": 5.266,
+      "target_z": -119.2989,
+      "distance": 36.9933,
+      "target_level": "k02_trucks_cemetery"
+    },
+    {
+      "source_x": -2.3555,
+      "source_y": 23.8132,
+      "source_z": -96.0307,
+      "target_x": -9.7704,
+      "target_y": 18.4162,
+      "target_z": -120.2084,
+      "distance": 27.6686,
+      "target_level": "k02_trucks_cemetery"
+    },
+    {
+      "source_x": -2.3555,
+      "source_y": 23.8132,
+      "source_z": -96.0307,
+      "target_x": 41.4005,
+      "target_y": 9.8667,
+      "target_z": -107.5161,
+      "distance": 54.7127,
+      "target_level": "k02_trucks_cemetery"
+    },
+    {
+      "source_x": -2.3555,
+      "source_y": 23.8132,
+      "source_z": -96.0307,
+      "target_x": -7.6478,
+      "target_y": 20.3186,
+      "target_z": -71.6957,
+      "distance": 28.6323,
+      "target_level": "k02_trucks_cemetery"
+    },
+    {
+      "source_x": 31.4133,
+      "source_y": 11.8778,
+      "source_z": -125.0814,
+      "target_x": 44.3064,
+      "target_y": 8.3037,
+      "target_z": -176.0628,
+      "distance": 56.1451,
+      "target_level": "k02_trucks_cemetery"
+    },
+    {
+      "source_x": 31.4133,
+      "source_y": 11.8778,
+      "source_z": -125.0814,
+      "target_x": 41.4005,
+      "target_y": 9.8667,
+      "target_z": -107.5161,
+      "distance": 20.395,
+      "target_level": "k02_trucks_cemetery"
+    },
+    {
+      "source_x": 31.4133,
+      "source_y": 11.8778,
+      "source_z": -125.0814,
+      "target_x": -9.7704,
+      "target_y": 18.4162,
+      "target_z": -120.2084,
+      "distance": 46.7352,
+      "target_level": "k02_trucks_cemetery"
+    },
+    {
+      "source_x": -8.5831,
+      "source_y": 14.5946,
+      "source_z": -168.4446,
+      "target_x": -16.2237,
+      "target_y": 25.4936,
+      "target_z": -218.8261,
+      "distance": 54.2392,
+      "target_level": "k02_trucks_cemetery"
+    },
+    {
+      "source_x": -8.5831,
+      "source_y": 14.5946,
+      "source_z": -168.4446,
+      "target_x": 8.0523,
+      "target_y": 11.8238,
+      "target_z": -168.1911,
+      "distance": 18.7203,
+      "target_level": "k02_trucks_cemetery"
+    },
+    {
+      "source_x": -8.5831,
+      "source_y": 14.5946,
+      "source_z": -168.4446,
+      "target_x": -9.7704,
+      "target_y": 18.4162,
+      "target_z": -120.2084,
+      "distance": 50.4591,
+      "target_level": "k02_trucks_cemetery"
+    },
+    {
+      "source_x": -49.5665,
+      "source_y": 13.506,
+      "source_z": -197.4394,
+      "target_x": -39.4711,
+      "target_y": 18.5676,
+      "target_z": -236.4445,
+      "distance": 40.2905,
+      "target_level": "k02_trucks_cemetery"
+    },
+    {
+      "source_x": -49.5665,
+      "source_y": 13.506,
+      "source_z": -197.4394,
+      "target_x": -95.7518,
+      "target_y": 6.5647,
+      "target_z": -221.6921,
+      "distance": 59.9256,
+      "target_level": "k02_trucks_cemetery"
+    },
+    {
+      "source_x": -220.6584,
+      "source_y": 6.3431,
+      "source_z": 49.3554,
+      "target_x": -215.325,
+      "target_y": 5.5076,
+      "target_z": -35.2955,
+      "distance": 84.8187,
+      "target_level": "k02_trucks_cemetery"
+    },
+    {
+      "source_x": -220.6584,
+      "source_y": 6.3431,
+      "source_z": 49.3554,
+      "target_x": -179.3422,
+      "target_y": 4.3264,
+      "target_z": 37.2051,
+      "distance": 56.3397,
+      "target_level": "k02_trucks_cemetery"
+    },
+    {
+      "source_x": -220.6584,
+      "source_y": 6.3431,
+      "source_z": 49.3554,
+      "target_x": -201.0424,
+      "target_y": 5.9946,
+      "target_z": 79.874,
+      "distance": 36.2791,
+      "target_level": "k02_trucks_cemetery"
+    },
+    {
+      "source_x": -220.6584,
+      "source_y": 6.3431,
+      "source_z": 49.3554,
+      "target_x": -280.5156,
+      "target_y": 5.9677,
+      "target_z": 46.0239,
+      "distance": 59.9498,
+      "target_level": "k02_trucks_cemetery"
+    },
+    {
+      "source_x": -199.3744,
+      "source_y": 6.5916,
+      "source_z": 149.5916,
+      "target_x": -242.5384,
+      "target_y": 6.264,
+      "target_z": 124.8207,
+      "distance": 49.7668,
+      "target_level": "k02_trucks_cemetery"
+    },
+    {
+      "source_x": -199.3744,
+      "source_y": 6.5916,
+      "source_z": 149.5916,
+      "target_x": -170.6228,
+      "target_y": 5.3671,
+      "target_z": 117.3452,
+      "distance": 51.7317,
+      "target_level": "k02_trucks_cemetery"
+    },
+    {
+      "source_x": -199.3744,
+      "source_y": 6.5916,
+      "source_z": 149.5916,
+      "target_x": -138.9394,
+      "target_y": 4.2423,
+      "target_z": 180.3106,
+      "distance": 67.7941,
+      "target_level": "k02_trucks_cemetery"
+    },
+    {
+      "source_x": -199.3744,
+      "source_y": 6.5916,
+      "source_z": 149.5916,
+      "target_x": -201.1344,
+      "target_y": 6.5062,
+      "target_z": 211.292,
+      "distance": 61.7255,
+      "target_level": "k02_trucks_cemetery"
+    },
+    {
+      "source_x": -242.5384,
+      "source_y": 6.264,
+      "source_z": 124.8207,
+      "target_x": -199.3744,
+      "target_y": 6.5916,
+      "target_z": 149.5916,
+      "distance": 49.7668,
+      "target_level": "k02_trucks_cemetery"
+    },
+    {
+      "source_x": -242.5384,
+      "source_y": 6.264,
+      "source_z": 124.8207,
+      "target_x": -293.6047,
+      "target_y": 5.9722,
+      "target_z": 157.2276,
+      "distance": 60.4812,
+      "target_level": "k02_trucks_cemetery"
+    },
+    {
+      "source_x": -138.9394,
+      "source_y": 4.2423,
+      "source_z": 180.3106,
+      "target_x": -67.8261,
+      "target_y": 5.716,
+      "target_z": 216.9829,
+      "distance": 80.0122,
+      "target_level": "k02_trucks_cemetery"
+    },
+    {
+      "source_x": -138.9394,
+      "source_y": 4.2423,
+      "source_z": 180.3106,
+      "target_x": -199.3744,
+      "target_y": 6.5916,
+      "target_z": 149.5916,
+      "distance": 67.7941,
+      "target_level": "k02_trucks_cemetery"
+    },
+    {
+      "source_x": -170.6228,
+      "source_y": 5.3671,
+      "source_z": 117.3452,
+      "target_x": -201.0424,
+      "target_y": 5.9946,
+      "target_z": 79.874,
+      "distance": 66.6367,
+      "target_level": "k02_trucks_cemetery"
+    },
+    {
+      "source_x": -170.6228,
+      "source_y": 5.3671,
+      "source_z": 117.3452,
+      "target_x": -109.0059,
+      "target_y": 2.9209,
+      "target_z": 144.9561,
+      "distance": 68.5364,
+      "target_level": "k02_trucks_cemetery"
+    },
+    {
+      "source_x": -170.6228,
+      "source_y": 5.3671,
+      "source_z": 117.3452,
+      "target_x": -199.3744,
+      "target_y": 6.5916,
+      "target_z": 149.5916,
+      "distance": 51.7223,
+      "target_level": "k02_trucks_cemetery"
+    },
+    {
+      "source_x": -137.1499,
+      "source_y": 3.2106,
+      "source_z": 71.1174,
+      "target_x": -105.8858,
+      "target_y": 1.6544,
+      "target_z": 23.9255,
+      "distance": 66.787,
+      "target_level": "k02_trucks_cemetery"
+    },
+    {
+      "source_x": -137.1499,
+      "source_y": 3.2106,
+      "source_z": 71.1174,
+      "target_x": -108.8334,
+      "target_y": 2.4758,
+      "target_z": 97.4909,
+      "distance": 49.9841,
+      "target_level": "k02_trucks_cemetery"
+    },
+    {
+      "source_x": -137.1499,
+      "source_y": 3.2106,
+      "source_z": 71.1174,
+      "target_x": -179.3422,
+      "target_y": 4.3264,
+      "target_z": 37.2051,
+      "distance": 67.5354,
+      "target_level": "k02_trucks_cemetery"
+    },
+    {
+      "source_x": -88.092,
+      "source_y": 1.87,
+      "source_z": 88.8859,
+      "target_x": -81.975,
+      "target_y": 1.5329,
+      "target_z": 30.5023,
+      "distance": 58.7815,
+      "target_level": "k02_trucks_cemetery"
+    },
+    {
+      "source_x": -88.092,
+      "source_y": 1.87,
+      "source_z": 88.8859,
+      "target_x": -108.8334,
+      "target_y": 2.4758,
+      "target_z": 97.4909,
+      "distance": 26.0124,
+      "target_level": "k02_trucks_cemetery"
+    },
+    {
+      "source_x": -81.975,
+      "source_y": 1.5329,
+      "source_z": 30.5023,
+      "target_x": -39.5982,
+      "target_y": 2.3394,
+      "target_z": 0.2157,
+      "distance": 71.058,
+      "target_level": "k02_trucks_cemetery"
+    },
+    {
+      "source_x": -81.975,
+      "source_y": 1.5329,
+      "source_z": 30.5023,
+      "target_x": -88.092,
+      "target_y": 1.87,
+      "target_z": 88.8859,
+      "distance": 59.5258,
+      "target_level": "k02_trucks_cemetery"
+    },
+    {
+      "source_x": -81.975,
+      "source_y": 1.5329,
+      "source_z": 30.5023,
+      "target_x": -105.8858,
+      "target_y": 1.6544,
+      "target_z": 23.9255,
+      "distance": 24.9322,
+      "target_level": "k02_trucks_cemetery"
+    },
+    {
+      "source_x": -39.5982,
+      "source_y": 2.3394,
+      "source_z": 0.2157,
+      "target_x": -17.7867,
+      "target_y": 5.0843,
+      "target_z": -22.3826,
+      "distance": 43.446,
+      "target_level": "k02_trucks_cemetery"
+    },
+    {
+      "source_x": -39.5982,
+      "source_y": 2.3394,
+      "source_z": 0.2157,
+      "target_x": -81.975,
+      "target_y": 1.5329,
+      "target_z": 30.5023,
+      "distance": 70.2435,
+      "target_level": "k02_trucks_cemetery"
+    },
+    {
+      "source_x": -17.7867,
+      "source_y": 5.0843,
+      "source_z": -22.3826,
+      "target_x": -7.6478,
+      "target_y": 20.3186,
+      "target_z": -71.6957,
+      "distance": 52.6752,
+      "target_level": "k02_trucks_cemetery"
+    },
+    {
+      "source_x": -17.7867,
+      "source_y": 5.0843,
+      "source_z": -22.3826,
+      "target_x": 2.4181,
+      "target_y": 3.9646,
+      "target_z": -5.1428,
+      "distance": 33.9931,
+      "target_level": "k02_trucks_cemetery"
+    },
+    {
+      "source_x": -17.7867,
+      "source_y": 5.0843,
+      "source_z": -22.3826,
+      "target_x": -39.5982,
+      "target_y": 2.3394,
+      "target_z": 0.2157,
+      "distance": 37.1629,
+      "target_level": "k02_trucks_cemetery"
+    },
+    {
+      "source_x": 25.9924,
+      "source_y": 5.1693,
+      "source_z": -17.687,
+      "target_x": 49.2377,
+      "target_y": 6.3135,
+      "target_z": -50.1774,
+      "distance": 39.9496,
+      "target_level": "k02_trucks_cemetery"
+    },
+    {
+      "source_x": 25.9924,
+      "source_y": 5.1693,
+      "source_z": -17.687,
+      "target_x": 25.9106,
+      "target_y": 3.0831,
+      "target_z": 17.594,
+      "distance": 35.2811,
+      "target_level": "k02_trucks_cemetery"
+    },
+    {
+      "source_x": 25.9924,
+      "source_y": 5.1693,
+      "source_z": -17.687,
+      "target_x": 2.4181,
+      "target_y": 3.9646,
+      "target_z": -5.1428,
+      "distance": 26.704,
+      "target_level": "k02_trucks_cemetery"
+    },
+    {
+      "source_x": 25.9106,
+      "source_y": 3.0831,
+      "source_z": 17.594,
+      "target_x": 25.9924,
+      "target_y": 5.1693,
+      "target_z": -17.687,
+      "distance": 35.2811,
+      "target_level": "k02_trucks_cemetery"
+    },
+    {
+      "source_x": 25.9106,
+      "source_y": 3.0831,
+      "source_z": 17.594,
+      "target_x": 60.1846,
+      "target_y": 4.6822,
+      "target_z": 10.3098,
+      "distance": 38.8833,
+      "target_level": "k02_trucks_cemetery"
+    },
+    {
+      "source_x": 25.9106,
+      "source_y": 3.0831,
+      "source_z": 17.594,
+      "target_x": -2.6068,
+      "target_y": 2.0047,
+      "target_z": 44.6646,
+      "distance": 46.8066,
+      "target_level": "k02_trucks_cemetery"
+    },
+    {
+      "source_x": 35.3633,
+      "source_y": 0.818,
+      "source_z": 107.3999,
+      "target_x": 38.3361,
+      "target_y": 1.6097,
+      "target_z": 78.9526,
+      "distance": 30.2719,
+      "target_level": "k02_trucks_cemetery"
+    },
+    {
+      "source_x": 35.3633,
+      "source_y": 0.818,
+      "source_z": 107.3999,
+      "target_x": 3.3973,
+      "target_y": 0.3739,
+      "target_z": 128.6967,
+      "distance": 52.5397,
+      "target_level": "k02_trucks_cemetery"
+    },
+    {
+      "source_x": 3.3973,
+      "source_y": 0.3739,
+      "source_z": 128.6967,
+      "target_x": 35.3633,
+      "target_y": 0.818,
+      "target_z": 107.3999,
+      "distance": 45.296,
+      "target_level": "k02_trucks_cemetery"
+    },
+    {
+      "source_x": 3.3973,
+      "source_y": 0.3739,
+      "source_z": 128.6967,
+      "target_x": -16.2922,
+      "target_y": 2.6906,
+      "target_z": 178.5207,
+      "distance": 72.5711,
+      "target_level": "k02_trucks_cemetery"
+    },
+    {
+      "source_x": 3.3973,
+      "source_y": 0.3739,
+      "source_z": 128.6967,
+      "target_x": -22.0499,
+      "target_y": -0.3309,
+      "target_z": 111.1506,
+      "distance": 40.1113,
+      "target_level": "k02_trucks_cemetery"
+    },
+    {
+      "source_x": -16.2922,
+      "source_y": 2.6906,
+      "source_z": 178.5207,
+      "target_x": 3.3973,
+      "target_y": 0.3739,
+      "target_z": 128.6967,
+      "distance": 62.4257,
+      "target_level": "k02_trucks_cemetery"
+    },
+    {
+      "source_x": -16.2922,
+      "source_y": 2.6906,
+      "source_z": 178.5207,
+      "target_x": 55.0983,
+      "target_y": 3.8626,
+      "target_z": 169.1064,
+      "distance": 81.8047,
+      "target_level": "k02_trucks_cemetery"
+    },
+    {
+      "source_x": -16.2922,
+      "source_y": 2.6906,
+      "source_z": 178.5207,
+      "target_x": -7.7861,
+      "target_y": 5.5136,
+      "target_z": 223.2394,
+      "distance": 45.5205,
+      "target_level": "k02_trucks_cemetery"
+    },
+    {
+      "source_x": -16.2922,
+      "source_y": 2.6906,
+      "source_z": 178.5207,
+      "target_x": -71.0518,
+      "target_y": 3.7068,
+      "target_z": 183.6925,
+      "distance": 55.7456,
+      "target_level": "k02_trucks_cemetery"
+    },
+    {
+      "source_x": -71.0518,
+      "source_y": 3.7068,
+      "source_z": 183.6925,
+      "target_x": -61.7623,
+      "target_y": 1.5813,
+      "target_z": 121.1676,
+      "distance": 65.5215,
+      "target_level": "k02_trucks_cemetery"
+    },
+    {
+      "source_x": -71.0518,
+      "source_y": 3.7068,
+      "source_z": 183.6925,
+      "target_x": -16.2922,
+      "target_y": 2.6906,
+      "target_z": 178.5207,
+      "distance": 60.1413,
+      "target_level": "k02_trucks_cemetery"
+    },
+    {
+      "source_x": -71.0518,
+      "source_y": 3.7068,
+      "source_z": 183.6925,
+      "target_x": -109.0059,
+      "target_y": 2.9209,
+      "target_z": 144.9561,
+      "distance": 61.9282,
+      "target_level": "k02_trucks_cemetery"
+    },
+    {
+      "source_x": -125.7478,
+      "source_y": 4.089,
+      "source_z": 158.8766,
+      "target_x": -109.0059,
+      "target_y": 2.9209,
+      "target_z": 144.9561,
+      "distance": 31.7232,
+      "target_level": "k02_trucks_cemetery"
+    },
+    {
+      "source_x": -201.1344,
+      "source_y": 6.5062,
+      "source_z": 211.292,
+      "target_x": -199.3744,
+      "target_y": 6.5916,
+      "target_z": 149.5916,
+      "distance": 61.7255,
+      "target_level": "k02_trucks_cemetery"
+    },
+    {
+      "source_x": -201.1344,
+      "source_y": 6.5062,
+      "source_z": 211.292,
+      "target_x": -201.8147,
+      "target_y": 8.4118,
+      "target_z": 281.613,
+      "distance": 70.3243,
+      "target_level": "k02_trucks_cemetery"
+    },
+    {
+      "source_x": -201.1344,
+      "source_y": 6.5062,
+      "source_z": 211.292,
+      "target_x": -282.3831,
+      "target_y": 14.0222,
+      "target_z": 233.6169,
+      "distance": 95.2506,
+      "target_level": "k02_trucks_cemetery"
+    },
+    {
+      "source_x": -67.8261,
+      "source_y": 5.716,
+      "source_z": 216.9829,
+      "target_x": -7.7861,
+      "target_y": 5.5136,
+      "target_z": 223.2394,
+      "distance": 82.3186,
+      "target_level": "k02_trucks_cemetery"
+    },
+    {
+      "source_x": -67.8261,
+      "source_y": 5.716,
+      "source_z": 216.9829,
+      "target_x": -116.9667,
+      "target_y": 13.2797,
+      "target_z": 267.215,
+      "distance": 94.0599,
+      "target_level": "k02_trucks_cemetery"
+    },
+    {
+      "source_x": -67.8261,
+      "source_y": 5.716,
+      "source_z": 216.9829,
+      "target_x": -138.9394,
+      "target_y": 4.2423,
+      "target_z": 180.3106,
+      "distance": 80.0122,
+      "target_level": "k02_trucks_cemetery"
+    },
+    {
+      "source_x": -7.7861,
+      "source_y": 5.5136,
+      "source_z": 223.2394,
+      "target_x": -16.2922,
+      "target_y": 2.6906,
+      "target_z": 178.5207,
+      "distance": 45.5205,
+      "target_level": "k02_trucks_cemetery"
+    },
+    {
+      "source_x": -7.7861,
+      "source_y": 5.5136,
+      "source_z": 223.2394,
+      "target_x": 81.6117,
+      "target_y": 8.0483,
+      "target_z": 259.688,
+      "distance": 113.955,
+      "target_level": "k02_trucks_cemetery"
+    },
+    {
+      "source_x": -7.7861,
+      "source_y": 5.5136,
+      "source_z": 223.2394,
+      "target_x": 3.356,
+      "target_y": 7.0714,
+      "target_z": 260.9997,
+      "distance": 41.7695,
+      "target_level": "k02_trucks_cemetery"
+    },
+    {
+      "source_x": -7.7861,
+      "source_y": 5.5136,
+      "source_z": 223.2394,
+      "target_x": -67.8261,
+      "target_y": 5.716,
+      "target_z": 216.9829,
+      "distance": 81.6929,
+      "target_level": "k02_trucks_cemetery"
+    },
+    {
+      "source_x": 3.356,
+      "source_y": 7.0714,
+      "source_z": 260.9997,
+      "target_x": 2.7244,
+      "target_y": 11.4032,
+      "target_z": 328.2398,
+      "distance": 67.2431,
+      "target_level": "k02_trucks_cemetery"
+    },
+    {
+      "source_x": 3.356,
+      "source_y": 7.0714,
+      "source_z": 260.9997,
+      "target_x": -7.7861,
+      "target_y": 5.5136,
+      "target_z": 223.2394,
+      "distance": 40.9946,
+      "target_level": "k02_trucks_cemetery"
+    },
+    {
+      "source_x": 79.4786,
+      "source_y": 8.9178,
+      "source_z": 303.3531,
+      "target_x": 81.6117,
+      "target_y": 8.0483,
+      "target_z": 259.688,
+      "distance": 71.2343,
+      "target_level": "k02_trucks_cemetery"
+    },
+    {
+      "source_x": 79.4786,
+      "source_y": 8.9178,
+      "source_z": 303.3531,
+      "target_x": 95.0227,
+      "target_y": 8.8753,
+      "target_z": 353.5186,
+      "distance": 54.5542,
+      "target_level": "k02_trucks_cemetery"
+    },
+    {
+      "source_x": 79.4786,
+      "source_y": 8.9178,
+      "source_z": 303.3531,
+      "target_x": 2.7244,
+      "target_y": 11.4032,
+      "target_z": 328.2398,
+      "distance": 94.2642,
+      "target_level": "k02_trucks_cemetery"
+    },
+    {
+      "source_x": 81.6117,
+      "source_y": 8.0483,
+      "source_z": 259.688,
+      "target_x": 87.7956,
+      "target_y": 6.284,
+      "target_z": 197.8731,
+      "distance": 62.1235,
+      "target_level": "k02_trucks_cemetery"
+    },
+    {
+      "source_x": 81.6117,
+      "source_y": 8.0483,
+      "source_z": 259.688,
+      "target_x": 146.1101,
+      "target_y": 10.1641,
+      "target_z": 275.1575,
+      "distance": 66.3276,
+      "target_level": "k02_trucks_cemetery"
+    },
+    {
+      "source_x": 81.6117,
+      "source_y": 8.0483,
+      "source_z": 259.688,
+      "target_x": 79.4786,
+      "target_y": 8.9178,
+      "target_z": 303.3531,
+      "distance": 77.4463,
+      "target_level": "k02_trucks_cemetery"
+    },
+    {
+      "source_x": 81.6117,
+      "source_y": 8.0483,
+      "source_z": 259.688,
+      "target_x": -7.7861,
+      "target_y": 5.5136,
+      "target_z": 223.2394,
+      "distance": 124.3675,
+      "target_level": "k02_trucks_cemetery"
+    },
+    {
+      "source_x": 87.7956,
+      "source_y": 6.284,
+      "source_z": 197.8731,
+      "target_x": 125.6314,
+      "target_y": 8.0371,
+      "target_z": 180.3968,
+      "distance": 51.1326,
+      "target_level": "k02_trucks_cemetery"
+    },
+    {
+      "source_x": 87.7956,
+      "source_y": 6.284,
+      "source_z": 197.8731,
+      "target_x": 81.6117,
+      "target_y": 8.0483,
+      "target_z": 259.688,
+      "distance": 62.1235,
+      "target_level": "k02_trucks_cemetery"
+    },
+    {
+      "source_x": 87.7956,
+      "source_y": 6.284,
+      "source_z": 197.8731,
+      "target_x": 55.0983,
+      "target_y": 3.8626,
+      "target_z": 169.1064,
+      "distance": 55.1997,
+      "target_level": "k02_trucks_cemetery"
+    },
+    {
+      "source_x": 84.4744,
+      "source_y": 4.1781,
+      "source_z": 139.8037,
+      "target_x": 114.9445,
+      "target_y": 6.6052,
+      "target_z": 123.6508,
+      "distance": 42.2113,
+      "target_level": "k02_trucks_cemetery"
+    },
+    {
+      "source_x": 84.4744,
+      "source_y": 4.1781,
+      "source_z": 139.8037,
+      "target_x": 125.6314,
+      "target_y": 8.0371,
+      "target_z": 180.3968,
+      "distance": 57.8074,
+      "target_level": "k02_trucks_cemetery"
+    },
+    {
+      "source_x": 84.4744,
+      "source_y": 4.1781,
+      "source_z": 139.8037,
+      "target_x": 55.0983,
+      "target_y": 3.8626,
+      "target_z": 169.1064,
+      "distance": 51.7613,
+      "target_level": "k02_trucks_cemetery"
+    },
+    {
+      "source_x": 81.7691,
+      "source_y": -2.8431,
+      "source_z": 90.7721,
+      "target_x": 85.7433,
+      "target_y": 4.8185,
+      "target_z": 62.7659,
+      "distance": 28.2867,
+      "target_level": "k02_trucks_cemetery"
+    },
+    {
+      "source_x": 81.7691,
+      "source_y": -2.8431,
+      "source_z": 90.7721,
+      "target_x": 114.9445,
+      "target_y": 6.6052,
+      "target_z": 123.6508,
+      "distance": 46.7078,
+      "target_level": "k02_trucks_cemetery"
+    },
+    {
+      "source_x": 81.7691,
+      "source_y": -2.8431,
+      "source_z": 90.7721,
+      "target_x": 38.3361,
+      "target_y": 1.6097,
+      "target_z": 78.9526,
+      "distance": 45.0125,
+      "target_level": "k02_trucks_cemetery"
+    },
+    {
+      "source_x": 38.3361,
+      "source_y": 1.6097,
+      "source_z": 78.9526,
+      "target_x": 81.7691,
+      "target_y": -2.8431,
+      "target_z": 90.7721,
+      "distance": 45.0125,
+      "target_level": "k02_trucks_cemetery"
+    },
+    {
+      "source_x": 38.3361,
+      "source_y": 1.6097,
+      "source_z": 78.9526,
+      "target_x": 35.3633,
+      "target_y": 0.818,
+      "target_z": 107.3999,
+      "distance": 28.6852,
+      "target_level": "k02_trucks_cemetery"
+    },
+    {
+      "source_x": 38.3361,
+      "source_y": 1.6097,
+      "source_z": 78.9526,
+      "target_x": -2.6068,
+      "target_y": 2.0047,
+      "target_z": 44.6646,
+      "distance": 61.1082,
+      "target_level": "k02_trucks_cemetery"
+    },
+    {
+      "source_x": 126.4577,
+      "source_y": 7.3354,
+      "source_z": 133.0611,
+      "target_x": 165.9845,
+      "target_y": 9.9586,
+      "target_z": 142.7467,
+      "distance": 47.2954,
+      "target_level": "k02_trucks_cemetery"
+    },
+    {
+      "source_x": 126.4577,
+      "source_y": 7.3354,
+      "source_z": 133.0611,
+      "target_x": 125.6314,
+      "target_y": 8.0371,
+      "target_z": 180.3968,
+      "distance": 47.3429,
+      "target_level": "k02_trucks_cemetery"
+    },
+    {
+      "source_x": 126.4577,
+      "source_y": 7.3354,
+      "source_z": 133.0611,
+      "target_x": 114.9445,
+      "target_y": 6.6052,
+      "target_z": 123.6508,
+      "distance": 14.8696,
+      "target_level": "k02_trucks_cemetery"
+    },
+    {
+      "source_x": 125.6314,
+      "source_y": 8.0371,
+      "source_z": 180.3968,
+      "target_x": 126.4577,
+      "target_y": 7.3354,
+      "target_z": 133.0611,
+      "distance": 47.3429,
+      "target_level": "k02_trucks_cemetery"
+    },
+    {
+      "source_x": 125.6314,
+      "source_y": 8.0371,
+      "source_z": 180.3968,
+      "target_x": 143.1005,
+      "target_y": 8.4374,
+      "target_z": 222.6729,
+      "distance": 53.2899,
+      "target_level": "k02_trucks_cemetery"
+    },
+    {
+      "source_x": 125.6314,
+      "source_y": 8.0371,
+      "source_z": 180.3968,
+      "target_x": 87.7956,
+      "target_y": 6.284,
+      "target_z": 197.8731,
+      "distance": 49.1579,
+      "target_level": "k02_trucks_cemetery"
+    },
+    {
+      "source_x": 125.6314,
+      "source_y": 8.0371,
+      "source_z": 180.3968,
+      "target_x": 84.4744,
+      "target_y": 4.1781,
+      "target_z": 139.8037,
+      "distance": 57.8074,
+      "target_level": "k02_trucks_cemetery"
+    },
+    {
+      "source_x": 143.1005,
+      "source_y": 8.4374,
+      "source_z": 222.6729,
+      "target_x": 125.6314,
+      "target_y": 8.0371,
+      "target_z": 180.3968,
+      "distance": 55.5396,
+      "target_level": "k02_trucks_cemetery"
+    },
+    {
+      "source_x": 143.1005,
+      "source_y": 8.4374,
+      "source_z": 222.6729,
+      "target_x": 168.2133,
+      "target_y": 9.6356,
+      "target_z": 211.8742,
+      "distance": 30.8765,
+      "target_level": "k02_trucks_cemetery"
+    },
+    {
+      "source_x": 143.1005,
+      "source_y": 8.4374,
+      "source_z": 222.6729,
+      "target_x": 146.1101,
+      "target_y": 10.1641,
+      "target_z": 275.1575,
+      "distance": 54.1081,
+      "target_level": "k02_trucks_cemetery"
+    },
+    {
+      "source_x": 146.1101,
+      "source_y": 10.1641,
+      "source_z": 275.1575,
+      "target_x": 143.1005,
+      "target_y": 8.4374,
+      "target_z": 222.6729,
+      "distance": 52.673,
+      "target_level": "k02_trucks_cemetery"
+    },
+    {
+      "source_x": 146.1101,
+      "source_y": 10.1641,
+      "source_z": 275.1575,
+      "target_x": 177.8916,
+      "target_y": 9.466,
+      "target_z": 303.3243,
+      "distance": 47.7221,
+      "target_level": "k02_trucks_cemetery"
+    },
+    {
+      "source_x": 146.1101,
+      "source_y": 10.1641,
+      "source_z": 275.1575,
+      "target_x": 81.6117,
+      "target_y": 8.0483,
+      "target_z": 259.688,
+      "distance": 66.3276,
+      "target_level": "k02_trucks_cemetery"
+    },
+    {
+      "source_x": 177.8916,
+      "source_y": 9.466,
+      "source_z": 303.3243,
+      "target_x": 216.1128,
+      "target_y": 7.6593,
+      "target_z": 299.6168,
+      "distance": 38.4006,
+      "target_level": "k02_trucks_cemetery"
+    },
+    {
+      "source_x": 177.8916,
+      "source_y": 9.466,
+      "source_z": 303.3243,
+      "target_x": 165.3777,
+      "target_y": 10.2462,
+      "target_z": 349.1719,
+      "distance": 57.2716,
+      "target_level": "k02_trucks_cemetery"
+    },
+    {
+      "source_x": 177.8916,
+      "source_y": 9.466,
+      "source_z": 303.3243,
+      "target_x": 146.1101,
+      "target_y": 10.1641,
+      "target_z": 275.1575,
+      "distance": 46.914,
+      "target_level": "k02_trucks_cemetery"
+    },
+    {
+      "source_x": 87.6244,
+      "source_y": 8.196,
+      "source_z": 360.0424,
+      "target_x": 95.0227,
+      "target_y": 8.8753,
+      "target_z": 353.5186,
+      "distance": 9.8638,
+      "target_level": "k02_trucks_cemetery"
+    },
+    {
+      "source_x": 87.6244,
+      "source_y": 8.196,
+      "source_z": 360.0424,
+      "target_x": 24.3081,
+      "target_y": 17.7994,
+      "target_z": 450.826,
+      "distance": 116.6048,
+      "target_level": "k02_trucks_cemetery"
+    },
+    {
+      "source_x": 165.3777,
+      "source_y": 10.2462,
+      "source_z": 349.1719,
+      "target_x": 177.8916,
+      "target_y": 9.466,
+      "target_z": 303.3243,
+      "distance": 58.0813,
+      "target_level": "k02_trucks_cemetery"
+    },
+    {
+      "source_x": 165.3777,
+      "source_y": 10.2462,
+      "source_z": 349.1719,
+      "target_x": 232.5482,
+      "target_y": 7.8131,
+      "target_z": 384.1368,
+      "distance": 75.7259,
+      "target_level": "k02_trucks_cemetery"
+    },
+    {
+      "source_x": 165.3777,
+      "source_y": 10.2462,
+      "source_z": 349.1719,
+      "target_x": 145.2176,
+      "target_y": 10.7998,
+      "target_z": 378.9745,
+      "distance": 44.8156,
+      "target_level": "k02_trucks_cemetery"
+    },
+    {
+      "source_x": 232.5482,
+      "source_y": 7.8131,
+      "source_z": 384.1368,
+      "target_x": 233.0042,
+      "target_y": 7.5919,
+      "target_z": 315.4189,
+      "distance": 70.3983,
+      "target_level": "k02_trucks_cemetery"
+    },
+    {
+      "source_x": 232.5482,
+      "source_y": 7.8131,
+      "source_z": 384.1368,
+      "target_x": 301.7283,
+      "target_y": 8.8524,
+      "target_z": 419.9412,
+      "distance": 77.8964,
+      "target_level": "k02_trucks_cemetery"
+    },
+    {
+      "source_x": 232.5482,
+      "source_y": 7.8131,
+      "source_z": 384.1368,
+      "target_x": 165.3777,
+      "target_y": 10.2462,
+      "target_z": 349.1719,
+      "distance": 75.7259,
+      "target_level": "k02_trucks_cemetery"
+    },
+    {
+      "source_x": 233.0042,
+      "source_y": 7.5919,
+      "source_z": 315.4189,
+      "target_x": 273.0745,
+      "target_y": 8.3831,
+      "target_z": 270.6009,
+      "distance": 78.6629,
+      "target_level": "k02_trucks_cemetery"
+    },
+    {
+      "source_x": 233.0042,
+      "source_y": 7.5919,
+      "source_z": 315.4189,
+      "target_x": 232.5482,
+      "target_y": 7.8131,
+      "target_z": 384.1368,
+      "distance": 70.4963,
+      "target_level": "k02_trucks_cemetery"
+    },
+    {
+      "source_x": 233.0042,
+      "source_y": 7.5919,
+      "source_z": 315.4189,
+      "target_x": 216.1128,
+      "target_y": 7.6593,
+      "target_z": 299.6168,
+      "distance": 27.4182,
+      "target_level": "k02_trucks_cemetery"
+    },
+    {
+      "source_x": 210.9254,
+      "source_y": 7.8131,
+      "source_z": 271.2017,
+      "target_x": 210.3871,
+      "target_y": 8.6569,
+      "target_z": 205.3309,
+      "distance": 65.873,
+      "target_level": "k02_trucks_cemetery"
+    },
+    {
+      "source_x": 210.9254,
+      "source_y": 7.8131,
+      "source_z": 271.2017,
+      "target_x": 216.1128,
+      "target_y": 7.6593,
+      "target_z": 299.6168,
+      "distance": 30.4346,
+      "target_level": "k02_trucks_cemetery"
+    },
+    {
+      "source_x": 210.9254,
+      "source_y": 7.8131,
+      "source_z": 271.2017,
+      "target_x": 174.5386,
+      "target_y": 8.8835,
+      "target_z": 245.3182,
+      "distance": 66.1105,
+      "target_level": "k02_trucks_cemetery"
+    },
+    {
+      "source_x": 210.3871,
+      "source_y": 8.6569,
+      "source_z": 205.3309,
+      "target_x": 190.4111,
+      "target_y": 9.9894,
+      "target_z": 164.676,
+      "distance": 56.4941,
+      "target_level": "k02_trucks_cemetery"
+    },
+    {
+      "source_x": 210.3871,
+      "source_y": 8.6569,
+      "source_z": 205.3309,
+      "target_x": 210.9254,
+      "target_y": 7.8131,
+      "target_z": 271.2017,
+      "distance": 65.873,
+      "target_level": "k02_trucks_cemetery"
+    },
+    {
+      "source_x": 210.3871,
+      "source_y": 8.6569,
+      "source_z": 205.3309,
+      "target_x": 168.2133,
+      "target_y": 9.6356,
+      "target_z": 211.8742,
+      "distance": 46.1603,
+      "target_level": "k02_trucks_cemetery"
+    },
+    {
+      "source_x": 168.2133,
+      "source_y": 9.6356,
+      "source_z": 211.8742,
+      "target_x": 210.3871,
+      "target_y": 8.6569,
+      "target_z": 205.3309,
+      "distance": 51.4965,
+      "target_level": "k02_trucks_cemetery"
+    },
+    {
+      "source_x": 168.2133,
+      "source_y": 9.6356,
+      "source_z": 211.8742,
+      "target_x": 174.5386,
+      "target_y": 8.8835,
+      "target_z": 245.3182,
+      "distance": 34.4895,
+      "target_level": "k02_trucks_cemetery"
+    },
+    {
+      "source_x": 168.2133,
+      "source_y": 9.6356,
+      "source_z": 211.8742,
+      "target_x": 143.1005,
+      "target_y": 8.4374,
+      "target_z": 222.6729,
+      "distance": 32.6224,
+      "target_level": "k02_trucks_cemetery"
+    },
+    {
+      "source_x": 174.5386,
+      "source_y": 8.8835,
+      "source_z": 245.3182,
+      "target_x": 168.2133,
+      "target_y": 9.6356,
+      "target_z": 211.8742,
+      "distance": 40.0192,
+      "target_level": "k02_trucks_cemetery"
+    },
+    {
+      "source_x": 174.5386,
+      "source_y": 8.8835,
+      "source_z": 245.3182,
+      "target_x": 210.9254,
+      "target_y": 7.8131,
+      "target_z": 271.2017,
+      "distance": 57.3445,
+      "target_level": "k02_trucks_cemetery"
+    },
+    {
+      "source_x": 254.2236,
+      "source_y": 8.1053,
+      "source_z": 227.176,
+      "target_x": 246.8139,
+      "target_y": 9.248,
+      "target_z": 133.324,
+      "distance": 94.2557,
+      "target_level": "k02_trucks_cemetery"
+    },
+    {
+      "source_x": 254.2236,
+      "source_y": 8.1053,
+      "source_z": 227.176,
+      "target_x": 315.0063,
+      "target_y": 11.6233,
+      "target_z": 189.8829,
+      "distance": 85.3229,
+      "target_level": "k02_trucks_cemetery"
+    },
+    {
+      "source_x": 254.2236,
+      "source_y": 8.1053,
+      "source_z": 227.176,
+      "target_x": 273.0745,
+      "target_y": 8.3831,
+      "target_z": 270.6009,
+      "distance": 57.518,
+      "target_level": "k02_trucks_cemetery"
+    },
+    {
+      "source_x": 246.8139,
+      "source_y": 9.248,
+      "source_z": 133.324,
+      "target_x": 257.3303,
+      "target_y": 9.0058,
+      "target_z": 50.0503,
+      "distance": 86.865,
+      "target_level": "k02_trucks_cemetery"
+    },
+    {
+      "source_x": 246.8139,
+      "source_y": 9.248,
+      "source_z": 133.324,
+      "target_x": 300.118,
+      "target_y": 12.7637,
+      "target_z": 140.4313,
+      "distance": 55.9775,
+      "target_level": "k02_trucks_cemetery"
+    },
+    {
+      "source_x": 246.8139,
+      "source_y": 9.248,
+      "source_z": 133.324,
+      "target_x": 254.2236,
+      "target_y": 8.1053,
+      "target_z": 227.176,
+      "distance": 100.9877,
+      "target_level": "k02_trucks_cemetery"
+    },
+    {
+      "source_x": 246.8139,
+      "source_y": 9.248,
+      "source_z": 133.324,
+      "target_x": 203.9379,
+      "target_y": 10.9955,
+      "target_z": 109.6183,
+      "distance": 59.4751,
+      "target_level": "k02_trucks_cemetery"
+    },
+    {
+      "source_x": 257.3303,
+      "source_y": 9.0058,
+      "source_z": 50.0503,
+      "target_x": 244.037,
+      "target_y": 7.2578,
+      "target_z": -8.9409,
+      "distance": 62.2633,
+      "target_level": "k02_trucks_cemetery"
+    },
+    {
+      "source_x": 257.3303,
+      "source_y": 9.0058,
+      "source_z": 50.0503,
+      "target_x": 322.5073,
+      "target_y": 12.2354,
+      "target_z": 92.1735,
+      "distance": 102.1347,
+      "target_level": "k02_trucks_cemetery"
+    },
+    {
+      "source_x": 257.3303,
+      "source_y": 9.0058,
+      "source_z": 50.0503,
+      "target_x": 246.8139,
+      "target_y": 9.248,
+      "target_z": 133.324,
+      "distance": 87.1574,
+      "target_level": "k02_trucks_cemetery"
+    },
+    {
+      "source_x": 244.037,
+      "source_y": 7.2578,
+      "source_z": -8.9409,
+      "target_x": 244.3454,
+      "target_y": 2.8433,
+      "target_z": -90.9161,
+      "distance": 81.9758,
+      "target_level": "k02_trucks_cemetery"
+    },
+    {
+      "source_x": 244.037,
+      "source_y": 7.2578,
+      "source_z": -8.9409,
+      "target_x": 326.3509,
+      "target_y": 11.8686,
+      "target_z": -1.2394,
+      "distance": 84.9459,
+      "target_level": "k02_trucks_cemetery"
+    },
+    {
+      "source_x": 244.037,
+      "source_y": 7.2578,
+      "source_z": -8.9409,
+      "target_x": 257.3303,
+      "target_y": 9.0058,
+      "target_z": 50.0503,
+      "distance": 72.2343,
+      "target_level": "k02_trucks_cemetery"
+    },
+    {
+      "source_x": 244.037,
+      "source_y": 7.2578,
+      "source_z": -8.9409,
+      "target_x": 209.2044,
+      "target_y": 8.9417,
+      "target_z": -4.7808,
+      "distance": 55.4843,
+      "target_level": "k02_trucks_cemetery"
+    },
+    {
+      "source_x": 209.2044,
+      "source_y": 8.9417,
+      "source_z": -4.7808,
+      "target_x": 244.037,
+      "target_y": 7.2578,
+      "target_z": -8.9409,
+      "distance": 50.1846,
+      "target_level": "k02_trucks_cemetery"
+    },
+    {
+      "source_x": 209.2044,
+      "source_y": 8.9417,
+      "source_z": -4.7808,
+      "target_x": 185.5861,
+      "target_y": 10.9971,
+      "target_z": 71.0991,
+      "distance": 89.091,
+      "target_level": "k02_trucks_cemetery"
+    },
+    {
+      "source_x": 209.2044,
+      "source_y": 8.9417,
+      "source_z": -4.7808,
+      "target_x": 157.4739,
+      "target_y": 8.9449,
+      "target_z": -30.7964,
+      "distance": 69.4157,
+      "target_level": "k02_trucks_cemetery"
+    },
+    {
+      "source_x": 157.766,
+      "source_y": 9.7396,
+      "source_z": 50.6338,
+      "target_x": 157.4739,
+      "target_y": 8.9449,
+      "target_z": -30.7964,
+      "distance": 82.2584,
+      "target_level": "k02_trucks_cemetery"
+    },
+    {
+      "source_x": 157.766,
+      "source_y": 9.7396,
+      "source_z": 50.6338,
+      "target_x": 163.5955,
+      "target_y": 11.2739,
+      "target_z": 84.3009,
+      "distance": 34.4277,
+      "target_level": "k02_trucks_cemetery"
+    },
+    {
+      "source_x": 106.1657,
+      "source_y": 6.5079,
+      "source_z": 50.7815,
+      "target_x": 112.0737,
+      "target_y": 7.1794,
+      "target_z": -9.0868,
+      "distance": 64.0457,
+      "target_level": "k02_trucks_cemetery"
+    },
+    {
+      "source_x": 106.1657,
+      "source_y": 6.5079,
+      "source_z": 50.7815,
+      "target_x": 127.9535,
+      "target_y": 8.6011,
+      "target_z": 80.9202,
+      "distance": 37.1894,
+      "target_level": "k02_trucks_cemetery"
+    },
+    {
+      "source_x": 106.1657,
+      "source_y": 6.5079,
+      "source_z": 50.7815,
+      "target_x": 85.7433,
+      "target_y": 4.8185,
+      "target_z": 62.7659,
+      "distance": 29.1909,
+      "target_level": "k02_trucks_cemetery"
+    },
+    {
+      "source_x": 127.9535,
+      "source_y": 8.6011,
+      "source_z": 80.9202,
+      "target_x": 106.1657,
+      "target_y": 6.5079,
+      "target_z": 50.7815,
+      "distance": 37.1894,
+      "target_level": "k02_trucks_cemetery"
+    },
+    {
+      "source_x": 127.9535,
+      "source_y": 8.6011,
+      "source_z": 80.9202,
+      "target_x": 163.5955,
+      "target_y": 11.2739,
+      "target_z": 84.3009,
+      "distance": 36.1351,
+      "target_level": "k02_trucks_cemetery"
+    },
+    {
+      "source_x": 127.9535,
+      "source_y": 8.6011,
+      "source_z": 80.9202,
+      "target_x": 114.9445,
+      "target_y": 6.6052,
+      "target_z": 123.6508,
+      "distance": 44.667,
+      "target_level": "k02_trucks_cemetery"
+    },
+    {
+      "source_x": 114.9445,
+      "source_y": 6.6052,
+      "source_z": 123.6508,
+      "target_x": 127.9535,
+      "target_y": 8.6011,
+      "target_z": 80.9202,
+      "distance": 44.667,
+      "target_level": "k02_trucks_cemetery"
+    },
+    {
+      "source_x": 114.9445,
+      "source_y": 6.6052,
+      "source_z": 123.6508,
+      "target_x": 126.4577,
+      "target_y": 7.3354,
+      "target_z": 133.0611,
+      "distance": 14.8696,
+      "target_level": "k02_trucks_cemetery"
+    },
+    {
+      "source_x": 114.9445,
+      "source_y": 6.6052,
+      "source_z": 123.6508,
+      "target_x": 81.7691,
+      "target_y": -2.8431,
+      "target_z": 90.7721,
+      "distance": 46.7078,
+      "target_level": "k02_trucks_cemetery"
+    },
+    {
+      "source_x": 114.9445,
+      "source_y": 6.6052,
+      "source_z": 123.6508,
+      "target_x": 84.4744,
+      "target_y": 4.1781,
+      "target_z": 139.8037,
+      "distance": 43.3332,
+      "target_level": "k02_trucks_cemetery"
+    },
+    {
+      "source_x": 165.9845,
+      "source_y": 9.9586,
+      "source_z": 142.7467,
+      "target_x": 163.5955,
+      "target_y": 11.2739,
+      "target_z": 84.3009,
+      "distance": 58.4946,
+      "target_level": "k02_trucks_cemetery"
+    },
+    {
+      "source_x": 165.9845,
+      "source_y": 9.9586,
+      "source_z": 142.7467,
+      "target_x": 190.4111,
+      "target_y": 9.9894,
+      "target_z": 164.676,
+      "distance": 42.0985,
+      "target_level": "k02_trucks_cemetery"
+    },
+    {
+      "source_x": 165.9845,
+      "source_y": 9.9586,
+      "source_z": 142.7467,
+      "target_x": 126.4577,
+      "target_y": 7.3354,
+      "target_z": 133.0611,
+      "distance": 43.9643,
+      "target_level": "k02_trucks_cemetery"
+    },
+    {
+      "source_x": 163.5955,
+      "source_y": 11.2739,
+      "source_z": 84.3009,
+      "target_x": 157.766,
+      "target_y": 9.7396,
+      "target_z": 50.6338,
+      "distance": 37.9294,
+      "target_level": "k02_trucks_cemetery"
+    },
+    {
+      "source_x": 163.5955,
+      "source_y": 11.2739,
+      "source_z": 84.3009,
+      "target_x": 185.5861,
+      "target_y": 10.9971,
+      "target_z": 71.0991,
+      "distance": 28.9514,
+      "target_level": "k02_trucks_cemetery"
+    },
+    {
+      "source_x": 163.5955,
+      "source_y": 11.2739,
+      "source_z": 84.3009,
+      "target_x": 165.9845,
+      "target_y": 9.9586,
+      "target_z": 142.7467,
+      "distance": 58.4946,
+      "target_level": "k02_trucks_cemetery"
+    },
+    {
+      "source_x": 163.5955,
+      "source_y": 11.2739,
+      "source_z": 84.3009,
+      "target_x": 127.9535,
+      "target_y": 8.6011,
+      "target_z": 80.9202,
+      "distance": 36.1548,
+      "target_level": "k02_trucks_cemetery"
+    },
+    {
+      "source_x": 190.4111,
+      "source_y": 9.9894,
+      "source_z": 164.676,
+      "target_x": 203.9379,
+      "target_y": 10.9955,
+      "target_z": 109.6183,
+      "distance": 66.6688,
+      "target_level": "k02_trucks_cemetery"
+    },
+    {
+      "source_x": 190.4111,
+      "source_y": 9.9894,
+      "source_z": 164.676,
+      "target_x": 165.9845,
+      "target_y": 9.9586,
+      "target_z": 142.7467,
+      "distance": 43.1536,
+      "target_level": "k02_trucks_cemetery"
+    },
+    {
+      "source_x": 190.4111,
+      "source_y": 9.9894,
+      "source_z": 164.676,
+      "target_x": 210.3871,
+      "target_y": 8.6569,
+      "target_z": 205.3309,
+      "distance": 58.3877,
+      "target_level": "k02_trucks_cemetery"
+    },
+    {
+      "source_x": 203.9379,
+      "source_y": 10.9955,
+      "source_z": 109.6183,
+      "target_x": 185.5861,
+      "target_y": 10.9971,
+      "target_z": 71.0991,
+      "distance": 51.2187,
+      "target_level": "k02_trucks_cemetery"
+    },
+    {
+      "source_x": 203.9379,
+      "source_y": 10.9955,
+      "source_z": 109.6183,
+      "target_x": 246.8139,
+      "target_y": 9.248,
+      "target_z": 133.324,
+      "distance": 70.8185,
+      "target_level": "k02_trucks_cemetery"
+    },
+    {
+      "source_x": 203.9379,
+      "source_y": 10.9955,
+      "source_z": 109.6183,
+      "target_x": 190.4111,
+      "target_y": 9.9894,
+      "target_z": 164.676,
+      "distance": 62.1791,
+      "target_level": "k02_trucks_cemetery"
+    },
+    {
+      "source_x": 185.5861,
+      "source_y": 10.9971,
+      "source_z": 71.0991,
+      "target_x": 209.2044,
+      "target_y": 8.9417,
+      "target_z": -4.7808,
+      "distance": 100.429,
+      "target_level": "k02_trucks_cemetery"
+    },
+    {
+      "source_x": 185.5861,
+      "source_y": 10.9971,
+      "source_z": 71.0991,
+      "target_x": 203.9379,
+      "target_y": 10.9955,
+      "target_z": 109.6183,
+      "distance": 54.8416,
+      "target_level": "k02_trucks_cemetery"
+    },
+    {
+      "source_x": 185.5861,
+      "source_y": 10.9971,
+      "source_z": 71.0991,
+      "target_x": 163.5955,
+      "target_y": 11.2739,
+      "target_z": 84.3009,
+      "distance": 28.7665,
+      "target_level": "k02_trucks_cemetery"
+    },
+    {
+      "source_x": 60.1846,
+      "source_y": 4.6822,
+      "source_z": 10.3098,
+      "target_x": 112.0737,
+      "target_y": 7.1794,
+      "target_z": -9.0868,
+      "distance": 55.3958,
+      "target_level": "k02_trucks_cemetery"
+    },
+    {
+      "source_x": 60.1846,
+      "source_y": 4.6822,
+      "source_z": 10.3098,
+      "target_x": 85.7433,
+      "target_y": 4.8185,
+      "target_z": 62.7659,
+      "distance": 65.9794,
+      "target_level": "k02_trucks_cemetery"
+    },
+    {
+      "source_x": 60.1846,
+      "source_y": 4.6822,
+      "source_z": 10.3098,
+      "target_x": 25.9106,
+      "target_y": 3.0831,
+      "target_z": 17.594,
+      "distance": 35.4716,
+      "target_level": "k02_trucks_cemetery"
+    },
+    {
+      "source_x": 112.0737,
+      "source_y": 7.1794,
+      "source_z": -9.0868,
+      "target_x": 90.7267,
+      "target_y": 7.4031,
+      "target_z": -43.9582,
+      "distance": 56.5688,
+      "target_level": "k02_trucks_cemetery"
+    },
+    {
+      "source_x": 112.0737,
+      "source_y": 7.1794,
+      "source_z": -9.0868,
+      "target_x": 157.4739,
+      "target_y": 8.9449,
+      "target_z": -30.7964,
+      "distance": 67.0249,
+      "target_level": "k02_trucks_cemetery"
+    },
+    {
+      "source_x": 112.0737,
+      "source_y": 7.1794,
+      "source_z": -9.0868,
+      "target_x": 106.1657,
+      "target_y": 6.5079,
+      "target_z": 50.7815,
+      "distance": 68.1912,
+      "target_level": "k02_trucks_cemetery"
+    },
+    {
+      "source_x": 112.0737,
+      "source_y": 7.1794,
+      "source_z": -9.0868,
+      "target_x": 60.1846,
+      "target_y": 4.6822,
+      "target_z": 10.3098,
+      "distance": 55.3958,
+      "target_level": "k02_trucks_cemetery"
+    },
+    {
+      "source_x": 157.4739,
+      "source_y": 8.9449,
+      "source_z": -30.7964,
+      "target_x": 177.4688,
+      "target_y": 5.5469,
+      "target_z": -72.9721,
+      "distance": 56.8773,
+      "target_level": "k02_trucks_cemetery"
+    },
+    {
+      "source_x": 157.4739,
+      "source_y": 8.9449,
+      "source_z": -30.7964,
+      "target_x": 209.2044,
+      "target_y": 8.9417,
+      "target_z": -4.7808,
+      "distance": 64.9926,
+      "target_level": "k02_trucks_cemetery"
+    },
+    {
+      "source_x": 157.4739,
+      "source_y": 8.9449,
+      "source_z": -30.7964,
+      "target_x": 157.766,
+      "target_y": 9.7396,
+      "target_z": 50.6338,
+      "distance": 82.6587,
+      "target_level": "k02_trucks_cemetery"
+    },
+    {
+      "source_x": 157.4739,
+      "source_y": 8.9449,
+      "source_z": -30.7964,
+      "target_x": 112.0737,
+      "target_y": 7.1794,
+      "target_z": -9.0868,
+      "distance": 59.0483,
+      "target_level": "k02_trucks_cemetery"
+    },
+    {
+      "source_x": 244.3454,
+      "source_y": 2.8433,
+      "source_z": -90.9161,
+      "target_x": 241.1308,
+      "target_y": 1.965,
+      "target_z": -167.6684,
+      "distance": 81.2514,
+      "target_level": "k02_trucks_cemetery"
+    },
+    {
+      "source_x": 244.3454,
+      "source_y": 2.8433,
+      "source_z": -90.9161,
+      "target_x": 313.289,
+      "target_y": 7.0624,
+      "target_z": -90.4528,
+      "distance": 71.1819,
+      "target_level": "k02_trucks_cemetery"
+    },
+    {
+      "source_x": 244.3454,
+      "source_y": 2.8433,
+      "source_z": -90.9161,
+      "target_x": 244.037,
+      "target_y": 7.2578,
+      "target_z": -8.9409,
+      "distance": 81.9758,
+      "target_level": "k02_trucks_cemetery"
+    },
+    {
+      "source_x": 244.3454,
+      "source_y": 2.8433,
+      "source_z": -90.9161,
+      "target_x": 185.8631,
+      "target_y": 2.7111,
+      "target_z": -117.5324,
+      "distance": 72.8554,
+      "target_level": "k02_trucks_cemetery"
+    },
+    {
+      "source_x": 90.1401,
+      "source_y": 7.83,
+      "source_z": -78.3043,
+      "target_x": 94.6584,
+      "target_y": 7.1917,
+      "target_z": -107.8211,
+      "distance": 30.753,
+      "target_level": "k02_trucks_cemetery"
+    },
+    {
+      "source_x": 90.1401,
+      "source_y": 7.83,
+      "source_z": -78.3043,
+      "target_x": 134.3353,
+      "target_y": 5.7863,
+      "target_z": -76.6106,
+      "distance": 45.6685,
+      "target_level": "k02_trucks_cemetery"
+    },
+    {
+      "source_x": 90.1401,
+      "source_y": 7.83,
+      "source_z": -78.3043,
+      "target_x": 90.7267,
+      "target_y": 7.4031,
+      "target_z": -43.9582,
+      "distance": 34.5738,
+      "target_level": "k02_trucks_cemetery"
+    },
+    {
+      "source_x": 134.3353,
+      "source_y": 5.7863,
+      "source_z": -76.6106,
+      "target_x": 142.0539,
+      "target_y": 3.0001,
+      "target_z": -134.4548,
+      "distance": 71.587,
+      "target_level": "k02_trucks_cemetery"
+    },
+    {
+      "source_x": 134.3353,
+      "source_y": 5.7863,
+      "source_z": -76.6106,
+      "target_x": 177.4688,
+      "target_y": 5.5469,
+      "target_z": -72.9721,
+      "distance": 44.295,
+      "target_level": "k02_trucks_cemetery"
+    },
+    {
+      "source_x": 134.3353,
+      "source_y": 5.7863,
+      "source_z": -76.6106,
+      "target_x": 90.1401,
+      "target_y": 7.83,
+      "target_z": -78.3043,
+      "distance": 46.954,
+      "target_level": "k02_trucks_cemetery"
+    },
+    {
+      "source_x": 142.0539,
+      "source_y": 3.0001,
+      "source_z": -134.4548,
+      "target_x": 137.319,
+      "target_y": 3.4834,
+      "target_z": -170.323,
+      "distance": 36.4605,
+      "target_level": "k02_trucks_cemetery"
+    },
+    {
+      "source_x": 142.0539,
+      "source_y": 3.0001,
+      "source_z": -134.4548,
+      "target_x": 185.8631,
+      "target_y": 2.7111,
+      "target_z": -117.5324,
+      "distance": 52.8412,
+      "target_level": "k02_trucks_cemetery"
+    },
+    {
+      "source_x": 142.0539,
+      "source_y": 3.0001,
+      "source_z": -134.4548,
+      "target_x": 134.3353,
+      "target_y": 5.7863,
+      "target_z": -76.6106,
+      "distance": 63.1709,
+      "target_level": "k02_trucks_cemetery"
+    },
+    {
+      "source_x": 142.0539,
+      "source_y": 3.0001,
+      "source_z": -134.4548,
+      "target_x": 112.1865,
+      "target_y": 5.5383,
+      "target_z": -133.3762,
+      "distance": 29.8869,
+      "target_level": "k02_trucks_cemetery"
+    },
+    {
+      "source_x": 88.866,
+      "source_y": 5.8996,
+      "source_z": -150.3484,
+      "target_x": 107.5455,
+      "target_y": 4.9894,
+      "target_z": -195.4236,
+      "distance": 57.3203,
+      "target_level": "k02_trucks_cemetery"
+    },
+    {
+      "source_x": 88.866,
+      "source_y": 5.8996,
+      "source_z": -150.3484,
+      "target_x": 65.2143,
+      "target_y": 7.1996,
+      "target_z": -173.1337,
+      "distance": 43.136,
+      "target_level": "k02_trucks_cemetery"
+    },
+    {
+      "source_x": 88.866,
+      "source_y": 5.8996,
+      "source_z": -150.3484,
+      "target_x": 112.1865,
+      "target_y": 5.5383,
+      "target_z": -133.3762,
+      "distance": 34.3339,
+      "target_level": "k02_trucks_cemetery"
+    },
+    {
+      "source_x": 107.5455,
+      "source_y": 4.9894,
+      "source_z": -195.4236,
+      "target_x": 104.1167,
+      "target_y": 5.888,
+      "target_z": -245.0969,
+      "distance": 53.2806,
+      "target_level": "k02_trucks_cemetery"
+    },
+    {
+      "source_x": 107.5455,
+      "source_y": 4.9894,
+      "source_z": -195.4236,
+      "target_x": 130.4633,
+      "target_y": 4.381,
+      "target_z": -190.3941,
+      "distance": 24.2529,
+      "target_level": "k02_trucks_cemetery"
+    },
+    {
+      "source_x": 107.5455,
+      "source_y": 4.9894,
+      "source_z": -195.4236,
+      "target_x": 88.866,
+      "target_y": 5.8996,
+      "target_z": -150.3484,
+      "distance": 60.82,
+      "target_level": "k02_trucks_cemetery"
+    },
+    {
+      "source_x": 107.5455,
+      "source_y": 4.9894,
+      "source_z": -195.4236,
+      "target_x": 65.5346,
+      "target_y": 6.6183,
+      "target_z": -207.9579,
+      "distance": 49.756,
+      "target_level": "k02_trucks_cemetery"
+    },
+    {
+      "source_x": 135.6559,
+      "source_y": 5.33,
+      "source_z": -237.0883,
+      "target_x": 168.5287,
+      "target_y": 3.3239,
+      "target_z": -217.5798,
+      "distance": 42.0336,
+      "target_level": "k02_trucks_cemetery"
+    },
+    {
+      "source_x": 135.6559,
+      "source_y": 5.33,
+      "source_z": -237.0883,
+      "target_x": 104.1167,
+      "target_y": 5.888,
+      "target_z": -245.0969,
+      "distance": 32.7709,
+      "target_level": "k02_trucks_cemetery"
+    },
+    {
+      "source_x": 81.8798,
+      "source_y": 6.0944,
+      "source_z": -232.3431,
+      "target_x": 62.3088,
+      "target_y": 6.0194,
+      "target_z": -278.7664,
+      "distance": 62.1919,
+      "target_level": "k02_trucks_cemetery"
+    },
+    {
+      "source_x": 81.8798,
+      "source_y": 6.0944,
+      "source_z": -232.3431,
+      "target_x": 104.1167,
+      "target_y": 5.888,
+      "target_z": -245.0969,
+      "distance": 29.0539,
+      "target_level": "k02_trucks_cemetery"
+    },
+    {
+      "source_x": 81.8798,
+      "source_y": 6.0944,
+      "source_z": -232.3431,
+      "target_x": 65.5346,
+      "target_y": 6.6183,
+      "target_z": -207.9579,
+      "distance": 35.8553,
+      "target_level": "k02_trucks_cemetery"
+    },
+    {
+      "source_x": 39.2156,
+      "source_y": 8.6327,
+      "source_z": -223.8573,
+      "target_x": 30.3906,
+      "target_y": 8.743,
+      "target_z": -269.2455,
+      "distance": 46.2383,
+      "target_level": "k02_trucks_cemetery"
+    },
+    {
+      "source_x": 39.2156,
+      "source_y": 8.6327,
+      "source_z": -223.8573,
+      "target_x": 65.5346,
+      "target_y": 6.6183,
+      "target_z": -207.9579,
+      "distance": 39.4186,
+      "target_level": "k02_trucks_cemetery"
+    },
+    {
+      "source_x": 39.2156,
+      "source_y": 8.6327,
+      "source_z": -223.8573,
+      "target_x": -16.2237,
+      "target_y": 25.4936,
+      "target_z": -218.8261,
+      "distance": 61.5868,
+      "target_level": "k02_trucks_cemetery"
+    },
+    {
+      "source_x": 44.3064,
+      "source_y": 8.3037,
+      "source_z": -176.0628,
+      "target_x": 65.2143,
+      "target_y": 7.1996,
+      "target_z": -173.1337,
+      "distance": 22.7569,
+      "target_level": "k02_trucks_cemetery"
+    },
+    {
+      "source_x": 44.3064,
+      "source_y": 8.3037,
+      "source_z": -176.0628,
+      "target_x": 31.4133,
+      "target_y": 11.8778,
+      "target_z": -125.0814,
+      "distance": 55.4054,
+      "target_level": "k02_trucks_cemetery"
+    },
+    {
+      "source_x": 44.3064,
+      "source_y": 8.3037,
+      "source_z": -176.0628,
+      "target_x": 8.0523,
+      "target_y": 11.8238,
+      "target_z": -168.1911,
+      "distance": 41.0264,
+      "target_level": "k02_trucks_cemetery"
+    },
+    {
+      "source_x": 41.4005,
+      "source_y": 9.8667,
+      "source_z": -107.5161,
+      "target_x": 31.4133,
+      "target_y": 11.8778,
+      "target_z": -125.0814,
+      "distance": 25.4045,
+      "target_level": "k02_trucks_cemetery"
+    },
+    {
+      "source_x": 41.4005,
+      "source_y": 9.8667,
+      "source_z": -107.5161,
+      "target_x": 94.6584,
+      "target_y": 7.1917,
+      "target_z": -107.8211,
+      "distance": 57.5799,
+      "target_level": "k02_trucks_cemetery"
+    },
+    {
+      "source_x": 41.4005,
+      "source_y": 9.8667,
+      "source_z": -107.5161,
+      "target_x": 49.2377,
+      "target_y": 6.3135,
+      "target_z": -50.1774,
+      "distance": 61.9841,
+      "target_level": "k02_trucks_cemetery"
+    },
+    {
+      "source_x": 41.4005,
+      "source_y": 9.8667,
+      "source_z": -107.5161,
+      "target_x": -2.3555,
+      "target_y": 23.8132,
+      "target_z": -96.0307,
+      "distance": 58.3377,
+      "target_level": "k02_trucks_cemetery"
+    },
+    {
+      "source_x": 49.2377,
+      "source_y": 6.3135,
+      "source_z": -50.1774,
+      "target_x": 41.4005,
+      "target_y": 9.8667,
+      "target_z": -107.5161,
+      "distance": 59.3454,
+      "target_level": "k02_trucks_cemetery"
+    },
+    {
+      "source_x": 49.2377,
+      "source_y": 6.3135,
+      "source_z": -50.1774,
+      "target_x": 90.7267,
+      "target_y": 7.4031,
+      "target_z": -43.9582,
+      "distance": 44.5255,
+      "target_level": "k02_trucks_cemetery"
+    },
+    {
+      "source_x": 49.2377,
+      "source_y": 6.3135,
+      "source_z": -50.1774,
+      "target_x": 25.9924,
+      "target_y": 5.1693,
+      "target_z": -17.687,
+      "distance": 39.9496,
+      "target_level": "k02_trucks_cemetery"
+    },
+    {
+      "source_x": 49.2377,
+      "source_y": 6.3135,
+      "source_z": -50.1774,
+      "target_x": -7.6478,
+      "target_y": 20.3186,
+      "target_z": -71.6957,
+      "distance": 77.6542,
+      "target_level": "k02_trucks_cemetery"
+    },
+    {
+      "source_x": -7.6478,
+      "source_y": 20.3186,
+      "source_z": -71.6957,
+      "target_x": -2.3555,
+      "target_y": 23.8132,
+      "target_z": -96.0307,
+      "distance": 25.5006,
+      "target_level": "k02_trucks_cemetery"
+    },
+    {
+      "source_x": -7.6478,
+      "source_y": 20.3186,
+      "source_z": -71.6957,
+      "target_x": 49.2377,
+      "target_y": 6.3135,
+      "target_z": -50.1774,
+      "distance": 73.0165,
+      "target_level": "k02_trucks_cemetery"
+    },
+    {
+      "source_x": -7.6478,
+      "source_y": 20.3186,
+      "source_z": -71.6957,
+      "target_x": -17.7867,
+      "target_y": 5.0843,
+      "target_z": -22.3826,
+      "distance": 57.2668,
+      "target_level": "k02_trucks_cemetery"
+    },
+    {
+      "source_x": -7.6478,
+      "source_y": 20.3186,
+      "source_z": -71.6957,
+      "target_x": -36.9681,
+      "target_y": 16.7831,
+      "target_z": -59.542,
+      "distance": 40.4377,
+      "target_level": "k02_trucks_cemetery"
+    },
+    {
+      "source_x": -9.7704,
+      "source_y": 18.4162,
+      "source_z": -120.2084,
+      "target_x": -8.5831,
+      "target_y": 14.5946,
+      "target_z": -168.4446,
+      "distance": 52.6118,
+      "target_level": "k02_trucks_cemetery"
+    },
+    {
+      "source_x": -9.7704,
+      "source_y": 18.4162,
+      "source_z": -120.2084,
+      "target_x": 31.4133,
+      "target_y": 11.8778,
+      "target_z": -125.0814,
+      "distance": 45.4968,
+      "target_level": "k02_trucks_cemetery"
+    },
+    {
+      "source_x": -9.7704,
+      "source_y": 18.4162,
+      "source_z": -120.2084,
+      "target_x": -2.3555,
+      "target_y": 23.8132,
+      "target_z": -96.0307,
+      "distance": 27.8906,
+      "target_level": "k02_trucks_cemetery"
+    },
+    {
+      "source_x": -9.7704,
+      "source_y": 18.4162,
+      "source_z": -120.2084,
+      "target_x": -43.0711,
+      "target_y": 9.3948,
+      "target_z": -117.7521,
+      "distance": 35.7471,
+      "target_level": "k02_trucks_cemetery"
+    },
+    {
+      "source_x": 177.4688,
+      "source_y": 5.5469,
+      "source_z": -72.9721,
+      "target_x": 185.8631,
+      "target_y": 2.7111,
+      "target_z": -117.5324,
+      "distance": 57.6257,
+      "target_level": "k02_trucks_cemetery"
+    },
+    {
+      "source_x": 177.4688,
+      "source_y": 5.5469,
+      "source_z": -72.9721,
+      "target_x": 157.4739,
+      "target_y": 8.9449,
+      "target_z": -30.7964,
+      "distance": 59.6299,
+      "target_level": "k02_trucks_cemetery"
+    },
+    {
+      "source_x": 177.4688,
+      "source_y": 5.5469,
+      "source_z": -72.9721,
+      "target_x": 134.3353,
+      "target_y": 5.7863,
+      "target_z": -76.6106,
+      "distance": 43.9064,
+      "target_level": "k02_trucks_cemetery"
+    },
+    {
+      "source_x": 185.8631,
+      "source_y": 2.7111,
+      "source_z": -117.5324,
+      "target_x": 186.53,
+      "target_y": 1.3679,
+      "target_z": -170.946,
+      "distance": 54.5094,
+      "target_level": "k02_trucks_cemetery"
+    },
+    {
+      "source_x": 185.8631,
+      "source_y": 2.7111,
+      "source_z": -117.5324,
+      "target_x": 244.3454,
+      "target_y": 2.8433,
+      "target_z": -90.9161,
+      "distance": 68.9689,
+      "target_level": "k02_trucks_cemetery"
+    },
+    {
+      "source_x": 185.8631,
+      "source_y": 2.7111,
+      "source_z": -117.5324,
+      "target_x": 177.4688,
+      "target_y": 5.5469,
+      "target_z": -72.9721,
+      "distance": 46.507,
+      "target_level": "k02_trucks_cemetery"
+    },
+    {
+      "source_x": 185.8631,
+      "source_y": 2.7111,
+      "source_z": -117.5324,
+      "target_x": 142.0539,
+      "target_y": 3.0001,
+      "target_z": -134.4548,
+      "distance": 58.2518,
+      "target_level": "k02_trucks_cemetery"
+    },
+    {
+      "source_x": 241.1308,
+      "source_y": 1.965,
+      "source_z": -167.6684,
+      "target_x": 241.1085,
+      "target_y": 7.1225,
+      "target_z": -214.9227,
+      "distance": 48.0869,
+      "target_level": "k02_trucks_cemetery"
+    },
+    {
+      "source_x": 241.1308,
+      "source_y": 1.965,
+      "source_z": -167.6684,
+      "target_x": 315.4816,
+      "target_y": 6.3559,
+      "target_z": -157.8689,
+      "distance": 77.905,
+      "target_level": "k02_trucks_cemetery"
+    },
+    {
+      "source_x": 241.1308,
+      "source_y": 1.965,
+      "source_z": -167.6684,
+      "target_x": 244.3454,
+      "target_y": 2.8433,
+      "target_z": -90.9161,
+      "distance": 77.5236,
+      "target_level": "k02_trucks_cemetery"
+    },
+    {
+      "source_x": 241.1308,
+      "source_y": 1.965,
+      "source_z": -167.6684,
+      "target_x": 186.53,
+      "target_y": 1.3679,
+      "target_z": -170.946,
+      "distance": 54.83,
+      "target_level": "k02_trucks_cemetery"
+    },
+    {
+      "source_x": 241.1085,
+      "source_y": 7.1225,
+      "source_z": -214.9227,
+      "target_x": 230.8098,
+      "target_y": 9.7449,
+      "target_z": -279.3377,
+      "distance": 65.6388,
+      "target_level": "k02_trucks_cemetery"
+    },
+    {
+      "source_x": 241.1085,
+      "source_y": 7.1225,
+      "source_z": -214.9227,
+      "target_x": 282.2928,
+      "target_y": 15.3869,
+      "target_z": -239.1854,
+      "distance": 56.3254,
+      "target_level": "k02_trucks_cemetery"
+    },
+    {
+      "source_x": 241.1085,
+      "source_y": 7.1225,
+      "source_z": -214.9227,
+      "target_x": 241.1308,
+      "target_y": 1.965,
+      "target_z": -167.6684,
+      "distance": 48.1444,
+      "target_level": "k02_trucks_cemetery"
+    },
+    {
+      "source_x": 241.1085,
+      "source_y": 7.1225,
+      "source_z": -214.9227,
+      "target_x": 193.5028,
+      "target_y": 3.0003,
+      "target_z": -217.2525,
+      "distance": 57.4928,
+      "target_level": "k02_trucks_cemetery"
+    },
+    {
+      "source_x": 230.8098,
+      "source_y": 9.7449,
+      "source_z": -279.3377,
+      "target_x": 263.6901,
+      "target_y": 8.9799,
+      "target_z": -317.286,
+      "distance": 50.2114,
+      "target_level": "k02_trucks_cemetery"
+    },
+    {
+      "source_x": 230.8098,
+      "source_y": 9.7449,
+      "source_z": -279.3377,
+      "target_x": 241.1085,
+      "target_y": 7.1225,
+      "target_z": -214.9227,
+      "distance": 74.062,
+      "target_level": "k02_trucks_cemetery"
+    },
+    {
+      "source_x": 230.8098,
+      "source_y": 9.7449,
+      "source_z": -279.3377,
+      "target_x": 184.2919,
+      "target_y": 4.268,
+      "target_z": -249.8909,
+      "distance": 77.7034,
+      "target_level": "k02_trucks_cemetery"
+    },
+    {
+      "source_x": 186.53,
+      "source_y": 1.3679,
+      "source_z": -170.946,
+      "target_x": 193.5028,
+      "target_y": 3.0003,
+      "target_z": -217.2525,
+      "distance": 46.8284,
+      "target_level": "k02_trucks_cemetery"
+    },
+    {
+      "source_x": 186.53,
+      "source_y": 1.3679,
+      "source_z": -170.946,
+      "target_x": 241.1308,
+      "target_y": 1.965,
+      "target_z": -167.6684,
+      "distance": 58.1271,
+      "target_level": "k02_trucks_cemetery"
+    },
+    {
+      "source_x": 186.53,
+      "source_y": 1.3679,
+      "source_z": -170.946,
+      "target_x": 185.8631,
+      "target_y": 2.7111,
+      "target_z": -117.5324,
+      "distance": 55.1249,
+      "target_level": "k02_trucks_cemetery"
+    },
+    {
+      "source_x": 157.8829,
+      "source_y": 3.2302,
+      "source_z": -206.07,
+      "target_x": 168.5287,
+      "target_y": 3.3239,
+      "target_z": -217.5798,
+      "distance": 15.6784,
+      "target_level": "k02_trucks_cemetery"
+    },
+    {
+      "source_x": 157.8829,
+      "source_y": 3.2302,
+      "source_z": -206.07,
+      "target_x": 130.4633,
+      "target_y": 4.381,
+      "target_z": -190.3941,
+      "distance": 39.1245,
+      "target_level": "k02_trucks_cemetery"
+    },
+    {
+      "source_x": 184.2919,
+      "source_y": 4.268,
+      "source_z": -249.8909,
+      "target_x": 159.8712,
+      "target_y": 5.7907,
+      "target_z": -299.6357,
+      "distance": 65.7322,
+      "target_level": "k02_trucks_cemetery"
+    },
+    {
+      "source_x": 184.2919,
+      "source_y": 4.268,
+      "source_z": -249.8909,
+      "target_x": 230.8098,
+      "target_y": 9.7449,
+      "target_z": -279.3377,
+      "distance": 75.4342,
+      "target_level": "k02_trucks_cemetery"
+    },
+    {
+      "source_x": 184.2919,
+      "source_y": 4.268,
+      "source_z": -249.8909,
+      "target_x": 193.5028,
+      "target_y": 3.0003,
+      "target_z": -217.2525,
+      "distance": 33.9132,
+      "target_level": "k02_trucks_cemetery"
+    },
+    {
+      "source_x": 130.4633,
+      "source_y": 4.381,
+      "source_z": -190.3941,
+      "target_x": 157.8829,
+      "target_y": 3.2302,
+      "target_z": -206.07,
+      "distance": 32.1883,
+      "target_level": "k02_trucks_cemetery"
+    },
+    {
+      "source_x": 130.4633,
+      "source_y": 4.381,
+      "source_z": -190.3941,
+      "target_x": 137.319,
+      "target_y": 3.4834,
+      "target_z": -170.323,
+      "distance": 21.2097,
+      "target_level": "k02_trucks_cemetery"
+    },
+    {
+      "source_x": 130.4633,
+      "source_y": 4.381,
+      "source_z": -190.3941,
+      "target_x": 107.5455,
+      "target_y": 4.9894,
+      "target_z": -195.4236,
+      "distance": 25.6872,
+      "target_level": "k02_trucks_cemetery"
+    },
+    {
+      "source_x": 165.9217,
+      "source_y": 7.0944,
+      "source_z": -330.6116,
+      "target_x": 157.9269,
+      "target_y": 11.7713,
+      "target_z": -377.046,
+      "distance": 47.1176,
+      "target_level": "k02_trucks_cemetery"
+    },
+    {
+      "source_x": 165.9217,
+      "source_y": 7.0944,
+      "source_z": -330.6116,
+      "target_x": 159.8712,
+      "target_y": 5.7907,
+      "target_z": -299.6357,
+      "distance": 32.4766,
+      "target_level": "k02_trucks_cemetery"
+    },
+    {
+      "source_x": 165.9217,
+      "source_y": 7.0944,
+      "source_z": -330.6116,
+      "target_x": 115.698,
+      "target_y": 5.9047,
+      "target_z": -326.8053,
+      "distance": 50.3677,
+      "target_level": "k02_trucks_cemetery"
+    },
+    {
+      "source_x": 115.698,
+      "source_y": 5.9047,
+      "source_z": -326.8053,
+      "target_x": 95.0959,
+      "target_y": 10.0326,
+      "target_z": -381.9848,
+      "distance": 59.6557,
+      "target_level": "k02_trucks_cemetery"
+    },
+    {
+      "source_x": 115.698,
+      "source_y": 5.9047,
+      "source_z": -326.8053,
+      "target_x": 165.9217,
+      "target_y": 7.0944,
+      "target_z": -330.6116,
+      "distance": 50.3677,
+      "target_level": "k02_trucks_cemetery"
+    },
+    {
+      "source_x": 115.698,
+      "source_y": 5.9047,
+      "source_z": -326.8053,
+      "target_x": 105.9158,
+      "target_y": 5.8757,
+      "target_z": -299.5909,
+      "distance": 37.8031,
+      "target_level": "k02_trucks_cemetery"
+    },
+    {
+      "source_x": 115.698,
+      "source_y": 5.9047,
+      "source_z": -326.8053,
+      "target_x": 49.759,
+      "target_y": 6.2891,
+      "target_z": -335.6401,
+      "distance": 70.2496,
+      "target_level": "k02_trucks_cemetery"
+    },
+    {
+      "source_x": 49.759,
+      "source_y": 6.2891,
+      "source_z": -335.6401,
+      "target_x": 40.1784,
+      "target_y": 13.2023,
+      "target_z": -378.5703,
+      "distance": 45.9499,
+      "target_level": "k02_trucks_cemetery"
+    },
+    {
+      "source_x": 49.759,
+      "source_y": 6.2891,
+      "source_z": -335.6401,
+      "target_x": 115.698,
+      "target_y": 5.9047,
+      "target_z": -326.8053,
+      "distance": 68.695,
+      "target_level": "k02_trucks_cemetery"
+    },
+    {
+      "source_x": 49.759,
+      "source_y": 6.2891,
+      "source_z": -335.6401,
+      "target_x": 45.8115,
+      "target_y": 5.3488,
+      "target_z": -311.1086,
+      "distance": 25.89,
+      "target_level": "k02_trucks_cemetery"
+    },
+    {
+      "source_x": 49.759,
+      "source_y": 6.2891,
+      "source_z": -335.6401,
+      "target_x": -3.4231,
+      "target_y": 5.775,
+      "target_z": -331.1902,
+      "distance": 53.4569,
+      "target_level": "k02_trucks_cemetery"
+    },
+    {
+      "source_x": -3.4231,
+      "source_y": 5.775,
+      "source_z": -331.1902,
+      "target_x": 49.759,
+      "target_y": 6.2891,
+      "target_z": -335.6401,
+      "distance": 54.6889,
+      "target_level": "k02_trucks_cemetery"
+    },
+    {
+      "source_x": -3.4231,
+      "source_y": 5.775,
+      "source_z": -331.1902,
+      "target_x": -1.7976,
+      "target_y": 5.2614,
+      "target_z": -308.7455,
+      "distance": 25.808,
+      "target_level": "k02_trucks_cemetery"
+    },
+    {
+      "source_x": 30.3906,
+      "source_y": 8.743,
+      "source_z": -269.2455,
+      "target_x": 62.3088,
+      "target_y": 6.0194,
+      "target_z": -278.7664,
+      "distance": 33.3079,
+      "target_level": "k02_trucks_cemetery"
+    },
+    {
+      "source_x": 30.3906,
+      "source_y": 8.743,
+      "source_z": -269.2455,
+      "target_x": 39.2156,
+      "target_y": 8.6327,
+      "target_z": -223.8573,
+      "distance": 46.2383,
+      "target_level": "k02_trucks_cemetery"
+    },
+    {
+      "source_x": 30.3906,
+      "source_y": 8.743,
+      "source_z": -269.2455,
+      "target_x": -3.1924,
+      "target_y": 21.4403,
+      "target_z": -260.6235,
+      "distance": 34.6721,
+      "target_level": "k02_trucks_cemetery"
+    },
+    {
+      "source_x": 105.9158,
+      "source_y": 5.8757,
+      "source_z": -299.5909,
+      "target_x": 115.698,
+      "target_y": 5.9047,
+      "target_z": -326.8053,
+      "distance": 44.6193,
+      "target_level": "k02_trucks_cemetery"
+    },
+    {
+      "source_x": 105.9158,
+      "source_y": 5.8757,
+      "source_z": -299.5909,
+      "target_x": 159.8712,
+      "target_y": 5.7907,
+      "target_z": -299.6357,
+      "distance": 53.9554,
+      "target_level": "k02_trucks_cemetery"
+    },
+    {
+      "source_x": 105.9158,
+      "source_y": 5.8757,
+      "source_z": -299.5909,
+      "target_x": 104.1167,
+      "target_y": 5.888,
+      "target_z": -245.0969,
+      "distance": 56.1872,
+      "target_level": "k02_trucks_cemetery"
+    },
+    {
+      "source_x": 105.9158,
+      "source_y": 5.8757,
+      "source_z": -299.5909,
+      "target_x": 62.3088,
+      "target_y": 6.0194,
+      "target_z": -278.7664,
+      "distance": 60.8429,
+      "target_level": "k02_trucks_cemetery"
+    },
+    {
+      "source_x": 159.8712,
+      "source_y": 5.7907,
+      "source_z": -299.6357,
+      "target_x": 165.9217,
+      "target_y": 7.0944,
+      "target_z": -330.6116,
+      "distance": 31.5934,
+      "target_level": "k02_trucks_cemetery"
+    },
+    {
+      "source_x": 159.8712,
+      "source_y": 5.7907,
+      "source_z": -299.6357,
+      "target_x": 184.2919,
+      "target_y": 4.268,
+      "target_z": -249.8909,
+      "distance": 61.5948,
+      "target_level": "k02_trucks_cemetery"
+    },
+    {
+      "source_x": 159.8712,
+      "source_y": 5.7907,
+      "source_z": -299.6357,
+      "target_x": 105.9158,
+      "target_y": 5.8757,
+      "target_z": -299.5909,
+      "distance": 53.9554,
+      "target_level": "k02_trucks_cemetery"
+    },
+    {
+      "source_x": -16.2237,
+      "source_y": 25.4936,
+      "source_z": -218.8261,
+      "target_x": -3.1924,
+      "target_y": 21.4403,
+      "target_z": -260.6235,
+      "distance": 44.0456,
+      "target_level": "k02_trucks_cemetery"
+    },
+    {
+      "source_x": -16.2237,
+      "source_y": 25.4936,
+      "source_z": -218.8261,
+      "target_x": -39.4711,
+      "target_y": 18.5676,
+      "target_z": -236.4445,
+      "distance": 42.2238,
+      "target_level": "k02_trucks_cemetery"
+    },
+    {
+      "source_x": -16.2237,
+      "source_y": 25.4936,
+      "source_z": -218.8261,
+      "target_x": 39.2156,
+      "target_y": 8.6327,
+      "target_z": -223.8573,
+      "distance": 60.5486,
+      "target_level": "k02_trucks_cemetery"
+    },
+    {
+      "source_x": -16.2237,
+      "source_y": 25.4936,
+      "source_z": -218.8261,
+      "target_x": -8.5831,
+      "target_y": 14.5946,
+      "target_z": -168.4446,
+      "distance": 55.7219,
+      "target_level": "k02_trucks_cemetery"
+    },
+    {
+      "source_x": 8.0523,
+      "source_y": 11.8238,
+      "source_z": -168.1911,
+      "target_x": 44.3064,
+      "target_y": 8.3037,
+      "target_z": -176.0628,
+      "distance": 43.2823,
+      "target_level": "k02_trucks_cemetery"
+    },
+    {
+      "source_x": 8.0523,
+      "source_y": 11.8238,
+      "source_z": -168.1911,
+      "target_x": -8.5831,
+      "target_y": 14.5946,
+      "target_z": -168.4446,
+      "distance": 17.3858,
+      "target_level": "k02_trucks_cemetery"
+    },
+    {
+      "source_x": 65.2143,
+      "source_y": 7.1996,
+      "source_z": -173.1337,
+      "target_x": 65.5346,
+      "target_y": 6.6183,
+      "target_z": -207.9579,
+      "distance": 34.8257,
+      "target_level": "k02_trucks_cemetery"
+    },
+    {
+      "source_x": 65.2143,
+      "source_y": 7.1996,
+      "source_z": -173.1337,
+      "target_x": 88.866,
+      "target_y": 5.8996,
+      "target_z": -150.3484,
+      "distance": 43.2953,
+      "target_level": "k02_trucks_cemetery"
+    },
+    {
+      "source_x": 65.2143,
+      "source_y": 7.1996,
+      "source_z": -173.1337,
+      "target_x": 44.3064,
+      "target_y": 8.3037,
+      "target_z": -176.0628,
+      "distance": 21.3201,
+      "target_level": "k02_trucks_cemetery"
+    },
+    {
+      "source_x": 65.5346,
+      "source_y": 6.6183,
+      "source_z": -207.9579,
+      "target_x": 81.8798,
+      "target_y": 6.0944,
+      "target_z": -232.3431,
+      "distance": 38.0964,
+      "target_level": "k02_trucks_cemetery"
+    },
+    {
+      "source_x": 65.5346,
+      "source_y": 6.6183,
+      "source_z": -207.9579,
+      "target_x": 107.5455,
+      "target_y": 4.9894,
+      "target_z": -195.4236,
+      "distance": 49.5518,
+      "target_level": "k02_trucks_cemetery"
+    },
+    {
+      "source_x": 65.5346,
+      "source_y": 6.6183,
+      "source_z": -207.9579,
+      "target_x": 65.2143,
+      "target_y": 7.1996,
+      "target_z": -173.1337,
+      "distance": 34.8257,
+      "target_level": "k02_trucks_cemetery"
+    },
+    {
+      "source_x": 65.5346,
+      "source_y": 6.6183,
+      "source_z": -207.9579,
+      "target_x": 39.2156,
+      "target_y": 8.6327,
+      "target_z": -223.8573,
+      "distance": 35.1726,
+      "target_level": "k02_trucks_cemetery"
+    },
+    {
+      "source_x": 137.319,
+      "source_y": 3.4834,
+      "source_z": -170.323,
+      "target_x": 130.4633,
+      "target_y": 4.381,
+      "target_z": -190.3941,
+      "distance": 21.2097,
+      "target_level": "k02_trucks_cemetery"
+    },
+    {
+      "source_x": 137.319,
+      "source_y": 3.4834,
+      "source_z": -170.323,
+      "target_x": 142.0539,
+      "target_y": 3.0001,
+      "target_z": -134.4548,
+      "distance": 36.5167,
+      "target_level": "k02_trucks_cemetery"
+    },
+    {
+      "source_x": 112.1865,
+      "source_y": 5.5383,
+      "source_z": -133.3762,
+      "target_x": 88.866,
+      "target_y": 5.8996,
+      "target_z": -150.3484,
+      "distance": 31.9848,
+      "target_level": "k02_trucks_cemetery"
+    },
+    {
+      "source_x": 112.1865,
+      "source_y": 5.5383,
+      "source_z": -133.3762,
+      "target_x": 142.0539,
+      "target_y": 3.0001,
+      "target_z": -134.4548,
+      "distance": 29.8869,
+      "target_level": "k02_trucks_cemetery"
+    },
+    {
+      "source_x": 112.1865,
+      "source_y": 5.5383,
+      "source_z": -133.3762,
+      "target_x": 94.6584,
+      "target_y": 7.1917,
+      "target_z": -107.8211,
+      "distance": 37.3838,
+      "target_level": "k02_trucks_cemetery"
+    },
+    {
+      "source_x": 94.6584,
+      "source_y": 7.1917,
+      "source_z": -107.8211,
+      "target_x": 112.1865,
+      "target_y": 5.5383,
+      "target_z": -133.3762,
+      "distance": 33.2534,
+      "target_level": "k02_trucks_cemetery"
+    },
+    {
+      "source_x": 94.6584,
+      "source_y": 7.1917,
+      "source_z": -107.8211,
+      "target_x": 90.1401,
+      "target_y": 7.83,
+      "target_z": -78.3043,
+      "distance": 29.8737,
+      "target_level": "k02_trucks_cemetery"
+    },
+    {
+      "source_x": 94.6584,
+      "source_y": 7.1917,
+      "source_z": -107.8211,
+      "target_x": 41.4005,
+      "target_y": 9.8667,
+      "target_z": -107.5161,
+      "distance": 57.0124,
+      "target_level": "k02_trucks_cemetery"
+    },
+    {
+      "source_x": 263.6901,
+      "source_y": 8.9799,
+      "source_z": -317.286,
+      "target_x": 324.4828,
+      "target_y": 17.813,
+      "target_z": -296.3872,
+      "distance": 71.8751,
+      "target_level": "k02_trucks_cemetery"
+    },
+    {
+      "source_x": 263.6901,
+      "source_y": 8.9799,
+      "source_z": -317.286,
+      "target_x": 230.8098,
+      "target_y": 9.7449,
+      "target_z": -279.3377,
+      "distance": 50.2114,
+      "target_level": "k02_trucks_cemetery"
+    },
+    {
+      "source_x": 282.2928,
+      "source_y": 15.3869,
+      "source_z": -239.1854,
+      "target_x": 317.1966,
+      "target_y": 18.4537,
+      "target_z": -229.9966,
+      "distance": 36.093,
+      "target_level": "k02_trucks_cemetery"
+    },
+    {
+      "source_x": 282.2928,
+      "source_y": 15.3869,
+      "source_z": -239.1854,
+      "target_x": 241.1085,
+      "target_y": 7.1225,
+      "target_z": -214.9227,
+      "distance": 57.9615,
+      "target_level": "k02_trucks_cemetery"
+    },
+    {
+      "source_x": 62.3088,
+      "source_y": 6.0194,
+      "source_z": -278.7664,
+      "target_x": 45.8115,
+      "target_y": 5.3488,
+      "target_z": -311.1086,
+      "distance": 36.3067,
+      "target_level": "k02_trucks_cemetery"
+    },
+    {
+      "source_x": 62.3088,
+      "source_y": 6.0194,
+      "source_z": -278.7664,
+      "target_x": 105.9158,
+      "target_y": 5.8757,
+      "target_z": -299.5909,
+      "distance": 50.006,
+      "target_level": "k02_trucks_cemetery"
+    },
+    {
+      "source_x": 62.3088,
+      "source_y": 6.0194,
+      "source_z": -278.7664,
+      "target_x": 81.8798,
+      "target_y": 6.0944,
+      "target_z": -232.3431,
+      "distance": 58.9698,
+      "target_level": "k02_trucks_cemetery"
+    },
+    {
+      "source_x": 62.3088,
+      "source_y": 6.0194,
+      "source_z": -278.7664,
+      "target_x": 30.3906,
+      "target_y": 8.743,
+      "target_z": -269.2455,
+      "distance": 33.3079,
+      "target_level": "k02_trucks_cemetery"
+    },
+    {
+      "source_x": 193.5028,
+      "source_y": 3.0003,
+      "source_z": -217.2525,
+      "target_x": 184.2919,
+      "target_y": 4.268,
+      "target_z": -249.8909,
+      "distance": 33.9132,
+      "target_level": "k02_trucks_cemetery"
+    },
+    {
+      "source_x": 193.5028,
+      "source_y": 3.0003,
+      "source_z": -217.2525,
+      "target_x": 241.1085,
+      "target_y": 7.1225,
+      "target_z": -214.9227,
+      "distance": 59.0914,
+      "target_level": "k02_trucks_cemetery"
+    },
+    {
+      "source_x": 193.5028,
+      "source_y": 3.0003,
+      "source_z": -217.2525,
+      "target_x": 186.53,
+      "target_y": 1.3679,
+      "target_z": -170.946,
+      "distance": 46.8284,
+      "target_level": "k02_trucks_cemetery"
+    },
+    {
+      "source_x": 193.5028,
+      "source_y": 3.0003,
+      "source_z": -217.2525,
+      "target_x": 168.5287,
+      "target_y": 3.3239,
+      "target_z": -217.5798,
+      "distance": 26.4995,
+      "target_level": "k02_trucks_cemetery"
+    },
+    {
+      "source_x": 104.1167,
+      "source_y": 5.888,
+      "source_z": -245.0969,
+      "target_x": 105.9158,
+      "target_y": 5.8757,
+      "target_z": -299.5909,
+      "distance": 54.6739,
+      "target_level": "k02_trucks_cemetery"
+    },
+    {
+      "source_x": 104.1167,
+      "source_y": 5.888,
+      "source_z": -245.0969,
+      "target_x": 135.6559,
+      "target_y": 5.33,
+      "target_z": -237.0883,
+      "distance": 32.7612,
+      "target_level": "k02_trucks_cemetery"
+    },
+    {
+      "source_x": 104.1167,
+      "source_y": 5.888,
+      "source_z": -245.0969,
+      "target_x": 107.5455,
+      "target_y": 4.9894,
+      "target_z": -195.4236,
+      "distance": 49.9287,
+      "target_level": "k02_trucks_cemetery"
+    },
+    {
+      "source_x": 104.1167,
+      "source_y": 5.888,
+      "source_z": -245.0969,
+      "target_x": 81.8798,
+      "target_y": 6.0944,
+      "target_z": -232.3431,
+      "distance": 29.916,
+      "target_level": "k02_trucks_cemetery"
+    },
+    {
+      "source_x": -3.1924,
+      "source_y": 21.4403,
+      "source_z": -260.6235,
+      "target_x": -1.7976,
+      "target_y": 5.2614,
+      "target_z": -308.7455,
+      "distance": 48.1421,
+      "target_level": "k02_trucks_cemetery"
+    },
+    {
+      "source_x": -3.1924,
+      "source_y": 21.4403,
+      "source_z": -260.6235,
+      "target_x": 30.3906,
+      "target_y": 8.743,
+      "target_z": -269.2455,
+      "distance": 34.6721,
+      "target_level": "k02_trucks_cemetery"
+    },
+    {
+      "source_x": -3.1924,
+      "source_y": 21.4403,
+      "source_z": -260.6235,
+      "target_x": -16.2237,
+      "target_y": 25.4936,
+      "target_z": -218.8261,
+      "distance": 47.5416,
+      "target_level": "k02_trucks_cemetery"
+    },
+    {
+      "source_x": -3.1924,
+      "source_y": 21.4403,
+      "source_z": -260.6235,
+      "target_x": -34.3883,
+      "target_y": 7.5243,
+      "target_z": -280.9048,
+      "distance": 53.0976,
+      "target_level": "k02_trucks_cemetery"
+    },
+    {
+      "source_x": 45.8115,
+      "source_y": 5.3488,
+      "source_z": -311.1086,
+      "target_x": 49.759,
+      "target_y": 6.2891,
+      "target_z": -335.6401,
+      "distance": 25.9838,
+      "target_level": "k02_trucks_cemetery"
+    },
+    {
+      "source_x": 45.8115,
+      "source_y": 5.3488,
+      "source_z": -311.1086,
+      "target_x": 62.3088,
+      "target_y": 6.0194,
+      "target_z": -278.7664,
+      "distance": 36.3067,
+      "target_level": "k02_trucks_cemetery"
+    },
+    {
+      "source_x": 45.8115,
+      "source_y": 5.3488,
+      "source_z": -311.1086,
+      "target_x": -1.7976,
+      "target_y": 5.2614,
+      "target_z": -308.7455,
+      "distance": 47.6678,
+      "target_level": "k02_trucks_cemetery"
+    },
+    {
+      "source_x": -1.7976,
+      "source_y": 5.2614,
+      "source_z": -308.7455,
+      "target_x": -3.4231,
+      "target_y": 5.775,
+      "target_z": -331.1902,
+      "distance": 25.808,
+      "target_level": "k02_trucks_cemetery"
+    },
+    {
+      "source_x": -1.7976,
+      "source_y": 5.2614,
+      "source_z": -308.7455,
+      "target_x": 45.8115,
+      "target_y": 5.3488,
+      "target_z": -311.1086,
+      "distance": 47.6678,
+      "target_level": "k02_trucks_cemetery"
+    },
+    {
+      "source_x": -1.7976,
+      "source_y": 5.2614,
+      "source_z": -308.7455,
+      "target_x": -3.1924,
+      "target_y": 21.4403,
+      "target_z": -260.6235,
+      "distance": 48.1421,
+      "target_level": "k02_trucks_cemetery"
+    },
+    {
+      "source_x": -1.7976,
+      "source_y": 5.2614,
+      "source_z": -308.7455,
+      "target_x": -11.3911,
+      "target_y": 5.6334,
+      "target_z": -310.8993,
+      "distance": 9.8323,
+      "target_level": "k02_trucks_cemetery"
+    },
+    {
+      "source_x": -237.1733,
+      "source_y": 9.8451,
+      "source_z": -284.5288,
+      "target_x": -196.8184,
+      "target_y": 8.4288,
+      "target_z": -314.8112,
+      "distance": 63.6726,
+      "target_level": "k02_trucks_cemetery"
+    },
+    {
+      "source_x": -237.1733,
+      "source_y": 9.8451,
+      "source_z": -284.5288,
+      "target_x": -225.6859,
+      "target_y": 7.3826,
+      "target_z": -234.2373,
+      "distance": 60.1391,
+      "target_level": "k02_trucks_cemetery"
+    },
+    {
+      "source_x": -237.1733,
+      "source_y": 9.8451,
+      "source_z": -284.5288,
+      "target_x": -300.3069,
+      "target_y": 20.1944,
+      "target_z": -298.4633,
+      "distance": 76.4094,
+      "target_level": "k02_trucks_cemetery"
+    },
+    {
+      "source_x": -225.6859,
+      "source_y": 7.3826,
+      "source_z": -234.2373,
+      "target_x": -237.1733,
+      "target_y": 9.8451,
+      "target_z": -284.5288,
+      "distance": 61.1567,
+      "target_level": "k02_trucks_cemetery"
+    },
+    {
+      "source_x": -225.6859,
+      "source_y": 7.3826,
+      "source_z": -234.2373,
+      "target_x": -179.3057,
+      "target_y": 6.3581,
+      "target_z": -222.6153,
+      "distance": 56.7663,
+      "target_level": "k02_trucks_cemetery"
+    },
+    {
+      "source_x": -225.6859,
+      "source_y": 7.3826,
+      "source_z": -234.2373,
+      "target_x": -305.7119,
+      "target_y": 18.7796,
+      "target_z": -247.7685,
+      "distance": 81.1618,
+      "target_level": "k02_trucks_cemetery"
+    },
+    {
+      "source_x": -80.0321,
+      "source_y": 5.266,
+      "source_z": -119.2989,
+      "target_x": -91.1271,
+      "target_y": 5.238,
+      "target_z": -173.4108,
+      "distance": 61.0399,
+      "target_level": "k02_trucks_cemetery"
+    },
+    {
+      "source_x": -80.0321,
+      "source_y": 5.266,
+      "source_z": -119.2989,
+      "target_x": -43.0711,
+      "target_y": 9.3948,
+      "target_z": -117.7521,
+      "distance": 36.9933,
+      "target_level": "k02_trucks_cemetery"
+    },
+    {
+      "source_x": -80.0321,
+      "source_y": 5.266,
+      "source_z": -119.2989,
+      "target_x": -79.7073,
+      "target_y": 3.8924,
+      "target_z": -65.9355,
+      "distance": 53.3644,
+      "target_level": "k02_trucks_cemetery"
+    },
+    {
+      "source_x": -80.0321,
+      "source_y": 5.266,
+      "source_z": -119.2989,
+      "target_x": -107.1647,
+      "target_y": 4.8971,
+      "target_z": -115.7905,
+      "distance": 27.3586,
+      "target_level": "k02_trucks_cemetery"
+    },
+    {
+      "source_x": -79.7073,
+      "source_y": 3.8924,
+      "source_z": -65.9355,
+      "target_x": -80.0321,
+      "target_y": 5.266,
+      "target_z": -119.2989,
+      "distance": 53.3644,
+      "target_level": "k02_trucks_cemetery"
+    },
+    {
+      "source_x": -79.7073,
+      "source_y": 3.8924,
+      "source_z": -65.9355,
+      "target_x": -36.9681,
+      "target_y": 16.7831,
+      "target_z": -59.542,
+      "distance": 46.3766,
+      "target_level": "k02_trucks_cemetery"
+    },
+    {
+      "source_x": -79.7073,
+      "source_y": 3.8924,
+      "source_z": -65.9355,
+      "target_x": -111.7515,
+      "target_y": 3.9518,
+      "target_z": -65.4419,
+      "distance": 34.3108,
+      "target_level": "k02_trucks_cemetery"
+    },
+    {
+      "source_x": -111.7515,
+      "source_y": 3.9518,
+      "source_z": -65.4419,
+      "target_x": -107.1647,
+      "target_y": 4.8971,
+      "target_z": -115.7905,
+      "distance": 50.557,
+      "target_level": "k02_trucks_cemetery"
+    },
+    {
+      "source_x": -111.7515,
+      "source_y": 3.9518,
+      "source_z": -65.4419,
+      "target_x": -79.7073,
+      "target_y": 3.8924,
+      "target_z": -65.9355,
+      "distance": 33.3577,
+      "target_level": "k02_trucks_cemetery"
+    },
+    {
+      "source_x": -111.7515,
+      "source_y": 3.9518,
+      "source_z": -65.4419,
+      "target_x": -106.3135,
+      "target_y": 2.172,
+      "target_z": -25.3946,
+      "distance": 40.4148,
+      "target_level": "k02_trucks_cemetery"
+    },
+    {
+      "source_x": -189.8007,
+      "source_y": 4.5417,
+      "source_z": -54.5504,
+      "target_x": -197.7031,
+      "target_y": 4.5966,
+      "target_z": -110.7487,
+      "distance": 82.7743,
+      "target_level": "k02_trucks_cemetery"
+    },
+    {
+      "source_x": -189.8007,
+      "source_y": 4.5417,
+      "source_z": -54.5504,
+      "target_x": -157.2903,
+      "target_y": -4.2163,
+      "target_z": -27.3599,
+      "distance": 55.8253,
+      "target_level": "k02_trucks_cemetery"
+    },
+    {
+      "source_x": -189.8007,
+      "source_y": 4.5417,
+      "source_z": -54.5504,
+      "target_x": -215.325,
+      "target_y": 5.5076,
+      "target_z": -35.2955,
+      "distance": 43.221,
+      "target_level": "k02_trucks_cemetery"
+    },
+    {
+      "source_x": -201.0424,
+      "source_y": 5.9946,
+      "source_z": 79.874,
+      "target_x": -220.6584,
+      "target_y": 6.3431,
+      "target_z": 49.3554,
+      "distance": 36.2791,
+      "target_level": "k02_trucks_cemetery"
+    },
+    {
+      "source_x": -201.0424,
+      "source_y": 5.9946,
+      "source_z": 79.874,
+      "target_x": -170.6228,
+      "target_y": 5.3671,
+      "target_z": 117.3452,
+      "distance": 52.9235,
+      "target_level": "k02_trucks_cemetery"
+    },
+    {
+      "source_x": -108.8334,
+      "source_y": 2.4758,
+      "source_z": 97.4909,
+      "target_x": -137.1499,
+      "target_y": 3.2106,
+      "target_z": 71.1174,
+      "distance": 50.6471,
+      "target_level": "k02_trucks_cemetery"
+    },
+    {
+      "source_x": -108.8334,
+      "source_y": 2.4758,
+      "source_z": 97.4909,
+      "target_x": -88.092,
+      "target_y": 1.87,
+      "target_z": 88.8859,
+      "distance": 24.4889,
+      "target_level": "k02_trucks_cemetery"
+    },
+    {
+      "source_x": -108.8334,
+      "source_y": 2.4758,
+      "source_z": 97.4909,
+      "target_x": -61.7623,
+      "target_y": 1.5813,
+      "target_z": 121.1676,
+      "distance": 52.6905,
+      "target_level": "k02_trucks_cemetery"
+    },
+    {
+      "source_x": -108.8334,
+      "source_y": 2.4758,
+      "source_z": 97.4909,
+      "target_x": -109.0059,
+      "target_y": 2.9209,
+      "target_z": 144.9561,
+      "distance": 48.2646,
+      "target_level": "k02_trucks_cemetery"
+    },
+    {
+      "source_x": -109.0059,
+      "source_y": 2.9209,
+      "source_z": 144.9561,
+      "target_x": -108.8334,
+      "target_y": 2.4758,
+      "target_z": 97.4909,
+      "distance": 47.654,
+      "target_level": "k02_trucks_cemetery"
+    },
+    {
+      "source_x": -109.0059,
+      "source_y": 2.9209,
+      "source_z": 144.9561,
+      "target_x": -71.0518,
+      "target_y": 3.7068,
+      "target_z": 183.6925,
+      "distance": 67.3408,
+      "target_level": "k02_trucks_cemetery"
+    },
+    {
+      "source_x": -109.0059,
+      "source_y": 2.9209,
+      "source_z": 144.9561,
+      "target_x": -125.7478,
+      "target_y": 4.089,
+      "target_z": 158.8766,
+      "distance": 22.4955,
+      "target_level": "k02_trucks_cemetery"
+    },
+    {
+      "source_x": -109.0059,
+      "source_y": 2.9209,
+      "source_z": 144.9561,
+      "target_x": -170.6228,
+      "target_y": 5.3671,
+      "target_z": 117.3452,
+      "distance": 83.5251,
+      "target_level": "k02_trucks_cemetery"
+    },
+    {
+      "source_x": -61.7623,
+      "source_y": 1.5813,
+      "source_z": 121.1676,
+      "target_x": -22.0499,
+      "target_y": -0.3309,
+      "target_z": 111.1506,
+      "distance": 46.6192,
+      "target_level": "k02_trucks_cemetery"
+    },
+    {
+      "source_x": -61.7623,
+      "source_y": 1.5813,
+      "source_z": 121.1676,
+      "target_x": -71.0518,
+      "target_y": 3.7068,
+      "target_z": 183.6925,
+      "distance": 68.316,
+      "target_level": "k02_trucks_cemetery"
+    },
+    {
+      "source_x": -61.7623,
+      "source_y": 1.5813,
+      "source_z": 121.1676,
+      "target_x": -108.8334,
+      "target_y": 2.4758,
+      "target_z": 97.4909,
+      "distance": 52.6905,
+      "target_level": "k02_trucks_cemetery"
+    },
+    {
+      "source_x": -24.9521,
+      "source_y": 0.6978,
+      "source_z": 62.0366,
+      "target_x": -2.6068,
+      "target_y": 2.0047,
+      "target_z": 44.6646,
+      "distance": 37.5474,
+      "target_level": "k02_trucks_cemetery"
+    },
+    {
+      "source_x": -24.9521,
+      "source_y": 0.6978,
+      "source_z": 62.0366,
+      "target_x": -22.0499,
+      "target_y": -0.3309,
+      "target_z": 111.1506,
+      "distance": 49.1997,
+      "target_level": "k02_trucks_cemetery"
+    },
+    {
+      "source_x": -22.0499,
+      "source_y": -0.3309,
+      "source_z": 111.1506,
+      "target_x": -24.9521,
+      "target_y": 0.6978,
+      "target_z": 62.0366,
+      "distance": 49.1997,
+      "target_level": "k02_trucks_cemetery"
+    },
+    {
+      "source_x": -22.0499,
+      "source_y": -0.3309,
+      "source_z": 111.1506,
+      "target_x": 3.3973,
+      "target_y": 0.3739,
+      "target_z": 128.6967,
+      "distance": 39.2417,
+      "target_level": "k02_trucks_cemetery"
+    },
+    {
+      "source_x": -22.0499,
+      "source_y": -0.3309,
+      "source_z": 111.1506,
+      "target_x": -61.7623,
+      "target_y": 1.5813,
+      "target_z": 121.1676,
+      "distance": 47.4443,
+      "target_level": "k02_trucks_cemetery"
+    },
+    {
+      "source_x": -2.6068,
+      "source_y": 2.0047,
+      "source_z": 44.6646,
+      "target_x": 25.9106,
+      "target_y": 3.0831,
+      "target_z": 17.594,
+      "distance": 53.31,
+      "target_level": "k02_trucks_cemetery"
+    },
+    {
+      "source_x": -2.6068,
+      "source_y": 2.0047,
+      "source_z": 44.6646,
+      "target_x": 38.3361,
+      "target_y": 1.6097,
+      "target_z": 78.9526,
+      "distance": 73.7854,
+      "target_level": "k02_trucks_cemetery"
+    },
+    {
+      "source_x": -2.6068,
+      "source_y": 2.0047,
+      "source_z": 44.6646,
+      "target_x": -24.9521,
+      "target_y": 0.6978,
+      "target_z": 62.0366,
+      "distance": 28.9145,
+      "target_level": "k02_trucks_cemetery"
+    },
+    {
+      "source_x": 2.4181,
+      "source_y": 3.9646,
+      "source_z": -5.1428,
+      "target_x": 25.9924,
+      "target_y": 5.1693,
+      "target_z": -17.687,
+      "distance": 26.704,
+      "target_level": "k02_trucks_cemetery"
+    },
+    {
+      "source_x": 2.4181,
+      "source_y": 3.9646,
+      "source_z": -5.1428,
+      "target_x": -17.7867,
+      "target_y": 5.0843,
+      "target_z": -22.3826,
+      "distance": 34.1063,
+      "target_level": "k02_trucks_cemetery"
+    },
+    {
+      "source_x": 55.0983,
+      "source_y": 3.8626,
+      "source_z": 169.1064,
+      "target_x": 84.4744,
+      "target_y": 4.1781,
+      "target_z": 139.8037,
+      "distance": 48.0031,
+      "target_level": "k02_trucks_cemetery"
+    },
+    {
+      "source_x": 55.0983,
+      "source_y": 3.8626,
+      "source_z": 169.1064,
+      "target_x": 87.7956,
+      "target_y": 6.284,
+      "target_z": 197.8731,
+      "distance": 62.5273,
+      "target_level": "k02_trucks_cemetery"
+    },
+    {
+      "source_x": 55.0983,
+      "source_y": 3.8626,
+      "source_z": 169.1064,
+      "target_x": -16.2922,
+      "target_y": 2.6906,
+      "target_z": 178.5207,
+      "distance": 75.8318,
+      "target_level": "k02_trucks_cemetery"
+    },
+    {
+      "source_x": -201.8147,
+      "source_y": 8.4118,
+      "source_z": 281.613,
+      "target_x": -201.1344,
+      "target_y": 6.5062,
+      "target_z": 211.292,
+      "distance": 70.3243,
+      "target_level": "k02_trucks_cemetery"
+    },
+    {
+      "source_x": -201.8147,
+      "source_y": 8.4118,
+      "source_z": 281.613,
+      "target_x": -116.9667,
+      "target_y": 13.2797,
+      "target_z": 267.215,
+      "distance": 98.1215,
+      "target_level": "k02_trucks_cemetery"
+    },
+    {
+      "source_x": -201.8147,
+      "source_y": 8.4118,
+      "source_z": 281.613,
+      "target_x": -204.6442,
+      "target_y": 9.9098,
+      "target_z": 342.5276,
+      "distance": 64.8331,
+      "target_level": "k02_trucks_cemetery"
+    },
+    {
+      "source_x": -201.8147,
+      "source_y": 8.4118,
+      "source_z": 281.613,
+      "target_x": -262.3093,
+      "target_y": 12.5491,
+      "target_z": 301.7299,
+      "distance": 63.7518,
+      "target_level": "k02_trucks_cemetery"
+    },
+    {
+      "source_x": -116.9667,
+      "source_y": 13.2797,
+      "source_z": 267.215,
+      "target_x": -67.8261,
+      "target_y": 5.716,
+      "target_z": 216.9829,
+      "distance": 97.2938,
+      "target_level": "k02_trucks_cemetery"
+    },
+    {
+      "source_x": -116.9667,
+      "source_y": 13.2797,
+      "source_z": 267.215,
+      "target_x": -68.3663,
+      "target_y": 12.701,
+      "target_z": 317.587,
+      "distance": 93.5487,
+      "target_level": "k02_trucks_cemetery"
+    },
+    {
+      "source_x": -116.9667,
+      "source_y": 13.2797,
+      "source_z": 267.215,
+      "target_x": -201.8147,
+      "target_y": 8.4118,
+      "target_z": 281.613,
+      "distance": 94.4293,
+      "target_level": "k02_trucks_cemetery"
+    },
+    {
+      "source_x": -68.3663,
+      "source_y": 12.701,
+      "source_z": 317.587,
+      "target_x": -116.9667,
+      "target_y": 13.2797,
+      "target_z": 267.215,
+      "distance": 96.1462,
+      "target_level": "k02_trucks_cemetery"
+    },
+    {
+      "source_x": -68.3663,
+      "source_y": 12.701,
+      "source_z": 317.587,
+      "target_x": -48.9175,
+      "target_y": 9.543,
+      "target_z": 342.9432,
+      "distance": 31.9561,
+      "target_level": "k02_trucks_cemetery"
+    },
+    {
+      "source_x": -68.3663,
+      "source_y": 12.701,
+      "source_z": 317.587,
+      "target_x": -204.6442,
+      "target_y": 9.9098,
+      "target_z": 342.5276,
+      "distance": 156.626,
+      "target_level": "k02_trucks_cemetery"
+    },
+    {
+      "source_x": 2.7244,
+      "source_y": 11.4032,
+      "source_z": 328.2398,
+      "target_x": 3.356,
+      "target_y": 7.0714,
+      "target_z": 260.9997,
+      "distance": 67.2431,
+      "target_level": "k02_trucks_cemetery"
+    },
+    {
+      "source_x": 2.7244,
+      "source_y": 11.4032,
+      "source_z": 328.2398,
+      "target_x": 79.4786,
+      "target_y": 8.9178,
+      "target_z": 303.3531,
+      "distance": 94.0443,
+      "target_level": "k02_trucks_cemetery"
+    },
+    {
+      "source_x": 2.7244,
+      "source_y": 11.4032,
+      "source_z": 328.2398,
+      "target_x": -48.9175,
+      "target_y": 9.543,
+      "target_z": 342.9432,
+      "distance": 58.0354,
+      "target_level": "k02_trucks_cemetery"
+    },
+    {
+      "source_x": 145.2176,
+      "source_y": 10.7998,
+      "source_z": 378.9745,
+      "target_x": 165.3777,
+      "target_y": 10.2462,
+      "target_z": 349.1719,
+      "distance": 43.7996,
+      "target_level": "k02_trucks_cemetery"
+    },
+    {
+      "source_x": 145.2176,
+      "source_y": 10.7998,
+      "source_z": 378.9745,
+      "target_x": 95.0227,
+      "target_y": 8.8753,
+      "target_z": 353.5186,
+      "distance": 59.6525,
+      "target_level": "k02_trucks_cemetery"
+    },
+    {
+      "source_x": 273.0745,
+      "source_y": 8.3831,
+      "source_z": 270.6009,
+      "target_x": 254.2236,
+      "target_y": 8.1053,
+      "target_z": 227.176,
+      "distance": 53.5214,
+      "target_level": "k02_trucks_cemetery"
+    },
+    {
+      "source_x": 273.0745,
+      "source_y": 8.3831,
+      "source_z": 270.6009,
+      "target_x": 306.7624,
+      "target_y": 11.5002,
+      "target_z": 314.8184,
+      "distance": 62.3198,
+      "target_level": "k02_trucks_cemetery"
+    },
+    {
+      "source_x": 273.0745,
+      "source_y": 8.3831,
+      "source_z": 270.6009,
+      "target_x": 233.0042,
+      "target_y": 7.5919,
+      "target_z": 315.4189,
+      "distance": 74.1601,
+      "target_level": "k02_trucks_cemetery"
+    },
+    {
+      "source_x": -42.3681,
+      "source_y": 6.5649,
+      "source_z": -372.8459,
+      "target_x": -43.2975,
+      "target_y": 10.0129,
+      "target_z": -395.7432,
+      "distance": 23.369,
+      "target_level": "k02_trucks_cemetery"
+    },
+    {
+      "source_x": -42.3681,
+      "source_y": 6.5649,
+      "source_z": -372.8459,
+      "target_x": -57.7318,
+      "target_y": 7.1288,
+      "target_z": -326.0316,
+      "distance": 51.1065,
+      "target_level": "k02_trucks_cemetery"
+    },
+    {
+      "source_x": -115.9836,
+      "source_y": 10.7243,
+      "source_z": -375.4888,
+      "target_x": -115.6685,
+      "target_y": 7.8314,
+      "target_z": -331.0501,
+      "distance": 44.4398,
+      "target_level": "k02_trucks_cemetery"
+    },
+    {
+      "source_x": -115.9836,
+      "source_y": 10.7243,
+      "source_z": -375.4888,
+      "target_x": -162.4571,
+      "target_y": 12.3501,
+      "target_z": -375.9561,
+      "distance": 46.8241,
+      "target_level": "k02_trucks_cemetery"
+    },
+    {
+      "source_x": -162.4571,
+      "source_y": 12.3501,
+      "source_z": -375.9561,
+      "target_x": -115.9836,
+      "target_y": 10.7243,
+      "target_z": -375.4888,
+      "distance": 46.7817,
+      "target_level": "k02_trucks_cemetery"
+    },
+    {
+      "source_x": -162.4571,
+      "source_y": 12.3501,
+      "source_z": -375.9561,
+      "target_x": -211.7147,
+      "target_y": 8.9635,
+      "target_z": -370.596,
+      "distance": 49.5483,
+      "target_level": "k02_trucks_cemetery"
+    },
+    {
+      "source_x": -211.7147,
+      "source_y": 8.9635,
+      "source_z": -370.596,
+      "target_x": -162.4571,
+      "target_y": 12.3501,
+      "target_z": -375.9561,
+      "distance": 49.5483,
+      "target_level": "k02_trucks_cemetery"
+    },
+    {
+      "source_x": -211.7147,
+      "source_y": 8.9635,
+      "source_z": -370.596,
+      "target_x": -196.8184,
+      "target_y": 8.4288,
+      "target_z": -314.8112,
+      "distance": 58.2219,
+      "target_level": "k02_trucks_cemetery"
+    },
+    {
+      "source_x": -211.7147,
+      "source_y": 8.9635,
+      "source_z": -370.596,
+      "target_x": -282.8924,
+      "target_y": 13.8954,
+      "target_z": -357.6722,
+      "distance": 75.5984,
+      "target_level": "k02_trucks_cemetery"
+    },
+    {
+      "source_x": -282.8924,
+      "source_y": 13.8954,
+      "source_z": -357.6722,
+      "target_x": -211.7147,
+      "target_y": 8.9635,
+      "target_z": -370.596,
+      "distance": 84.1405,
+      "target_level": "k02_trucks_cemetery"
+    },
+    {
+      "source_x": -282.8924,
+      "source_y": 13.8954,
+      "source_z": -357.6722,
+      "target_x": -300.3069,
+      "target_y": 20.1944,
+      "target_z": -298.4633,
+      "distance": 69.5422,
+      "target_level": "k02_trucks_cemetery"
+    },
+    {
+      "source_x": -282.8924,
+      "source_y": 13.8954,
+      "source_z": -357.6722,
+      "target_x": -324.2017,
+      "target_y": 20.5256,
+      "target_z": -372.8072,
+      "distance": 46.5246,
+      "target_level": "k02_trucks_cemetery"
+    },
+    {
+      "source_x": -300.3069,
+      "source_y": 20.1944,
+      "source_z": -298.4633,
+      "target_x": -282.8924,
+      "target_y": 13.8954,
+      "target_z": -357.6722,
+      "distance": 69.3729,
+      "target_level": "k02_trucks_cemetery"
+    },
+    {
+      "source_x": -300.3069,
+      "source_y": 20.1944,
+      "source_z": -298.4633,
+      "target_x": -237.1733,
+      "target_y": 9.8451,
+      "target_z": -284.5288,
+      "distance": 71.0053,
+      "target_level": "k02_trucks_cemetery"
+    },
+    {
+      "source_x": -300.3069,
+      "source_y": 20.1944,
+      "source_z": -298.4633,
+      "target_x": -305.7119,
+      "target_y": 18.7796,
+      "target_z": -247.7685,
+      "distance": 50.9822,
+      "target_level": "k02_trucks_cemetery"
+    },
+    {
+      "source_x": -305.7119,
+      "source_y": 18.7796,
+      "source_z": -247.7685,
+      "target_x": -300.3069,
+      "target_y": 20.1944,
+      "target_z": -298.4633,
+      "distance": 50.9822,
+      "target_level": "k02_trucks_cemetery"
+    },
+    {
+      "source_x": -305.7119,
+      "source_y": 18.7796,
+      "source_z": -247.7685,
+      "target_x": -225.6859,
+      "target_y": 7.3826,
+      "target_z": -234.2373,
+      "distance": 81.1618,
+      "target_level": "k02_trucks_cemetery"
+    },
+    {
+      "source_x": -305.7119,
+      "source_y": 18.7796,
+      "source_z": -247.7685,
+      "target_x": -326.7039,
+      "target_y": 15.8246,
+      "target_z": -204.7918,
+      "distance": 57.6441,
+      "target_level": "k02_trucks_cemetery"
+    },
+    {
+      "source_x": -283.8712,
+      "source_y": 10.8422,
+      "source_z": -181.6189,
+      "target_x": -202.3338,
+      "target_y": 5.2326,
+      "target_z": -170.7489,
+      "distance": 82.2588,
+      "target_level": "k02_trucks_cemetery"
+    },
+    {
+      "source_x": -283.8712,
+      "source_y": 10.8422,
+      "source_z": -181.6189,
+      "target_x": -284.4014,
+      "target_y": 13.7841,
+      "target_z": -115.4864,
+      "distance": 66.2865,
+      "target_level": "k02_trucks_cemetery"
+    },
+    {
+      "source_x": -283.8712,
+      "source_y": 10.8422,
+      "source_z": -181.6189,
+      "target_x": -326.7039,
+      "target_y": 15.8246,
+      "target_z": -204.7918,
+      "distance": 66.6446,
+      "target_level": "k02_trucks_cemetery"
+    },
+    {
+      "source_x": -284.4014,
+      "source_y": 13.7841,
+      "source_z": -115.4864,
+      "target_x": -283.8712,
+      "target_y": 10.8422,
+      "target_z": -181.6189,
+      "distance": 66.9573,
+      "target_level": "k02_trucks_cemetery"
+    },
+    {
+      "source_x": -284.4014,
+      "source_y": 13.7841,
+      "source_z": -115.4864,
+      "target_x": -197.7031,
+      "target_y": 4.5966,
+      "target_z": -110.7487,
+      "distance": 98.9083,
+      "target_level": "k02_trucks_cemetery"
+    },
+    {
+      "source_x": -284.4014,
+      "source_y": 13.7841,
+      "source_z": -115.4864,
+      "target_x": -282.5917,
+      "target_y": 13.1373,
+      "target_z": -42.6361,
+      "distance": 72.8728,
+      "target_level": "k02_trucks_cemetery"
+    },
+    {
+      "source_x": -282.5917,
+      "source_y": 13.1373,
+      "source_z": -42.6361,
+      "target_x": -284.4014,
+      "target_y": 13.7841,
+      "target_z": -115.4864,
+      "distance": 72.8728,
+      "target_level": "k02_trucks_cemetery"
+    },
+    {
+      "source_x": -282.5917,
+      "source_y": 13.1373,
+      "source_z": -42.6361,
+      "target_x": -215.325,
+      "target_y": 5.5076,
+      "target_z": -35.2955,
+      "distance": 70.4319,
+      "target_level": "k02_trucks_cemetery"
+    },
+    {
+      "source_x": -282.5917,
+      "source_y": 13.1373,
+      "source_z": -42.6361,
+      "target_x": -280.5156,
+      "target_y": 5.9677,
+      "target_z": 46.0239,
+      "distance": 90.2573,
+      "target_level": "k02_trucks_cemetery"
+    },
+    {
+      "source_x": -280.5156,
+      "source_y": 5.9677,
+      "source_z": 46.0239,
+      "target_x": -282.5917,
+      "target_y": 13.1373,
+      "target_z": -42.6361,
+      "distance": 92.1466,
+      "target_level": "k02_trucks_cemetery"
+    },
+    {
+      "source_x": -280.5156,
+      "source_y": 5.9677,
+      "source_z": 46.0239,
+      "target_x": -220.6584,
+      "target_y": 6.3431,
+      "target_z": 49.3554,
+      "distance": 59.9498,
+      "target_level": "k02_trucks_cemetery"
+    },
+    {
+      "source_x": -280.5156,
+      "source_y": 5.9677,
+      "source_z": 46.0239,
+      "target_x": -310.0023,
+      "target_y": 5.222,
+      "target_z": 88.7194,
+      "distance": 68.8413,
+      "target_level": "k02_trucks_cemetery"
+    },
+    {
+      "source_x": -310.0023,
+      "source_y": 5.222,
+      "source_z": 88.7194,
+      "target_x": -280.5156,
+      "target_y": 5.9677,
+      "target_z": 46.0239,
+      "distance": 53.4313,
+      "target_level": "k02_trucks_cemetery"
+    },
+    {
+      "source_x": -310.0023,
+      "source_y": 5.222,
+      "source_z": 88.7194,
+      "target_x": -293.6047,
+      "target_y": 5.9722,
+      "target_z": 157.2276,
+      "distance": 74.1763,
+      "target_level": "k02_trucks_cemetery"
+    },
+    {
+      "source_x": -310.0023,
+      "source_y": 5.222,
+      "source_z": 88.7194,
+      "target_x": -377.3434,
+      "target_y": 10.2642,
+      "target_z": 44.1622,
+      "distance": 82.2273,
+      "target_level": "k02_trucks_cemetery"
+    },
+    {
+      "source_x": -293.6047,
+      "source_y": 5.9722,
+      "source_z": 157.2276,
+      "target_x": -310.0023,
+      "target_y": 5.222,
+      "target_z": 88.7194,
+      "distance": 83.6467,
+      "target_level": "k02_trucks_cemetery"
+    },
+    {
+      "source_x": -293.6047,
+      "source_y": 5.9722,
+      "source_z": 157.2276,
+      "target_x": -242.5384,
+      "target_y": 6.264,
+      "target_z": 124.8207,
+      "distance": 60.4812,
+      "target_level": "k02_trucks_cemetery"
+    },
+    {
+      "source_x": -293.6047,
+      "source_y": 5.9722,
+      "source_z": 157.2276,
+      "target_x": -282.3831,
+      "target_y": 14.0222,
+      "target_z": 233.6169,
+      "distance": 84.9764,
+      "target_level": "k02_trucks_cemetery"
+    },
+    {
+      "source_x": -282.3831,
+      "source_y": 14.0222,
+      "source_z": 233.6169,
+      "target_x": -293.6047,
+      "target_y": 5.9722,
+      "target_z": 157.2276,
+      "distance": 77.6441,
+      "target_level": "k02_trucks_cemetery"
+    },
+    {
+      "source_x": -282.3831,
+      "source_y": 14.0222,
+      "source_z": 233.6169,
+      "target_x": -201.1344,
+      "target_y": 6.5062,
+      "target_z": 211.292,
+      "distance": 98.607,
+      "target_level": "k02_trucks_cemetery"
+    },
+    {
+      "source_x": -282.3831,
+      "source_y": 14.0222,
+      "source_z": 233.6169,
+      "target_x": -262.3093,
+      "target_y": 12.5491,
+      "target_z": 301.7299,
+      "distance": 83.3585,
+      "target_level": "k02_trucks_cemetery"
+    },
+    {
+      "source_x": -262.3093,
+      "source_y": 12.5491,
+      "source_z": 301.7299,
+      "target_x": -282.3831,
+      "target_y": 14.0222,
+      "target_z": 233.6169,
+      "distance": 81.8161,
+      "target_level": "k02_trucks_cemetery"
+    },
+    {
+      "source_x": -262.3093,
+      "source_y": 12.5491,
+      "source_z": 301.7299,
+      "target_x": -201.8147,
+      "target_y": 8.4118,
+      "target_z": 281.613,
+      "distance": 63.7518,
+      "target_level": "k02_trucks_cemetery"
+    },
+    {
+      "source_x": -200.7687,
+      "source_y": 19.1134,
+      "source_z": 453.3287,
+      "target_x": -204.6442,
+      "target_y": 9.9098,
+      "target_z": 342.5276,
+      "distance": 110.8688,
+      "target_level": "k02_trucks_cemetery"
+    },
+    {
+      "source_x": -200.7687,
+      "source_y": 19.1134,
+      "source_z": 453.3287,
+      "target_x": -213.3605,
+      "target_y": 0.8258,
+      "target_z": -62.9266,
+      "distance": 1006.6339,
+      "target_level": "l07_military"
+    },
+    {
+      "source_x": 95.0227,
+      "source_y": 8.8753,
+      "source_z": 353.5186,
+      "target_x": 79.4786,
+      "target_y": 8.9178,
+      "target_z": 303.3531,
+      "distance": 58.411,
+      "target_level": "k02_trucks_cemetery"
+    },
+    {
+      "source_x": 95.0227,
+      "source_y": 8.8753,
+      "source_z": 353.5186,
+      "target_x": 145.2176,
+      "target_y": 10.7998,
+      "target_z": 378.9745,
+      "distance": 70.0936,
+      "target_level": "k02_trucks_cemetery"
+    },
+    {
+      "source_x": 95.0227,
+      "source_y": 8.8753,
+      "source_z": 353.5186,
+      "target_x": 87.6244,
+      "target_y": 8.196,
+      "target_z": 360.0424,
+      "distance": 9.8638,
+      "target_level": "k02_trucks_cemetery"
+    },
+    {
+      "source_x": 301.7283,
+      "source_y": 8.8524,
+      "source_z": 419.9412,
+      "target_x": 366.7224,
+      "target_y": 11.1582,
+      "target_z": 461.2445,
+      "distance": 84.3061,
+      "target_level": "k02_trucks_cemetery"
+    },
+    {
+      "source_x": 301.7283,
+      "source_y": 8.8524,
+      "source_z": 419.9412,
+      "target_x": 306.7624,
+      "target_y": 11.5002,
+      "target_z": 314.8184,
+      "distance": 111.0127,
+      "target_level": "k02_trucks_cemetery"
+    },
+    {
+      "source_x": 301.7283,
+      "source_y": 8.8524,
+      "source_z": 419.9412,
+      "target_x": 232.5482,
+      "target_y": 7.8131,
+      "target_z": 384.1368,
+      "distance": 77.8964,
+      "target_level": "k02_trucks_cemetery"
+    },
+    {
+      "source_x": 306.7624,
+      "source_y": 11.5002,
+      "source_z": 314.8184,
+      "target_x": 273.0745,
+      "target_y": 8.3831,
+      "target_z": 270.6009,
+      "distance": 63.9585,
+      "target_level": "k02_trucks_cemetery"
+    },
+    {
+      "source_x": 306.7624,
+      "source_y": 11.5002,
+      "source_z": 314.8184,
+      "target_x": 301.7283,
+      "target_y": 8.8524,
+      "target_z": 419.9412,
+      "distance": 107.9611,
+      "target_level": "k02_trucks_cemetery"
+    },
+    {
+      "source_x": 315.0063,
+      "source_y": 11.6233,
+      "source_z": 189.8829,
+      "target_x": 300.118,
+      "target_y": 12.7637,
+      "target_z": 140.4313,
+      "distance": 51.6442,
+      "target_level": "k02_trucks_cemetery"
+    },
+    {
+      "source_x": 315.0063,
+      "source_y": 11.6233,
+      "source_z": 189.8829,
+      "target_x": 254.2236,
+      "target_y": 8.1053,
+      "target_z": 227.176,
+      "distance": 87.8621,
+      "target_level": "k02_trucks_cemetery"
+    },
+    {
+      "source_x": 322.5073,
+      "source_y": 12.2354,
+      "source_z": 92.1735,
+      "target_x": 326.3509,
+      "target_y": 11.8686,
+      "target_z": -1.2394,
+      "distance": 95.8494,
+      "target_level": "k02_trucks_cemetery"
+    },
+    {
+      "source_x": 322.5073,
+      "source_y": 12.2354,
+      "source_z": 92.1735,
+      "target_x": 300.118,
+      "target_y": 12.7637,
+      "target_z": 140.4313,
+      "distance": 53.1987,
+      "target_level": "k02_trucks_cemetery"
+    },
+    {
+      "source_x": 322.5073,
+      "source_y": 12.2354,
+      "source_z": 92.1735,
+      "target_x": 257.3303,
+      "target_y": 9.0058,
+      "target_z": 50.0503,
+      "distance": 98.2403,
+      "target_level": "k02_trucks_cemetery"
+    },
+    {
+      "source_x": 326.3509,
+      "source_y": 11.8686,
+      "source_z": -1.2394,
+      "target_x": 335.3225,
+      "target_y": 13.1177,
+      "target_z": -41.5754,
+      "distance": 49.2247,
+      "target_level": "k02_trucks_cemetery"
+    },
+    {
+      "source_x": 326.3509,
+      "source_y": 11.8686,
+      "source_z": -1.2394,
+      "target_x": 322.5073,
+      "target_y": 12.2354,
+      "target_z": 92.1735,
+      "distance": 93.6135,
+      "target_level": "k02_trucks_cemetery"
+    },
+    {
+      "source_x": 326.3509,
+      "source_y": 11.8686,
+      "source_z": -1.2394,
+      "target_x": 244.037,
+      "target_y": 7.2578,
+      "target_z": -8.9409,
+      "distance": 88.3634,
+      "target_level": "k02_trucks_cemetery"
+    },
+    {
+      "source_x": 313.289,
+      "source_y": 7.0624,
+      "source_z": -90.4528,
+      "target_x": 315.4816,
+      "target_y": 6.3559,
+      "target_z": -157.8689,
+      "distance": 68.2095,
+      "target_level": "k02_trucks_cemetery"
+    },
+    {
+      "source_x": 313.289,
+      "source_y": 7.0624,
+      "source_z": -90.4528,
+      "target_x": 335.3225,
+      "target_y": 13.1177,
+      "target_z": -41.5754,
+      "distance": 53.6141,
+      "target_level": "k02_trucks_cemetery"
+    },
+    {
+      "source_x": 313.289,
+      "source_y": 7.0624,
+      "source_z": -90.4528,
+      "target_x": 244.3454,
+      "target_y": 2.8433,
+      "target_z": -90.9161,
+      "distance": 72.2478,
+      "target_level": "k02_trucks_cemetery"
+    },
+    {
+      "source_x": 315.4816,
+      "source_y": 6.3559,
+      "source_z": -157.8689,
+      "target_x": 335.6919,
+      "target_y": 15.5113,
+      "target_z": -194.831,
+      "distance": 47.4197,
+      "target_level": "k02_trucks_cemetery"
+    },
+    {
+      "source_x": 315.4816,
+      "source_y": 6.3559,
+      "source_z": -157.8689,
+      "target_x": 313.289,
+      "target_y": 7.0624,
+      "target_z": -90.4528,
+      "distance": 69.6756,
+      "target_level": "k02_trucks_cemetery"
+    },
+    {
+      "source_x": 315.4816,
+      "source_y": 6.3559,
+      "source_z": -157.8689,
+      "target_x": 241.1308,
+      "target_y": 1.965,
+      "target_z": -167.6684,
+      "distance": 78.459,
+      "target_level": "k02_trucks_cemetery"
+    },
+    {
+      "source_x": 317.1966,
+      "source_y": 18.4537,
+      "source_z": -229.9966,
+      "target_x": 324.4828,
+      "target_y": 17.813,
+      "target_z": -296.3872,
+      "distance": 67.7629,
+      "target_level": "k02_trucks_cemetery"
+    },
+    {
+      "source_x": 317.1966,
+      "source_y": 18.4537,
+      "source_z": -229.9966,
+      "target_x": 335.6919,
+      "target_y": 15.5113,
+      "target_z": -194.831,
+      "distance": 45.3968,
+      "target_level": "k02_trucks_cemetery"
+    },
+    {
+      "source_x": 317.1966,
+      "source_y": 18.4537,
+      "source_z": -229.9966,
+      "target_x": 282.2928,
+      "target_y": 15.3869,
+      "target_z": -239.1854,
+      "distance": 36.093,
+      "target_level": "k02_trucks_cemetery"
+    },
+    {
+      "source_x": 324.4828,
+      "source_y": 17.813,
+      "source_z": -296.3872,
+      "target_x": 306.7044,
+      "target_y": 17.4367,
+      "target_z": -366.2325,
+      "distance": 81.1451,
+      "target_level": "k02_trucks_cemetery"
+    },
+    {
+      "source_x": 324.4828,
+      "source_y": 17.813,
+      "source_z": -296.3872,
+      "target_x": 317.1966,
+      "target_y": 18.4537,
+      "target_z": -229.9966,
+      "distance": 67.3905,
+      "target_level": "k02_trucks_cemetery"
+    },
+    {
+      "source_x": 324.4828,
+      "source_y": 17.813,
+      "source_z": -296.3872,
+      "target_x": 263.6901,
+      "target_y": 8.9799,
+      "target_z": -317.286,
+      "distance": 69.3353,
+      "target_level": "k02_trucks_cemetery"
+    },
+    {
+      "source_x": 306.7044,
+      "source_y": 17.4367,
+      "source_z": -366.2325,
+      "target_x": 324.4828,
+      "target_y": 17.813,
+      "target_z": -296.3872,
+      "distance": 73.3803,
+      "target_level": "k02_trucks_cemetery"
+    },
+    {
+      "source_x": 306.7044,
+      "source_y": 17.4367,
+      "source_z": -366.2325,
+      "target_x": 218.7573,
+      "target_y": 9.1035,
+      "target_z": -382.2077,
+      "distance": 91.0208,
+      "target_level": "k02_trucks_cemetery"
+    },
+    {
+      "source_x": 218.7573,
+      "source_y": 9.1035,
+      "source_z": -382.2077,
+      "target_x": 306.7044,
+      "target_y": 17.4367,
+      "target_z": -366.2325,
+      "distance": 92.5435,
+      "target_level": "k02_trucks_cemetery"
+    },
+    {
+      "source_x": 218.7573,
+      "source_y": 9.1035,
+      "source_z": -382.2077,
+      "target_x": 184.8776,
+      "target_y": 9.3191,
+      "target_z": -394.4488,
+      "distance": 36.0233,
+      "target_level": "k02_trucks_cemetery"
+    },
+    {
+      "source_x": 157.9269,
+      "source_y": 11.7713,
+      "source_z": -377.046,
+      "target_x": 184.8776,
+      "target_y": 9.3191,
+      "target_z": -394.4488,
+      "distance": 32.9035,
+      "target_level": "k02_trucks_cemetery"
+    },
+    {
+      "source_x": 157.9269,
+      "source_y": 11.7713,
+      "source_z": -377.046,
+      "target_x": 165.9217,
+      "target_y": 7.0944,
+      "target_z": -330.6116,
+      "distance": 47.1176,
+      "target_level": "k02_trucks_cemetery"
+    },
+    {
+      "source_x": 157.9269,
+      "source_y": 11.7713,
+      "source_z": -377.046,
+      "target_x": 95.0959,
+      "target_y": 10.0326,
+      "target_z": -381.9848,
+      "distance": 63.3964,
+      "target_level": "k02_trucks_cemetery"
+    },
+    {
+      "source_x": 95.0959,
+      "source_y": 10.0326,
+      "source_z": -381.9848,
+      "target_x": 157.9269,
+      "target_y": 11.7713,
+      "target_z": -377.046,
+      "distance": 66.9433,
+      "target_level": "k02_trucks_cemetery"
+    },
+    {
+      "source_x": 95.0959,
+      "source_y": 10.0326,
+      "source_z": -381.9848,
+      "target_x": 115.698,
+      "target_y": 5.9047,
+      "target_z": -326.8053,
+      "distance": 65.7941,
+      "target_level": "k02_trucks_cemetery"
+    },
+    {
+      "source_x": 95.0959,
+      "source_y": 10.0326,
+      "source_z": -381.9848,
+      "target_x": 40.1784,
+      "target_y": 13.2023,
+      "target_z": -378.5703,
+      "distance": 55.3777,
+      "target_level": "k02_trucks_cemetery"
+    },
+    {
+      "source_x": 40.1784,
+      "source_y": 13.2023,
+      "source_z": -378.5703,
+      "target_x": 95.0959,
+      "target_y": 10.0326,
+      "target_z": -381.9848,
+      "distance": 55.5356,
+      "target_level": "k02_trucks_cemetery"
+    },
+    {
+      "source_x": 40.1784,
+      "source_y": 13.2023,
+      "source_z": -378.5703,
+      "target_x": 49.759,
+      "target_y": 6.2891,
+      "target_z": -335.6401,
+      "distance": 48.3874,
+      "target_level": "k02_trucks_cemetery"
+    },
+    {
+      "source_x": -324.2017,
+      "source_y": 20.5256,
+      "source_z": -372.8072,
+      "target_x": -282.8924,
+      "target_y": 13.8954,
+      "target_z": -357.6722,
+      "distance": 46.5246,
+      "target_level": "k02_trucks_cemetery"
+    },
+    {
+      "source_x": -324.2017,
+      "source_y": 20.5256,
+      "source_z": -372.8072,
+      "target_x": 59.4658,
+      "target_y": 5.2895,
+      "target_z": 146.3206,
+      "distance": 647.7173,
+      "target_level": "l04_darkvalley"
+    },
+    {
+      "source_x": -43.2975,
+      "source_y": 10.0129,
+      "source_z": -395.7432,
+      "target_x": -42.3681,
+      "target_y": 6.5649,
+      "target_z": -372.8459,
+      "distance": 23.3625,
+      "target_level": "k02_trucks_cemetery"
+    },
+    {
+      "source_x": 184.8776,
+      "source_y": 9.3191,
+      "source_z": -394.4488,
+      "target_x": 218.7573,
+      "target_y": 9.1035,
+      "target_z": -382.2077,
+      "distance": 36.0233,
+      "target_level": "k02_trucks_cemetery"
+    },
+    {
+      "source_x": 184.8776,
+      "source_y": 9.3191,
+      "source_z": -394.4488,
+      "target_x": 157.9269,
+      "target_y": 11.7713,
+      "target_z": -377.046,
+      "distance": 32.9613,
+      "target_level": "k02_trucks_cemetery"
+    },
+    {
+      "source_x": 184.8776,
+      "source_y": 9.3191,
+      "source_z": -394.4488,
+      "target_x": 176.3907,
+      "target_y": 7.429,
+      "target_z": 45.4702,
+      "distance": 561.6205,
+      "target_level": "l04_darkvalley"
+    },
+    {
+      "source_x": 335.6919,
+      "source_y": 15.5113,
+      "source_z": -194.831,
+      "target_x": 317.1966,
+      "target_y": 18.4537,
+      "target_z": -229.9966,
+      "distance": 41.8982,
+      "target_level": "k02_trucks_cemetery"
+    },
+    {
+      "source_x": 335.6919,
+      "source_y": 15.5113,
+      "source_z": -194.831,
+      "target_x": 315.4816,
+      "target_y": 6.3559,
+      "target_z": -157.8689,
+      "distance": 54.2953,
+      "target_level": "k02_trucks_cemetery"
+    },
+    {
+      "source_x": 335.6919,
+      "source_y": 15.5113,
+      "source_z": -194.831,
+      "target_x": -65.9996,
+      "target_y": 0.7709,
+      "target_z": 77.8623,
+      "distance": 808.0093,
+      "target_level": "l04_darkvalley"
+    },
+    {
+      "source_x": -377.3434,
+      "source_y": 10.2642,
+      "source_z": 44.1622,
+      "target_x": -310.0023,
+      "target_y": 5.222,
+      "target_z": 88.7194,
+      "distance": 82.1399,
+      "target_level": "k02_trucks_cemetery"
+    },
+    {
+      "source_x": -377.3434,
+      "source_y": 10.2642,
+      "source_z": 44.1622,
+      "target_x": 366.6084,
+      "target_y": 10.8405,
+      "target_z": -501.5359,
+      "distance": 602.7831,
+      "target_level": "l05_bar"
+    },
+    {
+      "source_x": -326.7039,
+      "source_y": 15.8246,
+      "source_z": -204.7918,
+      "target_x": -305.7119,
+      "target_y": 18.7796,
+      "target_z": -247.7685,
+      "distance": 61.7317,
+      "target_level": "k02_trucks_cemetery"
+    },
+    {
+      "source_x": -326.7039,
+      "source_y": 15.8246,
+      "source_z": -204.7918,
+      "target_x": -283.8712,
+      "target_y": 10.8422,
+      "target_z": -181.6189,
+      "distance": 60.9349,
+      "target_level": "k02_trucks_cemetery"
+    },
+    {
+      "source_x": -326.7039,
+      "source_y": 15.8246,
+      "source_z": -204.7918,
+      "target_x": -164.394,
+      "target_y": 0.5714,
+      "target_z": 285.1456,
+      "distance": 970.5648,
+      "target_level": "l05_bar"
+    },
+    {
+      "source_x": 24.3081,
+      "source_y": 17.7994,
+      "source_z": 450.826,
+      "target_x": 87.6244,
+      "target_y": 8.196,
+      "target_z": 360.0424,
+      "distance": 117.0662,
+      "target_level": "k02_trucks_cemetery"
+    },
+    {
+      "source_x": 24.3081,
+      "source_y": 17.7994,
+      "source_z": 450.826,
+      "target_x": -129.4358,
+      "target_y": -3.8485,
+      "target_z": -6.38,
+      "distance": 1158.9417,
+      "target_level": "l07_military"
+    },
+    {
+      "source_x": 366.7224,
+      "source_y": 11.1582,
+      "source_z": 461.2445,
+      "target_x": 301.7283,
+      "target_y": 8.8524,
+      "target_z": 419.9412,
+      "distance": 80.0109,
+      "target_level": "k02_trucks_cemetery"
+    },
+    {
+      "source_x": 366.7224,
+      "source_y": 11.1582,
+      "source_z": 461.2445,
+      "target_x": -295.7489,
+      "target_y": -15.0253,
+      "target_z": -31.1532,
+      "distance": 1614.563,
+      "target_level": "l07_military"
+    },
+    {
+      "source_x": -204.6442,
+      "source_y": 9.9098,
+      "source_z": 342.5276,
+      "target_x": -201.8147,
+      "target_y": 8.4118,
+      "target_z": 281.613,
+      "distance": 66.606,
+      "target_level": "k02_trucks_cemetery"
+    },
+    {
+      "source_x": -204.6442,
+      "source_y": 9.9098,
+      "source_z": 342.5276,
+      "target_x": -68.3663,
+      "target_y": 12.701,
+      "target_z": 317.587,
+      "distance": 162.9734,
+      "target_level": "k02_trucks_cemetery"
+    },
+    {
+      "source_x": -204.6442,
+      "source_y": 9.9098,
+      "source_z": 342.5276,
+      "target_x": -200.7687,
+      "target_y": 19.1134,
+      "target_z": 453.3287,
+      "distance": 110.8688,
+      "target_level": "k02_trucks_cemetery"
+    },
+    {
+      "source_x": -97.1712,
+      "source_y": 6.5437,
+      "source_z": -301.5398,
+      "target_x": -57.7318,
+      "target_y": 7.1288,
+      "target_z": -326.0316,
+      "distance": 55.8061,
+      "target_level": "k02_trucks_cemetery"
+    },
+    {
+      "source_x": -97.1712,
+      "source_y": 6.5437,
+      "source_z": -301.5398,
+      "target_x": -104.8017,
+      "target_y": 6.4255,
+      "target_z": -305.5844,
+      "distance": 8.6362,
+      "target_level": "k02_trucks_cemetery"
+    },
+    {
+      "source_x": 168.5287,
+      "source_y": 3.3239,
+      "source_z": -217.5798,
+      "target_x": 193.5028,
+      "target_y": 3.0003,
+      "target_z": -217.2525,
+      "distance": 26.3195,
+      "target_level": "k02_trucks_cemetery"
+    },
+    {
+      "source_x": 168.5287,
+      "source_y": 3.3239,
+      "source_z": -217.5798,
+      "target_x": 157.8829,
+      "target_y": 3.2302,
+      "target_z": -206.07,
+      "distance": 15.6784,
+      "target_level": "k02_trucks_cemetery"
+    },
+    {
+      "source_x": 168.5287,
+      "source_y": 3.3239,
+      "source_z": -217.5798,
+      "target_x": 135.6559,
+      "target_y": 5.33,
+      "target_z": -237.0883,
+      "distance": 44.0326,
+      "target_level": "k02_trucks_cemetery"
+    },
+    {
+      "source_x": 216.1128,
+      "source_y": 7.6593,
+      "source_z": 299.6168,
+      "target_x": 210.9254,
+      "target_y": 7.8131,
+      "target_z": 271.2017,
+      "distance": 30.3399,
+      "target_level": "k02_trucks_cemetery"
+    },
+    {
+      "source_x": 216.1128,
+      "source_y": 7.6593,
+      "source_z": 299.6168,
+      "target_x": 233.0042,
+      "target_y": 7.5919,
+      "target_z": 315.4189,
+      "distance": 26.4105,
+      "target_level": "k02_trucks_cemetery"
+    },
+    {
+      "source_x": 216.1128,
+      "source_y": 7.6593,
+      "source_z": 299.6168,
+      "target_x": 177.8916,
+      "target_y": 9.466,
+      "target_z": 303.3243,
+      "distance": 38.4006,
+      "target_level": "k02_trucks_cemetery"
+    },
+    {
+      "source_x": -48.9175,
+      "source_y": 9.543,
+      "source_z": 342.9432,
+      "target_x": -68.3663,
+      "target_y": 12.701,
+      "target_z": 317.587,
+      "distance": 31.9561,
+      "target_level": "k02_trucks_cemetery"
+    },
+    {
+      "source_x": -48.9175,
+      "source_y": 9.543,
+      "source_z": 342.9432,
+      "target_x": 2.7244,
+      "target_y": 11.4032,
+      "target_z": 328.2398,
+      "distance": 55.6037,
+      "target_level": "k02_trucks_cemetery"
+    },
+    {
+      "source_x": 300.118,
+      "source_y": 12.7637,
+      "source_z": 140.4313,
+      "target_x": 322.5073,
+      "target_y": 12.2354,
+      "target_z": 92.1735,
+      "distance": 53.1987,
+      "target_level": "k02_trucks_cemetery"
+    },
+    {
+      "source_x": 300.118,
+      "source_y": 12.7637,
+      "source_z": 140.4313,
+      "target_x": 315.0063,
+      "target_y": 11.6233,
+      "target_z": 189.8829,
+      "distance": 51.6442,
+      "target_level": "k02_trucks_cemetery"
+    },
+    {
+      "source_x": 300.118,
+      "source_y": 12.7637,
+      "source_z": 140.4313,
+      "target_x": 246.8139,
+      "target_y": 9.248,
+      "target_z": 133.324,
+      "distance": 54.6808,
+      "target_level": "k02_trucks_cemetery"
+    },
+    {
+      "source_x": 85.7433,
+      "source_y": 4.8185,
+      "source_z": 62.7659,
+      "target_x": 60.1846,
+      "target_y": 4.6822,
+      "target_z": 10.3098,
+      "distance": 60.4305,
+      "target_level": "k02_trucks_cemetery"
+    },
+    {
+      "source_x": 85.7433,
+      "source_y": 4.8185,
+      "source_z": 62.7659,
+      "target_x": 106.1657,
+      "target_y": 6.5079,
+      "target_z": 50.7815,
+      "distance": 27.6447,
+      "target_level": "k02_trucks_cemetery"
+    },
+    {
+      "source_x": 85.7433,
+      "source_y": 4.8185,
+      "source_z": 62.7659,
+      "target_x": 81.7691,
+      "target_y": -2.8431,
+      "target_z": 90.7721,
+      "distance": 28.2867,
+      "target_level": "k02_trucks_cemetery"
+    },
+    {
+      "source_x": 90.7267,
+      "source_y": 7.4031,
+      "source_z": -43.9582,
+      "target_x": 90.1401,
+      "target_y": 7.83,
+      "target_z": -78.3043,
+      "distance": 35.8356,
+      "target_level": "k02_trucks_cemetery"
+    },
+    {
+      "source_x": 90.7267,
+      "source_y": 7.4031,
+      "source_z": -43.9582,
+      "target_x": 112.0737,
+      "target_y": 7.1794,
+      "target_z": -9.0868,
+      "distance": 51.1637,
+      "target_level": "k02_trucks_cemetery"
+    },
+    {
+      "source_x": 90.7267,
+      "source_y": 7.4031,
+      "source_z": -43.9582,
+      "target_x": 49.2377,
+      "target_y": 6.3135,
+      "target_z": -50.1774,
+      "distance": 44.861,
+      "target_level": "k02_trucks_cemetery"
+    },
+    {
+      "source_x": 335.3225,
+      "source_y": 13.1177,
+      "source_z": -41.5754,
+      "target_x": 313.289,
+      "target_y": 7.0624,
+      "target_z": -90.4528,
+      "distance": 53.6141,
+      "target_level": "k02_trucks_cemetery"
+    },
+    {
+      "source_x": 335.3225,
+      "source_y": 13.1177,
+      "source_z": -41.5754,
+      "target_x": 326.3509,
+      "target_y": 11.8686,
+      "target_z": -1.2394,
+      "distance": 45.1694,
+      "target_level": "k02_trucks_cemetery"
+    }
+  ]
+}

@@ -1,0 +1,1409 @@
+{
+  "level_name": "l12u_sarcofag",
+  "level_id": 24,
+  "edge_count": 140,
+  "intra_level_edges": 138,
+  "inter_level_edges": 2,
+  "edges": [
+    {
+      "source_x": 60.3082,
+      "source_y": 16.6592,
+      "source_z": 28.0453,
+      "target_x": 64.0381,
+      "target_y": 16.7488,
+      "target_z": 28.5595,
+      "distance": 3.7652,
+      "target_level": "l12u_sarcofag"
+    },
+    {
+      "source_x": 60.3082,
+      "source_y": 16.6592,
+      "source_z": 28.0453,
+      "target_x": 53.4585,
+      "target_y": 16.877,
+      "target_z": 28.4484,
+      "distance": 6.8615,
+      "target_level": "l12u_sarcofag"
+    },
+    {
+      "source_x": -30.3509,
+      "source_y": 0.2328,
+      "source_z": 39.5481,
+      "target_x": -29.4694,
+      "target_y": 0.2328,
+      "target_z": 40.8405,
+      "distance": 1.5644,
+      "target_level": "l12u_sarcofag"
+    },
+    {
+      "source_x": -30.3509,
+      "source_y": 0.2328,
+      "source_z": 39.5481,
+      "target_x": -28.9001,
+      "target_y": 0.2263,
+      "target_z": 33.5905,
+      "distance": 6.3502,
+      "target_level": "l12u_sarcofag"
+    },
+    {
+      "source_x": -28.9001,
+      "source_y": 0.2263,
+      "source_z": 33.5905,
+      "target_x": -1.6161,
+      "target_y": -0.1296,
+      "target_z": 33.8522,
+      "distance": 27.2853,
+      "target_level": "l12u_sarcofag"
+    },
+    {
+      "source_x": -28.9001,
+      "source_y": 0.2263,
+      "source_z": 33.5905,
+      "target_x": -30.3509,
+      "target_y": 0.2328,
+      "target_z": 39.5481,
+      "distance": 6.6445,
+      "target_level": "l12u_sarcofag"
+    },
+    {
+      "source_x": -1.6161,
+      "source_y": -0.1296,
+      "source_z": 33.8522,
+      "target_x": -1.8438,
+      "target_y": 0.0115,
+      "target_z": 11.3588,
+      "distance": 22.4946,
+      "target_level": "l12u_sarcofag"
+    },
+    {
+      "source_x": -1.6161,
+      "source_y": -0.1296,
+      "source_z": 33.8522,
+      "target_x": 12.3473,
+      "target_y": -0.1974,
+      "target_z": 33.6852,
+      "distance": 13.9644,
+      "target_level": "l12u_sarcofag"
+    },
+    {
+      "source_x": -1.6161,
+      "source_y": -0.1296,
+      "source_z": 33.8522,
+      "target_x": -28.9001,
+      "target_y": 0.2263,
+      "target_z": 33.5905,
+      "distance": 27.2853,
+      "target_level": "l12u_sarcofag"
+    },
+    {
+      "source_x": 2.2015,
+      "source_y": 0.0307,
+      "source_z": -11.5257,
+      "target_x": 2.428,
+      "target_y": -0.0901,
+      "target_z": 18.053,
+      "distance": 29.5795,
+      "target_level": "l12u_sarcofag"
+    },
+    {
+      "source_x": 2.2015,
+      "source_y": 0.0307,
+      "source_z": -11.5257,
+      "target_x": -1.7075,
+      "target_y": 0.0271,
+      "target_z": -11.1365,
+      "distance": 3.9284,
+      "target_level": "l12u_sarcofag"
+    },
+    {
+      "source_x": 2.428,
+      "source_y": -0.0901,
+      "source_z": 18.053,
+      "target_x": 2.2015,
+      "target_y": 0.0307,
+      "target_z": -11.5257,
+      "distance": 29.5795,
+      "target_level": "l12u_sarcofag"
+    },
+    {
+      "source_x": 2.428,
+      "source_y": -0.0901,
+      "source_z": 18.053,
+      "target_x": 25.3978,
+      "target_y": 0.0256,
+      "target_z": 18.1682,
+      "distance": 22.9701,
+      "target_level": "l12u_sarcofag"
+    },
+    {
+      "source_x": 25.3978,
+      "source_y": 0.0256,
+      "source_z": 18.1682,
+      "target_x": 38.8462,
+      "target_y": -0.0047,
+      "target_z": 18.4815,
+      "distance": 13.4521,
+      "target_level": "l12u_sarcofag"
+    },
+    {
+      "source_x": 25.3978,
+      "source_y": 0.0256,
+      "source_z": 18.1682,
+      "target_x": 2.428,
+      "target_y": -0.0901,
+      "target_z": 18.053,
+      "distance": 22.9701,
+      "target_level": "l12u_sarcofag"
+    },
+    {
+      "source_x": 25.3978,
+      "source_y": 0.0256,
+      "source_z": 18.1682,
+      "target_x": 23.4466,
+      "target_y": 0.1511,
+      "target_z": 25.2764,
+      "distance": 7.5473,
+      "target_level": "l12u_sarcofag"
+    },
+    {
+      "source_x": 39.0412,
+      "source_y": -0.0132,
+      "source_z": 9.3704,
+      "target_x": 38.8462,
+      "target_y": -0.0047,
+      "target_z": 18.4815,
+      "distance": 9.1132,
+      "target_level": "l12u_sarcofag"
+    },
+    {
+      "source_x": 39.0412,
+      "source_y": -0.0132,
+      "source_z": 9.3704,
+      "target_x": 33.4957,
+      "target_y": -0.4167,
+      "target_z": 10.9972,
+      "distance": 5.9072,
+      "target_level": "l12u_sarcofag"
+    },
+    {
+      "source_x": -1.8438,
+      "source_y": 0.0115,
+      "source_z": 11.3588,
+      "target_x": -1.7075,
+      "target_y": 0.0271,
+      "target_z": -11.1365,
+      "distance": 22.4957,
+      "target_level": "l12u_sarcofag"
+    },
+    {
+      "source_x": -1.8438,
+      "source_y": 0.0115,
+      "source_z": 11.3588,
+      "target_x": -1.6161,
+      "target_y": -0.1296,
+      "target_z": 33.8522,
+      "distance": 22.4946,
+      "target_level": "l12u_sarcofag"
+    },
+    {
+      "source_x": 12.3473,
+      "source_y": -0.1974,
+      "source_z": 33.6852,
+      "target_x": -1.6161,
+      "target_y": -0.1296,
+      "target_z": 33.8522,
+      "distance": 13.9644,
+      "target_level": "l12u_sarcofag"
+    },
+    {
+      "source_x": 72.6245,
+      "source_y": 0.0101,
+      "source_z": 37.3747,
+      "target_x": 74.8537,
+      "target_y": -0.0805,
+      "target_z": 22.7044,
+      "distance": 14.8725,
+      "target_level": "l12u_sarcofag"
+    },
+    {
+      "source_x": 72.6245,
+      "source_y": 0.0101,
+      "source_z": 37.3747,
+      "target_x": 63.1917,
+      "target_y": -0.0789,
+      "target_z": 38.6403,
+      "distance": 9.5173,
+      "target_level": "l12u_sarcofag"
+    },
+    {
+      "source_x": 61.6968,
+      "source_y": -0.0966,
+      "source_z": 7.2812,
+      "target_x": 66.209,
+      "target_y": 0.051,
+      "target_z": 4.1821,
+      "distance": 6.3776,
+      "target_level": "l12u_sarcofag"
+    },
+    {
+      "source_x": 53.6098,
+      "source_y": 11.8717,
+      "source_z": 25.7494,
+      "target_x": 55.2988,
+      "target_y": 11.7106,
+      "target_z": 19.1169,
+      "distance": 7.0119,
+      "target_level": "l12u_sarcofag"
+    },
+    {
+      "source_x": 53.6098,
+      "source_y": 11.8717,
+      "source_z": 25.7494,
+      "target_x": 41.7736,
+      "target_y": 11.8823,
+      "target_z": 27.9894,
+      "distance": 12.074,
+      "target_level": "l12u_sarcofag"
+    },
+    {
+      "source_x": 54.3046,
+      "source_y": 12.1679,
+      "source_z": -5.6646,
+      "target_x": 54.5064,
+      "target_y": 12.2959,
+      "target_z": -15.4087,
+      "distance": 12.0041,
+      "target_level": "l12u_sarcofag"
+    },
+    {
+      "source_x": 54.3046,
+      "source_y": 12.1679,
+      "source_z": -5.6646,
+      "target_x": 53.7789,
+      "target_y": 12.0839,
+      "target_z": 2.7145,
+      "distance": 8.3956,
+      "target_level": "l12u_sarcofag"
+    },
+    {
+      "source_x": 54.3046,
+      "source_y": 12.1679,
+      "source_z": -5.6646,
+      "target_x": 47.3471,
+      "target_y": 12.2217,
+      "target_z": -6.0237,
+      "distance": 6.9667,
+      "target_level": "l12u_sarcofag"
+    },
+    {
+      "source_x": 53.7189,
+      "source_y": 12.3811,
+      "source_z": -19.7133,
+      "target_x": 54.5064,
+      "target_y": 12.2959,
+      "target_z": -15.4087,
+      "distance": 4.3761,
+      "target_level": "l12u_sarcofag"
+    },
+    {
+      "source_x": 53.7189,
+      "source_y": 12.3811,
+      "source_z": -19.7133,
+      "target_x": 33.8455,
+      "target_y": 13.157,
+      "target_z": -19.5394,
+      "distance": 19.8742,
+      "target_level": "l12u_sarcofag"
+    },
+    {
+      "source_x": -0.9938,
+      "source_y": 12.2233,
+      "source_z": 17.9279,
+      "target_x": 8.6,
+      "target_y": 49.0341,
+      "target_z": 7.7536,
+      "distance": 47.8527,
+      "target_level": "l12u_sarcofag"
+    },
+    {
+      "source_x": -0.504,
+      "source_y": 12.2417,
+      "source_z": -19.5268,
+      "target_x": 7.613,
+      "target_y": 13.3106,
+      "target_z": -19.7645,
+      "distance": 8.1205,
+      "target_level": "l12u_sarcofag"
+    },
+    {
+      "source_x": -0.504,
+      "source_y": 12.2417,
+      "source_z": -19.5268,
+      "target_x": -0.3992,
+      "target_y": 12.2761,
+      "target_z": -15.398,
+      "distance": 4.1301,
+      "target_level": "l12u_sarcofag"
+    },
+    {
+      "source_x": -29.4694,
+      "source_y": 0.2328,
+      "source_z": 40.8405,
+      "target_x": -30.3509,
+      "target_y": 0.2328,
+      "target_z": 39.5481,
+      "distance": 1.5644,
+      "target_level": "l12u_sarcofag"
+    },
+    {
+      "source_x": -29.4694,
+      "source_y": 0.2328,
+      "source_z": 40.8405,
+      "target_x": -26.6032,
+      "target_y": 0.2328,
+      "target_z": 42.0077,
+      "distance": 3.0947,
+      "target_level": "l12u_sarcofag"
+    },
+    {
+      "source_x": -1.7075,
+      "source_y": 0.0271,
+      "source_z": -11.1365,
+      "target_x": 2.2015,
+      "target_y": 0.0307,
+      "target_z": -11.5257,
+      "distance": 3.9284,
+      "target_level": "l12u_sarcofag"
+    },
+    {
+      "source_x": -1.7075,
+      "source_y": 0.0271,
+      "source_z": -11.1365,
+      "target_x": -1.8438,
+      "target_y": 0.0115,
+      "target_z": 11.3588,
+      "distance": 22.4957,
+      "target_level": "l12u_sarcofag"
+    },
+    {
+      "source_x": 23.4466,
+      "source_y": 0.1511,
+      "source_z": 25.2764,
+      "target_x": 25.3978,
+      "target_y": 0.0256,
+      "target_z": 18.1682,
+      "distance": 7.3877,
+      "target_level": "l12u_sarcofag"
+    },
+    {
+      "source_x": 23.4466,
+      "source_y": 0.1511,
+      "source_z": 25.2764,
+      "target_x": 20.4674,
+      "target_y": 0.0416,
+      "target_z": 37.1705,
+      "distance": 17.0859,
+      "target_level": "l12u_sarcofag"
+    },
+    {
+      "source_x": 38.8462,
+      "source_y": -0.0047,
+      "source_z": 18.4815,
+      "target_x": 39.0412,
+      "target_y": -0.0132,
+      "target_z": 9.3704,
+      "distance": 9.1132,
+      "target_level": "l12u_sarcofag"
+    },
+    {
+      "source_x": 38.8462,
+      "source_y": -0.0047,
+      "source_z": 18.4815,
+      "target_x": 25.3978,
+      "target_y": 0.0256,
+      "target_z": 18.1682,
+      "distance": 13.4521,
+      "target_level": "l12u_sarcofag"
+    },
+    {
+      "source_x": 33.4957,
+      "source_y": -0.4167,
+      "source_z": 10.9972,
+      "target_x": 39.0412,
+      "target_y": -0.0132,
+      "target_z": 9.3704,
+      "distance": 5.8087,
+      "target_level": "l12u_sarcofag"
+    },
+    {
+      "source_x": 33.4957,
+      "source_y": -0.4167,
+      "source_z": 10.9972,
+      "target_x": 11.1566,
+      "target_y": -0.3893,
+      "target_z": 11.2436,
+      "distance": 22.3404,
+      "target_level": "l12u_sarcofag"
+    },
+    {
+      "source_x": 11.1566,
+      "source_y": -0.3893,
+      "source_z": 11.2436,
+      "target_x": 33.4957,
+      "target_y": -0.4167,
+      "target_z": 10.9972,
+      "distance": 22.3404,
+      "target_level": "l12u_sarcofag"
+    },
+    {
+      "source_x": 20.4674,
+      "source_y": 0.0416,
+      "source_z": 37.1705,
+      "target_x": 23.4466,
+      "target_y": 0.1511,
+      "target_z": 25.2764,
+      "distance": 19.3551,
+      "target_level": "l12u_sarcofag"
+    },
+    {
+      "source_x": 20.4674,
+      "source_y": 0.0416,
+      "source_z": 37.1705,
+      "target_x": 29.0006,
+      "target_y": -0.1261,
+      "target_z": 38.7224,
+      "distance": 9.0129,
+      "target_level": "l12u_sarcofag"
+    },
+    {
+      "source_x": 29.0006,
+      "source_y": -0.1261,
+      "source_z": 38.7224,
+      "target_x": 38.0919,
+      "target_y": -0.1172,
+      "target_z": 38.9127,
+      "distance": 9.4487,
+      "target_level": "l12u_sarcofag"
+    },
+    {
+      "source_x": 29.0006,
+      "source_y": -0.1261,
+      "source_z": 38.7224,
+      "target_x": 20.4674,
+      "target_y": 0.0416,
+      "target_z": 37.1705,
+      "distance": 9.0531,
+      "target_level": "l12u_sarcofag"
+    },
+    {
+      "source_x": 38.0919,
+      "source_y": -0.1172,
+      "source_z": 38.9127,
+      "target_x": 51.036,
+      "target_y": 0.0749,
+      "target_z": 34.6019,
+      "distance": 14.4447,
+      "target_level": "l12u_sarcofag"
+    },
+    {
+      "source_x": 38.0919,
+      "source_y": -0.1172,
+      "source_z": 38.9127,
+      "target_x": 29.0006,
+      "target_y": -0.1261,
+      "target_z": 38.7224,
+      "distance": 9.5089,
+      "target_level": "l12u_sarcofag"
+    },
+    {
+      "source_x": 51.036,
+      "source_y": 0.0749,
+      "source_z": 34.6019,
+      "target_x": 63.1917,
+      "target_y": -0.0789,
+      "target_z": 38.6403,
+      "distance": 12.8341,
+      "target_level": "l12u_sarcofag"
+    },
+    {
+      "source_x": 51.036,
+      "source_y": 0.0749,
+      "source_z": 34.6019,
+      "target_x": 38.0919,
+      "target_y": -0.1172,
+      "target_z": 38.9127,
+      "distance": 14.7251,
+      "target_level": "l12u_sarcofag"
+    },
+    {
+      "source_x": 63.1917,
+      "source_y": -0.0789,
+      "source_z": 38.6403,
+      "target_x": 72.6245,
+      "target_y": 0.0101,
+      "target_z": 37.3747,
+      "distance": 9.5173,
+      "target_level": "l12u_sarcofag"
+    },
+    {
+      "source_x": 63.1917,
+      "source_y": -0.0789,
+      "source_z": 38.6403,
+      "target_x": 51.036,
+      "target_y": 0.0749,
+      "target_z": 34.6019,
+      "distance": 12.8933,
+      "target_level": "l12u_sarcofag"
+    },
+    {
+      "source_x": 74.8537,
+      "source_y": -0.0805,
+      "source_z": 22.7044,
+      "target_x": 73.2491,
+      "target_y": 0.0349,
+      "target_z": 7.8513,
+      "distance": 14.951,
+      "target_level": "l12u_sarcofag"
+    },
+    {
+      "source_x": 74.8537,
+      "source_y": -0.0805,
+      "source_z": 22.7044,
+      "target_x": 72.6245,
+      "target_y": 0.0101,
+      "target_z": 37.3747,
+      "distance": 15.3126,
+      "target_level": "l12u_sarcofag"
+    },
+    {
+      "source_x": 73.2491,
+      "source_y": 0.0349,
+      "source_z": 7.8513,
+      "target_x": 74.8537,
+      "target_y": -0.0805,
+      "target_z": 22.7044,
+      "distance": 14.9821,
+      "target_level": "l12u_sarcofag"
+    },
+    {
+      "source_x": 73.2491,
+      "source_y": 0.0349,
+      "source_z": 7.8513,
+      "target_x": 66.209,
+      "target_y": 0.051,
+      "target_z": 4.1821,
+      "distance": 8.2878,
+      "target_level": "l12u_sarcofag"
+    },
+    {
+      "source_x": 66.209,
+      "source_y": 0.051,
+      "source_z": 4.1821,
+      "target_x": 73.2491,
+      "target_y": 0.0349,
+      "target_z": 7.8513,
+      "distance": 8.7546,
+      "target_level": "l12u_sarcofag"
+    },
+    {
+      "source_x": 66.209,
+      "source_y": 0.051,
+      "source_z": 4.1821,
+      "target_x": 60.8619,
+      "target_y": 2.3702,
+      "target_z": 6.8836,
+      "distance": 7.9516,
+      "target_level": "l12u_sarcofag"
+    },
+    {
+      "source_x": 66.209,
+      "source_y": 0.051,
+      "source_z": 4.1821,
+      "target_x": 61.6968,
+      "target_y": -0.0966,
+      "target_z": 7.2812,
+      "distance": 6.4448,
+      "target_level": "l12u_sarcofag"
+    },
+    {
+      "source_x": 60.8619,
+      "source_y": 2.3702,
+      "source_z": 6.8836,
+      "target_x": 66.209,
+      "target_y": 0.051,
+      "target_z": 4.1821,
+      "distance": 7.9516,
+      "target_level": "l12u_sarcofag"
+    },
+    {
+      "source_x": 60.8619,
+      "source_y": 2.3702,
+      "source_z": 6.8836,
+      "target_x": 66.1562,
+      "target_y": 5.0399,
+      "target_z": 6.8608,
+      "distance": 9.5164,
+      "target_level": "l12u_sarcofag"
+    },
+    {
+      "source_x": 66.1562,
+      "source_y": 5.0399,
+      "source_z": 6.8608,
+      "target_x": 60.8619,
+      "target_y": 2.3702,
+      "target_z": 6.8836,
+      "distance": 9.5164,
+      "target_level": "l12u_sarcofag"
+    },
+    {
+      "source_x": 66.1562,
+      "source_y": 5.0399,
+      "source_z": 6.8608,
+      "target_x": 60.8124,
+      "target_y": 7.3651,
+      "target_z": 6.2924,
+      "distance": 9.7384,
+      "target_level": "l12u_sarcofag"
+    },
+    {
+      "source_x": 60.8124,
+      "source_y": 7.3651,
+      "source_z": 6.2924,
+      "target_x": 66.1562,
+      "target_y": 5.0399,
+      "target_z": 6.8608,
+      "distance": 10.345,
+      "target_level": "l12u_sarcofag"
+    },
+    {
+      "source_x": 60.8124,
+      "source_y": 7.3651,
+      "source_z": 6.2924,
+      "target_x": 66.6093,
+      "target_y": 10.0107,
+      "target_z": 6.3505,
+      "distance": 10.6933,
+      "target_level": "l12u_sarcofag"
+    },
+    {
+      "source_x": 66.6093,
+      "source_y": 10.0107,
+      "source_z": 6.3505,
+      "target_x": 60.8124,
+      "target_y": 7.3651,
+      "target_z": 6.2924,
+      "distance": 10.6933,
+      "target_level": "l12u_sarcofag"
+    },
+    {
+      "source_x": 66.6093,
+      "source_y": 10.0107,
+      "source_z": 6.3505,
+      "target_x": 60.3137,
+      "target_y": 12.3457,
+      "target_z": 7.1268,
+      "distance": 11.1235,
+      "target_level": "l12u_sarcofag"
+    },
+    {
+      "source_x": 60.3137,
+      "source_y": 12.3457,
+      "source_z": 7.1268,
+      "target_x": 66.6093,
+      "target_y": 10.0107,
+      "target_z": 6.3505,
+      "distance": 11.3207,
+      "target_level": "l12u_sarcofag"
+    },
+    {
+      "source_x": 60.3137,
+      "source_y": 12.3457,
+      "source_z": 7.1268,
+      "target_x": 53.7789,
+      "target_y": 12.0839,
+      "target_z": 2.7145,
+      "distance": 8.3283,
+      "target_level": "l12u_sarcofag"
+    },
+    {
+      "source_x": 60.3137,
+      "source_y": 12.3457,
+      "source_z": 7.1268,
+      "target_x": 55.2988,
+      "target_y": 11.7106,
+      "target_z": 19.1169,
+      "distance": 14.7334,
+      "target_level": "l12u_sarcofag"
+    },
+    {
+      "source_x": 53.7789,
+      "source_y": 12.0839,
+      "source_z": 2.7145,
+      "target_x": 54.3046,
+      "target_y": 12.1679,
+      "target_z": -5.6646,
+      "distance": 8.3956,
+      "target_level": "l12u_sarcofag"
+    },
+    {
+      "source_x": 53.7789,
+      "source_y": 12.0839,
+      "source_z": 2.7145,
+      "target_x": 60.3137,
+      "target_y": 12.3457,
+      "target_z": 7.1268,
+      "distance": 8.7241,
+      "target_level": "l12u_sarcofag"
+    },
+    {
+      "source_x": 53.7789,
+      "source_y": 12.0839,
+      "source_z": 2.7145,
+      "target_x": 48.2734,
+      "target_y": 12.0664,
+      "target_z": 2.8996,
+      "distance": 5.5087,
+      "target_level": "l12u_sarcofag"
+    },
+    {
+      "source_x": 55.2988,
+      "source_y": 11.7106,
+      "source_z": 19.1169,
+      "target_x": 60.3137,
+      "target_y": 12.3457,
+      "target_z": 7.1268,
+      "distance": 15.8347,
+      "target_level": "l12u_sarcofag"
+    },
+    {
+      "source_x": 55.2988,
+      "source_y": 11.7106,
+      "source_z": 19.1169,
+      "target_x": 53.6098,
+      "target_y": 11.8717,
+      "target_z": 25.7494,
+      "distance": 7.2546,
+      "target_level": "l12u_sarcofag"
+    },
+    {
+      "source_x": 41.7736,
+      "source_y": 11.8823,
+      "source_z": 27.9894,
+      "target_x": 53.6098,
+      "target_y": 11.8717,
+      "target_z": 25.7494,
+      "distance": 12.1232,
+      "target_level": "l12u_sarcofag"
+    },
+    {
+      "source_x": 41.7736,
+      "source_y": 11.8823,
+      "source_z": 27.9894,
+      "target_x": 40.176,
+      "target_y": 16.8897,
+      "target_z": 27.2762,
+      "distance": 1.7495,
+      "target_level": "l12u_sarcofag"
+    },
+    {
+      "source_x": 31.2302,
+      "source_y": 11.8848,
+      "source_z": 27.9905,
+      "target_x": 53.4585,
+      "target_y": 16.877,
+      "target_z": 28.4484,
+      "distance": 26.3089,
+      "target_level": "l12u_sarcofag"
+    },
+    {
+      "source_x": 31.2302,
+      "source_y": 11.8848,
+      "source_z": 27.9905,
+      "target_x": 20.1405,
+      "target_y": 16.9256,
+      "target_z": 25.9365,
+      "distance": 14.5026,
+      "target_level": "l12u_sarcofag"
+    },
+    {
+      "source_x": 17.8698,
+      "source_y": 11.8746,
+      "source_z": 27.7445,
+      "target_x": 20.2144,
+      "target_y": 11.8896,
+      "target_z": 24.2606,
+      "distance": 4.4683,
+      "target_level": "l12u_sarcofag"
+    },
+    {
+      "source_x": 17.8698,
+      "source_y": 11.8746,
+      "source_z": 27.7445,
+      "target_x": 26.5325,
+      "target_y": 17.0057,
+      "target_z": 27.2177,
+      "distance": 8.6786,
+      "target_level": "l12u_sarcofag"
+    },
+    {
+      "source_x": 17.8698,
+      "source_y": 11.8746,
+      "source_z": 27.7445,
+      "target_x": 3.0152,
+      "target_y": 11.7036,
+      "target_z": 27.7917,
+      "distance": 15.1513,
+      "target_level": "l12u_sarcofag"
+    },
+    {
+      "source_x": 3.0152,
+      "source_y": 11.7036,
+      "source_z": 27.7917,
+      "target_x": 17.8698,
+      "target_y": 11.8746,
+      "target_z": 27.7445,
+      "distance": 15.1432,
+      "target_level": "l12u_sarcofag"
+    },
+    {
+      "source_x": 3.0152,
+      "source_y": 11.7036,
+      "source_z": 27.7917,
+      "target_x": 0.8177,
+      "target_y": 12.1978,
+      "target_z": 13.1444,
+      "distance": 17.1824,
+      "target_level": "l12u_sarcofag"
+    },
+    {
+      "source_x": 1.0123,
+      "source_y": 12.1566,
+      "source_z": 5.0701,
+      "target_x": -0.3013,
+      "target_y": 12.2724,
+      "target_z": -1.289,
+      "distance": 6.4933,
+      "target_level": "l12u_sarcofag"
+    },
+    {
+      "source_x": 1.0123,
+      "source_y": 12.1566,
+      "source_z": 5.0701,
+      "target_x": 4.8752,
+      "target_y": 12.2076,
+      "target_z": 4.6779,
+      "distance": 3.8827,
+      "target_level": "l12u_sarcofag"
+    },
+    {
+      "source_x": 1.0123,
+      "source_y": 12.1566,
+      "source_z": 5.0701,
+      "target_x": 0.8177,
+      "target_y": 12.1978,
+      "target_z": 13.1444,
+      "distance": 8.1588,
+      "target_level": "l12u_sarcofag"
+    },
+    {
+      "source_x": 0.8177,
+      "source_y": 12.1978,
+      "source_z": 13.1444,
+      "target_x": 1.0123,
+      "target_y": 12.1566,
+      "target_z": 5.0701,
+      "distance": 8.6885,
+      "target_level": "l12u_sarcofag"
+    },
+    {
+      "source_x": 0.8177,
+      "source_y": 12.1978,
+      "source_z": 13.1444,
+      "target_x": 5.0813,
+      "target_y": 12.2773,
+      "target_z": 13.0469,
+      "distance": 4.2648,
+      "target_level": "l12u_sarcofag"
+    },
+    {
+      "source_x": 0.8177,
+      "source_y": 12.1978,
+      "source_z": 13.1444,
+      "target_x": 3.0152,
+      "target_y": 11.7036,
+      "target_z": 27.7917,
+      "distance": 16.328,
+      "target_level": "l12u_sarcofag"
+    },
+    {
+      "source_x": 5.0813,
+      "source_y": 12.2773,
+      "source_z": 13.0469,
+      "target_x": 4.8752,
+      "target_y": 12.2076,
+      "target_z": 4.6779,
+      "distance": 8.3716,
+      "target_level": "l12u_sarcofag"
+    },
+    {
+      "source_x": 5.0813,
+      "source_y": 12.2773,
+      "source_z": 13.0469,
+      "target_x": 0.8177,
+      "target_y": 12.1978,
+      "target_z": 13.1444,
+      "distance": 4.2648,
+      "target_level": "l12u_sarcofag"
+    },
+    {
+      "source_x": 4.8752,
+      "source_y": 12.2076,
+      "source_z": 4.6779,
+      "target_x": 5.0813,
+      "target_y": 12.2773,
+      "target_z": 13.0469,
+      "distance": 8.3716,
+      "target_level": "l12u_sarcofag"
+    },
+    {
+      "source_x": 4.8752,
+      "source_y": 12.2076,
+      "source_z": 4.6779,
+      "target_x": 1.0123,
+      "target_y": 12.1566,
+      "target_z": 5.0701,
+      "distance": 3.8827,
+      "target_level": "l12u_sarcofag"
+    },
+    {
+      "source_x": -0.3013,
+      "source_y": 12.2724,
+      "source_z": -1.289,
+      "target_x": 1.0123,
+      "target_y": 12.1566,
+      "target_z": 5.0701,
+      "distance": 6.4933,
+      "target_level": "l12u_sarcofag"
+    },
+    {
+      "source_x": -0.3013,
+      "source_y": 12.2724,
+      "source_z": -1.289,
+      "target_x": 0.7087,
+      "target_y": 12.2692,
+      "target_z": -11.8701,
+      "distance": 12.8135,
+      "target_level": "l12u_sarcofag"
+    },
+    {
+      "source_x": 0.7087,
+      "source_y": 12.2692,
+      "source_z": -11.8701,
+      "target_x": -0.3992,
+      "target_y": 12.2761,
+      "target_z": -15.398,
+      "distance": 3.6978,
+      "target_level": "l12u_sarcofag"
+    },
+    {
+      "source_x": 0.7087,
+      "source_y": 12.2692,
+      "source_z": -11.8701,
+      "target_x": -0.3013,
+      "target_y": 12.2724,
+      "target_z": -1.289,
+      "distance": 11.8636,
+      "target_level": "l12u_sarcofag"
+    },
+    {
+      "source_x": -0.3992,
+      "source_y": 12.2761,
+      "source_z": -15.398,
+      "target_x": -0.504,
+      "target_y": 12.2417,
+      "target_z": -19.5268,
+      "distance": 4.1301,
+      "target_level": "l12u_sarcofag"
+    },
+    {
+      "source_x": -0.3992,
+      "source_y": 12.2761,
+      "source_z": -15.398,
+      "target_x": 0.7087,
+      "target_y": 12.2692,
+      "target_z": -11.8701,
+      "distance": 3.6978,
+      "target_level": "l12u_sarcofag"
+    },
+    {
+      "source_x": 7.613,
+      "source_y": 13.3106,
+      "source_z": -19.7645,
+      "target_x": -0.504,
+      "target_y": 12.2417,
+      "target_z": -19.5268,
+      "distance": 8.1205,
+      "target_level": "l12u_sarcofag"
+    },
+    {
+      "source_x": 7.613,
+      "source_y": 13.3106,
+      "source_z": -19.7645,
+      "target_x": 17.4932,
+      "target_y": 13.2838,
+      "target_z": -19.6003,
+      "distance": 9.8815,
+      "target_level": "l12u_sarcofag"
+    },
+    {
+      "source_x": 17.4932,
+      "source_y": 13.2838,
+      "source_z": -19.6003,
+      "target_x": 33.8455,
+      "target_y": 13.157,
+      "target_z": -19.5394,
+      "distance": 16.3525,
+      "target_level": "l12u_sarcofag"
+    },
+    {
+      "source_x": 17.4932,
+      "source_y": 13.2838,
+      "source_z": -19.6003,
+      "target_x": 7.613,
+      "target_y": 13.3106,
+      "target_z": -19.7645,
+      "distance": 9.8815,
+      "target_level": "l12u_sarcofag"
+    },
+    {
+      "source_x": 33.8455,
+      "source_y": 13.157,
+      "source_z": -19.5394,
+      "target_x": 53.7189,
+      "target_y": 12.3811,
+      "target_z": -19.7133,
+      "distance": 19.8742,
+      "target_level": "l12u_sarcofag"
+    },
+    {
+      "source_x": 33.8455,
+      "source_y": 13.157,
+      "source_z": -19.5394,
+      "target_x": 8.6,
+      "target_y": 49.0341,
+      "target_z": 7.7536,
+      "distance": 106.9845,
+      "target_level": "l12u_sarcofag"
+    },
+    {
+      "source_x": 33.8455,
+      "source_y": 13.157,
+      "source_z": -19.5394,
+      "target_x": 17.4932,
+      "target_y": 13.2838,
+      "target_z": -19.6003,
+      "distance": 16.3525,
+      "target_level": "l12u_sarcofag"
+    },
+    {
+      "source_x": 54.5064,
+      "source_y": 12.2959,
+      "source_z": -15.4087,
+      "target_x": 53.7189,
+      "target_y": 12.3811,
+      "target_z": -19.7133,
+      "distance": 4.3761,
+      "target_level": "l12u_sarcofag"
+    },
+    {
+      "source_x": 54.5064,
+      "source_y": 12.2959,
+      "source_z": -15.4087,
+      "target_x": 54.3046,
+      "target_y": 12.1679,
+      "target_z": -5.6646,
+      "distance": 12.1154,
+      "target_level": "l12u_sarcofag"
+    },
+    {
+      "source_x": 54.5064,
+      "source_y": 12.2959,
+      "source_z": -15.4087,
+      "target_x": 47.3709,
+      "target_y": 12.2671,
+      "target_z": -15.4095,
+      "distance": 7.1355,
+      "target_level": "l12u_sarcofag"
+    },
+    {
+      "source_x": 47.3709,
+      "source_y": 12.2671,
+      "source_z": -15.4095,
+      "target_x": 54.5064,
+      "target_y": 12.2959,
+      "target_z": -15.4087,
+      "distance": 7.1355,
+      "target_level": "l12u_sarcofag"
+    },
+    {
+      "source_x": 47.3471,
+      "source_y": 12.2217,
+      "source_z": -6.0237,
+      "target_x": 54.3046,
+      "target_y": 12.1679,
+      "target_z": -5.6646,
+      "distance": 6.9667,
+      "target_level": "l12u_sarcofag"
+    },
+    {
+      "source_x": 47.3471,
+      "source_y": 12.2217,
+      "source_z": -6.0237,
+      "target_x": 48.2734,
+      "target_y": 12.0664,
+      "target_z": 2.8996,
+      "distance": 9.1188,
+      "target_level": "l12u_sarcofag"
+    },
+    {
+      "source_x": 48.2734,
+      "source_y": 12.0664,
+      "source_z": 2.8996,
+      "target_x": 47.3471,
+      "target_y": 12.2217,
+      "target_z": -6.0237,
+      "distance": 9.1303,
+      "target_level": "l12u_sarcofag"
+    },
+    {
+      "source_x": 48.2734,
+      "source_y": 12.0664,
+      "source_z": 2.8996,
+      "target_x": 53.7789,
+      "target_y": 12.0839,
+      "target_z": 2.7145,
+      "distance": 5.5087,
+      "target_level": "l12u_sarcofag"
+    },
+    {
+      "source_x": 20.2144,
+      "source_y": 11.8896,
+      "source_z": 24.2606,
+      "target_x": 17.8698,
+      "target_y": 11.8746,
+      "target_z": 27.7445,
+      "distance": 5.5393,
+      "target_level": "l12u_sarcofag"
+    },
+    {
+      "source_x": 20.2144,
+      "source_y": 11.8896,
+      "source_z": 24.2606,
+      "target_x": 20.1405,
+      "target_y": 16.9256,
+      "target_z": 25.9365,
+      "distance": 1.6775,
+      "target_level": "l12u_sarcofag"
+    },
+    {
+      "source_x": 20.1405,
+      "source_y": 16.9256,
+      "source_z": 25.9365,
+      "target_x": 20.2144,
+      "target_y": 11.8896,
+      "target_z": 24.2606,
+      "distance": 5.658,
+      "target_level": "l12u_sarcofag"
+    },
+    {
+      "source_x": 20.1405,
+      "source_y": 16.9256,
+      "source_z": 25.9365,
+      "target_x": 31.2302,
+      "target_y": 11.8848,
+      "target_z": 27.9905,
+      "distance": 14.6904,
+      "target_level": "l12u_sarcofag"
+    },
+    {
+      "source_x": 20.1405,
+      "source_y": 16.9256,
+      "source_z": 25.9365,
+      "target_x": 5.4883,
+      "target_y": 16.6462,
+      "target_z": 28.7158,
+      "distance": 19.109,
+      "target_level": "l12u_sarcofag"
+    },
+    {
+      "source_x": 26.5325,
+      "source_y": 17.0057,
+      "source_z": 27.2177,
+      "target_x": 40.176,
+      "target_y": 16.8897,
+      "target_z": 27.2762,
+      "distance": 13.6436,
+      "target_level": "l12u_sarcofag"
+    },
+    {
+      "source_x": 26.5325,
+      "source_y": 17.0057,
+      "source_z": 27.2177,
+      "target_x": 17.8698,
+      "target_y": 11.8746,
+      "target_z": 27.7445,
+      "distance": 8.6786,
+      "target_level": "l12u_sarcofag"
+    },
+    {
+      "source_x": 40.176,
+      "source_y": 16.8897,
+      "source_z": 27.2762,
+      "target_x": 41.7736,
+      "target_y": 11.8823,
+      "target_z": 27.9894,
+      "distance": 1.7495,
+      "target_level": "l12u_sarcofag"
+    },
+    {
+      "source_x": 40.176,
+      "source_y": 16.8897,
+      "source_z": 27.2762,
+      "target_x": 26.5325,
+      "target_y": 17.0057,
+      "target_z": 27.2177,
+      "distance": 13.6436,
+      "target_level": "l12u_sarcofag"
+    },
+    {
+      "source_x": 53.4585,
+      "source_y": 16.877,
+      "source_z": 28.4484,
+      "target_x": 60.3082,
+      "target_y": 16.6592,
+      "target_z": 28.0453,
+      "distance": 6.8615,
+      "target_level": "l12u_sarcofag"
+    },
+    {
+      "source_x": 53.4585,
+      "source_y": 16.877,
+      "source_z": 28.4484,
+      "target_x": 31.2302,
+      "target_y": 11.8848,
+      "target_z": 27.9905,
+      "distance": 27.506,
+      "target_level": "l12u_sarcofag"
+    },
+    {
+      "source_x": 64.0381,
+      "source_y": 16.7488,
+      "source_z": 28.5595,
+      "target_x": 72.1554,
+      "target_y": 16.6856,
+      "target_z": 30.7463,
+      "distance": 8.4067,
+      "target_level": "l12u_sarcofag"
+    },
+    {
+      "source_x": 64.0381,
+      "source_y": 16.7488,
+      "source_z": 28.5595,
+      "target_x": 60.3082,
+      "target_y": 16.6592,
+      "target_z": 28.0453,
+      "distance": 3.7652,
+      "target_level": "l12u_sarcofag"
+    },
+    {
+      "source_x": 5.4883,
+      "source_y": 16.6462,
+      "source_z": 28.7158,
+      "target_x": 20.1405,
+      "target_y": 16.9256,
+      "target_z": 25.9365,
+      "distance": 19.1102,
+      "target_level": "l12u_sarcofag"
+    },
+    {
+      "source_x": 72.1554,
+      "source_y": 16.6856,
+      "source_z": 30.7463,
+      "target_x": 64.0381,
+      "target_y": 16.7488,
+      "target_z": 28.5595,
+      "distance": 8.4067,
+      "target_level": "l12u_sarcofag"
+    },
+    {
+      "source_x": 72.1554,
+      "source_y": 16.6856,
+      "source_z": 30.7463,
+      "target_x": -18.8989,
+      "target_y": -34.5734,
+      "target_z": -2.9395,
+      "distance": 177.6218,
+      "target_level": "l12u_control_monolith"
+    },
+    {
+      "source_x": -26.6032,
+      "source_y": 0.2328,
+      "source_z": 42.0077,
+      "target_x": -29.4694,
+      "target_y": 0.2328,
+      "target_z": 40.8405,
+      "distance": 3.0947,
+      "target_level": "l12u_sarcofag"
+    },
+    {
+      "source_x": -26.6032,
+      "source_y": 0.2328,
+      "source_z": 42.0077,
+      "target_x": 377.2833,
+      "target_y": -0.0025,
+      "target_z": 63.825,
+      "distance": 657.1735,
+      "target_level": "l12_stancia"
+    },
+    {
+      "source_x": 8.6,
+      "source_y": 49.0341,
+      "source_z": 7.7536,
+      "target_x": 26.0646,
+      "target_y": 54.053,
+      "target_z": -30.6383,
+      "distance": 57.8599,
+      "target_level": "l12u_sarcofag"
+    },
+    {
+      "source_x": 8.6,
+      "source_y": 49.0341,
+      "source_z": 7.7536,
+      "target_x": -0.9938,
+      "target_y": 12.2233,
+      "target_z": 17.9279,
+      "distance": 62.2679,
+      "target_level": "l12u_sarcofag"
+    },
+    {
+      "source_x": 8.6,
+      "source_y": 49.0341,
+      "source_z": 7.7536,
+      "target_x": 33.8455,
+      "target_y": 13.157,
+      "target_z": -19.5394,
+      "distance": 106.9848,
+      "target_level": "l12u_sarcofag"
+    },
+    {
+      "source_x": 26.0646,
+      "source_y": 54.053,
+      "source_z": -30.6383,
+      "target_x": 8.6,
+      "target_y": 49.0341,
+      "target_z": 7.7536,
+      "distance": 57.9771,
+      "target_level": "l12u_sarcofag"
+    }
+  ]
+}

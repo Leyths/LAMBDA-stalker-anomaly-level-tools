@@ -1,0 +1,2369 @@
+{
+  "level_name": "l10_red_forest",
+  "level_id": 14,
+  "edge_count": 236,
+  "intra_level_edges": 224,
+  "inter_level_edges": 12,
+  "edges": [
+    {
+      "source_x": -43.1676,
+      "source_y": 0.0,
+      "source_z": 104.0337,
+      "target_x": -14.5426,
+      "target_y": 0.0,
+      "target_z": 130.9102,
+      "distance": 51.8264,
+      "target_level": "l10_red_forest"
+    },
+    {
+      "source_x": -43.1676,
+      "source_y": 0.0,
+      "source_z": 104.0337,
+      "target_x": -65.2017,
+      "target_y": 0.0,
+      "target_z": 88.9317,
+      "distance": 26.7128,
+      "target_level": "l10_red_forest"
+    },
+    {
+      "source_x": -201.1986,
+      "source_y": 0.1382,
+      "source_z": -332.1324,
+      "target_x": -164.3452,
+      "target_y": 0.9812,
+      "target_z": -310.5782,
+      "distance": 50.8986,
+      "target_level": "l10_red_forest"
+    },
+    {
+      "source_x": -201.1986,
+      "source_y": 0.1382,
+      "source_z": -332.1324,
+      "target_x": -182.8339,
+      "target_y": 0.1382,
+      "target_z": -288.6831,
+      "distance": 51.5878,
+      "target_level": "l10_red_forest"
+    },
+    {
+      "source_x": -201.1986,
+      "source_y": 0.1382,
+      "source_z": -332.1324,
+      "target_x": 12.6503,
+      "target_y": -0.0078,
+      "target_z": -383.5147,
+      "distance": 439.1673,
+      "target_level": "l10_limansk"
+    },
+    {
+      "source_x": -12.5646,
+      "source_y": 0.7673,
+      "source_z": -436.1598,
+      "target_x": -15.979,
+      "target_y": -0.0059,
+      "target_z": -463.6642,
+      "distance": 28.6297,
+      "target_level": "l10_red_forest"
+    },
+    {
+      "source_x": -12.5646,
+      "source_y": 0.7673,
+      "source_z": -436.1598,
+      "target_x": -10.2731,
+      "target_y": 0.4238,
+      "target_z": -413.2534,
+      "distance": 23.0208,
+      "target_level": "l10_red_forest"
+    },
+    {
+      "source_x": -15.979,
+      "source_y": -0.0059,
+      "source_z": -463.6642,
+      "target_x": -12.5646,
+      "target_y": 0.7673,
+      "target_z": -436.1598,
+      "distance": 35.6217,
+      "target_level": "l10_red_forest"
+    },
+    {
+      "source_x": -15.979,
+      "source_y": -0.0059,
+      "source_z": -463.6642,
+      "target_x": -92.9361,
+      "target_y": -5.0888,
+      "target_z": 434.656,
+      "distance": 319.6867,
+      "target_level": "l07_military"
+    },
+    {
+      "source_x": -19.1974,
+      "source_y": -0.4512,
+      "source_z": 188.2336,
+      "target_x": -14.5426,
+      "target_y": 0.0,
+      "target_z": 130.9102,
+      "distance": 57.5121,
+      "target_level": "l10_red_forest"
+    },
+    {
+      "source_x": -19.1974,
+      "source_y": -0.4512,
+      "source_z": 188.2336,
+      "target_x": 242.1137,
+      "target_y": 28.5351,
+      "target_z": -495.7466,
+      "distance": 320.893,
+      "target_level": "jupiter"
+    },
+    {
+      "source_x": 329.2339,
+      "source_y": -1.0259,
+      "source_z": -314.3855,
+      "target_x": 296.7749,
+      "target_y": -1.652,
+      "target_z": -321.6931,
+      "distance": 33.2714,
+      "target_level": "l10_red_forest"
+    },
+    {
+      "source_x": 329.2339,
+      "source_y": -1.0259,
+      "source_z": -314.3855,
+      "target_x": -36.1801,
+      "target_y": -1.0914,
+      "target_z": -86.7999,
+      "distance": 674.1621,
+      "target_level": "l10_radar"
+    },
+    {
+      "source_x": 254.9511,
+      "source_y": -1.4547,
+      "source_z": -310.2603,
+      "target_x": 296.7749,
+      "target_y": -1.652,
+      "target_z": -321.6931,
+      "distance": 49.2683,
+      "target_level": "l10_red_forest"
+    },
+    {
+      "source_x": 254.9511,
+      "source_y": -1.4547,
+      "source_z": -310.2603,
+      "target_x": 223.4489,
+      "target_y": -0.5836,
+      "target_z": -306.6248,
+      "distance": 32.3837,
+      "target_level": "l10_red_forest"
+    },
+    {
+      "source_x": 152.3447,
+      "source_y": -0.1883,
+      "source_z": -182.7109,
+      "target_x": 177.8745,
+      "target_y": 2.6267,
+      "target_z": -172.996,
+      "distance": 33.9613,
+      "target_level": "l10_red_forest"
+    },
+    {
+      "source_x": 183.9465,
+      "source_y": 0.9282,
+      "source_z": -166.023,
+      "target_x": 177.8745,
+      "target_y": 2.6267,
+      "target_z": -172.996,
+      "distance": 9.2462,
+      "target_level": "l10_red_forest"
+    },
+    {
+      "source_x": 183.9465,
+      "source_y": 0.9282,
+      "source_z": -166.023,
+      "target_x": 254.6773,
+      "target_y": 1.5748,
+      "target_z": -157.1445,
+      "distance": 78.1645,
+      "target_level": "l10_red_forest"
+    },
+    {
+      "source_x": 183.9465,
+      "source_y": 0.9282,
+      "source_z": -166.023,
+      "target_x": 179.1023,
+      "target_y": -0.3698,
+      "target_z": -153.905,
+      "distance": 19.0911,
+      "target_level": "l10_red_forest"
+    },
+    {
+      "source_x": 192.7341,
+      "source_y": -1.1534,
+      "source_z": -296.9306,
+      "target_x": 223.4489,
+      "target_y": -0.5836,
+      "target_z": -306.6248,
+      "distance": 36.1069,
+      "target_level": "l10_red_forest"
+    },
+    {
+      "source_x": 192.7341,
+      "source_y": -1.1534,
+      "source_z": -296.9306,
+      "target_x": 181.7566,
+      "target_y": -1.325,
+      "target_z": -272.9954,
+      "distance": 29.0781,
+      "target_level": "l10_red_forest"
+    },
+    {
+      "source_x": 182.8151,
+      "source_y": -1.4822,
+      "source_z": -249.352,
+      "target_x": 176.9441,
+      "target_y": -1.4755,
+      "target_z": -259.0342,
+      "distance": 12.1853,
+      "target_level": "l10_red_forest"
+    },
+    {
+      "source_x": 182.8151,
+      "source_y": -1.4822,
+      "source_z": -249.352,
+      "target_x": 180.6089,
+      "target_y": -0.3006,
+      "target_z": -233.7825,
+      "distance": 17.1056,
+      "target_level": "l10_red_forest"
+    },
+    {
+      "source_x": 108.3638,
+      "source_y": -3.4573,
+      "source_z": -306.8149,
+      "target_x": 119.852,
+      "target_y": -4.4082,
+      "target_z": -303.0822,
+      "distance": 12.0794,
+      "target_level": "l10_red_forest"
+    },
+    {
+      "source_x": 108.3638,
+      "source_y": -3.4573,
+      "source_z": -306.8149,
+      "target_x": 86.8371,
+      "target_y": -1.4197,
+      "target_z": -303.6904,
+      "distance": 22.1552,
+      "target_level": "l10_red_forest"
+    },
+    {
+      "source_x": 44.9376,
+      "source_y": -1.0687,
+      "source_z": -325.7466,
+      "target_x": 80.4609,
+      "target_y": 2.0834,
+      "target_z": -348.8861,
+      "distance": 49.6119,
+      "target_level": "l10_red_forest"
+    },
+    {
+      "source_x": 44.9376,
+      "source_y": -1.0687,
+      "source_z": -325.7466,
+      "target_x": 58.8339,
+      "target_y": -1.8646,
+      "target_z": -307.0216,
+      "distance": 29.4922,
+      "target_level": "l10_red_forest"
+    },
+    {
+      "source_x": -31.0062,
+      "source_y": -2.3879,
+      "source_z": -219.1492,
+      "target_x": -13.7533,
+      "target_y": -3.3628,
+      "target_z": -252.6613,
+      "distance": 38.4709,
+      "target_level": "l10_red_forest"
+    },
+    {
+      "source_x": -31.0062,
+      "source_y": -2.3879,
+      "source_z": -219.1492,
+      "target_x": -67.0089,
+      "target_y": -0.2799,
+      "target_z": -224.6646,
+      "distance": 43.9957,
+      "target_level": "l10_red_forest"
+    },
+    {
+      "source_x": -31.0062,
+      "source_y": -2.3879,
+      "source_z": -219.1492,
+      "target_x": -39.9105,
+      "target_y": -1.373,
+      "target_z": -184.8811,
+      "distance": 36.6638,
+      "target_level": "l10_red_forest"
+    },
+    {
+      "source_x": 10.5621,
+      "source_y": -2.3521,
+      "source_z": -275.7557,
+      "target_x": 32.0421,
+      "target_y": -1.3576,
+      "target_z": -288.4455,
+      "distance": 29.8396,
+      "target_level": "l10_red_forest"
+    },
+    {
+      "source_x": 10.5621,
+      "source_y": -2.3521,
+      "source_z": -275.7557,
+      "target_x": -15.4256,
+      "target_y": -2.4435,
+      "target_z": -283.4682,
+      "distance": 31.7583,
+      "target_level": "l10_red_forest"
+    },
+    {
+      "source_x": -7.9491,
+      "source_y": -1.1319,
+      "source_z": -189.0665,
+      "target_x": 3.0215,
+      "target_y": -0.7589,
+      "target_z": -189.0411,
+      "distance": 10.9707,
+      "target_level": "l10_red_forest"
+    },
+    {
+      "source_x": -7.9491,
+      "source_y": -1.1319,
+      "source_z": -189.0665,
+      "target_x": -11.0687,
+      "target_y": -0.5893,
+      "target_z": -179.1638,
+      "distance": 10.3824,
+      "target_level": "l10_red_forest"
+    },
+    {
+      "source_x": 18.8,
+      "source_y": 0.0,
+      "source_z": -153.5,
+      "target_x": 18.7488,
+      "target_y": 4.4885,
+      "target_z": -153.6661,
+      "distance": 0.1738,
+      "target_level": "l10_red_forest"
+    },
+    {
+      "source_x": -48.2666,
+      "source_y": -0.9506,
+      "source_z": -169.3723,
+      "target_x": -47.8133,
+      "target_y": -1.3662,
+      "target_z": -182.1623,
+      "distance": 13.0424,
+      "target_level": "l10_red_forest"
+    },
+    {
+      "source_x": -48.2666,
+      "source_y": -0.9506,
+      "source_z": -169.3723,
+      "target_x": -24.6088,
+      "target_y": 1.5541,
+      "target_z": -165.9687,
+      "distance": 23.9014,
+      "target_level": "l10_red_forest"
+    },
+    {
+      "source_x": -48.2666,
+      "source_y": -0.9506,
+      "source_z": -169.3723,
+      "target_x": -49.6456,
+      "target_y": -0.1588,
+      "target_z": -160.2863,
+      "distance": 9.19,
+      "target_level": "l10_red_forest"
+    },
+    {
+      "source_x": -76.8148,
+      "source_y": 0.6457,
+      "source_z": -138.001,
+      "target_x": -44.2247,
+      "target_y": 0.512,
+      "target_z": -124.7396,
+      "distance": 39.8447,
+      "target_level": "l10_red_forest"
+    },
+    {
+      "source_x": -46.9157,
+      "source_y": 0.9887,
+      "source_z": -95.3079,
+      "target_x": -56.8024,
+      "target_y": 0.1292,
+      "target_z": -106.2912,
+      "distance": 15.8204,
+      "target_level": "l10_red_forest"
+    },
+    {
+      "source_x": -46.9157,
+      "source_y": 0.9887,
+      "source_z": -95.3079,
+      "target_x": -37.8344,
+      "target_y": 0.3546,
+      "target_z": -119.1138,
+      "distance": 31.2832,
+      "target_level": "l10_red_forest"
+    },
+    {
+      "source_x": -46.9157,
+      "source_y": 0.9887,
+      "source_z": -95.3079,
+      "target_x": -9.8132,
+      "target_y": -1.2076,
+      "target_z": -75.3846,
+      "distance": 48.7578,
+      "target_level": "l10_red_forest"
+    },
+    {
+      "source_x": -46.9157,
+      "source_y": 0.9887,
+      "source_z": -95.3079,
+      "target_x": -51.0663,
+      "target_y": 2.1578,
+      "target_z": -72.6949,
+      "distance": 24.2681,
+      "target_level": "l10_red_forest"
+    },
+    {
+      "source_x": -1.856,
+      "source_y": 1.0486,
+      "source_z": -95.707,
+      "target_x": -5.9366,
+      "target_y": 0.9232,
+      "target_z": -109.9744,
+      "distance": 14.8395,
+      "target_level": "l10_red_forest"
+    },
+    {
+      "source_x": -1.856,
+      "source_y": 1.0486,
+      "source_z": -95.707,
+      "target_x": -2.6902,
+      "target_y": -0.7206,
+      "target_z": -79.8341,
+      "distance": 15.8948,
+      "target_level": "l10_red_forest"
+    },
+    {
+      "source_x": 5.0265,
+      "source_y": -0.0279,
+      "source_z": -43.4958,
+      "target_x": -2.6902,
+      "target_y": -0.7206,
+      "target_z": -79.8341,
+      "distance": 37.78,
+      "target_level": "l10_red_forest"
+    },
+    {
+      "source_x": 5.0265,
+      "source_y": -0.0279,
+      "source_z": -43.4958,
+      "target_x": -44.3099,
+      "target_y": 0.0529,
+      "target_z": -24.9544,
+      "distance": 64.3381,
+      "target_level": "l10_red_forest"
+    },
+    {
+      "source_x": -66.2,
+      "source_y": 0.0,
+      "source_z": 59.6,
+      "target_x": -62.4893,
+      "target_y": 0.0,
+      "target_z": 2.6435,
+      "distance": 57.9878,
+      "target_level": "l10_red_forest"
+    },
+    {
+      "source_x": -66.2,
+      "source_y": 0.0,
+      "source_z": 59.6,
+      "target_x": -65.2017,
+      "target_y": 0.0,
+      "target_z": 88.9317,
+      "distance": 32.9636,
+      "target_level": "l10_red_forest"
+    },
+    {
+      "source_x": -44.3099,
+      "source_y": 0.0529,
+      "source_z": -24.9544,
+      "target_x": 5.0265,
+      "target_y": -0.0279,
+      "target_z": -43.4958,
+      "distance": 56.6634,
+      "target_level": "l10_red_forest"
+    },
+    {
+      "source_x": -44.3099,
+      "source_y": 0.0529,
+      "source_z": -24.9544,
+      "target_x": -53.3053,
+      "target_y": -0.0326,
+      "target_z": -14.2059,
+      "distance": 17.5687,
+      "target_level": "l10_red_forest"
+    },
+    {
+      "source_x": -29.327,
+      "source_y": 3.5753,
+      "source_z": -144.8966,
+      "target_x": -24.6088,
+      "target_y": 1.5541,
+      "target_z": -165.9687,
+      "distance": 24.7082,
+      "target_level": "l10_red_forest"
+    },
+    {
+      "source_x": -29.327,
+      "source_y": 3.5753,
+      "source_z": -144.8966,
+      "target_x": -8.4056,
+      "target_y": 2.8489,
+      "target_z": -137.1307,
+      "distance": 23.8855,
+      "target_level": "l10_red_forest"
+    },
+    {
+      "source_x": -29.327,
+      "source_y": 3.5753,
+      "source_z": -144.8966,
+      "target_x": -44.2247,
+      "target_y": 0.512,
+      "target_z": -124.7396,
+      "distance": 32.4994,
+      "target_level": "l10_red_forest"
+    },
+    {
+      "source_x": -151.8,
+      "source_y": 0.0,
+      "source_z": -35.0,
+      "target_x": -151.4224,
+      "target_y": 2.2051,
+      "target_z": -35.3169,
+      "distance": 0.4929,
+      "target_level": "l10_red_forest"
+    },
+    {
+      "source_x": 198.5083,
+      "source_y": -7.9625,
+      "source_z": -120.073,
+      "target_x": 179.1023,
+      "target_y": -0.3698,
+      "target_z": -153.905,
+      "distance": 41.0362,
+      "target_level": "l10_red_forest"
+    },
+    {
+      "source_x": 198.5083,
+      "source_y": -7.9625,
+      "source_z": -120.073,
+      "target_x": 199.6215,
+      "target_y": -6.2549,
+      "target_z": -63.6382,
+      "distance": 63.9448,
+      "target_level": "l10_red_forest"
+    },
+    {
+      "source_x": 200.1949,
+      "source_y": -6.1541,
+      "source_z": -35.7155,
+      "target_x": 199.6215,
+      "target_y": -6.2549,
+      "target_z": -63.6382,
+      "distance": 27.9286,
+      "target_level": "l10_red_forest"
+    },
+    {
+      "source_x": 200.1949,
+      "source_y": -6.1541,
+      "source_z": -35.7155,
+      "target_x": 205.9536,
+      "target_y": -4.5423,
+      "target_z": 48.979,
+      "distance": 92.1717,
+      "target_level": "l10_red_forest"
+    },
+    {
+      "source_x": 214.0148,
+      "source_y": -2.5401,
+      "source_z": 80.2699,
+      "target_x": 224.5623,
+      "target_y": -5.4862,
+      "target_z": 72.9167,
+      "distance": 14.666,
+      "target_level": "l10_red_forest"
+    },
+    {
+      "source_x": 214.0148,
+      "source_y": -2.5401,
+      "source_z": 80.2699,
+      "target_x": 199.0048,
+      "target_y": 5.2333,
+      "target_z": 118.3618,
+      "distance": 43.9968,
+      "target_level": "l10_red_forest"
+    },
+    {
+      "source_x": -31.3786,
+      "source_y": -0.0832,
+      "source_z": -58.1094,
+      "target_x": -28.7408,
+      "target_y": -0.2757,
+      "target_z": -58.7942,
+      "distance": 2.7253,
+      "target_level": "l10_red_forest"
+    },
+    {
+      "source_x": -31.3786,
+      "source_y": -0.0832,
+      "source_z": -58.1094,
+      "target_x": -53.091,
+      "target_y": 1.6259,
+      "target_z": -55.9171,
+      "distance": 22.4837,
+      "target_level": "l10_red_forest"
+    },
+    {
+      "source_x": 67.5759,
+      "source_y": -1.9452,
+      "source_z": -295.0214,
+      "target_x": 58.8339,
+      "target_y": -1.8646,
+      "target_z": -307.0216,
+      "distance": 14.8468,
+      "target_level": "l10_red_forest"
+    },
+    {
+      "source_x": 67.5759,
+      "source_y": -1.9452,
+      "source_z": -295.0214,
+      "target_x": 86.8371,
+      "target_y": -1.4197,
+      "target_z": -303.6904,
+      "distance": 24.1149,
+      "target_level": "l10_red_forest"
+    },
+    {
+      "source_x": 67.5759,
+      "source_y": -1.9452,
+      "source_z": -295.0214,
+      "target_x": 40.5521,
+      "target_y": -1.1922,
+      "target_z": -290.817,
+      "distance": 27.3489,
+      "target_level": "l10_red_forest"
+    },
+    {
+      "source_x": 156.2787,
+      "source_y": -1.8338,
+      "source_z": -273.7825,
+      "target_x": 147.8792,
+      "target_y": -3.9594,
+      "target_z": -293.9141,
+      "distance": 21.9574,
+      "target_level": "l10_red_forest"
+    },
+    {
+      "source_x": 156.2787,
+      "source_y": -1.8338,
+      "source_z": -273.7825,
+      "target_x": 181.7566,
+      "target_y": -1.325,
+      "target_z": -272.9954,
+      "distance": 25.6225,
+      "target_level": "l10_red_forest"
+    },
+    {
+      "source_x": 181.7566,
+      "source_y": -1.325,
+      "source_z": -272.9954,
+      "target_x": 192.7341,
+      "target_y": -1.1534,
+      "target_z": -296.9306,
+      "distance": 29.3678,
+      "target_level": "l10_red_forest"
+    },
+    {
+      "source_x": 181.7566,
+      "source_y": -1.325,
+      "source_z": -272.9954,
+      "target_x": 176.9441,
+      "target_y": -1.4755,
+      "target_z": -259.0342,
+      "distance": 15.8086,
+      "target_level": "l10_red_forest"
+    },
+    {
+      "source_x": 181.7566,
+      "source_y": -1.325,
+      "source_z": -272.9954,
+      "target_x": 156.2787,
+      "target_y": -1.8338,
+      "target_z": -273.7825,
+      "distance": 25.5994,
+      "target_level": "l10_red_forest"
+    },
+    {
+      "source_x": 131.5627,
+      "source_y": -3.7885,
+      "source_z": -293.6736,
+      "target_x": 147.8792,
+      "target_y": -3.9594,
+      "target_z": -293.9141,
+      "distance": 16.352,
+      "target_level": "l10_red_forest"
+    },
+    {
+      "source_x": 131.5627,
+      "source_y": -3.7885,
+      "source_z": -293.6736,
+      "target_x": 119.852,
+      "target_y": -4.4082,
+      "target_z": -303.0822,
+      "distance": 15.0221,
+      "target_level": "l10_red_forest"
+    },
+    {
+      "source_x": 119.852,
+      "source_y": -4.4082,
+      "source_z": -303.0822,
+      "target_x": 131.5627,
+      "target_y": -3.7885,
+      "target_z": -293.6736,
+      "distance": 15.0221,
+      "target_level": "l10_red_forest"
+    },
+    {
+      "source_x": 119.852,
+      "source_y": -4.4082,
+      "source_z": -303.0822,
+      "target_x": 108.3638,
+      "target_y": -3.4573,
+      "target_z": -306.8149,
+      "distance": 12.0794,
+      "target_level": "l10_red_forest"
+    },
+    {
+      "source_x": 86.8371,
+      "source_y": -1.4197,
+      "source_z": -303.6904,
+      "target_x": 80.4609,
+      "target_y": 2.0834,
+      "target_z": -348.8861,
+      "distance": 51.1445,
+      "target_level": "l10_red_forest"
+    },
+    {
+      "source_x": 86.8371,
+      "source_y": -1.4197,
+      "source_z": -303.6904,
+      "target_x": 108.3638,
+      "target_y": -3.4573,
+      "target_z": -306.8149,
+      "distance": 21.8774,
+      "target_level": "l10_red_forest"
+    },
+    {
+      "source_x": 86.8371,
+      "source_y": -1.4197,
+      "source_z": -303.6904,
+      "target_x": 67.5759,
+      "target_y": -1.9452,
+      "target_z": -295.0214,
+      "distance": 22.8342,
+      "target_level": "l10_red_forest"
+    },
+    {
+      "source_x": 58.8339,
+      "source_y": -1.8646,
+      "source_z": -307.0216,
+      "target_x": 44.9376,
+      "target_y": -1.0687,
+      "target_z": -325.7466,
+      "distance": 30.3629,
+      "target_level": "l10_red_forest"
+    },
+    {
+      "source_x": 58.8339,
+      "source_y": -1.8646,
+      "source_z": -307.0216,
+      "target_x": 67.5759,
+      "target_y": -1.9452,
+      "target_z": -295.0214,
+      "distance": 14.8468,
+      "target_level": "l10_red_forest"
+    },
+    {
+      "source_x": 40.5521,
+      "source_y": -1.1922,
+      "source_z": -290.817,
+      "target_x": 67.5759,
+      "target_y": -1.9452,
+      "target_z": -295.0214,
+      "distance": 27.3489,
+      "target_level": "l10_red_forest"
+    },
+    {
+      "source_x": 40.5521,
+      "source_y": -1.1922,
+      "source_z": -290.817,
+      "target_x": 32.0421,
+      "target_y": -1.3576,
+      "target_z": -288.4455,
+      "distance": 8.8343,
+      "target_level": "l10_red_forest"
+    },
+    {
+      "source_x": -5.9366,
+      "source_y": 0.9232,
+      "source_z": -109.9744,
+      "target_x": -7.6079,
+      "target_y": 2.9807,
+      "target_z": -128.2613,
+      "distance": 18.904,
+      "target_level": "l10_red_forest"
+    },
+    {
+      "source_x": -5.9366,
+      "source_y": 0.9232,
+      "source_z": -109.9744,
+      "target_x": -1.856,
+      "target_y": 1.0486,
+      "target_z": -95.707,
+      "distance": 14.8395,
+      "target_level": "l10_red_forest"
+    },
+    {
+      "source_x": -5.9366,
+      "source_y": 0.9232,
+      "source_z": -109.9744,
+      "target_x": -16.7525,
+      "target_y": 0.6861,
+      "target_z": -117.4329,
+      "distance": 19.9569,
+      "target_level": "l10_red_forest"
+    },
+    {
+      "source_x": -16.7525,
+      "source_y": 0.6861,
+      "source_z": -117.4329,
+      "target_x": -5.9366,
+      "target_y": 0.9232,
+      "target_z": -109.9744,
+      "distance": 13.5478,
+      "target_level": "l10_red_forest"
+    },
+    {
+      "source_x": -16.7525,
+      "source_y": 0.6861,
+      "source_z": -117.4329,
+      "target_x": -37.8344,
+      "target_y": 0.3546,
+      "target_z": -119.1138,
+      "distance": 21.1487,
+      "target_level": "l10_red_forest"
+    },
+    {
+      "source_x": -37.8344,
+      "source_y": 0.3546,
+      "source_z": -119.1138,
+      "target_x": -44.2247,
+      "target_y": 0.512,
+      "target_z": -124.7396,
+      "distance": 8.6589,
+      "target_level": "l10_red_forest"
+    },
+    {
+      "source_x": -37.8344,
+      "source_y": 0.3546,
+      "source_z": -119.1138,
+      "target_x": -16.7525,
+      "target_y": 0.6861,
+      "target_z": -117.4329,
+      "distance": 21.1487,
+      "target_level": "l10_red_forest"
+    },
+    {
+      "source_x": -37.8344,
+      "source_y": 0.3546,
+      "source_z": -119.1138,
+      "target_x": -46.9157,
+      "target_y": 0.9887,
+      "target_z": -95.3079,
+      "distance": 26.9537,
+      "target_level": "l10_red_forest"
+    },
+    {
+      "source_x": -191.2663,
+      "source_y": 5.7063,
+      "source_z": -200.8567,
+      "target_x": -189.2432,
+      "target_y": 5.5374,
+      "target_z": -260.1517,
+      "distance": 59.334,
+      "target_level": "l10_red_forest"
+    },
+    {
+      "source_x": -189.2432,
+      "source_y": 5.5374,
+      "source_z": -260.1517,
+      "target_x": -181.89,
+      "target_y": 2.1855,
+      "target_z": -265.2766,
+      "distance": 11.3877,
+      "target_level": "l10_red_forest"
+    },
+    {
+      "source_x": -189.2432,
+      "source_y": 5.5374,
+      "source_z": -260.1517,
+      "target_x": -191.2663,
+      "target_y": 5.7063,
+      "target_z": -200.8567,
+      "distance": 60.1312,
+      "target_level": "l10_red_forest"
+    },
+    {
+      "source_x": -164.3524,
+      "source_y": 0.1807,
+      "source_z": -273.4746,
+      "target_x": -160.9095,
+      "target_y": 0.254,
+      "target_z": -289.4882,
+      "distance": 18.6785,
+      "target_level": "l10_red_forest"
+    },
+    {
+      "source_x": -164.3524,
+      "source_y": 0.1807,
+      "source_z": -273.4746,
+      "target_x": -116.8476,
+      "target_y": 0.2758,
+      "target_z": -270.3595,
+      "distance": 48.0871,
+      "target_level": "l10_red_forest"
+    },
+    {
+      "source_x": -164.3524,
+      "source_y": 0.1807,
+      "source_z": -273.4746,
+      "target_x": -181.89,
+      "target_y": 2.1855,
+      "target_z": -265.2766,
+      "distance": 30.5484,
+      "target_level": "l10_red_forest"
+    },
+    {
+      "source_x": -164.3524,
+      "source_y": 0.1807,
+      "source_z": -273.4746,
+      "target_x": -177.9412,
+      "target_y": 0.1382,
+      "target_z": -282.3648,
+      "distance": 16.2386,
+      "target_level": "l10_red_forest"
+    },
+    {
+      "source_x": -182.8339,
+      "source_y": 0.1382,
+      "source_z": -288.6831,
+      "target_x": -201.1986,
+      "target_y": 0.1382,
+      "target_z": -332.1324,
+      "distance": 47.5416,
+      "target_level": "l10_red_forest"
+    },
+    {
+      "source_x": -182.8339,
+      "source_y": 0.1382,
+      "source_z": -288.6831,
+      "target_x": -177.9412,
+      "target_y": 0.1382,
+      "target_z": -282.3648,
+      "distance": 7.9913,
+      "target_level": "l10_red_forest"
+    },
+    {
+      "source_x": -108.0727,
+      "source_y": 0.2742,
+      "source_z": -270.2305,
+      "target_x": -86.2747,
+      "target_y": 2.664,
+      "target_z": -299.3931,
+      "distance": 36.4089,
+      "target_level": "l10_red_forest"
+    },
+    {
+      "source_x": -108.0727,
+      "source_y": 0.2742,
+      "source_z": -270.2305,
+      "target_x": -71.3479,
+      "target_y": -0.3162,
+      "target_z": -238.6541,
+      "distance": 61.1848,
+      "target_level": "l10_red_forest"
+    },
+    {
+      "source_x": -108.0727,
+      "source_y": 0.2742,
+      "source_z": -270.2305,
+      "target_x": -116.8476,
+      "target_y": 0.2758,
+      "target_z": -270.3595,
+      "distance": 8.7759,
+      "target_level": "l10_red_forest"
+    },
+    {
+      "source_x": -86.2747,
+      "source_y": 2.664,
+      "source_z": -299.3931,
+      "target_x": -51.83,
+      "target_y": 1.3051,
+      "target_z": -298.3453,
+      "distance": 35.9622,
+      "target_level": "l10_red_forest"
+    },
+    {
+      "source_x": -86.2747,
+      "source_y": 2.664,
+      "source_z": -299.3931,
+      "target_x": -108.0727,
+      "target_y": 0.2742,
+      "target_z": -270.2305,
+      "distance": 36.4089,
+      "target_level": "l10_red_forest"
+    },
+    {
+      "source_x": -51.83,
+      "source_y": 1.3051,
+      "source_z": -298.3453,
+      "target_x": -15.4256,
+      "target_y": -2.4435,
+      "target_z": -283.4682,
+      "distance": 48.0038,
+      "target_level": "l10_red_forest"
+    },
+    {
+      "source_x": -51.83,
+      "source_y": 1.3051,
+      "source_z": -298.3453,
+      "target_x": -86.2747,
+      "target_y": 2.664,
+      "target_z": -299.3931,
+      "distance": 34.8091,
+      "target_level": "l10_red_forest"
+    },
+    {
+      "source_x": -15.3165,
+      "source_y": -0.8687,
+      "source_z": -327.3109,
+      "target_x": -19.7009,
+      "target_y": 0.2214,
+      "target_z": -365.3314,
+      "distance": 38.3094,
+      "target_level": "l10_red_forest"
+    },
+    {
+      "source_x": -15.3165,
+      "source_y": -0.8687,
+      "source_z": -327.3109,
+      "target_x": -15.4256,
+      "target_y": -2.4435,
+      "target_z": -283.4682,
+      "distance": 43.8428,
+      "target_level": "l10_red_forest"
+    },
+    {
+      "source_x": -15.3165,
+      "source_y": -0.8687,
+      "source_z": -327.3109,
+      "target_x": -41.5562,
+      "target_y": 2.2136,
+      "target_z": -328.9874,
+      "distance": 29.1403,
+      "target_level": "l10_red_forest"
+    },
+    {
+      "source_x": -12.4707,
+      "source_y": -0.4299,
+      "source_z": -376.7506,
+      "target_x": -10.2731,
+      "target_y": 0.4238,
+      "target_z": -413.2534,
+      "distance": 36.5688,
+      "target_level": "l10_red_forest"
+    },
+    {
+      "source_x": -12.4707,
+      "source_y": -0.4299,
+      "source_z": -376.7506,
+      "target_x": -19.7009,
+      "target_y": 0.2214,
+      "target_z": -365.3314,
+      "distance": 13.5157,
+      "target_level": "l10_red_forest"
+    },
+    {
+      "source_x": -10.2731,
+      "source_y": 0.4238,
+      "source_z": -413.2534,
+      "target_x": -12.5646,
+      "target_y": 0.7673,
+      "target_z": -436.1598,
+      "distance": 23.0208,
+      "target_level": "l10_red_forest"
+    },
+    {
+      "source_x": -10.2731,
+      "source_y": 0.4238,
+      "source_z": -413.2534,
+      "target_x": -12.4707,
+      "target_y": -0.4299,
+      "target_z": -376.7506,
+      "distance": 36.5688,
+      "target_level": "l10_red_forest"
+    },
+    {
+      "source_x": -62.4893,
+      "source_y": 0.0,
+      "source_z": 2.6435,
+      "target_x": -53.3053,
+      "target_y": -0.0326,
+      "target_z": -14.2059,
+      "distance": 19.1899,
+      "target_level": "l10_red_forest"
+    },
+    {
+      "source_x": -62.4893,
+      "source_y": 0.0,
+      "source_z": 2.6435,
+      "target_x": -66.2,
+      "target_y": 0.0,
+      "target_z": 59.6,
+      "distance": 58.7101,
+      "target_level": "l10_red_forest"
+    },
+    {
+      "source_x": -14.5426,
+      "source_y": 0.0,
+      "source_z": 130.9102,
+      "target_x": -43.1676,
+      "target_y": 0.0,
+      "target_z": 104.0337,
+      "distance": 44.612,
+      "target_level": "l10_red_forest"
+    },
+    {
+      "source_x": -14.5426,
+      "source_y": 0.0,
+      "source_z": 130.9102,
+      "target_x": -19.1974,
+      "target_y": -0.4512,
+      "target_z": 188.2336,
+      "distance": 57.5121,
+      "target_level": "l10_red_forest"
+    },
+    {
+      "source_x": 296.7749,
+      "source_y": -1.652,
+      "source_z": -321.6931,
+      "target_x": 329.2339,
+      "target_y": -1.0259,
+      "target_z": -314.3855,
+      "distance": 33.2714,
+      "target_level": "l10_red_forest"
+    },
+    {
+      "source_x": 296.7749,
+      "source_y": -1.652,
+      "source_z": -321.6931,
+      "target_x": 254.9511,
+      "target_y": -1.4547,
+      "target_z": -310.2603,
+      "distance": 51.3331,
+      "target_level": "l10_red_forest"
+    },
+    {
+      "source_x": 179.3553,
+      "source_y": -0.1883,
+      "source_z": -195.8916,
+      "target_x": 180.6089,
+      "target_y": -0.3006,
+      "target_z": -233.7825,
+      "distance": 40.1454,
+      "target_level": "l10_red_forest"
+    },
+    {
+      "source_x": 179.3553,
+      "source_y": -0.1883,
+      "source_z": -195.8916,
+      "target_x": 177.8745,
+      "target_y": 2.6267,
+      "target_z": -172.996,
+      "distance": 24.1514,
+      "target_level": "l10_red_forest"
+    },
+    {
+      "source_x": 223.4489,
+      "source_y": -0.5836,
+      "source_z": -306.6248,
+      "target_x": 254.9511,
+      "target_y": -1.4547,
+      "target_z": -310.2603,
+      "distance": 32.0361,
+      "target_level": "l10_red_forest"
+    },
+    {
+      "source_x": 223.4489,
+      "source_y": -0.5836,
+      "source_z": -306.6248,
+      "target_x": 192.7341,
+      "target_y": -1.1534,
+      "target_z": -296.9306,
+      "distance": 38.9913,
+      "target_level": "l10_red_forest"
+    },
+    {
+      "source_x": -65.2017,
+      "source_y": 0.0,
+      "source_z": 88.9317,
+      "target_x": -43.1676,
+      "target_y": 0.0,
+      "target_z": 104.0337,
+      "distance": 26.7128,
+      "target_level": "l10_red_forest"
+    },
+    {
+      "source_x": -65.2017,
+      "source_y": 0.0,
+      "source_z": 88.9317,
+      "target_x": -66.2,
+      "target_y": 0.0,
+      "target_z": 59.6,
+      "distance": 31.7288,
+      "target_level": "l10_red_forest"
+    },
+    {
+      "source_x": -53.3053,
+      "source_y": -0.0326,
+      "source_z": -14.2059,
+      "target_x": -44.3099,
+      "target_y": 0.0529,
+      "target_z": -24.9544,
+      "distance": 16.5752,
+      "target_level": "l10_red_forest"
+    },
+    {
+      "source_x": -53.3053,
+      "source_y": -0.0326,
+      "source_z": -14.2059,
+      "target_x": -62.4893,
+      "target_y": 0.0,
+      "target_z": 2.6435,
+      "distance": 19.1899,
+      "target_level": "l10_red_forest"
+    },
+    {
+      "source_x": -53.3053,
+      "source_y": -0.0326,
+      "source_z": -14.2059,
+      "target_x": -34.394,
+      "target_y": -0.0979,
+      "target_z": 4.1619,
+      "distance": 26.3631,
+      "target_level": "l10_red_forest"
+    },
+    {
+      "source_x": -56.8024,
+      "source_y": 0.1292,
+      "source_z": -106.2912,
+      "target_x": -46.9157,
+      "target_y": 0.9887,
+      "target_z": -95.3079,
+      "distance": 15.5481,
+      "target_level": "l10_red_forest"
+    },
+    {
+      "source_x": -9.8132,
+      "source_y": -1.2076,
+      "source_z": -75.3846,
+      "target_x": -2.6902,
+      "target_y": -0.7206,
+      "target_z": -79.8341,
+      "distance": 9.1899,
+      "target_level": "l10_red_forest"
+    },
+    {
+      "source_x": -9.8132,
+      "source_y": -1.2076,
+      "source_z": -75.3846,
+      "target_x": -28.7408,
+      "target_y": -0.2757,
+      "target_z": -58.7942,
+      "distance": 31.732,
+      "target_level": "l10_red_forest"
+    },
+    {
+      "source_x": -9.8132,
+      "source_y": -1.2076,
+      "source_z": -75.3846,
+      "target_x": -46.9157,
+      "target_y": 0.9887,
+      "target_z": -95.3079,
+      "distance": 52.5659,
+      "target_level": "l10_red_forest"
+    },
+    {
+      "source_x": -7.6079,
+      "source_y": 2.9807,
+      "source_z": -128.2613,
+      "target_x": -8.4056,
+      "target_y": 2.8489,
+      "target_z": -137.1307,
+      "distance": 9.6497,
+      "target_level": "l10_red_forest"
+    },
+    {
+      "source_x": -7.6079,
+      "source_y": 2.9807,
+      "source_z": -128.2613,
+      "target_x": -5.9366,
+      "target_y": 0.9232,
+      "target_z": -109.9744,
+      "distance": 18.5381,
+      "target_level": "l10_red_forest"
+    },
+    {
+      "source_x": -51.0663,
+      "source_y": 2.1578,
+      "source_z": -72.6949,
+      "target_x": -46.9157,
+      "target_y": 0.9887,
+      "target_z": -95.3079,
+      "distance": 23.7764,
+      "target_level": "l10_red_forest"
+    },
+    {
+      "source_x": -51.0663,
+      "source_y": 2.1578,
+      "source_z": -72.6949,
+      "target_x": -53.091,
+      "target_y": 1.6259,
+      "target_z": -55.9171,
+      "distance": 16.8995,
+      "target_level": "l10_red_forest"
+    },
+    {
+      "source_x": -2.6902,
+      "source_y": -0.7206,
+      "source_z": -79.8341,
+      "target_x": -1.856,
+      "target_y": 1.0486,
+      "target_z": -95.707,
+      "distance": 15.8948,
+      "target_level": "l10_red_forest"
+    },
+    {
+      "source_x": -2.6902,
+      "source_y": -0.7206,
+      "source_z": -79.8341,
+      "target_x": -9.8132,
+      "target_y": -1.2076,
+      "target_z": -75.3846,
+      "distance": 9.3824,
+      "target_level": "l10_red_forest"
+    },
+    {
+      "source_x": -2.6902,
+      "source_y": -0.7206,
+      "source_z": -79.8341,
+      "target_x": 5.0265,
+      "target_y": -0.0279,
+      "target_z": -43.4958,
+      "distance": 41.0036,
+      "target_level": "l10_red_forest"
+    },
+    {
+      "source_x": -8.4056,
+      "source_y": 2.8489,
+      "source_z": -137.1307,
+      "target_x": 18.7488,
+      "target_y": 4.4885,
+      "target_z": -153.6661,
+      "distance": 40.7205,
+      "target_level": "l10_red_forest"
+    },
+    {
+      "source_x": -8.4056,
+      "source_y": 2.8489,
+      "source_z": -137.1307,
+      "target_x": -7.6079,
+      "target_y": 2.9807,
+      "target_z": -128.2613,
+      "distance": 8.9506,
+      "target_level": "l10_red_forest"
+    },
+    {
+      "source_x": -8.4056,
+      "source_y": 2.8489,
+      "source_z": -137.1307,
+      "target_x": -29.327,
+      "target_y": 3.5753,
+      "target_z": -144.8966,
+      "distance": 25.6835,
+      "target_level": "l10_red_forest"
+    },
+    {
+      "source_x": -47.8133,
+      "source_y": -1.3662,
+      "source_z": -182.1623,
+      "target_x": -39.9105,
+      "target_y": -1.373,
+      "target_z": -184.8811,
+      "distance": 8.3574,
+      "target_level": "l10_red_forest"
+    },
+    {
+      "source_x": -47.8133,
+      "source_y": -1.3662,
+      "source_z": -182.1623,
+      "target_x": -48.2666,
+      "target_y": -0.9506,
+      "target_z": -169.3723,
+      "distance": 13.0138,
+      "target_level": "l10_red_forest"
+    },
+    {
+      "source_x": -34.394,
+      "source_y": -0.0979,
+      "source_z": 4.1619,
+      "target_x": -53.3053,
+      "target_y": -0.0326,
+      "target_z": -14.2059,
+      "distance": 26.3631,
+      "target_level": "l10_red_forest"
+    },
+    {
+      "source_x": -28.7408,
+      "source_y": -0.2757,
+      "source_z": -58.7942,
+      "target_x": -9.8132,
+      "target_y": -1.2076,
+      "target_z": -75.3846,
+      "distance": 30.7757,
+      "target_level": "l10_red_forest"
+    },
+    {
+      "source_x": -28.7408,
+      "source_y": -0.2757,
+      "source_z": -58.7942,
+      "target_x": -31.3786,
+      "target_y": -0.0832,
+      "target_z": -58.1094,
+      "distance": 2.7253,
+      "target_level": "l10_red_forest"
+    },
+    {
+      "source_x": -44.2247,
+      "source_y": 0.512,
+      "source_z": -124.7396,
+      "target_x": -29.327,
+      "target_y": 3.5753,
+      "target_z": -144.8966,
+      "distance": 28.387,
+      "target_level": "l10_red_forest"
+    },
+    {
+      "source_x": -44.2247,
+      "source_y": 0.512,
+      "source_z": -124.7396,
+      "target_x": -37.8344,
+      "target_y": 0.3546,
+      "target_z": -119.1138,
+      "distance": 8.6568,
+      "target_level": "l10_red_forest"
+    },
+    {
+      "source_x": -44.2247,
+      "source_y": 0.512,
+      "source_z": -124.7396,
+      "target_x": -76.8148,
+      "target_y": 0.6457,
+      "target_z": -138.001,
+      "distance": 42.3756,
+      "target_level": "l10_red_forest"
+    },
+    {
+      "source_x": -24.6088,
+      "source_y": 1.5541,
+      "source_z": -165.9687,
+      "target_x": -11.0687,
+      "target_y": -0.5893,
+      "target_z": -179.1638,
+      "distance": 20.5937,
+      "target_level": "l10_red_forest"
+    },
+    {
+      "source_x": -24.6088,
+      "source_y": 1.5541,
+      "source_z": -165.9687,
+      "target_x": -29.327,
+      "target_y": 3.5753,
+      "target_z": -144.8966,
+      "distance": 25.2855,
+      "target_level": "l10_red_forest"
+    },
+    {
+      "source_x": -24.6088,
+      "source_y": 1.5541,
+      "source_z": -165.9687,
+      "target_x": -48.2666,
+      "target_y": -0.9506,
+      "target_z": -169.3723,
+      "distance": 23.9014,
+      "target_level": "l10_red_forest"
+    },
+    {
+      "source_x": -53.091,
+      "source_y": 1.6259,
+      "source_z": -55.9171,
+      "target_x": -51.0663,
+      "target_y": 2.1578,
+      "target_z": -72.6949,
+      "distance": 16.8995,
+      "target_level": "l10_red_forest"
+    },
+    {
+      "source_x": -53.091,
+      "source_y": 1.6259,
+      "source_z": -55.9171,
+      "target_x": -31.3786,
+      "target_y": -0.0832,
+      "target_z": -58.1094,
+      "distance": 23.8885,
+      "target_level": "l10_red_forest"
+    },
+    {
+      "source_x": -53.091,
+      "source_y": 1.6259,
+      "source_z": -55.9171,
+      "target_x": -151.4224,
+      "target_y": 2.2051,
+      "target_z": -35.3169,
+      "distance": 115.7379,
+      "target_level": "l10_red_forest"
+    },
+    {
+      "source_x": -49.6456,
+      "source_y": -0.1588,
+      "source_z": -160.2863,
+      "target_x": -48.2666,
+      "target_y": -0.9506,
+      "target_z": -169.3723,
+      "distance": 9.19,
+      "target_level": "l10_red_forest"
+    },
+    {
+      "source_x": 3.0215,
+      "source_y": -0.7589,
+      "source_z": -189.0411,
+      "target_x": -3.4365,
+      "target_y": -4.0516,
+      "target_z": -240.6692,
+      "distance": 56.4686,
+      "target_level": "l10_red_forest"
+    },
+    {
+      "source_x": 3.0215,
+      "source_y": -0.7589,
+      "source_z": -189.0411,
+      "target_x": 18.7488,
+      "target_y": 4.4885,
+      "target_z": -153.6661,
+      "distance": 47.4949,
+      "target_level": "l10_red_forest"
+    },
+    {
+      "source_x": 3.0215,
+      "source_y": -0.7589,
+      "source_z": -189.0411,
+      "target_x": -7.9491,
+      "target_y": -1.1319,
+      "target_z": -189.0665,
+      "distance": 10.9707,
+      "target_level": "l10_red_forest"
+    },
+    {
+      "source_x": -39.9105,
+      "source_y": -1.373,
+      "source_z": -184.8811,
+      "target_x": -31.0062,
+      "target_y": -2.3879,
+      "target_z": -219.1492,
+      "distance": 37.8479,
+      "target_level": "l10_red_forest"
+    },
+    {
+      "source_x": -39.9105,
+      "source_y": -1.373,
+      "source_z": -184.8811,
+      "target_x": -47.8133,
+      "target_y": -1.3662,
+      "target_z": -182.1623,
+      "distance": 8.3574,
+      "target_level": "l10_red_forest"
+    },
+    {
+      "source_x": -11.0687,
+      "source_y": -0.5893,
+      "source_z": -179.1638,
+      "target_x": -7.9491,
+      "target_y": -1.1319,
+      "target_z": -189.0665,
+      "distance": 10.3824,
+      "target_level": "l10_red_forest"
+    },
+    {
+      "source_x": -11.0687,
+      "source_y": -0.5893,
+      "source_z": -179.1638,
+      "target_x": -24.6088,
+      "target_y": 1.5541,
+      "target_z": -165.9687,
+      "distance": 21.5342,
+      "target_level": "l10_red_forest"
+    },
+    {
+      "source_x": 19.0307,
+      "source_y": -1.7384,
+      "source_z": -307.3415,
+      "target_x": 7.9378,
+      "target_y": 1.6782,
+      "target_z": -350.1614,
+      "distance": 46.3633,
+      "target_level": "l10_red_forest"
+    },
+    {
+      "source_x": 19.0307,
+      "source_y": -1.7384,
+      "source_z": -307.3415,
+      "target_x": 32.0421,
+      "target_y": -1.3576,
+      "target_z": -288.4455,
+      "distance": 31.9243,
+      "target_level": "l10_red_forest"
+    },
+    {
+      "source_x": -71.3479,
+      "source_y": -0.3162,
+      "source_z": -238.6541,
+      "target_x": -67.0089,
+      "target_y": -0.2799,
+      "target_z": -224.6646,
+      "distance": 22.9081,
+      "target_level": "l10_red_forest"
+    },
+    {
+      "source_x": -71.3479,
+      "source_y": -0.3162,
+      "source_z": -238.6541,
+      "target_x": -108.0727,
+      "target_y": 0.2742,
+      "target_z": -270.2305,
+      "distance": 55.8269,
+      "target_level": "l10_red_forest"
+    },
+    {
+      "source_x": -13.7533,
+      "source_y": -3.3628,
+      "source_z": -252.6613,
+      "target_x": -3.4365,
+      "target_y": -4.0516,
+      "target_z": -240.6692,
+      "distance": 21.6169,
+      "target_level": "l10_red_forest"
+    },
+    {
+      "source_x": -13.7533,
+      "source_y": -3.3628,
+      "source_z": -252.6613,
+      "target_x": -15.4256,
+      "target_y": -2.4435,
+      "target_z": -283.4682,
+      "distance": 34.8068,
+      "target_level": "l10_red_forest"
+    },
+    {
+      "source_x": -13.7533,
+      "source_y": -3.3628,
+      "source_z": -252.6613,
+      "target_x": -31.0062,
+      "target_y": -2.3879,
+      "target_z": -219.1492,
+      "distance": 41.4664,
+      "target_level": "l10_red_forest"
+    },
+    {
+      "source_x": 32.0421,
+      "source_y": -1.3576,
+      "source_z": -288.4455,
+      "target_x": 19.0307,
+      "target_y": -1.7384,
+      "target_z": -307.3415,
+      "distance": 25.5396,
+      "target_level": "l10_red_forest"
+    },
+    {
+      "source_x": 32.0421,
+      "source_y": -1.3576,
+      "source_z": -288.4455,
+      "target_x": 40.5521,
+      "target_y": -1.1922,
+      "target_z": -290.817,
+      "distance": 8.8343,
+      "target_level": "l10_red_forest"
+    },
+    {
+      "source_x": 32.0421,
+      "source_y": -1.3576,
+      "source_z": -288.4455,
+      "target_x": 44.5551,
+      "target_y": -0.5356,
+      "target_z": -246.7552,
+      "distance": 49.4884,
+      "target_level": "l10_red_forest"
+    },
+    {
+      "source_x": 32.0421,
+      "source_y": -1.3576,
+      "source_z": -288.4455,
+      "target_x": 10.5621,
+      "target_y": -2.3521,
+      "target_z": -275.7557,
+      "distance": 33.0909,
+      "target_level": "l10_red_forest"
+    },
+    {
+      "source_x": -3.4365,
+      "source_y": -4.0516,
+      "source_z": -240.6692,
+      "target_x": -13.7533,
+      "target_y": -3.3628,
+      "target_z": -252.6613,
+      "distance": 20.3889,
+      "target_level": "l10_red_forest"
+    },
+    {
+      "source_x": -3.4365,
+      "source_y": -4.0516,
+      "source_z": -240.6692,
+      "target_x": 44.5551,
+      "target_y": -0.5356,
+      "target_z": -246.7552,
+      "distance": 51.8866,
+      "target_level": "l10_red_forest"
+    },
+    {
+      "source_x": -3.4365,
+      "source_y": -4.0516,
+      "source_z": -240.6692,
+      "target_x": 3.0215,
+      "target_y": -0.7589,
+      "target_z": -189.0411,
+      "distance": 54.0155,
+      "target_level": "l10_red_forest"
+    },
+    {
+      "source_x": -15.4256,
+      "source_y": -2.4435,
+      "source_z": -283.4682,
+      "target_x": -15.3165,
+      "target_y": -0.8687,
+      "target_z": -327.3109,
+      "distance": 43.8428,
+      "target_level": "l10_red_forest"
+    },
+    {
+      "source_x": -15.4256,
+      "source_y": -2.4435,
+      "source_z": -283.4682,
+      "target_x": 10.5621,
+      "target_y": -2.3521,
+      "target_z": -275.7557,
+      "distance": 27.7745,
+      "target_level": "l10_red_forest"
+    },
+    {
+      "source_x": -15.4256,
+      "source_y": -2.4435,
+      "source_z": -283.4682,
+      "target_x": -51.83,
+      "target_y": 1.3051,
+      "target_z": -298.3453,
+      "distance": 42.9008,
+      "target_level": "l10_red_forest"
+    },
+    {
+      "source_x": -15.4256,
+      "source_y": -2.4435,
+      "source_z": -283.4682,
+      "target_x": -13.7533,
+      "target_y": -3.3628,
+      "target_z": -252.6613,
+      "distance": 35.9919,
+      "target_level": "l10_red_forest"
+    },
+    {
+      "source_x": 147.8792,
+      "source_y": -3.9594,
+      "source_z": -293.9141,
+      "target_x": 156.2787,
+      "target_y": -1.8338,
+      "target_z": -273.7825,
+      "distance": 23.7974,
+      "target_level": "l10_red_forest"
+    },
+    {
+      "source_x": 147.8792,
+      "source_y": -3.9594,
+      "source_z": -293.9141,
+      "target_x": 131.5627,
+      "target_y": -3.7885,
+      "target_z": -293.6736,
+      "distance": 16.3512,
+      "target_level": "l10_red_forest"
+    },
+    {
+      "source_x": 179.1023,
+      "source_y": -0.3698,
+      "source_z": -153.905,
+      "target_x": 183.9465,
+      "target_y": 0.9282,
+      "target_z": -166.023,
+      "distance": 15.8039,
+      "target_level": "l10_red_forest"
+    },
+    {
+      "source_x": 179.1023,
+      "source_y": -0.3698,
+      "source_z": -153.905,
+      "target_x": 198.5083,
+      "target_y": -7.9625,
+      "target_z": -120.073,
+      "distance": 48.7736,
+      "target_level": "l10_red_forest"
+    },
+    {
+      "source_x": 205.9536,
+      "source_y": -4.5423,
+      "source_z": 48.979,
+      "target_x": 200.1949,
+      "target_y": -6.1541,
+      "target_z": -35.7155,
+      "distance": 86.5198,
+      "target_level": "l10_red_forest"
+    },
+    {
+      "source_x": 205.9536,
+      "source_y": -4.5423,
+      "source_z": 48.979,
+      "target_x": 224.5623,
+      "target_y": -5.4862,
+      "target_z": 72.9167,
+      "distance": 37.6812,
+      "target_level": "l10_red_forest"
+    },
+    {
+      "source_x": 177.8745,
+      "source_y": 2.6267,
+      "source_z": -172.996,
+      "target_x": 179.3553,
+      "target_y": -0.1883,
+      "target_z": -195.8916,
+      "distance": 25.5407,
+      "target_level": "l10_red_forest"
+    },
+    {
+      "source_x": 177.8745,
+      "source_y": 2.6267,
+      "source_z": -172.996,
+      "target_x": 152.3447,
+      "target_y": -0.1883,
+      "target_z": -182.7109,
+      "distance": 33.7577,
+      "target_level": "l10_red_forest"
+    },
+    {
+      "source_x": 177.8745,
+      "source_y": 2.6267,
+      "source_z": -172.996,
+      "target_x": 183.9465,
+      "target_y": 0.9282,
+      "target_z": -166.023,
+      "distance": 9.2462,
+      "target_level": "l10_red_forest"
+    },
+    {
+      "source_x": 180.6089,
+      "source_y": -0.3006,
+      "source_z": -233.7825,
+      "target_x": 182.8151,
+      "target_y": -1.4822,
+      "target_z": -249.352,
+      "distance": 17.3325,
+      "target_level": "l10_red_forest"
+    },
+    {
+      "source_x": 180.6089,
+      "source_y": -0.3006,
+      "source_z": -233.7825,
+      "target_x": 179.3553,
+      "target_y": -0.1883,
+      "target_z": -195.8916,
+      "distance": 38.7302,
+      "target_level": "l10_red_forest"
+    },
+    {
+      "source_x": -67.0089,
+      "source_y": -0.2799,
+      "source_z": -224.6646,
+      "target_x": -71.3479,
+      "target_y": -0.3162,
+      "target_z": -238.6541,
+      "distance": 23.1787,
+      "target_level": "l10_red_forest"
+    },
+    {
+      "source_x": -67.0089,
+      "source_y": -0.2799,
+      "source_z": -224.6646,
+      "target_x": -31.0062,
+      "target_y": -2.3879,
+      "target_z": -219.1492,
+      "distance": 40.0816,
+      "target_level": "l10_red_forest"
+    },
+    {
+      "source_x": 176.9441,
+      "source_y": -1.4755,
+      "source_z": -259.0342,
+      "target_x": 181.7566,
+      "target_y": -1.325,
+      "target_z": -272.9954,
+      "distance": 15.1965,
+      "target_level": "l10_red_forest"
+    },
+    {
+      "source_x": 176.9441,
+      "source_y": -1.4755,
+      "source_z": -259.0342,
+      "target_x": 182.8151,
+      "target_y": -1.4822,
+      "target_z": -249.352,
+      "distance": 11.6231,
+      "target_level": "l10_red_forest"
+    },
+    {
+      "source_x": 199.6215,
+      "source_y": -6.2549,
+      "source_z": -63.6382,
+      "target_x": 198.5083,
+      "target_y": -7.9625,
+      "target_z": -120.073,
+      "distance": 69.1005,
+      "target_level": "l10_red_forest"
+    },
+    {
+      "source_x": 199.6215,
+      "source_y": -6.2549,
+      "source_z": -63.6382,
+      "target_x": 200.1949,
+      "target_y": -6.1541,
+      "target_z": -35.7155,
+      "distance": 27.9286,
+      "target_level": "l10_red_forest"
+    },
+    {
+      "source_x": -19.7009,
+      "source_y": 0.2214,
+      "source_z": -365.3314,
+      "target_x": -12.4707,
+      "target_y": -0.4299,
+      "target_z": -376.7506,
+      "distance": 13.5157,
+      "target_level": "l10_red_forest"
+    },
+    {
+      "source_x": -19.7009,
+      "source_y": 0.2214,
+      "source_z": -365.3314,
+      "target_x": -15.3165,
+      "target_y": -0.8687,
+      "target_z": -327.3109,
+      "distance": 40.4325,
+      "target_level": "l10_red_forest"
+    },
+    {
+      "source_x": -177.9412,
+      "source_y": 0.1382,
+      "source_z": -282.3648,
+      "target_x": -182.8339,
+      "target_y": 0.1382,
+      "target_z": -288.6831,
+      "distance": 7.9913,
+      "target_level": "l10_red_forest"
+    },
+    {
+      "source_x": -177.9412,
+      "source_y": 0.1382,
+      "source_z": -282.3648,
+      "target_x": -164.3524,
+      "target_y": 0.1807,
+      "target_z": -273.4746,
+      "distance": 16.2386,
+      "target_level": "l10_red_forest"
+    },
+    {
+      "source_x": -160.9095,
+      "source_y": 0.254,
+      "source_z": -289.4882,
+      "target_x": -164.3452,
+      "target_y": 0.9812,
+      "target_z": -310.5782,
+      "distance": 32.6391,
+      "target_level": "l10_red_forest"
+    },
+    {
+      "source_x": -160.9095,
+      "source_y": 0.254,
+      "source_z": -289.4882,
+      "target_x": -164.3524,
+      "target_y": 0.1807,
+      "target_z": -273.4746,
+      "distance": 18.262,
+      "target_level": "l10_red_forest"
+    },
+    {
+      "source_x": -151.4224,
+      "source_y": 2.2051,
+      "source_z": -35.3169,
+      "target_x": -151.8,
+      "target_y": 0.0,
+      "target_z": -35.0,
+      "distance": 0.4929,
+      "target_level": "l10_red_forest"
+    },
+    {
+      "source_x": -151.4224,
+      "source_y": 2.2051,
+      "source_z": -35.3169,
+      "target_x": -53.091,
+      "target_y": 1.6259,
+      "target_z": -55.9171,
+      "distance": 118.2689,
+      "target_level": "l10_red_forest"
+    },
+    {
+      "source_x": 18.7488,
+      "source_y": 4.4885,
+      "source_z": -153.6661,
+      "target_x": 18.8,
+      "target_y": 0.0,
+      "target_z": -153.5,
+      "distance": 0.1738,
+      "target_level": "l10_red_forest"
+    },
+    {
+      "source_x": 18.7488,
+      "source_y": 4.4885,
+      "source_z": -153.6661,
+      "target_x": 3.0215,
+      "target_y": -0.7589,
+      "target_z": -189.0411,
+      "distance": 46.8447,
+      "target_level": "l10_red_forest"
+    },
+    {
+      "source_x": 18.7488,
+      "source_y": 4.4885,
+      "source_z": -153.6661,
+      "target_x": -8.4056,
+      "target_y": 2.8489,
+      "target_z": -137.1307,
+      "distance": 38.0732,
+      "target_level": "l10_red_forest"
+    },
+    {
+      "source_x": -41.5562,
+      "source_y": 2.2136,
+      "source_z": -328.9874,
+      "target_x": -15.3165,
+      "target_y": -0.8687,
+      "target_z": -327.3109,
+      "distance": 29.0552,
+      "target_level": "l10_red_forest"
+    },
+    {
+      "source_x": -116.8476,
+      "source_y": 0.2758,
+      "source_z": -270.3595,
+      "target_x": -108.0727,
+      "target_y": 0.2742,
+      "target_z": -270.2305,
+      "distance": 8.7759,
+      "target_level": "l10_red_forest"
+    },
+    {
+      "source_x": -116.8476,
+      "source_y": 0.2758,
+      "source_z": -270.3595,
+      "target_x": -164.3524,
+      "target_y": 0.1807,
+      "target_z": -273.4746,
+      "distance": 48.161,
+      "target_level": "l10_red_forest"
+    },
+    {
+      "source_x": 224.5623,
+      "source_y": -5.4862,
+      "source_z": 72.9167,
+      "target_x": 205.9536,
+      "target_y": -4.5423,
+      "target_z": 48.979,
+      "distance": 36.1248,
+      "target_level": "l10_red_forest"
+    },
+    {
+      "source_x": 224.5623,
+      "source_y": -5.4862,
+      "source_z": 72.9167,
+      "target_x": 252.1211,
+      "target_y": 5.0383,
+      "target_z": 107.841,
+      "distance": 53.5028,
+      "target_level": "l10_red_forest"
+    },
+    {
+      "source_x": 224.5623,
+      "source_y": -5.4862,
+      "source_z": 72.9167,
+      "target_x": 214.0148,
+      "target_y": -2.5401,
+      "target_z": 80.2699,
+      "distance": 15.4437,
+      "target_level": "l10_red_forest"
+    },
+    {
+      "source_x": 44.5551,
+      "source_y": -0.5356,
+      "source_z": -246.7552,
+      "target_x": 32.0421,
+      "target_y": -1.3576,
+      "target_z": -288.4455,
+      "distance": 45.145,
+      "target_level": "l10_red_forest"
+    },
+    {
+      "source_x": 44.5551,
+      "source_y": -0.5356,
+      "source_z": -246.7552,
+      "target_x": -3.4365,
+      "target_y": -4.0516,
+      "target_z": -240.6692,
+      "distance": 51.9533,
+      "target_level": "l10_red_forest"
+    },
+    {
+      "source_x": 254.6773,
+      "source_y": 1.5748,
+      "source_z": -157.1445,
+      "target_x": 183.9465,
+      "target_y": 0.9282,
+      "target_z": -166.023,
+      "distance": 83.1175,
+      "target_level": "l10_red_forest"
+    },
+    {
+      "source_x": 254.6773,
+      "source_y": 1.5748,
+      "source_z": -157.1445,
+      "target_x": 264.9962,
+      "target_y": -50.1813,
+      "target_z": -139.9372,
+      "distance": 1011.79,
+      "target_level": "l10_radar"
+    },
+    {
+      "source_x": 254.6773,
+      "source_y": 1.5748,
+      "source_z": -157.1445,
+      "target_x": 299.921,
+      "target_y": -51.8909,
+      "target_z": -328.1543,
+      "distance": 1060.4891,
+      "target_level": "l10_radar"
+    },
+    {
+      "source_x": 7.9378,
+      "source_y": 1.6782,
+      "source_z": -350.1614,
+      "target_x": 19.0307,
+      "target_y": -1.7384,
+      "target_z": -307.3415,
+      "distance": 46.7807,
+      "target_level": "l10_red_forest"
+    },
+    {
+      "source_x": 7.9378,
+      "source_y": 1.6782,
+      "source_z": -350.1614,
+      "target_x": -206.6607,
+      "target_y": 5.0211,
+      "target_z": 449.4792,
+      "distance": 259.8322,
+      "target_level": "l07_military"
+    },
+    {
+      "source_x": 80.4609,
+      "source_y": 2.0834,
+      "source_z": -348.8861,
+      "target_x": 86.8371,
+      "target_y": -1.4197,
+      "target_z": -303.6904,
+      "distance": 48.5248,
+      "target_level": "l10_red_forest"
+    },
+    {
+      "source_x": 80.4609,
+      "source_y": 2.0834,
+      "source_z": -348.8861,
+      "target_x": 44.9376,
+      "target_y": -1.0687,
+      "target_z": -325.7466,
+      "distance": 55.4983,
+      "target_level": "l10_red_forest"
+    },
+    {
+      "source_x": 80.4609,
+      "source_y": 2.0834,
+      "source_z": -348.8861,
+      "target_x": -248.5378,
+      "target_y": -3.1477,
+      "target_z": 425.9676,
+      "distance": 230.91,
+      "target_level": "l07_military"
+    },
+    {
+      "source_x": -164.3452,
+      "source_y": 0.9812,
+      "source_z": -310.5782,
+      "target_x": -160.9095,
+      "target_y": 0.254,
+      "target_z": -289.4882,
+      "distance": 33.2721,
+      "target_level": "l10_red_forest"
+    },
+    {
+      "source_x": -164.3452,
+      "source_y": 0.9812,
+      "source_z": -310.5782,
+      "target_x": -201.1986,
+      "target_y": 0.1382,
+      "target_z": -332.1324,
+      "distance": 48.5911,
+      "target_level": "l10_red_forest"
+    },
+    {
+      "source_x": -164.3452,
+      "source_y": 0.9812,
+      "source_z": -310.5782,
+      "target_x": -24.5035,
+      "target_y": 1.5056,
+      "target_z": -301.276,
+      "distance": 510.2433,
+      "target_level": "l10_limansk"
+    },
+    {
+      "source_x": -181.89,
+      "source_y": 2.1855,
+      "source_z": -265.2766,
+      "target_x": -164.3524,
+      "target_y": 0.1807,
+      "target_z": -273.4746,
+      "distance": 31.9031,
+      "target_level": "l10_red_forest"
+    },
+    {
+      "source_x": -181.89,
+      "source_y": 2.1855,
+      "source_z": -265.2766,
+      "target_x": -189.2432,
+      "target_y": 5.5374,
+      "target_z": -260.1517,
+      "distance": 11.0972,
+      "target_level": "l10_red_forest"
+    },
+    {
+      "source_x": -181.89,
+      "source_y": 2.1855,
+      "source_z": -265.2766,
+      "target_x": 25.7846,
+      "target_y": -2.9926,
+      "target_z": -252.8562,
+      "distance": 442.53,
+      "target_level": "l10_limansk"
+    },
+    {
+      "source_x": 199.0048,
+      "source_y": 5.2333,
+      "source_z": 118.3618,
+      "target_x": 214.0148,
+      "target_y": -2.5401,
+      "target_z": 80.2699,
+      "distance": 47.8578,
+      "target_level": "l10_red_forest"
+    },
+    {
+      "source_x": 199.0048,
+      "source_y": 5.2333,
+      "source_z": 118.3618,
+      "target_x": -244.7653,
+      "target_y": 14.3348,
+      "target_z": -468.0752,
+      "distance": 452.2014,
+      "target_level": "jupiter"
+    },
+    {
+      "source_x": 252.1211,
+      "source_y": 5.0383,
+      "source_z": 107.841,
+      "target_x": 224.5623,
+      "target_y": -5.4862,
+      "target_z": 72.9167,
+      "distance": 56.8107,
+      "target_level": "l10_red_forest"
+    },
+    {
+      "source_x": 252.1211,
+      "source_y": 5.0383,
+      "source_z": 107.841,
+      "target_x": -455.3169,
+      "target_y": 0.313,
+      "target_z": -353.8354,
+      "distance": 708.491,
+      "target_level": "jupiter"
+    }
+  ]
+}

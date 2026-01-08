@@ -1,0 +1,379 @@
+{
+  "level_name": "l08u_brainlab",
+  "level_id": 22,
+  "edge_count": 37,
+  "intra_level_edges": 36,
+  "inter_level_edges": 1,
+  "edges": [
+    {
+      "source_x": -105.9977,
+      "source_y": 21.5652,
+      "source_z": -30.4022,
+      "target_x": -79.1424,
+      "target_y": 21.5772,
+      "target_z": -12.9389,
+      "distance": 41.884,
+      "target_level": "l08u_brainlab"
+    },
+    {
+      "source_x": -105.9977,
+      "source_y": 21.5652,
+      "source_z": -30.4022,
+      "target_x": -125.8423,
+      "target_y": 21.5652,
+      "target_z": -31.0096,
+      "distance": 19.8538,
+      "target_level": "l08u_brainlab"
+    },
+    {
+      "source_x": -79.1424,
+      "source_y": 21.5772,
+      "source_z": -12.9389,
+      "target_x": -42.3431,
+      "target_y": 3.3547,
+      "target_z": 4.8885,
+      "distance": 166.7869,
+      "target_level": "l08u_brainlab"
+    },
+    {
+      "source_x": -79.1424,
+      "source_y": 21.5772,
+      "source_z": -12.9389,
+      "target_x": -105.9977,
+      "target_y": 21.5652,
+      "target_z": -30.4022,
+      "distance": 40.1915,
+      "target_level": "l08u_brainlab"
+    },
+    {
+      "source_x": -52.9657,
+      "source_y": 3.3559,
+      "source_z": -15.9312,
+      "target_x": -43.1368,
+      "target_y": -4.2319,
+      "target_z": -1.9611,
+      "distance": 23.0195,
+      "target_level": "l08u_brainlab"
+    },
+    {
+      "source_x": -52.9657,
+      "source_y": 3.3559,
+      "source_z": -15.9312,
+      "target_x": -61.5536,
+      "target_y": 11.4521,
+      "target_z": -18.3409,
+      "distance": 8.9196,
+      "target_level": "l08u_brainlab"
+    },
+    {
+      "source_x": -42.3431,
+      "source_y": 3.3547,
+      "source_z": 4.8885,
+      "target_x": -61.5536,
+      "target_y": 11.4521,
+      "target_z": -18.3409,
+      "distance": 53.6319,
+      "target_level": "l08u_brainlab"
+    },
+    {
+      "source_x": -42.3431,
+      "source_y": 3.3547,
+      "source_z": 4.8885,
+      "target_x": -79.1424,
+      "target_y": 21.5772,
+      "target_z": -12.9389,
+      "distance": 161.9485,
+      "target_level": "l08u_brainlab"
+    },
+    {
+      "source_x": -43.1368,
+      "source_y": -4.2319,
+      "source_z": -1.9611,
+      "target_x": -32.6377,
+      "target_y": 11.4522,
+      "target_z": -23.1724,
+      "distance": 37.2691,
+      "target_level": "l08u_brainlab"
+    },
+    {
+      "source_x": -43.1368,
+      "source_y": -4.2319,
+      "source_z": -1.9611,
+      "target_x": -52.9657,
+      "target_y": 3.3559,
+      "target_z": -15.9312,
+      "distance": 23.3471,
+      "target_level": "l08u_brainlab"
+    },
+    {
+      "source_x": -32.6377,
+      "source_y": 11.4522,
+      "source_z": -23.1724,
+      "target_x": -26.148,
+      "target_y": 3.4185,
+      "target_z": -9.9999,
+      "distance": 28.8568,
+      "target_level": "l08u_brainlab"
+    },
+    {
+      "source_x": -32.6377,
+      "source_y": 11.4522,
+      "source_z": -23.1724,
+      "target_x": -43.1368,
+      "target_y": -4.2319,
+      "target_z": -1.9611,
+      "distance": 37.1468,
+      "target_level": "l08u_brainlab"
+    },
+    {
+      "source_x": -61.5536,
+      "source_y": 11.4521,
+      "source_z": -18.3409,
+      "target_x": -63.3042,
+      "target_y": 3.4676,
+      "target_z": -19.283,
+      "distance": 1.988,
+      "target_level": "l08u_brainlab"
+    },
+    {
+      "source_x": -61.5536,
+      "source_y": 11.4521,
+      "source_z": -18.3409,
+      "target_x": -42.3431,
+      "target_y": 3.3547,
+      "target_z": 4.8885,
+      "distance": 51.3849,
+      "target_level": "l08u_brainlab"
+    },
+    {
+      "source_x": -61.5536,
+      "source_y": 11.4521,
+      "source_z": -18.3409,
+      "target_x": -52.9657,
+      "target_y": 3.3559,
+      "target_z": -15.9312,
+      "distance": 8.9196,
+      "target_level": "l08u_brainlab"
+    },
+    {
+      "source_x": -26.148,
+      "source_y": 3.4185,
+      "source_z": -9.9999,
+      "target_x": 19.5717,
+      "target_y": 5.5859,
+      "target_z": 13.8997,
+      "distance": 70.3899,
+      "target_level": "l08u_brainlab"
+    },
+    {
+      "source_x": -26.148,
+      "source_y": 3.4185,
+      "source_z": -9.9999,
+      "target_x": -32.6377,
+      "target_y": 11.4522,
+      "target_z": -23.1724,
+      "distance": 30.5387,
+      "target_level": "l08u_brainlab"
+    },
+    {
+      "source_x": 19.5717,
+      "source_y": 5.5859,
+      "source_z": 13.8997,
+      "target_x": 36.1053,
+      "target_y": 5.6447,
+      "target_z": 1.5737,
+      "distance": 30.2746,
+      "target_level": "l08u_brainlab"
+    },
+    {
+      "source_x": 19.5717,
+      "source_y": 5.5859,
+      "source_z": 13.8997,
+      "target_x": -26.148,
+      "target_y": 3.4185,
+      "target_z": -9.9999,
+      "distance": 69.6538,
+      "target_level": "l08u_brainlab"
+    },
+    {
+      "source_x": 48.7779,
+      "source_y": 5.6084,
+      "source_z": -10.7365,
+      "target_x": 84.0906,
+      "target_y": 5.5723,
+      "target_z": -14.2823,
+      "distance": 35.6557,
+      "target_level": "l08u_brainlab"
+    },
+    {
+      "source_x": 48.7779,
+      "source_y": 5.6084,
+      "source_z": -10.7365,
+      "target_x": 36.1053,
+      "target_y": 5.6447,
+      "target_z": 1.5737,
+      "distance": 21.0035,
+      "target_level": "l08u_brainlab"
+    },
+    {
+      "source_x": 84.0906,
+      "source_y": 5.5723,
+      "source_z": -14.2823,
+      "target_x": 112.7563,
+      "target_y": 4.7502,
+      "target_z": -16.1009,
+      "distance": 29.697,
+      "target_level": "l08u_brainlab"
+    },
+    {
+      "source_x": 84.0906,
+      "source_y": 5.5723,
+      "source_z": -14.2823,
+      "target_x": 48.7779,
+      "target_y": 5.6084,
+      "target_z": -10.7365,
+      "distance": 40.8263,
+      "target_level": "l08u_brainlab"
+    },
+    {
+      "source_x": 142.2956,
+      "source_y": 48.9324,
+      "source_z": -14.7329,
+      "target_x": 146.5142,
+      "target_y": 36.6499,
+      "target_z": -13.2846,
+      "distance": 4.4602,
+      "target_level": "l08u_brainlab"
+    },
+    {
+      "source_x": 142.2956,
+      "source_y": 48.9324,
+      "source_z": -14.7329,
+      "target_x": -2.0067,
+      "target_y": -8.9919,
+      "target_z": -10.7271,
+      "distance": 865.0317,
+      "target_level": "l08_yantar"
+    },
+    {
+      "source_x": 146.5142,
+      "source_y": 36.6499,
+      "source_z": -13.2846,
+      "target_x": 139.2585,
+      "target_y": 30.6473,
+      "target_z": -15.2489,
+      "distance": 7.5168,
+      "target_level": "l08u_brainlab"
+    },
+    {
+      "source_x": 146.5142,
+      "source_y": 36.6499,
+      "source_z": -13.2846,
+      "target_x": 142.2956,
+      "target_y": 48.9324,
+      "target_z": -14.7329,
+      "distance": 4.4602,
+      "target_level": "l08u_brainlab"
+    },
+    {
+      "source_x": 139.2585,
+      "source_y": 30.6473,
+      "source_z": -15.2489,
+      "target_x": 146.5142,
+      "target_y": 36.6499,
+      "target_z": -13.2846,
+      "distance": 7.5168,
+      "target_level": "l08u_brainlab"
+    },
+    {
+      "source_x": 139.2585,
+      "source_y": 30.6473,
+      "source_z": -15.2489,
+      "target_x": 121.6623,
+      "target_y": 30.6473,
+      "target_z": -16.3407,
+      "distance": 18.0058,
+      "target_level": "l08u_brainlab"
+    },
+    {
+      "source_x": 121.6623,
+      "source_y": 30.6473,
+      "source_z": -16.3407,
+      "target_x": 139.2585,
+      "target_y": 30.6473,
+      "target_z": -15.2489,
+      "distance": 18.0091,
+      "target_level": "l08u_brainlab"
+    },
+    {
+      "source_x": 121.6623,
+      "source_y": 30.6473,
+      "source_z": -16.3407,
+      "target_x": 112.7563,
+      "target_y": 4.7502,
+      "target_z": -16.1009,
+      "distance": 37.4387,
+      "target_level": "l08u_brainlab"
+    },
+    {
+      "source_x": 112.7563,
+      "source_y": 4.7502,
+      "source_z": -16.1009,
+      "target_x": 121.6623,
+      "target_y": 30.6473,
+      "target_z": -16.3407,
+      "distance": 36.8349,
+      "target_level": "l08u_brainlab"
+    },
+    {
+      "source_x": 112.7563,
+      "source_y": 4.7502,
+      "source_z": -16.1009,
+      "target_x": 84.0906,
+      "target_y": 5.5723,
+      "target_z": -14.2823,
+      "distance": 29.5325,
+      "target_level": "l08u_brainlab"
+    },
+    {
+      "source_x": 36.1053,
+      "source_y": 5.6447,
+      "source_z": 1.5737,
+      "target_x": 48.7779,
+      "target_y": 5.6084,
+      "target_z": -10.7365,
+      "distance": 18.98,
+      "target_level": "l08u_brainlab"
+    },
+    {
+      "source_x": 36.1053,
+      "source_y": 5.6447,
+      "source_z": 1.5737,
+      "target_x": 19.5717,
+      "target_y": 5.5859,
+      "target_z": 13.8997,
+      "distance": 29.4601,
+      "target_level": "l08u_brainlab"
+    },
+    {
+      "source_x": -125.8423,
+      "source_y": 21.5652,
+      "source_z": -31.0096,
+      "target_x": -105.9977,
+      "target_y": 21.5652,
+      "target_z": -30.4022,
+      "distance": 19.8538,
+      "target_level": "l08u_brainlab"
+    },
+    {
+      "source_x": -63.3042,
+      "source_y": 3.4676,
+      "source_z": -19.283,
+      "target_x": -61.5536,
+      "target_y": 11.4521,
+      "target_z": -18.3409,
+      "distance": 1.988,
+      "target_level": "l08u_brainlab"
+    }
+  ]
+}

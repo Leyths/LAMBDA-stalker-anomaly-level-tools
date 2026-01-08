@@ -1,0 +1,1219 @@
+{
+  "level_name": "l10_limansk",
+  "level_id": 12,
+  "edge_count": 121,
+  "intra_level_edges": 112,
+  "inter_level_edges": 9,
+  "edges": [
+    {
+      "source_x": -17.6902,
+      "source_y": 1.5057,
+      "source_z": -320.5259,
+      "target_x": 5.9247,
+      "target_y": -1.0682,
+      "target_z": -330.3951,
+      "distance": 25.5942,
+      "target_level": "l10_limansk"
+    },
+    {
+      "source_x": 10.6361,
+      "source_y": -1.6893,
+      "source_z": -282.3462,
+      "target_x": 11.6656,
+      "target_y": 0.5751,
+      "target_z": -309.3287,
+      "distance": 27.4698,
+      "target_level": "l10_limansk"
+    },
+    {
+      "source_x": 10.6361,
+      "source_y": -1.6893,
+      "source_z": -282.3462,
+      "target_x": -0.4281,
+      "target_y": -4.175,
+      "target_z": -258.7314,
+      "distance": 30.958,
+      "target_level": "l10_limansk"
+    },
+    {
+      "source_x": -7.0987,
+      "source_y": -5.0586,
+      "source_z": -249.8883,
+      "target_x": -0.4281,
+      "target_y": -4.175,
+      "target_z": -258.7314,
+      "distance": 11.7881,
+      "target_level": "l10_limansk"
+    },
+    {
+      "source_x": -7.0987,
+      "source_y": -5.0586,
+      "source_z": -249.8883,
+      "target_x": -37.6999,
+      "target_y": -5.0316,
+      "target_z": -239.0336,
+      "distance": 36.3838,
+      "target_level": "l10_limansk"
+    },
+    {
+      "source_x": -7.0987,
+      "source_y": -5.0586,
+      "source_z": -249.8883,
+      "target_x": -31.5909,
+      "target_y": -0.9607,
+      "target_z": -256.7227,
+      "distance": 60.2966,
+      "target_level": "l10_limansk"
+    },
+    {
+      "source_x": -31.5909,
+      "source_y": -0.9607,
+      "source_z": -256.7227,
+      "target_x": -7.0987,
+      "target_y": -5.0586,
+      "target_z": -249.8883,
+      "distance": 58.8011,
+      "target_level": "l10_limansk"
+    },
+    {
+      "source_x": -39.8064,
+      "source_y": -5.5575,
+      "source_z": -220.64,
+      "target_x": -37.6999,
+      "target_y": -5.0316,
+      "target_z": -239.0336,
+      "distance": 18.5138,
+      "target_level": "l10_limansk"
+    },
+    {
+      "source_x": -39.8064,
+      "source_y": -5.5575,
+      "source_z": -220.64,
+      "target_x": -40.072,
+      "target_y": -6.323,
+      "target_z": -204.9775,
+      "distance": 15.6648,
+      "target_level": "l10_limansk"
+    },
+    {
+      "source_x": -40.0197,
+      "source_y": -5.3,
+      "source_z": -180.2077,
+      "target_x": -40.072,
+      "target_y": -6.323,
+      "target_z": -204.9775,
+      "distance": 31.6545,
+      "target_level": "l10_limansk"
+    },
+    {
+      "source_x": -40.0197,
+      "source_y": -5.3,
+      "source_z": -180.2077,
+      "target_x": -31.5012,
+      "target_y": -5.0,
+      "target_z": -154.5733,
+      "distance": 28.4434,
+      "target_level": "l10_limansk"
+    },
+    {
+      "source_x": -23.9122,
+      "source_y": -5.0589,
+      "source_z": -108.2299,
+      "target_x": -27.5532,
+      "target_y": -5.0,
+      "target_z": -128.3037,
+      "distance": 24.0796,
+      "target_level": "l10_limansk"
+    },
+    {
+      "source_x": -23.9122,
+      "source_y": -5.0589,
+      "source_z": -108.2299,
+      "target_x": -6.3882,
+      "target_y": -5.0022,
+      "target_z": -97.6105,
+      "distance": 25.2923,
+      "target_level": "l10_limansk"
+    },
+    {
+      "source_x": -32.7218,
+      "source_y": -5.0001,
+      "source_z": -145.6805,
+      "target_x": -31.5012,
+      "target_y": -5.0,
+      "target_z": -154.5733,
+      "distance": 12.6533,
+      "target_level": "l10_limansk"
+    },
+    {
+      "source_x": -32.7218,
+      "source_y": -5.0001,
+      "source_z": -145.6805,
+      "target_x": -27.5532,
+      "target_y": -5.0,
+      "target_z": -128.3037,
+      "distance": 21.3939,
+      "target_level": "l10_limansk"
+    },
+    {
+      "source_x": 2.8,
+      "source_y": -4.9847,
+      "source_z": -82.1054,
+      "target_x": -6.3882,
+      "target_y": -5.0022,
+      "target_z": -97.6105,
+      "distance": 26.3629,
+      "target_level": "l10_limansk"
+    },
+    {
+      "source_x": 2.8,
+      "source_y": -4.9847,
+      "source_z": -82.1054,
+      "target_x": 27.9739,
+      "target_y": 2.0812,
+      "target_z": -63.1025,
+      "distance": 48.5351,
+      "target_level": "l10_limansk"
+    },
+    {
+      "source_x": 27.9739,
+      "source_y": 2.0812,
+      "source_z": -63.1025,
+      "target_x": 32.5918,
+      "target_y": 2.0812,
+      "target_z": -56.2686,
+      "distance": 18.0397,
+      "target_level": "l10_limansk"
+    },
+    {
+      "source_x": 27.9739,
+      "source_y": 2.0812,
+      "source_z": -63.1025,
+      "target_x": 2.8,
+      "target_y": -4.9847,
+      "target_z": -82.1054,
+      "distance": 48.6861,
+      "target_level": "l10_limansk"
+    },
+    {
+      "source_x": 14.5531,
+      "source_y": -6.9332,
+      "source_z": -33.3546,
+      "target_x": 6.0711,
+      "target_y": -5.0,
+      "target_z": -53.2066,
+      "distance": 24.4981,
+      "target_level": "l10_limansk"
+    },
+    {
+      "source_x": 14.5531,
+      "source_y": -6.9332,
+      "source_z": -33.3546,
+      "target_x": 26.2983,
+      "target_y": -6.4102,
+      "target_z": 12.8736,
+      "distance": 48.5089,
+      "target_level": "l10_limansk"
+    },
+    {
+      "source_x": 26.2983,
+      "source_y": -6.4102,
+      "source_z": 12.8736,
+      "target_x": 14.5531,
+      "target_y": -6.9332,
+      "target_z": -33.3546,
+      "distance": 48.373,
+      "target_level": "l10_limansk"
+    },
+    {
+      "source_x": 26.2983,
+      "source_y": -6.4102,
+      "source_z": 12.8736,
+      "target_x": 28.7736,
+      "target_y": -3.1994,
+      "target_z": 29.4983,
+      "distance": 17.5201,
+      "target_level": "l10_limansk"
+    },
+    {
+      "source_x": -4.19,
+      "source_y": 24.74,
+      "source_z": 183.39,
+      "target_x": 12.4686,
+      "target_y": 12.9736,
+      "target_z": 171.331,
+      "distance": 81.4099,
+      "target_level": "l10_limansk"
+    },
+    {
+      "source_x": 32.8384,
+      "source_y": 0.0007,
+      "source_z": -273.836,
+      "target_x": 35.5204,
+      "target_y": -0.0588,
+      "target_z": -281.9914,
+      "distance": 8.585,
+      "target_level": "l10_limansk"
+    },
+    {
+      "source_x": 32.8384,
+      "source_y": 0.0007,
+      "source_z": -273.836,
+      "target_x": 19.1488,
+      "target_y": -2.9641,
+      "target_z": -260.0197,
+      "distance": 22.7923,
+      "target_level": "l10_limansk"
+    },
+    {
+      "source_x": 28.7736,
+      "source_y": -3.1994,
+      "source_z": 29.4983,
+      "target_x": 26.2983,
+      "target_y": -6.4102,
+      "target_z": 12.8736,
+      "distance": 17.5107,
+      "target_level": "l10_limansk"
+    },
+    {
+      "source_x": 28.7736,
+      "source_y": -3.1994,
+      "source_z": 29.4983,
+      "target_x": 23.8173,
+      "target_y": 1.0452,
+      "target_z": 46.1321,
+      "distance": 39.5807,
+      "target_level": "l10_limansk"
+    },
+    {
+      "source_x": -31.5012,
+      "source_y": -5.0,
+      "source_z": -154.5733,
+      "target_x": -40.0197,
+      "target_y": -5.3,
+      "target_z": -180.2077,
+      "distance": 28.8239,
+      "target_level": "l10_limansk"
+    },
+    {
+      "source_x": -31.5012,
+      "source_y": -5.0,
+      "source_z": -154.5733,
+      "target_x": -32.7218,
+      "target_y": -5.0001,
+      "target_z": -145.6805,
+      "distance": 11.3517,
+      "target_level": "l10_limansk"
+    },
+    {
+      "source_x": 5.9247,
+      "source_y": -1.0682,
+      "source_z": -330.3951,
+      "target_x": 7.5682,
+      "target_y": -0.0078,
+      "target_z": -372.037,
+      "distance": 42.3122,
+      "target_level": "l10_limansk"
+    },
+    {
+      "source_x": 5.9247,
+      "source_y": -1.0682,
+      "source_z": -330.3951,
+      "target_x": 11.6656,
+      "target_y": 0.5751,
+      "target_z": -309.3287,
+      "distance": 21.8346,
+      "target_level": "l10_limansk"
+    },
+    {
+      "source_x": 5.9247,
+      "source_y": -1.0682,
+      "source_z": -330.3951,
+      "target_x": -17.6902,
+      "target_y": 1.5057,
+      "target_z": -320.5259,
+      "distance": 25.5942,
+      "target_level": "l10_limansk"
+    },
+    {
+      "source_x": 11.6656,
+      "source_y": 0.5751,
+      "source_z": -309.3287,
+      "target_x": 5.9247,
+      "target_y": -1.0682,
+      "target_z": -330.3951,
+      "distance": 21.8346,
+      "target_level": "l10_limansk"
+    },
+    {
+      "source_x": 11.6656,
+      "source_y": 0.5751,
+      "source_z": -309.3287,
+      "target_x": 35.2084,
+      "target_y": -0.0588,
+      "target_z": -287.3651,
+      "distance": 33.881,
+      "target_level": "l10_limansk"
+    },
+    {
+      "source_x": 11.6656,
+      "source_y": 0.5751,
+      "source_z": -309.3287,
+      "target_x": 10.6361,
+      "target_y": -1.6893,
+      "target_z": -282.3462,
+      "distance": 27.4854,
+      "target_level": "l10_limansk"
+    },
+    {
+      "source_x": 11.6656,
+      "source_y": 0.5751,
+      "source_z": -309.3287,
+      "target_x": -24.5035,
+      "target_y": 1.5056,
+      "target_z": -301.276,
+      "distance": 42.4964,
+      "target_level": "l10_limansk"
+    },
+    {
+      "source_x": 35.5204,
+      "source_y": -0.0588,
+      "source_z": -281.9914,
+      "target_x": 35.2084,
+      "target_y": -0.0588,
+      "target_z": -287.3651,
+      "distance": 5.3827,
+      "target_level": "l10_limansk"
+    },
+    {
+      "source_x": 35.5204,
+      "source_y": -0.0588,
+      "source_z": -281.9914,
+      "target_x": 32.8384,
+      "target_y": 0.0007,
+      "target_z": -273.836,
+      "distance": 8.585,
+      "target_level": "l10_limansk"
+    },
+    {
+      "source_x": 19.1488,
+      "source_y": -2.9641,
+      "source_z": -260.0197,
+      "target_x": 32.8384,
+      "target_y": 0.0007,
+      "target_z": -273.836,
+      "distance": 21.2883,
+      "target_level": "l10_limansk"
+    },
+    {
+      "source_x": 19.1488,
+      "source_y": -2.9641,
+      "source_z": -260.0197,
+      "target_x": 25.7846,
+      "target_y": -2.9926,
+      "target_z": -252.8562,
+      "distance": 15.9688,
+      "target_level": "l10_limansk"
+    },
+    {
+      "source_x": 19.1488,
+      "source_y": -2.9641,
+      "source_z": -260.0197,
+      "target_x": -0.4281,
+      "target_y": -4.175,
+      "target_z": -258.7314,
+      "distance": 19.6192,
+      "target_level": "l10_limansk"
+    },
+    {
+      "source_x": -0.4281,
+      "source_y": -4.175,
+      "source_z": -258.7314,
+      "target_x": 10.6361,
+      "target_y": -1.6893,
+      "target_z": -282.3462,
+      "distance": 31.0554,
+      "target_level": "l10_limansk"
+    },
+    {
+      "source_x": -0.4281,
+      "source_y": -4.175,
+      "source_z": -258.7314,
+      "target_x": 19.1488,
+      "target_y": -2.9641,
+      "target_z": -260.0197,
+      "distance": 19.6192,
+      "target_level": "l10_limansk"
+    },
+    {
+      "source_x": -0.4281,
+      "source_y": -4.175,
+      "source_z": -258.7314,
+      "target_x": -7.0987,
+      "target_y": -5.0586,
+      "target_z": -249.8883,
+      "distance": 14.0163,
+      "target_level": "l10_limansk"
+    },
+    {
+      "source_x": -37.6999,
+      "source_y": -5.0316,
+      "source_z": -239.0336,
+      "target_x": -7.0987,
+      "target_y": -5.0586,
+      "target_z": -249.8883,
+      "distance": 35.5411,
+      "target_level": "l10_limansk"
+    },
+    {
+      "source_x": -37.6999,
+      "source_y": -5.0316,
+      "source_z": -239.0336,
+      "target_x": -39.8064,
+      "target_y": -5.5575,
+      "target_z": -220.64,
+      "distance": 18.5138,
+      "target_level": "l10_limansk"
+    },
+    {
+      "source_x": -37.6999,
+      "source_y": -5.0316,
+      "source_z": -239.0336,
+      "target_x": -54.4449,
+      "target_y": -5.0,
+      "target_z": -244.621,
+      "distance": 17.6525,
+      "target_level": "l10_limansk"
+    },
+    {
+      "source_x": -40.072,
+      "source_y": -6.323,
+      "source_z": -204.9775,
+      "target_x": -39.8064,
+      "target_y": -5.5575,
+      "target_z": -220.64,
+      "distance": 15.6648,
+      "target_level": "l10_limansk"
+    },
+    {
+      "source_x": -40.072,
+      "source_y": -6.323,
+      "source_z": -204.9775,
+      "target_x": -40.0197,
+      "target_y": -5.3,
+      "target_z": -180.2077,
+      "distance": 29.0641,
+      "target_level": "l10_limansk"
+    },
+    {
+      "source_x": -40.072,
+      "source_y": -6.323,
+      "source_z": -204.9775,
+      "target_x": -64.0458,
+      "target_y": -5.059,
+      "target_z": -195.611,
+      "distance": 27.8672,
+      "target_level": "l10_limansk"
+    },
+    {
+      "source_x": -27.5532,
+      "source_y": -5.0,
+      "source_z": -128.3037,
+      "target_x": -32.7218,
+      "target_y": -5.0001,
+      "target_z": -145.6805,
+      "distance": 19.4888,
+      "target_level": "l10_limansk"
+    },
+    {
+      "source_x": -27.5532,
+      "source_y": -5.0,
+      "source_z": -128.3037,
+      "target_x": -23.9122,
+      "target_y": -5.0589,
+      "target_z": -108.2299,
+      "distance": 21.6624,
+      "target_level": "l10_limansk"
+    },
+    {
+      "source_x": -27.5532,
+      "source_y": -5.0,
+      "source_z": -128.3037,
+      "target_x": -59.3305,
+      "target_y": -4.9916,
+      "target_z": -121.934,
+      "distance": 41.6138,
+      "target_level": "l10_limansk"
+    },
+    {
+      "source_x": -6.3882,
+      "source_y": -5.0022,
+      "source_z": -97.6105,
+      "target_x": 2.8,
+      "target_y": -4.9847,
+      "target_z": -82.1054,
+      "distance": 25.7219,
+      "target_level": "l10_limansk"
+    },
+    {
+      "source_x": -6.3882,
+      "source_y": -5.0022,
+      "source_z": -97.6105,
+      "target_x": -23.9122,
+      "target_y": -5.0589,
+      "target_z": -108.2299,
+      "distance": 25.454,
+      "target_level": "l10_limansk"
+    },
+    {
+      "source_x": 32.5918,
+      "source_y": 2.0812,
+      "source_z": -56.2686,
+      "target_x": 6.0711,
+      "target_y": -5.0,
+      "target_z": -53.2066,
+      "distance": 37.7055,
+      "target_level": "l10_limansk"
+    },
+    {
+      "source_x": 32.5918,
+      "source_y": 2.0812,
+      "source_z": -56.2686,
+      "target_x": 27.9739,
+      "target_y": 2.0812,
+      "target_z": -63.1025,
+      "distance": 18.6254,
+      "target_level": "l10_limansk"
+    },
+    {
+      "source_x": -69.2054,
+      "source_y": -7.0,
+      "source_z": 45.0892,
+      "target_x": -66.16,
+      "target_y": -7.0,
+      "target_z": 69.227,
+      "distance": 24.3292,
+      "target_level": "l10_limansk"
+    },
+    {
+      "source_x": -18.8848,
+      "source_y": -4.0,
+      "source_z": 105.2708,
+      "target_x": -24.9591,
+      "target_y": -4.0,
+      "target_z": 125.773,
+      "distance": 24.8025,
+      "target_level": "l10_limansk"
+    },
+    {
+      "source_x": -18.8848,
+      "source_y": -4.0,
+      "source_z": 105.2708,
+      "target_x": -66.16,
+      "target_y": -7.0,
+      "target_z": 69.227,
+      "distance": 74.3286,
+      "target_level": "l10_limansk"
+    },
+    {
+      "source_x": 9.0633,
+      "source_y": 3.0,
+      "source_z": 144.1905,
+      "target_x": -24.9591,
+      "target_y": -4.0,
+      "target_z": 125.773,
+      "distance": 44.681,
+      "target_level": "l10_limansk"
+    },
+    {
+      "source_x": 9.0633,
+      "source_y": 3.0,
+      "source_z": 144.1905,
+      "target_x": 12.4686,
+      "target_y": 12.9736,
+      "target_z": 171.331,
+      "distance": 63.1432,
+      "target_level": "l10_limansk"
+    },
+    {
+      "source_x": -24.9591,
+      "source_y": -4.0,
+      "source_z": 125.773,
+      "target_x": -18.8848,
+      "target_y": -4.0,
+      "target_z": 105.2708,
+      "distance": 22.0145,
+      "target_level": "l10_limansk"
+    },
+    {
+      "source_x": -24.9591,
+      "source_y": -4.0,
+      "source_z": 125.773,
+      "target_x": 9.0633,
+      "target_y": 3.0,
+      "target_z": 144.1905,
+      "distance": 43.2575,
+      "target_level": "l10_limansk"
+    },
+    {
+      "source_x": -24.9591,
+      "source_y": -4.0,
+      "source_z": 125.773,
+      "target_x": -23.3342,
+      "target_y": -3.9871,
+      "target_z": 155.8551,
+      "distance": 35.9411,
+      "target_level": "l10_limansk"
+    },
+    {
+      "source_x": 12.4686,
+      "source_y": 12.9736,
+      "source_z": 171.331,
+      "target_x": 9.0633,
+      "target_y": 3.0,
+      "target_z": 144.1905,
+      "distance": 63.3653,
+      "target_level": "l10_limansk"
+    },
+    {
+      "source_x": 12.4686,
+      "source_y": 12.9736,
+      "source_z": 171.331,
+      "target_x": -31.9035,
+      "target_y": 12.9728,
+      "target_z": 209.6223,
+      "distance": 75.1028,
+      "target_level": "l10_limansk"
+    },
+    {
+      "source_x": 12.4686,
+      "source_y": 12.9736,
+      "source_z": 171.331,
+      "target_x": 36.0755,
+      "target_y": 13.7033,
+      "target_z": 185.159,
+      "distance": 47.1667,
+      "target_level": "l10_limansk"
+    },
+    {
+      "source_x": 12.4686,
+      "source_y": 12.9736,
+      "source_z": 171.331,
+      "target_x": -4.19,
+      "target_y": 24.74,
+      "target_z": 183.39,
+      "distance": 77.1689,
+      "target_level": "l10_limansk"
+    },
+    {
+      "source_x": 36.6368,
+      "source_y": 12.9736,
+      "source_z": 207.0125,
+      "target_x": 40.0476,
+      "target_y": 3.3002,
+      "target_z": 244.1193,
+      "distance": 39.9746,
+      "target_level": "l10_limansk"
+    },
+    {
+      "source_x": 36.6368,
+      "source_y": 12.9736,
+      "source_z": 207.0125,
+      "target_x": -31.9035,
+      "target_y": 12.9728,
+      "target_z": 209.6223,
+      "distance": 69.6621,
+      "target_level": "l10_limansk"
+    },
+    {
+      "source_x": 40.0476,
+      "source_y": 3.3002,
+      "source_z": 244.1193,
+      "target_x": 36.6368,
+      "target_y": 12.9736,
+      "target_z": 207.0125,
+      "distance": 42.1363,
+      "target_level": "l10_limansk"
+    },
+    {
+      "source_x": 40.0476,
+      "source_y": 3.3002,
+      "source_z": 244.1193,
+      "target_x": 47.8275,
+      "target_y": 3.3002,
+      "target_z": 282.3044,
+      "distance": 38.9696,
+      "target_level": "l10_limansk"
+    },
+    {
+      "source_x": 47.8275,
+      "source_y": 3.3002,
+      "source_z": 282.3044,
+      "target_x": 40.0476,
+      "target_y": 3.3002,
+      "target_z": 244.1193,
+      "distance": 38.9696,
+      "target_level": "l10_limansk"
+    },
+    {
+      "source_x": 47.8275,
+      "source_y": 3.3002,
+      "source_z": 282.3044,
+      "target_x": 76.5022,
+      "target_y": 3.3023,
+      "target_z": 257.2094,
+      "distance": 45.8998,
+      "target_level": "l10_limansk"
+    },
+    {
+      "source_x": 47.8275,
+      "source_y": 3.3002,
+      "source_z": 282.3044,
+      "target_x": 56.5025,
+      "target_y": 3.3002,
+      "target_z": 318.2707,
+      "distance": 38.6535,
+      "target_level": "l10_limansk"
+    },
+    {
+      "source_x": 56.5025,
+      "source_y": 3.3002,
+      "source_z": 318.2707,
+      "target_x": 60.5458,
+      "target_y": 3.3002,
+      "target_z": 337.6782,
+      "distance": 37.7913,
+      "target_level": "l10_limansk"
+    },
+    {
+      "source_x": 56.5025,
+      "source_y": 3.3002,
+      "source_z": 318.2707,
+      "target_x": 47.8275,
+      "target_y": 3.3002,
+      "target_z": 282.3044,
+      "distance": 38.4442,
+      "target_level": "l10_limansk"
+    },
+    {
+      "source_x": 60.5458,
+      "source_y": 3.3002,
+      "source_z": 337.6782,
+      "target_x": 60.3613,
+      "target_y": 3.3002,
+      "target_z": 351.3481,
+      "distance": 13.6711,
+      "target_level": "l10_limansk"
+    },
+    {
+      "source_x": 60.5458,
+      "source_y": 3.3002,
+      "source_z": 337.6782,
+      "target_x": 56.5025,
+      "target_y": 3.3002,
+      "target_z": 318.2707,
+      "distance": 38.6168,
+      "target_level": "l10_limansk"
+    },
+    {
+      "source_x": 61.9,
+      "source_y": 3.3002,
+      "source_z": 378.4468,
+      "target_x": 60.3613,
+      "target_y": 3.3002,
+      "target_z": 351.3481,
+      "distance": 27.1424,
+      "target_level": "l10_limansk"
+    },
+    {
+      "source_x": 61.9,
+      "source_y": 3.3002,
+      "source_z": 378.4468,
+      "target_x": 92.6909,
+      "target_y": 3.9677,
+      "target_z": 407.5659,
+      "distance": 42.3792,
+      "target_level": "l10_limansk"
+    },
+    {
+      "source_x": 92.6909,
+      "source_y": 3.9677,
+      "source_z": 407.5659,
+      "target_x": 61.9,
+      "target_y": 3.3002,
+      "target_z": 378.4468,
+      "distance": 42.3792,
+      "target_level": "l10_limansk"
+    },
+    {
+      "source_x": 92.6909,
+      "source_y": 3.9677,
+      "source_z": 407.5659,
+      "target_x": -75.6027,
+      "target_y": 28.5955,
+      "target_z": 866.2715,
+      "distance": 1482.2007,
+      "target_level": "l11_hospital"
+    },
+    {
+      "source_x": 7.5682,
+      "source_y": -0.0078,
+      "source_z": -372.037,
+      "target_x": 12.6503,
+      "target_y": -0.0078,
+      "target_z": -383.5147,
+      "distance": 16.7854,
+      "target_level": "l10_limansk"
+    },
+    {
+      "source_x": 7.5682,
+      "source_y": -0.0078,
+      "source_z": -372.037,
+      "target_x": 5.9247,
+      "target_y": -1.0682,
+      "target_z": -330.3951,
+      "distance": 41.92,
+      "target_level": "l10_limansk"
+    },
+    {
+      "source_x": 12.6503,
+      "source_y": -0.0078,
+      "source_z": -383.5147,
+      "target_x": 7.5682,
+      "target_y": -0.0078,
+      "target_z": -372.037,
+      "distance": 16.7361,
+      "target_level": "l10_limansk"
+    },
+    {
+      "source_x": 12.6503,
+      "source_y": -0.0078,
+      "source_z": -383.5147,
+      "target_x": -201.1986,
+      "target_y": 0.1382,
+      "target_z": -332.1324,
+      "distance": 439.1673,
+      "target_level": "l10_red_forest"
+    },
+    {
+      "source_x": 35.2084,
+      "source_y": -0.0588,
+      "source_z": -287.3651,
+      "target_x": 35.5204,
+      "target_y": -0.0588,
+      "target_z": -281.9914,
+      "distance": 5.3827,
+      "target_level": "l10_limansk"
+    },
+    {
+      "source_x": 35.2084,
+      "source_y": -0.0588,
+      "source_z": -287.3651,
+      "target_x": 11.6656,
+      "target_y": 0.5751,
+      "target_z": -309.3287,
+      "distance": 33.9385,
+      "target_level": "l10_limansk"
+    },
+    {
+      "source_x": 60.3613,
+      "source_y": 3.3002,
+      "source_z": 351.3481,
+      "target_x": 60.5458,
+      "target_y": 3.3002,
+      "target_z": 337.6782,
+      "distance": 13.6711,
+      "target_level": "l10_limansk"
+    },
+    {
+      "source_x": 60.3613,
+      "source_y": 3.3002,
+      "source_z": 351.3481,
+      "target_x": 61.9,
+      "target_y": 3.3002,
+      "target_z": 378.4468,
+      "distance": 27.1424,
+      "target_level": "l10_limansk"
+    },
+    {
+      "source_x": -54.4449,
+      "source_y": -5.0,
+      "source_z": -244.621,
+      "target_x": -37.6999,
+      "target_y": -5.0316,
+      "target_z": -239.0336,
+      "distance": 17.6525,
+      "target_level": "l10_limansk"
+    },
+    {
+      "source_x": -54.4449,
+      "source_y": -5.0,
+      "source_z": -244.621,
+      "target_x": -61.6748,
+      "target_y": -5.0,
+      "target_z": -248.189,
+      "distance": 10.2004,
+      "target_level": "l10_limansk"
+    },
+    {
+      "source_x": -61.6748,
+      "source_y": -5.0,
+      "source_z": -248.189,
+      "target_x": -54.4449,
+      "target_y": -5.0,
+      "target_z": -244.621,
+      "distance": 9.652,
+      "target_level": "l10_limansk"
+    },
+    {
+      "source_x": -61.6748,
+      "source_y": -5.0,
+      "source_z": -248.189,
+      "target_x": -54.9345,
+      "target_y": -8.7625,
+      "target_z": 136.5204,
+      "distance": 615.3389,
+      "target_level": "l09_deadcity"
+    },
+    {
+      "source_x": 76.5022,
+      "source_y": 3.3023,
+      "source_z": 257.2094,
+      "target_x": 115.9158,
+      "target_y": 3.3453,
+      "target_z": 263.1573,
+      "distance": 42.7477,
+      "target_level": "l10_limansk"
+    },
+    {
+      "source_x": 76.5022,
+      "source_y": 3.3023,
+      "source_z": 257.2094,
+      "target_x": 47.8275,
+      "target_y": 3.3002,
+      "target_z": 282.3044,
+      "distance": 49.5313,
+      "target_level": "l10_limansk"
+    },
+    {
+      "source_x": 6.0711,
+      "source_y": -5.0,
+      "source_z": -53.2066,
+      "target_x": 14.5531,
+      "target_y": -6.9332,
+      "target_z": -33.3546,
+      "distance": 22.9909,
+      "target_level": "l10_limansk"
+    },
+    {
+      "source_x": 6.0711,
+      "source_y": -5.0,
+      "source_z": -53.2066,
+      "target_x": 32.5918,
+      "target_y": 2.0812,
+      "target_z": -56.2686,
+      "distance": 36.2052,
+      "target_level": "l10_limansk"
+    },
+    {
+      "source_x": 23.8173,
+      "source_y": 1.0452,
+      "source_z": 46.1321,
+      "target_x": 28.7736,
+      "target_y": -3.1994,
+      "target_z": 29.4983,
+      "distance": 43.9122,
+      "target_level": "l10_limansk"
+    },
+    {
+      "source_x": 23.8173,
+      "source_y": 1.0452,
+      "source_z": 46.1321,
+      "target_x": -66.16,
+      "target_y": -7.0,
+      "target_z": 69.227,
+      "distance": 178.993,
+      "target_level": "l10_limansk"
+    },
+    {
+      "source_x": -66.16,
+      "source_y": -7.0,
+      "source_z": 69.227,
+      "target_x": -69.2054,
+      "target_y": -7.0,
+      "target_z": 45.0892,
+      "distance": 24.3292,
+      "target_level": "l10_limansk"
+    },
+    {
+      "source_x": -66.16,
+      "source_y": -7.0,
+      "source_z": 69.227,
+      "target_x": 23.8173,
+      "target_y": 1.0452,
+      "target_z": 46.1321,
+      "distance": 173.2092,
+      "target_level": "l10_limansk"
+    },
+    {
+      "source_x": -66.16,
+      "source_y": -7.0,
+      "source_z": 69.227,
+      "target_x": -18.8848,
+      "target_y": -4.0,
+      "target_z": 105.2708,
+      "distance": 76.3035,
+      "target_level": "l10_limansk"
+    },
+    {
+      "source_x": -23.3342,
+      "source_y": -3.9871,
+      "source_z": 155.8551,
+      "target_x": -24.9591,
+      "target_y": -4.0,
+      "target_z": 125.773,
+      "distance": 39.1502,
+      "target_level": "l10_limansk"
+    },
+    {
+      "source_x": 36.0755,
+      "source_y": 13.7033,
+      "source_z": 185.159,
+      "target_x": 12.4686,
+      "target_y": 12.9736,
+      "target_z": 171.331,
+      "distance": 48.6436,
+      "target_level": "l10_limansk"
+    },
+    {
+      "source_x": -64.0458,
+      "source_y": -5.059,
+      "source_z": -195.611,
+      "target_x": -40.072,
+      "target_y": -6.323,
+      "target_z": -204.9775,
+      "distance": 30.7837,
+      "target_level": "l10_limansk"
+    },
+    {
+      "source_x": -64.0458,
+      "source_y": -5.059,
+      "source_z": -195.611,
+      "target_x": -183.2733,
+      "target_y": 1.2957,
+      "target_z": 66.4599,
+      "distance": 747.5257,
+      "target_level": "l09_deadcity"
+    },
+    {
+      "source_x": -59.3305,
+      "source_y": -4.9916,
+      "source_z": -121.934,
+      "target_x": -27.5532,
+      "target_y": -5.0,
+      "target_z": -128.3037,
+      "distance": 35.6612,
+      "target_level": "l10_limansk"
+    },
+    {
+      "source_x": -59.3305,
+      "source_y": -4.9916,
+      "source_z": -121.934,
+      "target_x": 70.7825,
+      "target_y": 4.1945,
+      "target_z": 138.4998,
+      "distance": 750.9807,
+      "target_level": "l09_deadcity"
+    },
+    {
+      "source_x": -24.5035,
+      "source_y": 1.5056,
+      "source_z": -301.276,
+      "target_x": 11.6656,
+      "target_y": 0.5751,
+      "target_z": -309.3287,
+      "distance": 39.9121,
+      "target_level": "l10_limansk"
+    },
+    {
+      "source_x": -24.5035,
+      "source_y": 1.5056,
+      "source_z": -301.276,
+      "target_x": -164.3452,
+      "target_y": 0.9812,
+      "target_z": -310.5782,
+      "distance": 510.2433,
+      "target_level": "l10_red_forest"
+    },
+    {
+      "source_x": 25.7846,
+      "source_y": -2.9926,
+      "source_z": -252.8562,
+      "target_x": 19.1488,
+      "target_y": -2.9641,
+      "target_z": -260.0197,
+      "distance": 11.644,
+      "target_level": "l10_limansk"
+    },
+    {
+      "source_x": 25.7846,
+      "source_y": -2.9926,
+      "source_z": -252.8562,
+      "target_x": -181.89,
+      "target_y": 2.1855,
+      "target_z": -265.2766,
+      "distance": 442.53,
+      "target_level": "l10_red_forest"
+    },
+    {
+      "source_x": 115.9158,
+      "source_y": 3.3453,
+      "source_z": 263.1573,
+      "target_x": 76.5022,
+      "target_y": 3.3023,
+      "target_z": 257.2094,
+      "distance": 45.0613,
+      "target_level": "l10_limansk"
+    },
+    {
+      "source_x": 115.9158,
+      "source_y": 3.3453,
+      "source_z": 263.1573,
+      "target_x": -100.4076,
+      "target_y": 32.0574,
+      "target_z": 695.9184,
+      "distance": 1448.8916,
+      "target_level": "l11_hospital"
+    },
+    {
+      "source_x": -31.9035,
+      "source_y": 12.9728,
+      "source_z": 209.6223,
+      "target_x": 12.4686,
+      "target_y": 12.9736,
+      "target_z": 171.331,
+      "distance": 71.5477,
+      "target_level": "l10_limansk"
+    },
+    {
+      "source_x": -31.9035,
+      "source_y": 12.9728,
+      "source_z": 209.6223,
+      "target_x": 36.6368,
+      "target_y": 12.9736,
+      "target_z": 207.0125,
+      "distance": 70.4136,
+      "target_level": "l10_limansk"
+    },
+    {
+      "source_x": -31.9035,
+      "source_y": 12.9728,
+      "source_z": 209.6223,
+      "target_x": -96.2735,
+      "target_y": 31.9593,
+      "target_z": 701.0187,
+      "distance": 1535.6787,
+      "target_level": "l11_hospital"
+    }
+  ]
+}

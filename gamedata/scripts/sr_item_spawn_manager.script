@@ -1,0 +1,402 @@
+--[[
+    sr_item_spawn_manager.script
+
+    One-restrictor-per-level dynamic item spawn system.
+    Reads spawn locations from dynamic_item_spawn_locations.ltx and spawns
+    items at runtime using engine's level.vertex_id() for LVID lookup.
+
+    Preserves difficulty-based spawn chance using game_difficulties.get_eco_factor()
+
+    Config file used:
+        items\settings\dynamic_item_spawn_locations.ltx
+        Format: spawn_name = category, x, y, z
+
+    Created: 2026/1/18
+    Updated: 2026/1/19 - Refactored to one restrictor per level
+--]]
+
+local enable_debug = true
+local inited = false
+local sfind = string.find
+
+-- State tables
+local spawn_locations = {}       -- [level][name] = {category, x, y, z}
+local spawned_items = {}         -- [name] = {item_id, category}
+local itm_list = {}              -- [category] = {items...}
+local limited_uses = {}          -- [section] = {min, max}
+local world_itm_on = {}          -- [id] = spawn_name
+local world_itm_num = {}         -- [name] = num (ammo count/uses/condition)
+local levels_spawned = {}        -- [level] = true if already spawned
+
+-- Debug logging
+local function print_debug(...)
+    if enable_debug then
+        printf(...)
+    end
+end
+
+-- Map markers for debug
+local marker_by_type = {
+    ["kit"] = "item_kit",
+    ["medical"] = "item_medical",
+    ["food"] = "item_food",
+    ["drink"] = "item_drink",
+    ["ammo"] = "item_ammo",
+    ["misc"] = "item_misc",
+}
+
+local function add_marker(name, section, id, typ)
+    if enable_debug and id then
+        local spot = marker_by_type[typ] or marker_by_type["misc"]
+        level.map_add_object_spot_ser(id, spot, "Name: " .. name .. " \\nType: " .. typ .. " \\nSection: " .. section)
+    end
+end
+
+local function remove_marker(id, typ)
+    if enable_debug then
+        local spot = marker_by_type[typ] or marker_by_type["misc"]
+        if (level.map_has_object_spot(id, spot) ~= 0) then
+            level.map_remove_object_spot(id, spot)
+        end
+    end
+end
+
+-------------------------------
+-- Initialization
+-------------------------------
+function init_settings()
+    if inited then return end
+    inited = true
+
+    local ini_itm = ini_file("items\\settings\\dynamic_item_spawn_locations.ltx")
+    if not ini_itm then
+        print_debug("! sr_item_spawn_manager | dynamic_item_spawn_locations.ltx not found!")
+        return
+    end
+
+    local n, m = 0, 0
+    local result, id, value = "", "", ""
+    local name, info = "", ""
+
+    -- Gather items list from categories section
+    if ini_itm:section_exist("categories") then
+        n = ini_itm:line_count("categories") or 0
+        for i = 0, n - 1 do
+            result, id, value = ini_itm:r_line_ex("categories", i, "", "")
+            itm_list[id] = {}
+
+            if ini_itm:section_exist(id) then
+                m = ini_itm:line_count(id) or 0
+                for ii = 0, m - 1 do
+                    result, name, info = ini_itm:r_line_ex(id, ii, "", "")
+                    if name and info then
+                        for j = 1, tonumber(info) or 1 do
+                            local size = #itm_list[id] + 1
+                            itm_list[id][size] = name
+                        end
+                    end
+                end
+            end
+        end
+        print_debug("- sr_item_spawn_manager | Loaded %s item categories", size_table(itm_list))
+    end
+
+    -- Gather uses (for multi-use items)
+    if ini_itm:section_exist("possible_uses") then
+        n = ini_itm:line_count("possible_uses") or 0
+        for i = 0, n - 1 do
+            result, id, value = ini_itm:r_line_ex("possible_uses", i, "", "")
+            if id and value then
+                local t = str_explode(value, ",")
+                limited_uses[id] = {tonumber(t[1]) or 1, tonumber(t[2]) or 1}
+            end
+        end
+    end
+
+    -- Gather spawn locations for all levels
+    if ini_itm:section_exist("levels") then
+        n = ini_itm:line_count("levels") or 0
+        for i = 0, n - 1 do
+            result, id, value = ini_itm:r_line_ex("levels", i, "", "")
+            if ini_itm:section_exist(id) then
+                spawn_locations[id] = {}
+                m = ini_itm:line_count(id) or 0
+                for ii = 0, m - 1 do
+                    result, name, info = ini_itm:r_line_ex(id, ii, "", "")
+                    if name and info then
+                        -- Parse: category, x, y, z
+                        local parts = str_explode(info, ",")
+                        if parts and #parts >= 4 then
+                            local category = string.gsub(parts[1], "^%s*(.-)%s*$", "%1")
+                            local x = tonumber(parts[2])
+                            local y = tonumber(parts[3])
+                            local z = tonumber(parts[4])
+                            if category and x and y and z then
+                                spawn_locations[id][name] = {
+                                    category = category,
+                                    x = x,
+                                    y = y,
+                                    z = z
+                                }
+                            end
+                        end
+                    end
+                end
+                print_debug("- sr_item_spawn_manager | Level %s: %s spawn locations", id, size_table(spawn_locations[id]))
+            end
+        end
+    end
+end
+
+-------------------------------
+-- Spawn Functions
+-------------------------------
+
+function spawn_item_at_position(name, category, pos, lvid, gvid)
+    -- Spawn a single item at the given position
+    local itm_type = itm_list[category]
+    if not itm_type or #itm_type == 0 then
+        print_debug("! sr_item_spawn_manager | No items in category: %s", category)
+        return nil
+    end
+
+    local section = itm_type[math.random(#itm_type)]
+    if not section then
+        print_debug("! sr_item_spawn_manager | Couldn't get section for category: %s", category)
+        return nil
+    end
+
+    if not ini_sys:section_exist(section) then
+        print_debug("! sr_item_spawn_manager | Section doesn't exist: %s", section)
+        return nil
+    end
+
+    -- Spawn the item
+    local se_obj = nil
+    if IsItem("ammo", section) then
+        se_obj = alife_create_item(section, {pos, lvid, gvid})
+        if se_obj then
+            local box_size = ini_sys:r_u32(section, "box_size")
+            world_itm_num[name] = math.random(math.ceil(box_size * 0.25), math.ceil(box_size * 0.75))
+        end
+    else
+        se_obj = alife_create_item(section, {pos, lvid, gvid})
+        if se_obj then
+            -- Multi-use items
+            if limited_uses[section] then
+                world_itm_num[name] = math.random(limited_uses[section][1], limited_uses[section][2])
+            -- Degradable items
+            elseif utils_item.is_degradable(nil, section) then
+                if IsItem("part", section) then
+                    world_itm_num[name] = random_choice(0.5, 0.75, 1)
+                else
+                    world_itm_num[name] = (math.random(30, 70) / 100)
+                end
+            end
+        end
+    end
+
+    if se_obj then
+        return se_obj.id, section
+    end
+
+    print_debug("! sr_item_spawn_manager | Failed to spawn item [%s] at %s", section, name)
+    return nil
+end
+
+-------------------------------
+-- Public API (called by sr_item_spawner)
+-------------------------------
+
+function spawn_all_items_for_level(level_name)
+    -- Called by sr_item_spawner scheme on first update
+    -- Spawns all items for the current level
+    init_settings()
+
+    -- Check if already spawned for this level (in this game session)
+    if levels_spawned[level_name] then
+        print_debug("/ sr_item_spawn_manager | Level %s already spawned this session", level_name)
+        return
+    end
+
+    local locations = spawn_locations[level_name]
+    if not locations then
+        print_debug("! sr_item_spawn_manager | No spawn locations for level: %s", level_name)
+        return
+    end
+
+    -- Get difficulty multiplier for spawn chance
+    local multi = game_difficulties.get_eco_factor("random_items") or 0.5
+    multi = (multi < 1) and multi or 1
+
+    -- Get actor's GVID for same-level spawns
+    local actor_gvid = db.actor:game_vertex_id()
+
+    local spawn_count = 0
+    local skip_count = 0
+
+    for name, data in pairs(locations) do
+        -- Skip if already spawned (from save/load)
+        if spawned_items[name] then
+            print_debug("/ sr_item_spawn_manager | %s already exists, skipping", name)
+            skip_count = skip_count + 1
+        else
+            -- Difficulty-based spawn chance
+            if math.random() < multi then
+                -- Create position vector
+                local pos = vector():set(data.x, data.y, data.z)
+
+                -- Get LVID from position at runtime
+                local lvid = level.vertex_id(pos)
+                if lvid == 4294967295 then
+                    -- Invalid LVID, try to find nearest valid vertex
+                    lvid = level.vertex_in_direction(level.vertex_id(db.actor:position()), pos, 1000)
+                    if lvid == 4294967295 then
+                        print_debug("! sr_item_spawn_manager | Invalid LVID for %s at %.1f, %.1f, %.1f", name, data.x, data.y, data.z)
+                        skip_count = skip_count + 1
+                        goto continue
+                    end
+                end
+
+                -- Spawn the item
+                local item_id, section = spawn_item_at_position(name, data.category, pos, lvid, actor_gvid)
+                if item_id then
+                    spawned_items[name] = {
+                        item_id = item_id,
+                        category = data.category
+                    }
+                    world_itm_on[item_id] = name
+                    spawn_count = spawn_count + 1
+                    add_marker(name, section, item_id, data.category)
+                end
+            else
+                skip_count = skip_count + 1
+            end
+        end
+        ::continue::
+    end
+
+    levels_spawned[level_name] = true
+    print_debug("/ sr_item_spawn_manager | Level %s: spawned %s items, skipped %s (multi=%s)", level_name, spawn_count, skip_count, string.format("%.2f", multi))
+end
+
+function is_restrictor_item(id)
+    -- Check if an item ID belongs to this spawn system
+    return world_itm_on[id] ~= nil
+end
+
+-------------------------------
+-- Internal functions
+-------------------------------
+
+local function get_random_location_for_respawn(exclude_level)
+    -- Find a random spawn location on a different level for respawn
+    local candidates = {}
+
+    for lvl, locations in pairs(spawn_locations) do
+        if lvl ~= exclude_level then
+            for name, data in pairs(locations) do
+                if not spawned_items[name] or not spawned_items[name].item_id then
+                    candidates[#candidates + 1] = {level = lvl, name = name, data = data}
+                end
+            end
+        end
+    end
+
+    if #candidates > 0 then
+        return candidates[math.random(#candidates)]
+    end
+
+    return nil
+end
+
+-------------------------------
+-- Callbacks
+-------------------------------
+
+local function actor_on_item_take(obj)
+    local id = obj:id()
+
+    if not world_itm_on[id] then
+        return
+    end
+
+    local name = world_itm_on[id]
+    local section = obj:section()
+    local item_data = spawned_items[name]
+
+    print_debug("- sr_item_spawn_manager | Item taken: %s from location %s", section, name)
+
+    -- Handle item state (ammo count, uses, condition)
+    local num = world_itm_num[name]
+    if num then
+        if IsItem("ammo", section) then
+            obj:ammo_set_count(num)
+            print_debug("- sr_item_spawn_manager | Ammo [%s](%s) set to %s", section, id, num)
+        elseif limited_uses[section] then
+            alife_process_item(section, id, {uses = num})
+            print_debug("- sr_item_spawn_manager | Multiuse [%s](%s) set to %s uses", section, id, num)
+        elseif utils_item.is_degradable(nil, section) then
+            alife_process_item(section, id, {cond = num})
+            print_debug("- sr_item_spawn_manager | Degradable [%s](%s) set to %s condition", section, id, num)
+        end
+        world_itm_num[name] = nil
+    end
+
+    -- Remove debug marker
+    if item_data then
+        remove_marker(id, item_data.category)
+    end
+
+    -- Clean up tracking
+    world_itm_on[id] = nil
+    if spawned_items[name] then
+        spawned_items[name].item_id = nil
+    end
+
+    -- Send message
+    if itms_manager and itms_manager.send_itm_msg then
+        itms_manager.send_itm_msg(section)
+    end
+
+    -- Find another location to spawn at (on different level)
+    local current_level = level.name()
+    local new_location = get_random_location_for_respawn(current_level)
+    if new_location then
+        print_debug("/ sr_item_spawn_manager | Respawn will happen at %s on level %s when visited", new_location.name, new_location.level)
+        -- Don't spawn immediately - will spawn when that level is visited
+        -- The level_spawned tracking ensures new items spawn on level visit
+        levels_spawned[new_location.level] = nil
+    end
+end
+
+local function save_state(m_data)
+    m_data.sr_item_spawn_spawned_items = spawned_items
+    m_data.sr_item_spawn_world_itm_on = world_itm_on
+    m_data.sr_item_spawn_world_itm_num = world_itm_num
+    m_data.sr_item_spawn_levels_spawned = levels_spawned
+    print_debug("# sr_item_spawn_manager SAVING: items [%s] - levels [%s]",
+        size_table(spawned_items), size_table(levels_spawned))
+end
+
+local function load_state(m_data)
+    spawned_items = m_data.sr_item_spawn_spawned_items or {}
+    world_itm_on = m_data.sr_item_spawn_world_itm_on or {}
+    world_itm_num = m_data.sr_item_spawn_world_itm_num or {}
+    levels_spawned = m_data.sr_item_spawn_levels_spawned or {}
+    print_debug("# sr_item_spawn_manager LOADING: items [%s] - levels [%s]",
+        size_table(spawned_items), size_table(levels_spawned))
+end
+
+-------------------------------
+-- Script entry point
+-------------------------------
+function on_game_start()
+    RegisterScriptCallback("actor_on_item_take", actor_on_item_take)
+    RegisterScriptCallback("save_state", save_state)
+    RegisterScriptCallback("load_state", load_state)
+    print_debug("- sr_item_spawn_manager | Registered callbacks")
+end
+
+-- Log that script is loaded
+printf("sr_item_spawn_manager.script LOADED")

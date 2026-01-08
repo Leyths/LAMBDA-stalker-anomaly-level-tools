@@ -1,0 +1,6409 @@
+{
+  "level_name": "l04_darkvalley",
+  "level_id": 6,
+  "edge_count": 640,
+  "intra_level_edges": 630,
+  "inter_level_edges": 10,
+  "edges": [
+    {
+      "source_x": 103.098,
+      "source_y": -1.6392,
+      "source_z": 39.4665,
+      "target_x": 98.4454,
+      "target_y": -3.5289,
+      "target_z": 58.0246,
+      "distance": 19.1324,
+      "target_level": "l04_darkvalley"
+    },
+    {
+      "source_x": 103.098,
+      "source_y": -1.6392,
+      "source_z": 39.4665,
+      "target_x": 81.2804,
+      "target_y": -0.302,
+      "target_z": 31.6773,
+      "distance": 23.1664,
+      "target_level": "l04_darkvalley"
+    },
+    {
+      "source_x": 81.3203,
+      "source_y": 0.0,
+      "source_z": -44.002,
+      "target_x": 60.1718,
+      "target_y": 0.0681,
+      "target_z": -76.86,
+      "distance": 40.2201,
+      "target_level": "l04_darkvalley"
+    },
+    {
+      "source_x": 81.3203,
+      "source_y": 0.0,
+      "source_z": -44.002,
+      "target_x": 97.7666,
+      "target_y": 0.0496,
+      "target_z": -34.2075,
+      "distance": 22.4819,
+      "target_level": "l04_darkvalley"
+    },
+    {
+      "source_x": 121.7691,
+      "source_y": 0.047,
+      "source_z": -35.7665,
+      "target_x": 118.94,
+      "target_y": 1.7291,
+      "target_z": -42.1679,
+      "distance": 11.2835,
+      "target_level": "l04_darkvalley"
+    },
+    {
+      "source_x": 121.7691,
+      "source_y": 0.047,
+      "source_z": -35.7665,
+      "target_x": 97.7666,
+      "target_y": 0.0496,
+      "target_z": -34.2075,
+      "distance": 24.4697,
+      "target_level": "l04_darkvalley"
+    },
+    {
+      "source_x": 143.0013,
+      "source_y": 5.6549,
+      "source_z": -99.17,
+      "target_x": 170.6494,
+      "target_y": -1.9738,
+      "target_z": -79.4686,
+      "distance": 49.1528,
+      "target_level": "l04_darkvalley"
+    },
+    {
+      "source_x": 143.0013,
+      "source_y": 5.6549,
+      "source_z": -99.17,
+      "target_x": 121.6567,
+      "target_y": 8.4428,
+      "target_z": -131.9069,
+      "distance": 39.0807,
+      "target_level": "l04_darkvalley"
+    },
+    {
+      "source_x": 143.0013,
+      "source_y": 5.6549,
+      "source_z": -99.17,
+      "target_x": 97.1814,
+      "target_y": 1.6537,
+      "target_z": -106.4632,
+      "distance": 49.9346,
+      "target_level": "l04_darkvalley"
+    },
+    {
+      "source_x": 168.0908,
+      "source_y": -2.6527,
+      "source_z": -102.2605,
+      "target_x": 164.3504,
+      "target_y": -2.1884,
+      "target_z": -131.1585,
+      "distance": 29.1391,
+      "target_level": "l04_darkvalley"
+    },
+    {
+      "source_x": 168.0908,
+      "source_y": -2.6527,
+      "source_z": -102.2605,
+      "target_x": 170.6494,
+      "target_y": -1.9738,
+      "target_z": -79.4686,
+      "distance": 23.2044,
+      "target_level": "l04_darkvalley"
+    },
+    {
+      "source_x": 121.6567,
+      "source_y": 8.4428,
+      "source_z": -131.9069,
+      "target_x": 142.2625,
+      "target_y": -2.0421,
+      "target_z": -138.3273,
+      "distance": 21.5829,
+      "target_level": "l04_darkvalley"
+    },
+    {
+      "source_x": 121.6567,
+      "source_y": 8.4428,
+      "source_z": -131.9069,
+      "target_x": 143.0013,
+      "target_y": 5.6549,
+      "target_z": -99.17,
+      "distance": 39.0807,
+      "target_level": "l04_darkvalley"
+    },
+    {
+      "source_x": 121.6567,
+      "source_y": 8.4428,
+      "source_z": -131.9069,
+      "target_x": 98.331,
+      "target_y": 1.8013,
+      "target_z": -115.5042,
+      "distance": 39.9531,
+      "target_level": "l04_darkvalley"
+    },
+    {
+      "source_x": 56.7885,
+      "source_y": 0.0,
+      "source_z": -108.3221,
+      "target_x": 48.5699,
+      "target_y": -0.0471,
+      "target_z": -151.6168,
+      "distance": 47.556,
+      "target_level": "l04_darkvalley"
+    },
+    {
+      "source_x": 56.7885,
+      "source_y": 0.0,
+      "source_z": -108.3221,
+      "target_x": 97.1814,
+      "target_y": 1.6537,
+      "target_z": -106.4632,
+      "distance": 40.4356,
+      "target_level": "l04_darkvalley"
+    },
+    {
+      "source_x": 56.7885,
+      "source_y": 0.0,
+      "source_z": -108.3221,
+      "target_x": 35.8602,
+      "target_y": 0.0719,
+      "target_z": -92.2919,
+      "distance": 32.4401,
+      "target_level": "l04_darkvalley"
+    },
+    {
+      "source_x": 56.7885,
+      "source_y": 0.0,
+      "source_z": -108.3221,
+      "target_x": 24.5686,
+      "target_y": -2.2402,
+      "target_z": -124.9171,
+      "distance": 39.5098,
+      "target_level": "l04_darkvalley"
+    },
+    {
+      "source_x": 32.2496,
+      "source_y": -0.2336,
+      "source_z": -162.1208,
+      "target_x": 30.0457,
+      "target_y": 0.2187,
+      "target_z": -182.1136,
+      "distance": 20.6998,
+      "target_level": "l04_darkvalley"
+    },
+    {
+      "source_x": 32.2496,
+      "source_y": -0.2336,
+      "source_z": -162.1208,
+      "target_x": 48.5699,
+      "target_y": -0.0471,
+      "target_z": -151.6168,
+      "distance": 20.4109,
+      "target_level": "l04_darkvalley"
+    },
+    {
+      "source_x": 32.2496,
+      "source_y": -0.2336,
+      "source_z": -162.1208,
+      "target_x": 34.1355,
+      "target_y": -0.6574,
+      "target_z": -141.828,
+      "distance": 20.3802,
+      "target_level": "l04_darkvalley"
+    },
+    {
+      "source_x": 32.2496,
+      "source_y": -0.2336,
+      "source_z": -162.1208,
+      "target_x": 20.1211,
+      "target_y": -0.4197,
+      "target_z": -162.9798,
+      "distance": 12.2635,
+      "target_level": "l04_darkvalley"
+    },
+    {
+      "source_x": -2.0653,
+      "source_y": 0.8562,
+      "source_z": -186.2503,
+      "target_x": 3.7848,
+      "target_y": 2.0261,
+      "target_z": -226.6013,
+      "distance": 42.0888,
+      "target_level": "l04_darkvalley"
+    },
+    {
+      "source_x": -2.0653,
+      "source_y": 0.8562,
+      "source_z": -186.2503,
+      "target_x": 26.0892,
+      "target_y": 0.1621,
+      "target_z": -190.9866,
+      "distance": 35.1051,
+      "target_level": "l04_darkvalley"
+    },
+    {
+      "source_x": -2.0653,
+      "source_y": 0.8562,
+      "source_z": -186.2503,
+      "target_x": -9.6331,
+      "target_y": 1.3805,
+      "target_z": -165.6242,
+      "distance": 29.2973,
+      "target_level": "l04_darkvalley"
+    },
+    {
+      "source_x": -2.0653,
+      "source_y": 0.8562,
+      "source_z": -186.2503,
+      "target_x": -43.4178,
+      "target_y": 0.0069,
+      "target_z": -193.8018,
+      "distance": 43.39,
+      "target_level": "l04_darkvalley"
+    },
+    {
+      "source_x": -25.2364,
+      "source_y": -1.638,
+      "source_z": -98.6794,
+      "target_x": -25.7836,
+      "target_y": 1.1876,
+      "target_z": -137.2737,
+      "distance": 39.7224,
+      "target_level": "l04_darkvalley"
+    },
+    {
+      "source_x": -25.2364,
+      "source_y": -1.638,
+      "source_z": -98.6794,
+      "target_x": -51.5354,
+      "target_y": 0.7018,
+      "target_z": -99.0476,
+      "distance": 27.1753,
+      "target_level": "l04_darkvalley"
+    },
+    {
+      "source_x": -95.7464,
+      "source_y": -0.9629,
+      "source_z": -139.5519,
+      "target_x": -112.4578,
+      "target_y": 2.3907,
+      "target_z": -177.5357,
+      "distance": 41.4975,
+      "target_level": "l04_darkvalley"
+    },
+    {
+      "source_x": -95.7464,
+      "source_y": -0.9629,
+      "source_z": -139.5519,
+      "target_x": -76.2692,
+      "target_y": 1.7792,
+      "target_z": -139.1842,
+      "distance": 19.4806,
+      "target_level": "l04_darkvalley"
+    },
+    {
+      "source_x": -95.7464,
+      "source_y": -0.9629,
+      "source_z": -139.5519,
+      "target_x": -105.875,
+      "target_y": 6.304,
+      "target_z": -103.2519,
+      "distance": 40.3224,
+      "target_level": "l04_darkvalley"
+    },
+    {
+      "source_x": -92.4948,
+      "source_y": -1.9028,
+      "source_z": -50.6614,
+      "target_x": -85.0107,
+      "target_y": -2.8125,
+      "target_z": -51.2063,
+      "distance": 7.5039,
+      "target_level": "l04_darkvalley"
+    },
+    {
+      "source_x": -92.4948,
+      "source_y": -1.9028,
+      "source_z": -50.6614,
+      "target_x": -102.355,
+      "target_y": -0.6593,
+      "target_z": -38.0709,
+      "distance": 21.162,
+      "target_level": "l04_darkvalley"
+    },
+    {
+      "source_x": -126.6126,
+      "source_y": 4.2814,
+      "source_z": -24.5455,
+      "target_x": -124.7454,
+      "target_y": 4.7767,
+      "target_z": -27.4071,
+      "distance": 3.4169,
+      "target_level": "l04_darkvalley"
+    },
+    {
+      "source_x": -126.6126,
+      "source_y": 4.2814,
+      "source_z": -24.5455,
+      "target_x": -110.0101,
+      "target_y": 1.0206,
+      "target_z": -5.3053,
+      "distance": 33.0845,
+      "target_level": "l04_darkvalley"
+    },
+    {
+      "source_x": -124.2612,
+      "source_y": 0.4442,
+      "source_z": -217.8738,
+      "target_x": -114.4202,
+      "target_y": 0.0001,
+      "target_z": -207.323,
+      "distance": 15.0811,
+      "target_level": "l04_darkvalley"
+    },
+    {
+      "source_x": -124.2612,
+      "source_y": 0.4442,
+      "source_z": -217.8738,
+      "target_x": -130.1057,
+      "target_y": -0.8097,
+      "target_z": -272.1264,
+      "distance": 54.5665,
+      "target_level": "l04_darkvalley"
+    },
+    {
+      "source_x": -56.5442,
+      "source_y": -0.6914,
+      "source_z": -218.9217,
+      "target_x": -39.1088,
+      "target_y": -3.551,
+      "target_z": -297.6086,
+      "distance": 99.9479,
+      "target_level": "l04_darkvalley"
+    },
+    {
+      "source_x": -56.5442,
+      "source_y": -0.6914,
+      "source_z": -218.9217,
+      "target_x": 3.7848,
+      "target_y": 2.0261,
+      "target_z": -226.6013,
+      "distance": 64.4628,
+      "target_level": "l04_darkvalley"
+    },
+    {
+      "source_x": -56.5442,
+      "source_y": -0.6914,
+      "source_z": -218.9217,
+      "target_x": -43.4178,
+      "target_y": 0.0069,
+      "target_z": -193.8018,
+      "distance": 28.3428,
+      "target_level": "l04_darkvalley"
+    },
+    {
+      "source_x": -56.5442,
+      "source_y": -0.6914,
+      "source_z": -218.9217,
+      "target_x": -89.0665,
+      "target_y": 0.0669,
+      "target_z": -236.086,
+      "distance": 46.877,
+      "target_level": "l04_darkvalley"
+    },
+    {
+      "source_x": -56.5442,
+      "source_y": -0.6914,
+      "source_z": -218.9217,
+      "target_x": -104.1373,
+      "target_y": 4.6678,
+      "target_z": -189.304,
+      "distance": 65.5148,
+      "target_level": "l04_darkvalley"
+    },
+    {
+      "source_x": 27.2509,
+      "source_y": 0.0096,
+      "source_z": -226.0981,
+      "target_x": 24.3139,
+      "target_y": 0.3207,
+      "target_z": -242.3971,
+      "distance": 16.5615,
+      "target_level": "l04_darkvalley"
+    },
+    {
+      "source_x": 27.2509,
+      "source_y": 0.0096,
+      "source_z": -226.0981,
+      "target_x": 28.8551,
+      "target_y": 0.054,
+      "target_z": -224.9719,
+      "distance": 1.96,
+      "target_level": "l04_darkvalley"
+    },
+    {
+      "source_x": 158.2373,
+      "source_y": -3.7961,
+      "source_z": -147.2342,
+      "target_x": 164.3504,
+      "target_y": -2.1884,
+      "target_z": -131.1585,
+      "distance": 17.1988,
+      "target_level": "l04_darkvalley"
+    },
+    {
+      "source_x": 158.2373,
+      "source_y": -3.7961,
+      "source_z": -147.2342,
+      "target_x": 142.2625,
+      "target_y": -2.0421,
+      "target_z": -138.3273,
+      "distance": 26.2883,
+      "target_level": "l04_darkvalley"
+    },
+    {
+      "source_x": 136.0274,
+      "source_y": 0.1941,
+      "source_z": -185.6565,
+      "target_x": 142.2625,
+      "target_y": -2.0421,
+      "target_z": -138.3273,
+      "distance": 50.9687,
+      "target_level": "l04_darkvalley"
+    },
+    {
+      "source_x": 136.0274,
+      "source_y": 0.1941,
+      "source_z": -185.6565,
+      "target_x": 96.7667,
+      "target_y": 0.038,
+      "target_z": -244.3445,
+      "distance": 78.0553,
+      "target_level": "l04_darkvalley"
+    },
+    {
+      "source_x": 136.0274,
+      "source_y": 0.1941,
+      "source_z": -185.6565,
+      "target_x": 80.1016,
+      "target_y": 4.8232,
+      "target_z": -180.8233,
+      "distance": 61.4518,
+      "target_level": "l04_darkvalley"
+    },
+    {
+      "source_x": 78.6573,
+      "source_y": 3.4737,
+      "source_z": -225.0188,
+      "target_x": 96.7667,
+      "target_y": 0.038,
+      "target_z": -244.3445,
+      "distance": 32.8198,
+      "target_level": "l04_darkvalley"
+    },
+    {
+      "source_x": 78.6573,
+      "source_y": 3.4737,
+      "source_z": -225.0188,
+      "target_x": 80.1016,
+      "target_y": 4.8232,
+      "target_z": -180.8233,
+      "distance": 44.2192,
+      "target_level": "l04_darkvalley"
+    },
+    {
+      "source_x": 78.6573,
+      "source_y": 3.4737,
+      "source_z": -225.0188,
+      "target_x": 48.488,
+      "target_y": 0.0314,
+      "target_z": -237.6585,
+      "distance": 32.71,
+      "target_level": "l04_darkvalley"
+    },
+    {
+      "source_x": 104.483,
+      "source_y": 0.1535,
+      "source_z": -255.4825,
+      "target_x": 100.8151,
+      "target_y": 0.1535,
+      "target_z": -267.5989,
+      "distance": 12.6594,
+      "target_level": "l04_darkvalley"
+    },
+    {
+      "source_x": 104.483,
+      "source_y": 0.1535,
+      "source_z": -255.4825,
+      "target_x": 118.7937,
+      "target_y": 0.1652,
+      "target_z": -255.3408,
+      "distance": 14.3114,
+      "target_level": "l04_darkvalley"
+    },
+    {
+      "source_x": 104.483,
+      "source_y": 0.1535,
+      "source_z": -255.4825,
+      "target_x": 92.2505,
+      "target_y": 0.1454,
+      "target_z": -253.8331,
+      "distance": 12.3433,
+      "target_level": "l04_darkvalley"
+    },
+    {
+      "source_x": 136.3161,
+      "source_y": 0.1567,
+      "source_z": -276.6876,
+      "target_x": 173.6517,
+      "target_y": 0.0676,
+      "target_z": -271.6282,
+      "distance": 64.1409,
+      "target_level": "l04_darkvalley"
+    },
+    {
+      "source_x": 136.3161,
+      "source_y": 0.1567,
+      "source_z": -276.6876,
+      "target_x": 118.7937,
+      "target_y": 0.1652,
+      "target_z": -255.3408,
+      "distance": 37.3062,
+      "target_level": "l04_darkvalley"
+    },
+    {
+      "source_x": -89.0665,
+      "source_y": 0.0669,
+      "source_z": -236.086,
+      "target_x": -75.3974,
+      "target_y": 0.7977,
+      "target_z": -314.9982,
+      "distance": 82.0396,
+      "target_level": "l04_darkvalley"
+    },
+    {
+      "source_x": -89.0665,
+      "source_y": 0.0669,
+      "source_z": -236.086,
+      "target_x": -56.5442,
+      "target_y": -0.6914,
+      "target_z": -218.9217,
+      "distance": 38.6625,
+      "target_level": "l04_darkvalley"
+    },
+    {
+      "source_x": -89.0665,
+      "source_y": 0.0669,
+      "source_z": -236.086,
+      "target_x": -114.4202,
+      "target_y": 0.0001,
+      "target_z": -207.323,
+      "distance": 38.3421,
+      "target_level": "l04_darkvalley"
+    },
+    {
+      "source_x": -12.5345,
+      "source_y": -4.211,
+      "source_z": -287.0579,
+      "target_x": 47.6539,
+      "target_y": 0.0,
+      "target_z": -281.4101,
+      "distance": 62.7582,
+      "target_level": "l04_darkvalley"
+    },
+    {
+      "source_x": -12.5345,
+      "source_y": -4.211,
+      "source_z": -287.0579,
+      "target_x": -16.5064,
+      "target_y": -4.6701,
+      "target_z": -268.0298,
+      "distance": 19.6113,
+      "target_level": "l04_darkvalley"
+    },
+    {
+      "source_x": 17.1741,
+      "source_y": 1.7288,
+      "source_z": -331.7631,
+      "target_x": 7.2828,
+      "target_y": -4.249,
+      "target_z": -379.2773,
+      "distance": 50.6536,
+      "target_level": "l04_darkvalley"
+    },
+    {
+      "source_x": 17.1741,
+      "source_y": 1.7288,
+      "source_z": -331.7631,
+      "target_x": 47.6539,
+      "target_y": 0.0,
+      "target_z": -281.4101,
+      "distance": 58.8595,
+      "target_level": "l04_darkvalley"
+    },
+    {
+      "source_x": 17.1741,
+      "source_y": 1.7288,
+      "source_z": -331.7631,
+      "target_x": -57.9374,
+      "target_y": -2.6256,
+      "target_z": -349.5783,
+      "distance": 85.7337,
+      "target_level": "l04_darkvalley"
+    },
+    {
+      "source_x": 44.0683,
+      "source_y": -4.7774,
+      "source_z": -368.7924,
+      "target_x": 97.2084,
+      "target_y": -0.6534,
+      "target_z": -364.1708,
+      "distance": 80.6534,
+      "target_level": "l04_darkvalley"
+    },
+    {
+      "source_x": 92.124,
+      "source_y": -0.2621,
+      "source_z": -405.043,
+      "target_x": 79.9104,
+      "target_y": 0.3886,
+      "target_z": -432.4337,
+      "distance": 29.9904,
+      "target_level": "l04_darkvalley"
+    },
+    {
+      "source_x": 92.124,
+      "source_y": -0.2621,
+      "source_z": -405.043,
+      "target_x": 116.8616,
+      "target_y": 4.2921,
+      "target_z": -424.8288,
+      "distance": 52.2163,
+      "target_level": "l04_darkvalley"
+    },
+    {
+      "source_x": 92.124,
+      "source_y": -0.2621,
+      "source_z": -405.043,
+      "target_x": 104.7669,
+      "target_y": 2.5711,
+      "target_z": -386.1987,
+      "distance": 35.5027,
+      "target_level": "l04_darkvalley"
+    },
+    {
+      "source_x": 92.124,
+      "source_y": -0.2621,
+      "source_z": -405.043,
+      "target_x": 7.2828,
+      "target_y": -4.249,
+      "target_z": -379.2773,
+      "distance": 103.6084,
+      "target_level": "l04_darkvalley"
+    },
+    {
+      "source_x": 116.8616,
+      "source_y": 4.2921,
+      "source_z": -424.8288,
+      "target_x": 117.9497,
+      "target_y": 2.9963,
+      "target_z": -461.9858,
+      "distance": 39.042,
+      "target_level": "l04_darkvalley"
+    },
+    {
+      "source_x": 116.8616,
+      "source_y": 4.2921,
+      "source_z": -424.8288,
+      "target_x": 92.124,
+      "target_y": -0.2621,
+      "target_z": -405.043,
+      "distance": 39.0055,
+      "target_level": "l04_darkvalley"
+    },
+    {
+      "source_x": 116.8616,
+      "source_y": 4.2921,
+      "source_z": -424.8288,
+      "target_x": 85.0193,
+      "target_y": 0.8449,
+      "target_z": -438.3608,
+      "distance": 42.3383,
+      "target_level": "l04_darkvalley"
+    },
+    {
+      "source_x": 85.0193,
+      "source_y": 0.8449,
+      "source_z": -438.3608,
+      "target_x": 105.0191,
+      "target_y": 2.3,
+      "target_z": -464.5038,
+      "distance": 39.5991,
+      "target_level": "l04_darkvalley"
+    },
+    {
+      "source_x": 85.0193,
+      "source_y": 0.8449,
+      "source_z": -438.3608,
+      "target_x": 116.8616,
+      "target_y": 4.2921,
+      "target_z": -424.8288,
+      "distance": 44.9384,
+      "target_level": "l04_darkvalley"
+    },
+    {
+      "source_x": 85.0193,
+      "source_y": 0.8449,
+      "source_z": -438.3608,
+      "target_x": 79.9104,
+      "target_y": 0.3886,
+      "target_z": -432.4337,
+      "distance": 7.825,
+      "target_level": "l04_darkvalley"
+    },
+    {
+      "source_x": 85.0193,
+      "source_y": 0.8449,
+      "source_z": -438.3608,
+      "target_x": 61.4536,
+      "target_y": 0.2975,
+      "target_z": -483.6239,
+      "distance": 51.0303,
+      "target_level": "l04_darkvalley"
+    },
+    {
+      "source_x": 26.3916,
+      "source_y": 1.3934,
+      "source_z": -470.3649,
+      "target_x": 61.4536,
+      "target_y": 0.2975,
+      "target_z": -483.6239,
+      "distance": 37.4853,
+      "target_level": "l04_darkvalley"
+    },
+    {
+      "source_x": 26.3916,
+      "source_y": 1.3934,
+      "source_z": -470.3649,
+      "target_x": -26.7041,
+      "target_y": 0.3587,
+      "target_z": -415.8766,
+      "distance": 93.9033,
+      "target_level": "l04_darkvalley"
+    },
+    {
+      "source_x": 26.3916,
+      "source_y": 1.3934,
+      "source_z": -470.3649,
+      "target_x": -3.6145,
+      "target_y": 1.1805,
+      "target_z": -499.2252,
+      "distance": 53.337,
+      "target_level": "l04_darkvalley"
+    },
+    {
+      "source_x": -26.7041,
+      "source_y": 0.3587,
+      "source_z": -415.8766,
+      "target_x": -32.7418,
+      "target_y": -0.8196,
+      "target_z": -480.6001,
+      "distance": 67.9777,
+      "target_level": "l04_darkvalley"
+    },
+    {
+      "source_x": -26.7041,
+      "source_y": 0.3587,
+      "source_z": -415.8766,
+      "target_x": 26.3916,
+      "target_y": 1.3934,
+      "target_z": -470.3649,
+      "distance": 104.1072,
+      "target_level": "l04_darkvalley"
+    },
+    {
+      "source_x": -26.7041,
+      "source_y": 0.3587,
+      "source_z": -415.8766,
+      "target_x": -37.0116,
+      "target_y": 0.3834,
+      "target_z": -403.3008,
+      "distance": 16.2602,
+      "target_level": "l04_darkvalley"
+    },
+    {
+      "source_x": 7.2828,
+      "source_y": -4.249,
+      "source_z": -379.2773,
+      "target_x": 92.124,
+      "target_y": -0.2621,
+      "target_z": -405.043,
+      "distance": 104.5913,
+      "target_level": "l04_darkvalley"
+    },
+    {
+      "source_x": 7.2828,
+      "source_y": -4.249,
+      "source_z": -379.2773,
+      "target_x": 17.1741,
+      "target_y": 1.7288,
+      "target_z": -331.7631,
+      "distance": 53.1278,
+      "target_level": "l04_darkvalley"
+    },
+    {
+      "source_x": 7.2828,
+      "source_y": -4.249,
+      "source_z": -379.2773,
+      "target_x": -37.0116,
+      "target_y": 0.3834,
+      "target_z": -403.3008,
+      "distance": 65.5036,
+      "target_level": "l04_darkvalley"
+    },
+    {
+      "source_x": -82.9173,
+      "source_y": 1.0806,
+      "source_z": -406.7915,
+      "target_x": -37.0116,
+      "target_y": 0.3834,
+      "target_z": -403.3008,
+      "distance": 46.0382,
+      "target_level": "l04_darkvalley"
+    },
+    {
+      "source_x": -82.9173,
+      "source_y": 1.0806,
+      "source_z": -406.7915,
+      "target_x": -87.7167,
+      "target_y": 1.0676,
+      "target_z": -399.7574,
+      "distance": 8.5154,
+      "target_level": "l04_darkvalley"
+    },
+    {
+      "source_x": -57.9478,
+      "source_y": -0.9778,
+      "source_z": -363.4128,
+      "target_x": -73.7473,
+      "target_y": -2.1272,
+      "target_z": -383.2673,
+      "distance": 34.8489,
+      "target_level": "l04_darkvalley"
+    },
+    {
+      "source_x": -57.9478,
+      "source_y": -0.9778,
+      "source_z": -363.4128,
+      "target_x": -60.8089,
+      "target_y": -1.3096,
+      "target_z": -362.7472,
+      "distance": 2.9375,
+      "target_level": "l04_darkvalley"
+    },
+    {
+      "source_x": -109.8415,
+      "source_y": 2.3116,
+      "source_z": -390.045,
+      "target_x": -112.304,
+      "target_y": 2.7844,
+      "target_z": -398.67,
+      "distance": 8.9696,
+      "target_level": "l04_darkvalley"
+    },
+    {
+      "source_x": -109.8415,
+      "source_y": 2.3116,
+      "source_z": -390.045,
+      "target_x": -120.5451,
+      "target_y": 2.8756,
+      "target_z": -369.317,
+      "distance": 23.3285,
+      "target_level": "l04_darkvalley"
+    },
+    {
+      "source_x": -156.7376,
+      "source_y": 0.0463,
+      "source_z": -383.0984,
+      "target_x": -157.8739,
+      "target_y": -0.0554,
+      "target_z": -380.8174,
+      "distance": 2.5485,
+      "target_level": "l04_darkvalley"
+    },
+    {
+      "source_x": -156.7376,
+      "source_y": 0.0463,
+      "source_z": -383.0984,
+      "target_x": -121.3234,
+      "target_y": 2.2788,
+      "target_z": -415.9587,
+      "distance": 48.4859,
+      "target_level": "l04_darkvalley"
+    },
+    {
+      "source_x": -156.7376,
+      "source_y": 0.0463,
+      "source_z": -383.0984,
+      "target_x": -120.5451,
+      "target_y": 2.8756,
+      "target_z": -369.317,
+      "distance": 47.9787,
+      "target_level": "l04_darkvalley"
+    },
+    {
+      "source_x": -150.8967,
+      "source_y": 0.1456,
+      "source_z": -344.0612,
+      "target_x": -145.2028,
+      "target_y": -0.2013,
+      "target_z": -349.3821,
+      "distance": 7.7931,
+      "target_level": "l04_darkvalley"
+    },
+    {
+      "source_x": -150.8967,
+      "source_y": 0.1456,
+      "source_z": -344.0612,
+      "target_x": -139.794,
+      "target_y": -2.1108,
+      "target_z": -321.5521,
+      "distance": 32.1686,
+      "target_level": "l04_darkvalley"
+    },
+    {
+      "source_x": -112.551,
+      "source_y": 0.3257,
+      "source_z": -435.5219,
+      "target_x": -114.9842,
+      "target_y": -0.2786,
+      "target_z": -443.4689,
+      "distance": 8.3111,
+      "target_level": "l04_darkvalley"
+    },
+    {
+      "source_x": -112.551,
+      "source_y": 0.3257,
+      "source_z": -435.5219,
+      "target_x": -106.491,
+      "target_y": 3.5141,
+      "target_z": -412.1801,
+      "distance": 29.0206,
+      "target_level": "l04_darkvalley"
+    },
+    {
+      "source_x": -112.551,
+      "source_y": 0.3257,
+      "source_z": -435.5219,
+      "target_x": -121.5347,
+      "target_y": 0.9496,
+      "target_z": -428.2554,
+      "distance": 11.5546,
+      "target_level": "l04_darkvalley"
+    },
+    {
+      "source_x": -135.409,
+      "source_y": 0.2116,
+      "source_z": -455.9993,
+      "target_x": -111.7049,
+      "target_y": 0.1347,
+      "target_z": -459.6959,
+      "distance": 23.9906,
+      "target_level": "l04_darkvalley"
+    },
+    {
+      "source_x": -135.409,
+      "source_y": 0.2116,
+      "source_z": -455.9993,
+      "target_x": -114.9842,
+      "target_y": -0.2786,
+      "target_z": -443.4689,
+      "distance": 27.4124,
+      "target_level": "l04_darkvalley"
+    },
+    {
+      "source_x": -118.3203,
+      "source_y": 0.576,
+      "source_z": -503.9921,
+      "target_x": -116.0439,
+      "target_y": 0.7662,
+      "target_z": -503.842,
+      "distance": 2.2814,
+      "target_level": "l04_darkvalley"
+    },
+    {
+      "source_x": -0.3264,
+      "source_y": 0.1164,
+      "source_z": -518.7126,
+      "target_x": 80.2512,
+      "target_y": 1.4118,
+      "target_z": -514.0513,
+      "distance": 80.7123,
+      "target_level": "l04_darkvalley"
+    },
+    {
+      "source_x": -0.3264,
+      "source_y": 0.1164,
+      "source_z": -518.7126,
+      "target_x": -3.6145,
+      "target_y": 1.1805,
+      "target_z": -499.2252,
+      "distance": 19.7629,
+      "target_level": "l04_darkvalley"
+    },
+    {
+      "source_x": 169.0892,
+      "source_y": 3.8845,
+      "source_z": -34.5116,
+      "target_x": 170.6494,
+      "target_y": -1.9738,
+      "target_z": -79.4686,
+      "distance": 45.5756,
+      "target_level": "l04_darkvalley"
+    },
+    {
+      "source_x": 169.0892,
+      "source_y": 3.8845,
+      "source_z": -34.5116,
+      "target_x": 152.545,
+      "target_y": 5.4032,
+      "target_z": -29.659,
+      "distance": 17.2411,
+      "target_level": "l04_darkvalley"
+    },
+    {
+      "source_x": -107.0629,
+      "source_y": 3.201,
+      "source_z": -325.7496,
+      "target_x": -120.5451,
+      "target_y": 2.8756,
+      "target_z": -369.317,
+      "distance": 45.6057,
+      "target_level": "l04_darkvalley"
+    },
+    {
+      "source_x": -107.0629,
+      "source_y": 3.201,
+      "source_z": -325.7496,
+      "target_x": -90.0179,
+      "target_y": 2.0191,
+      "target_z": -335.3279,
+      "distance": 19.5519,
+      "target_level": "l04_darkvalley"
+    },
+    {
+      "source_x": -107.0629,
+      "source_y": 3.201,
+      "source_z": -325.7496,
+      "target_x": -102.5455,
+      "target_y": 2.4823,
+      "target_z": -314.9011,
+      "distance": 11.7515,
+      "target_level": "l04_darkvalley"
+    },
+    {
+      "source_x": -107.0629,
+      "source_y": 3.201,
+      "source_z": -325.7496,
+      "target_x": -139.794,
+      "target_y": -2.1108,
+      "target_z": -321.5521,
+      "distance": 34.0387,
+      "target_level": "l04_darkvalley"
+    },
+    {
+      "source_x": -0.0821,
+      "source_y": -0.3691,
+      "source_z": 16.243,
+      "target_x": 12.6573,
+      "target_y": 0.1579,
+      "target_z": 0.4773,
+      "distance": 20.2693,
+      "target_level": "l04_darkvalley"
+    },
+    {
+      "source_x": -0.0821,
+      "source_y": -0.3691,
+      "source_z": 16.243,
+      "target_x": -11.4652,
+      "target_y": 0.1099,
+      "target_z": 10.7788,
+      "distance": 13.4776,
+      "target_level": "l04_darkvalley"
+    },
+    {
+      "source_x": -0.0821,
+      "source_y": -0.3691,
+      "source_z": 16.243,
+      "target_x": 2.0067,
+      "target_y": 0.0953,
+      "target_z": 26.795,
+      "distance": 12.8613,
+      "target_level": "l04_darkvalley"
+    },
+    {
+      "source_x": -163.9819,
+      "source_y": 2.178,
+      "source_z": -180.0625,
+      "target_x": -183.3465,
+      "target_y": 3.2492,
+      "target_z": -190.696,
+      "distance": 25.358,
+      "target_level": "l04_darkvalley"
+    },
+    {
+      "source_x": -163.9819,
+      "source_y": 2.178,
+      "source_z": -180.0625,
+      "target_x": -120.2324,
+      "target_y": 0.334,
+      "target_z": -176.7954,
+      "distance": 48.2173,
+      "target_level": "l04_darkvalley"
+    },
+    {
+      "source_x": 139.9958,
+      "source_y": -0.8337,
+      "source_z": 48.9345,
+      "target_x": 151.9637,
+      "target_y": 2.2482,
+      "target_z": 15.7297,
+      "distance": 35.5042,
+      "target_level": "l04_darkvalley"
+    },
+    {
+      "source_x": 139.9958,
+      "source_y": -0.8337,
+      "source_z": 48.9345,
+      "target_x": 161.7277,
+      "target_y": 2.7891,
+      "target_z": 56.7821,
+      "distance": 23.1054,
+      "target_level": "l04_darkvalley"
+    },
+    {
+      "source_x": 139.9958,
+      "source_y": -0.8337,
+      "source_z": 48.9345,
+      "target_x": 98.4454,
+      "target_y": -3.5289,
+      "target_z": 58.0246,
+      "distance": 49.3631,
+      "target_level": "l04_darkvalley"
+    },
+    {
+      "source_x": 161.7277,
+      "source_y": 2.7891,
+      "source_z": 56.7821,
+      "target_x": 176.3907,
+      "target_y": 7.429,
+      "target_z": 45.4702,
+      "distance": 19.2872,
+      "target_level": "l04_darkvalley"
+    },
+    {
+      "source_x": 161.7277,
+      "source_y": 2.7891,
+      "source_z": 56.7821,
+      "target_x": 139.9958,
+      "target_y": -0.8337,
+      "target_z": 48.9345,
+      "distance": 23.1054,
+      "target_level": "l04_darkvalley"
+    },
+    {
+      "source_x": 95.8852,
+      "source_y": 0.703,
+      "source_z": -5.5228,
+      "target_x": 107.193,
+      "target_y": 4.223,
+      "target_z": -4.3071,
+      "distance": 29.2058,
+      "target_level": "l04_darkvalley"
+    },
+    {
+      "source_x": 95.8852,
+      "source_y": 0.703,
+      "source_z": -5.5228,
+      "target_x": 97.7666,
+      "target_y": 0.0496,
+      "target_z": -34.2075,
+      "distance": 45.9935,
+      "target_level": "l04_darkvalley"
+    },
+    {
+      "source_x": 95.8852,
+      "source_y": 0.703,
+      "source_z": -5.5228,
+      "target_x": 94.2054,
+      "target_y": -0.0158,
+      "target_z": 1.7057,
+      "distance": 19.0844,
+      "target_level": "l04_darkvalley"
+    },
+    {
+      "source_x": 157.5029,
+      "source_y": 10.3155,
+      "source_z": -262.3782,
+      "target_x": 143.5706,
+      "target_y": 10.314,
+      "target_z": -259.5346,
+      "distance": 14.4277,
+      "target_level": "l04_darkvalley"
+    },
+    {
+      "source_x": -54.0231,
+      "source_y": -2.7693,
+      "source_z": -142.8375,
+      "target_x": -69.4607,
+      "target_y": 0.6541,
+      "target_z": -136.0741,
+      "distance": 17.9466,
+      "target_level": "l04_darkvalley"
+    },
+    {
+      "source_x": -35.0161,
+      "source_y": 0.0869,
+      "source_z": -3.3988,
+      "target_x": -20.775,
+      "target_y": 0.1064,
+      "target_z": -5.3811,
+      "distance": 14.4722,
+      "target_level": "l04_darkvalley"
+    },
+    {
+      "source_x": -35.0161,
+      "source_y": 0.0869,
+      "source_z": -3.3988,
+      "target_x": -63.0711,
+      "target_y": -0.7074,
+      "target_z": -4.2059,
+      "distance": 28.1624,
+      "target_level": "l04_darkvalley"
+    },
+    {
+      "source_x": 39.8677,
+      "source_y": 0.0372,
+      "source_z": 28.0458,
+      "target_x": 43.939,
+      "target_y": 0.0871,
+      "target_z": 18.3874,
+      "distance": 12.5952,
+      "target_level": "l04_darkvalley"
+    },
+    {
+      "source_x": 39.8677,
+      "source_y": 0.0372,
+      "source_z": 28.0458,
+      "target_x": 41.519,
+      "target_y": 0.0372,
+      "target_z": 29.4939,
+      "distance": 2.1964,
+      "target_level": "l04_darkvalley"
+    },
+    {
+      "source_x": 39.8677,
+      "source_y": 0.0372,
+      "source_z": 28.0458,
+      "target_x": 2.0067,
+      "target_y": 0.0953,
+      "target_z": 26.795,
+      "distance": 40.2966,
+      "target_level": "l04_darkvalley"
+    },
+    {
+      "source_x": 6.4269,
+      "source_y": 1.2386,
+      "source_z": -29.5171,
+      "target_x": 16.8645,
+      "target_y": 1.9579,
+      "target_z": -29.431,
+      "distance": 10.4379,
+      "target_level": "l04_darkvalley"
+    },
+    {
+      "source_x": 6.4269,
+      "source_y": 1.2386,
+      "source_z": -29.5171,
+      "target_x": 6.2413,
+      "target_y": 1.235,
+      "target_z": -27.0037,
+      "distance": 2.5203,
+      "target_level": "l04_darkvalley"
+    },
+    {
+      "source_x": 146.4208,
+      "source_y": 0.2335,
+      "source_z": -261.1205,
+      "target_x": 144.4583,
+      "target_y": 0.165,
+      "target_z": -263.2901,
+      "distance": 2.9255,
+      "target_level": "l04_darkvalley"
+    },
+    {
+      "source_x": 146.4208,
+      "source_y": 0.2335,
+      "source_z": -261.1205,
+      "target_x": 158.1063,
+      "target_y": 0.2335,
+      "target_z": -268.4466,
+      "distance": 19.4118,
+      "target_level": "l04_darkvalley"
+    },
+    {
+      "source_x": 146.4208,
+      "source_y": 0.2335,
+      "source_z": -261.1205,
+      "target_x": 146.4068,
+      "target_y": 0.2335,
+      "target_z": -229.5362,
+      "distance": 32.3124,
+      "target_level": "l04_darkvalley"
+    },
+    {
+      "source_x": 146.4208,
+      "source_y": 0.2335,
+      "source_z": -261.1205,
+      "target_x": 126.4454,
+      "target_y": -2.8384,
+      "target_z": -271.9975,
+      "distance": 44.249,
+      "target_level": "l04_darkvalley"
+    },
+    {
+      "source_x": 47.6539,
+      "source_y": 0.0,
+      "source_z": -281.4101,
+      "target_x": 38.9407,
+      "target_y": 0.0344,
+      "target_z": -253.7461,
+      "distance": 36.8532,
+      "target_level": "l04_darkvalley"
+    },
+    {
+      "source_x": 47.6539,
+      "source_y": 0.0,
+      "source_z": -281.4101,
+      "target_x": 17.1741,
+      "target_y": 1.7288,
+      "target_z": -331.7631,
+      "distance": 58.8595,
+      "target_level": "l04_darkvalley"
+    },
+    {
+      "source_x": 47.6539,
+      "source_y": 0.0,
+      "source_z": -281.4101,
+      "target_x": 11.9481,
+      "target_y": -4.3835,
+      "target_z": -253.4918,
+      "distance": 45.3247,
+      "target_level": "l04_darkvalley"
+    },
+    {
+      "source_x": 47.6539,
+      "source_y": 0.0,
+      "source_z": -281.4101,
+      "target_x": -12.5345,
+      "target_y": -4.211,
+      "target_z": -287.0579,
+      "distance": 66.4954,
+      "target_level": "l04_darkvalley"
+    },
+    {
+      "source_x": -13.2028,
+      "source_y": 0.0,
+      "source_z": 11.9535,
+      "target_x": -11.4652,
+      "target_y": 0.1099,
+      "target_z": 10.7788,
+      "distance": 2.0974,
+      "target_level": "l04_darkvalley"
+    },
+    {
+      "source_x": -13.2028,
+      "source_y": 0.0,
+      "source_z": 11.9535,
+      "target_x": -20.775,
+      "target_y": 0.1064,
+      "target_z": -5.3811,
+      "distance": 19.845,
+      "target_level": "l04_darkvalley"
+    },
+    {
+      "source_x": 143.5706,
+      "source_y": 10.314,
+      "source_z": -259.5346,
+      "target_x": 157.5029,
+      "target_y": 10.3155,
+      "target_z": -262.3782,
+      "distance": 14.3577,
+      "target_level": "l04_darkvalley"
+    },
+    {
+      "source_x": 143.5706,
+      "source_y": 10.314,
+      "source_z": -259.5346,
+      "target_x": 146.3544,
+      "target_y": 5.7738,
+      "target_z": -261.149,
+      "distance": 3.2181,
+      "target_level": "l04_darkvalley"
+    },
+    {
+      "source_x": -9.6331,
+      "source_y": 1.3805,
+      "source_z": -165.6242,
+      "target_x": -2.0653,
+      "target_y": 0.8562,
+      "target_z": -186.2503,
+      "distance": 31.1159,
+      "target_level": "l04_darkvalley"
+    },
+    {
+      "source_x": -9.6331,
+      "source_y": 1.3805,
+      "source_z": -165.6242,
+      "target_x": 20.1211,
+      "target_y": -0.4197,
+      "target_z": -162.9798,
+      "distance": 33.1718,
+      "target_level": "l04_darkvalley"
+    },
+    {
+      "source_x": -9.6331,
+      "source_y": 1.3805,
+      "source_z": -165.6242,
+      "target_x": -25.7836,
+      "target_y": 1.1876,
+      "target_z": -137.2737,
+      "distance": 44.8936,
+      "target_level": "l04_darkvalley"
+    },
+    {
+      "source_x": -139.794,
+      "source_y": -2.1108,
+      "source_z": -321.5521,
+      "target_x": -107.0629,
+      "target_y": 3.201,
+      "target_z": -325.7496,
+      "distance": 34.2955,
+      "target_level": "l04_darkvalley"
+    },
+    {
+      "source_x": -139.794,
+      "source_y": -2.1108,
+      "source_z": -321.5521,
+      "target_x": -130.1057,
+      "target_y": -0.8097,
+      "target_z": -272.1264,
+      "distance": 57.0926,
+      "target_level": "l04_darkvalley"
+    },
+    {
+      "source_x": -139.794,
+      "source_y": -2.1108,
+      "source_z": -321.5521,
+      "target_x": -150.8967,
+      "target_y": 0.1456,
+      "target_z": -344.0612,
+      "distance": 25.6207,
+      "target_level": "l04_darkvalley"
+    },
+    {
+      "source_x": -139.794,
+      "source_y": -2.1108,
+      "source_z": -321.5521,
+      "target_x": -167.9809,
+      "target_y": 4.7444,
+      "target_z": -306.0225,
+      "distance": 43.1945,
+      "target_level": "l04_darkvalley"
+    },
+    {
+      "source_x": -157.8739,
+      "source_y": -0.0554,
+      "source_z": -380.8174,
+      "target_x": -156.7376,
+      "target_y": 0.0463,
+      "target_z": -383.0984,
+      "distance": 2.5485,
+      "target_level": "l04_darkvalley"
+    },
+    {
+      "source_x": -157.8739,
+      "source_y": -0.0554,
+      "source_z": -380.8174,
+      "target_x": -143.8757,
+      "target_y": -1.3683,
+      "target_z": -359.332,
+      "distance": 32.155,
+      "target_level": "l04_darkvalley"
+    },
+    {
+      "source_x": -60.8089,
+      "source_y": -1.3096,
+      "source_z": -362.7472,
+      "target_x": -57.9478,
+      "target_y": -0.9778,
+      "target_z": -363.4128,
+      "distance": 2.9375,
+      "target_level": "l04_darkvalley"
+    },
+    {
+      "source_x": -60.8089,
+      "source_y": -1.3096,
+      "source_z": -362.7472,
+      "target_x": -88.3717,
+      "target_y": -0.0757,
+      "target_z": -371.8731,
+      "distance": 31.5933,
+      "target_level": "l04_darkvalley"
+    },
+    {
+      "source_x": -60.8089,
+      "source_y": -1.3096,
+      "source_z": -362.7472,
+      "target_x": -57.9374,
+      "target_y": -2.6256,
+      "target_z": -349.5783,
+      "distance": 14.0302,
+      "target_level": "l04_darkvalley"
+    },
+    {
+      "source_x": -116.0439,
+      "source_y": 0.7662,
+      "source_z": -503.842,
+      "target_x": -118.3203,
+      "target_y": 0.576,
+      "target_z": -503.9921,
+      "distance": 2.2814,
+      "target_level": "l04_darkvalley"
+    },
+    {
+      "source_x": -116.0439,
+      "source_y": 0.7662,
+      "source_z": -503.842,
+      "target_x": -113.8681,
+      "target_y": 0.6921,
+      "target_z": -492.9849,
+      "distance": 11.1634,
+      "target_level": "l04_darkvalley"
+    },
+    {
+      "source_x": -45.511,
+      "source_y": 0.4357,
+      "source_z": -510.2578,
+      "target_x": -44.8162,
+      "target_y": 0.4348,
+      "target_z": -542.5803,
+      "distance": 35.411,
+      "target_level": "l04_darkvalley"
+    },
+    {
+      "source_x": -45.511,
+      "source_y": 0.4357,
+      "source_z": -510.2578,
+      "target_x": -32.7418,
+      "target_y": -0.8196,
+      "target_z": -480.6001,
+      "distance": 42.7703,
+      "target_level": "l04_darkvalley"
+    },
+    {
+      "source_x": 28.8551,
+      "source_y": 0.054,
+      "source_z": -224.9719,
+      "target_x": 27.2509,
+      "target_y": 0.0096,
+      "target_z": -226.0981,
+      "distance": 1.96,
+      "target_level": "l04_darkvalley"
+    },
+    {
+      "source_x": 28.8551,
+      "source_y": 0.054,
+      "source_z": -224.9719,
+      "target_x": 26.0892,
+      "target_y": 0.1621,
+      "target_z": -190.9866,
+      "distance": 34.0977,
+      "target_level": "l04_darkvalley"
+    },
+    {
+      "source_x": -11.4652,
+      "source_y": 0.1099,
+      "source_z": 10.7788,
+      "target_x": -0.0821,
+      "target_y": -0.3691,
+      "target_z": 16.243,
+      "distance": 14.6992,
+      "target_level": "l04_darkvalley"
+    },
+    {
+      "source_x": -11.4652,
+      "source_y": 0.1099,
+      "source_z": 10.7788,
+      "target_x": -13.2028,
+      "target_y": 0.0,
+      "target_z": 11.9535,
+      "distance": 2.0974,
+      "target_level": "l04_darkvalley"
+    },
+    {
+      "source_x": 6.2413,
+      "source_y": 1.235,
+      "source_z": -27.0037,
+      "target_x": 6.4269,
+      "target_y": 1.2386,
+      "target_z": -29.5171,
+      "distance": 2.5203,
+      "target_level": "l04_darkvalley"
+    },
+    {
+      "source_x": 6.2413,
+      "source_y": 1.235,
+      "source_z": -27.0037,
+      "target_x": 3.5755,
+      "target_y": 1.1744,
+      "target_z": -12.7185,
+      "distance": 14.5317,
+      "target_level": "l04_darkvalley"
+    },
+    {
+      "source_x": 41.519,
+      "source_y": 0.0372,
+      "source_z": 29.4939,
+      "target_x": 39.8677,
+      "target_y": 0.0372,
+      "target_z": 28.0458,
+      "distance": 2.1964,
+      "target_level": "l04_darkvalley"
+    },
+    {
+      "source_x": 24.5949,
+      "source_y": 0.1149,
+      "source_z": -2.7912,
+      "target_x": 30.4432,
+      "target_y": 0.1296,
+      "target_z": -14.8555,
+      "distance": 13.4071,
+      "target_level": "l04_darkvalley"
+    },
+    {
+      "source_x": 24.5949,
+      "source_y": 0.1149,
+      "source_z": -2.7912,
+      "target_x": 25.1775,
+      "target_y": 0.087,
+      "target_z": 2.7726,
+      "distance": 5.5942,
+      "target_level": "l04_darkvalley"
+    },
+    {
+      "source_x": 24.5949,
+      "source_y": 0.1149,
+      "source_z": -2.7912,
+      "target_x": 12.6573,
+      "target_y": 0.1579,
+      "target_z": 0.4773,
+      "distance": 12.5878,
+      "target_level": "l04_darkvalley"
+    },
+    {
+      "source_x": 118.7937,
+      "source_y": 0.1652,
+      "source_z": -255.3408,
+      "target_x": 136.3161,
+      "target_y": 0.1567,
+      "target_z": -276.6876,
+      "distance": 33.7184,
+      "target_level": "l04_darkvalley"
+    },
+    {
+      "source_x": 118.7937,
+      "source_y": 0.1652,
+      "source_z": -255.3408,
+      "target_x": 146.4068,
+      "target_y": 0.2335,
+      "target_z": -229.5362,
+      "distance": 44.8944,
+      "target_level": "l04_darkvalley"
+    },
+    {
+      "source_x": 118.7937,
+      "source_y": 0.1652,
+      "source_z": -255.3408,
+      "target_x": 104.483,
+      "target_y": 0.1535,
+      "target_z": -255.4825,
+      "distance": 14.3114,
+      "target_level": "l04_darkvalley"
+    },
+    {
+      "source_x": 96.7667,
+      "source_y": 0.038,
+      "source_z": -244.3445,
+      "target_x": 92.2505,
+      "target_y": 0.1454,
+      "target_z": -253.8331,
+      "distance": 11.7694,
+      "target_level": "l04_darkvalley"
+    },
+    {
+      "source_x": 96.7667,
+      "source_y": 0.038,
+      "source_z": -244.3445,
+      "target_x": 136.0274,
+      "target_y": 0.1941,
+      "target_z": -185.6565,
+      "distance": 93.5676,
+      "target_level": "l04_darkvalley"
+    },
+    {
+      "source_x": 96.7667,
+      "source_y": 0.038,
+      "source_z": -244.3445,
+      "target_x": 78.6573,
+      "target_y": 3.4737,
+      "target_z": -225.0188,
+      "distance": 31.014,
+      "target_level": "l04_darkvalley"
+    },
+    {
+      "source_x": 146.4068,
+      "source_y": 0.2335,
+      "source_z": -229.5362,
+      "target_x": 146.4208,
+      "target_y": 0.2335,
+      "target_z": -261.1205,
+      "distance": 34.305,
+      "target_level": "l04_darkvalley"
+    },
+    {
+      "source_x": 146.4068,
+      "source_y": 0.2335,
+      "source_z": -229.5362,
+      "target_x": 118.7937,
+      "target_y": 0.1652,
+      "target_z": -255.3408,
+      "distance": 46.9771,
+      "target_level": "l04_darkvalley"
+    },
+    {
+      "source_x": 157.576,
+      "source_y": 5.7835,
+      "source_z": -265.1353,
+      "target_x": 158.1063,
+      "target_y": 0.2335,
+      "target_z": -268.4466,
+      "distance": 3.3535,
+      "target_level": "l04_darkvalley"
+    },
+    {
+      "source_x": 157.576,
+      "source_y": 5.7835,
+      "source_z": -265.1353,
+      "target_x": 154.675,
+      "target_y": 5.8335,
+      "target_z": -264.6845,
+      "distance": 2.9358,
+      "target_level": "l04_darkvalley"
+    },
+    {
+      "source_x": 154.675,
+      "source_y": 5.8335,
+      "source_z": -264.6845,
+      "target_x": 157.576,
+      "target_y": 5.7835,
+      "target_z": -265.1353,
+      "distance": 2.9358,
+      "target_level": "l04_darkvalley"
+    },
+    {
+      "source_x": 154.675,
+      "source_y": 5.8335,
+      "source_z": -264.6845,
+      "target_x": 146.3544,
+      "target_y": 5.7738,
+      "target_z": -261.149,
+      "distance": 11.758,
+      "target_level": "l04_darkvalley"
+    },
+    {
+      "source_x": 173.6517,
+      "source_y": 0.0676,
+      "source_z": -271.6282,
+      "target_x": 173.5415,
+      "target_y": 0.0676,
+      "target_z": -275.3002,
+      "distance": 3.6737,
+      "target_level": "l04_darkvalley"
+    },
+    {
+      "source_x": 173.6517,
+      "source_y": 0.0676,
+      "source_z": -271.6282,
+      "target_x": 175.2892,
+      "target_y": 0.166,
+      "target_z": -254.4324,
+      "distance": 23.6956,
+      "target_level": "l04_darkvalley"
+    },
+    {
+      "source_x": 173.6517,
+      "source_y": 0.0676,
+      "source_z": -271.6282,
+      "target_x": 136.3161,
+      "target_y": 0.1567,
+      "target_z": -276.6876,
+      "distance": 54.2509,
+      "target_level": "l04_darkvalley"
+    },
+    {
+      "source_x": 173.5415,
+      "source_y": 0.0676,
+      "source_z": -275.3002,
+      "target_x": 173.6517,
+      "target_y": 0.0676,
+      "target_z": -271.6282,
+      "distance": 3.6737,
+      "target_level": "l04_darkvalley"
+    },
+    {
+      "source_x": 146.3544,
+      "source_y": 5.7738,
+      "source_z": -261.149,
+      "target_x": 154.675,
+      "target_y": 5.8335,
+      "target_z": -264.6845,
+      "distance": 12.503,
+      "target_level": "l04_darkvalley"
+    },
+    {
+      "source_x": 146.3544,
+      "source_y": 5.7738,
+      "source_z": -261.149,
+      "target_x": 143.5706,
+      "target_y": 10.314,
+      "target_z": -259.5346,
+      "distance": 3.2181,
+      "target_level": "l04_darkvalley"
+    },
+    {
+      "source_x": 146.3544,
+      "source_y": 5.7738,
+      "source_z": -261.149,
+      "target_x": 148.3723,
+      "target_y": 5.8335,
+      "target_z": -247.2394,
+      "distance": 16.8735,
+      "target_level": "l04_darkvalley"
+    },
+    {
+      "source_x": 148.3723,
+      "source_y": 5.8335,
+      "source_z": -247.2394,
+      "target_x": 146.3544,
+      "target_y": 5.7738,
+      "target_z": -261.149,
+      "distance": 17.2013,
+      "target_level": "l04_darkvalley"
+    },
+    {
+      "source_x": 144.4583,
+      "source_y": 0.165,
+      "source_z": -263.2901,
+      "target_x": 146.4208,
+      "target_y": 0.2335,
+      "target_z": -261.1205,
+      "distance": 2.9255,
+      "target_level": "l04_darkvalley"
+    },
+    {
+      "source_x": 158.1063,
+      "source_y": 0.2335,
+      "source_z": -268.4466,
+      "target_x": 157.576,
+      "target_y": 5.7835,
+      "target_z": -265.1353,
+      "distance": 3.3535,
+      "target_level": "l04_darkvalley"
+    },
+    {
+      "source_x": 158.1063,
+      "source_y": 0.2335,
+      "source_z": -268.4466,
+      "target_x": 146.4208,
+      "target_y": 0.2335,
+      "target_z": -261.1205,
+      "distance": 17.8181,
+      "target_level": "l04_darkvalley"
+    },
+    {
+      "source_x": 107.193,
+      "source_y": 4.223,
+      "source_z": -4.3071,
+      "target_x": 95.8852,
+      "target_y": 0.703,
+      "target_z": -5.5228,
+      "distance": 29.2498,
+      "target_level": "l04_darkvalley"
+    },
+    {
+      "source_x": 118.94,
+      "source_y": 1.7291,
+      "source_z": -42.1679,
+      "target_x": 121.7691,
+      "target_y": 0.047,
+      "target_z": -35.7665,
+      "distance": 11.6851,
+      "target_level": "l04_darkvalley"
+    },
+    {
+      "source_x": -68.5148,
+      "source_y": 1.4919,
+      "source_z": -120.9332,
+      "target_x": -63.2606,
+      "target_y": -0.3264,
+      "target_z": -125.5955,
+      "distance": 7.0245,
+      "target_level": "l04_darkvalley"
+    },
+    {
+      "source_x": -68.5148,
+      "source_y": 1.4919,
+      "source_z": -120.9332,
+      "target_x": -51.5354,
+      "target_y": 0.7018,
+      "target_z": -99.0476,
+      "distance": 35.9818,
+      "target_level": "l04_darkvalley"
+    },
+    {
+      "source_x": -68.5148,
+      "source_y": 1.4919,
+      "source_z": -120.9332,
+      "target_x": -91.6904,
+      "target_y": 5.1421,
+      "target_z": -92.9999,
+      "distance": 36.2956,
+      "target_level": "l04_darkvalley"
+    },
+    {
+      "source_x": -71.2595,
+      "source_y": 3.71,
+      "source_z": -163.1081,
+      "target_x": -43.4178,
+      "target_y": 0.0069,
+      "target_z": -193.8018,
+      "distance": 55.1334,
+      "target_level": "l04_darkvalley"
+    },
+    {
+      "source_x": -71.2595,
+      "source_y": 3.71,
+      "source_z": -163.1081,
+      "target_x": -76.2692,
+      "target_y": 1.7792,
+      "target_z": -139.1842,
+      "distance": 24.4428,
+      "target_level": "l04_darkvalley"
+    },
+    {
+      "source_x": -71.2595,
+      "source_y": 3.71,
+      "source_z": -163.1081,
+      "target_x": -104.1373,
+      "target_y": 4.6678,
+      "target_z": -189.304,
+      "distance": 42.0378,
+      "target_level": "l04_darkvalley"
+    },
+    {
+      "source_x": -91.6904,
+      "source_y": 5.1421,
+      "source_z": -92.9999,
+      "target_x": -68.5148,
+      "target_y": 1.4919,
+      "target_z": -120.9332,
+      "distance": 36.2956,
+      "target_level": "l04_darkvalley"
+    },
+    {
+      "source_x": -91.6904,
+      "source_y": 5.1421,
+      "source_z": -92.9999,
+      "target_x": -105.875,
+      "target_y": 6.304,
+      "target_z": -103.2519,
+      "distance": 17.5016,
+      "target_level": "l04_darkvalley"
+    },
+    {
+      "source_x": -54.9929,
+      "source_y": 0.5437,
+      "source_z": -63.1625,
+      "target_x": -51.5354,
+      "target_y": 0.7018,
+      "target_z": -99.0476,
+      "distance": 36.0512,
+      "target_level": "l04_darkvalley"
+    },
+    {
+      "source_x": -54.9929,
+      "source_y": 0.5437,
+      "source_z": -63.1625,
+      "target_x": -66.3933,
+      "target_y": -2.3217,
+      "target_z": -43.7167,
+      "distance": 22.8907,
+      "target_level": "l04_darkvalley"
+    },
+    {
+      "source_x": -126.8286,
+      "source_y": 7.1509,
+      "source_z": -53.6437,
+      "target_x": -117.2492,
+      "target_y": 4.4031,
+      "target_z": -74.6168,
+      "distance": 31.8157,
+      "target_level": "l04_darkvalley"
+    },
+    {
+      "source_x": -126.8286,
+      "source_y": 7.1509,
+      "source_z": -53.6437,
+      "target_x": -124.7454,
+      "target_y": 4.7767,
+      "target_z": -27.4071,
+      "distance": 27.6142,
+      "target_level": "l04_darkvalley"
+    },
+    {
+      "source_x": -75.8879,
+      "source_y": -2.547,
+      "source_z": 32.8876,
+      "target_x": -84.1643,
+      "target_y": -5.3565,
+      "target_z": 21.6216,
+      "distance": 13.9793,
+      "target_level": "l04_darkvalley"
+    },
+    {
+      "source_x": -75.8879,
+      "source_y": -2.547,
+      "source_z": 32.8876,
+      "target_x": -65.9996,
+      "target_y": 0.7709,
+      "target_z": 77.8623,
+      "distance": 46.974,
+      "target_level": "l04_darkvalley"
+    },
+    {
+      "source_x": -46.378,
+      "source_y": -0.1736,
+      "source_z": 70.8293,
+      "target_x": 33.1563,
+      "target_y": 4.4293,
+      "target_z": 86.7381,
+      "distance": 87.5715,
+      "target_level": "l04_darkvalley"
+    },
+    {
+      "source_x": -46.378,
+      "source_y": -0.1736,
+      "source_z": 70.8293,
+      "target_x": -65.9996,
+      "target_y": 0.7709,
+      "target_z": 77.8623,
+      "distance": 21.0658,
+      "target_level": "l04_darkvalley"
+    },
+    {
+      "source_x": 33.1563,
+      "source_y": 4.4293,
+      "source_z": 86.7381,
+      "target_x": 75.7557,
+      "target_y": 0.8919,
+      "target_z": 97.6187,
+      "distance": 43.967,
+      "target_level": "l04_darkvalley"
+    },
+    {
+      "source_x": 33.1563,
+      "source_y": 4.4293,
+      "source_z": 86.7381,
+      "target_x": -46.378,
+      "target_y": -0.1736,
+      "target_z": 70.8293,
+      "distance": 83.1111,
+      "target_level": "l04_darkvalley"
+    },
+    {
+      "source_x": 95.3481,
+      "source_y": -0.2432,
+      "source_z": 84.1544,
+      "target_x": 98.4454,
+      "target_y": -3.5289,
+      "target_z": 58.0246,
+      "distance": 26.3127,
+      "target_level": "l04_darkvalley"
+    },
+    {
+      "source_x": 95.3481,
+      "source_y": -0.2432,
+      "source_z": 84.1544,
+      "target_x": 75.7557,
+      "target_y": 0.8919,
+      "target_z": 97.6187,
+      "distance": 23.7728,
+      "target_level": "l04_darkvalley"
+    },
+    {
+      "source_x": 151.9637,
+      "source_y": 2.2482,
+      "source_z": 15.7297,
+      "target_x": 147.4489,
+      "target_y": 2.9856,
+      "target_z": -0.0047,
+      "distance": 17.73,
+      "target_level": "l04_darkvalley"
+    },
+    {
+      "source_x": 151.9637,
+      "source_y": 2.2482,
+      "source_z": 15.7297,
+      "target_x": 139.9958,
+      "target_y": -0.8337,
+      "target_z": 48.9345,
+      "distance": 36.4435,
+      "target_level": "l04_darkvalley"
+    },
+    {
+      "source_x": 152.545,
+      "source_y": 5.4032,
+      "source_z": -29.659,
+      "target_x": 169.0892,
+      "target_y": 3.8845,
+      "target_z": -34.5116,
+      "distance": 17.2411,
+      "target_level": "l04_darkvalley"
+    },
+    {
+      "source_x": 152.545,
+      "source_y": 5.4032,
+      "source_z": -29.659,
+      "target_x": 147.4489,
+      "target_y": 2.9856,
+      "target_z": -0.0047,
+      "distance": 30.0891,
+      "target_level": "l04_darkvalley"
+    },
+    {
+      "source_x": 97.1814,
+      "source_y": 1.6537,
+      "source_z": -106.4632,
+      "target_x": 98.331,
+      "target_y": 1.8013,
+      "target_z": -115.5042,
+      "distance": 9.1137,
+      "target_level": "l04_darkvalley"
+    },
+    {
+      "source_x": 97.1814,
+      "source_y": 1.6537,
+      "source_z": -106.4632,
+      "target_x": 143.0013,
+      "target_y": 5.6549,
+      "target_z": -99.17,
+      "distance": 46.9647,
+      "target_level": "l04_darkvalley"
+    },
+    {
+      "source_x": 97.1814,
+      "source_y": 1.6537,
+      "source_z": -106.4632,
+      "target_x": 56.7885,
+      "target_y": 0.0,
+      "target_z": -108.3221,
+      "distance": 40.4356,
+      "target_level": "l04_darkvalley"
+    },
+    {
+      "source_x": -43.4178,
+      "source_y": 0.0069,
+      "source_z": -193.8018,
+      "target_x": -56.5442,
+      "target_y": -0.6914,
+      "target_z": -218.9217,
+      "distance": 28.3428,
+      "target_level": "l04_darkvalley"
+    },
+    {
+      "source_x": -43.4178,
+      "source_y": 0.0069,
+      "source_z": -193.8018,
+      "target_x": -2.0653,
+      "target_y": 0.8562,
+      "target_z": -186.2503,
+      "distance": 47.0103,
+      "target_level": "l04_darkvalley"
+    },
+    {
+      "source_x": -43.4178,
+      "source_y": 0.0069,
+      "source_z": -193.8018,
+      "target_x": -71.2595,
+      "target_y": 3.71,
+      "target_z": -163.1081,
+      "distance": 54.8321,
+      "target_level": "l04_darkvalley"
+    },
+    {
+      "source_x": 132.7234,
+      "source_y": 13.8016,
+      "source_z": -367.87,
+      "target_x": 172.4939,
+      "target_y": 9.1086,
+      "target_z": -359.5283,
+      "distance": 40.6359,
+      "target_level": "l04_darkvalley"
+    },
+    {
+      "source_x": 132.7234,
+      "source_y": 13.8016,
+      "source_z": -367.87,
+      "target_x": 101.8602,
+      "target_y": 1.7334,
+      "target_z": -358.1476,
+      "distance": 32.3583,
+      "target_level": "l04_darkvalley"
+    },
+    {
+      "source_x": 172.4939,
+      "source_y": 9.1086,
+      "source_z": -359.5283,
+      "target_x": 189.3785,
+      "target_y": 4.5911,
+      "target_z": -366.87,
+      "distance": 18.4117,
+      "target_level": "l04_darkvalley"
+    },
+    {
+      "source_x": 172.4939,
+      "source_y": 9.1086,
+      "source_z": -359.5283,
+      "target_x": 132.7234,
+      "target_y": 13.8016,
+      "target_z": -367.87,
+      "distance": 40.6359,
+      "target_level": "l04_darkvalley"
+    },
+    {
+      "source_x": 133.0008,
+      "source_y": 3.8369,
+      "source_z": -457.403,
+      "target_x": 114.4401,
+      "target_y": 3.2597,
+      "target_z": -501.8386,
+      "distance": 62.0426,
+      "target_level": "l04_darkvalley"
+    },
+    {
+      "source_x": 133.0008,
+      "source_y": 3.8369,
+      "source_z": -457.403,
+      "target_x": 117.9497,
+      "target_y": 2.9963,
+      "target_z": -461.9858,
+      "distance": 20.1014,
+      "target_level": "l04_darkvalley"
+    },
+    {
+      "source_x": 81.0702,
+      "source_y": 1.2881,
+      "source_z": -500.4331,
+      "target_x": 80.2512,
+      "target_y": 1.4118,
+      "target_z": -514.0513,
+      "distance": 13.6428,
+      "target_level": "l04_darkvalley"
+    },
+    {
+      "source_x": 81.0702,
+      "source_y": 1.2881,
+      "source_z": -500.4331,
+      "target_x": 114.4401,
+      "target_y": 3.2597,
+      "target_z": -501.8386,
+      "distance": 33.8776,
+      "target_level": "l04_darkvalley"
+    },
+    {
+      "source_x": 81.0702,
+      "source_y": 1.2881,
+      "source_z": -500.4331,
+      "target_x": 61.4536,
+      "target_y": 0.2975,
+      "target_z": -483.6239,
+      "distance": 25.8333,
+      "target_level": "l04_darkvalley"
+    },
+    {
+      "source_x": 95.7218,
+      "source_y": 0.4878,
+      "source_z": -342.7332,
+      "target_x": 101.8602,
+      "target_y": 1.7334,
+      "target_z": -358.1476,
+      "distance": 16.5917,
+      "target_level": "l04_darkvalley"
+    },
+    {
+      "source_x": 95.7218,
+      "source_y": 0.4878,
+      "source_z": -342.7332,
+      "target_x": 100.8151,
+      "target_y": 0.1535,
+      "target_z": -267.5989,
+      "distance": 80.0668,
+      "target_level": "l04_darkvalley"
+    },
+    {
+      "source_x": -104.1373,
+      "source_y": 4.6678,
+      "source_z": -189.304,
+      "target_x": -114.4202,
+      "target_y": 0.0001,
+      "target_z": -207.323,
+      "distance": 24.9133,
+      "target_level": "l04_darkvalley"
+    },
+    {
+      "source_x": -104.1373,
+      "source_y": 4.6678,
+      "source_z": -189.304,
+      "target_x": -56.5442,
+      "target_y": -0.6914,
+      "target_z": -218.9217,
+      "distance": 58.9111,
+      "target_level": "l04_darkvalley"
+    },
+    {
+      "source_x": -104.1373,
+      "source_y": 4.6678,
+      "source_z": -189.304,
+      "target_x": -71.2595,
+      "target_y": 3.71,
+      "target_z": -163.1081,
+      "distance": 42.0378,
+      "target_level": "l04_darkvalley"
+    },
+    {
+      "source_x": -104.1373,
+      "source_y": 4.6678,
+      "source_z": -189.304,
+      "target_x": -112.4578,
+      "target_y": 2.3907,
+      "target_z": -177.5357,
+      "distance": 14.4126,
+      "target_level": "l04_darkvalley"
+    },
+    {
+      "source_x": 0.7623,
+      "source_y": 0.0935,
+      "source_z": 35.8373,
+      "target_x": 2.0067,
+      "target_y": 0.0953,
+      "target_z": 26.795,
+      "distance": 9.1276,
+      "target_level": "l04_darkvalley"
+    },
+    {
+      "source_x": 2.0067,
+      "source_y": 0.0953,
+      "source_z": 26.795,
+      "target_x": -0.0821,
+      "target_y": -0.3691,
+      "target_z": 16.243,
+      "distance": 12.5086,
+      "target_level": "l04_darkvalley"
+    },
+    {
+      "source_x": 2.0067,
+      "source_y": 0.0953,
+      "source_z": 26.795,
+      "target_x": 39.8677,
+      "target_y": 0.0372,
+      "target_z": 28.0458,
+      "distance": 47.347,
+      "target_level": "l04_darkvalley"
+    },
+    {
+      "source_x": 2.0067,
+      "source_y": 0.0953,
+      "source_z": 26.795,
+      "target_x": 0.7623,
+      "target_y": 0.0935,
+      "target_z": 35.8373,
+      "distance": 9.1276,
+      "target_level": "l04_darkvalley"
+    },
+    {
+      "source_x": 25.1775,
+      "source_y": 0.087,
+      "source_z": 2.7726,
+      "target_x": 24.5949,
+      "target_y": 0.1149,
+      "target_z": -2.7912,
+      "distance": 5.5942,
+      "target_level": "l04_darkvalley"
+    },
+    {
+      "source_x": 25.1775,
+      "source_y": 0.087,
+      "source_z": 2.7726,
+      "target_x": 42.0353,
+      "target_y": 0.8948,
+      "target_z": -21.0768,
+      "distance": 41.041,
+      "target_level": "l04_darkvalley"
+    },
+    {
+      "source_x": 3.5755,
+      "source_y": 1.1744,
+      "source_z": -12.7185,
+      "target_x": 6.2413,
+      "target_y": 1.235,
+      "target_z": -27.0037,
+      "distance": 14.5317,
+      "target_level": "l04_darkvalley"
+    },
+    {
+      "source_x": 3.5755,
+      "source_y": 1.1744,
+      "source_z": -12.7185,
+      "target_x": 12.6573,
+      "target_y": 0.1579,
+      "target_z": 0.4773,
+      "distance": 18.5736,
+      "target_level": "l04_darkvalley"
+    },
+    {
+      "source_x": 16.0762,
+      "source_y": 6.1952,
+      "source_z": -26.6091,
+      "target_x": 16.8645,
+      "target_y": 1.9579,
+      "target_z": -29.431,
+      "distance": 2.9299,
+      "target_level": "l04_darkvalley"
+    },
+    {
+      "source_x": 16.0762,
+      "source_y": 6.1952,
+      "source_z": -26.6091,
+      "target_x": 34.6316,
+      "target_y": 6.1748,
+      "target_z": -20.3694,
+      "distance": 21.6601,
+      "target_level": "l04_darkvalley"
+    },
+    {
+      "source_x": 16.8645,
+      "source_y": 1.9579,
+      "source_z": -29.431,
+      "target_x": 16.0762,
+      "target_y": 6.1952,
+      "target_z": -26.6091,
+      "distance": 2.9299,
+      "target_level": "l04_darkvalley"
+    },
+    {
+      "source_x": 16.8645,
+      "source_y": 1.9579,
+      "source_z": -29.431,
+      "target_x": 6.4269,
+      "target_y": 1.2386,
+      "target_z": -29.5171,
+      "distance": 10.4379,
+      "target_level": "l04_darkvalley"
+    },
+    {
+      "source_x": 71.0251,
+      "source_y": 0.0473,
+      "source_z": 15.138,
+      "target_x": 79.5016,
+      "target_y": 0.0474,
+      "target_z": 5.1091,
+      "distance": 13.1312,
+      "target_level": "l04_darkvalley"
+    },
+    {
+      "source_x": 71.0251,
+      "source_y": 0.0473,
+      "source_z": 15.138,
+      "target_x": 81.2804,
+      "target_y": -0.302,
+      "target_z": 31.6773,
+      "distance": 19.4608,
+      "target_level": "l04_darkvalley"
+    },
+    {
+      "source_x": 71.0251,
+      "source_y": 0.0473,
+      "source_z": 15.138,
+      "target_x": 64.517,
+      "target_y": 0.0326,
+      "target_z": 15.1169,
+      "distance": 6.5081,
+      "target_level": "l04_darkvalley"
+    },
+    {
+      "source_x": 81.2804,
+      "source_y": -0.302,
+      "source_z": 31.6773,
+      "target_x": 71.0251,
+      "target_y": 0.0473,
+      "target_z": 15.138,
+      "distance": 19.4608,
+      "target_level": "l04_darkvalley"
+    },
+    {
+      "source_x": 81.2804,
+      "source_y": -0.302,
+      "source_z": 31.6773,
+      "target_x": 103.098,
+      "target_y": -1.6392,
+      "target_z": 39.4665,
+      "distance": 23.1664,
+      "target_level": "l04_darkvalley"
+    },
+    {
+      "source_x": 64.517,
+      "source_y": 0.0326,
+      "source_z": 15.1169,
+      "target_x": 63.0477,
+      "target_y": 0.0663,
+      "target_z": -1.4592,
+      "distance": 16.6502,
+      "target_level": "l04_darkvalley"
+    },
+    {
+      "source_x": 64.517,
+      "source_y": 0.0326,
+      "source_z": 15.1169,
+      "target_x": 71.0251,
+      "target_y": 0.0473,
+      "target_z": 15.138,
+      "distance": 6.5081,
+      "target_level": "l04_darkvalley"
+    },
+    {
+      "source_x": 64.517,
+      "source_y": 0.0326,
+      "source_z": 15.1169,
+      "target_x": 43.939,
+      "target_y": 0.0871,
+      "target_z": 18.3874,
+      "distance": 24.7488,
+      "target_level": "l04_darkvalley"
+    },
+    {
+      "source_x": 43.939,
+      "source_y": 0.0871,
+      "source_z": 18.3874,
+      "target_x": 40.9533,
+      "target_y": 0.0925,
+      "target_z": -5.0448,
+      "distance": 23.6217,
+      "target_level": "l04_darkvalley"
+    },
+    {
+      "source_x": 43.939,
+      "source_y": 0.0871,
+      "source_z": 18.3874,
+      "target_x": 64.517,
+      "target_y": 0.0326,
+      "target_z": 15.1169,
+      "distance": 25.1781,
+      "target_level": "l04_darkvalley"
+    },
+    {
+      "source_x": 43.939,
+      "source_y": 0.0871,
+      "source_z": 18.3874,
+      "target_x": 39.8677,
+      "target_y": 0.0372,
+      "target_z": 28.0458,
+      "distance": 12.6403,
+      "target_level": "l04_darkvalley"
+    },
+    {
+      "source_x": 12.6573,
+      "source_y": 0.1579,
+      "source_z": 0.4773,
+      "target_x": 24.5949,
+      "target_y": 0.1149,
+      "target_z": -2.7912,
+      "distance": 12.541,
+      "target_level": "l04_darkvalley"
+    },
+    {
+      "source_x": 12.6573,
+      "source_y": 0.1579,
+      "source_z": 0.4773,
+      "target_x": 3.5755,
+      "target_y": 1.1744,
+      "target_z": -12.7185,
+      "distance": 18.5736,
+      "target_level": "l04_darkvalley"
+    },
+    {
+      "source_x": 12.6573,
+      "source_y": 0.1579,
+      "source_z": 0.4773,
+      "target_x": -0.0821,
+      "target_y": -0.3691,
+      "target_z": 16.243,
+      "distance": 20.2693,
+      "target_level": "l04_darkvalley"
+    },
+    {
+      "source_x": 12.6573,
+      "source_y": 0.1579,
+      "source_z": 0.4773,
+      "target_x": -20.775,
+      "target_y": 0.1064,
+      "target_z": -5.3811,
+      "distance": 41.7218,
+      "target_level": "l04_darkvalley"
+    },
+    {
+      "source_x": -20.775,
+      "source_y": 0.1064,
+      "source_z": -5.3811,
+      "target_x": 12.6573,
+      "target_y": 0.1579,
+      "target_z": 0.4773,
+      "distance": 42.4515,
+      "target_level": "l04_darkvalley"
+    },
+    {
+      "source_x": -20.775,
+      "source_y": 0.1064,
+      "source_z": -5.3811,
+      "target_x": -13.2028,
+      "target_y": 0.0,
+      "target_z": 11.9535,
+      "distance": 20.4968,
+      "target_level": "l04_darkvalley"
+    },
+    {
+      "source_x": -20.775,
+      "source_y": 0.1064,
+      "source_z": -5.3811,
+      "target_x": -35.0161,
+      "target_y": 0.0869,
+      "target_z": -3.3988,
+      "distance": 14.468,
+      "target_level": "l04_darkvalley"
+    },
+    {
+      "source_x": -63.0711,
+      "source_y": -0.7074,
+      "source_z": -4.2059,
+      "target_x": -60.8395,
+      "target_y": -1.5542,
+      "target_z": -26.8006,
+      "distance": 22.7047,
+      "target_level": "l04_darkvalley"
+    },
+    {
+      "source_x": -63.0711,
+      "source_y": -0.7074,
+      "source_z": -4.2059,
+      "target_x": -35.0161,
+      "target_y": 0.0869,
+      "target_z": -3.3988,
+      "distance": 28.8837,
+      "target_level": "l04_darkvalley"
+    },
+    {
+      "source_x": -63.0711,
+      "source_y": -0.7074,
+      "source_z": -4.2059,
+      "target_x": -70.4237,
+      "target_y": -2.3261,
+      "target_z": 12.3597,
+      "distance": 18.124,
+      "target_level": "l04_darkvalley"
+    },
+    {
+      "source_x": -60.8395,
+      "source_y": -1.5542,
+      "source_z": -26.8006,
+      "target_x": -55.4534,
+      "target_y": 0.067,
+      "target_z": -38.7949,
+      "distance": 14.7682,
+      "target_level": "l04_darkvalley"
+    },
+    {
+      "source_x": -60.8395,
+      "source_y": -1.5542,
+      "source_z": -26.8006,
+      "target_x": -63.0711,
+      "target_y": -0.7074,
+      "target_z": -4.2059,
+      "distance": 22.7047,
+      "target_level": "l04_darkvalley"
+    },
+    {
+      "source_x": -66.3933,
+      "source_y": -2.3217,
+      "source_z": -43.7167,
+      "target_x": -54.9929,
+      "target_y": 0.5437,
+      "target_z": -63.1625,
+      "distance": 30.2871,
+      "target_level": "l04_darkvalley"
+    },
+    {
+      "source_x": -66.3933,
+      "source_y": -2.3217,
+      "source_z": -43.7167,
+      "target_x": -55.4534,
+      "target_y": 0.067,
+      "target_z": -38.7949,
+      "distance": 11.9961,
+      "target_level": "l04_darkvalley"
+    },
+    {
+      "source_x": -66.3933,
+      "source_y": -2.3217,
+      "source_z": -43.7167,
+      "target_x": -85.0107,
+      "target_y": -2.8125,
+      "target_z": -51.2063,
+      "distance": 21.8899,
+      "target_level": "l04_darkvalley"
+    },
+    {
+      "source_x": -85.0107,
+      "source_y": -2.8125,
+      "source_z": -51.2063,
+      "target_x": -66.3933,
+      "target_y": -2.3217,
+      "target_z": -43.7167,
+      "distance": 21.3545,
+      "target_level": "l04_darkvalley"
+    },
+    {
+      "source_x": -85.0107,
+      "source_y": -2.8125,
+      "source_z": -51.2063,
+      "target_x": -92.4948,
+      "target_y": -1.9028,
+      "target_z": -50.6614,
+      "distance": 7.5039,
+      "target_level": "l04_darkvalley"
+    },
+    {
+      "source_x": -102.355,
+      "source_y": -0.6593,
+      "source_z": -38.0709,
+      "target_x": -92.4948,
+      "target_y": -1.9028,
+      "target_z": -50.6614,
+      "distance": 21.5184,
+      "target_level": "l04_darkvalley"
+    },
+    {
+      "source_x": -102.355,
+      "source_y": -0.6593,
+      "source_z": -38.0709,
+      "target_x": -110.0101,
+      "target_y": 1.0206,
+      "target_z": -5.3053,
+      "distance": 33.6479,
+      "target_level": "l04_darkvalley"
+    },
+    {
+      "source_x": -102.355,
+      "source_y": -0.6593,
+      "source_z": -38.0709,
+      "target_x": -124.7454,
+      "target_y": 4.7767,
+      "target_z": -27.4071,
+      "distance": 26.6346,
+      "target_level": "l04_darkvalley"
+    },
+    {
+      "source_x": -124.7454,
+      "source_y": 4.7767,
+      "source_z": -27.4071,
+      "target_x": -126.8286,
+      "target_y": 7.1509,
+      "target_z": -53.6437,
+      "distance": 26.7189,
+      "target_level": "l04_darkvalley"
+    },
+    {
+      "source_x": -124.7454,
+      "source_y": 4.7767,
+      "source_z": -27.4071,
+      "target_x": -102.355,
+      "target_y": -0.6593,
+      "target_z": -38.0709,
+      "distance": 26.7406,
+      "target_level": "l04_darkvalley"
+    },
+    {
+      "source_x": -124.7454,
+      "source_y": 4.7767,
+      "source_z": -27.4071,
+      "target_x": -126.6126,
+      "target_y": 4.2814,
+      "target_z": -24.5455,
+      "distance": 3.4169,
+      "target_level": "l04_darkvalley"
+    },
+    {
+      "source_x": -110.0101,
+      "source_y": 1.0206,
+      "source_z": -5.3053,
+      "target_x": -126.6126,
+      "target_y": 4.2814,
+      "target_z": -24.5455,
+      "distance": 27.5869,
+      "target_level": "l04_darkvalley"
+    },
+    {
+      "source_x": -110.0101,
+      "source_y": 1.0206,
+      "source_z": -5.3053,
+      "target_x": -102.355,
+      "target_y": -0.6593,
+      "target_z": -38.0709,
+      "distance": 33.6479,
+      "target_level": "l04_darkvalley"
+    },
+    {
+      "source_x": -110.0101,
+      "source_y": 1.0206,
+      "source_z": -5.3053,
+      "target_x": -100.1451,
+      "target_y": -1.5962,
+      "target_z": 2.972,
+      "distance": 16.2789,
+      "target_level": "l04_darkvalley"
+    },
+    {
+      "source_x": -100.1451,
+      "source_y": -1.5962,
+      "source_z": 2.972,
+      "target_x": -110.0101,
+      "target_y": 1.0206,
+      "target_z": -5.3053,
+      "distance": 15.1016,
+      "target_level": "l04_darkvalley"
+    },
+    {
+      "source_x": -100.1451,
+      "source_y": -1.5962,
+      "source_z": 2.972,
+      "target_x": -94.2051,
+      "target_y": -3.5863,
+      "target_z": 17.3318,
+      "distance": 15.5399,
+      "target_level": "l04_darkvalley"
+    },
+    {
+      "source_x": -94.2051,
+      "source_y": -3.5863,
+      "source_z": 17.3318,
+      "target_x": -100.1451,
+      "target_y": -1.5962,
+      "target_z": 2.972,
+      "distance": 15.5399,
+      "target_level": "l04_darkvalley"
+    },
+    {
+      "source_x": -94.2051,
+      "source_y": -3.5863,
+      "source_z": 17.3318,
+      "target_x": -84.1643,
+      "target_y": -5.3565,
+      "target_z": 21.6216,
+      "distance": 11.2109,
+      "target_level": "l04_darkvalley"
+    },
+    {
+      "source_x": -84.1643,
+      "source_y": -5.3565,
+      "source_z": 21.6216,
+      "target_x": -70.4237,
+      "target_y": -2.3261,
+      "target_z": 12.3597,
+      "distance": 19.2466,
+      "target_level": "l04_darkvalley"
+    },
+    {
+      "source_x": -84.1643,
+      "source_y": -5.3565,
+      "source_z": 21.6216,
+      "target_x": -75.8879,
+      "target_y": -2.547,
+      "target_z": 32.8876,
+      "distance": 13.9793,
+      "target_level": "l04_darkvalley"
+    },
+    {
+      "source_x": -84.1643,
+      "source_y": -5.3565,
+      "source_z": 21.6216,
+      "target_x": -94.2051,
+      "target_y": -3.5863,
+      "target_z": 17.3318,
+      "distance": 11.324,
+      "target_level": "l04_darkvalley"
+    },
+    {
+      "source_x": -70.4237,
+      "source_y": -2.3261,
+      "source_z": 12.3597,
+      "target_x": -63.0711,
+      "target_y": -0.7074,
+      "target_z": -4.2059,
+      "distance": 18.124,
+      "target_level": "l04_darkvalley"
+    },
+    {
+      "source_x": -70.4237,
+      "source_y": -2.3261,
+      "source_z": 12.3597,
+      "target_x": -84.1643,
+      "target_y": -5.3565,
+      "target_z": 21.6216,
+      "distance": 17.7064,
+      "target_level": "l04_darkvalley"
+    },
+    {
+      "source_x": -51.5354,
+      "source_y": 0.7018,
+      "source_z": -99.0476,
+      "target_x": -25.2364,
+      "target_y": -1.638,
+      "target_z": -98.6794,
+      "distance": 26.5052,
+      "target_level": "l04_darkvalley"
+    },
+    {
+      "source_x": -51.5354,
+      "source_y": 0.7018,
+      "source_z": -99.0476,
+      "target_x": -54.9929,
+      "target_y": 0.5437,
+      "target_z": -63.1625,
+      "distance": 36.0512,
+      "target_level": "l04_darkvalley"
+    },
+    {
+      "source_x": -51.5354,
+      "source_y": 0.7018,
+      "source_z": -99.0476,
+      "target_x": -68.5148,
+      "target_y": 1.4919,
+      "target_z": -120.9332,
+      "distance": 29.6633,
+      "target_level": "l04_darkvalley"
+    },
+    {
+      "source_x": -63.2606,
+      "source_y": -0.3264,
+      "source_z": -125.5955,
+      "target_x": -69.4607,
+      "target_y": 0.6541,
+      "target_z": -136.0741,
+      "distance": 12.1755,
+      "target_level": "l04_darkvalley"
+    },
+    {
+      "source_x": -63.2606,
+      "source_y": -0.3264,
+      "source_z": -125.5955,
+      "target_x": -25.7836,
+      "target_y": 1.1876,
+      "target_z": -137.2737,
+      "distance": 50.0513,
+      "target_level": "l04_darkvalley"
+    },
+    {
+      "source_x": -63.2606,
+      "source_y": -0.3264,
+      "source_z": -125.5955,
+      "target_x": -68.5148,
+      "target_y": 1.4919,
+      "target_z": -120.9332,
+      "distance": 7.0245,
+      "target_level": "l04_darkvalley"
+    },
+    {
+      "source_x": 20.1211,
+      "source_y": -0.4197,
+      "source_z": -162.9798,
+      "target_x": 32.2496,
+      "target_y": -0.2336,
+      "target_z": -162.1208,
+      "distance": 13.062,
+      "target_level": "l04_darkvalley"
+    },
+    {
+      "source_x": 20.1211,
+      "source_y": -0.4197,
+      "source_z": -162.9798,
+      "target_x": -9.6331,
+      "target_y": 1.3805,
+      "target_z": -165.6242,
+      "distance": 30.9494,
+      "target_level": "l04_darkvalley"
+    },
+    {
+      "source_x": 48.5699,
+      "source_y": -0.0471,
+      "source_z": -151.6168,
+      "target_x": 56.7885,
+      "target_y": 0.0,
+      "target_z": -108.3221,
+      "distance": 51.0888,
+      "target_level": "l04_darkvalley"
+    },
+    {
+      "source_x": 48.5699,
+      "source_y": -0.0471,
+      "source_z": -151.6168,
+      "target_x": 32.2496,
+      "target_y": -0.2336,
+      "target_z": -162.1208,
+      "distance": 20.3338,
+      "target_level": "l04_darkvalley"
+    },
+    {
+      "source_x": 24.3139,
+      "source_y": 0.3207,
+      "source_z": -242.3971,
+      "target_x": 38.9407,
+      "target_y": 0.0344,
+      "target_z": -253.7461,
+      "distance": 18.5133,
+      "target_level": "l04_darkvalley"
+    },
+    {
+      "source_x": 24.3139,
+      "source_y": 0.3207,
+      "source_z": -242.3971,
+      "target_x": 27.2509,
+      "target_y": 0.0096,
+      "target_z": -226.0981,
+      "distance": 16.5615,
+      "target_level": "l04_darkvalley"
+    },
+    {
+      "source_x": 24.3139,
+      "source_y": 0.3207,
+      "source_z": -242.3971,
+      "target_x": 13.8774,
+      "target_y": 0.1954,
+      "target_z": -239.9814,
+      "distance": 10.7125,
+      "target_level": "l04_darkvalley"
+    },
+    {
+      "source_x": 11.9481,
+      "source_y": -4.3835,
+      "source_z": -253.4918,
+      "target_x": 47.6539,
+      "target_y": 0.0,
+      "target_z": -281.4101,
+      "distance": 45.3247,
+      "target_level": "l04_darkvalley"
+    },
+    {
+      "source_x": 11.9481,
+      "source_y": -4.3835,
+      "source_z": -253.4918,
+      "target_x": 13.8774,
+      "target_y": 0.1954,
+      "target_z": -239.9814,
+      "distance": 13.6474,
+      "target_level": "l04_darkvalley"
+    },
+    {
+      "source_x": 11.9481,
+      "source_y": -4.3835,
+      "source_z": -253.4918,
+      "target_x": -16.5064,
+      "target_y": -4.6701,
+      "target_z": -268.0298,
+      "distance": 31.9533,
+      "target_level": "l04_darkvalley"
+    },
+    {
+      "source_x": -16.5064,
+      "source_y": -4.6701,
+      "source_z": -268.0298,
+      "target_x": -12.5345,
+      "target_y": -4.211,
+      "target_z": -287.0579,
+      "distance": 21.2326,
+      "target_level": "l04_darkvalley"
+    },
+    {
+      "source_x": -16.5064,
+      "source_y": -4.6701,
+      "source_z": -268.0298,
+      "target_x": 11.9481,
+      "target_y": -4.3835,
+      "target_z": -253.4918,
+      "distance": 31.9533,
+      "target_level": "l04_darkvalley"
+    },
+    {
+      "source_x": -39.1088,
+      "source_y": -3.551,
+      "source_z": -297.6086,
+      "target_x": -60.5173,
+      "target_y": -0.5969,
+      "target_z": -321.2401,
+      "distance": 40.2107,
+      "target_level": "l04_darkvalley"
+    },
+    {
+      "source_x": -39.1088,
+      "source_y": -3.551,
+      "source_z": -297.6086,
+      "target_x": -56.5442,
+      "target_y": -0.6914,
+      "target_z": -218.9217,
+      "distance": 85.53,
+      "target_level": "l04_darkvalley"
+    },
+    {
+      "source_x": -60.5173,
+      "source_y": -0.5969,
+      "source_z": -321.2401,
+      "target_x": -57.9374,
+      "target_y": -2.6256,
+      "target_z": -349.5783,
+      "distance": 28.4553,
+      "target_level": "l04_darkvalley"
+    },
+    {
+      "source_x": -60.5173,
+      "source_y": -0.5969,
+      "source_z": -321.2401,
+      "target_x": -39.1088,
+      "target_y": -3.551,
+      "target_z": -297.6086,
+      "distance": 36.2653,
+      "target_level": "l04_darkvalley"
+    },
+    {
+      "source_x": -60.5173,
+      "source_y": -0.5969,
+      "source_z": -321.2401,
+      "target_x": -75.3974,
+      "target_y": 0.7977,
+      "target_z": -314.9982,
+      "distance": 16.1364,
+      "target_level": "l04_darkvalley"
+    },
+    {
+      "source_x": -57.9374,
+      "source_y": -2.6256,
+      "source_z": -349.5783,
+      "target_x": 17.1741,
+      "target_y": 1.7288,
+      "target_z": -331.7631,
+      "distance": 85.6753,
+      "target_level": "l04_darkvalley"
+    },
+    {
+      "source_x": -57.9374,
+      "source_y": -2.6256,
+      "source_z": -349.5783,
+      "target_x": -60.5173,
+      "target_y": -0.5969,
+      "target_z": -321.2401,
+      "distance": 28.4553,
+      "target_level": "l04_darkvalley"
+    },
+    {
+      "source_x": -57.9374,
+      "source_y": -2.6256,
+      "source_z": -349.5783,
+      "target_x": -60.8089,
+      "target_y": -1.3096,
+      "target_z": -362.7472,
+      "distance": 16.5555,
+      "target_level": "l04_darkvalley"
+    },
+    {
+      "source_x": -73.7473,
+      "source_y": -2.1272,
+      "source_z": -383.2673,
+      "target_x": -87.7167,
+      "target_y": 1.0676,
+      "target_z": -399.7574,
+      "distance": 21.6117,
+      "target_level": "l04_darkvalley"
+    },
+    {
+      "source_x": -73.7473,
+      "source_y": -2.1272,
+      "source_z": -383.2673,
+      "target_x": -57.9478,
+      "target_y": -0.9778,
+      "target_z": -363.4128,
+      "distance": 42.4192,
+      "target_level": "l04_darkvalley"
+    },
+    {
+      "source_x": -73.7473,
+      "source_y": -2.1272,
+      "source_z": -383.2673,
+      "target_x": -88.3717,
+      "target_y": -0.0757,
+      "target_z": -371.8731,
+      "distance": 18.5391,
+      "target_level": "l04_darkvalley"
+    },
+    {
+      "source_x": -87.7167,
+      "source_y": 1.0676,
+      "source_z": -399.7574,
+      "target_x": -82.9173,
+      "target_y": 1.0806,
+      "target_z": -406.7915,
+      "distance": 8.5154,
+      "target_level": "l04_darkvalley"
+    },
+    {
+      "source_x": -87.7167,
+      "source_y": 1.0676,
+      "source_z": -399.7574,
+      "target_x": -73.7473,
+      "target_y": -2.1272,
+      "target_z": -383.2673,
+      "distance": 21.6117,
+      "target_level": "l04_darkvalley"
+    },
+    {
+      "source_x": -87.7167,
+      "source_y": 1.0676,
+      "source_z": -399.7574,
+      "target_x": -106.491,
+      "target_y": 3.5141,
+      "target_z": -412.1801,
+      "distance": 22.5122,
+      "target_level": "l04_darkvalley"
+    },
+    {
+      "source_x": -112.304,
+      "source_y": 2.7844,
+      "source_z": -398.67,
+      "target_x": -106.491,
+      "target_y": 3.5141,
+      "target_z": -412.1801,
+      "distance": 14.7076,
+      "target_level": "l04_darkvalley"
+    },
+    {
+      "source_x": -112.304,
+      "source_y": 2.7844,
+      "source_z": -398.67,
+      "target_x": -109.8415,
+      "target_y": 2.3116,
+      "target_z": -390.045,
+      "distance": 8.9696,
+      "target_level": "l04_darkvalley"
+    },
+    {
+      "source_x": -112.304,
+      "source_y": 2.7844,
+      "source_z": -398.67,
+      "target_x": -121.3234,
+      "target_y": 2.2788,
+      "target_z": -415.9587,
+      "distance": 19.6858,
+      "target_level": "l04_darkvalley"
+    },
+    {
+      "source_x": -121.3234,
+      "source_y": 2.2788,
+      "source_z": -415.9587,
+      "target_x": -121.5347,
+      "target_y": 0.9496,
+      "target_z": -428.2554,
+      "distance": 12.2986,
+      "target_level": "l04_darkvalley"
+    },
+    {
+      "source_x": -121.3234,
+      "source_y": 2.2788,
+      "source_z": -415.9587,
+      "target_x": -112.304,
+      "target_y": 2.7844,
+      "target_z": -398.67,
+      "distance": 22.1403,
+      "target_level": "l04_darkvalley"
+    },
+    {
+      "source_x": -121.3234,
+      "source_y": 2.2788,
+      "source_z": -415.9587,
+      "target_x": -156.7376,
+      "target_y": 0.0463,
+      "target_z": -383.0984,
+      "distance": 60.2975,
+      "target_level": "l04_darkvalley"
+    },
+    {
+      "source_x": -88.3717,
+      "source_y": -0.0757,
+      "source_z": -371.8731,
+      "target_x": -73.7473,
+      "target_y": -2.1272,
+      "target_z": -383.2673,
+      "distance": 18.5391,
+      "target_level": "l04_darkvalley"
+    },
+    {
+      "source_x": -88.3717,
+      "source_y": -0.0757,
+      "source_z": -371.8731,
+      "target_x": -60.8089,
+      "target_y": -1.3096,
+      "target_z": -362.7472,
+      "distance": 32.2706,
+      "target_level": "l04_darkvalley"
+    },
+    {
+      "source_x": -88.3717,
+      "source_y": -0.0757,
+      "source_z": -371.8731,
+      "target_x": -90.0179,
+      "target_y": 2.0191,
+      "target_z": -335.3279,
+      "distance": 36.5822,
+      "target_level": "l04_darkvalley"
+    },
+    {
+      "source_x": -111.7049,
+      "source_y": 0.1347,
+      "source_z": -459.6959,
+      "target_x": -85.3013,
+      "target_y": 0.4986,
+      "target_z": -479.8647,
+      "distance": 33.2254,
+      "target_level": "l04_darkvalley"
+    },
+    {
+      "source_x": -111.7049,
+      "source_y": 0.1347,
+      "source_z": -459.6959,
+      "target_x": -135.409,
+      "target_y": 0.2116,
+      "target_z": -455.9993,
+      "distance": 23.9906,
+      "target_level": "l04_darkvalley"
+    },
+    {
+      "source_x": -113.8681,
+      "source_y": 0.6921,
+      "source_z": -492.9849,
+      "target_x": -116.0439,
+      "target_y": 0.7662,
+      "target_z": -503.842,
+      "distance": 12.3097,
+      "target_level": "l04_darkvalley"
+    },
+    {
+      "source_x": -113.8681,
+      "source_y": 0.6921,
+      "source_z": -492.9849,
+      "target_x": -85.3013,
+      "target_y": 0.4986,
+      "target_z": -479.8647,
+      "distance": 33.3904,
+      "target_level": "l04_darkvalley"
+    },
+    {
+      "source_x": -85.3013,
+      "source_y": 0.4986,
+      "source_z": -479.8647,
+      "target_x": -68.6728,
+      "target_y": 0.3186,
+      "target_z": -482.4751,
+      "distance": 34.0645,
+      "target_level": "l04_darkvalley"
+    },
+    {
+      "source_x": -85.3013,
+      "source_y": 0.4986,
+      "source_z": -479.8647,
+      "target_x": -111.7049,
+      "target_y": 0.1347,
+      "target_z": -459.6959,
+      "distance": 33.2254,
+      "target_level": "l04_darkvalley"
+    },
+    {
+      "source_x": -85.3013,
+      "source_y": 0.4986,
+      "source_z": -479.8647,
+      "target_x": -113.8681,
+      "target_y": 0.6921,
+      "target_z": -492.9849,
+      "distance": 34.985,
+      "target_level": "l04_darkvalley"
+    },
+    {
+      "source_x": -60.6331,
+      "source_y": 0.3833,
+      "source_z": -486.5954,
+      "target_x": -68.6728,
+      "target_y": 0.3186,
+      "target_z": -482.4751,
+      "distance": 9.2344,
+      "target_level": "l04_darkvalley"
+    },
+    {
+      "source_x": -60.6331,
+      "source_y": 0.3833,
+      "source_z": -486.5954,
+      "target_x": -32.7418,
+      "target_y": -0.8196,
+      "target_z": -480.6001,
+      "distance": 28.5284,
+      "target_level": "l04_darkvalley"
+    },
+    {
+      "source_x": -17.5669,
+      "source_y": -1.4488,
+      "source_z": -494.4736,
+      "target_x": -3.6145,
+      "target_y": 1.1805,
+      "target_z": -499.2252,
+      "distance": 14.7392,
+      "target_level": "l04_darkvalley"
+    },
+    {
+      "source_x": -17.5669,
+      "source_y": -1.4488,
+      "source_z": -494.4736,
+      "target_x": -32.7418,
+      "target_y": -0.8196,
+      "target_z": -480.6001,
+      "distance": 20.5609,
+      "target_level": "l04_darkvalley"
+    },
+    {
+      "source_x": 61.4536,
+      "source_y": 0.2975,
+      "source_z": -483.6239,
+      "target_x": 81.0702,
+      "target_y": 1.2881,
+      "target_z": -500.4331,
+      "distance": 25.8333,
+      "target_level": "l04_darkvalley"
+    },
+    {
+      "source_x": 61.4536,
+      "source_y": 0.2975,
+      "source_z": -483.6239,
+      "target_x": 85.0193,
+      "target_y": 0.8449,
+      "target_z": -438.3608,
+      "distance": 51.0303,
+      "target_level": "l04_darkvalley"
+    },
+    {
+      "source_x": 61.4536,
+      "source_y": 0.2975,
+      "source_z": -483.6239,
+      "target_x": 26.3916,
+      "target_y": 1.3934,
+      "target_z": -470.3649,
+      "distance": 37.4853,
+      "target_level": "l04_darkvalley"
+    },
+    {
+      "source_x": 91.0815,
+      "source_y": -3.4276,
+      "source_z": -378.8181,
+      "target_x": 104.7669,
+      "target_y": 2.5711,
+      "target_z": -386.1987,
+      "distance": 22.4067,
+      "target_level": "l04_darkvalley"
+    },
+    {
+      "source_x": 91.0815,
+      "source_y": -3.4276,
+      "source_z": -378.8181,
+      "target_x": 97.2084,
+      "target_y": -0.6534,
+      "target_z": -364.1708,
+      "distance": 18.1791,
+      "target_level": "l04_darkvalley"
+    },
+    {
+      "source_x": -44.8162,
+      "source_y": 0.4348,
+      "source_z": -542.5803,
+      "target_x": -41.4841,
+      "target_y": 0.4348,
+      "target_z": -553.2035,
+      "distance": 11.1335,
+      "target_level": "l04_darkvalley"
+    },
+    {
+      "source_x": -44.8162,
+      "source_y": 0.4348,
+      "source_z": -542.5803,
+      "target_x": -45.511,
+      "target_y": 0.4357,
+      "target_z": -510.2578,
+      "distance": 35.3242,
+      "target_level": "l04_darkvalley"
+    },
+    {
+      "source_x": -41.4841,
+      "source_y": 0.4348,
+      "source_z": -553.2035,
+      "target_x": -46.3205,
+      "target_y": 0.4348,
+      "target_z": -574.2383,
+      "distance": 27.0328,
+      "target_level": "l04_darkvalley"
+    },
+    {
+      "source_x": -41.4841,
+      "source_y": 0.4348,
+      "source_z": -553.2035,
+      "target_x": -44.8162,
+      "target_y": 0.4348,
+      "target_z": -542.5803,
+      "distance": 11.1335,
+      "target_level": "l04_darkvalley"
+    },
+    {
+      "source_x": -47.3282,
+      "source_y": 0.387,
+      "source_z": -601.7765,
+      "target_x": -46.3205,
+      "target_y": 0.4348,
+      "target_z": -574.2383,
+      "distance": 33.9317,
+      "target_level": "l04_darkvalley"
+    },
+    {
+      "source_x": -47.3282,
+      "source_y": 0.387,
+      "source_z": -601.7765,
+      "target_x": -427.1214,
+      "target_y": 0.3526,
+      "target_z": 672.4505,
+      "distance": 468.4478,
+      "target_level": "k01_darkscape"
+    },
+    {
+      "source_x": -167.9809,
+      "source_y": 4.7444,
+      "source_z": -306.0225,
+      "target_x": -139.794,
+      "target_y": -2.1108,
+      "target_z": -321.5521,
+      "distance": 38.239,
+      "target_level": "l04_darkvalley"
+    },
+    {
+      "source_x": -167.9809,
+      "source_y": 4.7444,
+      "source_z": -306.0225,
+      "target_x": -170.4953,
+      "target_y": 5.2914,
+      "target_z": -305.3856,
+      "distance": 2.5938,
+      "target_level": "l04_darkvalley"
+    },
+    {
+      "source_x": -189.0407,
+      "source_y": 7.1093,
+      "source_z": -300.7697,
+      "target_x": -170.4953,
+      "target_y": 5.2914,
+      "target_z": -305.3856,
+      "distance": 19.2212,
+      "target_level": "l04_darkvalley"
+    },
+    {
+      "source_x": -189.0407,
+      "source_y": 7.1093,
+      "source_z": -300.7697,
+      "target_x": -220.5244,
+      "target_y": 9.1228,
+      "target_z": -296.9995,
+      "distance": 31.7086,
+      "target_level": "l04_darkvalley"
+    },
+    {
+      "source_x": -220.5244,
+      "source_y": 9.1228,
+      "source_z": -296.9995,
+      "target_x": -189.0407,
+      "target_y": 7.1093,
+      "target_z": -300.7697,
+      "distance": 31.7086,
+      "target_level": "l04_darkvalley"
+    },
+    {
+      "source_x": -220.5244,
+      "source_y": 9.1228,
+      "source_z": -296.9995,
+      "target_x": 358.6895,
+      "target_y": -7.9199,
+      "target_z": -135.2152,
+      "distance": 451.1381,
+      "target_level": "l02_garbage"
+    },
+    {
+      "source_x": -183.3465,
+      "source_y": 3.2492,
+      "source_z": -190.696,
+      "target_x": -163.9819,
+      "target_y": 2.178,
+      "target_z": -180.0625,
+      "distance": 26.6937,
+      "target_level": "l04_darkvalley"
+    },
+    {
+      "source_x": -183.3465,
+      "source_y": 3.2492,
+      "source_z": -190.696,
+      "target_x": -194.5862,
+      "target_y": 2.8114,
+      "target_z": -178.4622,
+      "distance": 16.6132,
+      "target_level": "l04_darkvalley"
+    },
+    {
+      "source_x": -220.0736,
+      "source_y": 1.5413,
+      "source_z": -186.7161,
+      "target_x": -194.5862,
+      "target_y": 2.8114,
+      "target_z": -178.4622,
+      "distance": 32.7911,
+      "target_level": "l04_darkvalley"
+    },
+    {
+      "source_x": -220.0736,
+      "source_y": 1.5413,
+      "source_z": -186.7161,
+      "target_x": 286.0947,
+      "target_y": -4.7892,
+      "target_z": 4.8818,
+      "distance": 529.7352,
+      "target_level": "l02_garbage"
+    },
+    {
+      "source_x": 83.5767,
+      "source_y": 0.1832,
+      "source_z": -256.9228,
+      "target_x": 88.5084,
+      "target_y": 0.118,
+      "target_z": -252.2617,
+      "distance": 6.7858,
+      "target_level": "l04_darkvalley"
+    },
+    {
+      "source_x": -194.5862,
+      "source_y": 2.8114,
+      "source_z": -178.4622,
+      "target_x": -183.3465,
+      "target_y": 3.2492,
+      "target_z": -190.696,
+      "distance": 16.6132,
+      "target_level": "l04_darkvalley"
+    },
+    {
+      "source_x": -194.5862,
+      "source_y": 2.8114,
+      "source_z": -178.4622,
+      "target_x": -220.0736,
+      "target_y": 1.5413,
+      "target_z": -186.7161,
+      "distance": 30.9426,
+      "target_level": "l04_darkvalley"
+    },
+    {
+      "source_x": -170.4953,
+      "source_y": 5.2914,
+      "source_z": -305.3856,
+      "target_x": -167.9809,
+      "target_y": 4.7444,
+      "target_z": -306.0225,
+      "distance": 2.5938,
+      "target_level": "l04_darkvalley"
+    },
+    {
+      "source_x": -170.4953,
+      "source_y": 5.2914,
+      "source_z": -305.3856,
+      "target_x": -189.0407,
+      "target_y": 7.1093,
+      "target_z": -300.7697,
+      "distance": 19.2237,
+      "target_level": "l04_darkvalley"
+    },
+    {
+      "source_x": 48.488,
+      "source_y": 0.0314,
+      "source_z": -237.6585,
+      "target_x": 38.9407,
+      "target_y": 0.0344,
+      "target_z": -253.7461,
+      "distance": 18.7073,
+      "target_level": "l04_darkvalley"
+    },
+    {
+      "source_x": 48.488,
+      "source_y": 0.0314,
+      "source_z": -237.6585,
+      "target_x": 78.6573,
+      "target_y": 3.4737,
+      "target_z": -225.0188,
+      "distance": 32.71,
+      "target_level": "l04_darkvalley"
+    },
+    {
+      "source_x": 48.488,
+      "source_y": 0.0314,
+      "source_z": -237.6585,
+      "target_x": 44.0104,
+      "target_y": 0.1521,
+      "target_z": -192.1365,
+      "distance": 48.1953,
+      "target_level": "l04_darkvalley"
+    },
+    {
+      "source_x": 101.8602,
+      "source_y": 1.7334,
+      "source_z": -358.1476,
+      "target_x": 97.2084,
+      "target_y": -0.6534,
+      "target_z": -364.1708,
+      "distance": 11.2176,
+      "target_level": "l04_darkvalley"
+    },
+    {
+      "source_x": 101.8602,
+      "source_y": 1.7334,
+      "source_z": -358.1476,
+      "target_x": 132.7234,
+      "target_y": 13.8016,
+      "target_z": -367.87,
+      "distance": 32.3583,
+      "target_level": "l04_darkvalley"
+    },
+    {
+      "source_x": 101.8602,
+      "source_y": 1.7334,
+      "source_z": -358.1476,
+      "target_x": 95.7218,
+      "target_y": 0.4878,
+      "target_z": -342.7332,
+      "distance": 16.5917,
+      "target_level": "l04_darkvalley"
+    },
+    {
+      "source_x": 97.2084,
+      "source_y": -0.6534,
+      "source_z": -364.1708,
+      "target_x": 91.0815,
+      "target_y": -3.4276,
+      "target_z": -378.8181,
+      "distance": 19.0646,
+      "target_level": "l04_darkvalley"
+    },
+    {
+      "source_x": 97.2084,
+      "source_y": -0.6534,
+      "source_z": -364.1708,
+      "target_x": 101.8602,
+      "target_y": 1.7334,
+      "target_z": -358.1476,
+      "distance": 9.6337,
+      "target_level": "l04_darkvalley"
+    },
+    {
+      "source_x": 97.2084,
+      "source_y": -0.6534,
+      "source_z": -364.1708,
+      "target_x": 44.0683,
+      "target_y": -4.7774,
+      "target_z": -368.7924,
+      "distance": 94.2591,
+      "target_level": "l04_darkvalley"
+    },
+    {
+      "source_x": 80.1016,
+      "source_y": 4.8232,
+      "source_z": -180.8233,
+      "target_x": 78.6573,
+      "target_y": 3.4737,
+      "target_z": -225.0188,
+      "distance": 44.2192,
+      "target_level": "l04_darkvalley"
+    },
+    {
+      "source_x": 80.1016,
+      "source_y": 4.8232,
+      "source_z": -180.8233,
+      "target_x": 136.0274,
+      "target_y": 0.1941,
+      "target_z": -185.6565,
+      "distance": 61.379,
+      "target_level": "l04_darkvalley"
+    },
+    {
+      "source_x": 80.1016,
+      "source_y": 4.8232,
+      "source_z": -180.8233,
+      "target_x": 44.0104,
+      "target_y": 0.1521,
+      "target_z": -192.1365,
+      "distance": 42.7387,
+      "target_level": "l04_darkvalley"
+    },
+    {
+      "source_x": -114.9842,
+      "source_y": -0.2786,
+      "source_z": -443.4689,
+      "target_x": -68.6728,
+      "target_y": 0.3186,
+      "target_z": -482.4751,
+      "distance": 76.6488,
+      "target_level": "l04_darkvalley"
+    },
+    {
+      "source_x": -114.9842,
+      "source_y": -0.2786,
+      "source_z": -443.4689,
+      "target_x": -112.551,
+      "target_y": 0.3257,
+      "target_z": -435.5219,
+      "distance": 8.3111,
+      "target_level": "l04_darkvalley"
+    },
+    {
+      "source_x": -114.9842,
+      "source_y": -0.2786,
+      "source_z": -443.4689,
+      "target_x": -135.409,
+      "target_y": 0.2116,
+      "target_z": -455.9993,
+      "distance": 26.4757,
+      "target_level": "l04_darkvalley"
+    },
+    {
+      "source_x": -106.491,
+      "source_y": 3.5141,
+      "source_z": -412.1801,
+      "target_x": -112.551,
+      "target_y": 0.3257,
+      "target_z": -435.5219,
+      "distance": 31.3042,
+      "target_level": "l04_darkvalley"
+    },
+    {
+      "source_x": -106.491,
+      "source_y": 3.5141,
+      "source_z": -412.1801,
+      "target_x": -87.7167,
+      "target_y": 1.0676,
+      "target_z": -399.7574,
+      "distance": 22.5122,
+      "target_level": "l04_darkvalley"
+    },
+    {
+      "source_x": -106.491,
+      "source_y": 3.5141,
+      "source_z": -412.1801,
+      "target_x": -112.304,
+      "target_y": 2.7844,
+      "target_z": -398.67,
+      "distance": 14.7076,
+      "target_level": "l04_darkvalley"
+    },
+    {
+      "source_x": -102.5455,
+      "source_y": 2.4823,
+      "source_z": -314.9011,
+      "target_x": -107.0629,
+      "target_y": 3.201,
+      "target_z": -325.7496,
+      "distance": 11.7515,
+      "target_level": "l04_darkvalley"
+    },
+    {
+      "source_x": -32.7418,
+      "source_y": -0.8196,
+      "source_z": -480.6001,
+      "target_x": -17.5669,
+      "target_y": -1.4488,
+      "target_z": -494.4736,
+      "distance": 20.5609,
+      "target_level": "l04_darkvalley"
+    },
+    {
+      "source_x": -32.7418,
+      "source_y": -0.8196,
+      "source_z": -480.6001,
+      "target_x": -45.511,
+      "target_y": 0.4357,
+      "target_z": -510.2578,
+      "distance": 33.8821,
+      "target_level": "l04_darkvalley"
+    },
+    {
+      "source_x": -32.7418,
+      "source_y": -0.8196,
+      "source_z": -480.6001,
+      "target_x": -26.7041,
+      "target_y": 0.3587,
+      "target_z": -415.8766,
+      "distance": 67.7762,
+      "target_level": "l04_darkvalley"
+    },
+    {
+      "source_x": -32.7418,
+      "source_y": -0.8196,
+      "source_z": -480.6001,
+      "target_x": -60.6331,
+      "target_y": 0.3833,
+      "target_z": -486.5954,
+      "distance": 28.5284,
+      "target_level": "l04_darkvalley"
+    },
+    {
+      "source_x": 3.7848,
+      "source_y": 2.0261,
+      "source_z": -226.6013,
+      "target_x": 13.8774,
+      "target_y": 0.1954,
+      "target_z": -239.9814,
+      "distance": 16.7597,
+      "target_level": "l04_darkvalley"
+    },
+    {
+      "source_x": 3.7848,
+      "source_y": 2.0261,
+      "source_z": -226.6013,
+      "target_x": -2.0653,
+      "target_y": 0.8562,
+      "target_z": -186.2503,
+      "distance": 41.3449,
+      "target_level": "l04_darkvalley"
+    },
+    {
+      "source_x": 3.7848,
+      "source_y": 2.0261,
+      "source_z": -226.6013,
+      "target_x": -56.5442,
+      "target_y": -0.6914,
+      "target_z": -218.9217,
+      "distance": 63.3748,
+      "target_level": "l04_darkvalley"
+    },
+    {
+      "source_x": -68.6728,
+      "source_y": 0.3186,
+      "source_z": -482.4751,
+      "target_x": -60.6331,
+      "target_y": 0.3833,
+      "target_z": -486.5954,
+      "distance": 9.1044,
+      "target_level": "l04_darkvalley"
+    },
+    {
+      "source_x": -68.6728,
+      "source_y": 0.3186,
+      "source_z": -482.4751,
+      "target_x": -114.9842,
+      "target_y": -0.2786,
+      "target_z": -443.4689,
+      "distance": 80.7683,
+      "target_level": "l04_darkvalley"
+    },
+    {
+      "source_x": -68.6728,
+      "source_y": 0.3186,
+      "source_z": -482.4751,
+      "target_x": -85.3013,
+      "target_y": 0.4986,
+      "target_z": -479.8647,
+      "distance": 32.2846,
+      "target_level": "l04_darkvalley"
+    },
+    {
+      "source_x": -120.5451,
+      "source_y": 2.8756,
+      "source_z": -369.317,
+      "target_x": -109.8415,
+      "target_y": 2.3116,
+      "target_z": -390.045,
+      "distance": 23.3285,
+      "target_level": "l04_darkvalley"
+    },
+    {
+      "source_x": -120.5451,
+      "source_y": 2.8756,
+      "source_z": -369.317,
+      "target_x": -107.0629,
+      "target_y": 3.201,
+      "target_z": -325.7496,
+      "distance": 45.6057,
+      "target_level": "l04_darkvalley"
+    },
+    {
+      "source_x": -120.5451,
+      "source_y": 2.8756,
+      "source_z": -369.317,
+      "target_x": -143.8757,
+      "target_y": -1.3683,
+      "target_z": -359.332,
+      "distance": 25.3775,
+      "target_level": "l04_darkvalley"
+    },
+    {
+      "source_x": -120.5451,
+      "source_y": 2.8756,
+      "source_z": -369.317,
+      "target_x": -156.7376,
+      "target_y": 0.0463,
+      "target_z": -383.0984,
+      "distance": 40.5039,
+      "target_level": "l04_darkvalley"
+    },
+    {
+      "source_x": -121.5347,
+      "source_y": 0.9496,
+      "source_z": -428.2554,
+      "target_x": -112.551,
+      "target_y": 0.3257,
+      "target_z": -435.5219,
+      "distance": 11.5546,
+      "target_level": "l04_darkvalley"
+    },
+    {
+      "source_x": -121.5347,
+      "source_y": 0.9496,
+      "source_z": -428.2554,
+      "target_x": -121.3234,
+      "target_y": 2.2788,
+      "target_z": -415.9587,
+      "distance": 12.2986,
+      "target_level": "l04_darkvalley"
+    },
+    {
+      "source_x": -143.8757,
+      "source_y": -1.3683,
+      "source_z": -359.332,
+      "target_x": -157.8739,
+      "target_y": -0.0554,
+      "target_z": -380.8174,
+      "distance": 34.8273,
+      "target_level": "l04_darkvalley"
+    },
+    {
+      "source_x": -143.8757,
+      "source_y": -1.3683,
+      "source_z": -359.332,
+      "target_x": -120.5451,
+      "target_y": 2.8756,
+      "target_z": -369.317,
+      "distance": 25.3775,
+      "target_level": "l04_darkvalley"
+    },
+    {
+      "source_x": -143.8757,
+      "source_y": -1.3683,
+      "source_z": -359.332,
+      "target_x": -145.2028,
+      "target_y": -0.2013,
+      "target_z": -349.3821,
+      "distance": 11.8086,
+      "target_level": "l04_darkvalley"
+    },
+    {
+      "source_x": -130.1057,
+      "source_y": -0.8097,
+      "source_z": -272.1264,
+      "target_x": -139.794,
+      "target_y": -2.1108,
+      "target_z": -321.5521,
+      "distance": 57.0189,
+      "target_level": "l04_darkvalley"
+    },
+    {
+      "source_x": -130.1057,
+      "source_y": -0.8097,
+      "source_z": -272.1264,
+      "target_x": -124.2612,
+      "target_y": 0.4442,
+      "target_z": -217.8738,
+      "distance": 54.5665,
+      "target_level": "l04_darkvalley"
+    },
+    {
+      "source_x": -112.4578,
+      "source_y": 2.3907,
+      "source_z": -177.5357,
+      "target_x": -104.1373,
+      "target_y": 4.6678,
+      "target_z": -189.304,
+      "distance": 14.4126,
+      "target_level": "l04_darkvalley"
+    },
+    {
+      "source_x": -112.4578,
+      "source_y": 2.3907,
+      "source_z": -177.5357,
+      "target_x": -95.7464,
+      "target_y": -0.9629,
+      "target_z": -139.5519,
+      "distance": 41.4975,
+      "target_level": "l04_darkvalley"
+    },
+    {
+      "source_x": -112.4578,
+      "source_y": 2.3907,
+      "source_z": -177.5357,
+      "target_x": -120.2324,
+      "target_y": 0.334,
+      "target_z": -176.7954,
+      "distance": 7.8098,
+      "target_level": "l04_darkvalley"
+    },
+    {
+      "source_x": -90.0179,
+      "source_y": 2.0191,
+      "source_z": -335.3279,
+      "target_x": -88.3717,
+      "target_y": -0.0757,
+      "target_z": -371.8731,
+      "distance": 36.5822,
+      "target_level": "l04_darkvalley"
+    },
+    {
+      "source_x": -90.0179,
+      "source_y": 2.0191,
+      "source_z": -335.3279,
+      "target_x": -75.3974,
+      "target_y": 0.7977,
+      "target_z": -314.9982,
+      "distance": 28.2903,
+      "target_level": "l04_darkvalley"
+    },
+    {
+      "source_x": -90.0179,
+      "source_y": 2.0191,
+      "source_z": -335.3279,
+      "target_x": -107.0629,
+      "target_y": 3.201,
+      "target_z": -325.7496,
+      "distance": 19.5519,
+      "target_level": "l04_darkvalley"
+    },
+    {
+      "source_x": -145.2028,
+      "source_y": -0.2013,
+      "source_z": -349.3821,
+      "target_x": -143.8757,
+      "target_y": -1.3683,
+      "target_z": -359.332,
+      "distance": 10.4563,
+      "target_level": "l04_darkvalley"
+    },
+    {
+      "source_x": -145.2028,
+      "source_y": -0.2013,
+      "source_z": -349.3821,
+      "target_x": -150.8967,
+      "target_y": 0.1456,
+      "target_z": -344.0612,
+      "distance": 7.7931,
+      "target_level": "l04_darkvalley"
+    },
+    {
+      "source_x": -105.875,
+      "source_y": 6.304,
+      "source_z": -103.2519,
+      "target_x": -95.7464,
+      "target_y": -0.9629,
+      "target_z": -139.5519,
+      "distance": 43.632,
+      "target_level": "l04_darkvalley"
+    },
+    {
+      "source_x": -105.875,
+      "source_y": 6.304,
+      "source_z": -103.2519,
+      "target_x": -91.6904,
+      "target_y": 5.1421,
+      "target_z": -92.9999,
+      "distance": 17.5016,
+      "target_level": "l04_darkvalley"
+    },
+    {
+      "source_x": -105.875,
+      "source_y": 6.304,
+      "source_z": -103.2519,
+      "target_x": -117.2492,
+      "target_y": 4.4031,
+      "target_z": -74.6168,
+      "distance": 37.2303,
+      "target_level": "l04_darkvalley"
+    },
+    {
+      "source_x": -105.875,
+      "source_y": 6.304,
+      "source_z": -103.2519,
+      "target_x": -146.6796,
+      "target_y": 7.6783,
+      "target_z": -117.206,
+      "distance": 55.3242,
+      "target_level": "l04_darkvalley"
+    },
+    {
+      "source_x": -55.4534,
+      "source_y": 0.067,
+      "source_z": -38.7949,
+      "target_x": -60.8395,
+      "target_y": -1.5542,
+      "target_z": -26.8006,
+      "distance": 14.2554,
+      "target_level": "l04_darkvalley"
+    },
+    {
+      "source_x": -55.4534,
+      "source_y": 0.067,
+      "source_z": -38.7949,
+      "target_x": -66.3933,
+      "target_y": -2.3217,
+      "target_z": -43.7167,
+      "distance": 11.9961,
+      "target_level": "l04_darkvalley"
+    },
+    {
+      "source_x": -69.4607,
+      "source_y": 0.6541,
+      "source_z": -136.0741,
+      "target_x": -54.0231,
+      "target_y": -2.7693,
+      "target_z": -142.8375,
+      "distance": 17.7811,
+      "target_level": "l04_darkvalley"
+    },
+    {
+      "source_x": -69.4607,
+      "source_y": 0.6541,
+      "source_z": -136.0741,
+      "target_x": -63.2606,
+      "target_y": -0.3264,
+      "target_z": -125.5955,
+      "distance": 12.1755,
+      "target_level": "l04_darkvalley"
+    },
+    {
+      "source_x": -69.4607,
+      "source_y": 0.6541,
+      "source_z": -136.0741,
+      "target_x": -76.2692,
+      "target_y": 1.7792,
+      "target_z": -139.1842,
+      "distance": 7.4853,
+      "target_level": "l04_darkvalley"
+    },
+    {
+      "source_x": -25.7836,
+      "source_y": 1.1876,
+      "source_z": -137.2737,
+      "target_x": -9.6331,
+      "target_y": 1.3805,
+      "target_z": -165.6242,
+      "distance": 47.7425,
+      "target_level": "l04_darkvalley"
+    },
+    {
+      "source_x": -25.7836,
+      "source_y": 1.1876,
+      "source_z": -137.2737,
+      "target_x": 24.5686,
+      "target_y": -2.2402,
+      "target_z": -124.9171,
+      "distance": 57.0854,
+      "target_level": "l04_darkvalley"
+    },
+    {
+      "source_x": -25.7836,
+      "source_y": 1.1876,
+      "source_z": -137.2737,
+      "target_x": -25.2364,
+      "target_y": -1.638,
+      "target_z": -98.6794,
+      "distance": 40.2715,
+      "target_level": "l04_darkvalley"
+    },
+    {
+      "source_x": -25.7836,
+      "source_y": 1.1876,
+      "source_z": -137.2737,
+      "target_x": -63.2606,
+      "target_y": -0.3264,
+      "target_z": -125.5955,
+      "distance": 47.2107,
+      "target_level": "l04_darkvalley"
+    },
+    {
+      "source_x": -120.2324,
+      "source_y": 0.334,
+      "source_z": -176.7954,
+      "target_x": -112.4578,
+      "target_y": 2.3907,
+      "target_z": -177.5357,
+      "distance": 7.8098,
+      "target_level": "l04_darkvalley"
+    },
+    {
+      "source_x": -120.2324,
+      "source_y": 0.334,
+      "source_z": -176.7954,
+      "target_x": -163.9819,
+      "target_y": 2.178,
+      "target_z": -180.0625,
+      "distance": 47.4995,
+      "target_level": "l04_darkvalley"
+    },
+    {
+      "source_x": -117.2492,
+      "source_y": 4.4031,
+      "source_z": -74.6168,
+      "target_x": -105.875,
+      "target_y": 6.304,
+      "target_z": -103.2519,
+      "distance": 39.5855,
+      "target_level": "l04_darkvalley"
+    },
+    {
+      "source_x": -117.2492,
+      "source_y": 4.4031,
+      "source_z": -74.6168,
+      "target_x": -126.8286,
+      "target_y": 7.1509,
+      "target_z": -53.6437,
+      "distance": 23.2787,
+      "target_level": "l04_darkvalley"
+    },
+    {
+      "source_x": -76.2692,
+      "source_y": 1.7792,
+      "source_z": -139.1842,
+      "target_x": -71.2595,
+      "target_y": 3.71,
+      "target_z": -163.1081,
+      "distance": 24.4428,
+      "target_level": "l04_darkvalley"
+    },
+    {
+      "source_x": -76.2692,
+      "source_y": 1.7792,
+      "source_z": -139.1842,
+      "target_x": -69.4607,
+      "target_y": 0.6541,
+      "target_z": -136.0741,
+      "distance": 7.4853,
+      "target_level": "l04_darkvalley"
+    },
+    {
+      "source_x": -76.2692,
+      "source_y": 1.7792,
+      "source_z": -139.1842,
+      "target_x": -95.7464,
+      "target_y": -0.9629,
+      "target_z": -139.5519,
+      "distance": 19.4806,
+      "target_level": "l04_darkvalley"
+    },
+    {
+      "source_x": -37.0116,
+      "source_y": 0.3834,
+      "source_z": -403.3008,
+      "target_x": -26.7041,
+      "target_y": 0.3587,
+      "target_z": -415.8766,
+      "distance": 16.2602,
+      "target_level": "l04_darkvalley"
+    },
+    {
+      "source_x": -37.0116,
+      "source_y": 0.3834,
+      "source_z": -403.3008,
+      "target_x": 7.2828,
+      "target_y": -4.249,
+      "target_z": -379.2773,
+      "distance": 65.4169,
+      "target_level": "l04_darkvalley"
+    },
+    {
+      "source_x": -37.0116,
+      "source_y": 0.3834,
+      "source_z": -403.3008,
+      "target_x": -82.9173,
+      "target_y": 1.0806,
+      "target_z": -406.7915,
+      "distance": 46.0382,
+      "target_level": "l04_darkvalley"
+    },
+    {
+      "source_x": 79.9104,
+      "source_y": 0.3886,
+      "source_z": -432.4337,
+      "target_x": 85.0193,
+      "target_y": 0.8449,
+      "target_z": -438.3608,
+      "distance": 7.825,
+      "target_level": "l04_darkvalley"
+    },
+    {
+      "source_x": 79.9104,
+      "source_y": 0.3886,
+      "source_z": -432.4337,
+      "target_x": 92.124,
+      "target_y": -0.2621,
+      "target_z": -405.043,
+      "distance": 29.9904,
+      "target_level": "l04_darkvalley"
+    },
+    {
+      "source_x": 80.2512,
+      "source_y": 1.4118,
+      "source_z": -514.0513,
+      "target_x": 81.0702,
+      "target_y": 1.2881,
+      "target_z": -500.4331,
+      "distance": 13.6428,
+      "target_level": "l04_darkvalley"
+    },
+    {
+      "source_x": 80.2512,
+      "source_y": 1.4118,
+      "source_z": -514.0513,
+      "target_x": -0.3264,
+      "target_y": 0.1164,
+      "target_z": -518.7126,
+      "distance": 80.7123,
+      "target_level": "l04_darkvalley"
+    },
+    {
+      "source_x": 60.1718,
+      "source_y": 0.0681,
+      "source_z": -76.86,
+      "target_x": 81.3203,
+      "target_y": 0.0,
+      "target_z": -44.002,
+      "distance": 40.1974,
+      "target_level": "l04_darkvalley"
+    },
+    {
+      "source_x": 60.1718,
+      "source_y": 0.0681,
+      "source_z": -76.86,
+      "target_x": 35.8602,
+      "target_y": 0.0719,
+      "target_z": -92.2919,
+      "distance": 33.2642,
+      "target_level": "l04_darkvalley"
+    },
+    {
+      "source_x": 98.4454,
+      "source_y": -3.5289,
+      "source_z": 58.0246,
+      "target_x": 103.098,
+      "target_y": -1.6392,
+      "target_z": 39.4665,
+      "distance": 19.1324,
+      "target_level": "l04_darkvalley"
+    },
+    {
+      "source_x": 98.4454,
+      "source_y": -3.5289,
+      "source_z": 58.0246,
+      "target_x": 139.9958,
+      "target_y": -0.8337,
+      "target_z": 48.9345,
+      "distance": 55.5663,
+      "target_level": "l04_darkvalley"
+    },
+    {
+      "source_x": 98.4454,
+      "source_y": -3.5289,
+      "source_z": 58.0246,
+      "target_x": 95.3481,
+      "target_y": -0.2432,
+      "target_z": 84.1544,
+      "distance": 26.3127,
+      "target_level": "l04_darkvalley"
+    },
+    {
+      "source_x": 79.5016,
+      "source_y": 0.0474,
+      "source_z": 5.1091,
+      "target_x": 94.2054,
+      "target_y": -0.0158,
+      "target_z": 1.7057,
+      "distance": 19.3118,
+      "target_level": "l04_darkvalley"
+    },
+    {
+      "source_x": 79.5016,
+      "source_y": 0.0474,
+      "source_z": 5.1091,
+      "target_x": 71.0251,
+      "target_y": 0.0473,
+      "target_z": 15.138,
+      "distance": 13.1312,
+      "target_level": "l04_darkvalley"
+    },
+    {
+      "source_x": 24.5686,
+      "source_y": -2.2402,
+      "source_z": -124.9171,
+      "target_x": 34.1355,
+      "target_y": -0.6574,
+      "target_z": -141.828,
+      "distance": 26.8723,
+      "target_level": "l04_darkvalley"
+    },
+    {
+      "source_x": 24.5686,
+      "source_y": -2.2402,
+      "source_z": -124.9171,
+      "target_x": 56.7885,
+      "target_y": 0.0,
+      "target_z": -108.3221,
+      "distance": 46.0367,
+      "target_level": "l04_darkvalley"
+    },
+    {
+      "source_x": 24.5686,
+      "source_y": -2.2402,
+      "source_z": -124.9171,
+      "target_x": -25.7836,
+      "target_y": 1.1876,
+      "target_z": -137.2737,
+      "distance": 56.1869,
+      "target_level": "l04_darkvalley"
+    },
+    {
+      "source_x": 26.0892,
+      "source_y": 0.1621,
+      "source_z": -190.9866,
+      "target_x": 28.8551,
+      "target_y": 0.054,
+      "target_z": -224.9719,
+      "distance": 34.0977,
+      "target_level": "l04_darkvalley"
+    },
+    {
+      "source_x": 26.0892,
+      "source_y": 0.1621,
+      "source_z": -190.9866,
+      "target_x": 44.0104,
+      "target_y": 0.1521,
+      "target_z": -192.1365,
+      "distance": 17.9581,
+      "target_level": "l04_darkvalley"
+    },
+    {
+      "source_x": 26.0892,
+      "source_y": 0.1621,
+      "source_z": -190.9866,
+      "target_x": -2.0653,
+      "target_y": 0.8562,
+      "target_z": -186.2503,
+      "distance": 29.1933,
+      "target_level": "l04_darkvalley"
+    },
+    {
+      "source_x": -75.3974,
+      "source_y": 0.7977,
+      "source_z": -314.9982,
+      "target_x": -90.0179,
+      "target_y": 2.0191,
+      "target_z": -335.3279,
+      "distance": 26.506,
+      "target_level": "l04_darkvalley"
+    },
+    {
+      "source_x": -75.3974,
+      "source_y": 0.7977,
+      "source_z": -314.9982,
+      "target_x": -60.5173,
+      "target_y": -0.5969,
+      "target_z": -321.2401,
+      "distance": 16.1364,
+      "target_level": "l04_darkvalley"
+    },
+    {
+      "source_x": -75.3974,
+      "source_y": 0.7977,
+      "source_z": -314.9982,
+      "target_x": -89.0665,
+      "target_y": 0.0669,
+      "target_z": -236.086,
+      "distance": 80.9061,
+      "target_level": "l04_darkvalley"
+    },
+    {
+      "source_x": -114.4202,
+      "source_y": 0.0001,
+      "source_z": -207.323,
+      "target_x": -124.2612,
+      "target_y": 0.4442,
+      "target_z": -217.8738,
+      "distance": 15.8508,
+      "target_level": "l04_darkvalley"
+    },
+    {
+      "source_x": -114.4202,
+      "source_y": 0.0001,
+      "source_z": -207.323,
+      "target_x": -89.0665,
+      "target_y": 0.0669,
+      "target_z": -236.086,
+      "distance": 38.3421,
+      "target_level": "l04_darkvalley"
+    },
+    {
+      "source_x": -114.4202,
+      "source_y": 0.0001,
+      "source_z": -207.323,
+      "target_x": -104.1373,
+      "target_y": 4.6678,
+      "target_z": -189.304,
+      "distance": 27.8133,
+      "target_level": "l04_darkvalley"
+    },
+    {
+      "source_x": 13.8774,
+      "source_y": 0.1954,
+      "source_z": -239.9814,
+      "target_x": 11.9481,
+      "target_y": -4.3835,
+      "target_z": -253.4918,
+      "distance": 13.6474,
+      "target_level": "l04_darkvalley"
+    },
+    {
+      "source_x": 13.8774,
+      "source_y": 0.1954,
+      "source_z": -239.9814,
+      "target_x": 24.3139,
+      "target_y": 0.3207,
+      "target_z": -242.3971,
+      "distance": 10.7125,
+      "target_level": "l04_darkvalley"
+    },
+    {
+      "source_x": 13.8774,
+      "source_y": 0.1954,
+      "source_z": -239.9814,
+      "target_x": 3.7848,
+      "target_y": 2.0261,
+      "target_z": -226.6013,
+      "distance": 16.7597,
+      "target_level": "l04_darkvalley"
+    },
+    {
+      "source_x": 63.0477,
+      "source_y": 0.0663,
+      "source_z": -1.4592,
+      "target_x": 64.517,
+      "target_y": 0.0326,
+      "target_z": 15.1169,
+      "distance": 17.3034,
+      "target_level": "l04_darkvalley"
+    },
+    {
+      "source_x": 34.1355,
+      "source_y": -0.6574,
+      "source_z": -141.828,
+      "target_x": 32.2496,
+      "target_y": -0.2336,
+      "target_z": -162.1208,
+      "distance": 20.3802,
+      "target_level": "l04_darkvalley"
+    },
+    {
+      "source_x": 34.1355,
+      "source_y": -0.6574,
+      "source_z": -141.828,
+      "target_x": 24.5686,
+      "target_y": -2.2402,
+      "target_z": -124.9171,
+      "distance": 22.7671,
+      "target_level": "l04_darkvalley"
+    },
+    {
+      "source_x": 97.7666,
+      "source_y": 0.0496,
+      "source_z": -34.2075,
+      "target_x": 81.3203,
+      "target_y": 0.0,
+      "target_z": -44.002,
+      "distance": 20.7841,
+      "target_level": "l04_darkvalley"
+    },
+    {
+      "source_x": 97.7666,
+      "source_y": 0.0496,
+      "source_z": -34.2075,
+      "target_x": 95.8852,
+      "target_y": 0.703,
+      "target_z": -5.5228,
+      "distance": 42.6603,
+      "target_level": "l04_darkvalley"
+    },
+    {
+      "source_x": 97.7666,
+      "source_y": 0.0496,
+      "source_z": -34.2075,
+      "target_x": 121.7691,
+      "target_y": 0.047,
+      "target_z": -35.7665,
+      "distance": 24.8721,
+      "target_level": "l04_darkvalley"
+    },
+    {
+      "source_x": 170.6494,
+      "source_y": -1.9738,
+      "source_z": -79.4686,
+      "target_x": 168.0908,
+      "target_y": -2.6527,
+      "target_z": -102.2605,
+      "distance": 23.1306,
+      "target_level": "l04_darkvalley"
+    },
+    {
+      "source_x": 170.6494,
+      "source_y": -1.9738,
+      "source_z": -79.4686,
+      "target_x": 169.0892,
+      "target_y": 3.8845,
+      "target_z": -34.5116,
+      "distance": 45.6377,
+      "target_level": "l04_darkvalley"
+    },
+    {
+      "source_x": 170.6494,
+      "source_y": -1.9738,
+      "source_z": -79.4686,
+      "target_x": 143.0013,
+      "target_y": 5.6549,
+      "target_z": -99.17,
+      "distance": 49.8371,
+      "target_level": "l04_darkvalley"
+    },
+    {
+      "source_x": 142.2625,
+      "source_y": -2.0421,
+      "source_z": -138.3273,
+      "target_x": 136.0274,
+      "target_y": 0.1941,
+      "target_z": -185.6565,
+      "distance": 53.1085,
+      "target_level": "l04_darkvalley"
+    },
+    {
+      "source_x": 142.2625,
+      "source_y": -2.0421,
+      "source_z": -138.3273,
+      "target_x": 158.2373,
+      "target_y": -3.7961,
+      "target_z": -147.2342,
+      "distance": 20.7838,
+      "target_level": "l04_darkvalley"
+    },
+    {
+      "source_x": 142.2625,
+      "source_y": -2.0421,
+      "source_z": -138.3273,
+      "target_x": 121.6567,
+      "target_y": 8.4428,
+      "target_z": -131.9069,
+      "distance": 21.5829,
+      "target_level": "l04_darkvalley"
+    },
+    {
+      "source_x": 88.5084,
+      "source_y": 0.118,
+      "source_z": -252.2617,
+      "target_x": 83.5767,
+      "target_y": 0.1832,
+      "target_z": -256.9228,
+      "distance": 6.7858,
+      "target_level": "l04_darkvalley"
+    },
+    {
+      "source_x": 88.5084,
+      "source_y": 0.118,
+      "source_z": -252.2617,
+      "target_x": 92.2505,
+      "target_y": 0.1454,
+      "target_z": -253.8331,
+      "distance": 4.0586,
+      "target_level": "l04_darkvalley"
+    },
+    {
+      "source_x": 30.0457,
+      "source_y": 0.2187,
+      "source_z": -182.1136,
+      "target_x": 44.0104,
+      "target_y": 0.1521,
+      "target_z": -192.1365,
+      "distance": 17.9623,
+      "target_level": "l04_darkvalley"
+    },
+    {
+      "source_x": 30.0457,
+      "source_y": 0.2187,
+      "source_z": -182.1136,
+      "target_x": 32.2496,
+      "target_y": -0.2336,
+      "target_z": -162.1208,
+      "distance": 20.2304,
+      "target_level": "l04_darkvalley"
+    },
+    {
+      "source_x": 100.8151,
+      "source_y": 0.1535,
+      "source_z": -267.5989,
+      "target_x": 95.7218,
+      "target_y": 0.4878,
+      "target_z": -342.7332,
+      "distance": 77.2138,
+      "target_level": "l04_darkvalley"
+    },
+    {
+      "source_x": 100.8151,
+      "source_y": 0.1535,
+      "source_z": -267.5989,
+      "target_x": 104.483,
+      "target_y": 0.1535,
+      "target_z": -255.4825,
+      "distance": 12.6594,
+      "target_level": "l04_darkvalley"
+    },
+    {
+      "source_x": 38.9407,
+      "source_y": 0.0344,
+      "source_z": -253.7461,
+      "target_x": 47.6539,
+      "target_y": 0.0,
+      "target_z": -281.4101,
+      "distance": 34.7578,
+      "target_level": "l04_darkvalley"
+    },
+    {
+      "source_x": 38.9407,
+      "source_y": 0.0344,
+      "source_z": -253.7461,
+      "target_x": 48.488,
+      "target_y": 0.0314,
+      "target_z": -237.6585,
+      "distance": 18.7073,
+      "target_level": "l04_darkvalley"
+    },
+    {
+      "source_x": 38.9407,
+      "source_y": 0.0344,
+      "source_z": -253.7461,
+      "target_x": 24.3139,
+      "target_y": 0.3207,
+      "target_z": -242.3971,
+      "distance": 18.5133,
+      "target_level": "l04_darkvalley"
+    },
+    {
+      "source_x": 104.7669,
+      "source_y": 2.5711,
+      "source_z": -386.1987,
+      "target_x": 92.124,
+      "target_y": -0.2621,
+      "target_z": -405.043,
+      "distance": 27.3286,
+      "target_level": "l04_darkvalley"
+    },
+    {
+      "source_x": 104.7669,
+      "source_y": 2.5711,
+      "source_z": -386.1987,
+      "target_x": 91.0815,
+      "target_y": -3.4276,
+      "target_z": -378.8181,
+      "distance": 17.2774,
+      "target_level": "l04_darkvalley"
+    },
+    {
+      "source_x": -3.6145,
+      "source_y": 1.1805,
+      "source_z": -499.2252,
+      "target_x": -0.3264,
+      "target_y": 0.1164,
+      "target_z": -518.7126,
+      "distance": 19.7629,
+      "target_level": "l04_darkvalley"
+    },
+    {
+      "source_x": -3.6145,
+      "source_y": 1.1805,
+      "source_z": -499.2252,
+      "target_x": 26.3916,
+      "target_y": 1.3934,
+      "target_z": -470.3649,
+      "distance": 52.6384,
+      "target_level": "l04_darkvalley"
+    },
+    {
+      "source_x": -3.6145,
+      "source_y": 1.1805,
+      "source_z": -499.2252,
+      "target_x": -17.5669,
+      "target_y": -1.4488,
+      "target_z": -494.4736,
+      "distance": 14.7392,
+      "target_level": "l04_darkvalley"
+    },
+    {
+      "source_x": 117.9497,
+      "source_y": 2.9963,
+      "source_z": -461.9858,
+      "target_x": 133.0008,
+      "target_y": 3.8369,
+      "target_z": -457.403,
+      "distance": 18.3397,
+      "target_level": "l04_darkvalley"
+    },
+    {
+      "source_x": 117.9497,
+      "source_y": 2.9963,
+      "source_z": -461.9858,
+      "target_x": 116.8616,
+      "target_y": 4.2921,
+      "target_z": -424.8288,
+      "distance": 38.3228,
+      "target_level": "l04_darkvalley"
+    },
+    {
+      "source_x": 117.9497,
+      "source_y": 2.9963,
+      "source_z": -461.9858,
+      "target_x": 105.0191,
+      "target_y": 2.3,
+      "target_z": -464.5038,
+      "distance": 13.1735,
+      "target_level": "l04_darkvalley"
+    },
+    {
+      "source_x": 105.0191,
+      "source_y": 2.3,
+      "source_z": -464.5038,
+      "target_x": 114.4401,
+      "target_y": 3.2597,
+      "target_z": -501.8386,
+      "distance": 38.505,
+      "target_level": "l04_darkvalley"
+    },
+    {
+      "source_x": 105.0191,
+      "source_y": 2.3,
+      "source_z": -464.5038,
+      "target_x": 117.9497,
+      "target_y": 2.9963,
+      "target_z": -461.9858,
+      "distance": 13.1735,
+      "target_level": "l04_darkvalley"
+    },
+    {
+      "source_x": 105.0191,
+      "source_y": 2.3,
+      "source_z": -464.5038,
+      "target_x": 85.0193,
+      "target_y": 0.8449,
+      "target_z": -438.3608,
+      "distance": 42.6977,
+      "target_level": "l04_darkvalley"
+    },
+    {
+      "source_x": 94.2054,
+      "source_y": -0.0158,
+      "source_z": 1.7057,
+      "target_x": 147.4489,
+      "target_y": 2.9856,
+      "target_z": -0.0047,
+      "distance": 53.6252,
+      "target_level": "l04_darkvalley"
+    },
+    {
+      "source_x": 94.2054,
+      "source_y": -0.0158,
+      "source_z": 1.7057,
+      "target_x": 95.8852,
+      "target_y": 0.703,
+      "target_z": -5.5228,
+      "distance": 19.0844,
+      "target_level": "l04_darkvalley"
+    },
+    {
+      "source_x": 94.2054,
+      "source_y": -0.0158,
+      "source_z": 1.7057,
+      "target_x": 79.5016,
+      "target_y": 0.0474,
+      "target_z": 5.1091,
+      "distance": 17.0176,
+      "target_level": "l04_darkvalley"
+    },
+    {
+      "source_x": 98.331,
+      "source_y": 1.8013,
+      "source_z": -115.5042,
+      "target_x": 121.6567,
+      "target_y": 8.4428,
+      "target_z": -131.9069,
+      "distance": 39.0957,
+      "target_level": "l04_darkvalley"
+    },
+    {
+      "source_x": 98.331,
+      "source_y": 1.8013,
+      "source_z": -115.5042,
+      "target_x": 97.1814,
+      "target_y": 1.6537,
+      "target_z": -106.4632,
+      "distance": 9.1137,
+      "target_level": "l04_darkvalley"
+    },
+    {
+      "source_x": 147.4489,
+      "source_y": 2.9856,
+      "source_z": -0.0047,
+      "target_x": 152.545,
+      "target_y": 5.4032,
+      "target_z": -29.659,
+      "distance": 30.0891,
+      "target_level": "l04_darkvalley"
+    },
+    {
+      "source_x": 147.4489,
+      "source_y": 2.9856,
+      "source_z": -0.0047,
+      "target_x": 151.9637,
+      "target_y": 2.2482,
+      "target_z": 15.7297,
+      "distance": 16.7527,
+      "target_level": "l04_darkvalley"
+    },
+    {
+      "source_x": 147.4489,
+      "source_y": 2.9856,
+      "source_z": -0.0047,
+      "target_x": 94.2054,
+      "target_y": -0.0158,
+      "target_z": 1.7057,
+      "distance": 55.0292,
+      "target_level": "l04_darkvalley"
+    },
+    {
+      "source_x": 92.2505,
+      "source_y": 0.1454,
+      "source_z": -253.8331,
+      "target_x": 104.483,
+      "target_y": 0.1535,
+      "target_z": -255.4825,
+      "distance": 12.3433,
+      "target_level": "l04_darkvalley"
+    },
+    {
+      "source_x": 92.2505,
+      "source_y": 0.1454,
+      "source_z": -253.8331,
+      "target_x": 96.7667,
+      "target_y": 0.038,
+      "target_z": -244.3445,
+      "distance": 10.7773,
+      "target_level": "l04_darkvalley"
+    },
+    {
+      "source_x": 92.2505,
+      "source_y": 0.1454,
+      "source_z": -253.8331,
+      "target_x": 88.5084,
+      "target_y": 0.118,
+      "target_z": -252.2617,
+      "distance": 4.0586,
+      "target_level": "l04_darkvalley"
+    },
+    {
+      "source_x": 44.0104,
+      "source_y": 0.1521,
+      "source_z": -192.1365,
+      "target_x": 48.488,
+      "target_y": 0.0314,
+      "target_z": -237.6585,
+      "distance": 50.5441,
+      "target_level": "l04_darkvalley"
+    },
+    {
+      "source_x": 44.0104,
+      "source_y": 0.1521,
+      "source_z": -192.1365,
+      "target_x": 80.1016,
+      "target_y": 4.8232,
+      "target_z": -180.8233,
+      "distance": 39.0846,
+      "target_level": "l04_darkvalley"
+    },
+    {
+      "source_x": 44.0104,
+      "source_y": 0.1521,
+      "source_z": -192.1365,
+      "target_x": 30.0457,
+      "target_y": 0.2187,
+      "target_z": -182.1136,
+      "distance": 19.47,
+      "target_level": "l04_darkvalley"
+    },
+    {
+      "source_x": 44.0104,
+      "source_y": 0.1521,
+      "source_z": -192.1365,
+      "target_x": 26.0892,
+      "target_y": 0.1621,
+      "target_z": -190.9866,
+      "distance": 17.9581,
+      "target_level": "l04_darkvalley"
+    },
+    {
+      "source_x": 164.3504,
+      "source_y": -2.1884,
+      "source_z": -131.1585,
+      "target_x": 158.2373,
+      "target_y": -3.7961,
+      "target_z": -147.2342,
+      "distance": 17.1988,
+      "target_level": "l04_darkvalley"
+    },
+    {
+      "source_x": 164.3504,
+      "source_y": -2.1884,
+      "source_z": -131.1585,
+      "target_x": 168.0908,
+      "target_y": -2.6527,
+      "target_z": -102.2605,
+      "distance": 29.1391,
+      "target_level": "l04_darkvalley"
+    },
+    {
+      "source_x": 175.2892,
+      "source_y": 0.166,
+      "source_z": -254.4324,
+      "target_x": 173.6517,
+      "target_y": 0.0676,
+      "target_z": -271.6282,
+      "distance": 23.8066,
+      "target_level": "l04_darkvalley"
+    },
+    {
+      "source_x": 114.4401,
+      "source_y": 3.2597,
+      "source_z": -501.8386,
+      "target_x": 133.0008,
+      "target_y": 3.8369,
+      "target_z": -457.403,
+      "distance": 63.0414,
+      "target_level": "l04_darkvalley"
+    },
+    {
+      "source_x": 114.4401,
+      "source_y": 3.2597,
+      "source_z": -501.8386,
+      "target_x": 105.0191,
+      "target_y": 2.3,
+      "target_z": -464.5038,
+      "distance": 38.505,
+      "target_level": "l04_darkvalley"
+    },
+    {
+      "source_x": 114.4401,
+      "source_y": 3.2597,
+      "source_z": -501.8386,
+      "target_x": 81.0702,
+      "target_y": 1.2881,
+      "target_z": -500.4331,
+      "distance": 33.6753,
+      "target_level": "l04_darkvalley"
+    },
+    {
+      "source_x": 123.1406,
+      "source_y": -2.8384,
+      "source_z": -260.8054,
+      "target_x": 126.4454,
+      "target_y": -2.8384,
+      "target_z": -271.9975,
+      "distance": 14.083,
+      "target_level": "l04_darkvalley"
+    },
+    {
+      "source_x": 126.4454,
+      "source_y": -2.8384,
+      "source_z": -271.9975,
+      "target_x": 146.4208,
+      "target_y": 0.2335,
+      "target_z": -261.1205,
+      "distance": 44.4279,
+      "target_level": "l04_darkvalley"
+    },
+    {
+      "source_x": 126.4454,
+      "source_y": -2.8384,
+      "source_z": -271.9975,
+      "target_x": 123.1406,
+      "target_y": -2.8384,
+      "target_z": -260.8054,
+      "distance": 13.3976,
+      "target_level": "l04_darkvalley"
+    },
+    {
+      "source_x": 126.4454,
+      "source_y": -2.8384,
+      "source_z": -271.9975,
+      "target_x": -1.5087,
+      "target_y": 9.3142,
+      "target_z": -13.2898,
+      "distance": 1126.8671,
+      "target_level": "l04u_labx18"
+    },
+    {
+      "source_x": 59.4658,
+      "source_y": 5.2895,
+      "source_z": 146.3206,
+      "target_x": 75.7557,
+      "target_y": 0.8919,
+      "target_z": 97.6187,
+      "distance": 55.9381,
+      "target_level": "l04_darkvalley"
+    },
+    {
+      "source_x": 59.4658,
+      "source_y": 5.2895,
+      "source_z": 146.3206,
+      "target_x": -324.2017,
+      "target_y": 20.5256,
+      "target_z": -372.8072,
+      "distance": 647.7173,
+      "target_level": "k02_trucks_cemetery"
+    },
+    {
+      "source_x": 35.8602,
+      "source_y": 0.0719,
+      "source_z": -92.2919,
+      "target_x": 56.7885,
+      "target_y": 0.0,
+      "target_z": -108.3221,
+      "distance": 27.7329,
+      "target_level": "l04_darkvalley"
+    },
+    {
+      "source_x": 35.8602,
+      "source_y": 0.0719,
+      "source_z": -92.2919,
+      "target_x": 60.1718,
+      "target_y": 0.0681,
+      "target_z": -76.86,
+      "distance": 41.5647,
+      "target_level": "l04_darkvalley"
+    },
+    {
+      "source_x": 35.8602,
+      "source_y": 0.0719,
+      "source_z": -92.2919,
+      "target_x": 17.3102,
+      "target_y": 1.0228,
+      "target_z": -82.7279,
+      "distance": 25.9329,
+      "target_level": "l04_darkvalley"
+    },
+    {
+      "source_x": 35.8602,
+      "source_y": 0.0719,
+      "source_z": -92.2919,
+      "target_x": 11.1133,
+      "target_y": 0.079,
+      "target_z": -91.5267,
+      "distance": 24.7587,
+      "target_level": "l04_darkvalley"
+    },
+    {
+      "source_x": 11.1133,
+      "source_y": 0.079,
+      "source_z": -91.5267,
+      "target_x": 35.8602,
+      "target_y": 0.0719,
+      "target_z": -92.2919,
+      "distance": 24.7587,
+      "target_level": "l04_darkvalley"
+    },
+    {
+      "source_x": 11.1133,
+      "source_y": 0.079,
+      "source_z": -91.5267,
+      "target_x": -3.8395,
+      "target_y": 0.114,
+      "target_z": -82.8857,
+      "distance": 17.27,
+      "target_level": "l04_darkvalley"
+    },
+    {
+      "source_x": -3.8395,
+      "source_y": 0.114,
+      "source_z": -82.8857,
+      "target_x": 11.1133,
+      "target_y": 0.079,
+      "target_z": -91.5267,
+      "distance": 17.27,
+      "target_level": "l04_darkvalley"
+    },
+    {
+      "source_x": -3.8395,
+      "source_y": 0.114,
+      "source_z": -82.8857,
+      "target_x": 4.096,
+      "target_y": 0.0838,
+      "target_z": -68.7699,
+      "distance": 17.435,
+      "target_level": "l04_darkvalley"
+    },
+    {
+      "source_x": 4.096,
+      "source_y": 0.0838,
+      "source_z": -68.7699,
+      "target_x": -3.8395,
+      "target_y": 0.114,
+      "target_z": -82.8857,
+      "distance": 18.6056,
+      "target_level": "l04_darkvalley"
+    },
+    {
+      "source_x": 4.096,
+      "source_y": 0.0838,
+      "source_z": -68.7699,
+      "target_x": 13.2562,
+      "target_y": 0.1112,
+      "target_z": -53.2392,
+      "distance": 18.0977,
+      "target_level": "l04_darkvalley"
+    },
+    {
+      "source_x": 4.096,
+      "source_y": 0.0838,
+      "source_z": -68.7699,
+      "target_x": -5.7901,
+      "target_y": 0.119,
+      "target_z": -63.413,
+      "distance": 12.0893,
+      "target_level": "l04_darkvalley"
+    },
+    {
+      "source_x": -5.7901,
+      "source_y": 0.119,
+      "source_z": -63.413,
+      "target_x": 4.096,
+      "target_y": 0.0838,
+      "target_z": -68.7699,
+      "distance": 13.7231,
+      "target_level": "l04_darkvalley"
+    },
+    {
+      "source_x": 13.2562,
+      "source_y": 0.1112,
+      "source_z": -53.2392,
+      "target_x": 25.4874,
+      "target_y": 0.1288,
+      "target_z": -49.6582,
+      "distance": 13.0722,
+      "target_level": "l04_darkvalley"
+    },
+    {
+      "source_x": 13.2562,
+      "source_y": 0.1112,
+      "source_z": -53.2392,
+      "target_x": 4.096,
+      "target_y": 0.0838,
+      "target_z": -68.7699,
+      "distance": 18.3591,
+      "target_level": "l04_darkvalley"
+    },
+    {
+      "source_x": 13.2562,
+      "source_y": 0.1112,
+      "source_z": -53.2392,
+      "target_x": 16.6444,
+      "target_y": 0.3828,
+      "target_z": -66.9729,
+      "distance": 24.1129,
+      "target_level": "l04_darkvalley"
+    },
+    {
+      "source_x": 25.4874,
+      "source_y": 0.1288,
+      "source_z": -49.6582,
+      "target_x": 26.2111,
+      "target_y": 0.1285,
+      "target_z": -27.673,
+      "distance": 21.997,
+      "target_level": "l04_darkvalley"
+    },
+    {
+      "source_x": 25.4874,
+      "source_y": 0.1288,
+      "source_z": -49.6582,
+      "target_x": 13.2562,
+      "target_y": 0.1112,
+      "target_z": -53.2392,
+      "distance": 12.8774,
+      "target_level": "l04_darkvalley"
+    },
+    {
+      "source_x": 26.2111,
+      "source_y": 0.1285,
+      "source_z": -27.673,
+      "target_x": 25.4874,
+      "target_y": 0.1288,
+      "target_z": -49.6582,
+      "distance": 21.997,
+      "target_level": "l04_darkvalley"
+    },
+    {
+      "source_x": 26.2111,
+      "source_y": 0.1285,
+      "source_z": -27.673,
+      "target_x": 30.4432,
+      "target_y": 0.1296,
+      "target_z": -14.8555,
+      "distance": 17.2056,
+      "target_level": "l04_darkvalley"
+    },
+    {
+      "source_x": 40.9533,
+      "source_y": 0.0925,
+      "source_z": -5.0448,
+      "target_x": 43.939,
+      "target_y": 0.0871,
+      "target_z": 18.3874,
+      "distance": 23.6217,
+      "target_level": "l04_darkvalley"
+    },
+    {
+      "source_x": 40.9533,
+      "source_y": 0.0925,
+      "source_z": -5.0448,
+      "target_x": 30.4432,
+      "target_y": 0.1296,
+      "target_z": -14.8555,
+      "distance": 14.3774,
+      "target_level": "l04_darkvalley"
+    },
+    {
+      "source_x": 34.6316,
+      "source_y": 6.1748,
+      "source_z": -20.3694,
+      "target_x": 47.1936,
+      "target_y": 8.0628,
+      "target_z": -29.1653,
+      "distance": 22.0439,
+      "target_level": "l04_darkvalley"
+    },
+    {
+      "source_x": 34.6316,
+      "source_y": 6.1748,
+      "source_z": -20.3694,
+      "target_x": 41.6434,
+      "target_y": 4.4148,
+      "target_z": -20.3887,
+      "distance": 7.7811,
+      "target_level": "l04_darkvalley"
+    },
+    {
+      "source_x": 34.6316,
+      "source_y": 6.1748,
+      "source_z": -20.3694,
+      "target_x": 16.0762,
+      "target_y": 6.1952,
+      "target_z": -26.6091,
+      "distance": 23.045,
+      "target_level": "l04_darkvalley"
+    },
+    {
+      "source_x": 41.6434,
+      "source_y": 4.4148,
+      "source_z": -20.3887,
+      "target_x": 34.6004,
+      "target_y": 4.5428,
+      "target_z": -31.6293,
+      "distance": 15.9844,
+      "target_level": "l04_darkvalley"
+    },
+    {
+      "source_x": 41.6434,
+      "source_y": 4.4148,
+      "source_z": -20.3887,
+      "target_x": 34.6316,
+      "target_y": 6.1748,
+      "target_z": -20.3694,
+      "distance": 7.5997,
+      "target_level": "l04_darkvalley"
+    },
+    {
+      "source_x": 41.6434,
+      "source_y": 4.4148,
+      "source_z": -20.3887,
+      "target_x": 42.0353,
+      "target_y": 0.8948,
+      "target_z": -21.0768,
+      "distance": 0.7919,
+      "target_level": "l04_darkvalley"
+    },
+    {
+      "source_x": 42.0353,
+      "source_y": 0.8948,
+      "source_z": -21.0768,
+      "target_x": 40.6831,
+      "target_y": 1.0228,
+      "target_z": -33.6942,
+      "distance": 12.9087,
+      "target_level": "l04_darkvalley"
+    },
+    {
+      "source_x": 42.0353,
+      "source_y": 0.8948,
+      "source_z": -21.0768,
+      "target_x": 25.1775,
+      "target_y": 0.087,
+      "target_z": 2.7726,
+      "distance": 40.6269,
+      "target_level": "l04_darkvalley"
+    },
+    {
+      "source_x": 42.0353,
+      "source_y": 0.8948,
+      "source_z": -21.0768,
+      "target_x": 41.6434,
+      "target_y": 4.4148,
+      "target_z": -20.3887,
+      "distance": 0.7919,
+      "target_level": "l04_darkvalley"
+    },
+    {
+      "source_x": 40.6831,
+      "source_y": 1.0228,
+      "source_z": -33.6942,
+      "target_x": 46.0237,
+      "target_y": 1.0228,
+      "target_z": -30.2726,
+      "distance": 6.7658,
+      "target_level": "l04_darkvalley"
+    },
+    {
+      "source_x": 40.6831,
+      "source_y": 1.0228,
+      "source_z": -33.6942,
+      "target_x": 42.0353,
+      "target_y": 0.8948,
+      "target_z": -21.0768,
+      "distance": 12.9737,
+      "target_level": "l04_darkvalley"
+    },
+    {
+      "source_x": 40.6831,
+      "source_y": 1.0228,
+      "source_z": -33.6942,
+      "target_x": 35.1181,
+      "target_y": 1.0228,
+      "target_z": -36.9532,
+      "distance": 10.5982,
+      "target_level": "l04_darkvalley"
+    },
+    {
+      "source_x": 35.1181,
+      "source_y": 1.0228,
+      "source_z": -36.9532,
+      "target_x": 40.6831,
+      "target_y": 1.0228,
+      "target_z": -33.6942,
+      "distance": 10.1882,
+      "target_level": "l04_darkvalley"
+    },
+    {
+      "source_x": 35.1181,
+      "source_y": 1.0228,
+      "source_z": -36.9532,
+      "target_x": 39.7306,
+      "target_y": -2.4972,
+      "target_z": -46.5791,
+      "distance": 17.4893,
+      "target_level": "l04_darkvalley"
+    },
+    {
+      "source_x": 46.1415,
+      "source_y": -2.4972,
+      "source_z": -57.3131,
+      "target_x": 39.7306,
+      "target_y": -2.4972,
+      "target_z": -46.5791,
+      "distance": 18.1979,
+      "target_level": "l04_darkvalley"
+    },
+    {
+      "source_x": 39.7306,
+      "source_y": -2.4972,
+      "source_z": -46.5791,
+      "target_x": 46.1415,
+      "target_y": -2.4972,
+      "target_z": -57.3131,
+      "distance": 16.7804,
+      "target_level": "l04_darkvalley"
+    },
+    {
+      "source_x": 39.7306,
+      "source_y": -2.4972,
+      "source_z": -46.5791,
+      "target_x": 35.1181,
+      "target_y": 1.0228,
+      "target_z": -36.9532,
+      "distance": 17.5932,
+      "target_level": "l04_darkvalley"
+    },
+    {
+      "source_x": 47.1936,
+      "source_y": 8.0628,
+      "source_z": -29.1653,
+      "target_x": 40.6192,
+      "target_y": 11.5828,
+      "target_z": -31.539,
+      "distance": 36.3828,
+      "target_level": "l04_darkvalley"
+    },
+    {
+      "source_x": 47.1936,
+      "source_y": 8.0628,
+      "source_z": -29.1653,
+      "target_x": 46.5986,
+      "target_y": 4.5428,
+      "target_z": -31.8513,
+      "distance": 36.2466,
+      "target_level": "l04_darkvalley"
+    },
+    {
+      "source_x": 47.1936,
+      "source_y": 8.0628,
+      "source_z": -29.1653,
+      "target_x": 34.6316,
+      "target_y": 6.1748,
+      "target_z": -20.3694,
+      "distance": 24.3934,
+      "target_level": "l04_darkvalley"
+    },
+    {
+      "source_x": 45.6628,
+      "source_y": 1.0228,
+      "source_z": -44.8323,
+      "target_x": 46.0237,
+      "target_y": 1.0228,
+      "target_z": -30.2726,
+      "distance": 14.8835,
+      "target_level": "l04_darkvalley"
+    },
+    {
+      "source_x": 45.6628,
+      "source_y": 1.0228,
+      "source_z": -44.8323,
+      "target_x": 46.5986,
+      "target_y": 4.5428,
+      "target_z": -31.8513,
+      "distance": 29.4168,
+      "target_level": "l04_darkvalley"
+    },
+    {
+      "source_x": 45.6628,
+      "source_y": 1.0228,
+      "source_z": -44.8323,
+      "target_x": 40.6312,
+      "target_y": 1.0227,
+      "target_z": -54.6999,
+      "distance": 13.0682,
+      "target_level": "l04_darkvalley"
+    },
+    {
+      "source_x": 40.6312,
+      "source_y": 1.0227,
+      "source_z": -54.6999,
+      "target_x": 36.3348,
+      "target_y": 0.3828,
+      "target_z": -76.5322,
+      "distance": 23.8945,
+      "target_level": "l04_darkvalley"
+    },
+    {
+      "source_x": 40.6312,
+      "source_y": 1.0227,
+      "source_z": -54.6999,
+      "target_x": 46.6303,
+      "target_y": 1.0228,
+      "target_z": -51.0977,
+      "distance": 8.0224,
+      "target_level": "l04_darkvalley"
+    },
+    {
+      "source_x": 40.6312,
+      "source_y": 1.0227,
+      "source_z": -54.6999,
+      "target_x": 45.6628,
+      "target_y": 1.0228,
+      "target_z": -44.8323,
+      "distance": 13.1286,
+      "target_level": "l04_darkvalley"
+    },
+    {
+      "source_x": 40.6312,
+      "source_y": 1.0227,
+      "source_z": -54.6999,
+      "target_x": 33.2122,
+      "target_y": 1.0228,
+      "target_z": -54.9491,
+      "distance": 15.9541,
+      "target_level": "l04_darkvalley"
+    },
+    {
+      "source_x": 36.3348,
+      "source_y": 0.3828,
+      "source_z": -76.5322,
+      "target_x": 39.0536,
+      "target_y": 0.3828,
+      "target_z": -83.6594,
+      "distance": 9.2421,
+      "target_level": "l04_darkvalley"
+    },
+    {
+      "source_x": 36.3348,
+      "source_y": 0.3828,
+      "source_z": -76.5322,
+      "target_x": 40.6312,
+      "target_y": 1.0227,
+      "target_z": -54.6999,
+      "distance": 25.1711,
+      "target_level": "l04_darkvalley"
+    },
+    {
+      "source_x": 36.3348,
+      "source_y": 0.3828,
+      "source_z": -76.5322,
+      "target_x": 17.3102,
+      "target_y": 1.0228,
+      "target_z": -82.7279,
+      "distance": 23.1201,
+      "target_level": "l04_darkvalley"
+    },
+    {
+      "source_x": 36.3348,
+      "source_y": 0.3828,
+      "source_z": -76.5322,
+      "target_x": 16.6444,
+      "target_y": 0.3828,
+      "target_z": -66.9729,
+      "distance": 23.8148,
+      "target_level": "l04_darkvalley"
+    },
+    {
+      "source_x": 36.3348,
+      "source_y": 0.3828,
+      "source_z": -76.5322,
+      "target_x": 40.8165,
+      "target_y": 4.5427,
+      "target_z": -53.507,
+      "distance": 36.7061,
+      "target_level": "l04_darkvalley"
+    },
+    {
+      "source_x": 21.3854,
+      "source_y": 5.1828,
+      "source_z": -73.2221,
+      "target_x": 19.9184,
+      "target_y": 4.5428,
+      "target_z": -84.1379,
+      "distance": 19.0355,
+      "target_level": "l04_darkvalley"
+    },
+    {
+      "source_x": 19.9184,
+      "source_y": 4.5428,
+      "source_z": -84.1379,
+      "target_x": 32.3961,
+      "target_y": 4.5428,
+      "target_z": -83.2548,
+      "distance": 12.5863,
+      "target_level": "l04_darkvalley"
+    },
+    {
+      "source_x": 19.9184,
+      "source_y": 4.5428,
+      "source_z": -84.1379,
+      "target_x": 17.3102,
+      "target_y": 1.0228,
+      "target_z": -82.7279,
+      "distance": 2.9649,
+      "target_level": "l04_darkvalley"
+    },
+    {
+      "source_x": 19.9184,
+      "source_y": 4.5428,
+      "source_z": -84.1379,
+      "target_x": 21.3854,
+      "target_y": 5.1828,
+      "target_z": -73.2221,
+      "distance": 20.4625,
+      "target_level": "l04_darkvalley"
+    },
+    {
+      "source_x": 32.3961,
+      "source_y": 4.5428,
+      "source_z": -83.2548,
+      "target_x": 19.9184,
+      "target_y": 4.5428,
+      "target_z": -84.1379,
+      "distance": 12.665,
+      "target_level": "l04_darkvalley"
+    },
+    {
+      "source_x": 16.6444,
+      "source_y": 0.3828,
+      "source_z": -66.9729,
+      "target_x": 36.3348,
+      "target_y": 0.3828,
+      "target_z": -76.5322,
+      "distance": 22.9623,
+      "target_level": "l04_darkvalley"
+    },
+    {
+      "source_x": 16.6444,
+      "source_y": 0.3828,
+      "source_z": -66.9729,
+      "target_x": 13.2562,
+      "target_y": 0.1112,
+      "target_z": -53.2392,
+      "distance": 24.7116,
+      "target_level": "l04_darkvalley"
+    },
+    {
+      "source_x": 34.2389,
+      "source_y": 4.5427,
+      "source_z": -55.3529,
+      "target_x": 40.8165,
+      "target_y": 4.5427,
+      "target_z": -53.507,
+      "distance": 6.9736,
+      "target_level": "l04_darkvalley"
+    },
+    {
+      "source_x": 47.5911,
+      "source_y": 4.5428,
+      "source_z": -57.0948,
+      "target_x": 44.9632,
+      "target_y": 11.5828,
+      "target_z": -55.0725,
+      "distance": 3.3159,
+      "target_level": "l04_darkvalley"
+    },
+    {
+      "source_x": 46.5986,
+      "source_y": 4.5428,
+      "source_z": -31.8513,
+      "target_x": 40.8165,
+      "target_y": 4.5427,
+      "target_z": -53.507,
+      "distance": 24.3331,
+      "target_level": "l04_darkvalley"
+    },
+    {
+      "source_x": 46.5986,
+      "source_y": 4.5428,
+      "source_z": -31.8513,
+      "target_x": 47.1936,
+      "target_y": 8.0628,
+      "target_z": -29.1653,
+      "distance": 2.7512,
+      "target_level": "l04_darkvalley"
+    },
+    {
+      "source_x": 46.5986,
+      "source_y": 4.5428,
+      "source_z": -31.8513,
+      "target_x": 45.6628,
+      "target_y": 1.0228,
+      "target_z": -44.8323,
+      "distance": 26.5968,
+      "target_level": "l04_darkvalley"
+    },
+    {
+      "source_x": 46.5986,
+      "source_y": 4.5428,
+      "source_z": -31.8513,
+      "target_x": 34.6004,
+      "target_y": 4.5428,
+      "target_z": -31.6293,
+      "distance": 12.0002,
+      "target_level": "l04_darkvalley"
+    },
+    {
+      "source_x": 34.6004,
+      "source_y": 4.5428,
+      "source_z": -31.6293,
+      "target_x": 46.5986,
+      "target_y": 4.5428,
+      "target_z": -31.8513,
+      "distance": 12.0002,
+      "target_level": "l04_darkvalley"
+    },
+    {
+      "source_x": 34.6004,
+      "source_y": 4.5428,
+      "source_z": -31.6293,
+      "target_x": 41.6434,
+      "target_y": 4.4148,
+      "target_z": -20.3887,
+      "distance": 18.001,
+      "target_level": "l04_darkvalley"
+    },
+    {
+      "source_x": 40.8165,
+      "source_y": 4.5427,
+      "source_z": -53.507,
+      "target_x": 36.3348,
+      "target_y": 0.3828,
+      "target_z": -76.5322,
+      "distance": 37.6586,
+      "target_level": "l04_darkvalley"
+    },
+    {
+      "source_x": 40.8165,
+      "source_y": 4.5427,
+      "source_z": -53.507,
+      "target_x": 44.9632,
+      "target_y": 11.5828,
+      "target_z": -55.0725,
+      "distance": 10.6873,
+      "target_level": "l04_darkvalley"
+    },
+    {
+      "source_x": 40.8165,
+      "source_y": 4.5427,
+      "source_z": -53.507,
+      "target_x": 46.5986,
+      "target_y": 4.5428,
+      "target_z": -31.8513,
+      "distance": 26.7556,
+      "target_level": "l04_darkvalley"
+    },
+    {
+      "source_x": 40.8165,
+      "source_y": 4.5427,
+      "source_z": -53.507,
+      "target_x": 34.2389,
+      "target_y": 4.5427,
+      "target_z": -55.3529,
+      "distance": 6.8886,
+      "target_level": "l04_darkvalley"
+    },
+    {
+      "source_x": 43.0283,
+      "source_y": 9.9828,
+      "source_z": -70.0354,
+      "target_x": 34.0612,
+      "target_y": 11.5828,
+      "target_z": -53.8295,
+      "distance": 23.625,
+      "target_level": "l04_darkvalley"
+    },
+    {
+      "source_x": 44.9632,
+      "source_y": 11.5828,
+      "source_z": -55.0725,
+      "target_x": 47.5911,
+      "target_y": 4.5428,
+      "target_z": -57.0948,
+      "distance": 3.3159,
+      "target_level": "l04_darkvalley"
+    },
+    {
+      "source_x": 44.9632,
+      "source_y": 11.5828,
+      "source_z": -55.0725,
+      "target_x": 40.8165,
+      "target_y": 4.5427,
+      "target_z": -53.507,
+      "distance": 9.265,
+      "target_level": "l04_darkvalley"
+    },
+    {
+      "source_x": 34.0612,
+      "source_y": 11.5828,
+      "source_z": -53.8295,
+      "target_x": 43.0283,
+      "target_y": 9.9828,
+      "target_z": -70.0354,
+      "distance": 23.1217,
+      "target_level": "l04_darkvalley"
+    },
+    {
+      "source_x": 34.0612,
+      "source_y": 11.5828,
+      "source_z": -53.8295,
+      "target_x": 40.6192,
+      "target_y": 11.5828,
+      "target_z": -31.539,
+      "distance": 34.2336,
+      "target_level": "l04_darkvalley"
+    },
+    {
+      "source_x": 40.6192,
+      "source_y": 11.5828,
+      "source_z": -31.539,
+      "target_x": 34.0612,
+      "target_y": 11.5828,
+      "target_z": -53.8295,
+      "distance": 33.0216,
+      "target_level": "l04_darkvalley"
+    },
+    {
+      "source_x": 40.6192,
+      "source_y": 11.5828,
+      "source_z": -31.539,
+      "target_x": 47.1936,
+      "target_y": 8.0628,
+      "target_z": -29.1653,
+      "distance": 38.3349,
+      "target_level": "l04_darkvalley"
+    },
+    {
+      "source_x": 40.6192,
+      "source_y": 11.5828,
+      "source_z": -31.539,
+      "target_x": 38.6862,
+      "target_y": 11.5828,
+      "target_z": -19.6622,
+      "distance": 13.8538,
+      "target_level": "l04_darkvalley"
+    },
+    {
+      "source_x": 38.6862,
+      "source_y": 11.5828,
+      "source_z": -19.6622,
+      "target_x": 40.6192,
+      "target_y": 11.5828,
+      "target_z": -31.539,
+      "distance": 12.2416,
+      "target_level": "l04_darkvalley"
+    },
+    {
+      "source_x": 39.0536,
+      "source_y": 0.3828,
+      "source_z": -83.6594,
+      "target_x": 36.3348,
+      "target_y": 0.3828,
+      "target_z": -76.5322,
+      "distance": 8.4962,
+      "target_level": "l04_darkvalley"
+    },
+    {
+      "source_x": 17.3102,
+      "source_y": 1.0228,
+      "source_z": -82.7279,
+      "target_x": 35.8602,
+      "target_y": 0.0719,
+      "target_z": -92.2919,
+      "distance": 28.6192,
+      "target_level": "l04_darkvalley"
+    },
+    {
+      "source_x": 17.3102,
+      "source_y": 1.0228,
+      "source_z": -82.7279,
+      "target_x": 36.3348,
+      "target_y": 0.3828,
+      "target_z": -76.5322,
+      "distance": 20.449,
+      "target_level": "l04_darkvalley"
+    },
+    {
+      "source_x": 17.3102,
+      "source_y": 1.0228,
+      "source_z": -82.7279,
+      "target_x": 19.9184,
+      "target_y": 4.5428,
+      "target_z": -84.1379,
+      "distance": 21.9924,
+      "target_level": "l04_darkvalley"
+    },
+    {
+      "source_x": 33.2122,
+      "source_y": 1.0228,
+      "source_z": -54.9491,
+      "target_x": 40.6312,
+      "target_y": 1.0227,
+      "target_z": -54.6999,
+      "distance": 14.5187,
+      "target_level": "l04_darkvalley"
+    },
+    {
+      "source_x": 46.6303,
+      "source_y": 1.0228,
+      "source_z": -51.0977,
+      "target_x": 40.6312,
+      "target_y": 1.0227,
+      "target_z": -54.6999,
+      "distance": 7.791,
+      "target_level": "l04_darkvalley"
+    },
+    {
+      "source_x": 46.0237,
+      "source_y": 1.0228,
+      "source_z": -30.2726,
+      "target_x": 45.6628,
+      "target_y": 1.0228,
+      "target_z": -44.8323,
+      "distance": 15.0362,
+      "target_level": "l04_darkvalley"
+    },
+    {
+      "source_x": 46.0237,
+      "source_y": 1.0228,
+      "source_z": -30.2726,
+      "target_x": 40.6831,
+      "target_y": 1.0228,
+      "target_z": -33.6942,
+      "distance": 6.7658,
+      "target_level": "l04_darkvalley"
+    },
+    {
+      "source_x": 30.4432,
+      "source_y": 0.1296,
+      "source_z": -14.8555,
+      "target_x": 26.2111,
+      "target_y": 0.1285,
+      "target_z": -27.673,
+      "distance": 18.2924,
+      "target_level": "l04_darkvalley"
+    },
+    {
+      "source_x": 30.4432,
+      "source_y": 0.1296,
+      "source_z": -14.8555,
+      "target_x": 40.9533,
+      "target_y": 0.0925,
+      "target_z": -5.0448,
+      "distance": 14.3774,
+      "target_level": "l04_darkvalley"
+    },
+    {
+      "source_x": 30.4432,
+      "source_y": 0.1296,
+      "source_z": -14.8555,
+      "target_x": 24.5949,
+      "target_y": 0.1149,
+      "target_z": -2.7912,
+      "distance": 13.4071,
+      "target_level": "l04_darkvalley"
+    },
+    {
+      "source_x": -46.3205,
+      "source_y": 0.4348,
+      "source_z": -574.2383,
+      "target_x": -47.3282,
+      "target_y": 0.387,
+      "target_z": -601.7765,
+      "distance": 34.0847,
+      "target_level": "l04_darkvalley"
+    },
+    {
+      "source_x": -46.3205,
+      "source_y": 0.4348,
+      "source_z": -574.2383,
+      "target_x": -41.4841,
+      "target_y": 0.4348,
+      "target_z": -553.2035,
+      "distance": 26.7938,
+      "target_level": "l04_darkvalley"
+    },
+    {
+      "source_x": -46.3205,
+      "source_y": 0.4348,
+      "source_z": -574.2383,
+      "target_x": 116.3936,
+      "target_y": 2.6906,
+      "target_z": 521.6974,
+      "distance": 188.9038,
+      "target_level": "k01_darkscape"
+    },
+    {
+      "source_x": 189.3785,
+      "source_y": 4.5911,
+      "source_z": -366.87,
+      "target_x": 172.4939,
+      "target_y": 9.1086,
+      "target_z": -359.5283,
+      "distance": 18.4117,
+      "target_level": "l04_darkvalley"
+    },
+    {
+      "source_x": 189.3785,
+      "source_y": 4.5911,
+      "source_z": -366.87,
+      "target_x": 239.505,
+      "target_y": -2.7336,
+      "target_z": 661.6935,
+      "distance": 58.1566,
+      "target_level": "k01_darkscape"
+    },
+    {
+      "source_x": -146.6796,
+      "source_y": 7.6783,
+      "source_z": -117.206,
+      "target_x": -105.875,
+      "target_y": 6.304,
+      "target_z": -103.2519,
+      "distance": 45.2192,
+      "target_level": "l04_darkvalley"
+    },
+    {
+      "source_x": -146.6796,
+      "source_y": 7.6783,
+      "source_z": -117.206,
+      "target_x": 339.1403,
+      "target_y": 4.8995,
+      "target_z": 139.4966,
+      "distance": 574.7042,
+      "target_level": "l02_garbage"
+    },
+    {
+      "source_x": 75.7557,
+      "source_y": 0.8919,
+      "source_z": 97.6187,
+      "target_x": 95.3481,
+      "target_y": -0.2432,
+      "target_z": 84.1544,
+      "distance": 23.7728,
+      "target_level": "l04_darkvalley"
+    },
+    {
+      "source_x": 75.7557,
+      "source_y": 0.8919,
+      "source_z": 97.6187,
+      "target_x": 59.4658,
+      "target_y": 5.2895,
+      "target_z": 146.3206,
+      "distance": 60.3387,
+      "target_level": "l04_darkvalley"
+    },
+    {
+      "source_x": 75.7557,
+      "source_y": 0.8919,
+      "source_z": 97.6187,
+      "target_x": 33.1563,
+      "target_y": 4.4293,
+      "target_z": 86.7381,
+      "distance": 43.967,
+      "target_level": "l04_darkvalley"
+    },
+    {
+      "source_x": 176.3907,
+      "source_y": 7.429,
+      "source_z": 45.4702,
+      "target_x": 161.7277,
+      "target_y": 2.7891,
+      "target_z": 56.7821,
+      "distance": 20.9256,
+      "target_level": "l04_darkvalley"
+    },
+    {
+      "source_x": 176.3907,
+      "source_y": 7.429,
+      "source_z": 45.4702,
+      "target_x": 184.8776,
+      "target_y": 9.3191,
+      "target_z": -394.4488,
+      "distance": 561.6205,
+      "target_level": "k02_trucks_cemetery"
+    },
+    {
+      "source_x": -65.9996,
+      "source_y": 0.7709,
+      "source_z": 77.8623,
+      "target_x": -75.8879,
+      "target_y": -2.547,
+      "target_z": 32.8876,
+      "distance": 49.3026,
+      "target_level": "l04_darkvalley"
+    },
+    {
+      "source_x": -65.9996,
+      "source_y": 0.7709,
+      "source_z": 77.8623,
+      "target_x": -46.378,
+      "target_y": -0.1736,
+      "target_z": 70.8293,
+      "distance": 25.9593,
+      "target_level": "l04_darkvalley"
+    },
+    {
+      "source_x": -65.9996,
+      "source_y": 0.7709,
+      "source_z": 77.8623,
+      "target_x": 335.6919,
+      "target_y": 15.5113,
+      "target_z": -194.831,
+      "distance": 808.0093,
+      "target_level": "k02_trucks_cemetery"
+    }
+  ]
+}

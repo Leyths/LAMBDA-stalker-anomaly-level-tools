@@ -1,0 +1,4489 @@
+{
+  "level_name": "l11_pripyat",
+  "level_id": 16,
+  "edge_count": 448,
+  "intra_level_edges": 436,
+  "inter_level_edges": 12,
+  "edges": [
+    {
+      "source_x": -25.1914,
+      "source_y": 12.1367,
+      "source_z": -172.9009,
+      "target_x": -32.4414,
+      "target_y": -2.3937,
+      "target_z": -177.4758,
+      "distance": 22.1116,
+      "target_level": "l11_pripyat"
+    },
+    {
+      "source_x": -14.4547,
+      "source_y": 2.9618,
+      "source_z": -168.2103,
+      "target_x": 9.8107,
+      "target_y": -2.3908,
+      "target_z": -186.1678,
+      "distance": 40.6673,
+      "target_level": "l11_pripyat"
+    },
+    {
+      "source_x": -14.4547,
+      "source_y": 2.9618,
+      "source_z": -168.2103,
+      "target_x": -17.3526,
+      "target_y": 15.5652,
+      "target_z": -156.7863,
+      "distance": 40.7753,
+      "target_level": "l11_pripyat"
+    },
+    {
+      "source_x": -17.3526,
+      "source_y": 15.5652,
+      "source_z": -156.7863,
+      "target_x": -14.4547,
+      "target_y": 2.9618,
+      "target_z": -168.2103,
+      "distance": 37.3458,
+      "target_level": "l11_pripyat"
+    },
+    {
+      "source_x": -17.3526,
+      "source_y": 15.5652,
+      "source_z": -156.7863,
+      "target_x": 10.4542,
+      "target_y": -2.3908,
+      "target_z": -126.7215,
+      "distance": 64.648,
+      "target_level": "l11_pripyat"
+    },
+    {
+      "source_x": 34.3358,
+      "source_y": 9.3315,
+      "source_z": -157.3549,
+      "target_x": 52.3453,
+      "target_y": -2.3908,
+      "target_z": -185.5466,
+      "distance": 61.9391,
+      "target_level": "l11_pripyat"
+    },
+    {
+      "source_x": 34.3358,
+      "source_y": 9.3315,
+      "source_z": -157.3549,
+      "target_x": 50.4492,
+      "target_y": -2.3908,
+      "target_z": -126.1736,
+      "distance": 54.3947,
+      "target_level": "l11_pripyat"
+    },
+    {
+      "source_x": 34.3358,
+      "source_y": 9.3315,
+      "source_z": -157.3549,
+      "target_x": 44.1413,
+      "target_y": 18.2362,
+      "target_z": -157.5117,
+      "distance": 45.3066,
+      "target_level": "l11_pripyat"
+    },
+    {
+      "source_x": 44.1413,
+      "source_y": 18.2362,
+      "source_z": -157.5117,
+      "target_x": 34.3358,
+      "target_y": 9.3315,
+      "target_z": -157.3549,
+      "distance": 9.8068,
+      "target_level": "l11_pripyat"
+    },
+    {
+      "source_x": 42.8234,
+      "source_y": 19.1686,
+      "source_z": -98.0095,
+      "target_x": 10.4542,
+      "target_y": -2.3908,
+      "target_z": -126.7215,
+      "distance": 64.3651,
+      "target_level": "l11_pripyat"
+    },
+    {
+      "source_x": 42.8234,
+      "source_y": 19.1686,
+      "source_z": -98.0095,
+      "target_x": 34.3061,
+      "target_y": 9.3315,
+      "target_z": -87.492,
+      "distance": 60.0542,
+      "target_level": "l11_pripyat"
+    },
+    {
+      "source_x": 34.3061,
+      "source_y": 9.3315,
+      "source_z": -87.492,
+      "target_x": 33.4038,
+      "target_y": -2.3908,
+      "target_z": -57.4068,
+      "distance": 44.3184,
+      "target_level": "l11_pripyat"
+    },
+    {
+      "source_x": 34.3061,
+      "source_y": 9.3315,
+      "source_z": -87.492,
+      "target_x": 42.8234,
+      "target_y": 19.1686,
+      "target_z": -98.0095,
+      "distance": 61.098,
+      "target_level": "l11_pripyat"
+    },
+    {
+      "source_x": -16.9269,
+      "source_y": 15.5652,
+      "source_z": -99.3789,
+      "target_x": -13.777,
+      "target_y": 6.1467,
+      "target_z": -108.4852,
+      "distance": 40.3701,
+      "target_level": "l11_pripyat"
+    },
+    {
+      "source_x": -16.9269,
+      "source_y": 15.5652,
+      "source_z": -99.3789,
+      "target_x": 11.8687,
+      "target_y": -2.3908,
+      "target_z": -64.4418,
+      "distance": 69.3557,
+      "target_level": "l11_pripyat"
+    },
+    {
+      "source_x": -13.777,
+      "source_y": 6.1467,
+      "source_z": -108.4852,
+      "target_x": 10.4542,
+      "target_y": -2.3908,
+      "target_z": -126.7215,
+      "distance": 42.671,
+      "target_level": "l11_pripyat"
+    },
+    {
+      "source_x": -13.777,
+      "source_y": 6.1467,
+      "source_z": -108.4852,
+      "target_x": -16.9269,
+      "target_y": 15.5652,
+      "target_z": -99.3789,
+      "distance": 45.4828,
+      "target_level": "l11_pripyat"
+    },
+    {
+      "source_x": -67.2345,
+      "source_y": 15.4581,
+      "source_z": 140.0964,
+      "target_x": -66.648,
+      "target_y": 4.0,
+      "target_z": 152.2691,
+      "distance": 41.0364,
+      "target_level": "l11_pripyat"
+    },
+    {
+      "source_x": 61.5191,
+      "source_y": 7.3233,
+      "source_z": 204.6506,
+      "target_x": 112.4136,
+      "target_y": -0.611,
+      "target_z": 226.0646,
+      "distance": 72.0543,
+      "target_level": "l11_pripyat"
+    },
+    {
+      "source_x": 61.5191,
+      "source_y": 7.3233,
+      "source_z": 204.6506,
+      "target_x": 31.2905,
+      "target_y": -0.626,
+      "target_z": 257.997,
+      "distance": 83.4869,
+      "target_level": "l11_pripyat"
+    },
+    {
+      "source_x": 13.3074,
+      "source_y": -2.2754,
+      "source_z": -230.6203,
+      "target_x": 13.2393,
+      "target_y": -0.6929,
+      "target_z": -252.0874,
+      "distance": 24.1022,
+      "target_level": "l11_pripyat"
+    },
+    {
+      "source_x": 13.3074,
+      "source_y": -2.2754,
+      "source_z": -230.6203,
+      "target_x": 9.8107,
+      "target_y": -2.3908,
+      "target_z": -186.1678,
+      "distance": 47.0264,
+      "target_level": "l11_pripyat"
+    },
+    {
+      "source_x": 9.8107,
+      "source_y": -2.3908,
+      "source_z": -186.1678,
+      "target_x": 13.3074,
+      "target_y": -2.2754,
+      "target_z": -230.6203,
+      "distance": 46.2963,
+      "target_level": "l11_pripyat"
+    },
+    {
+      "source_x": 9.8107,
+      "source_y": -2.3908,
+      "source_z": -186.1678,
+      "target_x": 52.3453,
+      "target_y": -2.3908,
+      "target_z": -185.5466,
+      "distance": 43.6499,
+      "target_level": "l11_pripyat"
+    },
+    {
+      "source_x": 9.8107,
+      "source_y": -2.3908,
+      "source_z": -186.1678,
+      "target_x": -14.4547,
+      "target_y": 2.9618,
+      "target_z": -168.2103,
+      "distance": 44.6732,
+      "target_level": "l11_pripyat"
+    },
+    {
+      "source_x": 10.4542,
+      "source_y": -2.3908,
+      "source_z": -126.7215,
+      "target_x": 50.4492,
+      "target_y": -2.3908,
+      "target_z": -126.1736,
+      "distance": 39.9988,
+      "target_level": "l11_pripyat"
+    },
+    {
+      "source_x": 10.4542,
+      "source_y": -2.3908,
+      "source_z": -126.7215,
+      "target_x": 42.8234,
+      "target_y": 19.1686,
+      "target_z": -98.0095,
+      "distance": 73.7542,
+      "target_level": "l11_pripyat"
+    },
+    {
+      "source_x": 10.4542,
+      "source_y": -2.3908,
+      "source_z": -126.7215,
+      "target_x": -17.3526,
+      "target_y": 15.5652,
+      "target_z": -156.7863,
+      "distance": 70.146,
+      "target_level": "l11_pripyat"
+    },
+    {
+      "source_x": 10.4542,
+      "source_y": -2.3908,
+      "source_z": -126.7215,
+      "target_x": -13.777,
+      "target_y": 6.1467,
+      "target_z": -108.4852,
+      "distance": 40.2686,
+      "target_level": "l11_pripyat"
+    },
+    {
+      "source_x": 10.4542,
+      "source_y": -2.3908,
+      "source_z": -126.7215,
+      "target_x": -34.2756,
+      "target_y": -2.3908,
+      "target_z": -127.1099,
+      "distance": 44.7315,
+      "target_level": "l11_pripyat"
+    },
+    {
+      "source_x": 11.8687,
+      "source_y": -2.3908,
+      "source_z": -64.4418,
+      "target_x": -16.9269,
+      "target_y": 15.5652,
+      "target_z": -99.3789,
+      "distance": 67.2924,
+      "target_level": "l11_pripyat"
+    },
+    {
+      "source_x": 11.8687,
+      "source_y": -2.3908,
+      "source_z": -64.4418,
+      "target_x": 33.4038,
+      "target_y": -2.3908,
+      "target_z": -57.4068,
+      "distance": 30.466,
+      "target_level": "l11_pripyat"
+    },
+    {
+      "source_x": 11.8687,
+      "source_y": -2.3908,
+      "source_z": -64.4418,
+      "target_x": -32.5892,
+      "target_y": -2.3906,
+      "target_z": -64.8081,
+      "distance": 44.4594,
+      "target_level": "l11_pripyat"
+    },
+    {
+      "source_x": -32.5892,
+      "source_y": -2.3906,
+      "source_z": -64.8081,
+      "target_x": -50.7718,
+      "target_y": -2.1384,
+      "target_z": -90.5703,
+      "distance": 41.4186,
+      "target_level": "l11_pripyat"
+    },
+    {
+      "source_x": -32.5892,
+      "source_y": -2.3906,
+      "source_z": -64.8081,
+      "target_x": 11.8687,
+      "target_y": -2.3908,
+      "target_z": -64.4418,
+      "distance": 44.4594,
+      "target_level": "l11_pripyat"
+    },
+    {
+      "source_x": -32.5892,
+      "source_y": -2.3906,
+      "source_z": -64.8081,
+      "target_x": -82.5894,
+      "target_y": -2.3908,
+      "target_z": -63.6643,
+      "distance": 50.5565,
+      "target_level": "l11_pripyat"
+    },
+    {
+      "source_x": -34.2756,
+      "source_y": -2.3908,
+      "source_z": -127.1099,
+      "target_x": 10.4542,
+      "target_y": -2.3908,
+      "target_z": -126.7215,
+      "distance": 44.7315,
+      "target_level": "l11_pripyat"
+    },
+    {
+      "source_x": -34.2756,
+      "source_y": -2.3908,
+      "source_z": -127.1099,
+      "target_x": -50.7718,
+      "target_y": -2.1384,
+      "target_z": -90.5703,
+      "distance": 54.3755,
+      "target_level": "l11_pripyat"
+    },
+    {
+      "source_x": -34.2756,
+      "source_y": -2.3908,
+      "source_z": -127.1099,
+      "target_x": -32.4414,
+      "target_y": -2.3937,
+      "target_z": -177.4758,
+      "distance": 52.8008,
+      "target_level": "l11_pripyat"
+    },
+    {
+      "source_x": -32.4414,
+      "source_y": -2.3937,
+      "source_z": -177.4758,
+      "target_x": -25.1914,
+      "target_y": 12.1367,
+      "target_z": -172.9009,
+      "distance": 19.8299,
+      "target_level": "l11_pripyat"
+    },
+    {
+      "source_x": -32.4414,
+      "source_y": -2.3937,
+      "source_z": -177.4758,
+      "target_x": -34.2756,
+      "target_y": -2.3908,
+      "target_z": -127.1099,
+      "distance": 55.5965,
+      "target_level": "l11_pripyat"
+    },
+    {
+      "source_x": 52.3453,
+      "source_y": -2.3908,
+      "source_z": -185.5466,
+      "target_x": 47.6223,
+      "target_y": -2.2279,
+      "target_z": -195.2674,
+      "distance": 20.5087,
+      "target_level": "l11_pripyat"
+    },
+    {
+      "source_x": 52.3453,
+      "source_y": -2.3908,
+      "source_z": -185.5466,
+      "target_x": 34.3358,
+      "target_y": 9.3315,
+      "target_z": -157.3549,
+      "distance": 58.2447,
+      "target_level": "l11_pripyat"
+    },
+    {
+      "source_x": 52.3453,
+      "source_y": -2.3908,
+      "source_z": -185.5466,
+      "target_x": 9.8107,
+      "target_y": -2.3908,
+      "target_z": -186.1678,
+      "distance": 43.6048,
+      "target_level": "l11_pripyat"
+    },
+    {
+      "source_x": 50.4492,
+      "source_y": -2.3908,
+      "source_z": -126.1736,
+      "target_x": 77.6434,
+      "target_y": -2.3883,
+      "target_z": -95.105,
+      "distance": 50.424,
+      "target_level": "l11_pripyat"
+    },
+    {
+      "source_x": 50.4492,
+      "source_y": -2.3908,
+      "source_z": -126.1736,
+      "target_x": 34.3358,
+      "target_y": 9.3315,
+      "target_z": -157.3549,
+      "distance": 54.983,
+      "target_level": "l11_pripyat"
+    },
+    {
+      "source_x": 50.4492,
+      "source_y": -2.3908,
+      "source_z": -126.1736,
+      "target_x": 10.4542,
+      "target_y": -2.3908,
+      "target_z": -126.7215,
+      "distance": 39.9988,
+      "target_level": "l11_pripyat"
+    },
+    {
+      "source_x": 56.8881,
+      "source_y": -2.3908,
+      "source_z": -65.161,
+      "target_x": 77.6434,
+      "target_y": -2.3883,
+      "target_z": -95.105,
+      "distance": 42.4048,
+      "target_level": "l11_pripyat"
+    },
+    {
+      "source_x": 56.8881,
+      "source_y": -2.3908,
+      "source_z": -65.161,
+      "target_x": 89.5367,
+      "target_y": -2.2208,
+      "target_z": -24.5932,
+      "distance": 63.1087,
+      "target_level": "l11_pripyat"
+    },
+    {
+      "source_x": 56.8881,
+      "source_y": -2.3908,
+      "source_z": -65.161,
+      "target_x": 33.4038,
+      "target_y": -2.3908,
+      "target_z": -57.4068,
+      "distance": 24.8355,
+      "target_level": "l11_pripyat"
+    },
+    {
+      "source_x": -82.5894,
+      "source_y": -2.3908,
+      "source_z": -63.6643,
+      "target_x": -32.5892,
+      "target_y": -2.3906,
+      "target_z": -64.8081,
+      "distance": 50.5418,
+      "target_level": "l11_pripyat"
+    },
+    {
+      "source_x": -82.5894,
+      "source_y": -2.3908,
+      "source_z": -63.6643,
+      "target_x": -84.3685,
+      "target_y": -2.3909,
+      "target_z": -39.7006,
+      "distance": 24.0296,
+      "target_level": "l11_pripyat"
+    },
+    {
+      "source_x": -82.0455,
+      "source_y": -2.3913,
+      "source_z": 26.8373,
+      "target_x": -56.6798,
+      "target_y": -0.7147,
+      "target_z": 10.1701,
+      "distance": 44.5957,
+      "target_level": "l11_pripyat"
+    },
+    {
+      "source_x": -82.0455,
+      "source_y": -2.3913,
+      "source_z": 26.8373,
+      "target_x": -98.1525,
+      "target_y": -2.3907,
+      "target_z": 76.885,
+      "distance": 67.553,
+      "target_level": "l11_pripyat"
+    },
+    {
+      "source_x": -82.0455,
+      "source_y": -2.3913,
+      "source_z": 26.8373,
+      "target_x": -112.0154,
+      "target_y": -2.2305,
+      "target_z": 21.097,
+      "distance": 42.0167,
+      "target_level": "l11_pripyat"
+    },
+    {
+      "source_x": -98.1525,
+      "source_y": -2.3907,
+      "source_z": 76.885,
+      "target_x": -82.0455,
+      "target_y": -2.3913,
+      "target_z": 26.8373,
+      "distance": 57.8504,
+      "target_level": "l11_pripyat"
+    },
+    {
+      "source_x": -98.1525,
+      "source_y": -2.3907,
+      "source_z": 76.885,
+      "target_x": -118.1877,
+      "target_y": -0.2475,
+      "target_z": 53.3242,
+      "distance": 48.6716,
+      "target_level": "l11_pripyat"
+    },
+    {
+      "source_x": -98.1525,
+      "source_y": -2.3907,
+      "source_z": 76.885,
+      "target_x": -45.6792,
+      "target_y": -2.2208,
+      "target_z": 61.6085,
+      "distance": 66.8109,
+      "target_level": "l11_pripyat"
+    },
+    {
+      "source_x": -98.1525,
+      "source_y": -2.3907,
+      "source_z": 76.885,
+      "target_x": -111.3547,
+      "target_y": -2.0001,
+      "target_z": 93.4026,
+      "distance": 39.2631,
+      "target_level": "l11_pripyat"
+    },
+    {
+      "source_x": -155.8983,
+      "source_y": -2.3908,
+      "source_z": 56.8559,
+      "target_x": -118.1877,
+      "target_y": -0.2475,
+      "target_z": 53.3242,
+      "distance": 53.5848,
+      "target_level": "l11_pripyat"
+    },
+    {
+      "source_x": -155.8983,
+      "source_y": -2.3908,
+      "source_z": 56.8559,
+      "target_x": -167.5431,
+      "target_y": -2.2759,
+      "target_z": 84.7033,
+      "distance": 37.5418,
+      "target_level": "l11_pripyat"
+    },
+    {
+      "source_x": 4.8833,
+      "source_y": -3.4496,
+      "source_z": 72.8217,
+      "target_x": 9.3182,
+      "target_y": -2.2207,
+      "target_z": 32.8262,
+      "distance": 44.8605,
+      "target_level": "l11_pripyat"
+    },
+    {
+      "source_x": 4.8833,
+      "source_y": -3.4496,
+      "source_z": 72.8217,
+      "target_x": 16.5612,
+      "target_y": -0.68,
+      "target_z": 114.1396,
+      "distance": 61.2489,
+      "target_level": "l11_pripyat"
+    },
+    {
+      "source_x": 4.8833,
+      "source_y": -3.4496,
+      "source_z": 72.8217,
+      "target_x": -45.6792,
+      "target_y": -2.2208,
+      "target_z": 61.6085,
+      "distance": 59.1228,
+      "target_level": "l11_pripyat"
+    },
+    {
+      "source_x": 108.8872,
+      "source_y": -2.3908,
+      "source_z": 59.1525,
+      "target_x": 108.3531,
+      "target_y": -7.3908,
+      "target_z": 17.6287,
+      "distance": 41.5273,
+      "target_level": "l11_pripyat"
+    },
+    {
+      "source_x": 108.8872,
+      "source_y": -2.3908,
+      "source_z": 59.1525,
+      "target_x": 169.7748,
+      "target_y": -2.3908,
+      "target_z": 72.3736,
+      "distance": 66.5336,
+      "target_level": "l11_pripyat"
+    },
+    {
+      "source_x": 108.8872,
+      "source_y": -2.3908,
+      "source_z": 59.1525,
+      "target_x": 133.0704,
+      "target_y": -0.0001,
+      "target_z": 108.6001,
+      "distance": 96.7425,
+      "target_level": "l11_pripyat"
+    },
+    {
+      "source_x": 108.8872,
+      "source_y": -2.3908,
+      "source_z": 59.1525,
+      "target_x": 89.3587,
+      "target_y": -1.732,
+      "target_z": 44.9761,
+      "distance": 38.1235,
+      "target_level": "l11_pripyat"
+    },
+    {
+      "source_x": 89.5367,
+      "source_y": -2.2208,
+      "source_z": -24.5932,
+      "target_x": 113.3848,
+      "target_y": 1.6015,
+      "target_z": -26.9178,
+      "distance": 26.3949,
+      "target_level": "l11_pripyat"
+    },
+    {
+      "source_x": 89.5367,
+      "source_y": -2.2208,
+      "source_z": -24.5932,
+      "target_x": 111.4228,
+      "target_y": -0.9365,
+      "target_z": -14.3893,
+      "distance": 28.9419,
+      "target_level": "l11_pripyat"
+    },
+    {
+      "source_x": 89.5367,
+      "source_y": -2.2208,
+      "source_z": -24.5932,
+      "target_x": 65.38,
+      "target_y": -2.3908,
+      "target_z": -7.0234,
+      "distance": 42.662,
+      "target_level": "l11_pripyat"
+    },
+    {
+      "source_x": 89.5367,
+      "source_y": -2.2208,
+      "source_z": -24.5932,
+      "target_x": 56.8881,
+      "target_y": -2.3908,
+      "target_z": -65.161,
+      "distance": 61.4849,
+      "target_level": "l11_pripyat"
+    },
+    {
+      "source_x": 169.7748,
+      "source_y": -2.3908,
+      "source_z": 72.3736,
+      "target_x": 188.1959,
+      "target_y": 1.3059,
+      "target_z": 54.8668,
+      "distance": 36.7379,
+      "target_level": "l11_pripyat"
+    },
+    {
+      "source_x": 169.7748,
+      "source_y": -2.3908,
+      "source_z": 72.3736,
+      "target_x": 160.8579,
+      "target_y": -0.0001,
+      "target_z": 109.2174,
+      "distance": 40.7746,
+      "target_level": "l11_pripyat"
+    },
+    {
+      "source_x": 169.7748,
+      "source_y": -2.3908,
+      "source_z": 72.3736,
+      "target_x": 108.8872,
+      "target_y": -2.3908,
+      "target_z": 59.1525,
+      "distance": 68.034,
+      "target_level": "l11_pripyat"
+    },
+    {
+      "source_x": 172.2906,
+      "source_y": -2.2038,
+      "source_z": 177.8446,
+      "target_x": 190.6225,
+      "target_y": -2.0001,
+      "target_z": 153.9711,
+      "distance": 32.0997,
+      "target_level": "l11_pripyat"
+    },
+    {
+      "source_x": 172.2906,
+      "source_y": -2.2038,
+      "source_z": 177.8446,
+      "target_x": 190.1685,
+      "target_y": -2.0001,
+      "target_z": 207.2746,
+      "distance": 39.2946,
+      "target_level": "l11_pripyat"
+    },
+    {
+      "source_x": 172.2906,
+      "source_y": -2.2038,
+      "source_z": 177.8446,
+      "target_x": 155.4639,
+      "target_y": -0.0001,
+      "target_z": 141.5936,
+      "distance": 55.0918,
+      "target_level": "l11_pripyat"
+    },
+    {
+      "source_x": 172.2906,
+      "source_y": -2.2038,
+      "source_z": 177.8446,
+      "target_x": 78.1382,
+      "target_y": -1.5544,
+      "target_z": 175.3773,
+      "distance": 94.8756,
+      "target_level": "l11_pripyat"
+    },
+    {
+      "source_x": 4.5247,
+      "source_y": -0.6465,
+      "source_z": 146.7292,
+      "target_x": 5.5001,
+      "target_y": -0.0,
+      "target_z": 159.5594,
+      "distance": 12.9048,
+      "target_level": "l11_pripyat"
+    },
+    {
+      "source_x": 4.5247,
+      "source_y": -0.6465,
+      "source_z": 146.7292,
+      "target_x": -25.8934,
+      "target_y": -0.68,
+      "target_z": 150.4476,
+      "distance": 30.7233,
+      "target_level": "l11_pripyat"
+    },
+    {
+      "source_x": 4.5247,
+      "source_y": -0.6465,
+      "source_z": 146.7292,
+      "target_x": 16.5612,
+      "target_y": -0.68,
+      "target_z": 114.1396,
+      "distance": 70.3332,
+      "target_level": "l11_pripyat"
+    },
+    {
+      "source_x": 78.1382,
+      "source_y": -1.5544,
+      "source_z": 175.3773,
+      "target_x": 77.9317,
+      "target_y": -3.764,
+      "target_z": 138.3475,
+      "distance": 37.0303,
+      "target_level": "l11_pripyat"
+    },
+    {
+      "source_x": 78.1382,
+      "source_y": -1.5544,
+      "source_z": 175.3773,
+      "target_x": 106.8013,
+      "target_y": 4.0,
+      "target_z": 149.4097,
+      "distance": 70.6756,
+      "target_level": "l11_pripyat"
+    },
+    {
+      "source_x": 78.1382,
+      "source_y": -1.5544,
+      "source_z": 175.3773,
+      "target_x": 172.2906,
+      "target_y": -2.2038,
+      "target_z": 177.8446,
+      "distance": 95.2015,
+      "target_level": "l11_pripyat"
+    },
+    {
+      "source_x": 78.1382,
+      "source_y": -1.5544,
+      "source_z": 175.3773,
+      "target_x": 112.4136,
+      "target_y": -0.611,
+      "target_z": 226.0646,
+      "distance": 93.1528,
+      "target_level": "l11_pripyat"
+    },
+    {
+      "source_x": 170.9708,
+      "source_y": -2.2035,
+      "source_z": 241.9219,
+      "target_x": 190.1685,
+      "target_y": -2.0001,
+      "target_z": 207.2746,
+      "distance": 42.5672,
+      "target_level": "l11_pripyat"
+    },
+    {
+      "source_x": 170.9708,
+      "source_y": -2.2035,
+      "source_z": 241.9219,
+      "target_x": 112.4136,
+      "target_y": -0.611,
+      "target_z": 226.0646,
+      "distance": 68.4105,
+      "target_level": "l11_pripyat"
+    },
+    {
+      "source_x": 31.2905,
+      "source_y": -0.626,
+      "source_z": 257.997,
+      "target_x": 61.5191,
+      "target_y": 7.3233,
+      "target_z": 204.6506,
+      "distance": 79.7885,
+      "target_level": "l11_pripyat"
+    },
+    {
+      "source_x": 31.2905,
+      "source_y": -0.626,
+      "source_z": 257.997,
+      "target_x": 70.0897,
+      "target_y": 1.5704,
+      "target_z": 286.8542,
+      "distance": 54.5755,
+      "target_level": "l11_pripyat"
+    },
+    {
+      "source_x": 31.2905,
+      "source_y": -0.626,
+      "source_z": 257.997,
+      "target_x": -27.7812,
+      "target_y": -0.576,
+      "target_z": 237.3394,
+      "distance": 67.4116,
+      "target_level": "l11_pripyat"
+    },
+    {
+      "source_x": 31.2905,
+      "source_y": -0.626,
+      "source_z": 257.997,
+      "target_x": -7.1345,
+      "target_y": 1.5704,
+      "target_z": 287.2526,
+      "distance": 60.7419,
+      "target_level": "l11_pripyat"
+    },
+    {
+      "source_x": -94.686,
+      "source_y": -2.2035,
+      "source_z": 242.7973,
+      "target_x": -112.4058,
+      "target_y": -2.0001,
+      "target_z": 209.2222,
+      "distance": 42.6235,
+      "target_level": "l11_pripyat"
+    },
+    {
+      "source_x": -94.686,
+      "source_y": -2.2035,
+      "source_z": 242.7973,
+      "target_x": -127.9994,
+      "target_y": -2.0493,
+      "target_z": 223.0432,
+      "distance": 46.3459,
+      "target_level": "l11_pripyat"
+    },
+    {
+      "source_x": -98.6721,
+      "source_y": -2.2058,
+      "source_z": 150.4905,
+      "target_x": -95.0071,
+      "target_y": -2.2071,
+      "target_z": 117.0134,
+      "distance": 35.7648,
+      "target_level": "l11_pripyat"
+    },
+    {
+      "source_x": -98.6721,
+      "source_y": -2.2058,
+      "source_z": 150.4905,
+      "target_x": -112.3913,
+      "target_y": -2.0001,
+      "target_z": 155.5541,
+      "distance": 14.6238,
+      "target_level": "l11_pripyat"
+    },
+    {
+      "source_x": -52.5925,
+      "source_y": -2.2038,
+      "source_z": 195.9268,
+      "target_x": -37.5386,
+      "target_y": 1.1411,
+      "target_z": 180.6217,
+      "distance": 25.5585,
+      "target_level": "l11_pripyat"
+    },
+    {
+      "source_x": -52.5925,
+      "source_y": -2.2038,
+      "source_z": 195.9268,
+      "target_x": -112.4058,
+      "target_y": -2.0001,
+      "target_z": 209.2222,
+      "distance": 67.7149,
+      "target_level": "l11_pripyat"
+    },
+    {
+      "source_x": -65.3518,
+      "source_y": -0.0001,
+      "source_z": 118.8616,
+      "target_x": -58.9097,
+      "target_y": -0.0,
+      "target_z": 116.3333,
+      "distance": 12.4405,
+      "target_level": "l11_pripyat"
+    },
+    {
+      "source_x": -65.3518,
+      "source_y": -0.0001,
+      "source_z": 118.8616,
+      "target_x": -95.0071,
+      "target_y": -2.2071,
+      "target_z": 117.0134,
+      "distance": 29.7129,
+      "target_level": "l11_pripyat"
+    },
+    {
+      "source_x": 2.8199,
+      "source_y": -0.3761,
+      "source_z": 185.0251,
+      "target_x": 29.2909,
+      "target_y": -0.0,
+      "target_z": 183.4514,
+      "distance": 26.5178,
+      "target_level": "l11_pripyat"
+    },
+    {
+      "source_x": 2.8199,
+      "source_y": -0.3761,
+      "source_z": 185.0251,
+      "target_x": -22.9484,
+      "target_y": 0.0,
+      "target_z": 181.8053,
+      "distance": 26.5416,
+      "target_level": "l11_pripyat"
+    },
+    {
+      "source_x": -35.0401,
+      "source_y": 1.7959,
+      "source_z": 348.5857,
+      "target_x": -45.4649,
+      "target_y": 1.0323,
+      "target_z": 293.3714,
+      "distance": 56.9474,
+      "target_level": "l11_pripyat"
+    },
+    {
+      "source_x": -35.0401,
+      "source_y": 1.7959,
+      "source_z": 348.5857,
+      "target_x": 27.1757,
+      "target_y": 1.0023,
+      "target_z": 346.5196,
+      "distance": 64.0702,
+      "target_level": "l11_pripyat"
+    },
+    {
+      "source_x": 79.7571,
+      "source_y": 0.9693,
+      "source_z": 351.6632,
+      "target_x": 70.0897,
+      "target_y": 1.5704,
+      "target_z": 286.8542,
+      "distance": 82.5276,
+      "target_level": "l11_pripyat"
+    },
+    {
+      "source_x": 79.7571,
+      "source_y": 0.9693,
+      "source_z": 351.6632,
+      "target_x": 69.6587,
+      "target_y": 1.5704,
+      "target_z": 416.6477,
+      "distance": 83.3679,
+      "target_level": "l11_pripyat"
+    },
+    {
+      "source_x": 79.7571,
+      "source_y": 0.9693,
+      "source_z": 351.6632,
+      "target_x": 27.1757,
+      "target_y": 1.0023,
+      "target_z": 346.5196,
+      "distance": 54.1309,
+      "target_level": "l11_pripyat"
+    },
+    {
+      "source_x": 30.8439,
+      "source_y": -0.6813,
+      "source_z": 473.4703,
+      "target_x": 31.3137,
+      "target_y": 1.1393,
+      "target_z": 419.3895,
+      "distance": 61.2514,
+      "target_level": "l11_pripyat"
+    },
+    {
+      "source_x": 30.8439,
+      "source_y": -0.6813,
+      "source_z": 473.4703,
+      "target_x": 110.6509,
+      "target_y": -0.6194,
+      "target_z": 498.7424,
+      "distance": 97.1374,
+      "target_level": "l11_pripyat"
+    },
+    {
+      "source_x": 30.8439,
+      "source_y": -0.6813,
+      "source_z": 473.4703,
+      "target_x": 36.3416,
+      "target_y": -0.0355,
+      "target_z": 496.6972,
+      "distance": 27.3096,
+      "target_level": "l11_pripyat"
+    },
+    {
+      "source_x": 9.5979,
+      "source_y": -2.3908,
+      "source_z": -6.7134,
+      "target_x": 65.38,
+      "target_y": -2.3908,
+      "target_z": -7.0234,
+      "distance": 55.7829,
+      "target_level": "l11_pripyat"
+    },
+    {
+      "source_x": 9.5979,
+      "source_y": -2.3908,
+      "source_z": -6.7134,
+      "target_x": 9.3182,
+      "target_y": -2.2207,
+      "target_z": 32.8262,
+      "distance": 48.8855,
+      "target_level": "l11_pripyat"
+    },
+    {
+      "source_x": 9.5979,
+      "source_y": -2.3908,
+      "source_z": -6.7134,
+      "target_x": -36.1276,
+      "target_y": -2.3911,
+      "target_z": -6.3058,
+      "distance": 45.7274,
+      "target_level": "l11_pripyat"
+    },
+    {
+      "source_x": -36.1276,
+      "source_y": -2.3911,
+      "source_z": -6.3058,
+      "target_x": 9.5979,
+      "target_y": -2.3908,
+      "target_z": -6.7134,
+      "distance": 45.7274,
+      "target_level": "l11_pripyat"
+    },
+    {
+      "source_x": -36.1276,
+      "source_y": -2.3911,
+      "source_z": -6.3058,
+      "target_x": -58.6511,
+      "target_y": -0.691,
+      "target_z": -20.455,
+      "distance": 34.8208,
+      "target_level": "l11_pripyat"
+    },
+    {
+      "source_x": 13.2393,
+      "source_y": -0.6929,
+      "source_z": -252.0874,
+      "target_x": 14.6479,
+      "target_y": -1.8552,
+      "target_z": -281.743,
+      "distance": 31.7535,
+      "target_level": "l11_pripyat"
+    },
+    {
+      "source_x": 13.2393,
+      "source_y": -0.6929,
+      "source_z": -252.0874,
+      "target_x": 13.3074,
+      "target_y": -2.2754,
+      "target_z": -230.6203,
+      "distance": 23.7136,
+      "target_level": "l11_pripyat"
+    },
+    {
+      "source_x": 153.6142,
+      "source_y": -2.6441,
+      "source_z": -21.309,
+      "target_x": 158.8915,
+      "target_y": -2.3805,
+      "target_z": -30.9244,
+      "distance": 10.9684,
+      "target_level": "l11_pripyat"
+    },
+    {
+      "source_x": 153.6142,
+      "source_y": -2.6441,
+      "source_z": -21.309,
+      "target_x": 133.8045,
+      "target_y": -0.9278,
+      "target_z": -26.6288,
+      "distance": 24.5163,
+      "target_level": "l11_pripyat"
+    },
+    {
+      "source_x": 112.4136,
+      "source_y": -0.611,
+      "source_z": 226.0646,
+      "target_x": 170.9708,
+      "target_y": -2.2035,
+      "target_z": 241.9219,
+      "distance": 63.4195,
+      "target_level": "l11_pripyat"
+    },
+    {
+      "source_x": 112.4136,
+      "source_y": -0.611,
+      "source_z": 226.0646,
+      "target_x": 78.1382,
+      "target_y": -1.5544,
+      "target_z": 175.3773,
+      "distance": 71.9692,
+      "target_level": "l11_pripyat"
+    },
+    {
+      "source_x": 112.4136,
+      "source_y": -0.611,
+      "source_z": 226.0646,
+      "target_x": 61.5191,
+      "target_y": 7.3233,
+      "target_z": 204.6506,
+      "distance": 82.0425,
+      "target_level": "l11_pripyat"
+    },
+    {
+      "source_x": -27.7812,
+      "source_y": -0.576,
+      "source_z": 237.3394,
+      "target_x": 31.2905,
+      "target_y": -0.626,
+      "target_z": 257.997,
+      "distance": 72.1223,
+      "target_level": "l11_pripyat"
+    },
+    {
+      "source_x": -27.7812,
+      "source_y": -0.576,
+      "source_z": 237.3394,
+      "target_x": -32.2163,
+      "target_y": -0.0001,
+      "target_z": 193.6952,
+      "distance": 44.0306,
+      "target_level": "l11_pripyat"
+    },
+    {
+      "source_x": -45.6792,
+      "source_y": -2.2208,
+      "source_z": 61.6085,
+      "target_x": 4.8833,
+      "target_y": -3.4496,
+      "target_z": 72.8217,
+      "distance": 60.3837,
+      "target_level": "l11_pripyat"
+    },
+    {
+      "source_x": -45.6792,
+      "source_y": -2.2208,
+      "source_z": 61.6085,
+      "target_x": -39.8542,
+      "target_y": 3.6569,
+      "target_z": 134.046,
+      "distance": 82.6112,
+      "target_level": "l11_pripyat"
+    },
+    {
+      "source_x": -45.6792,
+      "source_y": -2.2208,
+      "source_z": 61.6085,
+      "target_x": -98.1525,
+      "target_y": -2.3907,
+      "target_z": 76.885,
+      "distance": 57.0474,
+      "target_level": "l11_pripyat"
+    },
+    {
+      "source_x": 59.3854,
+      "source_y": -0.6285,
+      "source_z": 117.7067,
+      "target_x": 65.3298,
+      "target_y": -1.732,
+      "target_z": 45.4786,
+      "distance": 87.5437,
+      "target_level": "l11_pripyat"
+    },
+    {
+      "source_x": 59.3854,
+      "source_y": -0.6285,
+      "source_z": 117.7067,
+      "target_x": 101.5182,
+      "target_y": -0.0,
+      "target_z": 111.3736,
+      "distance": 47.782,
+      "target_level": "l11_pripyat"
+    },
+    {
+      "source_x": 59.3854,
+      "source_y": -0.6285,
+      "source_z": 117.7067,
+      "target_x": 74.2891,
+      "target_y": -0.0,
+      "target_z": 115.8775,
+      "distance": 18.9975,
+      "target_level": "l11_pripyat"
+    },
+    {
+      "source_x": 59.3854,
+      "source_y": -0.6285,
+      "source_z": 117.7067,
+      "target_x": 30.5552,
+      "target_y": -0.0001,
+      "target_z": 158.2102,
+      "distance": 56.309,
+      "target_level": "l11_pripyat"
+    },
+    {
+      "source_x": 59.3854,
+      "source_y": -0.6285,
+      "source_z": 117.7067,
+      "target_x": 16.5612,
+      "target_y": -0.68,
+      "target_z": 114.1396,
+      "distance": 43.3691,
+      "target_level": "l11_pripyat"
+    },
+    {
+      "source_x": 77.6336,
+      "source_y": -0.0133,
+      "source_z": 127.9514,
+      "target_x": 74.2891,
+      "target_y": -0.0,
+      "target_z": 115.8775,
+      "distance": 14.5254,
+      "target_level": "l11_pripyat"
+    },
+    {
+      "source_x": 77.6336,
+      "source_y": -0.0133,
+      "source_z": 127.9514,
+      "target_x": 90.1412,
+      "target_y": 0.0001,
+      "target_z": 122.6178,
+      "distance": 14.7387,
+      "target_level": "l11_pripyat"
+    },
+    {
+      "source_x": 77.7521,
+      "source_y": -3.6207,
+      "source_z": 123.8015,
+      "target_x": 77.9317,
+      "target_y": -3.764,
+      "target_z": 138.3475,
+      "distance": 15.46,
+      "target_level": "l11_pripyat"
+    },
+    {
+      "source_x": 77.7521,
+      "source_y": -3.6207,
+      "source_z": 123.8015,
+      "target_x": 74.2891,
+      "target_y": -0.0,
+      "target_z": 115.8775,
+      "distance": 18.2222,
+      "target_level": "l11_pripyat"
+    },
+    {
+      "source_x": 77.9317,
+      "source_y": -3.764,
+      "source_z": 138.3475,
+      "target_x": 77.7521,
+      "target_y": -3.6207,
+      "target_z": 123.8015,
+      "distance": 15.9955,
+      "target_level": "l11_pripyat"
+    },
+    {
+      "source_x": 77.9317,
+      "source_y": -3.764,
+      "source_z": 138.3475,
+      "target_x": 78.1382,
+      "target_y": -1.5544,
+      "target_z": 175.3773,
+      "distance": 37.0303,
+      "target_level": "l11_pripyat"
+    },
+    {
+      "source_x": 90.1412,
+      "source_y": 0.0001,
+      "source_z": 122.6178,
+      "target_x": 103.5801,
+      "target_y": 0.0001,
+      "target_z": 117.5591,
+      "distance": 15.255,
+      "target_level": "l11_pripyat"
+    },
+    {
+      "source_x": 90.1412,
+      "source_y": 0.0001,
+      "source_z": 122.6178,
+      "target_x": 77.6336,
+      "target_y": -0.0133,
+      "target_z": 127.9514,
+      "distance": 14.5897,
+      "target_level": "l11_pripyat"
+    },
+    {
+      "source_x": 104.224,
+      "source_y": 0.0002,
+      "source_z": 128.1106,
+      "target_x": 105.3975,
+      "target_y": 4.0,
+      "target_z": 124.6491,
+      "distance": 3.655,
+      "target_level": "l11_pripyat"
+    },
+    {
+      "source_x": 104.224,
+      "source_y": 0.0002,
+      "source_z": 128.1106,
+      "target_x": 106.8013,
+      "target_y": 4.0,
+      "target_z": 149.4097,
+      "distance": 39.3407,
+      "target_level": "l11_pripyat"
+    },
+    {
+      "source_x": 116.5436,
+      "source_y": 0.0,
+      "source_z": 122.7064,
+      "target_x": 131.0075,
+      "target_y": 0.0482,
+      "target_z": 117.6457,
+      "distance": 16.3535,
+      "target_level": "l11_pripyat"
+    },
+    {
+      "source_x": 116.5436,
+      "source_y": 0.0,
+      "source_z": 122.7064,
+      "target_x": 105.3975,
+      "target_y": 4.0,
+      "target_z": 124.6491,
+      "distance": 11.3142,
+      "target_level": "l11_pripyat"
+    },
+    {
+      "source_x": 131.0075,
+      "source_y": 0.0482,
+      "source_z": 117.6457,
+      "target_x": 133.0704,
+      "target_y": -0.0001,
+      "target_z": 108.6001,
+      "distance": 9.2779,
+      "target_level": "l11_pripyat"
+    },
+    {
+      "source_x": 131.0075,
+      "source_y": 0.0482,
+      "source_z": 117.6457,
+      "target_x": 147.6249,
+      "target_y": 0.0,
+      "target_z": 117.1003,
+      "distance": 16.6263,
+      "target_level": "l11_pripyat"
+    },
+    {
+      "source_x": 131.0075,
+      "source_y": 0.0482,
+      "source_z": 117.6457,
+      "target_x": 116.5436,
+      "target_y": 0.0,
+      "target_z": 122.7064,
+      "distance": 16.4727,
+      "target_level": "l11_pripyat"
+    },
+    {
+      "source_x": 147.6249,
+      "source_y": 0.0,
+      "source_z": 117.1003,
+      "target_x": 155.4639,
+      "target_y": -0.0001,
+      "target_z": 141.5936,
+      "distance": 28.8105,
+      "target_level": "l11_pripyat"
+    },
+    {
+      "source_x": 147.6249,
+      "source_y": 0.0,
+      "source_z": 117.1003,
+      "target_x": 131.0075,
+      "target_y": 0.0482,
+      "target_z": 117.6457,
+      "distance": 16.6263,
+      "target_level": "l11_pripyat"
+    },
+    {
+      "source_x": 155.4639,
+      "source_y": -0.0001,
+      "source_z": 141.5936,
+      "target_x": 147.6249,
+      "target_y": 0.0,
+      "target_z": 117.1003,
+      "distance": 28.8666,
+      "target_level": "l11_pripyat"
+    },
+    {
+      "source_x": 155.4639,
+      "source_y": -0.0001,
+      "source_z": 141.5936,
+      "target_x": 172.2906,
+      "target_y": -2.2038,
+      "target_z": 177.8446,
+      "distance": 51.7734,
+      "target_level": "l11_pripyat"
+    },
+    {
+      "source_x": 155.4639,
+      "source_y": -0.0001,
+      "source_z": 141.5936,
+      "target_x": 106.8013,
+      "target_y": 4.0,
+      "target_z": 149.4097,
+      "distance": 95.4197,
+      "target_level": "l11_pripyat"
+    },
+    {
+      "source_x": 155.4639,
+      "source_y": -0.0001,
+      "source_z": 141.5936,
+      "target_x": 160.0809,
+      "target_y": 4.0,
+      "target_z": 132.9916,
+      "distance": 23.0673,
+      "target_level": "l11_pripyat"
+    },
+    {
+      "source_x": 160.0809,
+      "source_y": 4.0,
+      "source_z": 132.9916,
+      "target_x": 160.8579,
+      "target_y": -0.0001,
+      "target_z": 109.2174,
+      "distance": 23.7869,
+      "target_level": "l11_pripyat"
+    },
+    {
+      "source_x": 160.0809,
+      "source_y": 4.0,
+      "source_z": 132.9916,
+      "target_x": 155.4639,
+      "target_y": -0.0001,
+      "target_z": 141.5936,
+      "distance": 23.8604,
+      "target_level": "l11_pripyat"
+    },
+    {
+      "source_x": 160.8579,
+      "source_y": -0.0001,
+      "source_z": 109.2174,
+      "target_x": 169.7748,
+      "target_y": -2.3908,
+      "target_z": 72.3736,
+      "distance": 40.2486,
+      "target_level": "l11_pripyat"
+    },
+    {
+      "source_x": 160.8579,
+      "source_y": -0.0001,
+      "source_z": 109.2174,
+      "target_x": 190.4311,
+      "target_y": -2.0001,
+      "target_z": 100.2412,
+      "distance": 39.0295,
+      "target_level": "l11_pripyat"
+    },
+    {
+      "source_x": 160.8579,
+      "source_y": -0.0001,
+      "source_z": 109.2174,
+      "target_x": 160.0809,
+      "target_y": 4.0,
+      "target_z": 132.9916,
+      "distance": 23.7869,
+      "target_level": "l11_pripyat"
+    },
+    {
+      "source_x": 160.8579,
+      "source_y": -0.0001,
+      "source_z": 109.2174,
+      "target_x": 155.1471,
+      "target_y": -0.0,
+      "target_z": 119.0454,
+      "distance": 12.6524,
+      "target_level": "l11_pripyat"
+    },
+    {
+      "source_x": 155.1471,
+      "source_y": -0.0,
+      "source_z": 119.0454,
+      "target_x": 160.8579,
+      "target_y": -0.0001,
+      "target_z": 109.2174,
+      "distance": 12.6524,
+      "target_level": "l11_pripyat"
+    },
+    {
+      "source_x": 155.1471,
+      "source_y": -0.0,
+      "source_z": 119.0454,
+      "target_x": 133.0704,
+      "target_y": -0.0001,
+      "target_z": 108.6001,
+      "distance": 28.0664,
+      "target_level": "l11_pripyat"
+    },
+    {
+      "source_x": 133.0704,
+      "source_y": -0.0001,
+      "source_z": 108.6001,
+      "target_x": 155.1471,
+      "target_y": -0.0,
+      "target_z": 119.0454,
+      "distance": 29.802,
+      "target_level": "l11_pripyat"
+    },
+    {
+      "source_x": 133.0704,
+      "source_y": -0.0001,
+      "source_z": 108.6001,
+      "target_x": 131.0075,
+      "target_y": 0.0482,
+      "target_z": 117.6457,
+      "distance": 9.2779,
+      "target_level": "l11_pripyat"
+    },
+    {
+      "source_x": 133.0704,
+      "source_y": -0.0001,
+      "source_z": 108.6001,
+      "target_x": 108.8872,
+      "target_y": -2.3908,
+      "target_z": 59.1525,
+      "distance": 91.2546,
+      "target_level": "l11_pripyat"
+    },
+    {
+      "source_x": 133.0704,
+      "source_y": -0.0001,
+      "source_z": 108.6001,
+      "target_x": 101.5182,
+      "target_y": -0.0,
+      "target_z": 111.3736,
+      "distance": 31.8369,
+      "target_level": "l11_pripyat"
+    },
+    {
+      "source_x": 101.5182,
+      "source_y": -0.0,
+      "source_z": 111.3736,
+      "target_x": 133.0704,
+      "target_y": -0.0001,
+      "target_z": 108.6001,
+      "distance": 34.4707,
+      "target_level": "l11_pripyat"
+    },
+    {
+      "source_x": 101.5182,
+      "source_y": -0.0,
+      "source_z": 111.3736,
+      "target_x": 103.5801,
+      "target_y": 0.0001,
+      "target_z": 117.5591,
+      "distance": 6.8306,
+      "target_level": "l11_pripyat"
+    },
+    {
+      "source_x": 101.5182,
+      "source_y": -0.0,
+      "source_z": 111.3736,
+      "target_x": 59.3854,
+      "target_y": -0.6285,
+      "target_z": 117.7067,
+      "distance": 50.1176,
+      "target_level": "l11_pripyat"
+    },
+    {
+      "source_x": 101.5182,
+      "source_y": -0.0,
+      "source_z": 111.3736,
+      "target_x": 101.9527,
+      "target_y": 24.2538,
+      "target_z": 123.2691,
+      "distance": 30.3036,
+      "target_level": "l11_pripyat"
+    },
+    {
+      "source_x": 74.2891,
+      "source_y": -0.0,
+      "source_z": 115.8775,
+      "target_x": 77.6336,
+      "target_y": -0.0133,
+      "target_z": 127.9514,
+      "distance": 14.76,
+      "target_level": "l11_pripyat"
+    },
+    {
+      "source_x": 74.2891,
+      "source_y": -0.0,
+      "source_z": 115.8775,
+      "target_x": 77.7521,
+      "target_y": -3.6207,
+      "target_z": 123.8015,
+      "distance": 18.3551,
+      "target_level": "l11_pripyat"
+    },
+    {
+      "source_x": 74.2891,
+      "source_y": -0.0,
+      "source_z": 115.8775,
+      "target_x": 59.3854,
+      "target_y": -0.6285,
+      "target_z": 117.7067,
+      "distance": 19.7026,
+      "target_level": "l11_pripyat"
+    },
+    {
+      "source_x": 100.2946,
+      "source_y": 4.0,
+      "source_z": 113.9329,
+      "target_x": 103.5801,
+      "target_y": 0.0001,
+      "target_z": 117.5591,
+      "distance": 28.8171,
+      "target_level": "l11_pripyat"
+    },
+    {
+      "source_x": 100.2946,
+      "source_y": 4.0,
+      "source_z": 113.9329,
+      "target_x": 106.8013,
+      "target_y": 4.0,
+      "target_z": 149.4097,
+      "distance": 40.1652,
+      "target_level": "l11_pripyat"
+    },
+    {
+      "source_x": 105.3975,
+      "source_y": 4.0,
+      "source_z": 124.6491,
+      "target_x": 103.5801,
+      "target_y": 0.0001,
+      "target_z": 117.5591,
+      "distance": 9.4543,
+      "target_level": "l11_pripyat"
+    },
+    {
+      "source_x": 105.3975,
+      "source_y": 4.0,
+      "source_z": 124.6491,
+      "target_x": 116.5436,
+      "target_y": 0.0,
+      "target_z": 122.7064,
+      "distance": 11.3142,
+      "target_level": "l11_pripyat"
+    },
+    {
+      "source_x": 105.3975,
+      "source_y": 4.0,
+      "source_z": 124.6491,
+      "target_x": 104.224,
+      "target_y": 0.0002,
+      "target_z": 128.1106,
+      "distance": 3.655,
+      "target_level": "l11_pripyat"
+    },
+    {
+      "source_x": 103.5801,
+      "source_y": 0.0001,
+      "source_z": 117.5591,
+      "target_x": 101.5182,
+      "target_y": -0.0,
+      "target_z": 111.3736,
+      "distance": 7.3648,
+      "target_level": "l11_pripyat"
+    },
+    {
+      "source_x": 103.5801,
+      "source_y": 0.0001,
+      "source_z": 117.5591,
+      "target_x": 100.2946,
+      "target_y": 4.0,
+      "target_z": 113.9329,
+      "distance": 28.165,
+      "target_level": "l11_pripyat"
+    },
+    {
+      "source_x": 103.5801,
+      "source_y": 0.0001,
+      "source_z": 117.5591,
+      "target_x": 105.3975,
+      "target_y": 4.0,
+      "target_z": 124.6491,
+      "distance": 9.1701,
+      "target_level": "l11_pripyat"
+    },
+    {
+      "source_x": 103.5801,
+      "source_y": 0.0001,
+      "source_z": 117.5591,
+      "target_x": 90.1412,
+      "target_y": 0.0001,
+      "target_z": 122.6178,
+      "distance": 16.8191,
+      "target_level": "l11_pripyat"
+    },
+    {
+      "source_x": 106.8013,
+      "source_y": 4.0,
+      "source_z": 149.4097,
+      "target_x": 100.2946,
+      "target_y": 4.0,
+      "target_z": 113.9329,
+      "distance": 39.3899,
+      "target_level": "l11_pripyat"
+    },
+    {
+      "source_x": 106.8013,
+      "source_y": 4.0,
+      "source_z": 149.4097,
+      "target_x": 104.224,
+      "target_y": 0.0002,
+      "target_z": 128.1106,
+      "distance": 39.2085,
+      "target_level": "l11_pripyat"
+    },
+    {
+      "source_x": 106.8013,
+      "source_y": 4.0,
+      "source_z": 149.4097,
+      "target_x": 155.4639,
+      "target_y": -0.0001,
+      "target_z": 141.5936,
+      "distance": 134.6159,
+      "target_level": "l11_pripyat"
+    },
+    {
+      "source_x": 106.8013,
+      "source_y": 4.0,
+      "source_z": 149.4097,
+      "target_x": 78.1382,
+      "target_y": -1.5544,
+      "target_z": 175.3773,
+      "distance": 72.126,
+      "target_level": "l11_pripyat"
+    },
+    {
+      "source_x": 106.8013,
+      "source_y": 4.0,
+      "source_z": 149.4097,
+      "target_x": 30.5552,
+      "target_y": -0.0001,
+      "target_z": 158.2102,
+      "distance": 108.0143,
+      "target_level": "l11_pripyat"
+    },
+    {
+      "source_x": 29.2909,
+      "source_y": -0.0,
+      "source_z": 183.4514,
+      "target_x": 29.9181,
+      "target_y": 5.0838,
+      "target_z": 177.5684,
+      "distance": 9.6804,
+      "target_level": "l11_pripyat"
+    },
+    {
+      "source_x": 29.2909,
+      "source_y": -0.0,
+      "source_z": 183.4514,
+      "target_x": 2.8199,
+      "target_y": -0.3761,
+      "target_z": 185.0251,
+      "distance": 26.5178,
+      "target_level": "l11_pripyat"
+    },
+    {
+      "source_x": 30.5552,
+      "source_y": -0.0001,
+      "source_z": 158.2102,
+      "target_x": 59.3854,
+      "target_y": -0.6285,
+      "target_z": 117.7067,
+      "distance": 60.8322,
+      "target_level": "l11_pripyat"
+    },
+    {
+      "source_x": 30.5552,
+      "source_y": -0.0001,
+      "source_z": 158.2102,
+      "target_x": 106.8013,
+      "target_y": 4.0,
+      "target_z": 149.4097,
+      "distance": 111.8304,
+      "target_level": "l11_pripyat"
+    },
+    {
+      "source_x": 30.5552,
+      "source_y": -0.0001,
+      "source_z": 158.2102,
+      "target_x": 29.9181,
+      "target_y": 5.0838,
+      "target_z": 177.5684,
+      "distance": 19.3687,
+      "target_level": "l11_pripyat"
+    },
+    {
+      "source_x": 30.5552,
+      "source_y": -0.0001,
+      "source_z": 158.2102,
+      "target_x": 21.7268,
+      "target_y": -0.0009,
+      "target_z": 165.8369,
+      "distance": 12.8643,
+      "target_level": "l11_pripyat"
+    },
+    {
+      "source_x": 21.7268,
+      "source_y": -0.0009,
+      "source_z": 165.8369,
+      "target_x": 30.5552,
+      "target_y": -0.0001,
+      "target_z": 158.2102,
+      "distance": 12.8135,
+      "target_level": "l11_pripyat"
+    },
+    {
+      "source_x": 21.7268,
+      "source_y": -0.0009,
+      "source_z": 165.8369,
+      "target_x": 5.5001,
+      "target_y": -0.0,
+      "target_z": 159.5594,
+      "distance": 18.8903,
+      "target_level": "l11_pripyat"
+    },
+    {
+      "source_x": 21.7268,
+      "source_y": -0.0009,
+      "source_z": 165.8369,
+      "target_x": 19.2052,
+      "target_y": 5.4226,
+      "target_z": 158.3286,
+      "distance": 31.9606,
+      "target_level": "l11_pripyat"
+    },
+    {
+      "source_x": 5.5001,
+      "source_y": -0.0,
+      "source_z": 159.5594,
+      "target_x": 4.5247,
+      "target_y": -0.6465,
+      "target_z": 146.7292,
+      "distance": 13.0543,
+      "target_level": "l11_pripyat"
+    },
+    {
+      "source_x": 5.5001,
+      "source_y": -0.0,
+      "source_z": 159.5594,
+      "target_x": 21.7268,
+      "target_y": -0.0009,
+      "target_z": 165.8369,
+      "distance": 19.5409,
+      "target_level": "l11_pripyat"
+    },
+    {
+      "source_x": 5.5001,
+      "source_y": -0.0,
+      "source_z": 159.5594,
+      "target_x": -16.319,
+      "target_y": 5.4226,
+      "target_z": 165.0796,
+      "distance": 26.9136,
+      "target_level": "l11_pripyat"
+    },
+    {
+      "source_x": -16.7653,
+      "source_y": -0.0011,
+      "source_z": 165.42,
+      "target_x": -16.319,
+      "target_y": 5.4226,
+      "target_z": 165.0796,
+      "distance": 0.5613,
+      "target_level": "l11_pripyat"
+    },
+    {
+      "source_x": -16.7653,
+      "source_y": -0.0011,
+      "source_z": 165.42,
+      "target_x": 19.2052,
+      "target_y": 5.4226,
+      "target_z": 158.3286,
+      "distance": 74.7015,
+      "target_level": "l11_pripyat"
+    },
+    {
+      "source_x": -16.7653,
+      "source_y": -0.0011,
+      "source_z": 165.42,
+      "target_x": -33.0428,
+      "target_y": 1.1343,
+      "target_z": 165.0714,
+      "distance": 18.5427,
+      "target_level": "l11_pripyat"
+    },
+    {
+      "source_x": -33.0428,
+      "source_y": 1.1343,
+      "source_z": 165.0714,
+      "target_x": -16.7653,
+      "target_y": -0.0011,
+      "target_z": 165.42,
+      "distance": 19.0358,
+      "target_level": "l11_pripyat"
+    },
+    {
+      "source_x": -33.0428,
+      "source_y": 1.1343,
+      "source_z": 165.0714,
+      "target_x": -37.5386,
+      "target_y": 1.1411,
+      "target_z": 180.6217,
+      "distance": 18.3146,
+      "target_level": "l11_pripyat"
+    },
+    {
+      "source_x": -49.5747,
+      "source_y": -0.6801,
+      "source_z": 165.9661,
+      "target_x": -66.8199,
+      "target_y": -0.2645,
+      "target_z": 167.7658,
+      "distance": 18.1706,
+      "target_level": "l11_pripyat"
+    },
+    {
+      "source_x": -49.5747,
+      "source_y": -0.6801,
+      "source_z": 165.9661,
+      "target_x": -25.8934,
+      "target_y": -0.68,
+      "target_z": 150.4476,
+      "distance": 41.993,
+      "target_level": "l11_pripyat"
+    },
+    {
+      "source_x": -49.5747,
+      "source_y": -0.6801,
+      "source_z": 165.9661,
+      "target_x": -37.5386,
+      "target_y": 1.1411,
+      "target_z": 180.6217,
+      "distance": 22.7275,
+      "target_level": "l11_pripyat"
+    },
+    {
+      "source_x": -37.5386,
+      "source_y": 1.1411,
+      "source_z": 180.6217,
+      "target_x": -33.0428,
+      "target_y": 1.1343,
+      "target_z": 165.0714,
+      "distance": 18.2029,
+      "target_level": "l11_pripyat"
+    },
+    {
+      "source_x": -37.5386,
+      "source_y": 1.1411,
+      "source_z": 180.6217,
+      "target_x": -32.2163,
+      "target_y": -0.0001,
+      "target_z": 193.6952,
+      "distance": 19.3813,
+      "target_level": "l11_pripyat"
+    },
+    {
+      "source_x": -37.5386,
+      "source_y": 1.1411,
+      "source_z": 180.6217,
+      "target_x": -49.5747,
+      "target_y": -0.6801,
+      "target_z": 165.9661,
+      "distance": 24.0747,
+      "target_level": "l11_pripyat"
+    },
+    {
+      "source_x": -37.5386,
+      "source_y": 1.1411,
+      "source_z": 180.6217,
+      "target_x": -52.5925,
+      "target_y": -2.2038,
+      "target_z": 195.9268,
+      "distance": 27.3098,
+      "target_level": "l11_pripyat"
+    },
+    {
+      "source_x": -32.2163,
+      "source_y": -0.0001,
+      "source_z": 193.6952,
+      "target_x": -37.5386,
+      "target_y": 1.1411,
+      "target_z": 180.6217,
+      "distance": 18.8144,
+      "target_level": "l11_pripyat"
+    },
+    {
+      "source_x": -32.2163,
+      "source_y": -0.0001,
+      "source_z": 193.6952,
+      "target_x": -22.9484,
+      "target_y": 0.0,
+      "target_z": 181.8053,
+      "distance": 18.7415,
+      "target_level": "l11_pripyat"
+    },
+    {
+      "source_x": -32.2163,
+      "source_y": -0.0001,
+      "source_z": 193.6952,
+      "target_x": -27.7812,
+      "target_y": -0.576,
+      "target_z": 237.3394,
+      "distance": 43.9615,
+      "target_level": "l11_pripyat"
+    },
+    {
+      "source_x": -22.9484,
+      "source_y": 0.0,
+      "source_z": 181.8053,
+      "target_x": 2.8199,
+      "target_y": -0.3761,
+      "target_z": 185.0251,
+      "distance": 26.4679,
+      "target_level": "l11_pripyat"
+    },
+    {
+      "source_x": -22.9484,
+      "source_y": 0.0,
+      "source_z": 181.8053,
+      "target_x": -32.2163,
+      "target_y": -0.0001,
+      "target_z": 193.6952,
+      "distance": 18.6703,
+      "target_level": "l11_pripyat"
+    },
+    {
+      "source_x": -22.9484,
+      "source_y": 0.0,
+      "source_z": 181.8053,
+      "target_x": -20.7356,
+      "target_y": 3.9804,
+      "target_z": 198.5214,
+      "distance": 29.343,
+      "target_level": "l11_pripyat"
+    },
+    {
+      "source_x": -22.9484,
+      "source_y": 0.0,
+      "source_z": 181.8053,
+      "target_x": -6.8098,
+      "target_y": -5.16,
+      "target_z": 194.3009,
+      "distance": 49.8836,
+      "target_level": "l11_pripyat"
+    },
+    {
+      "source_x": -21.563,
+      "source_y": 4.6927,
+      "source_z": 187.6316,
+      "target_x": -20.7356,
+      "target_y": 3.9804,
+      "target_z": 198.5214,
+      "distance": 10.9212,
+      "target_level": "l11_pripyat"
+    },
+    {
+      "source_x": -20.7356,
+      "source_y": 3.9804,
+      "source_z": 198.5214,
+      "target_x": -21.563,
+      "target_y": 4.6927,
+      "target_z": 187.6316,
+      "distance": 10.9212,
+      "target_level": "l11_pripyat"
+    },
+    {
+      "source_x": -20.7356,
+      "source_y": 3.9804,
+      "source_z": 198.5214,
+      "target_x": -1.1419,
+      "target_y": 3.3178,
+      "target_z": 197.2153,
+      "distance": 21.6183,
+      "target_level": "l11_pripyat"
+    },
+    {
+      "source_x": -20.7356,
+      "source_y": 3.9804,
+      "source_z": 198.5214,
+      "target_x": -22.9484,
+      "target_y": 0.0,
+      "target_z": 181.8053,
+      "distance": 29.5899,
+      "target_level": "l11_pripyat"
+    },
+    {
+      "source_x": -1.1419,
+      "source_y": 3.3178,
+      "source_z": 197.2153,
+      "target_x": 17.5492,
+      "target_y": 5.0904,
+      "target_z": 184.6949,
+      "distance": 27.2787,
+      "target_level": "l11_pripyat"
+    },
+    {
+      "source_x": -1.1419,
+      "source_y": 3.3178,
+      "source_z": 197.2153,
+      "target_x": -20.7356,
+      "target_y": 3.9804,
+      "target_z": 198.5214,
+      "distance": 20.9647,
+      "target_level": "l11_pripyat"
+    },
+    {
+      "source_x": 19.2052,
+      "source_y": 5.4226,
+      "source_z": 158.3286,
+      "target_x": -16.7653,
+      "target_y": -0.0011,
+      "target_z": 165.42,
+      "distance": 82.2956,
+      "target_level": "l11_pripyat"
+    },
+    {
+      "source_x": 19.2052,
+      "source_y": 5.4226,
+      "source_z": 158.3286,
+      "target_x": 21.7268,
+      "target_y": -0.0009,
+      "target_z": 165.8369,
+      "distance": 32.5162,
+      "target_level": "l11_pripyat"
+    },
+    {
+      "source_x": 19.2052,
+      "source_y": 5.4226,
+      "source_z": 158.3286,
+      "target_x": 17.5492,
+      "target_y": 5.0904,
+      "target_z": 184.6949,
+      "distance": 35.9482,
+      "target_level": "l11_pripyat"
+    },
+    {
+      "source_x": 29.9181,
+      "source_y": 5.0838,
+      "source_z": 177.5684,
+      "target_x": 30.5552,
+      "target_y": -0.0001,
+      "target_z": 158.2102,
+      "distance": 19.3687,
+      "target_level": "l11_pripyat"
+    },
+    {
+      "source_x": 29.9181,
+      "source_y": 5.0838,
+      "source_z": 177.5684,
+      "target_x": 29.2909,
+      "target_y": -0.0,
+      "target_z": 183.4514,
+      "distance": 8.5566,
+      "target_level": "l11_pripyat"
+    },
+    {
+      "source_x": 17.5492,
+      "source_y": 5.0904,
+      "source_z": 184.6949,
+      "target_x": 19.2052,
+      "target_y": 5.4226,
+      "target_z": 158.3286,
+      "distance": 35.4373,
+      "target_level": "l11_pripyat"
+    },
+    {
+      "source_x": 17.5492,
+      "source_y": 5.0904,
+      "source_z": 184.6949,
+      "target_x": -1.1419,
+      "target_y": 3.3178,
+      "target_z": 197.2153,
+      "distance": 29.523,
+      "target_level": "l11_pripyat"
+    },
+    {
+      "source_x": -16.319,
+      "source_y": 5.4226,
+      "source_z": 165.0796,
+      "target_x": -16.7653,
+      "target_y": -0.0011,
+      "target_z": 165.42,
+      "distance": 0.5613,
+      "target_level": "l11_pripyat"
+    },
+    {
+      "source_x": -16.319,
+      "source_y": 5.4226,
+      "source_z": 165.0796,
+      "target_x": 5.5001,
+      "target_y": -0.0,
+      "target_z": 159.5594,
+      "distance": 27.0865,
+      "target_level": "l11_pripyat"
+    },
+    {
+      "source_x": -39.8542,
+      "source_y": 3.6569,
+      "source_z": 134.046,
+      "target_x": -45.6792,
+      "target_y": -2.2208,
+      "target_z": 61.6085,
+      "distance": 91.0501,
+      "target_level": "l11_pripyat"
+    },
+    {
+      "source_x": -39.8542,
+      "source_y": 3.6569,
+      "source_z": 134.046,
+      "target_x": 16.5612,
+      "target_y": -0.68,
+      "target_z": 114.1396,
+      "distance": 77.2904,
+      "target_level": "l11_pripyat"
+    },
+    {
+      "source_x": -39.8542,
+      "source_y": 3.6569,
+      "source_z": 134.046,
+      "target_x": -34.4585,
+      "target_y": -0.0,
+      "target_z": 140.0008,
+      "distance": 10.5983,
+      "target_level": "l11_pripyat"
+    },
+    {
+      "source_x": -39.8542,
+      "source_y": 3.6569,
+      "source_z": 134.046,
+      "target_x": -50.3835,
+      "target_y": -0.0,
+      "target_z": 134.4754,
+      "distance": 10.5381,
+      "target_level": "l11_pripyat"
+    },
+    {
+      "source_x": -34.4585,
+      "source_y": -0.0,
+      "source_z": 140.0008,
+      "target_x": -39.8542,
+      "target_y": 3.6569,
+      "target_z": 134.046,
+      "distance": 11.9744,
+      "target_level": "l11_pripyat"
+    },
+    {
+      "source_x": -34.4585,
+      "source_y": -0.0,
+      "source_z": 140.0008,
+      "target_x": -25.8934,
+      "target_y": -0.68,
+      "target_z": 150.4476,
+      "distance": 17.5643,
+      "target_level": "l11_pripyat"
+    },
+    {
+      "source_x": -50.3835,
+      "source_y": -0.0,
+      "source_z": 134.4754,
+      "target_x": -39.8542,
+      "target_y": 3.6569,
+      "target_z": 134.046,
+      "distance": 10.5381,
+      "target_level": "l11_pripyat"
+    },
+    {
+      "source_x": -50.3835,
+      "source_y": -0.0,
+      "source_z": 134.4754,
+      "target_x": -58.9097,
+      "target_y": -0.0,
+      "target_z": 116.3333,
+      "distance": 24.6443,
+      "target_level": "l11_pripyat"
+    },
+    {
+      "source_x": -25.8934,
+      "source_y": -0.68,
+      "source_z": 150.4476,
+      "target_x": 4.5247,
+      "target_y": -0.6465,
+      "target_z": 146.7292,
+      "distance": 30.7225,
+      "target_level": "l11_pripyat"
+    },
+    {
+      "source_x": -25.8934,
+      "source_y": -0.68,
+      "source_z": 150.4476,
+      "target_x": -34.4585,
+      "target_y": -0.0,
+      "target_z": 140.0008,
+      "distance": 15.8252,
+      "target_level": "l11_pripyat"
+    },
+    {
+      "source_x": -25.8934,
+      "source_y": -0.68,
+      "source_z": 150.4476,
+      "target_x": -56.1691,
+      "target_y": 3.6538,
+      "target_z": 133.0677,
+      "distance": 45.5278,
+      "target_level": "l11_pripyat"
+    },
+    {
+      "source_x": -25.8934,
+      "source_y": -0.68,
+      "source_z": 150.4476,
+      "target_x": -49.5747,
+      "target_y": -0.6801,
+      "target_z": 165.9661,
+      "distance": 32.6737,
+      "target_level": "l11_pripyat"
+    },
+    {
+      "source_x": -56.1691,
+      "source_y": 3.6538,
+      "source_z": 133.0677,
+      "target_x": -25.8934,
+      "target_y": -0.68,
+      "target_z": 150.4476,
+      "distance": 47.522,
+      "target_level": "l11_pripyat"
+    },
+    {
+      "source_x": -56.1691,
+      "source_y": 3.6538,
+      "source_z": 133.0677,
+      "target_x": -60.2543,
+      "target_y": 3.6539,
+      "target_z": 126.8291,
+      "distance": 7.4571,
+      "target_level": "l11_pripyat"
+    },
+    {
+      "source_x": -59.935,
+      "source_y": 3.6539,
+      "source_z": 113.963,
+      "target_x": -60.2543,
+      "target_y": 3.6539,
+      "target_z": 126.8291,
+      "distance": 12.87,
+      "target_level": "l11_pripyat"
+    },
+    {
+      "source_x": -59.935,
+      "source_y": 3.6539,
+      "source_z": 113.963,
+      "target_x": -68.8492,
+      "target_y": 1.8265,
+      "target_z": 108.3264,
+      "distance": 15.1359,
+      "target_level": "l11_pripyat"
+    },
+    {
+      "source_x": -68.8492,
+      "source_y": 1.8265,
+      "source_z": 108.3264,
+      "target_x": -58.9097,
+      "target_y": -0.0,
+      "target_z": 116.3333,
+      "distance": 17.6239,
+      "target_level": "l11_pripyat"
+    },
+    {
+      "source_x": -68.8492,
+      "source_y": 1.8265,
+      "source_z": 108.3264,
+      "target_x": -62.1894,
+      "target_y": -0.3402,
+      "target_z": 97.3601,
+      "distance": 20.0558,
+      "target_level": "l11_pripyat"
+    },
+    {
+      "source_x": -68.8492,
+      "source_y": 1.8265,
+      "source_z": 108.3264,
+      "target_x": -59.935,
+      "target_y": 3.6539,
+      "target_z": 113.963,
+      "distance": 15.4413,
+      "target_level": "l11_pripyat"
+    },
+    {
+      "source_x": -62.1894,
+      "source_y": -0.3402,
+      "source_z": 97.3601,
+      "target_x": -68.8492,
+      "target_y": 1.8265,
+      "target_z": 108.3264,
+      "distance": 20.0947,
+      "target_level": "l11_pripyat"
+    },
+    {
+      "source_x": -95.0071,
+      "source_y": -2.2071,
+      "source_z": 117.0134,
+      "target_x": -65.3518,
+      "target_y": -0.0001,
+      "target_z": 118.8616,
+      "distance": 29.7129,
+      "target_level": "l11_pripyat"
+    },
+    {
+      "source_x": -95.0071,
+      "source_y": -2.2071,
+      "source_z": 117.0134,
+      "target_x": -66.8199,
+      "target_y": -0.2645,
+      "target_z": 167.7658,
+      "distance": 72.3256,
+      "target_level": "l11_pripyat"
+    },
+    {
+      "source_x": -95.0071,
+      "source_y": -2.2071,
+      "source_z": 117.0134,
+      "target_x": -98.6721,
+      "target_y": -2.2058,
+      "target_z": 150.4905,
+      "distance": 36.4788,
+      "target_level": "l11_pripyat"
+    },
+    {
+      "source_x": -95.0071,
+      "source_y": -2.2071,
+      "source_z": 117.0134,
+      "target_x": -111.3547,
+      "target_y": -2.0001,
+      "target_z": 93.4026,
+      "distance": 31.8978,
+      "target_level": "l11_pripyat"
+    },
+    {
+      "source_x": -66.648,
+      "source_y": 4.0,
+      "source_z": 152.2691,
+      "target_x": -67.2345,
+      "target_y": 15.4581,
+      "target_z": 140.0964,
+      "distance": 40.6389,
+      "target_level": "l11_pripyat"
+    },
+    {
+      "source_x": -66.648,
+      "source_y": 4.0,
+      "source_z": 152.2691,
+      "target_x": -66.8199,
+      "target_y": -0.2645,
+      "target_z": 167.7658,
+      "distance": 15.4977,
+      "target_level": "l11_pripyat"
+    },
+    {
+      "source_x": -66.8199,
+      "source_y": -0.2645,
+      "source_z": 167.7658,
+      "target_x": -66.648,
+      "target_y": 4.0,
+      "target_z": 152.2691,
+      "distance": 15.4977,
+      "target_level": "l11_pripyat"
+    },
+    {
+      "source_x": -66.8199,
+      "source_y": -0.2645,
+      "source_z": 167.7658,
+      "target_x": -49.5747,
+      "target_y": -0.6801,
+      "target_z": 165.9661,
+      "distance": 18.2669,
+      "target_level": "l11_pripyat"
+    },
+    {
+      "source_x": -66.8199,
+      "source_y": -0.2645,
+      "source_z": 167.7658,
+      "target_x": -95.0071,
+      "target_y": -2.2071,
+      "target_z": 117.0134,
+      "distance": 65.1379,
+      "target_level": "l11_pripyat"
+    },
+    {
+      "source_x": -60.2543,
+      "source_y": 3.6539,
+      "source_z": 126.8291,
+      "target_x": -59.935,
+      "target_y": 3.6539,
+      "target_z": 113.963,
+      "distance": 12.87,
+      "target_level": "l11_pripyat"
+    },
+    {
+      "source_x": -60.2543,
+      "source_y": 3.6539,
+      "source_z": 126.8291,
+      "target_x": -56.1691,
+      "target_y": 3.6538,
+      "target_z": 133.0677,
+      "distance": 7.4571,
+      "target_level": "l11_pripyat"
+    },
+    {
+      "source_x": -60.2543,
+      "source_y": 3.6539,
+      "source_z": 126.8291,
+      "target_x": -58.9097,
+      "target_y": -0.0,
+      "target_z": 116.3333,
+      "distance": 10.5815,
+      "target_level": "l11_pripyat"
+    },
+    {
+      "source_x": -58.9097,
+      "source_y": -0.0,
+      "source_z": 116.3333,
+      "target_x": -68.8492,
+      "target_y": 1.8265,
+      "target_z": 108.3264,
+      "distance": 17.8184,
+      "target_level": "l11_pripyat"
+    },
+    {
+      "source_x": -58.9097,
+      "source_y": -0.0,
+      "source_z": 116.3333,
+      "target_x": -65.3518,
+      "target_y": -0.0001,
+      "target_z": 118.8616,
+      "distance": 11.5913,
+      "target_level": "l11_pripyat"
+    },
+    {
+      "source_x": -58.9097,
+      "source_y": -0.0,
+      "source_z": 116.3333,
+      "target_x": -50.3835,
+      "target_y": -0.0,
+      "target_z": 134.4754,
+      "distance": 27.9715,
+      "target_level": "l11_pripyat"
+    },
+    {
+      "source_x": -58.9097,
+      "source_y": -0.0,
+      "source_z": 116.3333,
+      "target_x": -60.2543,
+      "target_y": 3.6539,
+      "target_z": 126.8291,
+      "distance": 30.5697,
+      "target_level": "l11_pripyat"
+    },
+    {
+      "source_x": -111.3547,
+      "source_y": -2.0001,
+      "source_z": 93.4026,
+      "target_x": -98.1525,
+      "target_y": -2.3907,
+      "target_z": 76.885,
+      "distance": 41.7701,
+      "target_level": "l11_pripyat"
+    },
+    {
+      "source_x": -111.3547,
+      "source_y": -2.0001,
+      "source_z": 93.4026,
+      "target_x": -95.0071,
+      "target_y": -2.2071,
+      "target_z": 117.0134,
+      "distance": 35.9616,
+      "target_level": "l11_pripyat"
+    },
+    {
+      "source_x": -111.3547,
+      "source_y": -2.0001,
+      "source_z": 93.4026,
+      "target_x": -124.0111,
+      "target_y": -0.3981,
+      "target_z": 101.1014,
+      "distance": 30.1531,
+      "target_level": "l11_pripyat"
+    },
+    {
+      "source_x": -111.3547,
+      "source_y": -2.0001,
+      "source_z": 93.4026,
+      "target_x": -112.3913,
+      "target_y": -2.0001,
+      "target_z": 155.5541,
+      "distance": 65.3721,
+      "target_level": "l11_pripyat"
+    },
+    {
+      "source_x": -112.3913,
+      "source_y": -2.0001,
+      "source_z": 155.5541,
+      "target_x": -111.3547,
+      "target_y": -2.0001,
+      "target_z": 93.4026,
+      "distance": 66.9104,
+      "target_level": "l11_pripyat"
+    },
+    {
+      "source_x": -112.3913,
+      "source_y": -2.0001,
+      "source_z": 155.5541,
+      "target_x": -98.6721,
+      "target_y": -2.2058,
+      "target_z": 150.4905,
+      "distance": 14.6238,
+      "target_level": "l11_pripyat"
+    },
+    {
+      "source_x": -112.3913,
+      "source_y": -2.0001,
+      "source_z": 155.5541,
+      "target_x": -112.4058,
+      "target_y": -2.0001,
+      "target_z": 209.2222,
+      "distance": 54.8851,
+      "target_level": "l11_pripyat"
+    },
+    {
+      "source_x": -112.4058,
+      "source_y": -2.0001,
+      "source_z": 209.2222,
+      "target_x": -112.3913,
+      "target_y": -2.0001,
+      "target_z": 155.5541,
+      "distance": 54.9556,
+      "target_level": "l11_pripyat"
+    },
+    {
+      "source_x": -112.4058,
+      "source_y": -2.0001,
+      "source_z": 209.2222,
+      "target_x": -52.5925,
+      "target_y": -2.2038,
+      "target_z": 195.9268,
+      "distance": 62.523,
+      "target_level": "l11_pripyat"
+    },
+    {
+      "source_x": -112.4058,
+      "source_y": -2.0001,
+      "source_z": 209.2222,
+      "target_x": -94.686,
+      "target_y": -2.2035,
+      "target_z": 242.7973,
+      "distance": 45.93,
+      "target_level": "l11_pripyat"
+    },
+    {
+      "source_x": 190.1685,
+      "source_y": -2.0001,
+      "source_z": 207.2746,
+      "target_x": 202.1673,
+      "target_y": -0.3982,
+      "target_z": 207.7467,
+      "distance": 50.6189,
+      "target_level": "l11_pripyat"
+    },
+    {
+      "source_x": 190.1685,
+      "source_y": -2.0001,
+      "source_z": 207.2746,
+      "target_x": 172.2906,
+      "target_y": -2.2038,
+      "target_z": 177.8446,
+      "distance": 44.7597,
+      "target_level": "l11_pripyat"
+    },
+    {
+      "source_x": 190.1685,
+      "source_y": -2.0001,
+      "source_z": 207.2746,
+      "target_x": 170.9708,
+      "target_y": -2.2035,
+      "target_z": 241.9219,
+      "distance": 45.0561,
+      "target_level": "l11_pripyat"
+    },
+    {
+      "source_x": 190.6225,
+      "source_y": -2.0001,
+      "source_z": 153.9711,
+      "target_x": 190.4311,
+      "target_y": -2.0001,
+      "target_z": 100.2412,
+      "distance": 55.3875,
+      "target_level": "l11_pripyat"
+    },
+    {
+      "source_x": 190.6225,
+      "source_y": -2.0001,
+      "source_z": 153.9711,
+      "target_x": 172.2906,
+      "target_y": -2.2038,
+      "target_z": 177.8446,
+      "distance": 32.779,
+      "target_level": "l11_pripyat"
+    },
+    {
+      "source_x": 190.4311,
+      "source_y": -2.0001,
+      "source_z": 100.2412,
+      "target_x": 190.6225,
+      "target_y": -2.0001,
+      "target_z": 153.9711,
+      "distance": 54.0119,
+      "target_level": "l11_pripyat"
+    },
+    {
+      "source_x": 190.4311,
+      "source_y": -2.0001,
+      "source_z": 100.2412,
+      "target_x": 160.8579,
+      "target_y": -0.0001,
+      "target_z": 109.2174,
+      "distance": 39.0134,
+      "target_level": "l11_pripyat"
+    },
+    {
+      "source_x": 89.3587,
+      "source_y": -1.732,
+      "source_z": 44.9761,
+      "target_x": 108.8872,
+      "target_y": -2.3908,
+      "target_z": 59.1525,
+      "distance": 40.2039,
+      "target_level": "l11_pripyat"
+    },
+    {
+      "source_x": 89.3587,
+      "source_y": -1.732,
+      "source_z": 44.9761,
+      "target_x": 65.3298,
+      "target_y": -1.732,
+      "target_z": 45.4786,
+      "distance": 29.3589,
+      "target_level": "l11_pripyat"
+    },
+    {
+      "source_x": 65.3298,
+      "source_y": -1.732,
+      "source_z": 45.4786,
+      "target_x": 89.3587,
+      "target_y": -1.732,
+      "target_z": 44.9761,
+      "distance": 29.3885,
+      "target_level": "l11_pripyat"
+    },
+    {
+      "source_x": 65.3298,
+      "source_y": -1.732,
+      "source_z": 45.4786,
+      "target_x": 61.7849,
+      "target_y": -1.7331,
+      "target_z": 33.0223,
+      "distance": 13.1943,
+      "target_level": "l11_pripyat"
+    },
+    {
+      "source_x": 65.3298,
+      "source_y": -1.732,
+      "source_z": 45.4786,
+      "target_x": 59.3854,
+      "target_y": -0.6285,
+      "target_z": 117.7067,
+      "distance": 84.802,
+      "target_level": "l11_pripyat"
+    },
+    {
+      "source_x": 61.7849,
+      "source_y": -1.7331,
+      "source_z": 33.0223,
+      "target_x": 65.3298,
+      "target_y": -1.732,
+      "target_z": 45.4786,
+      "distance": 13.5819,
+      "target_level": "l11_pripyat"
+    },
+    {
+      "source_x": 61.7849,
+      "source_y": -1.7331,
+      "source_z": 33.0223,
+      "target_x": 46.1435,
+      "target_y": -1.732,
+      "target_z": 39.5516,
+      "distance": 23.5169,
+      "target_level": "l11_pripyat"
+    },
+    {
+      "source_x": 46.1435,
+      "source_y": -1.732,
+      "source_z": 39.5516,
+      "target_x": 61.7849,
+      "target_y": -1.7331,
+      "target_z": 33.0223,
+      "distance": 21.841,
+      "target_level": "l11_pripyat"
+    },
+    {
+      "source_x": 46.1435,
+      "source_y": -1.732,
+      "source_z": 39.5516,
+      "target_x": 65.38,
+      "target_y": -2.3908,
+      "target_z": -7.0234,
+      "distance": 77.0725,
+      "target_level": "l11_pripyat"
+    },
+    {
+      "source_x": 46.1435,
+      "source_y": -1.732,
+      "source_z": 39.5516,
+      "target_x": 9.3182,
+      "target_y": -2.2207,
+      "target_z": 32.8262,
+      "distance": 63.6089,
+      "target_level": "l11_pripyat"
+    },
+    {
+      "source_x": 108.3531,
+      "source_y": -7.3908,
+      "source_z": 17.6287,
+      "target_x": 108.8872,
+      "target_y": -2.3908,
+      "target_z": 59.1525,
+      "distance": 41.5273,
+      "target_level": "l11_pripyat"
+    },
+    {
+      "source_x": 108.3531,
+      "source_y": -7.3908,
+      "source_z": 17.6287,
+      "target_x": 74.2352,
+      "target_y": -7.3908,
+      "target_z": 21.0472,
+      "distance": 35.2403,
+      "target_level": "l11_pripyat"
+    },
+    {
+      "source_x": 74.2352,
+      "source_y": -7.3908,
+      "source_z": 21.0472,
+      "target_x": 108.3531,
+      "target_y": -7.3908,
+      "target_z": 17.6287,
+      "distance": 36.0472,
+      "target_level": "l11_pripyat"
+    },
+    {
+      "source_x": 74.2352,
+      "source_y": -7.3908,
+      "source_z": 21.0472,
+      "target_x": 65.38,
+      "target_y": -2.3908,
+      "target_z": -7.0234,
+      "distance": 33.2895,
+      "target_level": "l11_pripyat"
+    },
+    {
+      "source_x": 65.38,
+      "source_y": -2.3908,
+      "source_z": -7.0234,
+      "target_x": 89.5367,
+      "target_y": -2.2208,
+      "target_z": -24.5932,
+      "distance": 33.8829,
+      "target_level": "l11_pripyat"
+    },
+    {
+      "source_x": 65.38,
+      "source_y": -2.3908,
+      "source_z": -7.0234,
+      "target_x": 74.2352,
+      "target_y": -7.3908,
+      "target_z": 21.0472,
+      "distance": 34.0328,
+      "target_level": "l11_pripyat"
+    },
+    {
+      "source_x": 65.38,
+      "source_y": -2.3908,
+      "source_z": -7.0234,
+      "target_x": 9.5979,
+      "target_y": -2.3908,
+      "target_z": -6.7134,
+      "distance": 55.7829,
+      "target_level": "l11_pripyat"
+    },
+    {
+      "source_x": 65.38,
+      "source_y": -2.3908,
+      "source_z": -7.0234,
+      "target_x": 46.1435,
+      "target_y": -1.732,
+      "target_z": 39.5516,
+      "distance": 80.0109,
+      "target_level": "l11_pripyat"
+    },
+    {
+      "source_x": 111.4228,
+      "source_y": -0.9365,
+      "source_z": -14.3893,
+      "target_x": 120.1308,
+      "target_y": -0.9446,
+      "target_z": -22.1096,
+      "distance": 16.2667,
+      "target_level": "l11_pripyat"
+    },
+    {
+      "source_x": 111.4228,
+      "source_y": -0.9365,
+      "source_z": -14.3893,
+      "target_x": 89.5367,
+      "target_y": -2.2208,
+      "target_z": -24.5932,
+      "distance": 33.9447,
+      "target_level": "l11_pripyat"
+    },
+    {
+      "source_x": 120.1308,
+      "source_y": -0.9446,
+      "source_z": -22.1096,
+      "target_x": 124.2051,
+      "target_y": -2.4185,
+      "target_z": -52.2891,
+      "distance": 34.2434,
+      "target_level": "l11_pripyat"
+    },
+    {
+      "source_x": 120.1308,
+      "source_y": -0.9446,
+      "source_z": -22.1096,
+      "target_x": 133.8045,
+      "target_y": -0.9278,
+      "target_z": -26.6288,
+      "distance": 17.7723,
+      "target_level": "l11_pripyat"
+    },
+    {
+      "source_x": 120.1308,
+      "source_y": -0.9446,
+      "source_z": -22.1096,
+      "target_x": 125.5016,
+      "target_y": -2.4433,
+      "target_z": -7.8692,
+      "distance": 18.1272,
+      "target_level": "l11_pripyat"
+    },
+    {
+      "source_x": 120.1308,
+      "source_y": -0.9446,
+      "source_z": -22.1096,
+      "target_x": 111.4228,
+      "target_y": -0.9365,
+      "target_z": -14.3893,
+      "distance": 14.8708,
+      "target_level": "l11_pripyat"
+    },
+    {
+      "source_x": 111.4648,
+      "source_y": 3.9357,
+      "source_z": -12.068,
+      "target_x": 104.4922,
+      "target_y": 3.9479,
+      "target_z": -21.6121,
+      "distance": 16.4417,
+      "target_level": "l11_pripyat"
+    },
+    {
+      "source_x": 104.4922,
+      "source_y": 3.9479,
+      "source_z": -21.6121,
+      "target_x": 111.4648,
+      "target_y": 3.9357,
+      "target_z": -12.068,
+      "distance": 15.1667,
+      "target_level": "l11_pripyat"
+    },
+    {
+      "source_x": 104.4922,
+      "source_y": 3.9479,
+      "source_z": -21.6121,
+      "target_x": 109.2642,
+      "target_y": 3.9541,
+      "target_z": -32.1789,
+      "distance": 14.1077,
+      "target_level": "l11_pripyat"
+    },
+    {
+      "source_x": 104.4922,
+      "source_y": 3.9479,
+      "source_z": -21.6121,
+      "target_x": 113.3848,
+      "target_y": 1.6015,
+      "target_z": -26.9178,
+      "distance": 15.6412,
+      "target_level": "l11_pripyat"
+    },
+    {
+      "source_x": 109.2642,
+      "source_y": 3.9541,
+      "source_z": -32.1789,
+      "target_x": 104.4922,
+      "target_y": 3.9479,
+      "target_z": -21.6121,
+      "distance": 14.7422,
+      "target_level": "l11_pripyat"
+    },
+    {
+      "source_x": 113.3848,
+      "source_y": 1.6015,
+      "source_z": -26.9178,
+      "target_x": 104.4922,
+      "target_y": 3.9479,
+      "target_z": -21.6121,
+      "distance": 14.4991,
+      "target_level": "l11_pripyat"
+    },
+    {
+      "source_x": 113.3848,
+      "source_y": 1.6015,
+      "source_z": -26.9178,
+      "target_x": 124.2051,
+      "target_y": -2.4185,
+      "target_z": -52.2891,
+      "distance": 53.8833,
+      "target_level": "l11_pripyat"
+    },
+    {
+      "source_x": 113.3848,
+      "source_y": 1.6015,
+      "source_z": -26.9178,
+      "target_x": 89.5367,
+      "target_y": -2.2208,
+      "target_z": -24.5932,
+      "distance": 27.9448,
+      "target_level": "l11_pripyat"
+    },
+    {
+      "source_x": 125.5016,
+      "source_y": -2.4433,
+      "source_z": -7.8692,
+      "target_x": 120.1308,
+      "target_y": -0.9446,
+      "target_z": -22.1096,
+      "distance": 19.9726,
+      "target_level": "l11_pripyat"
+    },
+    {
+      "source_x": 125.5016,
+      "source_y": -2.4433,
+      "source_z": -7.8692,
+      "target_x": 138.9608,
+      "target_y": 3.9157,
+      "target_z": -13.8184,
+      "distance": 32.6311,
+      "target_level": "l11_pripyat"
+    },
+    {
+      "source_x": 133.8045,
+      "source_y": -0.9278,
+      "source_z": -26.6288,
+      "target_x": 142.5398,
+      "target_y": -0.9448,
+      "target_z": -42.2383,
+      "distance": 22.1047,
+      "target_level": "l11_pripyat"
+    },
+    {
+      "source_x": 133.8045,
+      "source_y": -0.9278,
+      "source_z": -26.6288,
+      "target_x": 140.5608,
+      "target_y": -0.9278,
+      "target_z": -49.7507,
+      "distance": 28.653,
+      "target_level": "l11_pripyat"
+    },
+    {
+      "source_x": 133.8045,
+      "source_y": -0.9278,
+      "source_z": -26.6288,
+      "target_x": 134.4386,
+      "target_y": 3.9357,
+      "target_z": -26.9822,
+      "distance": 0.726,
+      "target_level": "l11_pripyat"
+    },
+    {
+      "source_x": 133.8045,
+      "source_y": -0.9278,
+      "source_z": -26.6288,
+      "target_x": 153.6142,
+      "target_y": -2.6441,
+      "target_z": -21.309,
+      "distance": 24.1742,
+      "target_level": "l11_pripyat"
+    },
+    {
+      "source_x": 133.8045,
+      "source_y": -0.9278,
+      "source_z": -26.6288,
+      "target_x": 140.337,
+      "target_y": -0.9406,
+      "target_z": -16.7654,
+      "distance": 14.1334,
+      "target_level": "l11_pripyat"
+    },
+    {
+      "source_x": 133.8045,
+      "source_y": -0.9278,
+      "source_z": -26.6288,
+      "target_x": 120.1308,
+      "target_y": -0.9446,
+      "target_z": -22.1096,
+      "distance": 18.25,
+      "target_level": "l11_pripyat"
+    },
+    {
+      "source_x": 140.337,
+      "source_y": -0.9406,
+      "source_z": -16.7654,
+      "target_x": 138.9608,
+      "target_y": 3.9157,
+      "target_z": -13.8184,
+      "distance": 3.2525,
+      "target_level": "l11_pripyat"
+    },
+    {
+      "source_x": 140.337,
+      "source_y": -0.9406,
+      "source_z": -16.7654,
+      "target_x": 133.8045,
+      "target_y": -0.9278,
+      "target_z": -26.6288,
+      "distance": 15.4579,
+      "target_level": "l11_pripyat"
+    },
+    {
+      "source_x": 142.5398,
+      "source_y": -0.9448,
+      "source_z": -42.2383,
+      "target_x": 150.1207,
+      "target_y": -2.27,
+      "target_z": -52.223,
+      "distance": 15.9657,
+      "target_level": "l11_pripyat"
+    },
+    {
+      "source_x": 142.5398,
+      "source_y": -0.9448,
+      "source_z": -42.2383,
+      "target_x": 158.8915,
+      "target_y": -2.3805,
+      "target_z": -30.9244,
+      "distance": 24.9752,
+      "target_level": "l11_pripyat"
+    },
+    {
+      "source_x": 142.5398,
+      "source_y": -0.9448,
+      "source_z": -42.2383,
+      "target_x": 133.8045,
+      "target_y": -0.9278,
+      "target_z": -26.6288,
+      "distance": 24.9152,
+      "target_level": "l11_pripyat"
+    },
+    {
+      "source_x": 140.5608,
+      "source_y": -0.9278,
+      "source_z": -49.7507,
+      "target_x": 133.8045,
+      "target_y": -0.9278,
+      "target_z": -26.6288,
+      "distance": 28.8442,
+      "target_level": "l11_pripyat"
+    },
+    {
+      "source_x": 140.5608,
+      "source_y": -0.9278,
+      "source_z": -49.7507,
+      "target_x": 134.3729,
+      "target_y": -0.9391,
+      "target_z": -52.5163,
+      "distance": 10.8144,
+      "target_level": "l11_pripyat"
+    },
+    {
+      "source_x": 134.3729,
+      "source_y": -0.9391,
+      "source_z": -52.5163,
+      "target_x": 140.5608,
+      "target_y": -0.9278,
+      "target_z": -49.7507,
+      "distance": 10.8687,
+      "target_level": "l11_pripyat"
+    },
+    {
+      "source_x": 134.3729,
+      "source_y": -0.9391,
+      "source_z": -52.5163,
+      "target_x": 124.2051,
+      "target_y": -2.4185,
+      "target_z": -52.2891,
+      "distance": 14.9028,
+      "target_level": "l11_pripyat"
+    },
+    {
+      "source_x": 134.3729,
+      "source_y": -0.9391,
+      "source_z": -52.5163,
+      "target_x": 150.1207,
+      "target_y": -2.27,
+      "target_z": -52.223,
+      "distance": 33.4508,
+      "target_level": "l11_pripyat"
+    },
+    {
+      "source_x": 124.2051,
+      "source_y": -2.4185,
+      "source_z": -52.2891,
+      "target_x": 134.3729,
+      "target_y": -0.9391,
+      "target_z": -52.5163,
+      "distance": 14.4439,
+      "target_level": "l11_pripyat"
+    },
+    {
+      "source_x": 124.2051,
+      "source_y": -2.4185,
+      "source_z": -52.2891,
+      "target_x": 120.1308,
+      "target_y": -0.9446,
+      "target_z": -22.1096,
+      "distance": 30.6393,
+      "target_level": "l11_pripyat"
+    },
+    {
+      "source_x": 124.2051,
+      "source_y": -2.4185,
+      "source_z": -52.2891,
+      "target_x": 113.3848,
+      "target_y": 1.6015,
+      "target_z": -26.9178,
+      "distance": 53.7646,
+      "target_level": "l11_pripyat"
+    },
+    {
+      "source_x": 134.4386,
+      "source_y": 3.9357,
+      "source_z": -26.9822,
+      "target_x": 141.1748,
+      "target_y": 3.9357,
+      "target_z": -40.0298,
+      "distance": 16.5829,
+      "target_level": "l11_pripyat"
+    },
+    {
+      "source_x": 134.4386,
+      "source_y": 3.9357,
+      "source_z": -26.9822,
+      "target_x": 133.8045,
+      "target_y": -0.9278,
+      "target_z": -26.6288,
+      "distance": 0.726,
+      "target_level": "l11_pripyat"
+    },
+    {
+      "source_x": 138.9608,
+      "source_y": 3.9157,
+      "source_z": -13.8184,
+      "target_x": 140.337,
+      "target_y": -0.9406,
+      "target_z": -16.7654,
+      "distance": 3.2525,
+      "target_level": "l11_pripyat"
+    },
+    {
+      "source_x": 138.9608,
+      "source_y": 3.9157,
+      "source_z": -13.8184,
+      "target_x": 125.5016,
+      "target_y": -2.4433,
+      "target_z": -7.8692,
+      "distance": 32.3336,
+      "target_level": "l11_pripyat"
+    },
+    {
+      "source_x": 141.1748,
+      "source_y": 3.9357,
+      "source_z": -40.0298,
+      "target_x": 134.8209,
+      "target_y": 3.9367,
+      "target_z": -52.7577,
+      "distance": 18.4552,
+      "target_level": "l11_pripyat"
+    },
+    {
+      "source_x": 141.1748,
+      "source_y": 3.9357,
+      "source_z": -40.0298,
+      "target_x": 134.4386,
+      "target_y": 3.9357,
+      "target_z": -26.9822,
+      "distance": 18.0789,
+      "target_level": "l11_pripyat"
+    },
+    {
+      "source_x": 134.8209,
+      "source_y": 3.9367,
+      "source_z": -52.7577,
+      "target_x": 141.1748,
+      "target_y": 3.9357,
+      "target_z": -40.0298,
+      "distance": 17.2215,
+      "target_level": "l11_pripyat"
+    },
+    {
+      "source_x": 150.1207,
+      "source_y": -2.27,
+      "source_z": -52.223,
+      "target_x": 142.5398,
+      "target_y": -0.9448,
+      "target_z": -42.2383,
+      "distance": 17.6281,
+      "target_level": "l11_pripyat"
+    },
+    {
+      "source_x": 150.1207,
+      "source_y": -2.27,
+      "source_z": -52.223,
+      "target_x": 134.3729,
+      "target_y": -0.9391,
+      "target_z": -52.5163,
+      "distance": 30.4284,
+      "target_level": "l11_pripyat"
+    },
+    {
+      "source_x": 9.3182,
+      "source_y": -2.2207,
+      "source_z": 32.8262,
+      "target_x": 9.5979,
+      "target_y": -2.3908,
+      "target_z": -6.7134,
+      "distance": 51.8973,
+      "target_level": "l11_pripyat"
+    },
+    {
+      "source_x": 9.3182,
+      "source_y": -2.2207,
+      "source_z": 32.8262,
+      "target_x": 46.1435,
+      "target_y": -1.732,
+      "target_z": 39.5516,
+      "distance": 63.2111,
+      "target_level": "l11_pripyat"
+    },
+    {
+      "source_x": 9.3182,
+      "source_y": -2.2207,
+      "source_z": 32.8262,
+      "target_x": 4.8833,
+      "target_y": -3.4496,
+      "target_z": 72.8217,
+      "distance": 58.0521,
+      "target_level": "l11_pripyat"
+    },
+    {
+      "source_x": -112.0154,
+      "source_y": -2.2305,
+      "source_z": 21.097,
+      "target_x": -100.7263,
+      "target_y": -2.2289,
+      "target_z": -7.7196,
+      "distance": 34.8,
+      "target_level": "l11_pripyat"
+    },
+    {
+      "source_x": -112.0154,
+      "source_y": -2.2305,
+      "source_z": 21.097,
+      "target_x": -82.0455,
+      "target_y": -2.3913,
+      "target_z": 26.8373,
+      "distance": 50.9246,
+      "target_level": "l11_pripyat"
+    },
+    {
+      "source_x": -112.0154,
+      "source_y": -2.2305,
+      "source_z": 21.097,
+      "target_x": -118.1877,
+      "target_y": -0.2475,
+      "target_z": 53.3242,
+      "distance": 46.258,
+      "target_level": "l11_pripyat"
+    },
+    {
+      "source_x": -112.0154,
+      "source_y": -2.2305,
+      "source_z": 21.097,
+      "target_x": -113.1197,
+      "target_y": 1.7039,
+      "target_z": 7.8722,
+      "distance": 32.4197,
+      "target_level": "l11_pripyat"
+    },
+    {
+      "source_x": -113.1197,
+      "source_y": 1.7039,
+      "source_z": 7.8722,
+      "target_x": -101.2479,
+      "target_y": 1.7037,
+      "target_z": -8.8283,
+      "distance": 23.4696,
+      "target_level": "l11_pripyat"
+    },
+    {
+      "source_x": -113.1197,
+      "source_y": 1.7039,
+      "source_z": 7.8722,
+      "target_x": -112.0154,
+      "target_y": -2.2305,
+      "target_z": 21.097,
+      "distance": 30.68,
+      "target_level": "l11_pripyat"
+    },
+    {
+      "source_x": -113.1197,
+      "source_y": 1.7039,
+      "source_z": 7.8722,
+      "target_x": -133.0971,
+      "target_y": 1.7039,
+      "target_z": 11.8917,
+      "distance": 21.1123,
+      "target_level": "l11_pripyat"
+    },
+    {
+      "source_x": -101.2479,
+      "source_y": 1.7037,
+      "source_z": -8.8283,
+      "target_x": -84.3685,
+      "target_y": -2.3909,
+      "target_z": -39.7006,
+      "distance": 43.8469,
+      "target_level": "l11_pripyat"
+    },
+    {
+      "source_x": -101.2479,
+      "source_y": 1.7037,
+      "source_z": -8.8283,
+      "target_x": -100.7263,
+      "target_y": -2.2289,
+      "target_z": -7.7196,
+      "distance": 1.2252,
+      "target_level": "l11_pripyat"
+    },
+    {
+      "source_x": -101.2479,
+      "source_y": 1.7037,
+      "source_z": -8.8283,
+      "target_x": -113.1197,
+      "target_y": 1.7039,
+      "target_z": 7.8722,
+      "distance": 26.2162,
+      "target_level": "l11_pripyat"
+    },
+    {
+      "source_x": -100.7263,
+      "source_y": -2.2289,
+      "source_z": -7.7196,
+      "target_x": -101.2479,
+      "target_y": 1.7037,
+      "target_z": -8.8283,
+      "distance": 1.2252,
+      "target_level": "l11_pripyat"
+    },
+    {
+      "source_x": -100.7263,
+      "source_y": -2.2289,
+      "source_z": -7.7196,
+      "target_x": -112.0154,
+      "target_y": -2.2305,
+      "target_z": 21.097,
+      "distance": 35.1203,
+      "target_level": "l11_pripyat"
+    },
+    {
+      "source_x": -133.0971,
+      "source_y": 1.7039,
+      "source_z": 11.8917,
+      "target_x": -109.0711,
+      "target_y": -2.3912,
+      "target_z": -42.4251,
+      "distance": 72.6136,
+      "target_level": "l11_pripyat"
+    },
+    {
+      "source_x": -133.0971,
+      "source_y": 1.7039,
+      "source_z": 11.8917,
+      "target_x": -113.1197,
+      "target_y": 1.7039,
+      "target_z": 7.8722,
+      "distance": 21.5885,
+      "target_level": "l11_pripyat"
+    },
+    {
+      "source_x": -133.0971,
+      "source_y": 1.7039,
+      "source_z": 11.8917,
+      "target_x": -155.6561,
+      "target_y": -2.3084,
+      "target_z": -15.0915,
+      "distance": 54.1444,
+      "target_level": "l11_pripyat"
+    },
+    {
+      "source_x": -118.1877,
+      "source_y": -0.2475,
+      "source_z": 53.3242,
+      "target_x": -112.0154,
+      "target_y": -2.2305,
+      "target_z": 21.097,
+      "distance": 52.8069,
+      "target_level": "l11_pripyat"
+    },
+    {
+      "source_x": -118.1877,
+      "source_y": -0.2475,
+      "source_z": 53.3242,
+      "target_x": -98.1525,
+      "target_y": -2.3907,
+      "target_z": 76.885,
+      "distance": 42.0497,
+      "target_level": "l11_pripyat"
+    },
+    {
+      "source_x": -118.1877,
+      "source_y": -0.2475,
+      "source_z": 53.3242,
+      "target_x": -155.8983,
+      "target_y": -2.3908,
+      "target_z": 56.8559,
+      "distance": 53.776,
+      "target_level": "l11_pripyat"
+    },
+    {
+      "source_x": -56.6798,
+      "source_y": -0.7147,
+      "source_z": 10.1701,
+      "target_x": -58.6511,
+      "target_y": -0.691,
+      "target_z": -20.455,
+      "distance": 30.8996,
+      "target_level": "l11_pripyat"
+    },
+    {
+      "source_x": -56.6798,
+      "source_y": -0.7147,
+      "source_z": 10.1701,
+      "target_x": -82.0455,
+      "target_y": -2.3913,
+      "target_z": 26.8373,
+      "distance": 42.58,
+      "target_level": "l11_pripyat"
+    },
+    {
+      "source_x": -58.6511,
+      "source_y": -0.691,
+      "source_z": -20.455,
+      "target_x": -36.1276,
+      "target_y": -2.3911,
+      "target_z": -6.3058,
+      "distance": 34.2532,
+      "target_level": "l11_pripyat"
+    },
+    {
+      "source_x": -58.6511,
+      "source_y": -0.691,
+      "source_z": -20.455,
+      "target_x": -56.6798,
+      "target_y": -0.7147,
+      "target_z": 10.1701,
+      "distance": 30.9343,
+      "target_level": "l11_pripyat"
+    },
+    {
+      "source_x": -58.6511,
+      "source_y": -0.691,
+      "source_z": -20.455,
+      "target_x": -84.3685,
+      "target_y": -2.3909,
+      "target_z": -39.7006,
+      "distance": 39.6035,
+      "target_level": "l11_pripyat"
+    },
+    {
+      "source_x": -109.0711,
+      "source_y": -2.3912,
+      "source_z": -42.4251,
+      "target_x": -84.3685,
+      "target_y": -2.3909,
+      "target_z": -39.7006,
+      "distance": 28.427,
+      "target_level": "l11_pripyat"
+    },
+    {
+      "source_x": -109.0711,
+      "source_y": -2.3912,
+      "source_z": -42.4251,
+      "target_x": -133.0971,
+      "target_y": 1.7039,
+      "target_z": 11.8917,
+      "distance": 72.8939,
+      "target_level": "l11_pripyat"
+    },
+    {
+      "source_x": -84.3685,
+      "source_y": -2.3909,
+      "source_z": -39.7006,
+      "target_x": -82.5894,
+      "target_y": -2.3908,
+      "target_z": -63.6643,
+      "distance": 24.0296,
+      "target_level": "l11_pripyat"
+    },
+    {
+      "source_x": -84.3685,
+      "source_y": -2.3909,
+      "source_z": -39.7006,
+      "target_x": -58.6511,
+      "target_y": -0.691,
+      "target_z": -20.455,
+      "distance": 39.1184,
+      "target_level": "l11_pripyat"
+    },
+    {
+      "source_x": -84.3685,
+      "source_y": -2.3909,
+      "source_z": -39.7006,
+      "target_x": -101.2479,
+      "target_y": 1.7037,
+      "target_z": -8.8283,
+      "distance": 43.8372,
+      "target_level": "l11_pripyat"
+    },
+    {
+      "source_x": -84.3685,
+      "source_y": -2.3909,
+      "source_z": -39.7006,
+      "target_x": -109.0711,
+      "target_y": -2.3912,
+      "target_z": -42.4251,
+      "distance": 28.4471,
+      "target_level": "l11_pripyat"
+    },
+    {
+      "source_x": -50.7718,
+      "source_y": -2.1384,
+      "source_z": -90.5703,
+      "target_x": -34.2756,
+      "target_y": -2.3908,
+      "target_z": -127.1099,
+      "distance": 48.2292,
+      "target_level": "l11_pripyat"
+    },
+    {
+      "source_x": -50.7718,
+      "source_y": -2.1384,
+      "source_z": -90.5703,
+      "target_x": -32.5892,
+      "target_y": -2.3906,
+      "target_z": -64.8081,
+      "distance": 44.0726,
+      "target_level": "l11_pripyat"
+    },
+    {
+      "source_x": 77.6434,
+      "source_y": -2.3883,
+      "source_z": -95.105,
+      "target_x": 92.3954,
+      "target_y": -1.7939,
+      "target_z": -90.7979,
+      "distance": 17.2046,
+      "target_level": "l11_pripyat"
+    },
+    {
+      "source_x": 77.6434,
+      "source_y": -2.3883,
+      "source_z": -95.105,
+      "target_x": 56.8881,
+      "target_y": -2.3908,
+      "target_z": -65.161,
+      "distance": 43.3848,
+      "target_level": "l11_pripyat"
+    },
+    {
+      "source_x": 77.6434,
+      "source_y": -2.3883,
+      "source_z": -95.105,
+      "target_x": 50.4492,
+      "target_y": -2.3908,
+      "target_z": -126.1736,
+      "distance": 50.2541,
+      "target_level": "l11_pripyat"
+    },
+    {
+      "source_x": 27.1757,
+      "source_y": 1.0023,
+      "source_z": 346.5196,
+      "target_x": 79.7571,
+      "target_y": 0.9693,
+      "target_z": 351.6632,
+      "distance": 56.7321,
+      "target_level": "l11_pripyat"
+    },
+    {
+      "source_x": 27.1757,
+      "source_y": 1.0023,
+      "source_z": 346.5196,
+      "target_x": 31.3137,
+      "target_y": 1.1393,
+      "target_z": 419.3895,
+      "distance": 72.9873,
+      "target_level": "l11_pripyat"
+    },
+    {
+      "source_x": 27.1757,
+      "source_y": 1.0023,
+      "source_z": 346.5196,
+      "target_x": -7.1345,
+      "target_y": 1.5704,
+      "target_z": 287.2526,
+      "distance": 78.7927,
+      "target_level": "l11_pripyat"
+    },
+    {
+      "source_x": 27.1757,
+      "source_y": 1.0023,
+      "source_z": 346.5196,
+      "target_x": -35.0401,
+      "target_y": 1.7959,
+      "target_z": 348.5857,
+      "distance": 64.0395,
+      "target_level": "l11_pripyat"
+    },
+    {
+      "source_x": -7.1345,
+      "source_y": 1.5704,
+      "source_z": 287.2526,
+      "target_x": 31.2905,
+      "target_y": -0.626,
+      "target_z": 257.997,
+      "distance": 54.6439,
+      "target_level": "l11_pripyat"
+    },
+    {
+      "source_x": -7.1345,
+      "source_y": 1.5704,
+      "source_z": 287.2526,
+      "target_x": 27.1757,
+      "target_y": 1.0023,
+      "target_z": 346.5196,
+      "distance": 101.0522,
+      "target_level": "l11_pripyat"
+    },
+    {
+      "source_x": -7.1345,
+      "source_y": 1.5704,
+      "source_z": 287.2526,
+      "target_x": -45.4649,
+      "target_y": 1.0323,
+      "target_z": 293.3714,
+      "distance": 40.9326,
+      "target_level": "l11_pripyat"
+    },
+    {
+      "source_x": -45.4649,
+      "source_y": 1.0323,
+      "source_z": 293.3714,
+      "target_x": -7.1345,
+      "target_y": 1.5704,
+      "target_z": 287.2526,
+      "distance": 40.7429,
+      "target_level": "l11_pripyat"
+    },
+    {
+      "source_x": -45.4649,
+      "source_y": 1.0323,
+      "source_z": 293.3714,
+      "target_x": -35.0401,
+      "target_y": 1.7959,
+      "target_z": 348.5857,
+      "distance": 57.7355,
+      "target_level": "l11_pripyat"
+    },
+    {
+      "source_x": 70.0897,
+      "source_y": 1.5704,
+      "source_z": 286.8542,
+      "target_x": 107.9406,
+      "target_y": 1.033,
+      "target_z": 289.837,
+      "distance": 38.5315,
+      "target_level": "l11_pripyat"
+    },
+    {
+      "source_x": 70.0897,
+      "source_y": 1.5704,
+      "source_z": 286.8542,
+      "target_x": 79.7571,
+      "target_y": 0.9693,
+      "target_z": 351.6632,
+      "distance": 81.737,
+      "target_level": "l11_pripyat"
+    },
+    {
+      "source_x": 70.0897,
+      "source_y": 1.5704,
+      "source_z": 286.8542,
+      "target_x": 31.2905,
+      "target_y": -0.626,
+      "target_z": 257.997,
+      "distance": 54.7111,
+      "target_level": "l11_pripyat"
+    },
+    {
+      "source_x": 107.9406,
+      "source_y": 1.033,
+      "source_z": 289.837,
+      "target_x": 70.0897,
+      "target_y": 1.5704,
+      "target_z": 286.8542,
+      "distance": 38.1036,
+      "target_level": "l11_pripyat"
+    },
+    {
+      "source_x": 31.3137,
+      "source_y": 1.1393,
+      "source_z": 419.3895,
+      "target_x": 27.1757,
+      "target_y": 1.0023,
+      "target_z": 346.5196,
+      "distance": 72.9873,
+      "target_level": "l11_pripyat"
+    },
+    {
+      "source_x": 31.3137,
+      "source_y": 1.1393,
+      "source_z": 419.3895,
+      "target_x": 69.6587,
+      "target_y": 1.5704,
+      "target_z": 416.6477,
+      "distance": 39.0682,
+      "target_level": "l11_pripyat"
+    },
+    {
+      "source_x": 31.3137,
+      "source_y": 1.1393,
+      "source_z": 419.3895,
+      "target_x": 30.8439,
+      "target_y": -0.6813,
+      "target_z": 473.4703,
+      "distance": 60.5795,
+      "target_level": "l11_pripyat"
+    },
+    {
+      "source_x": 31.3137,
+      "source_y": 1.1393,
+      "source_z": 419.3895,
+      "target_x": -6.9935,
+      "target_y": 1.5704,
+      "target_z": 416.9279,
+      "distance": 38.9591,
+      "target_level": "l11_pripyat"
+    },
+    {
+      "source_x": -6.9935,
+      "source_y": 1.5704,
+      "source_z": 416.9279,
+      "target_x": 31.3137,
+      "target_y": 1.1393,
+      "target_z": 419.3895,
+      "distance": 39.0882,
+      "target_level": "l11_pripyat"
+    },
+    {
+      "source_x": 106.7992,
+      "source_y": 24.2538,
+      "source_z": 145.1548,
+      "target_x": 101.9527,
+      "target_y": 24.2538,
+      "target_z": 123.2691,
+      "distance": 22.4159,
+      "target_level": "l11_pripyat"
+    },
+    {
+      "source_x": 101.9527,
+      "source_y": 24.2538,
+      "source_z": 123.2691,
+      "target_x": 101.5182,
+      "target_y": -0.0,
+      "target_z": 111.3736,
+      "distance": 11.9035,
+      "target_level": "l11_pripyat"
+    },
+    {
+      "source_x": 101.9527,
+      "source_y": 24.2538,
+      "source_z": 123.2691,
+      "target_x": 106.7992,
+      "target_y": 24.2538,
+      "target_z": 145.1548,
+      "distance": 22.4159,
+      "target_level": "l11_pripyat"
+    },
+    {
+      "source_x": 14.6479,
+      "source_y": -1.8552,
+      "source_z": -281.743,
+      "target_x": 45.1514,
+      "target_y": -2.2363,
+      "target_z": -290.2832,
+      "distance": 33.0269,
+      "target_level": "l11_pripyat"
+    },
+    {
+      "source_x": 14.6479,
+      "source_y": -1.8552,
+      "source_z": -281.743,
+      "target_x": 13.2393,
+      "target_y": -0.6929,
+      "target_z": -252.0874,
+      "distance": 30.7916,
+      "target_level": "l11_pripyat"
+    },
+    {
+      "source_x": 14.6479,
+      "source_y": -1.8552,
+      "source_z": -281.743,
+      "target_x": -18.7496,
+      "target_y": -2.2544,
+      "target_z": -292.3408,
+      "distance": 39.4757,
+      "target_level": "l11_pripyat"
+    },
+    {
+      "source_x": 69.6587,
+      "source_y": 1.5704,
+      "source_z": 416.6477,
+      "target_x": 79.7571,
+      "target_y": 0.9693,
+      "target_z": 351.6632,
+      "distance": 81.8523,
+      "target_level": "l11_pripyat"
+    },
+    {
+      "source_x": 69.6587,
+      "source_y": 1.5704,
+      "source_z": 416.6477,
+      "target_x": 31.3137,
+      "target_y": 1.1393,
+      "target_z": 419.3895,
+      "distance": 39.083,
+      "target_level": "l11_pripyat"
+    },
+    {
+      "source_x": 45.1514,
+      "source_y": -2.2363,
+      "source_z": -290.2832,
+      "target_x": 14.6479,
+      "target_y": -1.8552,
+      "target_z": -281.743,
+      "distance": 38.9208,
+      "target_level": "l11_pripyat"
+    },
+    {
+      "source_x": 45.1514,
+      "source_y": -2.2363,
+      "source_z": -290.2832,
+      "target_x": 386.1828,
+      "target_y": -33.4223,
+      "target_z": 162.0417,
+      "distance": 806.374,
+      "target_level": "l10_radar"
+    },
+    {
+      "source_x": -37.4612,
+      "source_y": -0.6096,
+      "source_z": 491.2303,
+      "target_x": 36.3416,
+      "target_y": -0.0355,
+      "target_z": 496.6972,
+      "distance": 76.3279,
+      "target_level": "l11_pripyat"
+    },
+    {
+      "source_x": -37.4612,
+      "source_y": -0.6096,
+      "source_z": 491.2303,
+      "target_x": 880.9888,
+      "target_y": 0.0,
+      "target_z": -434.1273,
+      "distance": 425.0555,
+      "target_level": "l12_stancia"
+    },
+    {
+      "source_x": 33.4038,
+      "source_y": -2.3908,
+      "source_z": -57.4068,
+      "target_x": 34.3061,
+      "target_y": 9.3315,
+      "target_z": -87.492,
+      "distance": 47.2631,
+      "target_level": "l11_pripyat"
+    },
+    {
+      "source_x": 33.4038,
+      "source_y": -2.3908,
+      "source_z": -57.4068,
+      "target_x": 56.8881,
+      "target_y": -2.3908,
+      "target_z": -65.161,
+      "distance": 25.0228,
+      "target_level": "l11_pripyat"
+    },
+    {
+      "source_x": 33.4038,
+      "source_y": -2.3908,
+      "source_z": -57.4068,
+      "target_x": 11.8687,
+      "target_y": -2.3908,
+      "target_z": -64.4418,
+      "distance": 23.067,
+      "target_level": "l11_pripyat"
+    },
+    {
+      "source_x": 16.5612,
+      "source_y": -0.68,
+      "source_z": 114.1396,
+      "target_x": 4.8833,
+      "target_y": -3.4496,
+      "target_z": 72.8217,
+      "distance": 60.5321,
+      "target_level": "l11_pripyat"
+    },
+    {
+      "source_x": 16.5612,
+      "source_y": -0.68,
+      "source_z": 114.1396,
+      "target_x": 59.3854,
+      "target_y": -0.6285,
+      "target_z": 117.7067,
+      "distance": 45.8531,
+      "target_level": "l11_pripyat"
+    },
+    {
+      "source_x": 16.5612,
+      "source_y": -0.68,
+      "source_z": 114.1396,
+      "target_x": 4.5247,
+      "target_y": -0.6465,
+      "target_z": 146.7292,
+      "distance": 70.9414,
+      "target_level": "l11_pripyat"
+    },
+    {
+      "source_x": 16.5612,
+      "source_y": -0.68,
+      "source_z": 114.1396,
+      "target_x": -39.8542,
+      "target_y": 3.6569,
+      "target_z": 134.046,
+      "distance": 80.6056,
+      "target_level": "l11_pripyat"
+    },
+    {
+      "source_x": -155.6561,
+      "source_y": -2.3084,
+      "source_z": -15.0915,
+      "target_x": -133.0971,
+      "target_y": 1.7039,
+      "target_z": 11.8917,
+      "distance": 51.2798,
+      "target_level": "l11_pripyat"
+    },
+    {
+      "source_x": -155.6561,
+      "source_y": -2.3084,
+      "source_z": -15.0915,
+      "target_x": 465.301,
+      "target_y": -4.1505,
+      "target_z": -21.4517,
+      "distance": 522.5479,
+      "target_level": "jupiter"
+    },
+    {
+      "source_x": 158.8915,
+      "source_y": -2.3805,
+      "source_z": -30.9244,
+      "target_x": 153.6142,
+      "target_y": -2.6441,
+      "target_z": -21.309,
+      "distance": 10.9684,
+      "target_level": "l11_pripyat"
+    },
+    {
+      "source_x": 158.8915,
+      "source_y": -2.3805,
+      "source_z": -30.9244,
+      "target_x": 142.5398,
+      "target_y": -0.9448,
+      "target_z": -42.2383,
+      "distance": 20.9606,
+      "target_level": "l11_pripyat"
+    },
+    {
+      "source_x": 158.8915,
+      "source_y": -2.3805,
+      "source_z": -30.9244,
+      "target_x": -194.3751,
+      "target_y": -0.4268,
+      "target_z": 56.2109,
+      "distance": 438.1687,
+      "target_level": "pripyat"
+    },
+    {
+      "source_x": 202.1673,
+      "source_y": -0.3982,
+      "source_z": 207.7467,
+      "target_x": 190.1685,
+      "target_y": -2.0001,
+      "target_z": 207.2746,
+      "distance": 49.729,
+      "target_level": "l11_pripyat"
+    },
+    {
+      "source_x": -124.0111,
+      "source_y": -0.3981,
+      "source_z": 101.1014,
+      "target_x": -111.3547,
+      "target_y": -2.0001,
+      "target_z": 93.4026,
+      "distance": 30.1636,
+      "target_level": "l11_pripyat"
+    },
+    {
+      "source_x": -9.0444,
+      "source_y": -5.16,
+      "source_z": 189.9266,
+      "target_x": -6.8098,
+      "target_y": -5.16,
+      "target_z": 194.3009,
+      "distance": 6.1837,
+      "target_level": "l11_pripyat"
+    },
+    {
+      "source_x": -6.8098,
+      "source_y": -5.16,
+      "source_z": 194.3009,
+      "target_x": -9.0444,
+      "target_y": -5.16,
+      "target_z": 189.9266,
+      "distance": 6.8147,
+      "target_level": "l11_pripyat"
+    },
+    {
+      "source_x": -6.8098,
+      "source_y": -5.16,
+      "source_z": 194.3009,
+      "target_x": -22.9484,
+      "target_y": 0.0,
+      "target_z": 181.8053,
+      "distance": 47.2337,
+      "target_level": "l11_pripyat"
+    },
+    {
+      "source_x": -167.5431,
+      "source_y": -2.2759,
+      "source_z": 84.7033,
+      "target_x": -155.8983,
+      "target_y": -2.3908,
+      "target_z": 56.8559,
+      "distance": 35.563,
+      "target_level": "l11_pripyat"
+    },
+    {
+      "source_x": -167.5431,
+      "source_y": -2.2759,
+      "source_z": 84.7033,
+      "target_x": 498.8909,
+      "target_y": 27.3316,
+      "target_z": -384.6726,
+      "distance": 973.4216,
+      "target_level": "jupiter"
+    },
+    {
+      "source_x": -127.9994,
+      "source_y": -2.0493,
+      "source_z": 223.0432,
+      "target_x": -94.686,
+      "target_y": -2.2035,
+      "target_z": 242.7973,
+      "distance": 44.6843,
+      "target_level": "l11_pripyat"
+    },
+    {
+      "source_x": -127.9994,
+      "source_y": -2.0493,
+      "source_z": 223.0432,
+      "target_x": 490.9842,
+      "target_y": 27.1667,
+      "target_z": -270.7995,
+      "distance": 1002.8666,
+      "target_level": "jupiter"
+    },
+    {
+      "source_x": 188.1959,
+      "source_y": 1.3059,
+      "source_z": 54.8668,
+      "target_x": 169.7748,
+      "target_y": -2.3908,
+      "target_z": 72.3736,
+      "distance": 31.5327,
+      "target_level": "l11_pripyat"
+    },
+    {
+      "source_x": 188.1959,
+      "source_y": 1.3059,
+      "source_z": 54.8668,
+      "target_x": -100.4933,
+      "target_y": -0.4091,
+      "target_z": 165.5845,
+      "distance": 442.9399,
+      "target_level": "pripyat"
+    },
+    {
+      "source_x": 92.3954,
+      "source_y": -1.7939,
+      "source_z": -90.7979,
+      "target_x": 77.6434,
+      "target_y": -2.3883,
+      "target_z": -95.105,
+      "distance": 17.5691,
+      "target_level": "l11_pripyat"
+    },
+    {
+      "source_x": 92.3954,
+      "source_y": -1.7939,
+      "source_z": -90.7979,
+      "target_x": -221.5627,
+      "target_y": -0.4526,
+      "target_z": -367.3248,
+      "distance": 798.5032,
+      "target_level": "pripyat"
+    },
+    {
+      "source_x": 110.6509,
+      "source_y": -0.6194,
+      "source_z": 498.7424,
+      "target_x": 30.8439,
+      "target_y": -0.6813,
+      "target_z": 473.4703,
+      "distance": 88.9482,
+      "target_level": "l11_pripyat"
+    },
+    {
+      "source_x": 110.6509,
+      "source_y": -0.6194,
+      "source_z": 498.7424,
+      "target_x": 869.5173,
+      "target_y": -0.0398,
+      "target_z": -230.4287,
+      "distance": 374.6473,
+      "target_level": "l12_stancia"
+    },
+    {
+      "source_x": 36.3416,
+      "source_y": -0.0355,
+      "source_z": 496.6972,
+      "target_x": 30.8439,
+      "target_y": -0.6813,
+      "target_z": 473.4703,
+      "distance": 24.266,
+      "target_level": "l11_pripyat"
+    },
+    {
+      "source_x": 36.3416,
+      "source_y": -0.0355,
+      "source_z": 496.6972,
+      "target_x": -37.4612,
+      "target_y": -0.6096,
+      "target_z": 491.2303,
+      "distance": 75.7445,
+      "target_level": "l11_pripyat"
+    },
+    {
+      "source_x": 36.3416,
+      "source_y": -0.0355,
+      "source_z": 496.6972,
+      "target_x": 1077.4248,
+      "target_y": 0.1503,
+      "target_z": -28.4145,
+      "distance": 719.9235,
+      "target_level": "l12_stancia"
+    },
+    {
+      "source_x": -18.7496,
+      "source_y": -2.2544,
+      "source_z": -292.3408,
+      "target_x": 14.6479,
+      "target_y": -1.8552,
+      "target_z": -281.743,
+      "distance": 41.0529,
+      "target_level": "l11_pripyat"
+    },
+    {
+      "source_x": -18.7496,
+      "source_y": -2.2544,
+      "source_z": -292.3408,
+      "target_x": 659.8454,
+      "target_y": -43.8777,
+      "target_z": 169.49,
+      "distance": 1074.0796,
+      "target_level": "l10_radar"
+    },
+    {
+      "source_x": 47.6223,
+      "source_y": -2.2279,
+      "source_z": -195.2674,
+      "target_x": 52.3453,
+      "target_y": -2.3908,
+      "target_z": -185.5466,
+      "distance": 21.8329,
+      "target_level": "l11_pripyat"
+    },
+    {
+      "source_x": 47.6223,
+      "source_y": -2.2279,
+      "source_z": -195.2674,
+      "target_x": 667.8347,
+      "target_y": -45.6014,
+      "target_z": -39.452,
+      "distance": 1213.1769,
+      "target_level": "l10_radar"
+    }
+  ]
+}

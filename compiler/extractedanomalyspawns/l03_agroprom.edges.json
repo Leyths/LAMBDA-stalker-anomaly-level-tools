@@ -1,0 +1,5529 @@
+{
+  "level_name": "l03_agroprom",
+  "level_id": 4,
+  "edge_count": 552,
+  "intra_level_edges": 540,
+  "inter_level_edges": 12,
+  "edges": [
+    {
+      "source_x": 31.31,
+      "source_y": 0.0,
+      "source_z": -354.47,
+      "target_x": -0.3524,
+      "target_y": -3.7654,
+      "target_z": -329.2753,
+      "distance": 41.8796,
+      "target_level": "l03_agroprom"
+    },
+    {
+      "source_x": 31.31,
+      "source_y": 0.0,
+      "source_z": -354.47,
+      "target_x": 164.6447,
+      "target_y": 6.3821,
+      "target_z": 615.601,
+      "distance": 120.612,
+      "target_level": "k00_marsh"
+    },
+    {
+      "source_x": -0.3524,
+      "source_y": -3.7654,
+      "source_z": -329.2753,
+      "target_x": 31.31,
+      "target_y": 0.0,
+      "target_z": -354.47,
+      "distance": 42.4327,
+      "target_level": "l03_agroprom"
+    },
+    {
+      "source_x": -0.3524,
+      "source_y": -3.7654,
+      "source_z": -329.2753,
+      "target_x": 18.3031,
+      "target_y": 4.9619,
+      "target_z": -280.5019,
+      "distance": 54.4232,
+      "target_level": "l03_agroprom"
+    },
+    {
+      "source_x": -225.2022,
+      "source_y": 13.2444,
+      "source_z": 208.4006,
+      "target_x": -231.0443,
+      "target_y": 11.893,
+      "target_z": 128.1487,
+      "distance": 106.3469,
+      "target_level": "l03_agroprom"
+    },
+    {
+      "source_x": -225.2022,
+      "source_y": 13.2444,
+      "source_z": 208.4006,
+      "target_x": -173.9317,
+      "target_y": 22.1794,
+      "target_z": 182.8914,
+      "distance": 76.7921,
+      "target_level": "l03_agroprom"
+    },
+    {
+      "source_x": -225.2022,
+      "source_y": 13.2444,
+      "source_z": 208.4006,
+      "target_x": -263.0809,
+      "target_y": 9.8476,
+      "target_z": 223.1711,
+      "distance": 42.9406,
+      "target_level": "l03_agroprom"
+    },
+    {
+      "source_x": -263.0809,
+      "source_y": 9.8476,
+      "source_z": 223.1711,
+      "target_x": -225.2022,
+      "target_y": 13.2444,
+      "target_z": 208.4006,
+      "distance": 43.2047,
+      "target_level": "l03_agroprom"
+    },
+    {
+      "source_x": -263.0809,
+      "source_y": 9.8476,
+      "source_z": 223.1711,
+      "target_x": -81.6753,
+      "target_y": 11.9617,
+      "target_z": -399.081,
+      "distance": 386.4256,
+      "target_level": "l08_yantar"
+    },
+    {
+      "source_x": 70.6876,
+      "source_y": 10.8997,
+      "source_z": 203.0131,
+      "target_x": 93.9158,
+      "target_y": 9.5526,
+      "target_z": 181.1159,
+      "distance": 31.9224,
+      "target_level": "l03_agroprom"
+    },
+    {
+      "source_x": 70.6876,
+      "source_y": 10.8997,
+      "source_z": 203.0131,
+      "target_x": 69.3059,
+      "target_y": 10.9151,
+      "target_z": 208.4672,
+      "distance": 5.6264,
+      "target_level": "l03_agroprom"
+    },
+    {
+      "source_x": 70.6876,
+      "source_y": 10.8997,
+      "source_z": 203.0131,
+      "target_x": 35.4698,
+      "target_y": 19.5964,
+      "target_z": 199.3021,
+      "distance": 53.3817,
+      "target_level": "l03_agroprom"
+    },
+    {
+      "source_x": -75.2294,
+      "source_y": 9.9346,
+      "source_z": -105.719,
+      "target_x": -38.5893,
+      "target_y": 7.3091,
+      "target_z": -88.7962,
+      "distance": 56.4565,
+      "target_level": "l03_agroprom"
+    },
+    {
+      "source_x": -75.2294,
+      "source_y": 9.9346,
+      "source_z": -105.719,
+      "target_x": -52.4936,
+      "target_y": 0.369,
+      "target_z": -42.0405,
+      "distance": 67.6156,
+      "target_level": "l03_agroprom"
+    },
+    {
+      "source_x": -75.2294,
+      "source_y": 9.9346,
+      "source_z": -105.719,
+      "target_x": -92.3102,
+      "target_y": 10.8277,
+      "target_z": -101.8559,
+      "distance": 18.7641,
+      "target_level": "l03_agroprom"
+    },
+    {
+      "source_x": -75.2294,
+      "source_y": 9.9346,
+      "source_z": -105.719,
+      "target_x": -68.1962,
+      "target_y": -1.6235,
+      "target_z": -180.0217,
+      "distance": 94.8187,
+      "target_level": "l03_agroprom"
+    },
+    {
+      "source_x": -75.2294,
+      "source_y": 9.9346,
+      "source_z": -105.719,
+      "target_x": 17.5364,
+      "target_y": -8.2178,
+      "target_z": 46.5085,
+      "distance": 1025.0165,
+      "target_level": "l03u_agr_underground"
+    },
+    {
+      "source_x": 279.9035,
+      "source_y": 0.3107,
+      "source_z": 2.8492,
+      "target_x": 306.4,
+      "target_y": 0.0,
+      "target_z": 28.0,
+      "distance": 38.8773,
+      "target_level": "l03_agroprom"
+    },
+    {
+      "source_x": 279.9035,
+      "source_y": 0.3107,
+      "source_z": 2.8492,
+      "target_x": 274.0536,
+      "target_y": 0.31,
+      "target_z": -1.0658,
+      "distance": 7.0391,
+      "target_level": "l03_agroprom"
+    },
+    {
+      "source_x": 329.1,
+      "source_y": 0.0,
+      "source_z": 52.7,
+      "target_x": 306.4,
+      "target_y": 0.0,
+      "target_z": 28.0,
+      "distance": 33.5467,
+      "target_level": "l03_agroprom"
+    },
+    {
+      "source_x": 329.1,
+      "source_y": 0.0,
+      "source_z": 52.7,
+      "target_x": -341.3054,
+      "target_y": 6.6404,
+      "target_z": -33.0212,
+      "distance": 117.1645,
+      "target_level": "l02_garbage"
+    },
+    {
+      "source_x": 250.0763,
+      "source_y": 2.3218,
+      "source_z": -252.1852,
+      "target_x": 275.7786,
+      "target_y": 3.8904,
+      "target_z": -242.3315,
+      "distance": 29.0371,
+      "target_level": "l03_agroprom"
+    },
+    {
+      "source_x": 250.0763,
+      "source_y": 2.3218,
+      "source_z": -252.1852,
+      "target_x": 232.9118,
+      "target_y": 0.7461,
+      "target_z": -252.4329,
+      "distance": 18.598,
+      "target_level": "l03_agroprom"
+    },
+    {
+      "source_x": 309.4892,
+      "source_y": 8.4387,
+      "source_z": -249.9209,
+      "target_x": 275.7786,
+      "target_y": 3.8904,
+      "target_z": -242.3315,
+      "distance": 36.1059,
+      "target_level": "l03_agroprom"
+    },
+    {
+      "source_x": 309.4892,
+      "source_y": 8.4387,
+      "source_z": -249.9209,
+      "target_x": -290.6468,
+      "target_y": -3.4455,
+      "target_z": -192.7155,
+      "distance": 160.8507,
+      "target_level": "l02_garbage"
+    },
+    {
+      "source_x": 69.3059,
+      "source_y": 10.9151,
+      "source_z": 208.4672,
+      "target_x": 70.6876,
+      "target_y": 10.8997,
+      "target_z": 203.0131,
+      "distance": 5.6264,
+      "target_level": "l03_agroprom"
+    },
+    {
+      "source_x": 69.3059,
+      "source_y": 10.9151,
+      "source_z": 208.4672,
+      "target_x": -113.6921,
+      "target_y": -0.0,
+      "target_z": 123.5476,
+      "distance": 1051.0863,
+      "target_level": "l06_rostok"
+    },
+    {
+      "source_x": -162.8087,
+      "source_y": 1.9139,
+      "source_z": 0.9472,
+      "target_x": -131.0505,
+      "target_y": 0.3503,
+      "target_z": -32.441,
+      "distance": 65.1915,
+      "target_level": "l03_agroprom"
+    },
+    {
+      "source_x": -162.8087,
+      "source_y": 1.9139,
+      "source_z": 0.9472,
+      "target_x": -173.0187,
+      "target_y": 2.9138,
+      "target_z": -1.4476,
+      "distance": 11.0577,
+      "target_level": "l03_agroprom"
+    },
+    {
+      "source_x": -162.8087,
+      "source_y": 1.9139,
+      "source_z": 0.9472,
+      "target_x": -150.8285,
+      "target_y": 1.8957,
+      "target_z": 8.3901,
+      "distance": 14.7186,
+      "target_level": "l03_agroprom"
+    },
+    {
+      "source_x": -131.0505,
+      "source_y": 0.3503,
+      "source_z": -32.441,
+      "target_x": -142.0692,
+      "target_y": 4.7942,
+      "target_z": -85.2127,
+      "distance": 57.2729,
+      "target_level": "l03_agroprom"
+    },
+    {
+      "source_x": -131.0505,
+      "source_y": 0.3503,
+      "source_z": -32.441,
+      "target_x": -60.3013,
+      "target_y": -0.022,
+      "target_z": -5.0589,
+      "distance": 79.7403,
+      "target_level": "l03_agroprom"
+    },
+    {
+      "source_x": -131.0505,
+      "source_y": 0.3503,
+      "source_z": -32.441,
+      "target_x": -180.0244,
+      "target_y": -0.0237,
+      "target_z": -50.2195,
+      "distance": 52.101,
+      "target_level": "l03_agroprom"
+    },
+    {
+      "source_x": -131.0505,
+      "source_y": 0.3503,
+      "source_z": -32.441,
+      "target_x": -162.8087,
+      "target_y": 1.9139,
+      "target_z": 0.9472,
+      "distance": 49.1332,
+      "target_level": "l03_agroprom"
+    },
+    {
+      "source_x": -142.0692,
+      "source_y": 4.7942,
+      "source_z": -85.2127,
+      "target_x": -108.4955,
+      "target_y": 10.2029,
+      "target_z": -102.9486,
+      "distance": 48.2194,
+      "target_level": "l03_agroprom"
+    },
+    {
+      "source_x": -142.0692,
+      "source_y": 4.7942,
+      "source_z": -85.2127,
+      "target_x": -131.0505,
+      "target_y": 0.3503,
+      "target_z": -32.441,
+      "distance": 61.1538,
+      "target_level": "l03_agroprom"
+    },
+    {
+      "source_x": -142.0692,
+      "source_y": 4.7942,
+      "source_z": -85.2127,
+      "target_x": -159.9876,
+      "target_y": 2.6705,
+      "target_z": -76.3683,
+      "distance": 27.0976,
+      "target_level": "l03_agroprom"
+    },
+    {
+      "source_x": -60.3013,
+      "source_y": -0.022,
+      "source_z": -5.0589,
+      "target_x": -47.228,
+      "target_y": 0.3623,
+      "target_z": -40.1556,
+      "distance": 47.1273,
+      "target_level": "l03_agroprom"
+    },
+    {
+      "source_x": -60.3013,
+      "source_y": -0.022,
+      "source_z": -5.0589,
+      "target_x": -56.2775,
+      "target_y": -0.0109,
+      "target_z": 3.1038,
+      "distance": 9.1006,
+      "target_level": "l03_agroprom"
+    },
+    {
+      "source_x": -60.3013,
+      "source_y": -0.022,
+      "source_z": -5.0589,
+      "target_x": -131.0505,
+      "target_y": 0.3503,
+      "target_z": -32.441,
+      "distance": 92.4332,
+      "target_level": "l03_agroprom"
+    },
+    {
+      "source_x": -105.6653,
+      "source_y": 8.6244,
+      "source_z": 33.8276,
+      "target_x": -103.295,
+      "target_y": 7.18,
+      "target_z": 39.5831,
+      "distance": 6.8506,
+      "target_level": "l03_agroprom"
+    },
+    {
+      "source_x": -105.6653,
+      "source_y": 8.6244,
+      "source_z": 33.8276,
+      "target_x": -132.5665,
+      "target_y": 11.0011,
+      "target_z": 44.1118,
+      "distance": 34.0056,
+      "target_level": "l03_agroprom"
+    },
+    {
+      "source_x": -99.9765,
+      "source_y": 1.9493,
+      "source_z": 85.11,
+      "target_x": -89.9367,
+      "target_y": 7.2737,
+      "target_z": 103.4232,
+      "distance": 20.8847,
+      "target_level": "l03_agroprom"
+    },
+    {
+      "source_x": -99.9765,
+      "source_y": 1.9493,
+      "source_z": 85.11,
+      "target_x": -119.5042,
+      "target_y": 7.0385,
+      "target_z": 73.6856,
+      "distance": 22.6241,
+      "target_level": "l03_agroprom"
+    },
+    {
+      "source_x": -116.869,
+      "source_y": 8.6728,
+      "source_z": 140.8137,
+      "target_x": -135.3574,
+      "target_y": 10.1741,
+      "target_z": 117.9005,
+      "distance": 29.4421,
+      "target_level": "l03_agroprom"
+    },
+    {
+      "source_x": -116.869,
+      "source_y": 8.6728,
+      "source_z": 140.8137,
+      "target_x": -92.3484,
+      "target_y": 10.0781,
+      "target_z": 138.7278,
+      "distance": 36.5638,
+      "target_level": "l03_agroprom"
+    },
+    {
+      "source_x": -116.869,
+      "source_y": 8.6728,
+      "source_z": 140.8137,
+      "target_x": -127.4292,
+      "target_y": 10.0812,
+      "target_z": 153.4599,
+      "distance": 16.4756,
+      "target_level": "l03_agroprom"
+    },
+    {
+      "source_x": -16.7289,
+      "source_y": 5.6663,
+      "source_z": 123.4208,
+      "target_x": -6.3155,
+      "target_y": 3.6032,
+      "target_z": 112.4155,
+      "distance": 18.8759,
+      "target_level": "l03_agroprom"
+    },
+    {
+      "source_x": -16.7289,
+      "source_y": 5.6663,
+      "source_z": 123.4208,
+      "target_x": -17.8391,
+      "target_y": 8.0555,
+      "target_z": 147.8551,
+      "distance": 25.8763,
+      "target_level": "l03_agroprom"
+    },
+    {
+      "source_x": -16.7289,
+      "source_y": 5.6663,
+      "source_z": 123.4208,
+      "target_x": -36.9616,
+      "target_y": 7.0419,
+      "target_z": 126.3175,
+      "distance": 20.4391,
+      "target_level": "l03_agroprom"
+    },
+    {
+      "source_x": 34.2409,
+      "source_y": 15.3985,
+      "source_z": 147.7518,
+      "target_x": 30.3631,
+      "target_y": 13.8093,
+      "target_z": 124.497,
+      "distance": 23.5759,
+      "target_level": "l03_agroprom"
+    },
+    {
+      "source_x": 34.2409,
+      "source_y": 15.3985,
+      "source_z": 147.7518,
+      "target_x": 69.7709,
+      "target_y": 15.012,
+      "target_z": 146.812,
+      "distance": 36.8303,
+      "target_level": "l03_agroprom"
+    },
+    {
+      "source_x": 34.2409,
+      "source_y": 15.3985,
+      "source_z": 147.7518,
+      "target_x": -1.6146,
+      "target_y": 14.9123,
+      "target_z": 150.03,
+      "distance": 36.0296,
+      "target_level": "l03_agroprom"
+    },
+    {
+      "source_x": 34.2409,
+      "source_y": 15.3985,
+      "source_z": 147.7518,
+      "target_x": 35.4698,
+      "target_y": 19.5964,
+      "target_z": 199.3021,
+      "distance": 53.0281,
+      "target_level": "l03_agroprom"
+    },
+    {
+      "source_x": 96.4809,
+      "source_y": 16.6512,
+      "source_z": 105.8358,
+      "target_x": 125.6174,
+      "target_y": 4.9221,
+      "target_z": 77.9876,
+      "distance": 40.3045,
+      "target_level": "l03_agroprom"
+    },
+    {
+      "source_x": 96.4809,
+      "source_y": 16.6512,
+      "source_z": 105.8358,
+      "target_x": 119.5789,
+      "target_y": 12.523,
+      "target_z": 118.6824,
+      "distance": 26.4301,
+      "target_level": "l03_agroprom"
+    },
+    {
+      "source_x": 96.4809,
+      "source_y": 16.6512,
+      "source_z": 105.8358,
+      "target_x": 92.351,
+      "target_y": 17.6472,
+      "target_z": 121.8161,
+      "distance": 16.5053,
+      "target_level": "l03_agroprom"
+    },
+    {
+      "source_x": 11.2564,
+      "source_y": 0.4999,
+      "source_z": -50.7716,
+      "target_x": 56.6772,
+      "target_y": 0.4996,
+      "target_z": -50.3308,
+      "distance": 45.4229,
+      "target_level": "l03_agroprom"
+    },
+    {
+      "source_x": 11.2564,
+      "source_y": 0.4999,
+      "source_z": -50.7716,
+      "target_x": -12.2466,
+      "target_y": 7.3445,
+      "target_z": -79.4884,
+      "distance": 49.4765,
+      "target_level": "l03_agroprom"
+    },
+    {
+      "source_x": 11.2564,
+      "source_y": 0.4999,
+      "source_z": -50.7716,
+      "target_x": -47.228,
+      "target_y": 0.3623,
+      "target_z": -40.1556,
+      "distance": 68.5153,
+      "target_level": "l03_agroprom"
+    },
+    {
+      "source_x": 129.4547,
+      "source_y": 0.0,
+      "source_z": -16.4626,
+      "target_x": 125.7704,
+      "target_y": 1.0321,
+      "target_z": -56.8128,
+      "distance": 40.5181,
+      "target_level": "l03_agroprom"
+    },
+    {
+      "source_x": 129.4547,
+      "source_y": 0.0,
+      "source_z": -16.4626,
+      "target_x": 166.8781,
+      "target_y": 0.4812,
+      "target_z": -2.2387,
+      "distance": 40.0354,
+      "target_level": "l03_agroprom"
+    },
+    {
+      "source_x": 129.4547,
+      "source_y": 0.0,
+      "source_z": -16.4626,
+      "target_x": 130.3189,
+      "target_y": 0.2376,
+      "target_z": 26.5555,
+      "distance": 43.0309,
+      "target_level": "l03_agroprom"
+    },
+    {
+      "source_x": 129.4547,
+      "source_y": 0.0,
+      "source_z": -16.4626,
+      "target_x": 83.0387,
+      "target_y": 0.2426,
+      "target_z": -23.1621,
+      "distance": 48.5269,
+      "target_level": "l03_agroprom"
+    },
+    {
+      "source_x": 170.5563,
+      "source_y": 0.9618,
+      "source_z": 21.5843,
+      "target_x": 166.8781,
+      "target_y": 0.4812,
+      "target_z": -2.2387,
+      "distance": 25.1396,
+      "target_level": "l03_agroprom"
+    },
+    {
+      "source_x": 170.5563,
+      "source_y": 0.9618,
+      "source_z": 21.5843,
+      "target_x": 188.445,
+      "target_y": 1.1003,
+      "target_z": 11.2414,
+      "distance": 20.6635,
+      "target_level": "l03_agroprom"
+    },
+    {
+      "source_x": 170.5563,
+      "source_y": 0.9618,
+      "source_z": 21.5843,
+      "target_x": 183.1462,
+      "target_y": -0.2,
+      "target_z": 45.5197,
+      "distance": 32.4725,
+      "target_level": "l03_agroprom"
+    },
+    {
+      "source_x": 170.5563,
+      "source_y": 0.9618,
+      "source_z": 21.5843,
+      "target_x": 130.3189,
+      "target_y": 0.2376,
+      "target_z": 26.5555,
+      "distance": 42.1957,
+      "target_level": "l03_agroprom"
+    },
+    {
+      "source_x": 274.0536,
+      "source_y": 0.31,
+      "source_z": -1.0658,
+      "target_x": 279.9035,
+      "target_y": 0.3107,
+      "target_z": 2.8492,
+      "distance": 7.0391,
+      "target_level": "l03_agroprom"
+    },
+    {
+      "source_x": 274.0536,
+      "source_y": 0.31,
+      "source_z": -1.0658,
+      "target_x": 263.5694,
+      "target_y": 0.312,
+      "target_z": -3.8949,
+      "distance": 10.916,
+      "target_level": "l03_agroprom"
+    },
+    {
+      "source_x": 211.4955,
+      "source_y": 0.3135,
+      "source_z": -3.1455,
+      "target_x": 200.3678,
+      "target_y": 1.4786,
+      "target_z": -26.3714,
+      "distance": 30.1741,
+      "target_level": "l03_agroprom"
+    },
+    {
+      "source_x": 211.4955,
+      "source_y": 0.3135,
+      "source_z": -3.1455,
+      "target_x": 239.9716,
+      "target_y": 0.3145,
+      "target_z": -5.144,
+      "distance": 28.5462,
+      "target_level": "l03_agroprom"
+    },
+    {
+      "source_x": 211.4955,
+      "source_y": 0.3135,
+      "source_z": -3.1455,
+      "target_x": 188.445,
+      "target_y": 1.1003,
+      "target_z": 11.2414,
+      "distance": 36.2749,
+      "target_level": "l03_agroprom"
+    },
+    {
+      "source_x": 251.0298,
+      "source_y": 0.3121,
+      "source_z": -5.9163,
+      "target_x": 248.1268,
+      "target_y": 2.6489,
+      "target_z": -34.939,
+      "distance": 29.1675,
+      "target_level": "l03_agroprom"
+    },
+    {
+      "source_x": 251.0298,
+      "source_y": 0.3121,
+      "source_z": -5.9163,
+      "target_x": 263.5694,
+      "target_y": 0.312,
+      "target_z": -3.8949,
+      "distance": 12.7014,
+      "target_level": "l03_agroprom"
+    },
+    {
+      "source_x": 251.0298,
+      "source_y": 0.3121,
+      "source_z": -5.9163,
+      "target_x": 239.9716,
+      "target_y": 0.3145,
+      "target_z": -5.144,
+      "distance": 11.0851,
+      "target_level": "l03_agroprom"
+    },
+    {
+      "source_x": 166.8781,
+      "source_y": 0.4812,
+      "source_z": -2.2387,
+      "target_x": 129.4547,
+      "target_y": 0.0,
+      "target_z": -16.4626,
+      "distance": 40.0354,
+      "target_level": "l03_agroprom"
+    },
+    {
+      "source_x": 166.8781,
+      "source_y": 0.4812,
+      "source_z": -2.2387,
+      "target_x": 170.5563,
+      "target_y": 0.9618,
+      "target_z": 21.5843,
+      "distance": 28.4163,
+      "target_level": "l03_agroprom"
+    },
+    {
+      "source_x": 245.7029,
+      "source_y": 15.7439,
+      "source_z": -61.329,
+      "target_x": 240.796,
+      "target_y": 20.7928,
+      "target_z": -87.3641,
+      "distance": 26.4935,
+      "target_level": "l03_agroprom"
+    },
+    {
+      "source_x": 245.7029,
+      "source_y": 15.7439,
+      "source_z": -61.329,
+      "target_x": 267.8796,
+      "target_y": 20.8339,
+      "target_z": -72.3193,
+      "distance": 24.7506,
+      "target_level": "l03_agroprom"
+    },
+    {
+      "source_x": 245.7029,
+      "source_y": 15.7439,
+      "source_z": -61.329,
+      "target_x": 242.6604,
+      "target_y": 8.8809,
+      "target_z": -48.5862,
+      "distance": 13.101,
+      "target_level": "l03_agroprom"
+    },
+    {
+      "source_x": 240.796,
+      "source_y": 20.7928,
+      "source_z": -87.3641,
+      "target_x": 233.5901,
+      "target_y": 22.7591,
+      "target_z": -111.7066,
+      "distance": 25.724,
+      "target_level": "l03_agroprom"
+    },
+    {
+      "source_x": 240.796,
+      "source_y": 20.7928,
+      "source_z": -87.3641,
+      "target_x": 245.7029,
+      "target_y": 15.7439,
+      "target_z": -61.329,
+      "distance": 26.4935,
+      "target_level": "l03_agroprom"
+    },
+    {
+      "source_x": 240.796,
+      "source_y": 20.7928,
+      "source_z": -87.3641,
+      "target_x": 174.862,
+      "target_y": 19.9608,
+      "target_z": -86.7804,
+      "distance": 66.7093,
+      "target_level": "l03_agroprom"
+    },
+    {
+      "source_x": 125.7704,
+      "source_y": 1.0321,
+      "source_z": -56.8128,
+      "target_x": 156.8265,
+      "target_y": 12.292,
+      "target_z": -59.7507,
+      "distance": 31.1947,
+      "target_level": "l03_agroprom"
+    },
+    {
+      "source_x": 125.7704,
+      "source_y": 1.0321,
+      "source_z": -56.8128,
+      "target_x": 129.4547,
+      "target_y": 0.0,
+      "target_z": -16.4626,
+      "distance": 40.5181,
+      "target_level": "l03_agroprom"
+    },
+    {
+      "source_x": 125.7704,
+      "source_y": 1.0321,
+      "source_z": -56.8128,
+      "target_x": 102.8799,
+      "target_y": 0.4054,
+      "target_z": -42.606,
+      "distance": 31.3264,
+      "target_level": "l03_agroprom"
+    },
+    {
+      "source_x": 41.1102,
+      "source_y": 9.6309,
+      "source_z": -179.1574,
+      "target_x": 49.8817,
+      "target_y": 2.8128,
+      "target_z": -204.3318,
+      "distance": 26.6587,
+      "target_level": "l03_agroprom"
+    },
+    {
+      "source_x": 41.1102,
+      "source_y": 9.6309,
+      "source_z": -179.1574,
+      "target_x": 29.2746,
+      "target_y": 6.1606,
+      "target_z": -171.0924,
+      "distance": 14.3223,
+      "target_level": "l03_agroprom"
+    },
+    {
+      "source_x": -39.8045,
+      "source_y": -1.7788,
+      "source_z": -169.8465,
+      "target_x": -20.9608,
+      "target_y": -1.0281,
+      "target_z": -159.0819,
+      "distance": 23.1277,
+      "target_level": "l03_agroprom"
+    },
+    {
+      "source_x": -39.8045,
+      "source_y": -1.7788,
+      "source_z": -169.8465,
+      "target_x": -46.6335,
+      "target_y": -1.854,
+      "target_z": -174.4592,
+      "distance": 8.2409,
+      "target_level": "l03_agroprom"
+    },
+    {
+      "source_x": -68.1962,
+      "source_y": -1.6235,
+      "source_z": -180.0217,
+      "target_x": -46.6335,
+      "target_y": -1.854,
+      "target_z": -174.4592,
+      "distance": 22.2686,
+      "target_level": "l03_agroprom"
+    },
+    {
+      "source_x": -68.1962,
+      "source_y": -1.6235,
+      "source_z": -180.0217,
+      "target_x": -75.2294,
+      "target_y": 9.9346,
+      "target_z": -105.719,
+      "distance": 94.4174,
+      "target_level": "l03_agroprom"
+    },
+    {
+      "source_x": -68.1962,
+      "source_y": -1.6235,
+      "source_z": -180.0217,
+      "target_x": -109.0517,
+      "target_y": -0.2402,
+      "target_z": -183.7445,
+      "distance": 41.1345,
+      "target_level": "l03_agroprom"
+    },
+    {
+      "source_x": 56.6772,
+      "source_y": 0.4996,
+      "source_z": -50.3308,
+      "target_x": 60.0045,
+      "target_y": 0.9044,
+      "target_z": -61.7159,
+      "distance": 11.8614,
+      "target_level": "l03_agroprom"
+    },
+    {
+      "source_x": 56.6772,
+      "source_y": 0.4996,
+      "source_z": -50.3308,
+      "target_x": 83.0387,
+      "target_y": 0.2426,
+      "target_z": -23.1621,
+      "distance": 44.8971,
+      "target_level": "l03_agroprom"
+    },
+    {
+      "source_x": 56.6772,
+      "source_y": 0.4996,
+      "source_z": -50.3308,
+      "target_x": 11.2564,
+      "target_y": 0.4999,
+      "target_z": -50.7716,
+      "distance": 45.4229,
+      "target_level": "l03_agroprom"
+    },
+    {
+      "source_x": -11.7868,
+      "source_y": 9.1129,
+      "source_z": -94.118,
+      "target_x": 7.6894,
+      "target_y": 8.5586,
+      "target_z": -116.0371,
+      "distance": 29.3218,
+      "target_level": "l03_agroprom"
+    },
+    {
+      "source_x": -11.7868,
+      "source_y": 9.1129,
+      "source_z": -94.118,
+      "target_x": -12.2466,
+      "target_y": 7.3445,
+      "target_z": -79.4884,
+      "distance": 16.2079,
+      "target_level": "l03_agroprom"
+    },
+    {
+      "source_x": -11.7868,
+      "source_y": 9.1129,
+      "source_z": -94.118,
+      "target_x": -38.5893,
+      "target_y": 7.3091,
+      "target_z": -88.7962,
+      "distance": 27.3257,
+      "target_level": "l03_agroprom"
+    },
+    {
+      "source_x": 73.2421,
+      "source_y": 0.3603,
+      "source_z": -127.0044,
+      "target_x": 89.1802,
+      "target_y": 0.404,
+      "target_z": -85.7128,
+      "distance": 44.2608,
+      "target_level": "l03_agroprom"
+    },
+    {
+      "source_x": 73.2421,
+      "source_y": 0.3603,
+      "source_z": -127.0044,
+      "target_x": 46.794,
+      "target_y": 0.2526,
+      "target_z": -141.4402,
+      "distance": 30.1313,
+      "target_level": "l03_agroprom"
+    },
+    {
+      "source_x": -92.3102,
+      "source_y": 10.8277,
+      "source_z": -101.8559,
+      "target_x": -75.2294,
+      "target_y": 9.9346,
+      "target_z": -105.719,
+      "distance": 18.6694,
+      "target_level": "l03_agroprom"
+    },
+    {
+      "source_x": -92.3102,
+      "source_y": 10.8277,
+      "source_z": -101.8559,
+      "target_x": -108.4955,
+      "target_y": 10.2029,
+      "target_z": -102.9486,
+      "distance": 16.222,
+      "target_level": "l03_agroprom"
+    },
+    {
+      "source_x": -192.587,
+      "source_y": -0.2002,
+      "source_z": -134.4172,
+      "target_x": -189.9196,
+      "target_y": -0.2002,
+      "target_z": -191.6565,
+      "distance": 57.3014,
+      "target_level": "l03_agroprom"
+    },
+    {
+      "source_x": -192.587,
+      "source_y": -0.2002,
+      "source_z": -134.4172,
+      "target_x": -179.1683,
+      "target_y": 0.5581,
+      "target_z": -132.9985,
+      "distance": 15.1486,
+      "target_level": "l03_agroprom"
+    },
+    {
+      "source_x": -192.587,
+      "source_y": -0.2002,
+      "source_z": -134.4172,
+      "target_x": -178.7774,
+      "target_y": 3.1531,
+      "target_z": -93.5808,
+      "distance": 45.6937,
+      "target_level": "l03_agroprom"
+    },
+    {
+      "source_x": -192.587,
+      "source_y": -0.2002,
+      "source_z": -134.4172,
+      "target_x": -224.0046,
+      "target_y": 3.9743,
+      "target_z": -189.3886,
+      "distance": 102.8755,
+      "target_level": "l03_agroprom"
+    },
+    {
+      "source_x": -109.0517,
+      "source_y": -0.2402,
+      "source_z": -183.7445,
+      "target_x": -68.1962,
+      "target_y": -1.6235,
+      "target_z": -180.0217,
+      "distance": 41.1367,
+      "target_level": "l03_agroprom"
+    },
+    {
+      "source_x": -109.0517,
+      "source_y": -0.2402,
+      "source_z": -183.7445,
+      "target_x": -108.4955,
+      "target_y": 10.2029,
+      "target_z": -102.9486,
+      "distance": 90.8057,
+      "target_level": "l03_agroprom"
+    },
+    {
+      "source_x": -109.0517,
+      "source_y": -0.2402,
+      "source_z": -183.7445,
+      "target_x": -105.2794,
+      "target_y": -0.0002,
+      "target_z": -161.1436,
+      "distance": 26.7092,
+      "target_level": "l03_agroprom"
+    },
+    {
+      "source_x": -109.0517,
+      "source_y": -0.2402,
+      "source_z": -183.7445,
+      "target_x": -107.4392,
+      "target_y": 7.386,
+      "target_z": -206.1322,
+      "distance": 49.9171,
+      "target_level": "l03_agroprom"
+    },
+    {
+      "source_x": -109.0517,
+      "source_y": -0.2402,
+      "source_z": -183.7445,
+      "target_x": -130.0025,
+      "target_y": -0.2002,
+      "target_z": -180.6165,
+      "distance": 21.183,
+      "target_level": "l03_agroprom"
+    },
+    {
+      "source_x": -156.8225,
+      "source_y": -0.2002,
+      "source_z": -183.2628,
+      "target_x": -162.299,
+      "target_y": -0.2402,
+      "target_z": -188.3479,
+      "distance": 7.4732,
+      "target_level": "l03_agroprom"
+    },
+    {
+      "source_x": -156.8225,
+      "source_y": -0.2002,
+      "source_z": -183.2628,
+      "target_x": -140.6382,
+      "target_y": -0.2002,
+      "target_z": -188.366,
+      "distance": 16.9698,
+      "target_level": "l03_agroprom"
+    },
+    {
+      "source_x": 232.6215,
+      "source_y": -0.2,
+      "source_z": 56.8544,
+      "target_x": 252.7558,
+      "target_y": -0.1845,
+      "target_z": 70.415,
+      "distance": 27.269,
+      "target_level": "l03_agroprom"
+    },
+    {
+      "source_x": 232.6215,
+      "source_y": -0.2,
+      "source_z": 56.8544,
+      "target_x": 213.3754,
+      "target_y": -0.05,
+      "target_z": 51.2158,
+      "distance": 24.0919,
+      "target_level": "l03_agroprom"
+    },
+    {
+      "source_x": 8.9982,
+      "source_y": -0.2429,
+      "source_z": 21.5092,
+      "target_x": 8.9291,
+      "target_y": -0.2,
+      "target_z": 32.6173,
+      "distance": 11.1083,
+      "target_level": "l03_agroprom"
+    },
+    {
+      "source_x": 8.9982,
+      "source_y": -0.2429,
+      "source_z": 21.5092,
+      "target_x": -17.14,
+      "target_y": -0.2,
+      "target_z": 20.5821,
+      "distance": 26.4607,
+      "target_level": "l03_agroprom"
+    },
+    {
+      "source_x": 66.0019,
+      "source_y": -0.2,
+      "source_z": 34.7528,
+      "target_x": 88.7976,
+      "target_y": -0.2,
+      "target_z": 45.2518,
+      "distance": 29.2072,
+      "target_level": "l03_agroprom"
+    },
+    {
+      "source_x": 66.0019,
+      "source_y": -0.2,
+      "source_z": 34.7528,
+      "target_x": 52.7252,
+      "target_y": -0.2,
+      "target_z": 36.673,
+      "distance": 17.4796,
+      "target_level": "l03_agroprom"
+    },
+    {
+      "source_x": 66.0019,
+      "source_y": -0.2,
+      "source_z": 34.7528,
+      "target_x": 60.3633,
+      "target_y": -0.2,
+      "target_z": -5.6338,
+      "distance": 40.7783,
+      "target_level": "l03_agroprom"
+    },
+    {
+      "source_x": 60.3633,
+      "source_y": -0.2,
+      "source_z": -5.6338,
+      "target_x": 70.6414,
+      "target_y": 0.0052,
+      "target_z": -6.8563,
+      "distance": 11.0757,
+      "target_level": "l03_agroprom"
+    },
+    {
+      "source_x": 60.3633,
+      "source_y": -0.2,
+      "source_z": -5.6338,
+      "target_x": 66.0019,
+      "target_y": -0.2,
+      "target_z": 34.7528,
+      "distance": 40.7783,
+      "target_level": "l03_agroprom"
+    },
+    {
+      "source_x": 60.3633,
+      "source_y": -0.2,
+      "source_z": -5.6338,
+      "target_x": 53.9085,
+      "target_y": -0.2,
+      "target_z": -9.2138,
+      "distance": 7.3811,
+      "target_level": "l03_agroprom"
+    },
+    {
+      "source_x": 40.5607,
+      "source_y": -0.2,
+      "source_z": 28.5707,
+      "target_x": 52.7252,
+      "target_y": -0.2,
+      "target_z": 36.673,
+      "distance": 14.6159,
+      "target_level": "l03_agroprom"
+    },
+    {
+      "source_x": 40.5607,
+      "source_y": -0.2,
+      "source_z": 28.5707,
+      "target_x": 25.1066,
+      "target_y": 0.0,
+      "target_z": 22.4286,
+      "distance": 19.8787,
+      "target_level": "l03_agroprom"
+    },
+    {
+      "source_x": -179.1683,
+      "source_y": 0.5581,
+      "source_z": -132.9985,
+      "target_x": -158.3512,
+      "target_y": -0.2002,
+      "target_z": -140.3611,
+      "distance": 36.694,
+      "target_level": "l03_agroprom"
+    },
+    {
+      "source_x": -179.1683,
+      "source_y": 0.5581,
+      "source_z": -132.9985,
+      "target_x": -192.587,
+      "target_y": -0.2002,
+      "target_z": -134.4172,
+      "distance": 15.3499,
+      "target_level": "l03_agroprom"
+    },
+    {
+      "source_x": 115.4911,
+      "source_y": 0.6578,
+      "source_z": 54.9759,
+      "target_x": 131.3342,
+      "target_y": 0.1821,
+      "target_z": 54.3191,
+      "distance": 16.8866,
+      "target_level": "l03_agroprom"
+    },
+    {
+      "source_x": 115.4911,
+      "source_y": 0.6578,
+      "source_z": 54.9759,
+      "target_x": 88.7976,
+      "target_y": -0.2,
+      "target_z": 45.2518,
+      "distance": 28.4096,
+      "target_level": "l03_agroprom"
+    },
+    {
+      "source_x": 46.794,
+      "source_y": 0.2526,
+      "source_z": -141.4402,
+      "target_x": 73.2421,
+      "target_y": 0.3603,
+      "target_z": -127.0044,
+      "distance": 30.1313,
+      "target_level": "l03_agroprom"
+    },
+    {
+      "source_x": 46.794,
+      "source_y": 0.2526,
+      "source_z": -141.4402,
+      "target_x": 28.2854,
+      "target_y": 8.7742,
+      "target_z": -115.8833,
+      "distance": 46.9433,
+      "target_level": "l03_agroprom"
+    },
+    {
+      "source_x": 46.794,
+      "source_y": 0.2526,
+      "source_z": -141.4402,
+      "target_x": 21.6652,
+      "target_y": 0.3556,
+      "target_z": -148.617,
+      "distance": 28.016,
+      "target_level": "l03_agroprom"
+    },
+    {
+      "source_x": 130.3189,
+      "source_y": 0.2376,
+      "source_z": 26.5555,
+      "target_x": 129.4547,
+      "target_y": 0.0,
+      "target_z": -16.4626,
+      "distance": 44.3186,
+      "target_level": "l03_agroprom"
+    },
+    {
+      "source_x": 130.3189,
+      "source_y": 0.2376,
+      "source_z": 26.5555,
+      "target_x": 170.5563,
+      "target_y": 0.9618,
+      "target_z": 21.5843,
+      "distance": 41.364,
+      "target_level": "l03_agroprom"
+    },
+    {
+      "source_x": 130.3189,
+      "source_y": 0.2376,
+      "source_z": 26.5555,
+      "target_x": 131.3342,
+      "target_y": 0.1821,
+      "target_z": 54.3191,
+      "distance": 27.8188,
+      "target_level": "l03_agroprom"
+    },
+    {
+      "source_x": 263.5694,
+      "source_y": 0.312,
+      "source_z": -3.8949,
+      "target_x": 274.0536,
+      "target_y": 0.31,
+      "target_z": -1.0658,
+      "distance": 10.8659,
+      "target_level": "l03_agroprom"
+    },
+    {
+      "source_x": 263.5694,
+      "source_y": 0.312,
+      "source_z": -3.8949,
+      "target_x": 251.0298,
+      "target_y": 0.3121,
+      "target_z": -5.9163,
+      "distance": 12.7014,
+      "target_level": "l03_agroprom"
+    },
+    {
+      "source_x": 183.1462,
+      "source_y": -0.2,
+      "source_z": 45.5197,
+      "target_x": 213.3754,
+      "target_y": -0.05,
+      "target_z": 51.2158,
+      "distance": 30.7612,
+      "target_level": "l03_agroprom"
+    },
+    {
+      "source_x": 183.1462,
+      "source_y": -0.2,
+      "source_z": 45.5197,
+      "target_x": 170.5563,
+      "target_y": 0.9618,
+      "target_z": 21.5843,
+      "distance": 28.0565,
+      "target_level": "l03_agroprom"
+    },
+    {
+      "source_x": 183.1462,
+      "source_y": -0.2,
+      "source_z": 45.5197,
+      "target_x": 163.021,
+      "target_y": 8.5944,
+      "target_z": 85.2361,
+      "distance": 62.4522,
+      "target_level": "l03_agroprom"
+    },
+    {
+      "source_x": 183.1462,
+      "source_y": -0.2,
+      "source_z": 45.5197,
+      "target_x": 173.9607,
+      "target_y": -0.05,
+      "target_z": 47.4494,
+      "distance": 9.386,
+      "target_level": "l03_agroprom"
+    },
+    {
+      "source_x": 213.3754,
+      "source_y": -0.05,
+      "source_z": 51.2158,
+      "target_x": 232.6215,
+      "target_y": -0.2,
+      "target_z": 56.8544,
+      "distance": 20.1288,
+      "target_level": "l03_agroprom"
+    },
+    {
+      "source_x": 213.3754,
+      "source_y": -0.05,
+      "source_z": 51.2158,
+      "target_x": 183.1462,
+      "target_y": -0.2,
+      "target_z": 45.5197,
+      "distance": 30.7612,
+      "target_level": "l03_agroprom"
+    },
+    {
+      "source_x": 89.1802,
+      "source_y": 0.404,
+      "source_z": -85.7128,
+      "target_x": 73.2421,
+      "target_y": 0.3603,
+      "target_z": -127.0044,
+      "distance": 44.2608,
+      "target_level": "l03_agroprom"
+    },
+    {
+      "source_x": 89.1802,
+      "source_y": 0.404,
+      "source_z": -85.7128,
+      "target_x": 94.2356,
+      "target_y": 0.4045,
+      "target_z": -64.1374,
+      "distance": 24.2414,
+      "target_level": "l03_agroprom"
+    },
+    {
+      "source_x": 94.2356,
+      "source_y": 0.4045,
+      "source_z": -64.1374,
+      "target_x": 89.1802,
+      "target_y": 0.404,
+      "target_z": -85.7128,
+      "distance": 22.2634,
+      "target_level": "l03_agroprom"
+    },
+    {
+      "source_x": 94.2356,
+      "source_y": 0.4045,
+      "source_z": -64.1374,
+      "target_x": 102.8799,
+      "target_y": 0.4054,
+      "target_z": -42.606,
+      "distance": 28.2415,
+      "target_level": "l03_agroprom"
+    },
+    {
+      "source_x": 94.2356,
+      "source_y": 0.4045,
+      "source_z": -64.1374,
+      "target_x": 60.0045,
+      "target_y": 0.9044,
+      "target_z": -61.7159,
+      "distance": 36.5921,
+      "target_level": "l03_agroprom"
+    },
+    {
+      "source_x": 125.6174,
+      "source_y": 4.9221,
+      "source_z": 77.9876,
+      "target_x": 131.3342,
+      "target_y": 0.1821,
+      "target_z": 54.3191,
+      "distance": 25.061,
+      "target_level": "l03_agroprom"
+    },
+    {
+      "source_x": 125.6174,
+      "source_y": 4.9221,
+      "source_z": 77.9876,
+      "target_x": 163.021,
+      "target_y": 8.5944,
+      "target_z": 85.2361,
+      "distance": 38.0995,
+      "target_level": "l03_agroprom"
+    },
+    {
+      "source_x": 125.6174,
+      "source_y": 4.9221,
+      "source_z": 77.9876,
+      "target_x": 96.4809,
+      "target_y": 16.6512,
+      "target_z": 105.8358,
+      "distance": 40.3045,
+      "target_level": "l03_agroprom"
+    },
+    {
+      "source_x": 76.9128,
+      "source_y": 16.0933,
+      "source_z": 130.9724,
+      "target_x": 84.8736,
+      "target_y": 16.1745,
+      "target_z": 126.3052,
+      "distance": 10.8609,
+      "target_level": "l03_agroprom"
+    },
+    {
+      "source_x": 76.9128,
+      "source_y": 16.0933,
+      "source_z": 130.9724,
+      "target_x": 69.7709,
+      "target_y": 15.012,
+      "target_z": 146.812,
+      "distance": 17.3752,
+      "target_level": "l03_agroprom"
+    },
+    {
+      "source_x": 76.9128,
+      "source_y": 16.0933,
+      "source_z": 130.9724,
+      "target_x": 59.7162,
+      "target_y": 13.1165,
+      "target_z": 113.7885,
+      "distance": 30.8908,
+      "target_level": "l03_agroprom"
+    },
+    {
+      "source_x": -1.6146,
+      "source_y": 14.9123,
+      "source_z": 150.03,
+      "target_x": 34.2409,
+      "target_y": 15.3985,
+      "target_z": 147.7518,
+      "distance": 37.9102,
+      "target_level": "l03_agroprom"
+    },
+    {
+      "source_x": -1.6146,
+      "source_y": 14.9123,
+      "source_z": 150.03,
+      "target_x": -17.8391,
+      "target_y": 8.0555,
+      "target_z": 147.8551,
+      "distance": 36.6873,
+      "target_level": "l03_agroprom"
+    },
+    {
+      "source_x": -36.9616,
+      "source_y": 7.0419,
+      "source_z": 126.3175,
+      "target_x": -49.6748,
+      "target_y": 0.2385,
+      "target_z": 78.2195,
+      "distance": 54.9478,
+      "target_level": "l03_agroprom"
+    },
+    {
+      "source_x": -36.9616,
+      "source_y": 7.0419,
+      "source_z": 126.3175,
+      "target_x": -16.7289,
+      "target_y": 5.6663,
+      "target_z": 123.4208,
+      "distance": 20.4391,
+      "target_level": "l03_agroprom"
+    },
+    {
+      "source_x": -36.9616,
+      "source_y": 7.0419,
+      "source_z": 126.3175,
+      "target_x": -56.1692,
+      "target_y": 9.6052,
+      "target_z": 133.232,
+      "distance": 25.9044,
+      "target_level": "l03_agroprom"
+    },
+    {
+      "source_x": -56.1692,
+      "source_y": 9.6052,
+      "source_z": 133.232,
+      "target_x": -36.9616,
+      "target_y": 7.0419,
+      "target_z": 126.3175,
+      "distance": 23.1244,
+      "target_level": "l03_agroprom"
+    },
+    {
+      "source_x": -56.1692,
+      "source_y": 9.6052,
+      "source_z": 133.232,
+      "target_x": -52.993,
+      "target_y": 12.0433,
+      "target_z": 180.454,
+      "distance": 47.3287,
+      "target_level": "l03_agroprom"
+    },
+    {
+      "source_x": -56.1692,
+      "source_y": 9.6052,
+      "source_z": 133.232,
+      "target_x": -75.0353,
+      "target_y": 10.1738,
+      "target_z": 133.7852,
+      "distance": 23.8141,
+      "target_level": "l03_agroprom"
+    },
+    {
+      "source_x": -75.0353,
+      "source_y": 10.1738,
+      "source_z": 133.7852,
+      "target_x": -56.1692,
+      "target_y": 9.6052,
+      "target_z": 133.232,
+      "distance": 23.9747,
+      "target_level": "l03_agroprom"
+    },
+    {
+      "source_x": -75.0353,
+      "source_y": 10.1738,
+      "source_z": 133.7852,
+      "target_x": -92.3484,
+      "target_y": 10.0781,
+      "target_z": 138.7278,
+      "distance": 18.1878,
+      "target_level": "l03_agroprom"
+    },
+    {
+      "source_x": -0.4808,
+      "source_y": 1.1445,
+      "source_z": 85.8276,
+      "target_x": 6.0595,
+      "target_y": 0.2059,
+      "target_z": 62.4408,
+      "distance": 24.2841,
+      "target_level": "l03_agroprom"
+    },
+    {
+      "source_x": -0.4808,
+      "source_y": 1.1445,
+      "source_z": 85.8276,
+      "target_x": 10.2008,
+      "target_y": 1.8771,
+      "target_z": 89.5824,
+      "distance": 11.8953,
+      "target_level": "l03_agroprom"
+    },
+    {
+      "source_x": -0.4808,
+      "source_y": 1.1445,
+      "source_z": 85.8276,
+      "target_x": -6.3155,
+      "target_y": 3.6032,
+      "target_z": 112.4155,
+      "distance": 30.9947,
+      "target_level": "l03_agroprom"
+    },
+    {
+      "source_x": -0.4808,
+      "source_y": 1.1445,
+      "source_z": 85.8276,
+      "target_x": -49.6748,
+      "target_y": 0.2385,
+      "target_z": 78.2195,
+      "distance": 54.4358,
+      "target_level": "l03_agroprom"
+    },
+    {
+      "source_x": 6.0595,
+      "source_y": 0.2059,
+      "source_z": 62.4408,
+      "target_x": 25.1066,
+      "target_y": 0.0,
+      "target_z": 22.4286,
+      "distance": 52.2047,
+      "target_level": "l03_agroprom"
+    },
+    {
+      "source_x": 6.0595,
+      "source_y": 0.2059,
+      "source_z": 62.4408,
+      "target_x": -0.4808,
+      "target_y": 1.1445,
+      "target_z": 85.8276,
+      "distance": 24.2841,
+      "target_level": "l03_agroprom"
+    },
+    {
+      "source_x": 8.9291,
+      "source_y": -0.2,
+      "source_z": 32.6173,
+      "target_x": 8.9982,
+      "target_y": -0.2429,
+      "target_z": 21.5092,
+      "distance": 11.1083,
+      "target_level": "l03_agroprom"
+    },
+    {
+      "source_x": 8.9291,
+      "source_y": -0.2,
+      "source_z": 32.6173,
+      "target_x": 25.1066,
+      "target_y": 0.0,
+      "target_z": 22.4286,
+      "distance": 26.0493,
+      "target_level": "l03_agroprom"
+    },
+    {
+      "source_x": -114.779,
+      "source_y": 6.3684,
+      "source_z": 61.8483,
+      "target_x": -103.295,
+      "target_y": 7.18,
+      "target_z": 39.5831,
+      "distance": 27.9171,
+      "target_level": "l03_agroprom"
+    },
+    {
+      "source_x": -114.779,
+      "source_y": 6.3684,
+      "source_z": 61.8483,
+      "target_x": -119.5042,
+      "target_y": 7.0385,
+      "target_z": 73.6856,
+      "distance": 12.7455,
+      "target_level": "l03_agroprom"
+    },
+    {
+      "source_x": -114.779,
+      "source_y": 6.3684,
+      "source_z": 61.8483,
+      "target_x": -132.5665,
+      "target_y": 11.0011,
+      "target_z": 44.1118,
+      "distance": 35.3508,
+      "target_level": "l03_agroprom"
+    },
+    {
+      "source_x": -114.779,
+      "source_y": 6.3684,
+      "source_z": 61.8483,
+      "target_x": -159.2845,
+      "target_y": 3.6601,
+      "target_z": 84.3354,
+      "distance": 57.7344,
+      "target_level": "l03_agroprom"
+    },
+    {
+      "source_x": -91.0041,
+      "source_y": 9.5157,
+      "source_z": 119.2384,
+      "target_x": -89.9367,
+      "target_y": 7.2737,
+      "target_z": 103.4232,
+      "distance": 18.9046,
+      "target_level": "l03_agroprom"
+    },
+    {
+      "source_x": -91.0041,
+      "source_y": 9.5157,
+      "source_z": 119.2384,
+      "target_x": -92.3484,
+      "target_y": 10.0781,
+      "target_z": 138.7278,
+      "distance": 21.7325,
+      "target_level": "l03_agroprom"
+    },
+    {
+      "source_x": -81.3479,
+      "source_y": 2.3754,
+      "source_z": 20.3094,
+      "target_x": -68.4458,
+      "target_y": 1.141,
+      "target_z": 15.5886,
+      "distance": 14.2047,
+      "target_level": "l03_agroprom"
+    },
+    {
+      "source_x": -81.3479,
+      "source_y": 2.3754,
+      "source_z": 20.3094,
+      "target_x": -49.6748,
+      "target_y": 0.2385,
+      "target_z": 78.2195,
+      "distance": 69.487,
+      "target_level": "l03_agroprom"
+    },
+    {
+      "source_x": -81.3479,
+      "source_y": 2.3754,
+      "source_z": 20.3094,
+      "target_x": -103.295,
+      "target_y": 7.18,
+      "target_z": 39.5831,
+      "distance": 34.7159,
+      "target_level": "l03_agroprom"
+    },
+    {
+      "source_x": -56.2775,
+      "source_y": -0.0109,
+      "source_z": 3.1038,
+      "target_x": -60.3013,
+      "target_y": -0.022,
+      "target_z": -5.0589,
+      "distance": 9.1006,
+      "target_level": "l03_agroprom"
+    },
+    {
+      "source_x": -56.2775,
+      "source_y": -0.0109,
+      "source_z": 3.1038,
+      "target_x": -40.9328,
+      "target_y": -0.2,
+      "target_z": 2.0615,
+      "distance": 18.9666,
+      "target_level": "l03_agroprom"
+    },
+    {
+      "source_x": -56.2775,
+      "source_y": -0.0109,
+      "source_z": 3.1038,
+      "target_x": -70.1938,
+      "target_y": 1.3831,
+      "target_z": 12.0668,
+      "distance": 19.401,
+      "target_level": "l03_agroprom"
+    },
+    {
+      "source_x": -150.5401,
+      "source_y": 2.9859,
+      "source_z": 29.7985,
+      "target_x": -150.8285,
+      "target_y": 1.8957,
+      "target_z": 8.3901,
+      "distance": 23.9975,
+      "target_level": "l03_agroprom"
+    },
+    {
+      "source_x": -150.5401,
+      "source_y": 2.9859,
+      "source_z": 29.7985,
+      "target_x": -132.5665,
+      "target_y": 11.0011,
+      "target_z": 44.1118,
+      "distance": 31.2793,
+      "target_level": "l03_agroprom"
+    },
+    {
+      "source_x": -150.5401,
+      "source_y": 2.9859,
+      "source_z": 29.7985,
+      "target_x": -159.2845,
+      "target_y": 3.6601,
+      "target_z": 84.3354,
+      "distance": 57.6805,
+      "target_level": "l03_agroprom"
+    },
+    {
+      "source_x": -190.6105,
+      "source_y": 4.5407,
+      "source_z": 1.3846,
+      "target_x": -199.7828,
+      "target_y": 1.1806,
+      "target_z": -15.1476,
+      "distance": 20.8536,
+      "target_level": "l03_agroprom"
+    },
+    {
+      "source_x": -190.6105,
+      "source_y": 4.5407,
+      "source_z": 1.3846,
+      "target_x": -173.0187,
+      "target_y": 2.9138,
+      "target_z": -1.4476,
+      "distance": 17.8183,
+      "target_level": "l03_agroprom"
+    },
+    {
+      "source_x": -199.7828,
+      "source_y": 1.1806,
+      "source_z": -15.1476,
+      "target_x": -189.3545,
+      "target_y": -0.4124,
+      "target_z": -42.4081,
+      "distance": 40.0695,
+      "target_level": "l03_agroprom"
+    },
+    {
+      "source_x": -199.7828,
+      "source_y": 1.1806,
+      "source_z": -15.1476,
+      "target_x": -190.6105,
+      "target_y": 4.5407,
+      "target_z": 1.3846,
+      "distance": 20.4962,
+      "target_level": "l03_agroprom"
+    },
+    {
+      "source_x": -199.7828,
+      "source_y": 1.1806,
+      "source_z": -15.1476,
+      "target_x": -211.213,
+      "target_y": 3.0077,
+      "target_z": -7.6559,
+      "distance": 14.4682,
+      "target_level": "l03_agroprom"
+    },
+    {
+      "source_x": -180.0244,
+      "source_y": -0.0237,
+      "source_z": -50.2195,
+      "target_x": -181.3504,
+      "target_y": 1.4986,
+      "target_z": -75.09,
+      "distance": 25.479,
+      "target_level": "l03_agroprom"
+    },
+    {
+      "source_x": -180.0244,
+      "source_y": -0.0237,
+      "source_z": -50.2195,
+      "target_x": -131.0505,
+      "target_y": 0.3503,
+      "target_z": -32.441,
+      "distance": 52.101,
+      "target_level": "l03_agroprom"
+    },
+    {
+      "source_x": -180.0244,
+      "source_y": -0.0237,
+      "source_z": -50.2195,
+      "target_x": -173.0187,
+      "target_y": 2.9138,
+      "target_z": -1.4476,
+      "distance": 49.2724,
+      "target_level": "l03_agroprom"
+    },
+    {
+      "source_x": -180.0244,
+      "source_y": -0.0237,
+      "source_z": -50.2195,
+      "target_x": -189.3545,
+      "target_y": -0.4124,
+      "target_z": -42.4081,
+      "distance": 12.1684,
+      "target_level": "l03_agroprom"
+    },
+    {
+      "source_x": -159.9876,
+      "source_y": 2.6705,
+      "source_z": -76.3683,
+      "target_x": -163.7341,
+      "target_y": 6.7868,
+      "target_z": -96.6641,
+      "distance": 20.6387,
+      "target_level": "l03_agroprom"
+    },
+    {
+      "source_x": -159.9876,
+      "source_y": 2.6705,
+      "source_z": -76.3683,
+      "target_x": -142.0692,
+      "target_y": 4.7942,
+      "target_z": -85.2127,
+      "distance": 25.4036,
+      "target_level": "l03_agroprom"
+    },
+    {
+      "source_x": -159.9876,
+      "source_y": 2.6705,
+      "source_z": -76.3683,
+      "target_x": -181.3504,
+      "target_y": 1.4986,
+      "target_z": -75.09,
+      "distance": 23.6197,
+      "target_level": "l03_agroprom"
+    },
+    {
+      "source_x": -7.3148,
+      "source_y": -0.2164,
+      "source_z": -157.3096,
+      "target_x": 21.6652,
+      "target_y": 0.3556,
+      "target_z": -148.617,
+      "distance": 37.4896,
+      "target_level": "l03_agroprom"
+    },
+    {
+      "source_x": -7.3148,
+      "source_y": -0.2164,
+      "source_z": -157.3096,
+      "target_x": -20.9608,
+      "target_y": -1.0281,
+      "target_z": -159.0819,
+      "distance": 14.033,
+      "target_level": "l03_agroprom"
+    },
+    {
+      "source_x": -7.3148,
+      "source_y": -0.2164,
+      "source_z": -157.3096,
+      "target_x": 7.6894,
+      "target_y": 8.5586,
+      "target_z": -116.0371,
+      "distance": 67.135,
+      "target_level": "l03_agroprom"
+    },
+    {
+      "source_x": 64.2768,
+      "source_y": 0.0469,
+      "source_z": -220.9208,
+      "target_x": 80.9649,
+      "target_y": -0.8126,
+      "target_z": -238.4568,
+      "distance": 26.8102,
+      "target_level": "l03_agroprom"
+    },
+    {
+      "source_x": 64.2768,
+      "source_y": 0.0469,
+      "source_z": -220.9208,
+      "target_x": 49.8817,
+      "target_y": 2.8128,
+      "target_z": -204.3318,
+      "distance": 25.3274,
+      "target_level": "l03_agroprom"
+    },
+    {
+      "source_x": 49.8817,
+      "source_y": 2.8128,
+      "source_z": -204.3318,
+      "target_x": 64.2768,
+      "target_y": 0.0469,
+      "target_z": -220.9208,
+      "distance": 29.4149,
+      "target_level": "l03_agroprom"
+    },
+    {
+      "source_x": 49.8817,
+      "source_y": 2.8128,
+      "source_z": -204.3318,
+      "target_x": 41.1102,
+      "target_y": 9.6309,
+      "target_z": -179.1574,
+      "distance": 26.6587,
+      "target_level": "l03_agroprom"
+    },
+    {
+      "source_x": 29.2746,
+      "source_y": 6.1606,
+      "source_z": -171.0924,
+      "target_x": 41.1102,
+      "target_y": 9.6309,
+      "target_z": -179.1574,
+      "distance": 14.3223,
+      "target_level": "l03_agroprom"
+    },
+    {
+      "source_x": 29.2746,
+      "source_y": 6.1606,
+      "source_z": -171.0924,
+      "target_x": 21.6652,
+      "target_y": 0.3556,
+      "target_z": -148.617,
+      "distance": 29.3389,
+      "target_level": "l03_agroprom"
+    },
+    {
+      "source_x": 29.2746,
+      "source_y": 6.1606,
+      "source_z": -171.0924,
+      "target_x": 3.0399,
+      "target_y": -1.4818,
+      "target_z": -209.3359,
+      "distance": 46.377,
+      "target_level": "l03_agroprom"
+    },
+    {
+      "source_x": 189.6735,
+      "source_y": 0.0817,
+      "source_z": -242.9308,
+      "target_x": 232.9118,
+      "target_y": 0.7461,
+      "target_z": -252.4329,
+      "distance": 46.9064,
+      "target_level": "l03_agroprom"
+    },
+    {
+      "source_x": 189.6735,
+      "source_y": 0.0817,
+      "source_z": -242.9308,
+      "target_x": 136.2505,
+      "target_y": 1.4628,
+      "target_z": -227.4901,
+      "distance": 55.6097,
+      "target_level": "l03_agroprom"
+    },
+    {
+      "source_x": 136.2505,
+      "source_y": 1.4628,
+      "source_z": -227.4901,
+      "target_x": 126.924,
+      "target_y": 0.0365,
+      "target_z": -280.2616,
+      "distance": 55.7869,
+      "target_level": "l03_agroprom"
+    },
+    {
+      "source_x": 136.2505,
+      "source_y": 1.4628,
+      "source_z": -227.4901,
+      "target_x": 189.6735,
+      "target_y": 0.0817,
+      "target_z": -242.9308,
+      "distance": 55.6097,
+      "target_level": "l03_agroprom"
+    },
+    {
+      "source_x": 136.2505,
+      "source_y": 1.4628,
+      "source_z": -227.4901,
+      "target_x": 100.7571,
+      "target_y": -0.0712,
+      "target_z": -232.5125,
+      "distance": 35.847,
+      "target_level": "l03_agroprom"
+    },
+    {
+      "source_x": 100.7571,
+      "source_y": -0.0712,
+      "source_z": -232.5125,
+      "target_x": 136.2505,
+      "target_y": 1.4628,
+      "target_z": -227.4901,
+      "distance": 35.847,
+      "target_level": "l03_agroprom"
+    },
+    {
+      "source_x": 100.7571,
+      "source_y": -0.0712,
+      "source_z": -232.5125,
+      "target_x": 80.9649,
+      "target_y": -0.8126,
+      "target_z": -238.4568,
+      "distance": 21.4102,
+      "target_level": "l03_agroprom"
+    },
+    {
+      "source_x": 234.2029,
+      "source_y": 16.4192,
+      "source_z": -215.3967,
+      "target_x": 232.9118,
+      "target_y": 0.7461,
+      "target_z": -252.4329,
+      "distance": 44.1053,
+      "target_level": "l03_agroprom"
+    },
+    {
+      "source_x": 234.2029,
+      "source_y": 16.4192,
+      "source_z": -215.3967,
+      "target_x": 237.9321,
+      "target_y": 23.2474,
+      "target_z": -170.7556,
+      "distance": 45.3571,
+      "target_level": "l03_agroprom"
+    },
+    {
+      "source_x": 237.9321,
+      "source_y": 23.2474,
+      "source_z": -170.7556,
+      "target_x": 234.2029,
+      "target_y": 16.4192,
+      "target_z": -215.3967,
+      "distance": 47.7632,
+      "target_level": "l03_agroprom"
+    },
+    {
+      "source_x": 237.9321,
+      "source_y": 23.2474,
+      "source_z": -170.7556,
+      "target_x": 240.1816,
+      "target_y": 23.9422,
+      "target_z": -147.6647,
+      "distance": 23.2001,
+      "target_level": "l03_agroprom"
+    },
+    {
+      "source_x": 237.9321,
+      "source_y": 23.2474,
+      "source_z": -170.7556,
+      "target_x": 174.862,
+      "target_y": 19.9608,
+      "target_z": -86.7804,
+      "distance": 105.0222,
+      "target_level": "l03_agroprom"
+    },
+    {
+      "source_x": 239.6656,
+      "source_y": 24.0307,
+      "source_z": -142.5012,
+      "target_x": 240.1816,
+      "target_y": 23.9422,
+      "target_z": -147.6647,
+      "distance": 5.1893,
+      "target_level": "l03_agroprom"
+    },
+    {
+      "source_x": 239.6656,
+      "source_y": 24.0307,
+      "source_z": -142.5012,
+      "target_x": 233.5901,
+      "target_y": 22.7591,
+      "target_z": -111.7066,
+      "distance": 35.2112,
+      "target_level": "l03_agroprom"
+    },
+    {
+      "source_x": 248.1268,
+      "source_y": 2.6489,
+      "source_z": -34.939,
+      "target_x": 242.6604,
+      "target_y": 8.8809,
+      "target_z": -48.5862,
+      "distance": 14.7013,
+      "target_level": "l03_agroprom"
+    },
+    {
+      "source_x": 248.1268,
+      "source_y": 2.6489,
+      "source_z": -34.939,
+      "target_x": 251.0298,
+      "target_y": 0.3121,
+      "target_z": -5.9163,
+      "distance": 29.1675,
+      "target_level": "l03_agroprom"
+    },
+    {
+      "source_x": 248.1268,
+      "source_y": 2.6489,
+      "source_z": -34.939,
+      "target_x": 200.3678,
+      "target_y": 1.4786,
+      "target_z": -26.3714,
+      "distance": 54.0307,
+      "target_level": "l03_agroprom"
+    },
+    {
+      "source_x": 306.4,
+      "source_y": 0.0,
+      "source_z": 28.0,
+      "target_x": 329.1,
+      "target_y": 0.0,
+      "target_z": 52.7,
+      "distance": 33.5467,
+      "target_level": "l03_agroprom"
+    },
+    {
+      "source_x": 306.4,
+      "source_y": 0.0,
+      "source_z": 28.0,
+      "target_x": 279.9035,
+      "target_y": 0.3107,
+      "target_z": 2.8492,
+      "distance": 40.2044,
+      "target_level": "l03_agroprom"
+    },
+    {
+      "source_x": 275.7786,
+      "source_y": 3.8904,
+      "source_z": -242.3315,
+      "target_x": 309.4892,
+      "target_y": 8.4387,
+      "target_z": -249.9209,
+      "distance": 36.5293,
+      "target_level": "l03_agroprom"
+    },
+    {
+      "source_x": 275.7786,
+      "source_y": 3.8904,
+      "source_z": -242.3315,
+      "target_x": 250.0763,
+      "target_y": 2.3218,
+      "target_z": -252.1852,
+      "distance": 28.6434,
+      "target_level": "l03_agroprom"
+    },
+    {
+      "source_x": 62.7857,
+      "source_y": -5.1055,
+      "source_z": -276.547,
+      "target_x": 70.4339,
+      "target_y": -2.3653,
+      "target_z": -261.3407,
+      "distance": 18.3538,
+      "target_level": "l03_agroprom"
+    },
+    {
+      "source_x": 70.4339,
+      "source_y": -2.3653,
+      "source_z": -261.3407,
+      "target_x": 62.7857,
+      "target_y": -5.1055,
+      "target_z": -276.547,
+      "distance": 17.9082,
+      "target_level": "l03_agroprom"
+    },
+    {
+      "source_x": 70.4339,
+      "source_y": -2.3653,
+      "source_z": -261.3407,
+      "target_x": 18.3031,
+      "target_y": 4.9619,
+      "target_z": -280.5019,
+      "distance": 97.5514,
+      "target_level": "l03_agroprom"
+    },
+    {
+      "source_x": 70.4339,
+      "source_y": -2.3653,
+      "source_z": -261.3407,
+      "target_x": 80.9649,
+      "target_y": -0.8126,
+      "target_z": -238.4568,
+      "distance": 29.4119,
+      "target_level": "l03_agroprom"
+    },
+    {
+      "source_x": 88.7976,
+      "source_y": -0.2,
+      "source_z": 45.2518,
+      "target_x": 81.7604,
+      "target_y": 0.1263,
+      "target_z": -14.6865,
+      "distance": 61.3671,
+      "target_level": "l03_agroprom"
+    },
+    {
+      "source_x": 88.7976,
+      "source_y": -0.2,
+      "source_z": 45.2518,
+      "target_x": 115.4911,
+      "target_y": 0.6578,
+      "target_z": 54.9759,
+      "distance": 28.4096,
+      "target_level": "l03_agroprom"
+    },
+    {
+      "source_x": 88.7976,
+      "source_y": -0.2,
+      "source_z": 45.2518,
+      "target_x": 66.0019,
+      "target_y": -0.2,
+      "target_z": 34.7528,
+      "distance": 29.0274,
+      "target_level": "l03_agroprom"
+    },
+    {
+      "source_x": 88.7976,
+      "source_y": -0.2,
+      "source_z": 45.2518,
+      "target_x": 52.7569,
+      "target_y": 0.9504,
+      "target_z": 74.8302,
+      "distance": 46.6242,
+      "target_level": "l03_agroprom"
+    },
+    {
+      "source_x": 131.3342,
+      "source_y": 0.1821,
+      "source_z": 54.3191,
+      "target_x": 130.3189,
+      "target_y": 0.2376,
+      "target_z": 26.5555,
+      "distance": 29.0024,
+      "target_level": "l03_agroprom"
+    },
+    {
+      "source_x": 131.3342,
+      "source_y": 0.1821,
+      "source_z": 54.3191,
+      "target_x": 148.3408,
+      "target_y": 0.1726,
+      "target_z": 53.7505,
+      "distance": 17.016,
+      "target_level": "l03_agroprom"
+    },
+    {
+      "source_x": 131.3342,
+      "source_y": 0.1821,
+      "source_z": 54.3191,
+      "target_x": 125.6174,
+      "target_y": 4.9221,
+      "target_z": 77.9876,
+      "distance": 26.5347,
+      "target_level": "l03_agroprom"
+    },
+    {
+      "source_x": 131.3342,
+      "source_y": 0.1821,
+      "source_z": 54.3191,
+      "target_x": 115.4911,
+      "target_y": 0.6578,
+      "target_z": 54.9759,
+      "distance": 17.0794,
+      "target_level": "l03_agroprom"
+    },
+    {
+      "source_x": 148.3408,
+      "source_y": 0.1726,
+      "source_z": 53.7505,
+      "target_x": 160.4336,
+      "target_y": 0.0403,
+      "target_z": 51.4802,
+      "distance": 12.3041,
+      "target_level": "l03_agroprom"
+    },
+    {
+      "source_x": 148.3408,
+      "source_y": 0.1726,
+      "source_z": 53.7505,
+      "target_x": 163.021,
+      "target_y": 8.5944,
+      "target_z": 85.2361,
+      "distance": 37.0484,
+      "target_level": "l03_agroprom"
+    },
+    {
+      "source_x": 148.3408,
+      "source_y": 0.1726,
+      "source_z": 53.7505,
+      "target_x": 131.3342,
+      "target_y": 0.1821,
+      "target_z": 54.3191,
+      "distance": 17.016,
+      "target_level": "l03_agroprom"
+    },
+    {
+      "source_x": 160.4336,
+      "source_y": 0.0403,
+      "source_z": 51.4802,
+      "target_x": 173.9607,
+      "target_y": -0.05,
+      "target_z": 47.4494,
+      "distance": 14.7469,
+      "target_level": "l03_agroprom"
+    },
+    {
+      "source_x": 160.4336,
+      "source_y": 0.0403,
+      "source_z": 51.4802,
+      "target_x": 148.3408,
+      "target_y": 0.1726,
+      "target_z": 53.7505,
+      "distance": 12.3041,
+      "target_level": "l03_agroprom"
+    },
+    {
+      "source_x": 53.5663,
+      "source_y": -0.2,
+      "source_z": -16.4331,
+      "target_x": 66.9285,
+      "target_y": 0.0,
+      "target_z": -24.4497,
+      "distance": 21.5104,
+      "target_level": "l03_agroprom"
+    },
+    {
+      "source_x": 53.5663,
+      "source_y": -0.2,
+      "source_z": -16.4331,
+      "target_x": 53.9085,
+      "target_y": -0.2,
+      "target_z": -9.2138,
+      "distance": 7.2274,
+      "target_level": "l03_agroprom"
+    },
+    {
+      "source_x": 53.5663,
+      "source_y": -0.2,
+      "source_z": -16.4331,
+      "target_x": 23.4434,
+      "target_y": 0.0,
+      "target_z": 13.2313,
+      "distance": 69.9098,
+      "target_level": "l03_agroprom"
+    },
+    {
+      "source_x": -189.9196,
+      "source_y": -0.2002,
+      "source_z": -191.6565,
+      "target_x": -176.3609,
+      "target_y": -0.2002,
+      "target_z": -199.1375,
+      "distance": 15.995,
+      "target_level": "l03_agroprom"
+    },
+    {
+      "source_x": -189.9196,
+      "source_y": -0.2002,
+      "source_z": -191.6565,
+      "target_x": -192.587,
+      "target_y": -0.2002,
+      "target_z": -134.4172,
+      "distance": 57.3014,
+      "target_level": "l03_agroprom"
+    },
+    {
+      "source_x": -108.4955,
+      "source_y": 10.2029,
+      "source_z": -102.9486,
+      "target_x": -109.0517,
+      "target_y": -0.2402,
+      "target_z": -183.7445,
+      "distance": 90.4374,
+      "target_level": "l03_agroprom"
+    },
+    {
+      "source_x": -108.4955,
+      "source_y": 10.2029,
+      "source_z": -102.9486,
+      "target_x": -92.3102,
+      "target_y": 10.8277,
+      "target_z": -101.8559,
+      "distance": 16.222,
+      "target_level": "l03_agroprom"
+    },
+    {
+      "source_x": -108.4955,
+      "source_y": 10.2029,
+      "source_z": -102.9486,
+      "target_x": -142.0692,
+      "target_y": 4.7942,
+      "target_z": -85.2127,
+      "distance": 42.3461,
+      "target_level": "l03_agroprom"
+    },
+    {
+      "source_x": -38.5893,
+      "source_y": 7.3091,
+      "source_z": -88.7962,
+      "target_x": -11.7868,
+      "target_y": 9.1129,
+      "target_z": -94.118,
+      "distance": 27.3257,
+      "target_level": "l03_agroprom"
+    },
+    {
+      "source_x": -38.5893,
+      "source_y": 7.3091,
+      "source_z": -88.7962,
+      "target_x": -75.2294,
+      "target_y": 9.9346,
+      "target_z": -105.719,
+      "distance": 49.2539,
+      "target_level": "l03_agroprom"
+    },
+    {
+      "source_x": 7.6894,
+      "source_y": 8.5586,
+      "source_z": -116.0371,
+      "target_x": 28.2854,
+      "target_y": 8.7742,
+      "target_z": -115.8833,
+      "distance": 20.7727,
+      "target_level": "l03_agroprom"
+    },
+    {
+      "source_x": 7.6894,
+      "source_y": 8.5586,
+      "source_z": -116.0371,
+      "target_x": -11.7868,
+      "target_y": 9.1129,
+      "target_z": -94.118,
+      "distance": 29.3218,
+      "target_level": "l03_agroprom"
+    },
+    {
+      "source_x": 7.6894,
+      "source_y": 8.5586,
+      "source_z": -116.0371,
+      "target_x": -7.3148,
+      "target_y": -0.2164,
+      "target_z": -157.3096,
+      "distance": 68.1038,
+      "target_level": "l03_agroprom"
+    },
+    {
+      "source_x": -217.7648,
+      "source_y": 4.4424,
+      "source_z": 42.3724,
+      "target_x": -211.213,
+      "target_y": 3.0077,
+      "target_z": -7.6559,
+      "distance": 55.5363,
+      "target_level": "l03_agroprom"
+    },
+    {
+      "source_x": -217.7648,
+      "source_y": 4.4424,
+      "source_z": 42.3724,
+      "target_x": -195.9276,
+      "target_y": 1.6752,
+      "target_z": 91.2444,
+      "distance": 104.1278,
+      "target_level": "l03_agroprom"
+    },
+    {
+      "source_x": -217.7648,
+      "source_y": 4.4424,
+      "source_z": 42.3724,
+      "target_x": -231.0443,
+      "target_y": 11.893,
+      "target_z": 128.1487,
+      "distance": 86.7981,
+      "target_level": "l03_agroprom"
+    },
+    {
+      "source_x": -127.4292,
+      "source_y": 10.0812,
+      "source_z": 153.4599,
+      "target_x": -116.869,
+      "target_y": 8.6728,
+      "target_z": 140.8137,
+      "distance": 16.4756,
+      "target_level": "l03_agroprom"
+    },
+    {
+      "source_x": -127.4292,
+      "source_y": 10.0812,
+      "source_z": 153.4599,
+      "target_x": -110.1635,
+      "target_y": 13.347,
+      "target_z": 184.31,
+      "distance": 39.8324,
+      "target_level": "l03_agroprom"
+    },
+    {
+      "source_x": -127.4292,
+      "source_y": 10.0812,
+      "source_z": 153.4599,
+      "target_x": -156.6989,
+      "target_y": 17.1381,
+      "target_z": 146.5258,
+      "distance": 30.0798,
+      "target_level": "l03_agroprom"
+    },
+    {
+      "source_x": -159.2845,
+      "source_y": 3.6601,
+      "source_z": 84.3354,
+      "target_x": -150.5401,
+      "target_y": 2.9859,
+      "target_z": 29.7985,
+      "distance": 56.64,
+      "target_level": "l03_agroprom"
+    },
+    {
+      "source_x": -159.2845,
+      "source_y": 3.6601,
+      "source_z": 84.3354,
+      "target_x": -114.779,
+      "target_y": 6.3684,
+      "target_z": 61.8483,
+      "distance": 60.5344,
+      "target_level": "l03_agroprom"
+    },
+    {
+      "source_x": -159.2845,
+      "source_y": 3.6601,
+      "source_z": 84.3354,
+      "target_x": -135.3574,
+      "target_y": 10.1741,
+      "target_z": 117.9005,
+      "distance": 54.3116,
+      "target_level": "l03_agroprom"
+    },
+    {
+      "source_x": -159.2845,
+      "source_y": 3.6601,
+      "source_z": 84.3354,
+      "target_x": -176.4533,
+      "target_y": 4.1166,
+      "target_z": 125.588,
+      "distance": 51.3038,
+      "target_level": "l03_agroprom"
+    },
+    {
+      "source_x": -195.9276,
+      "source_y": 1.6752,
+      "source_z": 91.2444,
+      "target_x": -217.7648,
+      "target_y": 4.4424,
+      "target_z": 42.3724,
+      "distance": 101.348,
+      "target_level": "l03_agroprom"
+    },
+    {
+      "source_x": -195.9276,
+      "source_y": 1.6752,
+      "source_z": 91.2444,
+      "target_x": -197.6868,
+      "target_y": 1.8453,
+      "target_z": 123.114,
+      "distance": 32.5231,
+      "target_level": "l03_agroprom"
+    },
+    {
+      "source_x": -150.8285,
+      "source_y": 1.8957,
+      "source_z": 8.3901,
+      "target_x": -150.5401,
+      "target_y": 2.9859,
+      "target_z": 29.7985,
+      "distance": 23.2798,
+      "target_level": "l03_agroprom"
+    },
+    {
+      "source_x": -150.8285,
+      "source_y": 1.8957,
+      "source_z": 8.3901,
+      "target_x": -162.8087,
+      "target_y": 1.9139,
+      "target_z": 0.9472,
+      "distance": 14.8643,
+      "target_level": "l03_agroprom"
+    },
+    {
+      "source_x": -181.3504,
+      "source_y": 1.4986,
+      "source_z": -75.09,
+      "target_x": -178.7774,
+      "target_y": 3.1531,
+      "target_z": -93.5808,
+      "distance": 18.827,
+      "target_level": "l03_agroprom"
+    },
+    {
+      "source_x": -181.3504,
+      "source_y": 1.4986,
+      "source_z": -75.09,
+      "target_x": -159.9876,
+      "target_y": 2.6705,
+      "target_z": -76.3683,
+      "distance": 24.2885,
+      "target_level": "l03_agroprom"
+    },
+    {
+      "source_x": -181.3504,
+      "source_y": 1.4986,
+      "source_z": -75.09,
+      "target_x": -180.0244,
+      "target_y": -0.0237,
+      "target_z": -50.2195,
+      "distance": 27.3046,
+      "target_level": "l03_agroprom"
+    },
+    {
+      "source_x": -181.3504,
+      "source_y": 1.4986,
+      "source_z": -75.09,
+      "target_x": -210.5861,
+      "target_y": 2.4795,
+      "target_z": -65.5406,
+      "distance": 32.7137,
+      "target_level": "l03_agroprom"
+    },
+    {
+      "source_x": -163.7341,
+      "source_y": 6.7868,
+      "source_z": -96.6641,
+      "target_x": -159.9876,
+      "target_y": 2.6705,
+      "target_z": -76.3683,
+      "distance": 20.6387,
+      "target_level": "l03_agroprom"
+    },
+    {
+      "source_x": -163.7341,
+      "source_y": 6.7868,
+      "source_z": -96.6641,
+      "target_x": -178.7774,
+      "target_y": 3.1531,
+      "target_z": -93.5808,
+      "distance": 15.356,
+      "target_level": "l03_agroprom"
+    },
+    {
+      "source_x": -139.1159,
+      "source_y": -0.0001,
+      "source_z": -194.0503,
+      "target_x": -133.2889,
+      "target_y": 10.0001,
+      "target_z": -199.9799,
+      "distance": 19.7526,
+      "target_level": "l03_agroprom"
+    },
+    {
+      "source_x": -139.1159,
+      "source_y": -0.0001,
+      "source_z": -194.0503,
+      "target_x": -140.6382,
+      "target_y": -0.2002,
+      "target_z": -188.366,
+      "distance": 5.9166,
+      "target_level": "l03_agroprom"
+    },
+    {
+      "source_x": -176.3609,
+      "source_y": -0.2002,
+      "source_z": -199.1375,
+      "target_x": -162.299,
+      "target_y": -0.2402,
+      "target_z": -188.3479,
+      "distance": 18.2079,
+      "target_level": "l03_agroprom"
+    },
+    {
+      "source_x": -176.3609,
+      "source_y": -0.2002,
+      "source_z": -199.1375,
+      "target_x": -189.9196,
+      "target_y": -0.2002,
+      "target_z": -191.6565,
+      "distance": 16.3107,
+      "target_level": "l03_agroprom"
+    },
+    {
+      "source_x": -176.3609,
+      "source_y": -0.2002,
+      "source_z": -199.1375,
+      "target_x": -177.1568,
+      "target_y": 5.3182,
+      "target_z": -180.7397,
+      "distance": 30.0706,
+      "target_level": "l03_agroprom"
+    },
+    {
+      "source_x": -140.6382,
+      "source_y": -0.2002,
+      "source_z": -188.366,
+      "target_x": -139.1159,
+      "target_y": -0.0001,
+      "target_z": -194.0503,
+      "distance": 5.9166,
+      "target_level": "l03_agroprom"
+    },
+    {
+      "source_x": -140.6382,
+      "source_y": -0.2002,
+      "source_z": -188.366,
+      "target_x": -130.0025,
+      "target_y": -0.2002,
+      "target_z": -180.6165,
+      "distance": 16.1952,
+      "target_level": "l03_agroprom"
+    },
+    {
+      "source_x": -140.6382,
+      "source_y": -0.2002,
+      "source_z": -188.366,
+      "target_x": -156.8225,
+      "target_y": -0.2002,
+      "target_z": -183.2628,
+      "distance": 16.9698,
+      "target_level": "l03_agroprom"
+    },
+    {
+      "source_x": -20.9608,
+      "source_y": -1.0281,
+      "source_z": -159.0819,
+      "target_x": -7.3148,
+      "target_y": -0.2164,
+      "target_z": -157.3096,
+      "distance": 14.5765,
+      "target_level": "l03_agroprom"
+    },
+    {
+      "source_x": -20.9608,
+      "source_y": -1.0281,
+      "source_z": -159.0819,
+      "target_x": -39.8045,
+      "target_y": -1.7788,
+      "target_z": -169.8465,
+      "distance": 23.3602,
+      "target_level": "l03_agroprom"
+    },
+    {
+      "source_x": -156.6989,
+      "source_y": 17.1381,
+      "source_z": 146.5258,
+      "target_x": -135.3574,
+      "target_y": 10.1741,
+      "target_z": 117.9005,
+      "distance": 37.6986,
+      "target_level": "l03_agroprom"
+    },
+    {
+      "source_x": -156.6989,
+      "source_y": 17.1381,
+      "source_z": 146.5258,
+      "target_x": -127.4292,
+      "target_y": 10.0812,
+      "target_z": 153.4599,
+      "distance": 30.0798,
+      "target_level": "l03_agroprom"
+    },
+    {
+      "source_x": -156.6989,
+      "source_y": 17.1381,
+      "source_z": 146.5258,
+      "target_x": -173.9317,
+      "target_y": 22.1794,
+      "target_z": 182.8914,
+      "distance": 51.5592,
+      "target_level": "l03_agroprom"
+    },
+    {
+      "source_x": -156.6989,
+      "source_y": 17.1381,
+      "source_z": 146.5258,
+      "target_x": -176.4533,
+      "target_y": 4.1166,
+      "target_z": 125.588,
+      "distance": 39.7829,
+      "target_level": "l03_agroprom"
+    },
+    {
+      "source_x": -119.5042,
+      "source_y": 7.0385,
+      "source_z": 73.6856,
+      "target_x": -114.779,
+      "target_y": 6.3684,
+      "target_z": 61.8483,
+      "distance": 12.7455,
+      "target_level": "l03_agroprom"
+    },
+    {
+      "source_x": -119.5042,
+      "source_y": 7.0385,
+      "source_z": 73.6856,
+      "target_x": -99.9765,
+      "target_y": 1.9493,
+      "target_z": 85.11,
+      "distance": 22.6241,
+      "target_level": "l03_agroprom"
+    },
+    {
+      "source_x": -119.5042,
+      "source_y": 7.0385,
+      "source_z": 73.6856,
+      "target_x": -135.3574,
+      "target_y": 10.1741,
+      "target_z": 117.9005,
+      "distance": 46.9711,
+      "target_level": "l03_agroprom"
+    },
+    {
+      "source_x": -176.4533,
+      "source_y": 4.1166,
+      "source_z": 125.588,
+      "target_x": -159.2845,
+      "target_y": 3.6601,
+      "target_z": 84.3354,
+      "distance": 47.275,
+      "target_level": "l03_agroprom"
+    },
+    {
+      "source_x": -176.4533,
+      "source_y": 4.1166,
+      "source_z": 125.588,
+      "target_x": -156.6989,
+      "target_y": 17.1381,
+      "target_z": 146.5258,
+      "distance": 38.3387,
+      "target_level": "l03_agroprom"
+    },
+    {
+      "source_x": -176.4533,
+      "source_y": 4.1166,
+      "source_z": 125.588,
+      "target_x": -197.6868,
+      "target_y": 1.8453,
+      "target_z": 123.114,
+      "distance": 24.6785,
+      "target_level": "l03_agroprom"
+    },
+    {
+      "source_x": -173.0187,
+      "source_y": 2.9138,
+      "source_z": -1.4476,
+      "target_x": -180.0244,
+      "target_y": -0.0237,
+      "target_z": -50.2195,
+      "distance": 49.2724,
+      "target_level": "l03_agroprom"
+    },
+    {
+      "source_x": -173.0187,
+      "source_y": 2.9138,
+      "source_z": -1.4476,
+      "target_x": -162.8087,
+      "target_y": 1.9139,
+      "target_z": 0.9472,
+      "distance": 11.6732,
+      "target_level": "l03_agroprom"
+    },
+    {
+      "source_x": -173.0187,
+      "source_y": 2.9138,
+      "source_z": -1.4476,
+      "target_x": -190.6105,
+      "target_y": 4.5407,
+      "target_z": 1.3846,
+      "distance": 17.8183,
+      "target_level": "l03_agroprom"
+    },
+    {
+      "source_x": -89.9367,
+      "source_y": 7.2737,
+      "source_z": 103.4232,
+      "target_x": -99.9765,
+      "target_y": 1.9493,
+      "target_z": 85.11,
+      "distance": 20.8847,
+      "target_level": "l03_agroprom"
+    },
+    {
+      "source_x": -89.9367,
+      "source_y": 7.2737,
+      "source_z": 103.4232,
+      "target_x": -49.6748,
+      "target_y": 0.2385,
+      "target_z": 78.2195,
+      "distance": 47.5001,
+      "target_level": "l03_agroprom"
+    },
+    {
+      "source_x": -89.9367,
+      "source_y": 7.2737,
+      "source_z": 103.4232,
+      "target_x": -91.0041,
+      "target_y": 9.5157,
+      "target_z": 119.2384,
+      "distance": 18.712,
+      "target_level": "l03_agroprom"
+    },
+    {
+      "source_x": -68.4458,
+      "source_y": 1.141,
+      "source_z": 15.5886,
+      "target_x": -70.1938,
+      "target_y": 1.3831,
+      "target_z": 12.0668,
+      "distance": 3.9317,
+      "target_level": "l03_agroprom"
+    },
+    {
+      "source_x": -68.4458,
+      "source_y": 1.141,
+      "source_z": 15.5886,
+      "target_x": -81.3479,
+      "target_y": 2.3754,
+      "target_z": 20.3094,
+      "distance": 17.5441,
+      "target_level": "l03_agroprom"
+    },
+    {
+      "source_x": -189.3545,
+      "source_y": -0.4124,
+      "source_z": -42.4081,
+      "target_x": -180.0244,
+      "target_y": -0.0237,
+      "target_z": -50.2195,
+      "distance": 12.1684,
+      "target_level": "l03_agroprom"
+    },
+    {
+      "source_x": -189.3545,
+      "source_y": -0.4124,
+      "source_z": -42.4081,
+      "target_x": -199.7828,
+      "target_y": 1.1806,
+      "target_z": -15.1476,
+      "distance": 36.5744,
+      "target_level": "l03_agroprom"
+    },
+    {
+      "source_x": -189.3545,
+      "source_y": -0.4124,
+      "source_z": -42.4081,
+      "target_x": -210.5861,
+      "target_y": 2.4795,
+      "target_z": -65.5406,
+      "distance": 31.3989,
+      "target_level": "l03_agroprom"
+    },
+    {
+      "source_x": -178.7774,
+      "source_y": 3.1531,
+      "source_z": -93.5808,
+      "target_x": -163.7341,
+      "target_y": 6.7868,
+      "target_z": -96.6641,
+      "distance": 15.356,
+      "target_level": "l03_agroprom"
+    },
+    {
+      "source_x": -178.7774,
+      "source_y": 3.1531,
+      "source_z": -93.5808,
+      "target_x": -181.3504,
+      "target_y": 1.4986,
+      "target_z": -75.09,
+      "distance": 19.6155,
+      "target_level": "l03_agroprom"
+    },
+    {
+      "source_x": -178.7774,
+      "source_y": 3.1531,
+      "source_z": -93.5808,
+      "target_x": -192.587,
+      "target_y": -0.2002,
+      "target_z": -134.4172,
+      "distance": 45.6518,
+      "target_level": "l03_agroprom"
+    },
+    {
+      "source_x": 60.0045,
+      "source_y": 0.9044,
+      "source_z": -61.7159,
+      "target_x": 94.2356,
+      "target_y": 0.4045,
+      "target_z": -64.1374,
+      "distance": 38.6798,
+      "target_level": "l03_agroprom"
+    },
+    {
+      "source_x": 60.0045,
+      "source_y": 0.9044,
+      "source_z": -61.7159,
+      "target_x": 56.6772,
+      "target_y": 0.4996,
+      "target_z": -50.3308,
+      "distance": 11.8614,
+      "target_level": "l03_agroprom"
+    },
+    {
+      "source_x": 10.2008,
+      "source_y": 1.8771,
+      "source_z": 89.5824,
+      "target_x": 52.7569,
+      "target_y": 0.9504,
+      "target_z": 74.8302,
+      "distance": 50.1285,
+      "target_level": "l03_agroprom"
+    },
+    {
+      "source_x": 10.2008,
+      "source_y": 1.8771,
+      "source_z": 89.5824,
+      "target_x": 30.3631,
+      "target_y": 13.8093,
+      "target_z": 124.497,
+      "distance": 55.4019,
+      "target_level": "l03_agroprom"
+    },
+    {
+      "source_x": 10.2008,
+      "source_y": 1.8771,
+      "source_z": 89.5824,
+      "target_x": -0.4808,
+      "target_y": 1.1445,
+      "target_z": 85.8276,
+      "distance": 12.4061,
+      "target_level": "l03_agroprom"
+    },
+    {
+      "source_x": -28.4871,
+      "source_y": -0.2,
+      "source_z": 19.511,
+      "target_x": -17.14,
+      "target_y": -0.2,
+      "target_z": 20.5821,
+      "distance": 13.4192,
+      "target_level": "l03_agroprom"
+    },
+    {
+      "source_x": -28.4871,
+      "source_y": -0.2,
+      "source_z": 19.511,
+      "target_x": -40.9328,
+      "target_y": -0.2,
+      "target_z": 2.0615,
+      "distance": 26.6345,
+      "target_level": "l03_agroprom"
+    },
+    {
+      "source_x": -28.4871,
+      "source_y": -0.2,
+      "source_z": 19.511,
+      "target_x": -38.9085,
+      "target_y": 0.0,
+      "target_z": 46.3879,
+      "distance": 35.7932,
+      "target_level": "l03_agroprom"
+    },
+    {
+      "source_x": 25.1066,
+      "source_y": 0.0,
+      "source_z": 22.4286,
+      "target_x": 23.4434,
+      "target_y": 0.0,
+      "target_z": 13.2313,
+      "distance": 9.4944,
+      "target_level": "l03_agroprom"
+    },
+    {
+      "source_x": 25.1066,
+      "source_y": 0.0,
+      "source_z": 22.4286,
+      "target_x": 40.5607,
+      "target_y": -0.2,
+      "target_z": 28.5707,
+      "distance": 20.6403,
+      "target_level": "l03_agroprom"
+    },
+    {
+      "source_x": 25.1066,
+      "source_y": 0.0,
+      "source_z": 22.4286,
+      "target_x": 6.0595,
+      "target_y": 0.2059,
+      "target_z": 62.4408,
+      "distance": 52.6253,
+      "target_level": "l03_agroprom"
+    },
+    {
+      "source_x": 25.1066,
+      "source_y": 0.0,
+      "source_z": 22.4286,
+      "target_x": 8.9291,
+      "target_y": -0.2,
+      "target_z": 32.6173,
+      "distance": 27.3452,
+      "target_level": "l03_agroprom"
+    },
+    {
+      "source_x": -20.3035,
+      "source_y": -0.2,
+      "source_z": -12.6951,
+      "target_x": -15.0095,
+      "target_y": -0.2,
+      "target_z": -8.8038,
+      "distance": 8.4397,
+      "target_level": "l03_agroprom"
+    },
+    {
+      "source_x": -20.3035,
+      "source_y": -0.2,
+      "source_z": -12.6951,
+      "target_x": -40.9328,
+      "target_y": -0.2,
+      "target_z": 2.0615,
+      "distance": 33.531,
+      "target_level": "l03_agroprom"
+    },
+    {
+      "source_x": 52.7252,
+      "source_y": -0.2,
+      "source_z": 36.673,
+      "target_x": 66.0019,
+      "target_y": -0.2,
+      "target_z": 34.7528,
+      "distance": 16.1459,
+      "target_level": "l03_agroprom"
+    },
+    {
+      "source_x": 52.7252,
+      "source_y": -0.2,
+      "source_z": 36.673,
+      "target_x": 40.5607,
+      "target_y": -0.2,
+      "target_z": 28.5707,
+      "distance": 14.6159,
+      "target_level": "l03_agroprom"
+    },
+    {
+      "source_x": 52.7252,
+      "source_y": -0.2,
+      "source_z": 36.673,
+      "target_x": 52.7569,
+      "target_y": 0.9504,
+      "target_z": 74.8302,
+      "distance": 46.9761,
+      "target_level": "l03_agroprom"
+    },
+    {
+      "source_x": 66.9285,
+      "source_y": 0.0,
+      "source_z": -24.4497,
+      "target_x": 53.5663,
+      "target_y": -0.2,
+      "target_z": -16.4331,
+      "distance": 20.9959,
+      "target_level": "l03_agroprom"
+    },
+    {
+      "source_x": 83.0387,
+      "source_y": 0.2426,
+      "source_z": -23.1621,
+      "target_x": 102.8799,
+      "target_y": 0.4054,
+      "target_z": -42.606,
+      "distance": 35.9789,
+      "target_level": "l03_agroprom"
+    },
+    {
+      "source_x": 83.0387,
+      "source_y": 0.2426,
+      "source_z": -23.1621,
+      "target_x": 56.6772,
+      "target_y": 0.4996,
+      "target_z": -50.3308,
+      "distance": 53.8632,
+      "target_level": "l03_agroprom"
+    },
+    {
+      "source_x": 83.0387,
+      "source_y": 0.2426,
+      "source_z": -23.1621,
+      "target_x": 129.4547,
+      "target_y": 0.0,
+      "target_z": -16.4626,
+      "distance": 47.4146,
+      "target_level": "l03_agroprom"
+    },
+    {
+      "source_x": 83.0387,
+      "source_y": 0.2426,
+      "source_z": -23.1621,
+      "target_x": 81.7604,
+      "target_y": 0.1263,
+      "target_z": -14.6865,
+      "distance": 11.4052,
+      "target_level": "l03_agroprom"
+    },
+    {
+      "source_x": 28.2854,
+      "source_y": 8.7742,
+      "source_z": -115.8833,
+      "target_x": 46.794,
+      "target_y": 0.2526,
+      "target_z": -141.4402,
+      "distance": 39.6695,
+      "target_level": "l03_agroprom"
+    },
+    {
+      "source_x": 28.2854,
+      "source_y": 8.7742,
+      "source_z": -115.8833,
+      "target_x": 7.6894,
+      "target_y": 8.5586,
+      "target_z": -116.0371,
+      "distance": 20.7818,
+      "target_level": "l03_agroprom"
+    },
+    {
+      "source_x": -17.8391,
+      "source_y": 8.0555,
+      "source_z": 147.8551,
+      "target_x": -16.7289,
+      "target_y": 5.6663,
+      "target_z": 123.4208,
+      "distance": 26.2295,
+      "target_level": "l03_agroprom"
+    },
+    {
+      "source_x": -17.8391,
+      "source_y": 8.0555,
+      "source_z": 147.8551,
+      "target_x": -1.6146,
+      "target_y": 14.9123,
+      "target_z": 150.03,
+      "distance": 36.2025,
+      "target_level": "l03_agroprom"
+    },
+    {
+      "source_x": 188.445,
+      "source_y": 1.1003,
+      "source_z": 11.2414,
+      "target_x": 211.4955,
+      "target_y": 0.3135,
+      "target_z": -3.1455,
+      "distance": 31.8441,
+      "target_level": "l03_agroprom"
+    },
+    {
+      "source_x": 188.445,
+      "source_y": 1.1003,
+      "source_z": 11.2414,
+      "target_x": 170.5563,
+      "target_y": 0.9618,
+      "target_z": 21.5843,
+      "distance": 20.6635,
+      "target_level": "l03_agroprom"
+    },
+    {
+      "source_x": 70.6414,
+      "source_y": 0.0052,
+      "source_z": -6.8563,
+      "target_x": 81.7604,
+      "target_y": 0.1263,
+      "target_z": -14.6865,
+      "distance": 13.5994,
+      "target_level": "l03_agroprom"
+    },
+    {
+      "source_x": 70.6414,
+      "source_y": 0.0052,
+      "source_z": -6.8563,
+      "target_x": 60.3633,
+      "target_y": -0.2,
+      "target_z": -5.6338,
+      "distance": 11.3605,
+      "target_level": "l03_agroprom"
+    },
+    {
+      "source_x": 200.3678,
+      "source_y": 1.4786,
+      "source_z": -26.3714,
+      "target_x": 248.1268,
+      "target_y": 2.6489,
+      "target_z": -34.939,
+      "distance": 51.1664,
+      "target_level": "l03_agroprom"
+    },
+    {
+      "source_x": 200.3678,
+      "source_y": 1.4786,
+      "source_z": -26.3714,
+      "target_x": 211.4955,
+      "target_y": 0.3135,
+      "target_z": -3.1455,
+      "distance": 26.8493,
+      "target_level": "l03_agroprom"
+    },
+    {
+      "source_x": 200.3678,
+      "source_y": 1.4786,
+      "source_z": -26.3714,
+      "target_x": 156.8265,
+      "target_y": 12.292,
+      "target_z": -59.7507,
+      "distance": 54.8637,
+      "target_level": "l03_agroprom"
+    },
+    {
+      "source_x": 267.8796,
+      "source_y": 20.8339,
+      "source_z": -72.3193,
+      "target_x": 245.7029,
+      "target_y": 15.7439,
+      "target_z": -61.329,
+      "distance": 24.7506,
+      "target_level": "l03_agroprom"
+    },
+    {
+      "source_x": 156.8265,
+      "source_y": 12.292,
+      "source_z": -59.7507,
+      "target_x": 174.862,
+      "target_y": 19.9608,
+      "target_z": -86.7804,
+      "distance": 32.4944,
+      "target_level": "l03_agroprom"
+    },
+    {
+      "source_x": 156.8265,
+      "source_y": 12.292,
+      "source_z": -59.7507,
+      "target_x": 200.3678,
+      "target_y": 1.4786,
+      "target_z": -26.3714,
+      "distance": 54.8637,
+      "target_level": "l03_agroprom"
+    },
+    {
+      "source_x": 156.8265,
+      "source_y": 12.292,
+      "source_z": -59.7507,
+      "target_x": 125.7704,
+      "target_y": 1.0321,
+      "target_z": -56.8128,
+      "distance": 31.1947,
+      "target_level": "l03_agroprom"
+    },
+    {
+      "source_x": 242.6604,
+      "source_y": 8.8809,
+      "source_z": -48.5862,
+      "target_x": 245.7029,
+      "target_y": 15.7439,
+      "target_z": -61.329,
+      "distance": 13.101,
+      "target_level": "l03_agroprom"
+    },
+    {
+      "source_x": 242.6604,
+      "source_y": 8.8809,
+      "source_z": -48.5862,
+      "target_x": 248.1268,
+      "target_y": 2.6489,
+      "target_z": -34.939,
+      "distance": 14.7013,
+      "target_level": "l03_agroprom"
+    },
+    {
+      "source_x": 84.8736,
+      "source_y": 16.1745,
+      "source_z": 126.3052,
+      "target_x": 86.4396,
+      "target_y": 16.1385,
+      "target_z": 120.24,
+      "distance": 6.2642,
+      "target_level": "l03_agroprom"
+    },
+    {
+      "source_x": 84.8736,
+      "source_y": 16.1745,
+      "source_z": 126.3052,
+      "target_x": 76.9128,
+      "target_y": 16.0933,
+      "target_z": 130.9724,
+      "distance": 9.9068,
+      "target_level": "l03_agroprom"
+    },
+    {
+      "source_x": 92.351,
+      "source_y": 17.6472,
+      "source_z": 121.8161,
+      "target_x": 96.4809,
+      "target_y": 16.6512,
+      "target_z": 105.8358,
+      "distance": 16.5053,
+      "target_level": "l03_agroprom"
+    },
+    {
+      "source_x": 92.351,
+      "source_y": 17.6472,
+      "source_z": 121.8161,
+      "target_x": 93.9158,
+      "target_y": 9.5526,
+      "target_z": 181.1159,
+      "distance": 60.1975,
+      "target_level": "l03_agroprom"
+    },
+    {
+      "source_x": 92.351,
+      "source_y": 17.6472,
+      "source_z": 121.8161,
+      "target_x": 86.4396,
+      "target_y": 16.1385,
+      "target_z": 120.24,
+      "distance": 6.1179,
+      "target_level": "l03_agroprom"
+    },
+    {
+      "source_x": 86.4396,
+      "source_y": 16.1385,
+      "source_z": 120.24,
+      "target_x": 92.351,
+      "target_y": 17.6472,
+      "target_z": 121.8161,
+      "distance": 6.1179,
+      "target_level": "l03_agroprom"
+    },
+    {
+      "source_x": 86.4396,
+      "source_y": 16.1385,
+      "source_z": 120.24,
+      "target_x": 84.8736,
+      "target_y": 16.1745,
+      "target_z": 126.3052,
+      "distance": 6.2642,
+      "target_level": "l03_agroprom"
+    },
+    {
+      "source_x": -17.14,
+      "source_y": -0.2,
+      "source_z": 20.5821,
+      "target_x": -15.0095,
+      "target_y": -0.2,
+      "target_z": -8.8038,
+      "distance": 30.8304,
+      "target_level": "l03_agroprom"
+    },
+    {
+      "source_x": -17.14,
+      "source_y": -0.2,
+      "source_z": 20.5821,
+      "target_x": 8.9982,
+      "target_y": -0.2429,
+      "target_z": 21.5092,
+      "distance": 26.4398,
+      "target_level": "l03_agroprom"
+    },
+    {
+      "source_x": -17.14,
+      "source_y": -0.2,
+      "source_z": 20.5821,
+      "target_x": -28.4871,
+      "target_y": -0.2,
+      "target_z": 19.511,
+      "distance": 11.7976,
+      "target_level": "l03_agroprom"
+    },
+    {
+      "source_x": 173.9607,
+      "source_y": -0.05,
+      "source_z": 47.4494,
+      "target_x": 183.1462,
+      "target_y": -0.2,
+      "target_z": 45.5197,
+      "distance": 9.386,
+      "target_level": "l03_agroprom"
+    },
+    {
+      "source_x": 173.9607,
+      "source_y": -0.05,
+      "source_z": 47.4494,
+      "target_x": 160.4336,
+      "target_y": 0.0403,
+      "target_z": 51.4802,
+      "distance": 15.1007,
+      "target_level": "l03_agroprom"
+    },
+    {
+      "source_x": 174.862,
+      "source_y": 19.9608,
+      "source_z": -86.7804,
+      "target_x": 237.9321,
+      "target_y": 23.2474,
+      "target_z": -170.7556,
+      "distance": 105.0222,
+      "target_level": "l03_agroprom"
+    },
+    {
+      "source_x": 174.862,
+      "source_y": 19.9608,
+      "source_z": -86.7804,
+      "target_x": 240.796,
+      "target_y": 20.7928,
+      "target_z": -87.3641,
+      "distance": 67.4524,
+      "target_level": "l03_agroprom"
+    },
+    {
+      "source_x": 174.862,
+      "source_y": 19.9608,
+      "source_z": -86.7804,
+      "target_x": 156.8265,
+      "target_y": 12.292,
+      "target_z": -59.7507,
+      "distance": 32.4944,
+      "target_level": "l03_agroprom"
+    },
+    {
+      "source_x": -46.6335,
+      "source_y": -1.854,
+      "source_z": -174.4592,
+      "target_x": -39.8045,
+      "target_y": -1.7788,
+      "target_z": -169.8465,
+      "distance": 8.2409,
+      "target_level": "l03_agroprom"
+    },
+    {
+      "source_x": -46.6335,
+      "source_y": -1.854,
+      "source_z": -174.4592,
+      "target_x": -39.6525,
+      "target_y": -2.2005,
+      "target_z": -206.0902,
+      "distance": 36.4102,
+      "target_level": "l03_agroprom"
+    },
+    {
+      "source_x": -46.6335,
+      "source_y": -1.854,
+      "source_z": -174.4592,
+      "target_x": -68.1962,
+      "target_y": -1.6235,
+      "target_z": -180.0217,
+      "distance": 22.2686,
+      "target_level": "l03_agroprom"
+    },
+    {
+      "source_x": 240.1816,
+      "source_y": 23.9422,
+      "source_z": -147.6647,
+      "target_x": 237.9321,
+      "target_y": 23.2474,
+      "target_z": -170.7556,
+      "distance": 23.2001,
+      "target_level": "l03_agroprom"
+    },
+    {
+      "source_x": 240.1816,
+      "source_y": 23.9422,
+      "source_z": -147.6647,
+      "target_x": 239.6656,
+      "target_y": 24.0307,
+      "target_z": -142.5012,
+      "distance": 5.1893,
+      "target_level": "l03_agroprom"
+    },
+    {
+      "source_x": 23.4434,
+      "source_y": 0.0,
+      "source_z": 13.2313,
+      "target_x": 53.5663,
+      "target_y": -0.2,
+      "target_z": -16.4331,
+      "distance": 67.8258,
+      "target_level": "l03_agroprom"
+    },
+    {
+      "source_x": 23.4434,
+      "source_y": 0.0,
+      "source_z": 13.2313,
+      "target_x": -15.0095,
+      "target_y": -0.2,
+      "target_z": -8.8038,
+      "distance": 60.6016,
+      "target_level": "l03_agroprom"
+    },
+    {
+      "source_x": 23.4434,
+      "source_y": 0.0,
+      "source_z": 13.2313,
+      "target_x": 25.1066,
+      "target_y": 0.0,
+      "target_z": 22.4286,
+      "distance": 9.6089,
+      "target_level": "l03_agroprom"
+    },
+    {
+      "source_x": -103.295,
+      "source_y": 7.18,
+      "source_z": 39.5831,
+      "target_x": -105.6653,
+      "target_y": 8.6244,
+      "target_z": 33.8276,
+      "distance": 6.4175,
+      "target_level": "l03_agroprom"
+    },
+    {
+      "source_x": -103.295,
+      "source_y": 7.18,
+      "source_z": 39.5831,
+      "target_x": -81.3479,
+      "target_y": 2.3754,
+      "target_z": 20.3094,
+      "distance": 32.5317,
+      "target_level": "l03_agroprom"
+    },
+    {
+      "source_x": -103.295,
+      "source_y": 7.18,
+      "source_z": 39.5831,
+      "target_x": -114.779,
+      "target_y": 6.3684,
+      "target_z": 61.8483,
+      "distance": 29.1526,
+      "target_level": "l03_agroprom"
+    },
+    {
+      "source_x": 81.7604,
+      "source_y": 0.1263,
+      "source_z": -14.6865,
+      "target_x": 83.0387,
+      "target_y": 0.2426,
+      "target_z": -23.1621,
+      "distance": 12.0077,
+      "target_level": "l03_agroprom"
+    },
+    {
+      "source_x": 81.7604,
+      "source_y": 0.1263,
+      "source_z": -14.6865,
+      "target_x": 88.7976,
+      "target_y": -0.2,
+      "target_z": 45.2518,
+      "distance": 64.0308,
+      "target_level": "l03_agroprom"
+    },
+    {
+      "source_x": 81.7604,
+      "source_y": 0.1263,
+      "source_z": -14.6865,
+      "target_x": 70.6414,
+      "target_y": 0.0052,
+      "target_z": -6.8563,
+      "distance": 13.5994,
+      "target_level": "l03_agroprom"
+    },
+    {
+      "source_x": -15.0095,
+      "source_y": -0.2,
+      "source_z": -8.8038,
+      "target_x": -20.3035,
+      "target_y": -0.2,
+      "target_z": -12.6951,
+      "distance": 8.4301,
+      "target_level": "l03_agroprom"
+    },
+    {
+      "source_x": -15.0095,
+      "source_y": -0.2,
+      "source_z": -8.8038,
+      "target_x": 23.4434,
+      "target_y": 0.0,
+      "target_z": 13.2313,
+      "distance": 57.7543,
+      "target_level": "l03_agroprom"
+    },
+    {
+      "source_x": -15.0095,
+      "source_y": -0.2,
+      "source_z": -8.8038,
+      "target_x": -1.554,
+      "target_y": 7.5,
+      "target_z": 13.5932,
+      "distance": 48.8795,
+      "target_level": "l03_agroprom"
+    },
+    {
+      "source_x": -15.0095,
+      "source_y": -0.2,
+      "source_z": -8.8038,
+      "target_x": -17.14,
+      "target_y": -0.2,
+      "target_z": 20.5821,
+      "distance": 29.5351,
+      "target_level": "l03_agroprom"
+    },
+    {
+      "source_x": -162.299,
+      "source_y": -0.2402,
+      "source_z": -188.3479,
+      "target_x": -107.4392,
+      "target_y": 7.386,
+      "target_z": -206.1322,
+      "distance": 99.6152,
+      "target_level": "l03_agroprom"
+    },
+    {
+      "source_x": -162.299,
+      "source_y": -0.2402,
+      "source_z": -188.3479,
+      "target_x": -156.8225,
+      "target_y": -0.2002,
+      "target_z": -183.2628,
+      "distance": 7.4732,
+      "target_level": "l03_agroprom"
+    },
+    {
+      "source_x": -162.299,
+      "source_y": -0.2402,
+      "source_z": -188.3479,
+      "target_x": -176.3609,
+      "target_y": -0.2002,
+      "target_z": -199.1375,
+      "distance": 18.0029,
+      "target_level": "l03_agroprom"
+    },
+    {
+      "source_x": -130.0025,
+      "source_y": -0.2002,
+      "source_z": -180.6165,
+      "target_x": -109.0517,
+      "target_y": -0.2402,
+      "target_z": -183.7445,
+      "distance": 21.183,
+      "target_level": "l03_agroprom"
+    },
+    {
+      "source_x": -130.0025,
+      "source_y": -0.2002,
+      "source_z": -180.6165,
+      "target_x": -133.49,
+      "target_y": -0.2002,
+      "target_z": -143.2102,
+      "distance": 38.0922,
+      "target_level": "l03_agroprom"
+    },
+    {
+      "source_x": -130.0025,
+      "source_y": -0.2002,
+      "source_z": -180.6165,
+      "target_x": -140.6382,
+      "target_y": -0.2002,
+      "target_z": -188.366,
+      "distance": 14.7592,
+      "target_level": "l03_agroprom"
+    },
+    {
+      "source_x": 53.9085,
+      "source_y": -0.2,
+      "source_z": -9.2138,
+      "target_x": 53.5663,
+      "target_y": -0.2,
+      "target_z": -16.4331,
+      "distance": 7.2274,
+      "target_level": "l03_agroprom"
+    },
+    {
+      "source_x": 53.9085,
+      "source_y": -0.2,
+      "source_z": -9.2138,
+      "target_x": 60.3633,
+      "target_y": -0.2,
+      "target_z": -5.6338,
+      "distance": 7.3811,
+      "target_level": "l03_agroprom"
+    },
+    {
+      "source_x": -197.6868,
+      "source_y": 1.8453,
+      "source_z": 123.114,
+      "target_x": -176.4533,
+      "target_y": 4.1166,
+      "target_z": 125.588,
+      "distance": 26.1815,
+      "target_level": "l03_agroprom"
+    },
+    {
+      "source_x": -197.6868,
+      "source_y": 1.8453,
+      "source_z": 123.114,
+      "target_x": -231.0443,
+      "target_y": 11.893,
+      "target_z": 128.1487,
+      "distance": 49.2859,
+      "target_level": "l03_agroprom"
+    },
+    {
+      "source_x": -197.6868,
+      "source_y": 1.8453,
+      "source_z": 123.114,
+      "target_x": -195.9276,
+      "target_y": 1.6752,
+      "target_z": 91.2444,
+      "distance": 33.4222,
+      "target_level": "l03_agroprom"
+    },
+    {
+      "source_x": -211.213,
+      "source_y": 3.0077,
+      "source_z": -7.6559,
+      "target_x": -199.7828,
+      "target_y": 1.1806,
+      "target_z": -15.1476,
+      "distance": 15.3684,
+      "target_level": "l03_agroprom"
+    },
+    {
+      "source_x": -211.213,
+      "source_y": 3.0077,
+      "source_z": -7.6559,
+      "target_x": -217.7648,
+      "target_y": 4.4424,
+      "target_z": 42.3724,
+      "distance": 53.2012,
+      "target_level": "l03_agroprom"
+    },
+    {
+      "source_x": -92.3484,
+      "source_y": 10.0781,
+      "source_z": 138.7278,
+      "target_x": -91.0041,
+      "target_y": 9.5157,
+      "target_z": 119.2384,
+      "distance": 20.1721,
+      "target_level": "l03_agroprom"
+    },
+    {
+      "source_x": -92.3484,
+      "source_y": 10.0781,
+      "source_z": 138.7278,
+      "target_x": -75.0353,
+      "target_y": 10.1738,
+      "target_z": 133.7852,
+      "distance": 19.3493,
+      "target_level": "l03_agroprom"
+    },
+    {
+      "source_x": -92.3484,
+      "source_y": 10.0781,
+      "source_z": 138.7278,
+      "target_x": -85.3623,
+      "target_y": 11.953,
+      "target_z": 160.9191,
+      "distance": 23.8327,
+      "target_level": "l03_agroprom"
+    },
+    {
+      "source_x": -92.3484,
+      "source_y": 10.0781,
+      "source_z": 138.7278,
+      "target_x": -116.869,
+      "target_y": 8.6728,
+      "target_z": 140.8137,
+      "distance": 35.6681,
+      "target_level": "l03_agroprom"
+    },
+    {
+      "source_x": -132.5665,
+      "source_y": 11.0011,
+      "source_z": 44.1118,
+      "target_x": -105.6653,
+      "target_y": 8.6244,
+      "target_z": 33.8276,
+      "distance": 31.0462,
+      "target_level": "l03_agroprom"
+    },
+    {
+      "source_x": -132.5665,
+      "source_y": 11.0011,
+      "source_z": 44.1118,
+      "target_x": -114.779,
+      "target_y": 6.3684,
+      "target_z": 61.8483,
+      "distance": 31.2334,
+      "target_level": "l03_agroprom"
+    },
+    {
+      "source_x": -132.5665,
+      "source_y": 11.0011,
+      "source_z": 44.1118,
+      "target_x": -150.5401,
+      "target_y": 2.9859,
+      "target_z": 29.7985,
+      "distance": 31.2724,
+      "target_level": "l03_agroprom"
+    },
+    {
+      "source_x": -12.2466,
+      "source_y": 7.3445,
+      "source_z": -79.4884,
+      "target_x": -11.7868,
+      "target_y": 9.1129,
+      "target_z": -94.118,
+      "distance": 16.9483,
+      "target_level": "l03_agroprom"
+    },
+    {
+      "source_x": -12.2466,
+      "source_y": 7.3445,
+      "source_z": -79.4884,
+      "target_x": 11.2564,
+      "target_y": 0.4999,
+      "target_z": -50.7716,
+      "distance": 48.9051,
+      "target_level": "l03_agroprom"
+    },
+    {
+      "source_x": -6.3155,
+      "source_y": 3.6032,
+      "source_z": 112.4155,
+      "target_x": -0.4808,
+      "target_y": 1.1445,
+      "target_z": 85.8276,
+      "distance": 29.5672,
+      "target_level": "l03_agroprom"
+    },
+    {
+      "source_x": -6.3155,
+      "source_y": 3.6032,
+      "source_z": 112.4155,
+      "target_x": -16.7289,
+      "target_y": 5.6663,
+      "target_z": 123.4208,
+      "distance": 16.4242,
+      "target_level": "l03_agroprom"
+    },
+    {
+      "source_x": -1.554,
+      "source_y": 7.5,
+      "source_z": 13.5932,
+      "target_x": -15.0095,
+      "target_y": -0.2,
+      "target_z": -8.8038,
+      "distance": 51.8607,
+      "target_level": "l03_agroprom"
+    },
+    {
+      "source_x": 21.6652,
+      "source_y": 0.3556,
+      "source_z": -148.617,
+      "target_x": 29.2746,
+      "target_y": 6.1606,
+      "target_z": -171.0924,
+      "distance": 24.6219,
+      "target_level": "l03_agroprom"
+    },
+    {
+      "source_x": 21.6652,
+      "source_y": 0.3556,
+      "source_z": -148.617,
+      "target_x": 46.794,
+      "target_y": 0.2526,
+      "target_z": -141.4402,
+      "distance": 26.3909,
+      "target_level": "l03_agroprom"
+    },
+    {
+      "source_x": 21.6652,
+      "source_y": 0.3556,
+      "source_z": -148.617,
+      "target_x": -7.3148,
+      "target_y": -0.2164,
+      "target_z": -157.3096,
+      "distance": 33.089,
+      "target_level": "l03_agroprom"
+    },
+    {
+      "source_x": 69.7709,
+      "source_y": 15.012,
+      "source_z": 146.812,
+      "target_x": 76.9128,
+      "target_y": 16.0933,
+      "target_z": 130.9724,
+      "distance": 17.3752,
+      "target_level": "l03_agroprom"
+    },
+    {
+      "source_x": 69.7709,
+      "source_y": 15.012,
+      "source_z": 146.812,
+      "target_x": 93.9158,
+      "target_y": 9.5526,
+      "target_z": 181.1159,
+      "distance": 63.368,
+      "target_level": "l03_agroprom"
+    },
+    {
+      "source_x": 69.7709,
+      "source_y": 15.012,
+      "source_z": 146.812,
+      "target_x": 34.2409,
+      "target_y": 15.3985,
+      "target_z": 147.7518,
+      "distance": 36.9872,
+      "target_level": "l03_agroprom"
+    },
+    {
+      "source_x": 102.8799,
+      "source_y": 0.4054,
+      "source_z": -42.606,
+      "target_x": 125.7704,
+      "target_y": 1.0321,
+      "target_z": -56.8128,
+      "distance": 33.3113,
+      "target_level": "l03_agroprom"
+    },
+    {
+      "source_x": 102.8799,
+      "source_y": 0.4054,
+      "source_z": -42.606,
+      "target_x": 83.0387,
+      "target_y": 0.2426,
+      "target_z": -23.1621,
+      "distance": 34.8069,
+      "target_level": "l03_agroprom"
+    },
+    {
+      "source_x": 102.8799,
+      "source_y": 0.4054,
+      "source_z": -42.606,
+      "target_x": 94.2356,
+      "target_y": 0.4045,
+      "target_z": -64.1374,
+      "distance": 23.2206,
+      "target_level": "l03_agroprom"
+    },
+    {
+      "source_x": 80.9649,
+      "source_y": -0.8126,
+      "source_z": -238.4568,
+      "target_x": 70.4339,
+      "target_y": -2.3653,
+      "target_z": -261.3407,
+      "distance": 26.4175,
+      "target_level": "l03_agroprom"
+    },
+    {
+      "source_x": 80.9649,
+      "source_y": -0.8126,
+      "source_z": -238.4568,
+      "target_x": 100.7571,
+      "target_y": -0.0712,
+      "target_z": -232.5125,
+      "distance": 26.0359,
+      "target_level": "l03_agroprom"
+    },
+    {
+      "source_x": 80.9649,
+      "source_y": -0.8126,
+      "source_z": -238.4568,
+      "target_x": 64.2768,
+      "target_y": 0.0469,
+      "target_z": -220.9208,
+      "distance": 33.5753,
+      "target_level": "l03_agroprom"
+    },
+    {
+      "source_x": 252.7558,
+      "source_y": -0.1845,
+      "source_z": 70.415,
+      "target_x": 232.6215,
+      "target_y": -0.2,
+      "target_z": 56.8544,
+      "distance": 27.4238,
+      "target_level": "l03_agroprom"
+    },
+    {
+      "source_x": 232.9118,
+      "source_y": 0.7461,
+      "source_z": -252.4329,
+      "target_x": 250.0763,
+      "target_y": 2.3218,
+      "target_z": -252.1852,
+      "distance": 18.282,
+      "target_level": "l03_agroprom"
+    },
+    {
+      "source_x": 232.9118,
+      "source_y": 0.7461,
+      "source_z": -252.4329,
+      "target_x": 234.2029,
+      "target_y": 16.4192,
+      "target_z": -215.3967,
+      "distance": 43.8543,
+      "target_level": "l03_agroprom"
+    },
+    {
+      "source_x": 232.9118,
+      "source_y": 0.7461,
+      "source_z": -252.4329,
+      "target_x": 189.6735,
+      "target_y": 0.0817,
+      "target_z": -242.9308,
+      "distance": 50.3016,
+      "target_level": "l03_agroprom"
+    },
+    {
+      "source_x": 239.9716,
+      "source_y": 0.3145,
+      "source_z": -5.144,
+      "target_x": 251.0298,
+      "target_y": 0.3121,
+      "target_z": -5.9163,
+      "distance": 11.0851,
+      "target_level": "l03_agroprom"
+    },
+    {
+      "source_x": 239.9716,
+      "source_y": 0.3145,
+      "source_z": -5.144,
+      "target_x": 211.4955,
+      "target_y": 0.3135,
+      "target_z": -3.1455,
+      "distance": 28.5462,
+      "target_level": "l03_agroprom"
+    },
+    {
+      "source_x": 233.5901,
+      "source_y": 22.7591,
+      "source_z": -111.7066,
+      "target_x": 239.6656,
+      "target_y": 24.0307,
+      "target_z": -142.5012,
+      "distance": 36.8326,
+      "target_level": "l03_agroprom"
+    },
+    {
+      "source_x": 233.5901,
+      "source_y": 22.7591,
+      "source_z": -111.7066,
+      "target_x": 240.796,
+      "target_y": 20.7928,
+      "target_z": -87.3641,
+      "distance": 28.3577,
+      "target_level": "l03_agroprom"
+    },
+    {
+      "source_x": -40.9328,
+      "source_y": -0.2,
+      "source_z": 2.0615,
+      "target_x": -20.3035,
+      "target_y": -0.2,
+      "target_z": -12.6951,
+      "distance": 34.9621,
+      "target_level": "l03_agroprom"
+    },
+    {
+      "source_x": -40.9328,
+      "source_y": -0.2,
+      "source_z": 2.0615,
+      "target_x": -28.4871,
+      "target_y": -0.2,
+      "target_z": 19.511,
+      "distance": 26.7005,
+      "target_level": "l03_agroprom"
+    },
+    {
+      "source_x": -40.9328,
+      "source_y": -0.2,
+      "source_z": 2.0615,
+      "target_x": -56.2775,
+      "target_y": -0.0109,
+      "target_z": 3.1038,
+      "distance": 18.9399,
+      "target_level": "l03_agroprom"
+    },
+    {
+      "source_x": -133.2889,
+      "source_y": 10.0001,
+      "source_z": -199.9799,
+      "target_x": -139.1159,
+      "target_y": -0.0001,
+      "target_z": -194.0503,
+      "distance": 17.2281,
+      "target_level": "l03_agroprom"
+    },
+    {
+      "source_x": -177.1568,
+      "source_y": 5.3182,
+      "source_z": -180.7397,
+      "target_x": -176.3609,
+      "target_y": -0.2002,
+      "target_z": -199.1375,
+      "distance": 30.0346,
+      "target_level": "l03_agroprom"
+    },
+    {
+      "source_x": -158.3512,
+      "source_y": -0.2002,
+      "source_z": -140.3611,
+      "target_x": -133.49,
+      "target_y": -0.2002,
+      "target_z": -143.2102,
+      "distance": 25.0239,
+      "target_level": "l03_agroprom"
+    },
+    {
+      "source_x": -158.3512,
+      "source_y": -0.2002,
+      "source_z": -140.3611,
+      "target_x": -179.1683,
+      "target_y": 0.5581,
+      "target_z": -132.9985,
+      "distance": 33.1022,
+      "target_level": "l03_agroprom"
+    },
+    {
+      "source_x": -133.49,
+      "source_y": -0.2002,
+      "source_z": -143.2102,
+      "target_x": -130.0025,
+      "target_y": -0.2002,
+      "target_z": -180.6165,
+      "distance": 38.0767,
+      "target_level": "l03_agroprom"
+    },
+    {
+      "source_x": -133.49,
+      "source_y": -0.2002,
+      "source_z": -143.2102,
+      "target_x": -112.9915,
+      "target_y": 0.0029,
+      "target_z": -140.7615,
+      "distance": 22.3985,
+      "target_level": "l03_agroprom"
+    },
+    {
+      "source_x": -133.49,
+      "source_y": -0.2002,
+      "source_z": -143.2102,
+      "target_x": -158.3512,
+      "target_y": -0.2002,
+      "target_z": -140.3611,
+      "distance": 25.0239,
+      "target_level": "l03_agroprom"
+    },
+    {
+      "source_x": -106.0848,
+      "source_y": 7.386,
+      "source_z": -152.2113,
+      "target_x": -112.9915,
+      "target_y": 0.0029,
+      "target_z": -140.7615,
+      "distance": 29.3204,
+      "target_level": "l03_agroprom"
+    },
+    {
+      "source_x": -105.2794,
+      "source_y": -0.0002,
+      "source_z": -161.1436,
+      "target_x": -112.9915,
+      "target_y": 0.0029,
+      "target_z": -140.7615,
+      "distance": 23.3258,
+      "target_level": "l03_agroprom"
+    },
+    {
+      "source_x": -105.2794,
+      "source_y": -0.0002,
+      "source_z": -161.1436,
+      "target_x": -109.0517,
+      "target_y": -0.2402,
+      "target_z": -183.7445,
+      "distance": 24.0114,
+      "target_level": "l03_agroprom"
+    },
+    {
+      "source_x": -107.4392,
+      "source_y": 7.386,
+      "source_z": -206.1322,
+      "target_x": -109.0517,
+      "target_y": -0.2402,
+      "target_z": -183.7445,
+      "distance": 45.6759,
+      "target_level": "l03_agroprom"
+    },
+    {
+      "source_x": -107.4392,
+      "source_y": 7.386,
+      "source_z": -206.1322,
+      "target_x": -162.299,
+      "target_y": -0.2402,
+      "target_z": -188.3479,
+      "distance": 84.8459,
+      "target_level": "l03_agroprom"
+    },
+    {
+      "source_x": -39.6525,
+      "source_y": -2.2005,
+      "source_z": -206.0902,
+      "target_x": -75.6719,
+      "target_y": 8.3888,
+      "target_z": -253.5432,
+      "distance": 59.575,
+      "target_level": "l03_agroprom"
+    },
+    {
+      "source_x": -39.6525,
+      "source_y": -2.2005,
+      "source_z": -206.0902,
+      "target_x": 3.0399,
+      "target_y": -1.4818,
+      "target_z": -209.3359,
+      "distance": 42.8156,
+      "target_level": "l03_agroprom"
+    },
+    {
+      "source_x": -39.6525,
+      "source_y": -2.2005,
+      "source_z": -206.0902,
+      "target_x": -46.6335,
+      "target_y": -1.854,
+      "target_z": -174.4592,
+      "distance": 37.8261,
+      "target_level": "l03_agroprom"
+    },
+    {
+      "source_x": -75.6719,
+      "source_y": 8.3888,
+      "source_z": -253.5432,
+      "target_x": -51.6507,
+      "target_y": 1.1852,
+      "target_z": -279.3351,
+      "distance": 35.2454,
+      "target_level": "l03_agroprom"
+    },
+    {
+      "source_x": -75.6719,
+      "source_y": 8.3888,
+      "source_z": -253.5432,
+      "target_x": -39.6525,
+      "target_y": -2.2005,
+      "target_z": -206.0902,
+      "distance": 59.575,
+      "target_level": "l03_agroprom"
+    },
+    {
+      "source_x": -75.6719,
+      "source_y": 8.3888,
+      "source_z": -253.5432,
+      "target_x": -92.2555,
+      "target_y": 6.0359,
+      "target_z": -289.6477,
+      "distance": 39.731,
+      "target_level": "l03_agroprom"
+    },
+    {
+      "source_x": -51.6507,
+      "source_y": 1.1852,
+      "source_z": -279.3351,
+      "target_x": 18.3031,
+      "target_y": 4.9619,
+      "target_z": -280.5019,
+      "distance": 74.808,
+      "target_level": "l03_agroprom"
+    },
+    {
+      "source_x": -51.6507,
+      "source_y": 1.1852,
+      "source_z": -279.3351,
+      "target_x": -75.6719,
+      "target_y": 8.3888,
+      "target_z": -253.5432,
+      "distance": 35.2454,
+      "target_level": "l03_agroprom"
+    },
+    {
+      "source_x": 18.3031,
+      "source_y": 4.9619,
+      "source_z": -280.5019,
+      "target_x": 70.4339,
+      "target_y": -2.3653,
+      "target_z": -261.3407,
+      "distance": 98.61,
+      "target_level": "l03_agroprom"
+    },
+    {
+      "source_x": 18.3031,
+      "source_y": 4.9619,
+      "source_z": -280.5019,
+      "target_x": -0.3524,
+      "target_y": -3.7654,
+      "target_z": -329.2753,
+      "distance": 56.5175,
+      "target_level": "l03_agroprom"
+    },
+    {
+      "source_x": 18.3031,
+      "source_y": 4.9619,
+      "source_z": -280.5019,
+      "target_x": 3.0399,
+      "target_y": -1.4818,
+      "target_z": -209.3359,
+      "distance": 73.7563,
+      "target_level": "l03_agroprom"
+    },
+    {
+      "source_x": 18.3031,
+      "source_y": 4.9619,
+      "source_z": -280.5019,
+      "target_x": -51.6507,
+      "target_y": 1.1852,
+      "target_z": -279.3351,
+      "distance": 73.3501,
+      "target_level": "l03_agroprom"
+    },
+    {
+      "source_x": -92.2555,
+      "source_y": 6.0359,
+      "source_z": -289.6477,
+      "target_x": -75.6719,
+      "target_y": 8.3888,
+      "target_z": -253.5432,
+      "distance": 39.731,
+      "target_level": "l03_agroprom"
+    },
+    {
+      "source_x": -92.2555,
+      "source_y": 6.0359,
+      "source_z": -289.6477,
+      "target_x": -133.0009,
+      "target_y": 0.9358,
+      "target_z": -322.5729,
+      "distance": 52.3857,
+      "target_level": "l03_agroprom"
+    },
+    {
+      "source_x": -133.0009,
+      "source_y": 0.9358,
+      "source_z": -322.5729,
+      "target_x": -92.2555,
+      "target_y": 6.0359,
+      "target_z": -289.6477,
+      "distance": 52.3857,
+      "target_level": "l03_agroprom"
+    },
+    {
+      "source_x": -133.0009,
+      "source_y": 0.9358,
+      "source_z": -322.5729,
+      "target_x": -163.0292,
+      "target_y": 4.0305,
+      "target_z": -285.7178,
+      "distance": 47.5394,
+      "target_level": "l03_agroprom"
+    },
+    {
+      "source_x": -163.0292,
+      "source_y": 4.0305,
+      "source_z": -285.7178,
+      "target_x": -186.4544,
+      "target_y": 1.8736,
+      "target_z": -319.1025,
+      "distance": 43.371,
+      "target_level": "l03_agroprom"
+    },
+    {
+      "source_x": -163.0292,
+      "source_y": 4.0305,
+      "source_z": -285.7178,
+      "target_x": -133.0009,
+      "target_y": 0.9358,
+      "target_z": -322.5729,
+      "distance": 47.5394,
+      "target_level": "l03_agroprom"
+    },
+    {
+      "source_x": -163.0292,
+      "source_y": 4.0305,
+      "source_z": -285.7178,
+      "target_x": -191.9501,
+      "target_y": 2.2825,
+      "target_z": -252.3365,
+      "distance": 44.1671,
+      "target_level": "l03_agroprom"
+    },
+    {
+      "source_x": -191.9501,
+      "source_y": 2.2825,
+      "source_z": -252.3365,
+      "target_x": -163.0292,
+      "target_y": 4.0305,
+      "target_z": -285.7178,
+      "distance": 44.1671,
+      "target_level": "l03_agroprom"
+    },
+    {
+      "source_x": -191.9501,
+      "source_y": 2.2825,
+      "source_z": -252.3365,
+      "target_x": -224.0046,
+      "target_y": 3.9743,
+      "target_z": -189.3886,
+      "distance": 92.6063,
+      "target_level": "l03_agroprom"
+    },
+    {
+      "source_x": -224.0046,
+      "source_y": 3.9743,
+      "source_z": -189.3886,
+      "target_x": -191.9501,
+      "target_y": 2.2825,
+      "target_z": -252.3365,
+      "distance": 76.4964,
+      "target_level": "l03_agroprom"
+    },
+    {
+      "source_x": -224.0046,
+      "source_y": 3.9743,
+      "source_z": -189.3886,
+      "target_x": -192.587,
+      "target_y": -0.2002,
+      "target_z": -134.4172,
+      "distance": 102.5415,
+      "target_level": "l03_agroprom"
+    },
+    {
+      "source_x": -210.5861,
+      "source_y": 2.4795,
+      "source_z": -65.5406,
+      "target_x": -181.3504,
+      "target_y": 1.4986,
+      "target_z": -75.09,
+      "distance": 31.1767,
+      "target_level": "l03_agroprom"
+    },
+    {
+      "source_x": -210.5861,
+      "source_y": 2.4795,
+      "source_z": -65.5406,
+      "target_x": -189.3545,
+      "target_y": -0.4124,
+      "target_z": -42.4081,
+      "distance": 31.3989,
+      "target_level": "l03_agroprom"
+    },
+    {
+      "source_x": 3.0399,
+      "source_y": -1.4818,
+      "source_z": -209.3359,
+      "target_x": 18.3031,
+      "target_y": 4.9619,
+      "target_z": -280.5019,
+      "distance": 75.5437,
+      "target_level": "l03_agroprom"
+    },
+    {
+      "source_x": 3.0399,
+      "source_y": -1.4818,
+      "source_z": -209.3359,
+      "target_x": 29.2746,
+      "target_y": 6.1606,
+      "target_z": -171.0924,
+      "distance": 46.377,
+      "target_level": "l03_agroprom"
+    },
+    {
+      "source_x": 3.0399,
+      "source_y": -1.4818,
+      "source_z": -209.3359,
+      "target_x": -39.6525,
+      "target_y": -2.2005,
+      "target_z": -206.0902,
+      "distance": 42.8156,
+      "target_level": "l03_agroprom"
+    },
+    {
+      "source_x": -52.4936,
+      "source_y": 0.369,
+      "source_z": -42.0405,
+      "target_x": -75.2294,
+      "target_y": 9.9346,
+      "target_z": -105.719,
+      "distance": 67.6156,
+      "target_level": "l03_agroprom"
+    },
+    {
+      "source_x": -52.4936,
+      "source_y": 0.369,
+      "source_z": -42.0405,
+      "target_x": -47.228,
+      "target_y": 0.3623,
+      "target_z": -40.1556,
+      "distance": 5.5928,
+      "target_level": "l03_agroprom"
+    },
+    {
+      "source_x": -231.0443,
+      "source_y": 11.893,
+      "source_z": 128.1487,
+      "target_x": -217.7648,
+      "target_y": 4.4424,
+      "target_z": 42.3724,
+      "distance": 86.7981,
+      "target_level": "l03_agroprom"
+    },
+    {
+      "source_x": -231.0443,
+      "source_y": 11.893,
+      "source_z": 128.1487,
+      "target_x": -197.6868,
+      "target_y": 1.8453,
+      "target_z": 123.114,
+      "distance": 48.3482,
+      "target_level": "l03_agroprom"
+    },
+    {
+      "source_x": -231.0443,
+      "source_y": 11.893,
+      "source_z": 128.1487,
+      "target_x": -225.2022,
+      "target_y": 13.2444,
+      "target_z": 208.4006,
+      "distance": 94.3776,
+      "target_level": "l03_agroprom"
+    },
+    {
+      "source_x": -173.9317,
+      "source_y": 22.1794,
+      "source_z": 182.8914,
+      "target_x": -156.6989,
+      "target_y": 17.1381,
+      "target_z": 146.5258,
+      "distance": 49.4904,
+      "target_level": "l03_agroprom"
+    },
+    {
+      "source_x": -173.9317,
+      "source_y": 22.1794,
+      "source_z": 182.8914,
+      "target_x": -150.4292,
+      "target_y": 20.7995,
+      "target_z": 200.7586,
+      "distance": 29.5229,
+      "target_level": "l03_agroprom"
+    },
+    {
+      "source_x": -173.9317,
+      "source_y": 22.1794,
+      "source_z": 182.8914,
+      "target_x": -225.2022,
+      "target_y": 13.2444,
+      "target_z": 208.4006,
+      "distance": 70.3766,
+      "target_level": "l03_agroprom"
+    },
+    {
+      "source_x": 126.924,
+      "source_y": 0.0365,
+      "source_z": -280.2616,
+      "target_x": 136.2505,
+      "target_y": 1.4628,
+      "target_z": -227.4901,
+      "distance": 59.3641,
+      "target_level": "l03_agroprom"
+    },
+    {
+      "source_x": 126.924,
+      "source_y": 0.0365,
+      "source_z": -280.2616,
+      "target_x": 435.718,
+      "target_y": 2.4168,
+      "target_z": 449.0321,
+      "distance": 277.0276,
+      "target_level": "k00_marsh"
+    },
+    {
+      "source_x": -186.4544,
+      "source_y": 1.8736,
+      "source_z": -319.1025,
+      "target_x": -163.0292,
+      "target_y": 4.0305,
+      "target_z": -285.7178,
+      "distance": 53.6503,
+      "target_level": "l03_agroprom"
+    },
+    {
+      "source_x": -186.4544,
+      "source_y": 1.8736,
+      "source_z": -319.1025,
+      "target_x": -255.6244,
+      "target_y": 0.2737,
+      "target_z": 375.9263,
+      "distance": 441.4516,
+      "target_level": "k00_marsh"
+    },
+    {
+      "source_x": -110.1635,
+      "source_y": 13.347,
+      "source_z": 184.31,
+      "target_x": -127.4292,
+      "target_y": 10.0812,
+      "target_z": 153.4599,
+      "distance": 40.8703,
+      "target_level": "l03_agroprom"
+    },
+    {
+      "source_x": -110.1635,
+      "source_y": 13.347,
+      "source_z": 184.31,
+      "target_x": -93.4841,
+      "target_y": 15.5526,
+      "target_z": 187.5948,
+      "distance": 17.5535,
+      "target_level": "l03_agroprom"
+    },
+    {
+      "source_x": -110.1635,
+      "source_y": 13.347,
+      "source_z": 184.31,
+      "target_x": -150.4292,
+      "target_y": 20.7995,
+      "target_z": 200.7586,
+      "distance": 43.4957,
+      "target_level": "l03_agroprom"
+    },
+    {
+      "source_x": -52.993,
+      "source_y": 12.0433,
+      "source_z": 180.454,
+      "target_x": -56.1692,
+      "target_y": 9.6052,
+      "target_z": 133.232,
+      "distance": 47.3287,
+      "target_level": "l03_agroprom"
+    },
+    {
+      "source_x": -52.993,
+      "source_y": 12.0433,
+      "source_z": 180.454,
+      "target_x": -85.3623,
+      "target_y": 11.953,
+      "target_z": 160.9191,
+      "distance": 37.8073,
+      "target_level": "l03_agroprom"
+    },
+    {
+      "source_x": -85.3623,
+      "source_y": 11.953,
+      "source_z": 160.9191,
+      "target_x": -92.3484,
+      "target_y": 10.0781,
+      "target_z": 138.7278,
+      "distance": 23.9824,
+      "target_level": "l03_agroprom"
+    },
+    {
+      "source_x": -85.3623,
+      "source_y": 11.953,
+      "source_z": 160.9191,
+      "target_x": -52.993,
+      "target_y": 12.0433,
+      "target_z": 180.454,
+      "distance": 37.8073,
+      "target_level": "l03_agroprom"
+    },
+    {
+      "source_x": -85.3623,
+      "source_y": 11.953,
+      "source_z": 160.9191,
+      "target_x": -93.4841,
+      "target_y": 15.5526,
+      "target_z": 187.5948,
+      "distance": 34.8353,
+      "target_level": "l03_agroprom"
+    },
+    {
+      "source_x": 30.3631,
+      "source_y": 13.8093,
+      "source_z": 124.497,
+      "target_x": 59.7162,
+      "target_y": 13.1165,
+      "target_z": 113.7885,
+      "distance": 31.2454,
+      "target_level": "l03_agroprom"
+    },
+    {
+      "source_x": 30.3631,
+      "source_y": 13.8093,
+      "source_z": 124.497,
+      "target_x": 34.2409,
+      "target_y": 15.3985,
+      "target_z": 147.7518,
+      "distance": 23.5759,
+      "target_level": "l03_agroprom"
+    },
+    {
+      "source_x": 30.3631,
+      "source_y": 13.8093,
+      "source_z": 124.497,
+      "target_x": 10.2008,
+      "target_y": 1.8771,
+      "target_z": 89.5824,
+      "distance": 53.0472,
+      "target_level": "l03_agroprom"
+    },
+    {
+      "source_x": 35.4698,
+      "source_y": 19.5964,
+      "source_z": 199.3021,
+      "target_x": 34.2409,
+      "target_y": 15.3985,
+      "target_z": 147.7518,
+      "distance": 52.734,
+      "target_level": "l03_agroprom"
+    },
+    {
+      "source_x": 35.4698,
+      "source_y": 19.5964,
+      "source_z": 199.3021,
+      "target_x": 70.6876,
+      "target_y": 10.8997,
+      "target_z": 203.0131,
+      "distance": 52.522,
+      "target_level": "l03_agroprom"
+    },
+    {
+      "source_x": 93.9158,
+      "source_y": 9.5526,
+      "source_z": 181.1159,
+      "target_x": 92.351,
+      "target_y": 17.6472,
+      "target_z": 121.8161,
+      "distance": 60.3179,
+      "target_level": "l03_agroprom"
+    },
+    {
+      "source_x": 93.9158,
+      "source_y": 9.5526,
+      "source_z": 181.1159,
+      "target_x": 69.7709,
+      "target_y": 15.012,
+      "target_z": 146.812,
+      "distance": 59.5989,
+      "target_level": "l03_agroprom"
+    },
+    {
+      "source_x": 93.9158,
+      "source_y": 9.5526,
+      "source_z": 181.1159,
+      "target_x": 136.1123,
+      "target_y": 14.4938,
+      "target_z": 172.2701,
+      "distance": 43.8257,
+      "target_level": "l03_agroprom"
+    },
+    {
+      "source_x": 93.9158,
+      "source_y": 9.5526,
+      "source_z": 181.1159,
+      "target_x": 70.6876,
+      "target_y": 10.8997,
+      "target_z": 203.0131,
+      "distance": 31.9224,
+      "target_level": "l03_agroprom"
+    },
+    {
+      "source_x": 136.1123,
+      "source_y": 14.4938,
+      "source_z": 172.2701,
+      "target_x": 184.1742,
+      "target_y": 19.8457,
+      "target_z": 136.8795,
+      "distance": 64.3521,
+      "target_level": "l03_agroprom"
+    },
+    {
+      "source_x": 136.1123,
+      "source_y": 14.4938,
+      "source_z": 172.2701,
+      "target_x": 93.9158,
+      "target_y": 9.5526,
+      "target_z": 181.1159,
+      "distance": 43.6014,
+      "target_level": "l03_agroprom"
+    },
+    {
+      "source_x": 184.1742,
+      "source_y": 19.8457,
+      "source_z": 136.8795,
+      "target_x": 172.9152,
+      "target_y": 15.5338,
+      "target_z": 114.3871,
+      "distance": 25.1531,
+      "target_level": "l03_agroprom"
+    },
+    {
+      "source_x": 184.1742,
+      "source_y": 19.8457,
+      "source_z": 136.8795,
+      "target_x": 207.4886,
+      "target_y": 21.5295,
+      "target_z": 115.3729,
+      "distance": 31.719,
+      "target_level": "l03_agroprom"
+    },
+    {
+      "source_x": 184.1742,
+      "source_y": 19.8457,
+      "source_z": 136.8795,
+      "target_x": 136.1123,
+      "target_y": 14.4938,
+      "target_z": 172.2701,
+      "distance": 63.945,
+      "target_level": "l03_agroprom"
+    },
+    {
+      "source_x": 207.4886,
+      "source_y": 21.5295,
+      "source_z": 115.3729,
+      "target_x": 253.8523,
+      "target_y": 26.689,
+      "target_z": 150.4974,
+      "distance": 59.2365,
+      "target_level": "l03_agroprom"
+    },
+    {
+      "source_x": 207.4886,
+      "source_y": 21.5295,
+      "source_z": 115.3729,
+      "target_x": 184.1742,
+      "target_y": 19.8457,
+      "target_z": 136.8795,
+      "distance": 31.719,
+      "target_level": "l03_agroprom"
+    },
+    {
+      "source_x": 172.9152,
+      "source_y": 15.5338,
+      "source_z": 114.3871,
+      "target_x": 163.021,
+      "target_y": 8.5944,
+      "target_z": 85.2361,
+      "distance": 30.7843,
+      "target_level": "l03_agroprom"
+    },
+    {
+      "source_x": 172.9152,
+      "source_y": 15.5338,
+      "source_z": 114.3871,
+      "target_x": 184.1742,
+      "target_y": 19.8457,
+      "target_z": 136.8795,
+      "distance": 25.1531,
+      "target_level": "l03_agroprom"
+    },
+    {
+      "source_x": 163.021,
+      "source_y": 8.5944,
+      "source_z": 85.2361,
+      "target_x": 183.1462,
+      "target_y": -0.2,
+      "target_z": 45.5197,
+      "distance": 81.6228,
+      "target_level": "l03_agroprom"
+    },
+    {
+      "source_x": 163.021,
+      "source_y": 8.5944,
+      "source_z": 85.2361,
+      "target_x": 172.9152,
+      "target_y": 15.5338,
+      "target_z": 114.3871,
+      "distance": 30.7843,
+      "target_level": "l03_agroprom"
+    },
+    {
+      "source_x": 163.021,
+      "source_y": 8.5944,
+      "source_z": 85.2361,
+      "target_x": 148.3408,
+      "target_y": 0.1726,
+      "target_z": 53.7505,
+      "distance": 37.1969,
+      "target_level": "l03_agroprom"
+    },
+    {
+      "source_x": 163.021,
+      "source_y": 8.5944,
+      "source_z": 85.2361,
+      "target_x": 125.6174,
+      "target_y": 4.9221,
+      "target_z": 77.9876,
+      "distance": 38.0995,
+      "target_level": "l03_agroprom"
+    },
+    {
+      "source_x": 119.5789,
+      "source_y": 12.523,
+      "source_z": 118.6824,
+      "target_x": 96.4809,
+      "target_y": 16.6512,
+      "target_z": 105.8358,
+      "distance": 26.4301,
+      "target_level": "l03_agroprom"
+    },
+    {
+      "source_x": 59.7162,
+      "source_y": 13.1165,
+      "source_z": 113.7885,
+      "target_x": 76.9128,
+      "target_y": 16.0933,
+      "target_z": 130.9724,
+      "distance": 27.6142,
+      "target_level": "l03_agroprom"
+    },
+    {
+      "source_x": 59.7162,
+      "source_y": 13.1165,
+      "source_z": 113.7885,
+      "target_x": 30.3631,
+      "target_y": 13.8093,
+      "target_z": 124.497,
+      "distance": 31.2454,
+      "target_level": "l03_agroprom"
+    },
+    {
+      "source_x": 52.7569,
+      "source_y": 0.9504,
+      "source_z": 74.8302,
+      "target_x": 88.7976,
+      "target_y": -0.2,
+      "target_z": 45.2518,
+      "distance": 46.6242,
+      "target_level": "l03_agroprom"
+    },
+    {
+      "source_x": 52.7569,
+      "source_y": 0.9504,
+      "source_z": 74.8302,
+      "target_x": 10.2008,
+      "target_y": 1.8771,
+      "target_z": 89.5824,
+      "distance": 49.6501,
+      "target_level": "l03_agroprom"
+    },
+    {
+      "source_x": 52.7569,
+      "source_y": 0.9504,
+      "source_z": 74.8302,
+      "target_x": 52.7252,
+      "target_y": -0.2,
+      "target_z": 36.673,
+      "distance": 42.9018,
+      "target_level": "l03_agroprom"
+    },
+    {
+      "source_x": -49.6748,
+      "source_y": 0.2385,
+      "source_z": 78.2195,
+      "target_x": -0.4808,
+      "target_y": 1.1445,
+      "target_z": 85.8276,
+      "distance": 53.639,
+      "target_level": "l03_agroprom"
+    },
+    {
+      "source_x": -49.6748,
+      "source_y": 0.2385,
+      "source_z": 78.2195,
+      "target_x": -36.9616,
+      "target_y": 7.0419,
+      "target_z": 126.3175,
+      "distance": 54.1729,
+      "target_level": "l03_agroprom"
+    },
+    {
+      "source_x": -49.6748,
+      "source_y": 0.2385,
+      "source_z": 78.2195,
+      "target_x": -89.9367,
+      "target_y": 7.2737,
+      "target_z": 103.4232,
+      "distance": 47.5001,
+      "target_level": "l03_agroprom"
+    },
+    {
+      "source_x": -49.6748,
+      "source_y": 0.2385,
+      "source_z": 78.2195,
+      "target_x": -81.3479,
+      "target_y": 2.3754,
+      "target_z": 20.3094,
+      "distance": 71.6684,
+      "target_level": "l03_agroprom"
+    },
+    {
+      "source_x": -135.3574,
+      "source_y": 10.1741,
+      "source_z": 117.9005,
+      "target_x": -119.5042,
+      "target_y": 7.0385,
+      "target_z": 73.6856,
+      "distance": 46.9711,
+      "target_level": "l03_agroprom"
+    },
+    {
+      "source_x": -135.3574,
+      "source_y": 10.1741,
+      "source_z": 117.9005,
+      "target_x": -116.869,
+      "target_y": 8.6728,
+      "target_z": 140.8137,
+      "distance": 29.4421,
+      "target_level": "l03_agroprom"
+    },
+    {
+      "source_x": -135.3574,
+      "source_y": 10.1741,
+      "source_z": 117.9005,
+      "target_x": -156.6989,
+      "target_y": 17.1381,
+      "target_z": 146.5258,
+      "distance": 44.8868,
+      "target_level": "l03_agroprom"
+    },
+    {
+      "source_x": -135.3574,
+      "source_y": 10.1741,
+      "source_z": 117.9005,
+      "target_x": -159.2845,
+      "target_y": 3.6601,
+      "target_z": 84.3354,
+      "distance": 52.1532,
+      "target_level": "l03_agroprom"
+    },
+    {
+      "source_x": 253.8523,
+      "source_y": 26.689,
+      "source_z": 150.4974,
+      "target_x": 207.4886,
+      "target_y": 21.5295,
+      "target_z": 115.3729,
+      "distance": 58.9774,
+      "target_level": "l03_agroprom"
+    },
+    {
+      "source_x": 253.8523,
+      "source_y": 26.689,
+      "source_z": 150.4974,
+      "target_x": -274.8936,
+      "target_y": 0.3592,
+      "target_z": 31.6937,
+      "distance": 252.5092,
+      "target_level": "l02_garbage"
+    },
+    {
+      "source_x": -150.4292,
+      "source_y": 20.7995,
+      "source_z": 200.7586,
+      "target_x": -173.9317,
+      "target_y": 22.1794,
+      "target_z": 182.8914,
+      "distance": 29.5229,
+      "target_level": "l03_agroprom"
+    },
+    {
+      "source_x": -150.4292,
+      "source_y": 20.7995,
+      "source_z": 200.7586,
+      "target_x": -110.1635,
+      "target_y": 13.347,
+      "target_z": 184.31,
+      "distance": 43.4957,
+      "target_level": "l03_agroprom"
+    },
+    {
+      "source_x": -150.4292,
+      "source_y": 20.7995,
+      "source_z": 200.7586,
+      "target_x": -72.2512,
+      "target_y": 9.2116,
+      "target_z": -377.6806,
+      "distance": 422.2842,
+      "target_level": "l08_yantar"
+    },
+    {
+      "source_x": -93.4841,
+      "source_y": 15.5526,
+      "source_z": 187.5948,
+      "target_x": -85.3623,
+      "target_y": 11.953,
+      "target_z": 160.9191,
+      "distance": 28.5634,
+      "target_level": "l03_agroprom"
+    },
+    {
+      "source_x": -93.4841,
+      "source_y": 15.5526,
+      "source_z": 187.5948,
+      "target_x": -110.1635,
+      "target_y": 13.347,
+      "target_z": 184.31,
+      "distance": 17.6234,
+      "target_level": "l03_agroprom"
+    },
+    {
+      "source_x": -93.4841,
+      "source_y": 15.5526,
+      "source_z": 187.5948,
+      "target_x": -109.0127,
+      "target_y": 0.4379,
+      "target_z": -129.6561,
+      "distance": 692.6196,
+      "target_level": "l08_yantar"
+    },
+    {
+      "source_x": -47.228,
+      "source_y": 0.3623,
+      "source_z": -40.1556,
+      "target_x": -52.4936,
+      "target_y": 0.369,
+      "target_z": -42.0405,
+      "distance": 5.5928,
+      "target_level": "l03_agroprom"
+    },
+    {
+      "source_x": -47.228,
+      "source_y": 0.3623,
+      "source_z": -40.1556,
+      "target_x": 11.2564,
+      "target_y": 0.4999,
+      "target_z": -50.7716,
+      "distance": 64.4755,
+      "target_level": "l03_agroprom"
+    },
+    {
+      "source_x": -47.228,
+      "source_y": 0.3623,
+      "source_z": -40.1556,
+      "target_x": -60.3013,
+      "target_y": -0.022,
+      "target_z": -5.0589,
+      "distance": 38.3539,
+      "target_level": "l03_agroprom"
+    },
+    {
+      "source_x": -38.9085,
+      "source_y": 0.0,
+      "source_z": 46.3879,
+      "target_x": -38.1825,
+      "target_y": -4.3703,
+      "target_z": 42.8447,
+      "distance": 3.6168,
+      "target_level": "l03_agroprom"
+    },
+    {
+      "source_x": -38.9085,
+      "source_y": 0.0,
+      "source_z": 46.3879,
+      "target_x": -28.4871,
+      "target_y": -0.2,
+      "target_z": 19.511,
+      "distance": 38.0233,
+      "target_level": "l03_agroprom"
+    },
+    {
+      "source_x": -112.9915,
+      "source_y": 0.0029,
+      "source_z": -140.7615,
+      "target_x": -105.2794,
+      "target_y": -0.0002,
+      "target_z": -161.1436,
+      "distance": 24.3849,
+      "target_level": "l03_agroprom"
+    },
+    {
+      "source_x": -112.9915,
+      "source_y": 0.0029,
+      "source_z": -140.7615,
+      "target_x": -106.0848,
+      "target_y": 7.386,
+      "target_z": -152.2113,
+      "distance": 29.5217,
+      "target_level": "l03_agroprom"
+    },
+    {
+      "source_x": -112.9915,
+      "source_y": 0.0029,
+      "source_z": -140.7615,
+      "target_x": -133.49,
+      "target_y": -0.2002,
+      "target_z": -143.2102,
+      "distance": 22.1769,
+      "target_level": "l03_agroprom"
+    },
+    {
+      "source_x": -70.1938,
+      "source_y": 1.3831,
+      "source_z": 12.0668,
+      "target_x": -56.2775,
+      "target_y": -0.0109,
+      "target_z": 3.1038,
+      "distance": 21.2301,
+      "target_level": "l03_agroprom"
+    },
+    {
+      "source_x": -70.1938,
+      "source_y": 1.3831,
+      "source_z": 12.0668,
+      "target_x": -68.4458,
+      "target_y": 1.141,
+      "target_z": 15.5886,
+      "distance": 3.9317,
+      "target_level": "l03_agroprom"
+    },
+    {
+      "source_x": -38.1825,
+      "source_y": -4.3703,
+      "source_z": 42.8447,
+      "target_x": -38.9085,
+      "target_y": 0.0,
+      "target_z": 46.3879,
+      "distance": 14.7995,
+      "target_level": "l03_agroprom"
+    },
+    {
+      "source_x": -38.1825,
+      "source_y": -4.3703,
+      "source_z": 42.8447,
+      "target_x": 68.2746,
+      "target_y": 7.9527,
+      "target_z": 109.4948,
+      "distance": 936.8359,
+      "target_level": "l03u_agr_underground"
+    }
+  ]
+}

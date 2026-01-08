@@ -1,0 +1,6319 @@
+{
+  "level_name": "l10_radar",
+  "level_id": 13,
+  "edge_count": 631,
+  "intra_level_edges": 621,
+  "inter_level_edges": 10,
+  "edges": [
+    {
+      "source_x": 565.058,
+      "source_y": -53.3917,
+      "source_z": -410.8459,
+      "target_x": 568.3264,
+      "target_y": -53.4707,
+      "target_z": -408.6856,
+      "distance": 3.9178,
+      "target_level": "l10_radar"
+    },
+    {
+      "source_x": 565.058,
+      "source_y": -53.3917,
+      "source_z": -410.8459,
+      "target_x": 541.2036,
+      "target_y": -50.0309,
+      "target_z": -415.0078,
+      "distance": 38.6394,
+      "target_level": "l10_radar"
+    },
+    {
+      "source_x": 576.6421,
+      "source_y": -56.4996,
+      "source_z": -248.7355,
+      "target_x": 594.6651,
+      "target_y": -53.1819,
+      "target_z": -267.558,
+      "distance": 26.0598,
+      "target_level": "l10_radar"
+    },
+    {
+      "source_x": 576.6421,
+      "source_y": -56.4996,
+      "source_z": -248.7355,
+      "target_x": 561.8726,
+      "target_y": -59.4388,
+      "target_z": -230.1516,
+      "distance": 23.7382,
+      "target_level": "l10_radar"
+    },
+    {
+      "source_x": 376.7394,
+      "source_y": -50.0,
+      "source_z": 7.9915,
+      "target_x": 423.6263,
+      "target_y": -50.0,
+      "target_z": 11.0749,
+      "distance": 46.9882,
+      "target_level": "l10_radar"
+    },
+    {
+      "source_x": 376.7394,
+      "source_y": -50.0,
+      "source_z": 7.9915,
+      "target_x": 376.9782,
+      "target_y": -51.1999,
+      "target_z": 29.9929,
+      "distance": 22.0027,
+      "target_level": "l10_radar"
+    },
+    {
+      "source_x": 376.7394,
+      "source_y": -50.0,
+      "source_z": 7.9915,
+      "target_x": 350.353,
+      "target_y": -50.0,
+      "target_z": 8.2287,
+      "distance": 26.3874,
+      "target_level": "l10_radar"
+    },
+    {
+      "source_x": 386.1828,
+      "source_y": -33.4223,
+      "source_z": 162.0417,
+      "target_x": 382.5801,
+      "target_y": -33.6985,
+      "target_z": 154.4859,
+      "distance": 10.6485,
+      "target_level": "l10_radar"
+    },
+    {
+      "source_x": 386.1828,
+      "source_y": -33.4223,
+      "source_z": 162.0417,
+      "target_x": 45.1514,
+      "target_y": -2.2363,
+      "target_z": -290.2832,
+      "distance": 806.374,
+      "target_level": "l11_pripyat"
+    },
+    {
+      "source_x": 386.2622,
+      "source_y": -35.2383,
+      "source_z": 130.8273,
+      "target_x": 383.9492,
+      "target_y": -38.8638,
+      "target_z": 110.9703,
+      "distance": 19.9912,
+      "target_level": "l10_radar"
+    },
+    {
+      "source_x": 386.2622,
+      "source_y": -35.2383,
+      "source_z": 130.8273,
+      "target_x": 383.9754,
+      "target_y": -33.9761,
+      "target_z": 141.8694,
+      "distance": 11.2764,
+      "target_level": "l10_radar"
+    },
+    {
+      "source_x": 541.2036,
+      "source_y": -50.0309,
+      "source_z": -415.0078,
+      "target_x": 565.058,
+      "target_y": -53.3917,
+      "target_z": -410.8459,
+      "distance": 36.4724,
+      "target_level": "l10_radar"
+    },
+    {
+      "source_x": 541.2036,
+      "source_y": -50.0309,
+      "source_z": -415.0078,
+      "target_x": 144.925,
+      "target_y": -7.9425,
+      "target_z": 429.7721,
+      "distance": 1028.925,
+      "target_level": "l07_military"
+    },
+    {
+      "source_x": 568.3264,
+      "source_y": -53.4707,
+      "source_z": -408.6856,
+      "target_x": 565.058,
+      "target_y": -53.3917,
+      "target_z": -410.8459,
+      "distance": 3.9178,
+      "target_level": "l10_radar"
+    },
+    {
+      "source_x": 568.3264,
+      "source_y": -53.4707,
+      "source_z": -408.6856,
+      "target_x": 572.0723,
+      "target_y": -52.5801,
+      "target_z": -391.3493,
+      "distance": 19.024,
+      "target_level": "l10_radar"
+    },
+    {
+      "source_x": 584.8202,
+      "source_y": -59.8215,
+      "source_z": -123.7913,
+      "target_x": 608.7863,
+      "target_y": -61.6485,
+      "target_z": -146.0583,
+      "distance": 32.7138,
+      "target_level": "l10_radar"
+    },
+    {
+      "source_x": 584.8202,
+      "source_y": -59.8215,
+      "source_z": -123.7913,
+      "target_x": 588.2076,
+      "target_y": -57.1733,
+      "target_z": -96.0773,
+      "distance": 29.2564,
+      "target_level": "l10_radar"
+    },
+    {
+      "source_x": 473.3838,
+      "source_y": -49.085,
+      "source_z": -58.4857,
+      "target_x": 499.5074,
+      "target_y": -48.862,
+      "target_z": -64.4999,
+      "distance": 30.0518,
+      "target_level": "l10_radar"
+    },
+    {
+      "source_x": 473.3838,
+      "source_y": -49.085,
+      "source_z": -58.4857,
+      "target_x": 448.2646,
+      "target_y": -49.3887,
+      "target_z": -49.9349,
+      "distance": 26.5347,
+      "target_level": "l10_radar"
+    },
+    {
+      "source_x": 383.9854,
+      "source_y": -50.4982,
+      "source_z": -110.5036,
+      "target_x": 407.5665,
+      "target_y": -54.9942,
+      "target_z": -127.6726,
+      "distance": 30.3523,
+      "target_level": "l10_radar"
+    },
+    {
+      "source_x": 383.9854,
+      "source_y": -50.4982,
+      "source_z": -110.5036,
+      "target_x": 365.1288,
+      "target_y": -48.8273,
+      "target_z": -105.5926,
+      "distance": 19.4857,
+      "target_level": "l10_radar"
+    },
+    {
+      "source_x": 368.8838,
+      "source_y": -47.6937,
+      "source_z": -209.1703,
+      "target_x": 387.537,
+      "target_y": -49.7759,
+      "target_z": -209.6365,
+      "distance": 18.6591,
+      "target_level": "l10_radar"
+    },
+    {
+      "source_x": 368.8838,
+      "source_y": -47.6937,
+      "source_z": -209.1703,
+      "target_x": 337.529,
+      "target_y": -46.3388,
+      "target_z": -202.7759,
+      "distance": 33.0936,
+      "target_level": "l10_radar"
+    },
+    {
+      "source_x": 561.8726,
+      "source_y": -59.4388,
+      "source_z": -230.1516,
+      "target_x": 576.6421,
+      "target_y": -56.4996,
+      "target_z": -248.7355,
+      "distance": 23.7382,
+      "target_level": "l10_radar"
+    },
+    {
+      "source_x": 561.8726,
+      "source_y": -59.4388,
+      "source_z": -230.1516,
+      "target_x": 557.633,
+      "target_y": -62.52,
+      "target_z": -204.8995,
+      "distance": 25.6055,
+      "target_level": "l10_radar"
+    },
+    {
+      "source_x": 561.8726,
+      "source_y": -59.4388,
+      "source_z": -230.1516,
+      "target_x": 541.2428,
+      "target_y": -50.6447,
+      "target_z": -246.9897,
+      "distance": 36.1875,
+      "target_level": "l10_radar"
+    },
+    {
+      "source_x": 112.0234,
+      "source_y": 0.0282,
+      "source_z": 17.7205,
+      "target_x": 125.9376,
+      "target_y": -1.075,
+      "target_z": 15.2066,
+      "distance": 14.1394,
+      "target_level": "l10_radar"
+    },
+    {
+      "source_x": 112.0234,
+      "source_y": 0.0282,
+      "source_z": 17.7205,
+      "target_x": 97.2177,
+      "target_y": -0.0704,
+      "target_z": 5.1706,
+      "distance": 19.409,
+      "target_level": "l10_radar"
+    },
+    {
+      "source_x": 111.5222,
+      "source_y": -0.4244,
+      "source_z": -71.0816,
+      "target_x": 98.5563,
+      "target_y": -0.2,
+      "target_z": -80.3098,
+      "distance": 15.9146,
+      "target_level": "l10_radar"
+    },
+    {
+      "source_x": 111.5222,
+      "source_y": -0.4244,
+      "source_z": -71.0816,
+      "target_x": 112.987,
+      "target_y": -0.915,
+      "target_z": -48.6023,
+      "distance": 22.527,
+      "target_level": "l10_radar"
+    },
+    {
+      "source_x": 8.2151,
+      "source_y": -0.1324,
+      "source_z": -82.3492,
+      "target_x": 31.7229,
+      "target_y": -0.2,
+      "target_z": -83.2053,
+      "distance": 23.5234,
+      "target_level": "l10_radar"
+    },
+    {
+      "source_x": 8.2151,
+      "source_y": -0.1324,
+      "source_z": -82.3492,
+      "target_x": 3.3091,
+      "target_y": -0.3,
+      "target_z": -69.892,
+      "distance": 13.3885,
+      "target_level": "l10_radar"
+    },
+    {
+      "source_x": 8.2151,
+      "source_y": -0.1324,
+      "source_z": -82.3492,
+      "target_x": -26.9061,
+      "target_y": -0.981,
+      "target_z": -80.7988,
+      "distance": 35.1554,
+      "target_level": "l10_radar"
+    },
+    {
+      "source_x": 24.6783,
+      "source_y": -3.6991,
+      "source_z": 6.0703,
+      "target_x": 40.4798,
+      "target_y": -4.0315,
+      "target_z": -8.2814,
+      "distance": 21.3461,
+      "target_level": "l10_radar"
+    },
+    {
+      "source_x": 24.6783,
+      "source_y": -3.6991,
+      "source_z": 6.0703,
+      "target_x": 38.3493,
+      "target_y": 0.7799,
+      "target_z": 32.2389,
+      "distance": 36.8576,
+      "target_level": "l10_radar"
+    },
+    {
+      "source_x": 572.0723,
+      "source_y": -52.5801,
+      "source_z": -391.3493,
+      "target_x": 568.3264,
+      "target_y": -53.4707,
+      "target_z": -408.6856,
+      "distance": 19.3237,
+      "target_level": "l10_radar"
+    },
+    {
+      "source_x": 572.0723,
+      "source_y": -52.5801,
+      "source_z": -391.3493,
+      "target_x": 592.919,
+      "target_y": -52.2949,
+      "target_z": -371.7911,
+      "distance": 28.5851,
+      "target_level": "l10_radar"
+    },
+    {
+      "source_x": 592.919,
+      "source_y": -52.2949,
+      "source_z": -371.7911,
+      "target_x": 595.61,
+      "target_y": -51.443,
+      "target_z": -344.5779,
+      "distance": 27.3459,
+      "target_level": "l10_radar"
+    },
+    {
+      "source_x": 592.919,
+      "source_y": -52.2949,
+      "source_z": -371.7911,
+      "target_x": 572.0723,
+      "target_y": -52.5801,
+      "target_z": -391.3493,
+      "distance": 28.5851,
+      "target_level": "l10_radar"
+    },
+    {
+      "source_x": 595.61,
+      "source_y": -51.443,
+      "source_z": -344.5779,
+      "target_x": 592.919,
+      "target_y": -52.2949,
+      "target_z": -371.7911,
+      "distance": 27.3459,
+      "target_level": "l10_radar"
+    },
+    {
+      "source_x": 595.61,
+      "source_y": -51.443,
+      "source_z": -344.5779,
+      "target_x": 606.8357,
+      "target_y": -52.1797,
+      "target_z": -312.1404,
+      "distance": 41.5761,
+      "target_level": "l10_radar"
+    },
+    {
+      "source_x": 606.8357,
+      "source_y": -52.1797,
+      "source_z": -312.1404,
+      "target_x": 621.3458,
+      "target_y": -52.2735,
+      "target_z": -317.6495,
+      "distance": 26.8375,
+      "target_level": "l10_radar"
+    },
+    {
+      "source_x": 606.8357,
+      "source_y": -52.1797,
+      "source_z": -312.1404,
+      "target_x": 608.3955,
+      "target_y": -52.9007,
+      "target_z": -296.417,
+      "distance": 15.8006,
+      "target_level": "l10_radar"
+    },
+    {
+      "source_x": 606.8357,
+      "source_y": -52.1797,
+      "source_z": -312.1404,
+      "target_x": 595.61,
+      "target_y": -51.443,
+      "target_z": -344.5779,
+      "distance": 41.7425,
+      "target_level": "l10_radar"
+    },
+    {
+      "source_x": 608.3955,
+      "source_y": -52.9007,
+      "source_z": -296.417,
+      "target_x": 606.8357,
+      "target_y": -52.1797,
+      "target_z": -312.1404,
+      "distance": 15.8006,
+      "target_level": "l10_radar"
+    },
+    {
+      "source_x": 608.3955,
+      "source_y": -52.9007,
+      "source_z": -296.417,
+      "target_x": 594.6651,
+      "target_y": -53.1819,
+      "target_z": -267.558,
+      "distance": 31.9588,
+      "target_level": "l10_radar"
+    },
+    {
+      "source_x": 594.6651,
+      "source_y": -53.1819,
+      "source_z": -267.558,
+      "target_x": 608.3955,
+      "target_y": -52.9007,
+      "target_z": -296.417,
+      "distance": 31.9588,
+      "target_level": "l10_radar"
+    },
+    {
+      "source_x": 594.6651,
+      "source_y": -53.1819,
+      "source_z": -267.558,
+      "target_x": 576.6421,
+      "target_y": -56.4996,
+      "target_z": -248.7355,
+      "distance": 26.0598,
+      "target_level": "l10_radar"
+    },
+    {
+      "source_x": 557.633,
+      "source_y": -62.52,
+      "source_z": -204.8995,
+      "target_x": 561.8726,
+      "target_y": -59.4388,
+      "target_z": -230.1516,
+      "distance": 25.6055,
+      "target_level": "l10_radar"
+    },
+    {
+      "source_x": 557.633,
+      "source_y": -62.52,
+      "source_z": -204.8995,
+      "target_x": 577.4126,
+      "target_y": -62.2965,
+      "target_z": -193.9177,
+      "distance": 22.6612,
+      "target_level": "l10_radar"
+    },
+    {
+      "source_x": 557.633,
+      "source_y": -62.52,
+      "source_z": -204.8995,
+      "target_x": 526.9576,
+      "target_y": -50.6698,
+      "target_z": -207.645,
+      "distance": 35.441,
+      "target_level": "l10_radar"
+    },
+    {
+      "source_x": 557.633,
+      "source_y": -62.52,
+      "source_z": -204.8995,
+      "target_x": 554.4723,
+      "target_y": -54.9298,
+      "target_z": -175.1984,
+      "distance": 35.6172,
+      "target_level": "l10_radar"
+    },
+    {
+      "source_x": 577.4126,
+      "source_y": -62.2965,
+      "source_z": -193.9177,
+      "target_x": 583.1165,
+      "target_y": -63.0887,
+      "target_z": -179.0717,
+      "distance": 16.8882,
+      "target_level": "l10_radar"
+    },
+    {
+      "source_x": 577.4126,
+      "source_y": -62.2965,
+      "source_z": -193.9177,
+      "target_x": 557.633,
+      "target_y": -62.52,
+      "target_z": -204.8995,
+      "distance": 28.8954,
+      "target_level": "l10_radar"
+    },
+    {
+      "source_x": 583.1165,
+      "source_y": -63.0887,
+      "source_z": -179.0717,
+      "target_x": 577.4126,
+      "target_y": -62.2965,
+      "target_z": -193.9177,
+      "distance": 19.2272,
+      "target_level": "l10_radar"
+    },
+    {
+      "source_x": 583.1165,
+      "source_y": -63.0887,
+      "source_z": -179.0717,
+      "target_x": 611.2804,
+      "target_y": -63.8761,
+      "target_z": -186.4307,
+      "distance": 29.1095,
+      "target_level": "l10_radar"
+    },
+    {
+      "source_x": 583.1165,
+      "source_y": -63.0887,
+      "source_z": -179.0717,
+      "target_x": 554.4723,
+      "target_y": -54.9298,
+      "target_z": -175.1984,
+      "distance": 38.3035,
+      "target_level": "l10_radar"
+    },
+    {
+      "source_x": 611.2804,
+      "source_y": -63.8761,
+      "source_z": -186.4307,
+      "target_x": 623.0447,
+      "target_y": -63.3707,
+      "target_z": -161.8362,
+      "distance": 27.2633,
+      "target_level": "l10_radar"
+    },
+    {
+      "source_x": 611.2804,
+      "source_y": -63.8761,
+      "source_z": -186.4307,
+      "target_x": 583.1165,
+      "target_y": -63.0887,
+      "target_z": -179.0717,
+      "distance": 29.1095,
+      "target_level": "l10_radar"
+    },
+    {
+      "source_x": 623.0447,
+      "source_y": -63.3707,
+      "source_z": -161.8362,
+      "target_x": 611.2804,
+      "target_y": -63.8761,
+      "target_z": -186.4307,
+      "distance": 27.2633,
+      "target_level": "l10_radar"
+    },
+    {
+      "source_x": 623.0447,
+      "source_y": -63.3707,
+      "source_z": -161.8362,
+      "target_x": 608.7863,
+      "target_y": -61.6485,
+      "target_z": -146.0583,
+      "distance": 21.266,
+      "target_level": "l10_radar"
+    },
+    {
+      "source_x": 608.7863,
+      "source_y": -61.6485,
+      "source_z": -146.0583,
+      "target_x": 623.0447,
+      "target_y": -63.3707,
+      "target_z": -161.8362,
+      "distance": 21.266,
+      "target_level": "l10_radar"
+    },
+    {
+      "source_x": 608.7863,
+      "source_y": -61.6485,
+      "source_z": -146.0583,
+      "target_x": 592.9929,
+      "target_y": -61.8213,
+      "target_z": -159.6062,
+      "distance": 20.8081,
+      "target_level": "l10_radar"
+    },
+    {
+      "source_x": 608.7863,
+      "source_y": -61.6485,
+      "source_z": -146.0583,
+      "target_x": 584.8202,
+      "target_y": -59.8215,
+      "target_z": -123.7913,
+      "distance": 32.7138,
+      "target_level": "l10_radar"
+    },
+    {
+      "source_x": 592.9929,
+      "source_y": -61.8213,
+      "source_z": -159.6062,
+      "target_x": 608.7863,
+      "target_y": -61.6485,
+      "target_z": -146.0583,
+      "distance": 20.8081,
+      "target_level": "l10_radar"
+    },
+    {
+      "source_x": 554.4723,
+      "source_y": -54.9298,
+      "source_z": -175.1984,
+      "target_x": 557.633,
+      "target_y": -62.52,
+      "target_z": -204.8995,
+      "distance": 33.7426,
+      "target_level": "l10_radar"
+    },
+    {
+      "source_x": 554.4723,
+      "source_y": -54.9298,
+      "source_z": -175.1984,
+      "target_x": 583.1165,
+      "target_y": -63.0887,
+      "target_z": -179.0717,
+      "distance": 32.1647,
+      "target_level": "l10_radar"
+    },
+    {
+      "source_x": 526.9576,
+      "source_y": -50.6698,
+      "source_z": -207.645,
+      "target_x": 541.2428,
+      "target_y": -50.6447,
+      "target_z": -246.9897,
+      "distance": 52.8913,
+      "target_level": "l10_radar"
+    },
+    {
+      "source_x": 526.9576,
+      "source_y": -50.6698,
+      "source_z": -207.645,
+      "target_x": 557.633,
+      "target_y": -62.52,
+      "target_z": -204.8995,
+      "distance": 33.1576,
+      "target_level": "l10_radar"
+    },
+    {
+      "source_x": 526.9576,
+      "source_y": -50.6698,
+      "source_z": -207.645,
+      "target_x": 490.5596,
+      "target_y": -47.3052,
+      "target_z": -234.2427,
+      "distance": 59.2824,
+      "target_level": "l10_radar"
+    },
+    {
+      "source_x": 588.2076,
+      "source_y": -57.1733,
+      "source_z": -96.0773,
+      "target_x": 584.8202,
+      "target_y": -59.8215,
+      "target_z": -123.7913,
+      "distance": 32.9378,
+      "target_level": "l10_radar"
+    },
+    {
+      "source_x": 588.2076,
+      "source_y": -57.1733,
+      "source_z": -96.0773,
+      "target_x": 611.2824,
+      "target_y": -52.7114,
+      "target_z": -81.5119,
+      "distance": 27.2874,
+      "target_level": "l10_radar"
+    },
+    {
+      "source_x": 611.2824,
+      "source_y": -52.7114,
+      "source_z": -81.5119,
+      "target_x": 620.0164,
+      "target_y": -54.1035,
+      "target_z": -61.9266,
+      "distance": 21.4445,
+      "target_level": "l10_radar"
+    },
+    {
+      "source_x": 611.2824,
+      "source_y": -52.7114,
+      "source_z": -81.5119,
+      "target_x": 588.2076,
+      "target_y": -57.1733,
+      "target_z": -96.0773,
+      "distance": 27.2874,
+      "target_level": "l10_radar"
+    },
+    {
+      "source_x": 620.0164,
+      "source_y": -54.1035,
+      "source_z": -61.9266,
+      "target_x": 611.2824,
+      "target_y": -52.7114,
+      "target_z": -81.5119,
+      "distance": 21.4445,
+      "target_level": "l10_radar"
+    },
+    {
+      "source_x": 620.0164,
+      "source_y": -54.1035,
+      "source_z": -61.9266,
+      "target_x": 647.106,
+      "target_y": -51.3023,
+      "target_z": -63.536,
+      "distance": 27.3589,
+      "target_level": "l10_radar"
+    },
+    {
+      "source_x": 620.0164,
+      "source_y": -54.1035,
+      "source_z": -61.9266,
+      "target_x": 610.0923,
+      "target_y": -51.9222,
+      "target_z": -41.9503,
+      "distance": 22.3056,
+      "target_level": "l10_radar"
+    },
+    {
+      "source_x": 647.106,
+      "source_y": -51.3023,
+      "source_z": -63.536,
+      "target_x": 667.8347,
+      "target_y": -45.6014,
+      "target_z": -39.452,
+      "distance": 41.8707,
+      "target_level": "l10_radar"
+    },
+    {
+      "source_x": 647.106,
+      "source_y": -51.3023,
+      "source_z": -63.536,
+      "target_x": 620.0164,
+      "target_y": -54.1035,
+      "target_z": -61.9266,
+      "distance": 29.4044,
+      "target_level": "l10_radar"
+    },
+    {
+      "source_x": 610.0923,
+      "source_y": -51.9222,
+      "source_z": -41.9503,
+      "target_x": 620.0164,
+      "target_y": -54.1035,
+      "target_z": -61.9266,
+      "distance": 22.3056,
+      "target_level": "l10_radar"
+    },
+    {
+      "source_x": 610.0923,
+      "source_y": -51.9222,
+      "source_z": -41.9503,
+      "target_x": 591.7151,
+      "target_y": -50.6847,
+      "target_z": -34.3583,
+      "distance": 19.8837,
+      "target_level": "l10_radar"
+    },
+    {
+      "source_x": 591.7151,
+      "source_y": -50.6847,
+      "source_z": -34.3583,
+      "target_x": 610.0923,
+      "target_y": -51.9222,
+      "target_z": -41.9503,
+      "distance": 19.8837,
+      "target_level": "l10_radar"
+    },
+    {
+      "source_x": 591.7151,
+      "source_y": -50.6847,
+      "source_z": -34.3583,
+      "target_x": 606.2133,
+      "target_y": -48.1372,
+      "target_z": -17.5475,
+      "distance": 25.0578,
+      "target_level": "l10_radar"
+    },
+    {
+      "source_x": 591.7151,
+      "source_y": -50.6847,
+      "source_z": -34.3583,
+      "target_x": 557.5699,
+      "target_y": -50.8011,
+      "target_z": -30.211,
+      "distance": 34.8017,
+      "target_level": "l10_radar"
+    },
+    {
+      "source_x": 606.2133,
+      "source_y": -48.1372,
+      "source_z": -17.5475,
+      "target_x": 597.4577,
+      "target_y": -50.5562,
+      "target_z": 3.4255,
+      "distance": 25.5966,
+      "target_level": "l10_radar"
+    },
+    {
+      "source_x": 606.2133,
+      "source_y": -48.1372,
+      "source_z": -17.5475,
+      "target_x": 591.7151,
+      "target_y": -50.6847,
+      "target_z": -34.3583,
+      "distance": 27.7021,
+      "target_level": "l10_radar"
+    },
+    {
+      "source_x": 597.4577,
+      "source_y": -50.5562,
+      "source_z": 3.4255,
+      "target_x": 606.2133,
+      "target_y": -48.1372,
+      "target_z": -17.5475,
+      "distance": 25.8149,
+      "target_level": "l10_radar"
+    },
+    {
+      "source_x": 597.4577,
+      "source_y": -50.5562,
+      "source_z": 3.4255,
+      "target_x": 562.2001,
+      "target_y": -49.9466,
+      "target_z": 16.8122,
+      "distance": 37.7134,
+      "target_level": "l10_radar"
+    },
+    {
+      "source_x": 574.8598,
+      "source_y": -49.3065,
+      "source_z": 28.6938,
+      "target_x": 562.2001,
+      "target_y": -49.9466,
+      "target_z": 16.8122,
+      "distance": 17.362,
+      "target_level": "l10_radar"
+    },
+    {
+      "source_x": 574.8598,
+      "source_y": -49.3065,
+      "source_z": 28.6938,
+      "target_x": 553.9104,
+      "target_y": -44.4043,
+      "target_z": 58.6374,
+      "distance": 36.5445,
+      "target_level": "l10_radar"
+    },
+    {
+      "source_x": 553.9104,
+      "source_y": -44.4043,
+      "source_z": 58.6374,
+      "target_x": 574.8598,
+      "target_y": -49.3065,
+      "target_z": 28.6938,
+      "distance": 36.5445,
+      "target_level": "l10_radar"
+    },
+    {
+      "source_x": 553.9104,
+      "source_y": -44.4043,
+      "source_z": 58.6374,
+      "target_x": 532.9669,
+      "target_y": -41.9415,
+      "target_z": 97.2801,
+      "distance": 43.9532,
+      "target_level": "l10_radar"
+    },
+    {
+      "source_x": 532.9669,
+      "source_y": -41.9415,
+      "source_z": 97.2801,
+      "target_x": 553.9104,
+      "target_y": -44.4043,
+      "target_z": 58.6374,
+      "distance": 43.9532,
+      "target_level": "l10_radar"
+    },
+    {
+      "source_x": 532.9669,
+      "source_y": -41.9415,
+      "source_z": 97.2801,
+      "target_x": 530.1629,
+      "target_y": -39.3539,
+      "target_z": 132.4666,
+      "distance": 35.2981,
+      "target_level": "l10_radar"
+    },
+    {
+      "source_x": 530.1629,
+      "source_y": -39.3539,
+      "source_z": 132.4666,
+      "target_x": 532.9669,
+      "target_y": -41.9415,
+      "target_z": 97.2801,
+      "distance": 35.2981,
+      "target_level": "l10_radar"
+    },
+    {
+      "source_x": 530.1629,
+      "source_y": -39.3539,
+      "source_z": 132.4666,
+      "target_x": 561.7185,
+      "target_y": -42.6311,
+      "target_z": 175.453,
+      "distance": 53.3254,
+      "target_level": "l10_radar"
+    },
+    {
+      "source_x": 561.7185,
+      "source_y": -42.6311,
+      "source_z": 175.453,
+      "target_x": 587.1407,
+      "target_y": -43.8265,
+      "target_z": 186.6154,
+      "distance": 27.7648,
+      "target_level": "l10_radar"
+    },
+    {
+      "source_x": 561.7185,
+      "source_y": -42.6311,
+      "source_z": 175.453,
+      "target_x": 530.1629,
+      "target_y": -39.3539,
+      "target_z": 132.4666,
+      "distance": 53.3254,
+      "target_level": "l10_radar"
+    },
+    {
+      "source_x": 587.1407,
+      "source_y": -43.8265,
+      "source_z": 186.6154,
+      "target_x": 610.0656,
+      "target_y": -43.8265,
+      "target_z": 185.3559,
+      "distance": 22.9595,
+      "target_level": "l10_radar"
+    },
+    {
+      "source_x": 587.1407,
+      "source_y": -43.8265,
+      "source_z": 186.6154,
+      "target_x": 561.7185,
+      "target_y": -42.6311,
+      "target_z": 175.453,
+      "distance": 27.7648,
+      "target_level": "l10_radar"
+    },
+    {
+      "source_x": 610.0656,
+      "source_y": -43.8265,
+      "source_z": 185.3559,
+      "target_x": 615.2349,
+      "target_y": -43.8616,
+      "target_z": 198.6781,
+      "distance": 14.2899,
+      "target_level": "l10_radar"
+    },
+    {
+      "source_x": 610.0656,
+      "source_y": -43.8265,
+      "source_z": 185.3559,
+      "target_x": 587.1407,
+      "target_y": -43.8265,
+      "target_z": 186.6154,
+      "distance": 22.9595,
+      "target_level": "l10_radar"
+    },
+    {
+      "source_x": 615.2349,
+      "source_y": -43.8616,
+      "source_z": 198.6781,
+      "target_x": 610.0656,
+      "target_y": -43.8265,
+      "target_z": 185.3559,
+      "distance": 14.2899,
+      "target_level": "l10_radar"
+    },
+    {
+      "source_x": 615.2349,
+      "source_y": -43.8616,
+      "source_z": 198.6781,
+      "target_x": 633.9861,
+      "target_y": -43.8518,
+      "target_z": 196.2313,
+      "distance": 20.1565,
+      "target_level": "l10_radar"
+    },
+    {
+      "source_x": 633.9861,
+      "source_y": -43.8518,
+      "source_z": 196.2313,
+      "target_x": 636.7341,
+      "target_y": -43.8207,
+      "target_z": 186.6374,
+      "distance": 9.9798,
+      "target_level": "l10_radar"
+    },
+    {
+      "source_x": 633.9861,
+      "source_y": -43.8518,
+      "source_z": 196.2313,
+      "target_x": 615.2349,
+      "target_y": -43.8616,
+      "target_z": 198.6781,
+      "distance": 19.0006,
+      "target_level": "l10_radar"
+    },
+    {
+      "source_x": 626.0128,
+      "source_y": -43.8265,
+      "source_z": 181.9433,
+      "target_x": 636.7341,
+      "target_y": -43.8207,
+      "target_z": 186.6374,
+      "distance": 12.0607,
+      "target_level": "l10_radar"
+    },
+    {
+      "source_x": 636.7341,
+      "source_y": -43.8207,
+      "source_z": 186.6374,
+      "target_x": 650.0577,
+      "target_y": -43.879,
+      "target_z": 183.512,
+      "distance": 13.6852,
+      "target_level": "l10_radar"
+    },
+    {
+      "source_x": 636.7341,
+      "source_y": -43.8207,
+      "source_z": 186.6374,
+      "target_x": 633.9861,
+      "target_y": -43.8518,
+      "target_z": 196.2313,
+      "distance": 9.9798,
+      "target_level": "l10_radar"
+    },
+    {
+      "source_x": 636.7341,
+      "source_y": -43.8207,
+      "source_z": 186.6374,
+      "target_x": 626.0128,
+      "target_y": -43.8265,
+      "target_z": 181.9433,
+      "distance": 12.931,
+      "target_level": "l10_radar"
+    },
+    {
+      "source_x": 650.0577,
+      "source_y": -43.879,
+      "source_z": 183.512,
+      "target_x": 660.1867,
+      "target_y": -43.8838,
+      "target_z": 181.6368,
+      "distance": 10.3012,
+      "target_level": "l10_radar"
+    },
+    {
+      "source_x": 650.0577,
+      "source_y": -43.879,
+      "source_z": 183.512,
+      "target_x": 636.7341,
+      "target_y": -43.8207,
+      "target_z": 186.6374,
+      "distance": 13.6852,
+      "target_level": "l10_radar"
+    },
+    {
+      "source_x": 660.1867,
+      "source_y": -43.8838,
+      "source_z": 181.6368,
+      "target_x": 660.6605,
+      "target_y": -43.8838,
+      "target_z": 175.273,
+      "distance": 6.3814,
+      "target_level": "l10_radar"
+    },
+    {
+      "source_x": 660.1867,
+      "source_y": -43.8838,
+      "source_z": 181.6368,
+      "target_x": 650.0577,
+      "target_y": -43.879,
+      "target_z": 183.512,
+      "distance": 10.3012,
+      "target_level": "l10_radar"
+    },
+    {
+      "source_x": 660.6605,
+      "source_y": -43.8838,
+      "source_z": 175.273,
+      "target_x": 659.8454,
+      "target_y": -43.8777,
+      "target_z": 169.49,
+      "distance": 5.8401,
+      "target_level": "l10_radar"
+    },
+    {
+      "source_x": 660.6605,
+      "source_y": -43.8838,
+      "source_z": 175.273,
+      "target_x": 660.1867,
+      "target_y": -43.8838,
+      "target_z": 181.6368,
+      "distance": 6.3814,
+      "target_level": "l10_radar"
+    },
+    {
+      "source_x": 659.8454,
+      "source_y": -43.8777,
+      "source_z": 169.49,
+      "target_x": 660.6605,
+      "target_y": -43.8838,
+      "target_z": 175.273,
+      "distance": 5.8401,
+      "target_level": "l10_radar"
+    },
+    {
+      "source_x": 659.8454,
+      "source_y": -43.8777,
+      "source_z": 169.49,
+      "target_x": -18.7496,
+      "target_y": -2.2544,
+      "target_z": -292.3408,
+      "distance": 1074.0796,
+      "target_level": "l11_pripyat"
+    },
+    {
+      "source_x": 562.2001,
+      "source_y": -49.9466,
+      "source_z": 16.8122,
+      "target_x": 597.4577,
+      "target_y": -50.5562,
+      "target_z": 3.4255,
+      "distance": 37.7134,
+      "target_level": "l10_radar"
+    },
+    {
+      "source_x": 562.2001,
+      "source_y": -49.9466,
+      "source_z": 16.8122,
+      "target_x": 574.8598,
+      "target_y": -49.3065,
+      "target_z": 28.6938,
+      "distance": 17.362,
+      "target_level": "l10_radar"
+    },
+    {
+      "source_x": 562.2001,
+      "source_y": -49.9466,
+      "source_z": 16.8122,
+      "target_x": 526.618,
+      "target_y": -50.0,
+      "target_z": 6.2845,
+      "distance": 40.3517,
+      "target_level": "l10_radar"
+    },
+    {
+      "source_x": 526.618,
+      "source_y": -50.0,
+      "source_z": 6.2845,
+      "target_x": 562.2001,
+      "target_y": -49.9466,
+      "target_z": 16.8122,
+      "distance": 43.3066,
+      "target_level": "l10_radar"
+    },
+    {
+      "source_x": 526.618,
+      "source_y": -50.0,
+      "source_z": 6.2845,
+      "target_x": 499.6888,
+      "target_y": -50.0,
+      "target_z": 8.9462,
+      "distance": 27.0604,
+      "target_level": "l10_radar"
+    },
+    {
+      "source_x": 448.2164,
+      "source_y": -50.0,
+      "source_z": 8.4503,
+      "target_x": 474.3194,
+      "target_y": -50.0,
+      "target_z": 9.0468,
+      "distance": 26.1098,
+      "target_level": "l10_radar"
+    },
+    {
+      "source_x": 448.2164,
+      "source_y": -50.0,
+      "source_z": 8.4503,
+      "target_x": 423.6263,
+      "target_y": -50.0,
+      "target_z": 11.0749,
+      "distance": 24.7298,
+      "target_level": "l10_radar"
+    },
+    {
+      "source_x": 474.3194,
+      "source_y": -50.0,
+      "source_z": 9.0468,
+      "target_x": 499.6888,
+      "target_y": -50.0,
+      "target_z": 8.9462,
+      "distance": 25.3696,
+      "target_level": "l10_radar"
+    },
+    {
+      "source_x": 474.3194,
+      "source_y": -50.0,
+      "source_z": 9.0468,
+      "target_x": 448.2164,
+      "target_y": -50.0,
+      "target_z": 8.4503,
+      "distance": 26.1098,
+      "target_level": "l10_radar"
+    },
+    {
+      "source_x": 499.6888,
+      "source_y": -50.0,
+      "source_z": 8.9462,
+      "target_x": 526.618,
+      "target_y": -50.0,
+      "target_z": 6.2845,
+      "distance": 27.0604,
+      "target_level": "l10_radar"
+    },
+    {
+      "source_x": 499.6888,
+      "source_y": -50.0,
+      "source_z": 8.9462,
+      "target_x": 474.3194,
+      "target_y": -50.0,
+      "target_z": 9.0468,
+      "distance": 25.3696,
+      "target_level": "l10_radar"
+    },
+    {
+      "source_x": 423.6263,
+      "source_y": -50.0,
+      "source_z": 11.0749,
+      "target_x": 448.2164,
+      "target_y": -50.0,
+      "target_z": 8.4503,
+      "distance": 24.7298,
+      "target_level": "l10_radar"
+    },
+    {
+      "source_x": 423.6263,
+      "source_y": -50.0,
+      "source_z": 11.0749,
+      "target_x": 376.7394,
+      "target_y": -50.0,
+      "target_z": 7.9915,
+      "distance": 46.9882,
+      "target_level": "l10_radar"
+    },
+    {
+      "source_x": 376.9782,
+      "source_y": -51.1999,
+      "source_z": 29.9929,
+      "target_x": 376.7394,
+      "target_y": -50.0,
+      "target_z": 7.9915,
+      "distance": 22.0027,
+      "target_level": "l10_radar"
+    },
+    {
+      "source_x": 376.9782,
+      "source_y": -51.1999,
+      "source_z": 29.9929,
+      "target_x": 376.7328,
+      "target_y": -49.9112,
+      "target_z": 60.6707,
+      "distance": 30.6788,
+      "target_level": "l10_radar"
+    },
+    {
+      "source_x": 376.7328,
+      "source_y": -49.9112,
+      "source_z": 60.6707,
+      "target_x": 376.9782,
+      "target_y": -51.1999,
+      "target_z": 29.9929,
+      "distance": 30.6788,
+      "target_level": "l10_radar"
+    },
+    {
+      "source_x": 376.7328,
+      "source_y": -49.9112,
+      "source_z": 60.6707,
+      "target_x": 379.4134,
+      "target_y": -44.6984,
+      "target_z": 90.1667,
+      "distance": 29.6176,
+      "target_level": "l10_radar"
+    },
+    {
+      "source_x": 379.4134,
+      "source_y": -44.6984,
+      "source_z": 90.1667,
+      "target_x": 376.7328,
+      "target_y": -49.9112,
+      "target_z": 60.6707,
+      "distance": 29.6176,
+      "target_level": "l10_radar"
+    },
+    {
+      "source_x": 379.4134,
+      "source_y": -44.6984,
+      "source_z": 90.1667,
+      "target_x": 383.9492,
+      "target_y": -38.8638,
+      "target_z": 110.9703,
+      "distance": 21.2923,
+      "target_level": "l10_radar"
+    },
+    {
+      "source_x": 383.9492,
+      "source_y": -38.8638,
+      "source_z": 110.9703,
+      "target_x": 379.4134,
+      "target_y": -44.6984,
+      "target_z": 90.1667,
+      "distance": 21.2923,
+      "target_level": "l10_radar"
+    },
+    {
+      "source_x": 383.9492,
+      "source_y": -38.8638,
+      "source_z": 110.9703,
+      "target_x": 386.2622,
+      "target_y": -35.2383,
+      "target_z": 130.8273,
+      "distance": 19.9912,
+      "target_level": "l10_radar"
+    },
+    {
+      "source_x": 383.9754,
+      "source_y": -33.9761,
+      "source_z": 141.8694,
+      "target_x": 386.2622,
+      "target_y": -35.2383,
+      "target_z": 130.8273,
+      "distance": 11.2764,
+      "target_level": "l10_radar"
+    },
+    {
+      "source_x": 383.9754,
+      "source_y": -33.9761,
+      "source_z": 141.8694,
+      "target_x": 382.5801,
+      "target_y": -33.6985,
+      "target_z": 154.4859,
+      "distance": 12.6934,
+      "target_level": "l10_radar"
+    },
+    {
+      "source_x": 350.353,
+      "source_y": -50.0,
+      "source_z": 8.2287,
+      "target_x": 342.1712,
+      "target_y": -50.0906,
+      "target_z": -6.8199,
+      "distance": 18.1635,
+      "target_level": "l10_radar"
+    },
+    {
+      "source_x": 350.353,
+      "source_y": -50.0,
+      "source_z": 8.2287,
+      "target_x": 376.7394,
+      "target_y": -50.0,
+      "target_z": 7.9915,
+      "distance": 26.3874,
+      "target_level": "l10_radar"
+    },
+    {
+      "source_x": 342.1712,
+      "source_y": -50.0906,
+      "source_z": -6.8199,
+      "target_x": 350.353,
+      "target_y": -50.0,
+      "target_z": 8.2287,
+      "distance": 17.4722,
+      "target_level": "l10_radar"
+    },
+    {
+      "source_x": 342.1712,
+      "source_y": -50.0906,
+      "source_z": -6.8199,
+      "target_x": 332.9248,
+      "target_y": -50.3621,
+      "target_z": -23.725,
+      "distance": 19.4168,
+      "target_level": "l10_radar"
+    },
+    {
+      "source_x": 313.9807,
+      "source_y": -48.8822,
+      "source_z": 10.4752,
+      "target_x": 311.5686,
+      "target_y": -44.6571,
+      "target_z": -14.0783,
+      "distance": 30.3642,
+      "target_level": "l10_radar"
+    },
+    {
+      "source_x": 313.9807,
+      "source_y": -48.8822,
+      "source_z": 10.4752,
+      "target_x": 294.0197,
+      "target_y": -46.5314,
+      "target_z": 18.9332,
+      "distance": 21.679,
+      "target_level": "l10_radar"
+    },
+    {
+      "source_x": 311.5686,
+      "source_y": -44.6571,
+      "source_z": -14.0783,
+      "target_x": 332.9248,
+      "target_y": -50.3621,
+      "target_z": -23.725,
+      "distance": 26.4441,
+      "target_level": "l10_radar"
+    },
+    {
+      "source_x": 311.5686,
+      "source_y": -44.6571,
+      "source_z": -14.0783,
+      "target_x": 313.9807,
+      "target_y": -48.8822,
+      "target_z": 10.4752,
+      "distance": 28.8668,
+      "target_level": "l10_radar"
+    },
+    {
+      "source_x": 294.0197,
+      "source_y": -46.5314,
+      "source_z": 18.9332,
+      "target_x": 313.9807,
+      "target_y": -48.8822,
+      "target_z": 10.4752,
+      "distance": 21.679,
+      "target_level": "l10_radar"
+    },
+    {
+      "source_x": 294.0197,
+      "source_y": -46.5314,
+      "source_z": 18.9332,
+      "target_x": 273.434,
+      "target_y": -41.6893,
+      "target_z": 61.3595,
+      "distance": 47.1568,
+      "target_level": "l10_radar"
+    },
+    {
+      "source_x": 273.434,
+      "source_y": -41.6893,
+      "source_z": 61.3595,
+      "target_x": 294.0197,
+      "target_y": -46.5314,
+      "target_z": 18.9332,
+      "distance": 47.1568,
+      "target_level": "l10_radar"
+    },
+    {
+      "source_x": 273.434,
+      "source_y": -41.6893,
+      "source_z": 61.3595,
+      "target_x": 246.687,
+      "target_y": -33.2506,
+      "target_z": 76.5218,
+      "distance": 30.7457,
+      "target_level": "l10_radar"
+    },
+    {
+      "source_x": 246.687,
+      "source_y": -33.2506,
+      "source_z": 76.5218,
+      "target_x": 273.434,
+      "target_y": -41.6893,
+      "target_z": 61.3595,
+      "distance": 30.7457,
+      "target_level": "l10_radar"
+    },
+    {
+      "source_x": 246.687,
+      "source_y": -33.2506,
+      "source_z": 76.5218,
+      "target_x": 228.0975,
+      "target_y": -23.9752,
+      "target_z": 85.7703,
+      "distance": 20.763,
+      "target_level": "l10_radar"
+    },
+    {
+      "source_x": 228.0975,
+      "source_y": -23.9752,
+      "source_z": 85.7703,
+      "target_x": 246.687,
+      "target_y": -33.2506,
+      "target_z": 76.5218,
+      "distance": 20.763,
+      "target_level": "l10_radar"
+    },
+    {
+      "source_x": 228.0975,
+      "source_y": -23.9752,
+      "source_z": 85.7703,
+      "target_x": 208.3426,
+      "target_y": -15.7312,
+      "target_z": 87.3167,
+      "distance": 19.8154,
+      "target_level": "l10_radar"
+    },
+    {
+      "source_x": 208.3426,
+      "source_y": -15.7312,
+      "source_z": 87.3167,
+      "target_x": 228.0975,
+      "target_y": -23.9752,
+      "target_z": 85.7703,
+      "distance": 19.8154,
+      "target_level": "l10_radar"
+    },
+    {
+      "source_x": 208.3426,
+      "source_y": -15.7312,
+      "source_z": 87.3167,
+      "target_x": 192.5643,
+      "target_y": -12.3459,
+      "target_z": 83.1802,
+      "distance": 19.1608,
+      "target_level": "l10_radar"
+    },
+    {
+      "source_x": 192.5643,
+      "source_y": -12.3459,
+      "source_z": 83.1802,
+      "target_x": 208.3426,
+      "target_y": -15.7312,
+      "target_z": 87.3167,
+      "distance": 19.1608,
+      "target_level": "l10_radar"
+    },
+    {
+      "source_x": 192.5643,
+      "source_y": -12.3459,
+      "source_z": 83.1802,
+      "target_x": 175.3305,
+      "target_y": -12.1268,
+      "target_z": 76.1937,
+      "distance": 18.5962,
+      "target_level": "l10_radar"
+    },
+    {
+      "source_x": 175.3305,
+      "source_y": -12.1268,
+      "source_z": 76.1937,
+      "target_x": 192.5643,
+      "target_y": -12.3459,
+      "target_z": 83.1802,
+      "distance": 18.5962,
+      "target_level": "l10_radar"
+    },
+    {
+      "source_x": 175.3305,
+      "source_y": -12.1268,
+      "source_z": 76.1937,
+      "target_x": 153.5894,
+      "target_y": -10.0166,
+      "target_z": 64.5697,
+      "distance": 24.6534,
+      "target_level": "l10_radar"
+    },
+    {
+      "source_x": 153.5894,
+      "source_y": -10.0166,
+      "source_z": 64.5697,
+      "target_x": 137.5406,
+      "target_y": -6.3193,
+      "target_z": 47.8294,
+      "distance": 23.1906,
+      "target_level": "l10_radar"
+    },
+    {
+      "source_x": 153.5894,
+      "source_y": -10.0166,
+      "source_z": 64.5697,
+      "target_x": 175.3305,
+      "target_y": -12.1268,
+      "target_z": 76.1937,
+      "distance": 24.6534,
+      "target_level": "l10_radar"
+    },
+    {
+      "source_x": 137.5406,
+      "source_y": -6.3193,
+      "source_z": 47.8294,
+      "target_x": 137.8941,
+      "target_y": -3.6889,
+      "target_z": 30.1805,
+      "distance": 19.3707,
+      "target_level": "l10_radar"
+    },
+    {
+      "source_x": 137.5406,
+      "source_y": -6.3193,
+      "source_z": 47.8294,
+      "target_x": 153.5894,
+      "target_y": -10.0166,
+      "target_z": 64.5697,
+      "distance": 23.1906,
+      "target_level": "l10_radar"
+    },
+    {
+      "source_x": 137.5406,
+      "source_y": -6.3193,
+      "source_z": 47.8294,
+      "target_x": 120.8308,
+      "target_y": 3.2628,
+      "target_z": 52.762,
+      "distance": 17.4226,
+      "target_level": "l10_radar"
+    },
+    {
+      "source_x": 137.8941,
+      "source_y": -3.6889,
+      "source_z": 30.1805,
+      "target_x": 125.9376,
+      "target_y": -1.075,
+      "target_z": 15.2066,
+      "distance": 19.1618,
+      "target_level": "l10_radar"
+    },
+    {
+      "source_x": 137.8941,
+      "source_y": -3.6889,
+      "source_z": 30.1805,
+      "target_x": 137.5406,
+      "target_y": -6.3193,
+      "target_z": 47.8294,
+      "distance": 18.2217,
+      "target_level": "l10_radar"
+    },
+    {
+      "source_x": 137.8941,
+      "source_y": -3.6889,
+      "source_z": 30.1805,
+      "target_x": 115.2184,
+      "target_y": 3.3221,
+      "target_z": 37.5802,
+      "distance": 26.0711,
+      "target_level": "l10_radar"
+    },
+    {
+      "source_x": 120.8308,
+      "source_y": 3.2628,
+      "source_z": 52.762,
+      "target_x": 115.2184,
+      "target_y": 3.3221,
+      "target_z": 37.5802,
+      "distance": 18.5158,
+      "target_level": "l10_radar"
+    },
+    {
+      "source_x": 120.8308,
+      "source_y": 3.2628,
+      "source_z": 52.762,
+      "target_x": 137.5406,
+      "target_y": -6.3193,
+      "target_z": 47.8294,
+      "distance": 17.4226,
+      "target_level": "l10_radar"
+    },
+    {
+      "source_x": 120.8308,
+      "source_y": 3.2628,
+      "source_z": 52.762,
+      "target_x": 110.1182,
+      "target_y": 5.1496,
+      "target_z": 64.8081,
+      "distance": 16.1204,
+      "target_level": "l10_radar"
+    },
+    {
+      "source_x": 115.2184,
+      "source_y": 3.3221,
+      "source_z": 37.5802,
+      "target_x": 137.8941,
+      "target_y": -3.6889,
+      "target_z": 30.1805,
+      "distance": 25.3213,
+      "target_level": "l10_radar"
+    },
+    {
+      "source_x": 115.2184,
+      "source_y": 3.3221,
+      "source_z": 37.5802,
+      "target_x": 120.8308,
+      "target_y": 3.2628,
+      "target_z": 52.762,
+      "distance": 18.5671,
+      "target_level": "l10_radar"
+    },
+    {
+      "source_x": 115.2184,
+      "source_y": 3.3221,
+      "source_z": 37.5802,
+      "target_x": 96.962,
+      "target_y": 0.7021,
+      "target_z": 42.8035,
+      "distance": 18.9889,
+      "target_level": "l10_radar"
+    },
+    {
+      "source_x": 125.9376,
+      "source_y": -1.075,
+      "source_z": 15.2066,
+      "target_x": 137.8941,
+      "target_y": -3.6889,
+      "target_z": 30.1805,
+      "distance": 19.1618,
+      "target_level": "l10_radar"
+    },
+    {
+      "source_x": 125.9376,
+      "source_y": -1.075,
+      "source_z": 15.2066,
+      "target_x": 112.0234,
+      "target_y": 0.0282,
+      "target_z": 17.7205,
+      "distance": 14.1394,
+      "target_level": "l10_radar"
+    },
+    {
+      "source_x": 125.9376,
+      "source_y": -1.075,
+      "source_z": 15.2066,
+      "target_x": 115.2715,
+      "target_y": -0.1999,
+      "target_z": -19.7728,
+      "distance": 36.5695,
+      "target_level": "l10_radar"
+    },
+    {
+      "source_x": 110.1182,
+      "source_y": 5.1496,
+      "source_z": 64.8081,
+      "target_x": 120.8308,
+      "target_y": 3.2628,
+      "target_z": 52.762,
+      "distance": 16.1204,
+      "target_level": "l10_radar"
+    },
+    {
+      "source_x": 110.1182,
+      "source_y": 5.1496,
+      "source_z": 64.8081,
+      "target_x": 99.1293,
+      "target_y": 1.8081,
+      "target_z": 69.6227,
+      "distance": 11.9974,
+      "target_level": "l10_radar"
+    },
+    {
+      "source_x": 99.1293,
+      "source_y": 1.8081,
+      "source_z": 69.6227,
+      "target_x": 96.962,
+      "target_y": 0.7021,
+      "target_z": 42.8035,
+      "distance": 26.9066,
+      "target_level": "l10_radar"
+    },
+    {
+      "source_x": 99.1293,
+      "source_y": 1.8081,
+      "source_z": 69.6227,
+      "target_x": 110.1182,
+      "target_y": 5.1496,
+      "target_z": 64.8081,
+      "distance": 11.9974,
+      "target_level": "l10_radar"
+    },
+    {
+      "source_x": 99.1293,
+      "source_y": 1.8081,
+      "source_z": 69.6227,
+      "target_x": 98.6005,
+      "target_y": 2.6117,
+      "target_z": 85.1839,
+      "distance": 15.5701,
+      "target_level": "l10_radar"
+    },
+    {
+      "source_x": 98.6005,
+      "source_y": 2.6117,
+      "source_z": 85.1839,
+      "target_x": 99.1293,
+      "target_y": 1.8081,
+      "target_z": 69.6227,
+      "distance": 15.5701,
+      "target_level": "l10_radar"
+    },
+    {
+      "source_x": 98.6005,
+      "source_y": 2.6117,
+      "source_z": 85.1839,
+      "target_x": 89.4525,
+      "target_y": 3.5989,
+      "target_z": 86.9366,
+      "distance": 9.3908,
+      "target_level": "l10_radar"
+    },
+    {
+      "source_x": 89.4525,
+      "source_y": 3.5989,
+      "source_z": 86.9366,
+      "target_x": 82.4648,
+      "target_y": 2.2607,
+      "target_z": 76.9546,
+      "distance": 16.5067,
+      "target_level": "l10_radar"
+    },
+    {
+      "source_x": 89.4525,
+      "source_y": 3.5989,
+      "source_z": 86.9366,
+      "target_x": 98.6005,
+      "target_y": 2.6117,
+      "target_z": 85.1839,
+      "distance": 9.8939,
+      "target_level": "l10_radar"
+    },
+    {
+      "source_x": 96.962,
+      "source_y": 0.7021,
+      "source_z": 42.8035,
+      "target_x": 97.2177,
+      "target_y": -0.0704,
+      "target_z": 5.1706,
+      "distance": 37.6338,
+      "target_level": "l10_radar"
+    },
+    {
+      "source_x": 96.962,
+      "source_y": 0.7021,
+      "source_z": 42.8035,
+      "target_x": 115.2184,
+      "target_y": 3.3221,
+      "target_z": 37.5802,
+      "distance": 18.9889,
+      "target_level": "l10_radar"
+    },
+    {
+      "source_x": 96.962,
+      "source_y": 0.7021,
+      "source_z": 42.8035,
+      "target_x": 99.1293,
+      "target_y": 1.8081,
+      "target_z": 69.6227,
+      "distance": 26.9066,
+      "target_level": "l10_radar"
+    },
+    {
+      "source_x": 97.2177,
+      "source_y": -0.0704,
+      "source_z": 5.1706,
+      "target_x": 101.0596,
+      "target_y": -0.1959,
+      "target_z": -9.0668,
+      "distance": 14.7467,
+      "target_level": "l10_radar"
+    },
+    {
+      "source_x": 97.2177,
+      "source_y": -0.0704,
+      "source_z": 5.1706,
+      "target_x": 112.0234,
+      "target_y": 0.0282,
+      "target_z": 17.7205,
+      "distance": 19.409,
+      "target_level": "l10_radar"
+    },
+    {
+      "source_x": 97.2177,
+      "source_y": -0.0704,
+      "source_z": 5.1706,
+      "target_x": 96.962,
+      "target_y": 0.7021,
+      "target_z": 42.8035,
+      "distance": 37.6338,
+      "target_level": "l10_radar"
+    },
+    {
+      "source_x": 101.0596,
+      "source_y": -0.1959,
+      "source_z": -9.0668,
+      "target_x": 115.2715,
+      "target_y": -0.1999,
+      "target_z": -19.7728,
+      "distance": 17.7932,
+      "target_level": "l10_radar"
+    },
+    {
+      "source_x": 101.0596,
+      "source_y": -0.1959,
+      "source_z": -9.0668,
+      "target_x": 97.2177,
+      "target_y": -0.0704,
+      "target_z": 5.1706,
+      "distance": 14.7467,
+      "target_level": "l10_radar"
+    },
+    {
+      "source_x": 115.2715,
+      "source_y": -0.1999,
+      "source_z": -19.7728,
+      "target_x": 125.9376,
+      "target_y": -1.075,
+      "target_z": 15.2066,
+      "distance": 36.5695,
+      "target_level": "l10_radar"
+    },
+    {
+      "source_x": 115.2715,
+      "source_y": -0.1999,
+      "source_z": -19.7728,
+      "target_x": 101.0596,
+      "target_y": -0.1959,
+      "target_z": -9.0668,
+      "distance": 17.7932,
+      "target_level": "l10_radar"
+    },
+    {
+      "source_x": 115.2715,
+      "source_y": -0.1999,
+      "source_z": -19.7728,
+      "target_x": 95.9674,
+      "target_y": -0.104,
+      "target_z": -30.3232,
+      "distance": 21.9991,
+      "target_level": "l10_radar"
+    },
+    {
+      "source_x": 95.9674,
+      "source_y": -0.104,
+      "source_z": -30.3232,
+      "target_x": 112.987,
+      "target_y": -0.915,
+      "target_z": -48.6023,
+      "distance": 24.9758,
+      "target_level": "l10_radar"
+    },
+    {
+      "source_x": 95.9674,
+      "source_y": -0.104,
+      "source_z": -30.3232,
+      "target_x": 115.2715,
+      "target_y": -0.1999,
+      "target_z": -19.7728,
+      "distance": 21.9991,
+      "target_level": "l10_radar"
+    },
+    {
+      "source_x": 112.987,
+      "source_y": -0.915,
+      "source_z": -48.6023,
+      "target_x": 111.5222,
+      "target_y": -0.4244,
+      "target_z": -71.0816,
+      "distance": 22.527,
+      "target_level": "l10_radar"
+    },
+    {
+      "source_x": 112.987,
+      "source_y": -0.915,
+      "source_z": -48.6023,
+      "target_x": 95.5862,
+      "target_y": -0.1748,
+      "target_z": -57.0868,
+      "distance": 22.1338,
+      "target_level": "l10_radar"
+    },
+    {
+      "source_x": 112.987,
+      "source_y": -0.915,
+      "source_z": -48.6023,
+      "target_x": 95.9674,
+      "target_y": -0.104,
+      "target_z": -30.3232,
+      "distance": 24.9758,
+      "target_level": "l10_radar"
+    },
+    {
+      "source_x": 98.5563,
+      "source_y": -0.2,
+      "source_z": -80.3098,
+      "target_x": 111.5222,
+      "target_y": -0.4244,
+      "target_z": -71.0816,
+      "distance": 15.9146,
+      "target_level": "l10_radar"
+    },
+    {
+      "source_x": 98.5563,
+      "source_y": -0.2,
+      "source_z": -80.3098,
+      "target_x": 95.5862,
+      "target_y": -0.1748,
+      "target_z": -57.0868,
+      "distance": 23.4122,
+      "target_level": "l10_radar"
+    },
+    {
+      "source_x": 98.5563,
+      "source_y": -0.2,
+      "source_z": -80.3098,
+      "target_x": 62.9385,
+      "target_y": -0.2,
+      "target_z": -86.9642,
+      "distance": 36.2341,
+      "target_level": "l10_radar"
+    },
+    {
+      "source_x": 95.5862,
+      "source_y": -0.1748,
+      "source_z": -57.0868,
+      "target_x": 98.5563,
+      "target_y": -0.2,
+      "target_z": -80.3098,
+      "distance": 23.4122,
+      "target_level": "l10_radar"
+    },
+    {
+      "source_x": 95.5862,
+      "source_y": -0.1748,
+      "source_z": -57.0868,
+      "target_x": 112.987,
+      "target_y": -0.915,
+      "target_z": -48.6023,
+      "distance": 25.938,
+      "target_level": "l10_radar"
+    },
+    {
+      "source_x": 62.9385,
+      "source_y": -0.2,
+      "source_z": -86.9642,
+      "target_x": 98.5563,
+      "target_y": -0.2,
+      "target_z": -80.3098,
+      "distance": 36.2341,
+      "target_level": "l10_radar"
+    },
+    {
+      "source_x": 62.9385,
+      "source_y": -0.2,
+      "source_z": -86.9642,
+      "target_x": 31.7229,
+      "target_y": -0.2,
+      "target_z": -83.2053,
+      "distance": 31.4411,
+      "target_level": "l10_radar"
+    },
+    {
+      "source_x": 31.7229,
+      "source_y": -0.2,
+      "source_z": -83.2053,
+      "target_x": 62.9385,
+      "target_y": -0.2,
+      "target_z": -86.9642,
+      "distance": 31.4411,
+      "target_level": "l10_radar"
+    },
+    {
+      "source_x": 31.7229,
+      "source_y": -0.2,
+      "source_z": -83.2053,
+      "target_x": 8.2151,
+      "target_y": -0.1324,
+      "target_z": -82.3492,
+      "distance": 23.5234,
+      "target_level": "l10_radar"
+    },
+    {
+      "source_x": 3.3091,
+      "source_y": -0.3,
+      "source_z": -69.892,
+      "target_x": 8.2151,
+      "target_y": -0.1324,
+      "target_z": -82.3492,
+      "distance": 13.3885,
+      "target_level": "l10_radar"
+    },
+    {
+      "source_x": 3.3091,
+      "source_y": -0.3,
+      "source_z": -69.892,
+      "target_x": 6.9802,
+      "target_y": -0.3,
+      "target_z": -51.1593,
+      "distance": 19.089,
+      "target_level": "l10_radar"
+    },
+    {
+      "source_x": 3.3091,
+      "source_y": -0.3,
+      "source_z": -69.892,
+      "target_x": -25.9547,
+      "target_y": -1.0591,
+      "target_z": -63.2419,
+      "distance": 35.0847,
+      "target_level": "l10_radar"
+    },
+    {
+      "source_x": -26.9061,
+      "source_y": -0.981,
+      "source_z": -80.7988,
+      "target_x": 8.2151,
+      "target_y": -0.1324,
+      "target_z": -82.3492,
+      "distance": 35.1554,
+      "target_level": "l10_radar"
+    },
+    {
+      "source_x": -26.9061,
+      "source_y": -0.981,
+      "source_z": -80.7988,
+      "target_x": -25.9547,
+      "target_y": -1.0591,
+      "target_z": -63.2419,
+      "distance": 17.5826,
+      "target_level": "l10_radar"
+    },
+    {
+      "source_x": -26.9061,
+      "source_y": -0.981,
+      "source_z": -80.7988,
+      "target_x": -36.1801,
+      "target_y": -1.0914,
+      "target_z": -86.7999,
+      "distance": 12.655,
+      "target_level": "l10_radar"
+    },
+    {
+      "source_x": -25.9547,
+      "source_y": -1.0591,
+      "source_z": -63.2419,
+      "target_x": -26.9061,
+      "target_y": -0.981,
+      "target_z": -80.7988,
+      "distance": 17.5826,
+      "target_level": "l10_radar"
+    },
+    {
+      "source_x": -25.9547,
+      "source_y": -1.0591,
+      "source_z": -63.2419,
+      "target_x": 3.3091,
+      "target_y": -0.3,
+      "target_z": -69.892,
+      "distance": 34.8338,
+      "target_level": "l10_radar"
+    },
+    {
+      "source_x": -25.9547,
+      "source_y": -1.0591,
+      "source_z": -63.2419,
+      "target_x": -23.0313,
+      "target_y": -1.0,
+      "target_z": -49.4592,
+      "distance": 14.0894,
+      "target_level": "l10_radar"
+    },
+    {
+      "source_x": -23.0313,
+      "source_y": -1.0,
+      "source_z": -49.4592,
+      "target_x": -25.9547,
+      "target_y": -1.0591,
+      "target_z": -63.2419,
+      "distance": 14.0894,
+      "target_level": "l10_radar"
+    },
+    {
+      "source_x": -23.0313,
+      "source_y": -1.0,
+      "source_z": -49.4592,
+      "target_x": 11.1091,
+      "target_y": 1.2285,
+      "target_z": -35.603,
+      "distance": 62.4872,
+      "target_level": "l10_radar"
+    },
+    {
+      "source_x": -23.0313,
+      "source_y": -1.0,
+      "source_z": -49.4592,
+      "target_x": -23.1069,
+      "target_y": -2.2772,
+      "target_z": -23.8745,
+      "distance": 25.5848,
+      "target_level": "l10_radar"
+    },
+    {
+      "source_x": -23.1069,
+      "source_y": -2.2772,
+      "source_z": -23.8745,
+      "target_x": -23.0313,
+      "target_y": -1.0,
+      "target_z": -49.4592,
+      "distance": 25.5848,
+      "target_level": "l10_radar"
+    },
+    {
+      "source_x": -23.1069,
+      "source_y": -2.2772,
+      "source_z": -23.8745,
+      "target_x": 1.6309,
+      "target_y": -3.2202,
+      "target_z": -23.7635,
+      "distance": 24.738,
+      "target_level": "l10_radar"
+    },
+    {
+      "source_x": -23.1069,
+      "source_y": -2.2772,
+      "source_z": -23.8745,
+      "target_x": -32.0,
+      "target_y": -1.0,
+      "target_z": 0.6,
+      "distance": 26.0401,
+      "target_level": "l10_radar"
+    },
+    {
+      "source_x": 1.6309,
+      "source_y": -3.2202,
+      "source_z": -23.7635,
+      "target_x": 22.0926,
+      "target_y": -4.6709,
+      "target_z": -23.6309,
+      "distance": 20.4622,
+      "target_level": "l10_radar"
+    },
+    {
+      "source_x": 1.6309,
+      "source_y": -3.2202,
+      "source_z": -23.7635,
+      "target_x": -23.1069,
+      "target_y": -2.2772,
+      "target_z": -23.8745,
+      "distance": 24.738,
+      "target_level": "l10_radar"
+    },
+    {
+      "source_x": 22.0926,
+      "source_y": -4.6709,
+      "source_z": -23.6309,
+      "target_x": 44.3971,
+      "target_y": -5.5,
+      "target_z": -24.2272,
+      "distance": 22.3124,
+      "target_level": "l10_radar"
+    },
+    {
+      "source_x": 22.0926,
+      "source_y": -4.6709,
+      "source_z": -23.6309,
+      "target_x": -0.4206,
+      "target_y": 2.9328,
+      "target_z": -15.1026,
+      "distance": 40.8456,
+      "target_level": "l10_radar"
+    },
+    {
+      "source_x": 22.0926,
+      "source_y": -4.6709,
+      "source_z": -23.6309,
+      "target_x": 1.6309,
+      "target_y": -3.2202,
+      "target_z": -23.7635,
+      "distance": 20.4622,
+      "target_level": "l10_radar"
+    },
+    {
+      "source_x": 22.0926,
+      "source_y": -4.6709,
+      "source_z": -23.6309,
+      "target_x": 11.1091,
+      "target_y": 1.2285,
+      "target_z": -35.603,
+      "distance": 28.7022,
+      "target_level": "l10_radar"
+    },
+    {
+      "source_x": 44.3971,
+      "source_y": -5.5,
+      "source_z": -24.2272,
+      "target_x": 41.3562,
+      "target_y": -4.5771,
+      "target_z": -40.1837,
+      "distance": 16.5843,
+      "target_level": "l10_radar"
+    },
+    {
+      "source_x": 44.3971,
+      "source_y": -5.5,
+      "source_z": -24.2272,
+      "target_x": 58.3495,
+      "target_y": -4.8405,
+      "target_z": -33.2754,
+      "distance": 16.6296,
+      "target_level": "l10_radar"
+    },
+    {
+      "source_x": 44.3971,
+      "source_y": -5.5,
+      "source_z": -24.2272,
+      "target_x": 40.4798,
+      "target_y": -4.0315,
+      "target_z": -8.2814,
+      "distance": 16.4199,
+      "target_level": "l10_radar"
+    },
+    {
+      "source_x": 44.3971,
+      "source_y": -5.5,
+      "source_z": -24.2272,
+      "target_x": 22.0926,
+      "target_y": -4.6709,
+      "target_z": -23.6309,
+      "distance": 22.3124,
+      "target_level": "l10_radar"
+    },
+    {
+      "source_x": 59.7317,
+      "source_y": -5.8641,
+      "source_z": -16.2887,
+      "target_x": 71.9217,
+      "target_y": -5.2974,
+      "target_z": -24.4282,
+      "distance": 14.6577,
+      "target_level": "l10_radar"
+    },
+    {
+      "source_x": 71.9217,
+      "source_y": -5.2974,
+      "source_z": -24.4282,
+      "target_x": 71.9455,
+      "target_y": -5.4285,
+      "target_z": -35.3391,
+      "distance": 10.9108,
+      "target_level": "l10_radar"
+    },
+    {
+      "source_x": 71.9217,
+      "source_y": -5.2974,
+      "source_z": -24.4282,
+      "target_x": 77.3444,
+      "target_y": -4.7813,
+      "target_z": -11.3921,
+      "distance": 14.119,
+      "target_level": "l10_radar"
+    },
+    {
+      "source_x": 71.9217,
+      "source_y": -5.2974,
+      "source_z": -24.4282,
+      "target_x": 59.7317,
+      "target_y": -5.8641,
+      "target_z": -16.2887,
+      "distance": 14.6577,
+      "target_level": "l10_radar"
+    },
+    {
+      "source_x": 71.9455,
+      "source_y": -5.4285,
+      "source_z": -35.3391,
+      "target_x": 79.1636,
+      "target_y": -5.0474,
+      "target_z": -50.3113,
+      "distance": 17.984,
+      "target_level": "l10_radar"
+    },
+    {
+      "source_x": 71.9455,
+      "source_y": -5.4285,
+      "source_z": -35.3391,
+      "target_x": 80.8721,
+      "target_y": -6.0221,
+      "target_z": -32.4359,
+      "distance": 9.3868,
+      "target_level": "l10_radar"
+    },
+    {
+      "source_x": 71.9455,
+      "source_y": -5.4285,
+      "source_z": -35.3391,
+      "target_x": 71.9217,
+      "target_y": -5.2974,
+      "target_z": -24.4282,
+      "distance": 10.9108,
+      "target_level": "l10_radar"
+    },
+    {
+      "source_x": 71.9455,
+      "source_y": -5.4285,
+      "source_z": -35.3391,
+      "target_x": 58.3495,
+      "target_y": -4.8405,
+      "target_z": -33.2754,
+      "distance": 13.7517,
+      "target_level": "l10_radar"
+    },
+    {
+      "source_x": 80.8721,
+      "source_y": -6.0221,
+      "source_z": -32.4359,
+      "target_x": 82.0328,
+      "target_y": -4.3143,
+      "target_z": -24.0719,
+      "distance": 8.8509,
+      "target_level": "l10_radar"
+    },
+    {
+      "source_x": 80.8721,
+      "source_y": -6.0221,
+      "source_z": -32.4359,
+      "target_x": 71.9455,
+      "target_y": -5.4285,
+      "target_z": -35.3391,
+      "distance": 9.3868,
+      "target_level": "l10_radar"
+    },
+    {
+      "source_x": 82.0328,
+      "source_y": -4.3143,
+      "source_z": -24.0719,
+      "target_x": 80.8721,
+      "target_y": -6.0221,
+      "target_z": -32.4359,
+      "distance": 9.358,
+      "target_level": "l10_radar"
+    },
+    {
+      "source_x": 82.0328,
+      "source_y": -4.3143,
+      "source_z": -24.0719,
+      "target_x": 99.4654,
+      "target_y": -6.1963,
+      "target_z": -23.8279,
+      "distance": 17.4343,
+      "target_level": "l10_radar"
+    },
+    {
+      "source_x": 87.7862,
+      "source_y": -4.4099,
+      "source_z": -24.5182,
+      "target_x": 89.7647,
+      "target_y": -0.4657,
+      "target_z": -30.7745,
+      "distance": 6.5617,
+      "target_level": "l10_radar"
+    },
+    {
+      "source_x": 87.7862,
+      "source_y": -4.4099,
+      "source_z": -24.5182,
+      "target_x": 89.3251,
+      "target_y": -0.552,
+      "target_z": -12.7622,
+      "distance": 14.8238,
+      "target_level": "l10_radar"
+    },
+    {
+      "source_x": 99.4654,
+      "source_y": -6.1963,
+      "source_z": -23.8279,
+      "target_x": 111.3064,
+      "target_y": -7.2544,
+      "target_z": -24.1986,
+      "distance": 11.8468,
+      "target_level": "l10_radar"
+    },
+    {
+      "source_x": 99.4654,
+      "source_y": -6.1963,
+      "source_z": -23.8279,
+      "target_x": 82.0328,
+      "target_y": -4.3143,
+      "target_z": -24.0719,
+      "distance": 17.4343,
+      "target_level": "l10_radar"
+    },
+    {
+      "source_x": 111.3064,
+      "source_y": -7.2544,
+      "source_z": -24.1986,
+      "target_x": 122.1086,
+      "target_y": -8.3863,
+      "target_z": -23.7079,
+      "distance": 10.8133,
+      "target_level": "l10_radar"
+    },
+    {
+      "source_x": 111.3064,
+      "source_y": -7.2544,
+      "source_z": -24.1986,
+      "target_x": 99.4654,
+      "target_y": -6.1963,
+      "target_z": -23.8279,
+      "distance": 11.8468,
+      "target_level": "l10_radar"
+    },
+    {
+      "source_x": 122.1086,
+      "source_y": -8.3863,
+      "source_z": -23.7079,
+      "target_x": 133.1629,
+      "target_y": -9.0186,
+      "target_z": -23.7708,
+      "distance": 11.0545,
+      "target_level": "l10_radar"
+    },
+    {
+      "source_x": 122.1086,
+      "source_y": -8.3863,
+      "source_z": -23.7079,
+      "target_x": 111.3064,
+      "target_y": -7.2544,
+      "target_z": -24.1986,
+      "distance": 10.8133,
+      "target_level": "l10_radar"
+    },
+    {
+      "source_x": 133.1629,
+      "source_y": -9.0186,
+      "source_z": -23.7708,
+      "target_x": 147.6332,
+      "target_y": -9.2691,
+      "target_z": -26.6902,
+      "distance": 15.163,
+      "target_level": "l10_radar"
+    },
+    {
+      "source_x": 133.1629,
+      "source_y": -9.0186,
+      "source_z": -23.7708,
+      "target_x": 122.1086,
+      "target_y": -8.3863,
+      "target_z": -23.7079,
+      "distance": 11.0545,
+      "target_level": "l10_radar"
+    },
+    {
+      "source_x": 147.6332,
+      "source_y": -9.2691,
+      "source_z": -26.6902,
+      "target_x": 142.9348,
+      "target_y": -9.2788,
+      "target_z": -35.5452,
+      "distance": 13.1003,
+      "target_level": "l10_radar"
+    },
+    {
+      "source_x": 147.6332,
+      "source_y": -9.2691,
+      "source_z": -26.6902,
+      "target_x": 133.1629,
+      "target_y": -9.0186,
+      "target_z": -23.7708,
+      "distance": 14.9744,
+      "target_level": "l10_radar"
+    },
+    {
+      "source_x": 142.9348,
+      "source_y": -9.2788,
+      "source_z": -35.5452,
+      "target_x": 147.6332,
+      "target_y": -9.2691,
+      "target_z": -26.6902,
+      "distance": 12.5354,
+      "target_level": "l10_radar"
+    },
+    {
+      "source_x": 142.9348,
+      "source_y": -9.2788,
+      "source_z": -35.5452,
+      "target_x": 3.512,
+      "target_y": -7.4501,
+      "target_z": -88.2331,
+      "distance": 247.965,
+      "target_level": "l10u_bunker"
+    },
+    {
+      "source_x": 79.1636,
+      "source_y": -5.0474,
+      "source_z": -50.3113,
+      "target_x": 89.5282,
+      "target_y": -0.5858,
+      "target_z": -67.098,
+      "distance": 22.0127,
+      "target_level": "l10_radar"
+    },
+    {
+      "source_x": 79.1636,
+      "source_y": -5.0474,
+      "source_z": -50.3113,
+      "target_x": 71.9455,
+      "target_y": -5.4285,
+      "target_z": -35.3391,
+      "distance": 17.5353,
+      "target_level": "l10_radar"
+    },
+    {
+      "source_x": 79.1636,
+      "source_y": -5.0474,
+      "source_z": -50.3113,
+      "target_x": 53.3778,
+      "target_y": -4.5202,
+      "target_z": -50.5382,
+      "distance": 25.7868,
+      "target_level": "l10_radar"
+    },
+    {
+      "source_x": 89.5282,
+      "source_y": -0.5858,
+      "source_z": -67.098,
+      "target_x": 89.6193,
+      "target_y": -0.491,
+      "target_z": -51.7399,
+      "distance": 15.3584,
+      "target_level": "l10_radar"
+    },
+    {
+      "source_x": 89.5282,
+      "source_y": -0.5858,
+      "source_z": -67.098,
+      "target_x": 79.1636,
+      "target_y": -5.0474,
+      "target_z": -50.3113,
+      "distance": 20.2457,
+      "target_level": "l10_radar"
+    },
+    {
+      "source_x": 89.5282,
+      "source_y": -0.5858,
+      "source_z": -67.098,
+      "target_x": 79.3042,
+      "target_y": -0.1307,
+      "target_z": -70.9831,
+      "distance": 12.2289,
+      "target_level": "l10_radar"
+    },
+    {
+      "source_x": 89.6193,
+      "source_y": -0.491,
+      "source_z": -51.7399,
+      "target_x": 89.5282,
+      "target_y": -0.5858,
+      "target_z": -67.098,
+      "distance": 15.3584,
+      "target_level": "l10_radar"
+    },
+    {
+      "source_x": 89.7647,
+      "source_y": -0.4657,
+      "source_z": -30.7745,
+      "target_x": 87.7862,
+      "target_y": -4.4099,
+      "target_z": -24.5182,
+      "distance": 6.5617,
+      "target_level": "l10_radar"
+    },
+    {
+      "source_x": 89.3251,
+      "source_y": -0.552,
+      "source_z": -12.7622,
+      "target_x": 87.7862,
+      "target_y": -4.4099,
+      "target_z": -24.5182,
+      "distance": 16.7624,
+      "target_level": "l10_radar"
+    },
+    {
+      "source_x": 89.3251,
+      "source_y": -0.552,
+      "source_z": -12.7622,
+      "target_x": 87.3772,
+      "target_y": -0.5832,
+      "target_z": -4.3727,
+      "distance": 9.4876,
+      "target_level": "l10_radar"
+    },
+    {
+      "source_x": 87.3772,
+      "source_y": -0.5832,
+      "source_z": -4.3727,
+      "target_x": 89.3251,
+      "target_y": -0.552,
+      "target_z": -12.7622,
+      "distance": 8.7319,
+      "target_level": "l10_radar"
+    },
+    {
+      "source_x": 87.3772,
+      "source_y": -0.5832,
+      "source_z": -4.3727,
+      "target_x": 77.3444,
+      "target_y": -4.7813,
+      "target_z": -11.3921,
+      "distance": 12.2446,
+      "target_level": "l10_radar"
+    },
+    {
+      "source_x": 87.3772,
+      "source_y": -0.5832,
+      "source_z": -4.3727,
+      "target_x": 85.6574,
+      "target_y": -0.0387,
+      "target_z": 11.732,
+      "distance": 16.1962,
+      "target_level": "l10_radar"
+    },
+    {
+      "source_x": 77.3444,
+      "source_y": -4.7813,
+      "source_z": -11.3921,
+      "target_x": 71.9217,
+      "target_y": -5.2974,
+      "target_z": -24.4282,
+      "distance": 14.119,
+      "target_level": "l10_radar"
+    },
+    {
+      "source_x": 77.3444,
+      "source_y": -4.7813,
+      "source_z": -11.3921,
+      "target_x": 87.3772,
+      "target_y": -0.5832,
+      "target_z": -4.3727,
+      "distance": 12.2446,
+      "target_level": "l10_radar"
+    },
+    {
+      "source_x": 58.3495,
+      "source_y": -4.8405,
+      "source_z": -33.2754,
+      "target_x": 53.3778,
+      "target_y": -4.5202,
+      "target_z": -50.5382,
+      "distance": 17.9645,
+      "target_level": "l10_radar"
+    },
+    {
+      "source_x": 58.3495,
+      "source_y": -4.8405,
+      "source_z": -33.2754,
+      "target_x": 71.9455,
+      "target_y": -5.4285,
+      "target_z": -35.3391,
+      "distance": 13.7517,
+      "target_level": "l10_radar"
+    },
+    {
+      "source_x": 58.3495,
+      "source_y": -4.8405,
+      "source_z": -33.2754,
+      "target_x": 44.3971,
+      "target_y": -5.5,
+      "target_z": -24.2272,
+      "distance": 16.6296,
+      "target_level": "l10_radar"
+    },
+    {
+      "source_x": 41.3562,
+      "source_y": -4.5771,
+      "source_z": -40.1837,
+      "target_x": 38.2223,
+      "target_y": -3.2508,
+      "target_z": -51.7992,
+      "distance": 15.6835,
+      "target_level": "l10_radar"
+    },
+    {
+      "source_x": 41.3562,
+      "source_y": -4.5771,
+      "source_z": -40.1837,
+      "target_x": 44.3971,
+      "target_y": -5.5,
+      "target_z": -24.2272,
+      "distance": 16.2946,
+      "target_level": "l10_radar"
+    },
+    {
+      "source_x": 53.3778,
+      "source_y": -4.5202,
+      "source_z": -50.5382,
+      "target_x": 64.5361,
+      "target_y": -3.8548,
+      "target_z": -65.0455,
+      "distance": 19.28,
+      "target_level": "l10_radar"
+    },
+    {
+      "source_x": 53.3778,
+      "source_y": -4.5202,
+      "source_z": -50.5382,
+      "target_x": 79.1636,
+      "target_y": -5.0474,
+      "target_z": -50.3113,
+      "distance": 25.7868,
+      "target_level": "l10_radar"
+    },
+    {
+      "source_x": 53.3778,
+      "source_y": -4.5202,
+      "source_z": -50.5382,
+      "target_x": 58.3495,
+      "target_y": -4.8405,
+      "target_z": -33.2754,
+      "distance": 17.9645,
+      "target_level": "l10_radar"
+    },
+    {
+      "source_x": 53.3778,
+      "source_y": -4.5202,
+      "source_z": -50.5382,
+      "target_x": 38.2223,
+      "target_y": -3.2508,
+      "target_z": -51.7992,
+      "distance": 15.2079,
+      "target_level": "l10_radar"
+    },
+    {
+      "source_x": 64.5361,
+      "source_y": -3.8548,
+      "source_z": -65.0455,
+      "target_x": 53.3778,
+      "target_y": -4.5202,
+      "target_z": -50.5382,
+      "distance": 23.1699,
+      "target_level": "l10_radar"
+    },
+    {
+      "source_x": 79.3042,
+      "source_y": -0.1307,
+      "source_z": -70.9831,
+      "target_x": 89.5282,
+      "target_y": -0.5858,
+      "target_z": -67.098,
+      "distance": 12.4013,
+      "target_level": "l10_radar"
+    },
+    {
+      "source_x": 79.3042,
+      "source_y": -0.1307,
+      "source_z": -70.9831,
+      "target_x": 51.6836,
+      "target_y": 0.1,
+      "target_z": -69.474,
+      "distance": 27.6618,
+      "target_level": "l10_radar"
+    },
+    {
+      "source_x": 51.6836,
+      "source_y": 0.1,
+      "source_z": -69.474,
+      "target_x": 79.3042,
+      "target_y": -0.1307,
+      "target_z": -70.9831,
+      "distance": 27.6618,
+      "target_level": "l10_radar"
+    },
+    {
+      "source_x": 51.6836,
+      "source_y": 0.1,
+      "source_z": -69.474,
+      "target_x": 36.5017,
+      "target_y": -1.6888,
+      "target_z": -64.065,
+      "distance": 20.8096,
+      "target_level": "l10_radar"
+    },
+    {
+      "source_x": 11.1091,
+      "source_y": 1.2285,
+      "source_z": -35.603,
+      "target_x": 6.9802,
+      "target_y": -0.3,
+      "target_z": -51.1593,
+      "distance": 18.4493,
+      "target_level": "l10_radar"
+    },
+    {
+      "source_x": 11.1091,
+      "source_y": 1.2285,
+      "source_z": -35.603,
+      "target_x": 22.0926,
+      "target_y": -4.6709,
+      "target_z": -23.6309,
+      "distance": 27.8749,
+      "target_level": "l10_radar"
+    },
+    {
+      "source_x": 11.1091,
+      "source_y": 1.2285,
+      "source_z": -35.603,
+      "target_x": 5.4282,
+      "target_y": 3.244,
+      "target_z": -26.8176,
+      "distance": 10.4622,
+      "target_level": "l10_radar"
+    },
+    {
+      "source_x": 11.1091,
+      "source_y": 1.2285,
+      "source_z": -35.603,
+      "target_x": -23.0313,
+      "target_y": -1.0,
+      "target_z": -49.4592,
+      "distance": 61.5083,
+      "target_level": "l10_radar"
+    },
+    {
+      "source_x": 6.9802,
+      "source_y": -0.3,
+      "source_z": -51.1593,
+      "target_x": 3.3091,
+      "target_y": -0.3,
+      "target_z": -69.892,
+      "distance": 19.089,
+      "target_level": "l10_radar"
+    },
+    {
+      "source_x": 6.9802,
+      "source_y": -0.3,
+      "source_z": -51.1593,
+      "target_x": 22.9134,
+      "target_y": -0.3131,
+      "target_z": -59.116,
+      "distance": 18.4844,
+      "target_level": "l10_radar"
+    },
+    {
+      "source_x": 6.9802,
+      "source_y": -0.3,
+      "source_z": -51.1593,
+      "target_x": 11.1091,
+      "target_y": 1.2285,
+      "target_z": -35.603,
+      "distance": 16.4287,
+      "target_level": "l10_radar"
+    },
+    {
+      "source_x": 22.9134,
+      "source_y": -0.3131,
+      "source_z": -59.116,
+      "target_x": 36.5017,
+      "target_y": -1.6888,
+      "target_z": -64.065,
+      "distance": 14.4615,
+      "target_level": "l10_radar"
+    },
+    {
+      "source_x": 22.9134,
+      "source_y": -0.3131,
+      "source_z": -59.116,
+      "target_x": 6.9802,
+      "target_y": -0.3,
+      "target_z": -51.1593,
+      "distance": 19.6692,
+      "target_level": "l10_radar"
+    },
+    {
+      "source_x": 36.5017,
+      "source_y": -1.6888,
+      "source_z": -64.065,
+      "target_x": 38.2223,
+      "target_y": -3.2508,
+      "target_z": -51.7992,
+      "distance": 18.5667,
+      "target_level": "l10_radar"
+    },
+    {
+      "source_x": 36.5017,
+      "source_y": -1.6888,
+      "source_z": -64.065,
+      "target_x": 51.6836,
+      "target_y": 0.1,
+      "target_z": -69.474,
+      "distance": 25.3789,
+      "target_level": "l10_radar"
+    },
+    {
+      "source_x": 36.5017,
+      "source_y": -1.6888,
+      "source_z": -64.065,
+      "target_x": 22.9134,
+      "target_y": -0.3131,
+      "target_z": -59.116,
+      "distance": 14.4615,
+      "target_level": "l10_radar"
+    },
+    {
+      "source_x": 38.2223,
+      "source_y": -3.2508,
+      "source_z": -51.7992,
+      "target_x": 36.5017,
+      "target_y": -1.6888,
+      "target_z": -64.065,
+      "distance": 20.7083,
+      "target_level": "l10_radar"
+    },
+    {
+      "source_x": 38.2223,
+      "source_y": -3.2508,
+      "source_z": -51.7992,
+      "target_x": 53.3778,
+      "target_y": -4.5202,
+      "target_z": -50.5382,
+      "distance": 15.2079,
+      "target_level": "l10_radar"
+    },
+    {
+      "source_x": 38.2223,
+      "source_y": -3.2508,
+      "source_z": -51.7992,
+      "target_x": 41.3562,
+      "target_y": -4.5771,
+      "target_z": -40.1837,
+      "distance": 15.6835,
+      "target_level": "l10_radar"
+    },
+    {
+      "source_x": 38.2223,
+      "source_y": -3.2508,
+      "source_z": -51.7992,
+      "target_x": 32.8439,
+      "target_y": -3.3708,
+      "target_z": -51.7179,
+      "distance": 5.3789,
+      "target_level": "l10_radar"
+    },
+    {
+      "source_x": 32.8439,
+      "source_y": -3.3708,
+      "source_z": -51.7179,
+      "target_x": 38.2223,
+      "target_y": -3.2508,
+      "target_z": -51.7992,
+      "distance": 5.3789,
+      "target_level": "l10_radar"
+    },
+    {
+      "source_x": 32.8439,
+      "source_y": -3.3708,
+      "source_z": -51.7179,
+      "target_x": 32.9455,
+      "target_y": -3.372,
+      "target_z": -44.6677,
+      "distance": 7.0509,
+      "target_level": "l10_radar"
+    },
+    {
+      "source_x": 32.9455,
+      "source_y": -3.372,
+      "source_z": -44.6677,
+      "target_x": 32.8439,
+      "target_y": -3.3708,
+      "target_z": -51.7179,
+      "distance": 7.0509,
+      "target_level": "l10_radar"
+    },
+    {
+      "source_x": 23.8121,
+      "source_y": 0.7047,
+      "source_z": 41.5326,
+      "target_x": 38.3493,
+      "target_y": 0.7799,
+      "target_z": 32.2389,
+      "distance": 20.257,
+      "target_level": "l10_radar"
+    },
+    {
+      "source_x": 23.8121,
+      "source_y": 0.7047,
+      "source_z": 41.5326,
+      "target_x": 13.6776,
+      "target_y": -2.5,
+      "target_z": 47.4485,
+      "distance": 17.0461,
+      "target_level": "l10_radar"
+    },
+    {
+      "source_x": 52.1137,
+      "source_y": 1.1632,
+      "source_z": 35.1145,
+      "target_x": 57.6234,
+      "target_y": 0.0017,
+      "target_z": 11.8944,
+      "distance": 27.1466,
+      "target_level": "l10_radar"
+    },
+    {
+      "source_x": 52.1137,
+      "source_y": 1.1632,
+      "source_z": 35.1145,
+      "target_x": 47.0483,
+      "target_y": 2.1347,
+      "target_z": 55.6838,
+      "distance": 21.1838,
+      "target_level": "l10_radar"
+    },
+    {
+      "source_x": 52.1137,
+      "source_y": 1.1632,
+      "source_z": 35.1145,
+      "target_x": 38.3493,
+      "target_y": 0.7799,
+      "target_z": 32.2389,
+      "distance": 14.0617,
+      "target_level": "l10_radar"
+    },
+    {
+      "source_x": 29.7843,
+      "source_y": 3.1597,
+      "source_z": 69.3967,
+      "target_x": 42.7415,
+      "target_y": 3.169,
+      "target_z": 74.7655,
+      "distance": 14.0254,
+      "target_level": "l10_radar"
+    },
+    {
+      "source_x": 29.7843,
+      "source_y": 3.1597,
+      "source_z": 69.3967,
+      "target_x": 20.0856,
+      "target_y": -1.0186,
+      "target_z": 75.8996,
+      "distance": 15.7885,
+      "target_level": "l10_radar"
+    },
+    {
+      "source_x": 58.3052,
+      "source_y": 3.1248,
+      "source_z": 73.5193,
+      "target_x": 65.2231,
+      "target_y": -0.3145,
+      "target_z": 68.2919,
+      "distance": 10.237,
+      "target_level": "l10_radar"
+    },
+    {
+      "source_x": 58.3052,
+      "source_y": 3.1248,
+      "source_z": 73.5193,
+      "target_x": 82.4648,
+      "target_y": 2.2607,
+      "target_z": 76.9546,
+      "distance": 38.2516,
+      "target_level": "l10_radar"
+    },
+    {
+      "source_x": 58.3052,
+      "source_y": 3.1248,
+      "source_z": 73.5193,
+      "target_x": 42.7415,
+      "target_y": 3.169,
+      "target_z": 74.7655,
+      "distance": 15.6135,
+      "target_level": "l10_radar"
+    },
+    {
+      "source_x": 42.7415,
+      "source_y": 3.169,
+      "source_z": 74.7655,
+      "target_x": 47.0483,
+      "target_y": 2.1347,
+      "target_z": 55.6838,
+      "distance": 19.5616,
+      "target_level": "l10_radar"
+    },
+    {
+      "source_x": 42.7415,
+      "source_y": 3.169,
+      "source_z": 74.7655,
+      "target_x": 58.3052,
+      "target_y": 3.1248,
+      "target_z": 73.5193,
+      "distance": 15.6135,
+      "target_level": "l10_radar"
+    },
+    {
+      "source_x": 42.7415,
+      "source_y": 3.169,
+      "source_z": 74.7655,
+      "target_x": 29.7843,
+      "target_y": 3.1597,
+      "target_z": 69.3967,
+      "distance": 14.0254,
+      "target_level": "l10_radar"
+    },
+    {
+      "source_x": 47.0483,
+      "source_y": 2.1347,
+      "source_z": 55.6838,
+      "target_x": 52.1137,
+      "target_y": 1.1632,
+      "target_z": 35.1145,
+      "distance": 21.1838,
+      "target_level": "l10_radar"
+    },
+    {
+      "source_x": 47.0483,
+      "source_y": 2.1347,
+      "source_z": 55.6838,
+      "target_x": 42.7415,
+      "target_y": 3.169,
+      "target_z": 74.7655,
+      "distance": 19.5616,
+      "target_level": "l10_radar"
+    },
+    {
+      "source_x": 65.2231,
+      "source_y": -0.3145,
+      "source_z": 68.2919,
+      "target_x": 64.6994,
+      "target_y": -0.7897,
+      "target_z": 54.3256,
+      "distance": 13.976,
+      "target_level": "l10_radar"
+    },
+    {
+      "source_x": 65.2231,
+      "source_y": -0.3145,
+      "source_z": 68.2919,
+      "target_x": 58.3052,
+      "target_y": 3.1248,
+      "target_z": 73.5193,
+      "distance": 10.312,
+      "target_level": "l10_radar"
+    },
+    {
+      "source_x": 64.6994,
+      "source_y": -0.7897,
+      "source_z": 54.3256,
+      "target_x": 65.2231,
+      "target_y": -0.3145,
+      "target_z": 68.2919,
+      "distance": 13.976,
+      "target_level": "l10_radar"
+    },
+    {
+      "source_x": 64.6994,
+      "source_y": -0.7897,
+      "source_z": 54.3256,
+      "target_x": 52.1137,
+      "target_y": 1.1632,
+      "target_z": 35.1145,
+      "distance": 32.9867,
+      "target_level": "l10_radar"
+    },
+    {
+      "source_x": 82.4648,
+      "source_y": 2.2607,
+      "source_z": 76.9546,
+      "target_x": 82.7981,
+      "target_y": 1.5855,
+      "target_z": 59.6058,
+      "distance": 18.3806,
+      "target_level": "l10_radar"
+    },
+    {
+      "source_x": 82.4648,
+      "source_y": 2.2607,
+      "source_z": 76.9546,
+      "target_x": 89.4525,
+      "target_y": 3.5989,
+      "target_z": 86.9366,
+      "distance": 17.1969,
+      "target_level": "l10_radar"
+    },
+    {
+      "source_x": 82.4648,
+      "source_y": 2.2607,
+      "source_z": 76.9546,
+      "target_x": 58.3052,
+      "target_y": 3.1248,
+      "target_z": 73.5193,
+      "distance": 39.7601,
+      "target_level": "l10_radar"
+    },
+    {
+      "source_x": 82.7981,
+      "source_y": 1.5855,
+      "source_z": 59.6058,
+      "target_x": 89.1416,
+      "target_y": 0.6315,
+      "target_z": 40.4378,
+      "distance": 20.4569,
+      "target_level": "l10_radar"
+    },
+    {
+      "source_x": 82.7981,
+      "source_y": 1.5855,
+      "source_z": 59.6058,
+      "target_x": 82.4648,
+      "target_y": 2.2607,
+      "target_z": 76.9546,
+      "distance": 17.6114,
+      "target_level": "l10_radar"
+    },
+    {
+      "source_x": 89.1416,
+      "source_y": 0.6315,
+      "source_z": 40.4378,
+      "target_x": 82.7981,
+      "target_y": 1.5855,
+      "target_z": 59.6058,
+      "distance": 22.6271,
+      "target_level": "l10_radar"
+    },
+    {
+      "source_x": 89.1416,
+      "source_y": 0.6315,
+      "source_z": 40.4378,
+      "target_x": 76.0087,
+      "target_y": 0.4029,
+      "target_z": 21.3458,
+      "distance": 23.1728,
+      "target_level": "l10_radar"
+    },
+    {
+      "source_x": 85.6574,
+      "source_y": -0.0387,
+      "source_z": 11.732,
+      "target_x": 87.3772,
+      "target_y": -0.5832,
+      "target_z": -4.3727,
+      "distance": 16.1962,
+      "target_level": "l10_radar"
+    },
+    {
+      "source_x": 85.6574,
+      "source_y": -0.0387,
+      "source_z": 11.732,
+      "target_x": 76.0087,
+      "target_y": 0.4029,
+      "target_z": 21.3458,
+      "distance": 15.1177,
+      "target_level": "l10_radar"
+    },
+    {
+      "source_x": 76.0087,
+      "source_y": 0.4029,
+      "source_z": 21.3458,
+      "target_x": 85.6574,
+      "target_y": -0.0387,
+      "target_z": 11.732,
+      "distance": 17.2381,
+      "target_level": "l10_radar"
+    },
+    {
+      "source_x": 76.0087,
+      "source_y": 0.4029,
+      "source_z": 21.3458,
+      "target_x": 89.1416,
+      "target_y": 0.6315,
+      "target_z": 40.4378,
+      "distance": 23.1728,
+      "target_level": "l10_radar"
+    },
+    {
+      "source_x": 76.0087,
+      "source_y": 0.4029,
+      "source_z": 21.3458,
+      "target_x": 57.6234,
+      "target_y": 0.0017,
+      "target_z": 11.8944,
+      "distance": 20.6724,
+      "target_level": "l10_radar"
+    },
+    {
+      "source_x": 57.6234,
+      "source_y": 0.0017,
+      "source_z": 11.8944,
+      "target_x": 40.4798,
+      "target_y": -4.0315,
+      "target_z": -8.2814,
+      "distance": 29.0727,
+      "target_level": "l10_radar"
+    },
+    {
+      "source_x": 57.6234,
+      "source_y": 0.0017,
+      "source_z": 11.8944,
+      "target_x": 76.0087,
+      "target_y": 0.4029,
+      "target_z": 21.3458,
+      "distance": 20.6724,
+      "target_level": "l10_radar"
+    },
+    {
+      "source_x": 57.6234,
+      "source_y": 0.0017,
+      "source_z": 11.8944,
+      "target_x": 52.1137,
+      "target_y": 1.1632,
+      "target_z": 35.1145,
+      "distance": 27.4933,
+      "target_level": "l10_radar"
+    },
+    {
+      "source_x": 38.3493,
+      "source_y": 0.7799,
+      "source_z": 32.2389,
+      "target_x": 52.1137,
+      "target_y": 1.1632,
+      "target_z": 35.1145,
+      "distance": 14.0617,
+      "target_level": "l10_radar"
+    },
+    {
+      "source_x": 38.3493,
+      "source_y": 0.7799,
+      "source_z": 32.2389,
+      "target_x": 23.8121,
+      "target_y": 0.7047,
+      "target_z": 41.5326,
+      "distance": 20.4369,
+      "target_level": "l10_radar"
+    },
+    {
+      "source_x": 38.3493,
+      "source_y": 0.7799,
+      "source_z": 32.2389,
+      "target_x": 24.6783,
+      "target_y": -3.6991,
+      "target_z": 6.0703,
+      "distance": 30.1631,
+      "target_level": "l10_radar"
+    },
+    {
+      "source_x": 13.6776,
+      "source_y": -2.5,
+      "source_z": 47.4485,
+      "target_x": 23.8121,
+      "target_y": 0.7047,
+      "target_z": 41.5326,
+      "distance": 14.9943,
+      "target_level": "l10_radar"
+    },
+    {
+      "source_x": 13.6776,
+      "source_y": -2.5,
+      "source_z": 47.4485,
+      "target_x": 13.7935,
+      "target_y": -2.5,
+      "target_z": 58.4123,
+      "distance": 10.9644,
+      "target_level": "l10_radar"
+    },
+    {
+      "source_x": 13.6776,
+      "source_y": -2.5,
+      "source_z": 47.4485,
+      "target_x": -7.0449,
+      "target_y": -1.9336,
+      "target_z": 44.4437,
+      "distance": 21.171,
+      "target_level": "l10_radar"
+    },
+    {
+      "source_x": 13.7935,
+      "source_y": -2.5,
+      "source_z": 58.4123,
+      "target_x": 13.6776,
+      "target_y": -2.5,
+      "target_z": 47.4485,
+      "distance": 10.9644,
+      "target_level": "l10_radar"
+    },
+    {
+      "source_x": 13.7935,
+      "source_y": -2.5,
+      "source_z": 58.4123,
+      "target_x": 7.6322,
+      "target_y": -1.8,
+      "target_z": 77.9972,
+      "distance": 20.9952,
+      "target_level": "l10_radar"
+    },
+    {
+      "source_x": 20.0856,
+      "source_y": -1.0186,
+      "source_z": 75.8996,
+      "target_x": 29.7843,
+      "target_y": 3.1597,
+      "target_z": 69.3967,
+      "distance": 17.5098,
+      "target_level": "l10_radar"
+    },
+    {
+      "source_x": 20.0856,
+      "source_y": -1.0186,
+      "source_z": 75.8996,
+      "target_x": 7.6322,
+      "target_y": -1.8,
+      "target_z": 77.9972,
+      "distance": 12.8419,
+      "target_level": "l10_radar"
+    },
+    {
+      "source_x": 7.6322,
+      "source_y": -1.8,
+      "source_z": 77.9972,
+      "target_x": 13.7935,
+      "target_y": -2.5,
+      "target_z": 58.4123,
+      "distance": 21.314,
+      "target_level": "l10_radar"
+    },
+    {
+      "source_x": 7.6322,
+      "source_y": -1.8,
+      "source_z": 77.9972,
+      "target_x": 20.0856,
+      "target_y": -1.0186,
+      "target_z": 75.8996,
+      "distance": 12.8579,
+      "target_level": "l10_radar"
+    },
+    {
+      "source_x": 7.6322,
+      "source_y": -1.8,
+      "source_z": 77.9972,
+      "target_x": -7.3499,
+      "target_y": -2.1038,
+      "target_z": 79.4405,
+      "distance": 15.0769,
+      "target_level": "l10_radar"
+    },
+    {
+      "source_x": -7.3499,
+      "source_y": -2.1038,
+      "source_z": 79.4405,
+      "target_x": -5.8998,
+      "target_y": -2.1242,
+      "target_z": 66.2227,
+      "distance": 13.2971,
+      "target_level": "l10_radar"
+    },
+    {
+      "source_x": -7.3499,
+      "source_y": -2.1038,
+      "source_z": 79.4405,
+      "target_x": 7.6322,
+      "target_y": -1.8,
+      "target_z": 77.9972,
+      "distance": 15.0617,
+      "target_level": "l10_radar"
+    },
+    {
+      "source_x": -7.3499,
+      "source_y": -2.1038,
+      "source_z": 79.4405,
+      "target_x": -21.3106,
+      "target_y": -1.3764,
+      "target_z": 80.802,
+      "distance": 14.027,
+      "target_level": "l10_radar"
+    },
+    {
+      "source_x": -21.3106,
+      "source_y": -1.3764,
+      "source_z": 80.802,
+      "target_x": -7.3499,
+      "target_y": -2.1038,
+      "target_z": 79.4405,
+      "distance": 14.027,
+      "target_level": "l10_radar"
+    },
+    {
+      "source_x": -21.3106,
+      "source_y": -1.3764,
+      "source_z": 80.802,
+      "target_x": -24.9431,
+      "target_y": -1.0965,
+      "target_z": 66.1754,
+      "distance": 17.5727,
+      "target_level": "l10_radar"
+    },
+    {
+      "source_x": -5.8998,
+      "source_y": -2.1242,
+      "source_z": 66.2227,
+      "target_x": -7.0449,
+      "target_y": -1.9336,
+      "target_z": 44.4437,
+      "distance": 21.8091,
+      "target_level": "l10_radar"
+    },
+    {
+      "source_x": -5.8998,
+      "source_y": -2.1242,
+      "source_z": 66.2227,
+      "target_x": -7.3499,
+      "target_y": -2.1038,
+      "target_z": 79.4405,
+      "distance": 13.2971,
+      "target_level": "l10_radar"
+    },
+    {
+      "source_x": -5.8998,
+      "source_y": -2.1242,
+      "source_z": 66.2227,
+      "target_x": -24.9431,
+      "target_y": -1.0965,
+      "target_z": 66.1754,
+      "distance": 19.7985,
+      "target_level": "l10_radar"
+    },
+    {
+      "source_x": -7.0449,
+      "source_y": -1.9336,
+      "source_z": 44.4437,
+      "target_x": -6.8262,
+      "target_y": -1.778,
+      "target_z": 25.4771,
+      "distance": 18.9679,
+      "target_level": "l10_radar"
+    },
+    {
+      "source_x": -7.0449,
+      "source_y": -1.9336,
+      "source_z": 44.4437,
+      "target_x": 13.6776,
+      "target_y": -2.5,
+      "target_z": 47.4485,
+      "distance": 21.105,
+      "target_level": "l10_radar"
+    },
+    {
+      "source_x": -7.0449,
+      "source_y": -1.9336,
+      "source_z": 44.4437,
+      "target_x": -5.8998,
+      "target_y": -2.1242,
+      "target_z": 66.2227,
+      "distance": 21.8091,
+      "target_level": "l10_radar"
+    },
+    {
+      "source_x": -7.0449,
+      "source_y": -1.9336,
+      "source_z": 44.4437,
+      "target_x": -27.3721,
+      "target_y": -0.9508,
+      "target_z": 45.5254,
+      "distance": 20.3559,
+      "target_level": "l10_radar"
+    },
+    {
+      "source_x": -27.3721,
+      "source_y": -0.9508,
+      "source_z": 45.5254,
+      "target_x": -28.2435,
+      "target_y": -1.0,
+      "target_z": 22.1902,
+      "distance": 23.3514,
+      "target_level": "l10_radar"
+    },
+    {
+      "source_x": -27.3721,
+      "source_y": -0.9508,
+      "source_z": 45.5254,
+      "target_x": -7.0449,
+      "target_y": -1.9336,
+      "target_z": 44.4437,
+      "distance": 20.3559,
+      "target_level": "l10_radar"
+    },
+    {
+      "source_x": -27.3721,
+      "source_y": -0.9508,
+      "source_z": 45.5254,
+      "target_x": -24.9431,
+      "target_y": -1.0965,
+      "target_z": 66.1754,
+      "distance": 20.7924,
+      "target_level": "l10_radar"
+    },
+    {
+      "source_x": -24.9431,
+      "source_y": -1.0965,
+      "source_z": 66.1754,
+      "target_x": -27.3721,
+      "target_y": -0.9508,
+      "target_z": 45.5254,
+      "distance": 20.7924,
+      "target_level": "l10_radar"
+    },
+    {
+      "source_x": -24.9431,
+      "source_y": -1.0965,
+      "source_z": 66.1754,
+      "target_x": -5.8998,
+      "target_y": -2.1242,
+      "target_z": 66.2227,
+      "distance": 19.4132,
+      "target_level": "l10_radar"
+    },
+    {
+      "source_x": -24.9431,
+      "source_y": -1.0965,
+      "source_z": 66.1754,
+      "target_x": -21.3106,
+      "target_y": -1.3764,
+      "target_z": 80.802,
+      "distance": 16.6098,
+      "target_level": "l10_radar"
+    },
+    {
+      "source_x": -6.8262,
+      "source_y": -1.778,
+      "source_z": 25.4771,
+      "target_x": -7.5122,
+      "target_y": -0.185,
+      "target_z": -0.3219,
+      "distance": 25.8081,
+      "target_level": "l10_radar"
+    },
+    {
+      "source_x": -6.8262,
+      "source_y": -1.778,
+      "source_z": 25.4771,
+      "target_x": -7.0449,
+      "target_y": -1.9336,
+      "target_z": 44.4437,
+      "distance": 18.9679,
+      "target_level": "l10_radar"
+    },
+    {
+      "source_x": -6.8262,
+      "source_y": -1.778,
+      "source_z": 25.4771,
+      "target_x": -28.2435,
+      "target_y": -1.0,
+      "target_z": 22.1902,
+      "distance": 21.6681,
+      "target_level": "l10_radar"
+    },
+    {
+      "source_x": -28.2435,
+      "source_y": -1.0,
+      "source_z": 22.1902,
+      "target_x": -29.2376,
+      "target_y": -1.0012,
+      "target_z": 4.749,
+      "distance": 17.4695,
+      "target_level": "l10_radar"
+    },
+    {
+      "source_x": -28.2435,
+      "source_y": -1.0,
+      "source_z": 22.1902,
+      "target_x": -6.8262,
+      "target_y": -1.778,
+      "target_z": 25.4771,
+      "distance": 21.6681,
+      "target_level": "l10_radar"
+    },
+    {
+      "source_x": -28.2435,
+      "source_y": -1.0,
+      "source_z": 22.1902,
+      "target_x": -27.3721,
+      "target_y": -0.9508,
+      "target_z": 45.5254,
+      "distance": 23.3514,
+      "target_level": "l10_radar"
+    },
+    {
+      "source_x": -29.2376,
+      "source_y": -1.0012,
+      "source_z": 4.749,
+      "target_x": -32.0,
+      "target_y": -1.0,
+      "target_z": 0.6,
+      "distance": 4.9845,
+      "target_level": "l10_radar"
+    },
+    {
+      "source_x": -29.2376,
+      "source_y": -1.0012,
+      "source_z": 4.749,
+      "target_x": -7.5122,
+      "target_y": -0.185,
+      "target_z": -0.3219,
+      "distance": 24.9414,
+      "target_level": "l10_radar"
+    },
+    {
+      "source_x": -29.2376,
+      "source_y": -1.0012,
+      "source_z": 4.749,
+      "target_x": -28.2435,
+      "target_y": -1.0,
+      "target_z": 22.1902,
+      "distance": 17.4695,
+      "target_level": "l10_radar"
+    },
+    {
+      "source_x": -7.5122,
+      "source_y": -0.185,
+      "source_z": -0.3219,
+      "target_x": -0.4206,
+      "target_y": 2.9328,
+      "target_z": -15.1026,
+      "distance": 16.3939,
+      "target_level": "l10_radar"
+    },
+    {
+      "source_x": -7.5122,
+      "source_y": -0.185,
+      "source_z": -0.3219,
+      "target_x": -6.8262,
+      "target_y": -1.778,
+      "target_z": 25.4771,
+      "distance": 25.8081,
+      "target_level": "l10_radar"
+    },
+    {
+      "source_x": -7.5122,
+      "source_y": -0.185,
+      "source_z": -0.3219,
+      "target_x": -29.2376,
+      "target_y": -1.0012,
+      "target_z": 4.749,
+      "distance": 24.6725,
+      "target_level": "l10_radar"
+    },
+    {
+      "source_x": -0.4206,
+      "source_y": 2.9328,
+      "source_z": -15.1026,
+      "target_x": 5.4282,
+      "target_y": 3.244,
+      "target_z": -26.8176,
+      "distance": 13.0939,
+      "target_level": "l10_radar"
+    },
+    {
+      "source_x": -0.4206,
+      "source_y": 2.9328,
+      "source_z": -15.1026,
+      "target_x": -7.5122,
+      "target_y": -0.185,
+      "target_z": -0.3219,
+      "distance": 16.3939,
+      "target_level": "l10_radar"
+    },
+    {
+      "source_x": -0.4206,
+      "source_y": 2.9328,
+      "source_z": -15.1026,
+      "target_x": 22.0926,
+      "target_y": -4.6709,
+      "target_z": -23.6309,
+      "distance": 49.5286,
+      "target_level": "l10_radar"
+    },
+    {
+      "source_x": 5.4282,
+      "source_y": 3.244,
+      "source_z": -26.8176,
+      "target_x": 11.1091,
+      "target_y": 1.2285,
+      "target_z": -35.603,
+      "distance": 10.4622,
+      "target_level": "l10_radar"
+    },
+    {
+      "source_x": 5.4282,
+      "source_y": 3.244,
+      "source_z": -26.8176,
+      "target_x": -0.4206,
+      "target_y": 2.9328,
+      "target_z": -15.1026,
+      "distance": 13.0939,
+      "target_level": "l10_radar"
+    },
+    {
+      "source_x": 40.4798,
+      "source_y": -4.0315,
+      "source_z": -8.2814,
+      "target_x": 44.3971,
+      "target_y": -5.5,
+      "target_z": -24.2272,
+      "distance": 16.4199,
+      "target_level": "l10_radar"
+    },
+    {
+      "source_x": 40.4798,
+      "source_y": -4.0315,
+      "source_z": -8.2814,
+      "target_x": 57.6234,
+      "target_y": 0.0017,
+      "target_z": 11.8944,
+      "distance": 32.4443,
+      "target_level": "l10_radar"
+    },
+    {
+      "source_x": 40.4798,
+      "source_y": -4.0315,
+      "source_z": -8.2814,
+      "target_x": 24.6783,
+      "target_y": -3.6991,
+      "target_z": 6.0703,
+      "distance": 21.3461,
+      "target_level": "l10_radar"
+    },
+    {
+      "source_x": 332.9248,
+      "source_y": -50.3621,
+      "source_z": -23.725,
+      "target_x": 351.9848,
+      "target_y": -51.637,
+      "target_z": -24.6342,
+      "distance": 19.0816,
+      "target_level": "l10_radar"
+    },
+    {
+      "source_x": 332.9248,
+      "source_y": -50.3621,
+      "source_z": -23.725,
+      "target_x": 342.1712,
+      "target_y": -50.0906,
+      "target_z": -6.8199,
+      "distance": 19.4852,
+      "target_level": "l10_radar"
+    },
+    {
+      "source_x": 332.9248,
+      "source_y": -50.3621,
+      "source_z": -23.725,
+      "target_x": 311.5686,
+      "target_y": -44.6571,
+      "target_z": -14.0783,
+      "distance": 30.0965,
+      "target_level": "l10_radar"
+    },
+    {
+      "source_x": 351.9848,
+      "source_y": -51.637,
+      "source_z": -24.6342,
+      "target_x": 352.5153,
+      "target_y": -50.2703,
+      "target_z": -37.0289,
+      "distance": 12.406,
+      "target_level": "l10_radar"
+    },
+    {
+      "source_x": 351.9848,
+      "source_y": -51.637,
+      "source_z": -24.6342,
+      "target_x": 332.9248,
+      "target_y": -50.3621,
+      "target_z": -23.725,
+      "distance": 19.0816,
+      "target_level": "l10_radar"
+    },
+    {
+      "source_x": 352.5153,
+      "source_y": -50.2703,
+      "source_z": -37.0289,
+      "target_x": 335.8502,
+      "target_y": -48.5031,
+      "target_z": -57.4494,
+      "distance": 32.9851,
+      "target_level": "l10_radar"
+    },
+    {
+      "source_x": 352.5153,
+      "source_y": -50.2703,
+      "source_z": -37.0289,
+      "target_x": 351.9848,
+      "target_y": -51.637,
+      "target_z": -24.6342,
+      "distance": 12.406,
+      "target_level": "l10_radar"
+    },
+    {
+      "source_x": 335.8502,
+      "source_y": -48.5031,
+      "source_z": -57.4494,
+      "target_x": 324.1982,
+      "target_y": -49.0288,
+      "target_z": -82.4376,
+      "distance": 31.166,
+      "target_level": "l10_radar"
+    },
+    {
+      "source_x": 335.8502,
+      "source_y": -48.5031,
+      "source_z": -57.4494,
+      "target_x": 376.2213,
+      "target_y": -50.2771,
+      "target_z": -54.9879,
+      "distance": 41.8373,
+      "target_level": "l10_radar"
+    },
+    {
+      "source_x": 335.8502,
+      "source_y": -48.5031,
+      "source_z": -57.4494,
+      "target_x": 352.5153,
+      "target_y": -50.2703,
+      "target_z": -37.0289,
+      "distance": 37.3673,
+      "target_level": "l10_radar"
+    },
+    {
+      "source_x": 324.1982,
+      "source_y": -49.0288,
+      "source_z": -82.4376,
+      "target_x": 341.2344,
+      "target_y": -48.131,
+      "target_z": -119.6745,
+      "distance": 49.3439,
+      "target_level": "l10_radar"
+    },
+    {
+      "source_x": 324.1982,
+      "source_y": -49.0288,
+      "source_z": -82.4376,
+      "target_x": 335.8502,
+      "target_y": -48.5031,
+      "target_z": -57.4494,
+      "distance": 32.7226,
+      "target_level": "l10_radar"
+    },
+    {
+      "source_x": 324.1982,
+      "source_y": -49.0288,
+      "source_z": -82.4376,
+      "target_x": 299.8555,
+      "target_y": -51.1002,
+      "target_z": -79.0217,
+      "distance": 24.8183,
+      "target_level": "l10_radar"
+    },
+    {
+      "source_x": 376.2213,
+      "source_y": -50.2771,
+      "source_z": -54.9879,
+      "target_x": 375.4273,
+      "target_y": -50.0424,
+      "target_z": -84.2699,
+      "distance": 29.5958,
+      "target_level": "l10_radar"
+    },
+    {
+      "source_x": 376.2213,
+      "source_y": -50.2771,
+      "source_z": -54.9879,
+      "target_x": 412.9727,
+      "target_y": -50.6092,
+      "target_z": -43.9384,
+      "distance": 38.3765,
+      "target_level": "l10_radar"
+    },
+    {
+      "source_x": 376.2213,
+      "source_y": -50.2771,
+      "source_z": -54.9879,
+      "target_x": 335.8502,
+      "target_y": -48.5031,
+      "target_z": -57.4494,
+      "distance": 40.4979,
+      "target_level": "l10_radar"
+    },
+    {
+      "source_x": 401.317,
+      "source_y": -52.538,
+      "source_z": -82.023,
+      "target_x": 435.5157,
+      "target_y": -49.2195,
+      "target_z": -76.8587,
+      "distance": 34.5864,
+      "target_level": "l10_radar"
+    },
+    {
+      "source_x": 401.317,
+      "source_y": -52.538,
+      "source_z": -82.023,
+      "target_x": 375.4273,
+      "target_y": -50.0424,
+      "target_z": -84.2699,
+      "distance": 26.1078,
+      "target_level": "l10_radar"
+    },
+    {
+      "source_x": 412.9727,
+      "source_y": -50.6092,
+      "source_z": -43.9384,
+      "target_x": 448.2646,
+      "target_y": -49.3887,
+      "target_z": -49.9349,
+      "distance": 36.0833,
+      "target_level": "l10_radar"
+    },
+    {
+      "source_x": 412.9727,
+      "source_y": -50.6092,
+      "source_z": -43.9384,
+      "target_x": 376.2213,
+      "target_y": -50.2771,
+      "target_z": -54.9879,
+      "distance": 38.3765,
+      "target_level": "l10_radar"
+    },
+    {
+      "source_x": 448.2646,
+      "source_y": -49.3887,
+      "source_z": -49.9349,
+      "target_x": 435.5157,
+      "target_y": -49.2195,
+      "target_z": -76.8587,
+      "distance": 35.6245,
+      "target_level": "l10_radar"
+    },
+    {
+      "source_x": 448.2646,
+      "source_y": -49.3887,
+      "source_z": -49.9349,
+      "target_x": 473.3838,
+      "target_y": -49.085,
+      "target_z": -58.4857,
+      "distance": 26.5347,
+      "target_level": "l10_radar"
+    },
+    {
+      "source_x": 448.2646,
+      "source_y": -49.3887,
+      "source_z": -49.9349,
+      "target_x": 412.9727,
+      "target_y": -50.6092,
+      "target_z": -43.9384,
+      "distance": 38.3306,
+      "target_level": "l10_radar"
+    },
+    {
+      "source_x": 499.5074,
+      "source_y": -48.862,
+      "source_z": -64.4999,
+      "target_x": 529.3876,
+      "target_y": -53.9543,
+      "target_z": -83.8151,
+      "distance": 46.3073,
+      "target_level": "l10_radar"
+    },
+    {
+      "source_x": 499.5074,
+      "source_y": -48.862,
+      "source_z": -64.4999,
+      "target_x": 509.9853,
+      "target_y": -50.3633,
+      "target_z": -45.2638,
+      "distance": 21.9047,
+      "target_level": "l10_radar"
+    },
+    {
+      "source_x": 499.5074,
+      "source_y": -48.862,
+      "source_z": -64.4999,
+      "target_x": 473.3838,
+      "target_y": -49.085,
+      "target_z": -58.4857,
+      "distance": 27.1344,
+      "target_level": "l10_radar"
+    },
+    {
+      "source_x": 509.9853,
+      "source_y": -50.3633,
+      "source_z": -45.2638,
+      "target_x": 499.5074,
+      "target_y": -48.862,
+      "target_z": -64.4999,
+      "distance": 21.9047,
+      "target_level": "l10_radar"
+    },
+    {
+      "source_x": 509.9853,
+      "source_y": -50.3633,
+      "source_z": -45.2638,
+      "target_x": 543.2864,
+      "target_y": -50.6092,
+      "target_z": -45.247,
+      "distance": 33.6445,
+      "target_level": "l10_radar"
+    },
+    {
+      "source_x": 529.3876,
+      "source_y": -53.9543,
+      "source_z": -83.8151,
+      "target_x": 547.0759,
+      "target_y": -54.7469,
+      "target_z": -97.3314,
+      "distance": 30.3933,
+      "target_level": "l10_radar"
+    },
+    {
+      "source_x": 529.3876,
+      "source_y": -53.9543,
+      "source_z": -83.8151,
+      "target_x": 543.2864,
+      "target_y": -50.6092,
+      "target_z": -45.247,
+      "distance": 52.455,
+      "target_level": "l10_radar"
+    },
+    {
+      "source_x": 529.3876,
+      "source_y": -53.9543,
+      "source_z": -83.8151,
+      "target_x": 499.5074,
+      "target_y": -48.862,
+      "target_z": -64.4999,
+      "distance": 46.5402,
+      "target_level": "l10_radar"
+    },
+    {
+      "source_x": 543.2864,
+      "source_y": -50.6092,
+      "source_z": -45.247,
+      "target_x": 529.3876,
+      "target_y": -53.9543,
+      "target_z": -83.8151,
+      "distance": 53.8094,
+      "target_level": "l10_radar"
+    },
+    {
+      "source_x": 543.2864,
+      "source_y": -50.6092,
+      "source_z": -45.247,
+      "target_x": 557.5699,
+      "target_y": -50.8011,
+      "target_z": -30.211,
+      "distance": 25.8554,
+      "target_level": "l10_radar"
+    },
+    {
+      "source_x": 543.2864,
+      "source_y": -50.6092,
+      "source_z": -45.247,
+      "target_x": 509.9853,
+      "target_y": -50.3633,
+      "target_z": -45.2638,
+      "distance": 34.3237,
+      "target_level": "l10_radar"
+    },
+    {
+      "source_x": 557.5699,
+      "source_y": -50.8011,
+      "source_z": -30.211,
+      "target_x": 591.7151,
+      "target_y": -50.6847,
+      "target_z": -34.3583,
+      "distance": 37.5298,
+      "target_level": "l10_radar"
+    },
+    {
+      "source_x": 557.5699,
+      "source_y": -50.8011,
+      "source_z": -30.211,
+      "target_x": 543.2864,
+      "target_y": -50.6092,
+      "target_z": -45.247,
+      "distance": 27.1844,
+      "target_level": "l10_radar"
+    },
+    {
+      "source_x": 547.0759,
+      "source_y": -54.7469,
+      "source_z": -97.3314,
+      "target_x": 564.306,
+      "target_y": -53.3543,
+      "target_z": -120.0642,
+      "distance": 31.6733,
+      "target_level": "l10_radar"
+    },
+    {
+      "source_x": 547.0759,
+      "source_y": -54.7469,
+      "source_z": -97.3314,
+      "target_x": 529.3876,
+      "target_y": -53.9543,
+      "target_z": -83.8151,
+      "distance": 30.3056,
+      "target_level": "l10_radar"
+    },
+    {
+      "source_x": 564.306,
+      "source_y": -53.3543,
+      "source_z": -120.0642,
+      "target_x": 547.0759,
+      "target_y": -54.7469,
+      "target_z": -97.3314,
+      "distance": 39.8362,
+      "target_level": "l10_radar"
+    },
+    {
+      "source_x": 558.5941,
+      "source_y": -55.3532,
+      "source_z": -137.1905,
+      "target_x": 539.4189,
+      "target_y": -52.666,
+      "target_z": -158.4819,
+      "distance": 34.8846,
+      "target_level": "l10_radar"
+    },
+    {
+      "source_x": 539.4189,
+      "source_y": -52.666,
+      "source_z": -158.4819,
+      "target_x": 558.5941,
+      "target_y": -55.3532,
+      "target_z": -137.1905,
+      "distance": 29.941,
+      "target_level": "l10_radar"
+    },
+    {
+      "source_x": 539.4189,
+      "source_y": -52.666,
+      "source_z": -158.4819,
+      "target_x": 513.8694,
+      "target_y": -51.302,
+      "target_z": -151.6636,
+      "distance": 26.4436,
+      "target_level": "l10_radar"
+    },
+    {
+      "source_x": 513.8694,
+      "source_y": -51.302,
+      "source_z": -151.6636,
+      "target_x": 502.2315,
+      "target_y": -46.628,
+      "target_z": -185.4431,
+      "distance": 40.4821,
+      "target_level": "l10_radar"
+    },
+    {
+      "source_x": 513.8694,
+      "source_y": -51.302,
+      "source_z": -151.6636,
+      "target_x": 539.4189,
+      "target_y": -52.666,
+      "target_z": -158.4819,
+      "distance": 26.4436,
+      "target_level": "l10_radar"
+    },
+    {
+      "source_x": 513.8694,
+      "source_y": -51.302,
+      "source_z": -151.6636,
+      "target_x": 496.265,
+      "target_y": -54.1983,
+      "target_z": -140.8295,
+      "distance": 20.671,
+      "target_level": "l10_radar"
+    },
+    {
+      "source_x": 496.265,
+      "source_y": -54.1983,
+      "source_z": -140.8295,
+      "target_x": 480.8938,
+      "target_y": -53.6753,
+      "target_z": -172.1974,
+      "distance": 42.9717,
+      "target_level": "l10_radar"
+    },
+    {
+      "source_x": 496.265,
+      "source_y": -54.1983,
+      "source_z": -140.8295,
+      "target_x": 513.8694,
+      "target_y": -51.302,
+      "target_z": -151.6636,
+      "distance": 20.671,
+      "target_level": "l10_radar"
+    },
+    {
+      "source_x": 496.265,
+      "source_y": -54.1983,
+      "source_z": -140.8295,
+      "target_x": 481.7758,
+      "target_y": -52.9883,
+      "target_z": -118.9015,
+      "distance": 28.4004,
+      "target_level": "l10_radar"
+    },
+    {
+      "source_x": 481.7758,
+      "source_y": -52.9883,
+      "source_z": -118.9015,
+      "target_x": 496.265,
+      "target_y": -54.1983,
+      "target_z": -140.8295,
+      "distance": 28.5139,
+      "target_level": "l10_radar"
+    },
+    {
+      "source_x": 481.7758,
+      "source_y": -52.9883,
+      "source_z": -118.9015,
+      "target_x": 463.499,
+      "target_y": -53.5263,
+      "target_z": -112.1873,
+      "distance": 20.041,
+      "target_level": "l10_radar"
+    },
+    {
+      "source_x": 463.499,
+      "source_y": -53.5263,
+      "source_z": -112.1873,
+      "target_x": 481.7758,
+      "target_y": -52.9883,
+      "target_z": -118.9015,
+      "distance": 20.4181,
+      "target_level": "l10_radar"
+    },
+    {
+      "source_x": 463.499,
+      "source_y": -53.5263,
+      "source_z": -112.1873,
+      "target_x": 446.1613,
+      "target_y": -55.0545,
+      "target_z": -122.8474,
+      "distance": 23.9306,
+      "target_level": "l10_radar"
+    },
+    {
+      "source_x": 446.1613,
+      "source_y": -55.0545,
+      "source_z": -122.8474,
+      "target_x": 463.499,
+      "target_y": -53.5263,
+      "target_z": -112.1873,
+      "distance": 21.3074,
+      "target_level": "l10_radar"
+    },
+    {
+      "source_x": 446.1613,
+      "source_y": -55.0545,
+      "source_z": -122.8474,
+      "target_x": 450.0249,
+      "target_y": -48.4896,
+      "target_z": -136.3398,
+      "distance": 25.2034,
+      "target_level": "l10_radar"
+    },
+    {
+      "source_x": 446.1613,
+      "source_y": -55.0545,
+      "source_z": -122.8474,
+      "target_x": 407.5665,
+      "target_y": -54.9942,
+      "target_z": -127.6726,
+      "distance": 39.9266,
+      "target_level": "l10_radar"
+    },
+    {
+      "source_x": 407.5665,
+      "source_y": -54.9942,
+      "source_z": -127.6726,
+      "target_x": 424.7859,
+      "target_y": -55.6616,
+      "target_z": -158.5759,
+      "distance": 42.1085,
+      "target_level": "l10_radar"
+    },
+    {
+      "source_x": 407.5665,
+      "source_y": -54.9942,
+      "source_z": -127.6726,
+      "target_x": 446.1613,
+      "target_y": -55.0545,
+      "target_z": -122.8474,
+      "distance": 41.5562,
+      "target_level": "l10_radar"
+    },
+    {
+      "source_x": 407.5665,
+      "source_y": -54.9942,
+      "source_z": -127.6726,
+      "target_x": 383.9854,
+      "target_y": -50.4982,
+      "target_z": -110.5036,
+      "distance": 35.1591,
+      "target_level": "l10_radar"
+    },
+    {
+      "source_x": 424.7507,
+      "source_y": -54.4238,
+      "source_z": -179.9942,
+      "target_x": 424.7859,
+      "target_y": -55.6616,
+      "target_z": -158.5759,
+      "distance": 21.4183,
+      "target_level": "l10_radar"
+    },
+    {
+      "source_x": 424.7507,
+      "source_y": -54.4238,
+      "source_z": -179.9942,
+      "target_x": 411.4005,
+      "target_y": -55.0882,
+      "target_z": -192.3857,
+      "distance": 22.7103,
+      "target_level": "l10_radar"
+    },
+    {
+      "source_x": 411.4005,
+      "source_y": -55.0882,
+      "source_z": -192.3857,
+      "target_x": 403.2385,
+      "target_y": -50.3401,
+      "target_z": -207.4823,
+      "distance": 21.955,
+      "target_level": "l10_radar"
+    },
+    {
+      "source_x": 411.4005,
+      "source_y": -55.0882,
+      "source_z": -192.3857,
+      "target_x": 424.7507,
+      "target_y": -54.4238,
+      "target_z": -179.9942,
+      "distance": 21.872,
+      "target_level": "l10_radar"
+    },
+    {
+      "source_x": 480.8938,
+      "source_y": -53.6753,
+      "source_z": -172.1974,
+      "target_x": 502.2315,
+      "target_y": -46.628,
+      "target_z": -185.4431,
+      "distance": 25.1146,
+      "target_level": "l10_radar"
+    },
+    {
+      "source_x": 480.8938,
+      "source_y": -53.6753,
+      "source_z": -172.1974,
+      "target_x": 496.265,
+      "target_y": -54.1983,
+      "target_z": -140.8295,
+      "distance": 41.0365,
+      "target_level": "l10_radar"
+    },
+    {
+      "source_x": 502.2315,
+      "source_y": -46.628,
+      "source_z": -185.4431,
+      "target_x": 503.6522,
+      "target_y": -44.7684,
+      "target_z": -205.8592,
+      "distance": 21.3616,
+      "target_level": "l10_radar"
+    },
+    {
+      "source_x": 502.2315,
+      "source_y": -46.628,
+      "source_z": -185.4431,
+      "target_x": 513.8694,
+      "target_y": -51.302,
+      "target_z": -151.6636,
+      "distance": 38.9344,
+      "target_level": "l10_radar"
+    },
+    {
+      "source_x": 502.2315,
+      "source_y": -46.628,
+      "source_z": -185.4431,
+      "target_x": 480.8938,
+      "target_y": -53.6753,
+      "target_z": -172.1974,
+      "distance": 25.1146,
+      "target_level": "l10_radar"
+    },
+    {
+      "source_x": 503.6522,
+      "source_y": -44.7684,
+      "source_z": -205.8592,
+      "target_x": 490.5596,
+      "target_y": -47.3052,
+      "target_z": -234.2427,
+      "distance": 31.2576,
+      "target_level": "l10_radar"
+    },
+    {
+      "source_x": 503.6522,
+      "source_y": -44.7684,
+      "source_z": -205.8592,
+      "target_x": 502.2315,
+      "target_y": -46.628,
+      "target_z": -185.4431,
+      "distance": 21.5917,
+      "target_level": "l10_radar"
+    },
+    {
+      "source_x": 490.5596,
+      "source_y": -47.3052,
+      "source_z": -234.2427,
+      "target_x": 510.4359,
+      "target_y": -52.5217,
+      "target_z": -274.5536,
+      "distance": 48.6859,
+      "target_level": "l10_radar"
+    },
+    {
+      "source_x": 490.5596,
+      "source_y": -47.3052,
+      "source_z": -234.2427,
+      "target_x": 526.9576,
+      "target_y": -50.6698,
+      "target_z": -207.645,
+      "distance": 67.4253,
+      "target_level": "l10_radar"
+    },
+    {
+      "source_x": 490.5596,
+      "source_y": -47.3052,
+      "source_z": -234.2427,
+      "target_x": 503.6522,
+      "target_y": -44.7684,
+      "target_z": -205.8592,
+      "distance": 31.2576,
+      "target_level": "l10_radar"
+    },
+    {
+      "source_x": 490.5596,
+      "source_y": -47.3052,
+      "source_z": -234.2427,
+      "target_x": 469.7428,
+      "target_y": -48.3374,
+      "target_z": -218.9231,
+      "distance": 29.8412,
+      "target_level": "l10_radar"
+    },
+    {
+      "source_x": 469.7428,
+      "source_y": -48.3374,
+      "source_z": -218.9231,
+      "target_x": 490.5596,
+      "target_y": -47.3052,
+      "target_z": -234.2427,
+      "distance": 30.3226,
+      "target_level": "l10_radar"
+    },
+    {
+      "source_x": 469.7428,
+      "source_y": -48.3374,
+      "source_z": -218.9231,
+      "target_x": 447.8207,
+      "target_y": -49.0625,
+      "target_z": -230.0132,
+      "distance": 25.2415,
+      "target_level": "l10_radar"
+    },
+    {
+      "source_x": 510.4359,
+      "source_y": -52.5217,
+      "source_z": -274.5536,
+      "target_x": 529.0151,
+      "target_y": -49.6586,
+      "target_z": -260.1384,
+      "distance": 27.0903,
+      "target_level": "l10_radar"
+    },
+    {
+      "source_x": 510.4359,
+      "source_y": -52.5217,
+      "source_z": -274.5536,
+      "target_x": 490.5596,
+      "target_y": -47.3052,
+      "target_z": -234.2427,
+      "distance": 50.2019,
+      "target_level": "l10_radar"
+    },
+    {
+      "source_x": 510.4359,
+      "source_y": -52.5217,
+      "source_z": -274.5536,
+      "target_x": 491.4085,
+      "target_y": -52.545,
+      "target_z": -287.4457,
+      "distance": 26.757,
+      "target_level": "l10_radar"
+    },
+    {
+      "source_x": 529.0151,
+      "source_y": -49.6586,
+      "source_z": -260.1384,
+      "target_x": 510.4359,
+      "target_y": -52.5217,
+      "target_z": -274.5536,
+      "distance": 24.6936,
+      "target_level": "l10_radar"
+    },
+    {
+      "source_x": 529.0151,
+      "source_y": -49.6586,
+      "source_z": -260.1384,
+      "target_x": 541.2428,
+      "target_y": -50.6447,
+      "target_z": -246.9897,
+      "distance": 22.4759,
+      "target_level": "l10_radar"
+    },
+    {
+      "source_x": 491.4085,
+      "source_y": -52.545,
+      "source_z": -287.4457,
+      "target_x": 496.7094,
+      "target_y": -50.1777,
+      "target_z": -294.9766,
+      "distance": 10.1956,
+      "target_level": "l10_radar"
+    },
+    {
+      "source_x": 491.4085,
+      "source_y": -52.545,
+      "source_z": -287.4457,
+      "target_x": 510.4359,
+      "target_y": -52.5217,
+      "target_z": -274.5536,
+      "distance": 27.9679,
+      "target_level": "l10_radar"
+    },
+    {
+      "source_x": 491.4085,
+      "source_y": -52.545,
+      "source_z": -287.4457,
+      "target_x": 460.9971,
+      "target_y": -50.3765,
+      "target_z": -297.328,
+      "distance": 34.7345,
+      "target_level": "l10_radar"
+    },
+    {
+      "source_x": 460.9971,
+      "source_y": -50.3765,
+      "source_z": -297.328,
+      "target_x": 491.4085,
+      "target_y": -52.545,
+      "target_z": -287.4457,
+      "distance": 35.223,
+      "target_level": "l10_radar"
+    },
+    {
+      "source_x": 460.9971,
+      "source_y": -50.3765,
+      "source_z": -297.328,
+      "target_x": 443.4251,
+      "target_y": -49.8059,
+      "target_z": -307.8219,
+      "distance": 26.5822,
+      "target_level": "l10_radar"
+    },
+    {
+      "source_x": 443.4251,
+      "source_y": -49.8059,
+      "source_z": -307.8219,
+      "target_x": 460.9971,
+      "target_y": -50.3765,
+      "target_z": -297.328,
+      "distance": 20.504,
+      "target_level": "l10_radar"
+    },
+    {
+      "source_x": 443.4251,
+      "source_y": -49.8059,
+      "source_z": -307.8219,
+      "target_x": 416.0299,
+      "target_y": -49.4173,
+      "target_z": -311.443,
+      "distance": 28.3552,
+      "target_level": "l10_radar"
+    },
+    {
+      "source_x": 420.286,
+      "source_y": -48.9814,
+      "source_z": -334.8965,
+      "target_x": 416.0299,
+      "target_y": -49.4173,
+      "target_z": -311.443,
+      "distance": 25.3968,
+      "target_level": "l10_radar"
+    },
+    {
+      "source_x": 420.286,
+      "source_y": -48.9814,
+      "source_z": -334.8965,
+      "target_x": 391.4888,
+      "target_y": -51.0124,
+      "target_z": -343.0356,
+      "distance": 35.7211,
+      "target_level": "l10_radar"
+    },
+    {
+      "source_x": 416.0299,
+      "source_y": -49.4173,
+      "source_z": -311.443,
+      "target_x": 420.286,
+      "target_y": -48.9814,
+      "target_z": -334.8965,
+      "distance": 23.9363,
+      "target_level": "l10_radar"
+    },
+    {
+      "source_x": 416.0299,
+      "source_y": -49.4173,
+      "source_z": -311.443,
+      "target_x": 443.4251,
+      "target_y": -49.8059,
+      "target_z": -307.8219,
+      "distance": 28.7617,
+      "target_level": "l10_radar"
+    },
+    {
+      "source_x": 416.0299,
+      "source_y": -49.4173,
+      "source_z": -311.443,
+      "target_x": 390.1453,
+      "target_y": -49.611,
+      "target_z": -307.4496,
+      "distance": 26.5925,
+      "target_level": "l10_radar"
+    },
+    {
+      "source_x": 391.4888,
+      "source_y": -51.0124,
+      "source_z": -343.0356,
+      "target_x": 391.2655,
+      "target_y": -51.76,
+      "target_z": -359.6688,
+      "distance": 18.2814,
+      "target_level": "l10_radar"
+    },
+    {
+      "source_x": 391.4888,
+      "source_y": -51.0124,
+      "source_z": -343.0356,
+      "target_x": 420.286,
+      "target_y": -48.9814,
+      "target_z": -334.8965,
+      "distance": 32.1898,
+      "target_level": "l10_radar"
+    },
+    {
+      "source_x": 391.4888,
+      "source_y": -51.0124,
+      "source_z": -343.0356,
+      "target_x": 390.1453,
+      "target_y": -49.611,
+      "target_z": -307.4496,
+      "distance": 35.6751,
+      "target_level": "l10_radar"
+    },
+    {
+      "source_x": 391.4888,
+      "source_y": -51.0124,
+      "source_z": -343.0356,
+      "target_x": 356.5827,
+      "target_y": -50.815,
+      "target_z": -340.9384,
+      "distance": 35.1241,
+      "target_level": "l10_radar"
+    },
+    {
+      "source_x": 356.5827,
+      "source_y": -50.815,
+      "source_z": -340.9384,
+      "target_x": 391.4888,
+      "target_y": -51.0124,
+      "target_z": -343.0356,
+      "distance": 35.0966,
+      "target_level": "l10_radar"
+    },
+    {
+      "source_x": 356.5827,
+      "source_y": -50.815,
+      "source_z": -340.9384,
+      "target_x": 334.5346,
+      "target_y": -49.9999,
+      "target_z": -337.2996,
+      "distance": 22.7655,
+      "target_level": "l10_radar"
+    },
+    {
+      "source_x": 390.1453,
+      "source_y": -49.611,
+      "source_z": -307.4496,
+      "target_x": 391.4888,
+      "target_y": -51.0124,
+      "target_z": -343.0356,
+      "distance": 37.1713,
+      "target_level": "l10_radar"
+    },
+    {
+      "source_x": 390.1453,
+      "source_y": -49.611,
+      "source_z": -307.4496,
+      "target_x": 416.0299,
+      "target_y": -49.4173,
+      "target_z": -311.443,
+      "distance": 26.5005,
+      "target_level": "l10_radar"
+    },
+    {
+      "source_x": 390.1453,
+      "source_y": -49.611,
+      "source_z": -307.4496,
+      "target_x": 313.978,
+      "target_y": -50.6731,
+      "target_z": -262.3121,
+      "distance": 115.142,
+      "target_level": "l10_radar"
+    },
+    {
+      "source_x": 390.1453,
+      "source_y": -49.611,
+      "source_z": -307.4496,
+      "target_x": 361.3775,
+      "target_y": -50.1814,
+      "target_z": -306.5574,
+      "distance": 42.2379,
+      "target_level": "l10_radar"
+    },
+    {
+      "source_x": 361.3775,
+      "source_y": -50.1814,
+      "source_z": -306.5574,
+      "target_x": 390.1453,
+      "target_y": -49.611,
+      "target_z": -307.4496,
+      "distance": 43.1024,
+      "target_level": "l10_radar"
+    },
+    {
+      "source_x": 361.3775,
+      "source_y": -50.1814,
+      "source_z": -306.5574,
+      "target_x": 340.9301,
+      "target_y": -47.9129,
+      "target_z": -315.2639,
+      "distance": 24.0172,
+      "target_level": "l10_radar"
+    },
+    {
+      "source_x": 334.5346,
+      "source_y": -49.9999,
+      "source_z": -337.2996,
+      "target_x": 356.5827,
+      "target_y": -50.815,
+      "target_z": -340.9384,
+      "distance": 23.9528,
+      "target_level": "l10_radar"
+    },
+    {
+      "source_x": 334.5346,
+      "source_y": -49.9999,
+      "source_z": -337.2996,
+      "target_x": 340.9301,
+      "target_y": -47.9129,
+      "target_z": -315.2639,
+      "distance": 22.9451,
+      "target_level": "l10_radar"
+    },
+    {
+      "source_x": 340.9301,
+      "source_y": -47.9129,
+      "source_z": -315.2639,
+      "target_x": 334.5346,
+      "target_y": -49.9999,
+      "target_z": -337.2996,
+      "distance": 22.9451,
+      "target_level": "l10_radar"
+    },
+    {
+      "source_x": 340.9301,
+      "source_y": -47.9129,
+      "source_z": -315.2639,
+      "target_x": 361.3775,
+      "target_y": -50.1814,
+      "target_z": -306.5574,
+      "distance": 26.8503,
+      "target_level": "l10_radar"
+    },
+    {
+      "source_x": 340.9301,
+      "source_y": -47.9129,
+      "source_z": -315.2639,
+      "target_x": 331.3513,
+      "target_y": -51.3583,
+      "target_z": -286.8527,
+      "distance": 31.594,
+      "target_level": "l10_radar"
+    },
+    {
+      "source_x": 340.9301,
+      "source_y": -47.9129,
+      "source_z": -315.2639,
+      "target_x": 318.5359,
+      "target_y": -47.5781,
+      "target_z": -314.9886,
+      "distance": 22.6185,
+      "target_level": "l10_radar"
+    },
+    {
+      "source_x": 318.5359,
+      "source_y": -47.5781,
+      "source_z": -314.9886,
+      "target_x": 340.9301,
+      "target_y": -47.9129,
+      "target_z": -315.2639,
+      "distance": 22.6096,
+      "target_level": "l10_radar"
+    },
+    {
+      "source_x": 318.5359,
+      "source_y": -47.5781,
+      "source_z": -314.9886,
+      "target_x": 299.921,
+      "target_y": -51.8909,
+      "target_z": -328.1543,
+      "distance": 27.7862,
+      "target_level": "l10_radar"
+    },
+    {
+      "source_x": 318.5359,
+      "source_y": -47.5781,
+      "source_z": -314.9886,
+      "target_x": 297.9132,
+      "target_y": -48.7309,
+      "target_z": -289.7525,
+      "distance": 36.4038,
+      "target_level": "l10_radar"
+    },
+    {
+      "source_x": 331.3513,
+      "source_y": -51.3583,
+      "source_z": -286.8527,
+      "target_x": 340.9301,
+      "target_y": -47.9129,
+      "target_z": -315.2639,
+      "distance": 34.7614,
+      "target_level": "l10_radar"
+    },
+    {
+      "source_x": 331.3513,
+      "source_y": -51.3583,
+      "source_z": -286.8527,
+      "target_x": 313.978,
+      "target_y": -50.6731,
+      "target_z": -262.3121,
+      "distance": 30.0678,
+      "target_level": "l10_radar"
+    },
+    {
+      "source_x": 297.9132,
+      "source_y": -48.7309,
+      "source_z": -289.7525,
+      "target_x": 318.5359,
+      "target_y": -47.5781,
+      "target_z": -314.9886,
+      "distance": 40.3312,
+      "target_level": "l10_radar"
+    },
+    {
+      "source_x": 297.9132,
+      "source_y": -48.7309,
+      "source_z": -289.7525,
+      "target_x": 313.978,
+      "target_y": -50.6731,
+      "target_z": -262.3121,
+      "distance": 38.9338,
+      "target_level": "l10_radar"
+    },
+    {
+      "source_x": 313.978,
+      "source_y": -50.6731,
+      "source_z": -262.3121,
+      "target_x": 331.3513,
+      "target_y": -51.3583,
+      "target_z": -286.8527,
+      "distance": 30.0678,
+      "target_level": "l10_radar"
+    },
+    {
+      "source_x": 313.978,
+      "source_y": -50.6731,
+      "source_z": -262.3121,
+      "target_x": 297.9132,
+      "target_y": -48.7309,
+      "target_z": -289.7525,
+      "distance": 37.6783,
+      "target_level": "l10_radar"
+    },
+    {
+      "source_x": 313.978,
+      "source_y": -50.6731,
+      "source_z": -262.3121,
+      "target_x": 390.1453,
+      "target_y": -49.611,
+      "target_z": -307.4496,
+      "distance": 126.3138,
+      "target_level": "l10_radar"
+    },
+    {
+      "source_x": 313.978,
+      "source_y": -50.6731,
+      "source_z": -262.3121,
+      "target_x": 307.4992,
+      "target_y": -50.6828,
+      "target_z": -227.9233,
+      "distance": 39.1142,
+      "target_level": "l10_radar"
+    },
+    {
+      "source_x": 313.978,
+      "source_y": -50.6731,
+      "source_z": -262.3121,
+      "target_x": 284.549,
+      "target_y": -50.9601,
+      "target_z": -250.9493,
+      "distance": 36.6056,
+      "target_level": "l10_radar"
+    },
+    {
+      "source_x": 284.549,
+      "source_y": -50.9601,
+      "source_z": -250.9493,
+      "target_x": 313.978,
+      "target_y": -50.6731,
+      "target_z": -262.3121,
+      "distance": 36.114,
+      "target_level": "l10_radar"
+    },
+    {
+      "source_x": 307.4992,
+      "source_y": -50.6828,
+      "source_z": -227.9233,
+      "target_x": 313.978,
+      "target_y": -50.6731,
+      "target_z": -262.3121,
+      "distance": 36.1169,
+      "target_level": "l10_radar"
+    },
+    {
+      "source_x": 307.4992,
+      "source_y": -50.6828,
+      "source_z": -227.9233,
+      "target_x": 313.2258,
+      "target_y": -49.5368,
+      "target_z": -207.9164,
+      "distance": 20.9168,
+      "target_level": "l10_radar"
+    },
+    {
+      "source_x": 328.8372,
+      "source_y": -48.0352,
+      "source_z": -223.1405,
+      "target_x": 351.0605,
+      "target_y": -50.1659,
+      "target_z": -234.5444,
+      "distance": 27.529,
+      "target_level": "l10_radar"
+    },
+    {
+      "source_x": 328.8372,
+      "source_y": -48.0352,
+      "source_z": -223.1405,
+      "target_x": 337.529,
+      "target_y": -46.3388,
+      "target_z": -202.7759,
+      "distance": 24.4473,
+      "target_level": "l10_radar"
+    },
+    {
+      "source_x": 328.8372,
+      "source_y": -48.0352,
+      "source_z": -223.1405,
+      "target_x": 313.2258,
+      "target_y": -49.5368,
+      "target_z": -207.9164,
+      "distance": 23.6138,
+      "target_level": "l10_radar"
+    },
+    {
+      "source_x": 351.0605,
+      "source_y": -50.1659,
+      "source_z": -234.5444,
+      "target_x": 328.8372,
+      "target_y": -48.0352,
+      "target_z": -223.1405,
+      "distance": 28.4769,
+      "target_level": "l10_radar"
+    },
+    {
+      "source_x": 337.529,
+      "source_y": -46.3388,
+      "source_z": -202.7759,
+      "target_x": 328.8372,
+      "target_y": -48.0352,
+      "target_z": -223.1405,
+      "distance": 24.6253,
+      "target_level": "l10_radar"
+    },
+    {
+      "source_x": 337.529,
+      "source_y": -46.3388,
+      "source_z": -202.7759,
+      "target_x": 368.8838,
+      "target_y": -47.6937,
+      "target_z": -209.1703,
+      "distance": 36.0412,
+      "target_level": "l10_radar"
+    },
+    {
+      "source_x": 337.529,
+      "source_y": -46.3388,
+      "source_z": -202.7759,
+      "target_x": 348.4459,
+      "target_y": -46.1995,
+      "target_z": -179.6085,
+      "distance": 25.6107,
+      "target_level": "l10_radar"
+    },
+    {
+      "source_x": 313.2258,
+      "source_y": -49.5368,
+      "source_z": -207.9164,
+      "target_x": 307.4992,
+      "target_y": -50.6828,
+      "target_z": -227.9233,
+      "distance": 20.8818,
+      "target_level": "l10_radar"
+    },
+    {
+      "source_x": 313.2258,
+      "source_y": -49.5368,
+      "source_z": -207.9164,
+      "target_x": 328.8372,
+      "target_y": -48.0352,
+      "target_z": -223.1405,
+      "distance": 22.147,
+      "target_level": "l10_radar"
+    },
+    {
+      "source_x": 313.2258,
+      "source_y": -49.5368,
+      "source_z": -207.9164,
+      "target_x": 315.1293,
+      "target_y": -47.2994,
+      "target_z": -180.3635,
+      "distance": 27.6186,
+      "target_level": "l10_radar"
+    },
+    {
+      "source_x": 313.2258,
+      "source_y": -49.5368,
+      "source_z": -207.9164,
+      "target_x": 288.2116,
+      "target_y": -50.6219,
+      "target_z": -201.0244,
+      "distance": 27.5543,
+      "target_level": "l10_radar"
+    },
+    {
+      "source_x": 288.2116,
+      "source_y": -50.6219,
+      "source_z": -201.0244,
+      "target_x": 313.2258,
+      "target_y": -49.5368,
+      "target_z": -207.9164,
+      "distance": 26.6816,
+      "target_level": "l10_radar"
+    },
+    {
+      "source_x": 288.2116,
+      "source_y": -50.6219,
+      "source_z": -201.0244,
+      "target_x": 293.893,
+      "target_y": -49.957,
+      "target_z": -177.4084,
+      "distance": 25.329,
+      "target_level": "l10_radar"
+    },
+    {
+      "source_x": 293.893,
+      "source_y": -49.957,
+      "source_z": -177.4084,
+      "target_x": 288.2116,
+      "target_y": -50.6219,
+      "target_z": -201.0244,
+      "distance": 27.8064,
+      "target_level": "l10_radar"
+    },
+    {
+      "source_x": 293.893,
+      "source_y": -49.957,
+      "source_z": -177.4084,
+      "target_x": 315.1293,
+      "target_y": -47.2994,
+      "target_z": -180.3635,
+      "distance": 26.4163,
+      "target_level": "l10_radar"
+    },
+    {
+      "source_x": 293.893,
+      "source_y": -49.957,
+      "source_z": -177.4084,
+      "target_x": 301.1618,
+      "target_y": -48.4847,
+      "target_z": -149.2324,
+      "distance": 30.3656,
+      "target_level": "l10_radar"
+    },
+    {
+      "source_x": 301.1618,
+      "source_y": -48.4847,
+      "source_z": -149.2324,
+      "target_x": 293.893,
+      "target_y": -49.957,
+      "target_z": -177.4084,
+      "distance": 29.9716,
+      "target_level": "l10_radar"
+    },
+    {
+      "source_x": 301.1618,
+      "source_y": -48.4847,
+      "source_z": -149.2324,
+      "target_x": 325.611,
+      "target_y": -47.3648,
+      "target_z": -166.4109,
+      "distance": 29.8809,
+      "target_level": "l10_radar"
+    },
+    {
+      "source_x": 301.1618,
+      "source_y": -48.4847,
+      "source_z": -149.2324,
+      "target_x": 314.8233,
+      "target_y": -48.1229,
+      "target_z": -129.0802,
+      "distance": 24.3464,
+      "target_level": "l10_radar"
+    },
+    {
+      "source_x": 301.1618,
+      "source_y": -48.4847,
+      "source_z": -149.2324,
+      "target_x": 275.0111,
+      "target_y": -51.0045,
+      "target_z": -146.7949,
+      "distance": 28.2982,
+      "target_level": "l10_radar"
+    },
+    {
+      "source_x": 325.611,
+      "source_y": -47.3648,
+      "source_z": -166.4109,
+      "target_x": 315.1293,
+      "target_y": -47.2994,
+      "target_z": -180.3635,
+      "distance": 19.2528,
+      "target_level": "l10_radar"
+    },
+    {
+      "source_x": 325.611,
+      "source_y": -47.3648,
+      "source_z": -166.4109,
+      "target_x": 348.4459,
+      "target_y": -46.1995,
+      "target_z": -179.6085,
+      "distance": 32.8528,
+      "target_level": "l10_radar"
+    },
+    {
+      "source_x": 325.611,
+      "source_y": -47.3648,
+      "source_z": -166.4109,
+      "target_x": 343.0099,
+      "target_y": -45.9374,
+      "target_z": -148.5068,
+      "distance": 34.1588,
+      "target_level": "l10_radar"
+    },
+    {
+      "source_x": 325.611,
+      "source_y": -47.3648,
+      "source_z": -166.4109,
+      "target_x": 301.1618,
+      "target_y": -48.4847,
+      "target_z": -149.2324,
+      "distance": 29.8809,
+      "target_level": "l10_radar"
+    },
+    {
+      "source_x": 315.1293,
+      "source_y": -47.2994,
+      "source_z": -180.3635,
+      "target_x": 313.2258,
+      "target_y": -49.5368,
+      "target_z": -207.9164,
+      "distance": 27.6186,
+      "target_level": "l10_radar"
+    },
+    {
+      "source_x": 315.1293,
+      "source_y": -47.2994,
+      "source_z": -180.3635,
+      "target_x": 325.611,
+      "target_y": -47.3648,
+      "target_z": -166.4109,
+      "distance": 18.0826,
+      "target_level": "l10_radar"
+    },
+    {
+      "source_x": 315.1293,
+      "source_y": -47.2994,
+      "source_z": -180.3635,
+      "target_x": 293.893,
+      "target_y": -49.957,
+      "target_z": -177.4084,
+      "distance": 26.5324,
+      "target_level": "l10_radar"
+    },
+    {
+      "source_x": 275.0111,
+      "source_y": -51.0045,
+      "source_z": -146.7949,
+      "target_x": 301.1618,
+      "target_y": -48.4847,
+      "target_z": -149.2324,
+      "distance": 28.0385,
+      "target_level": "l10_radar"
+    },
+    {
+      "source_x": 275.0111,
+      "source_y": -51.0045,
+      "source_z": -146.7949,
+      "target_x": 280.1411,
+      "target_y": -50.6826,
+      "target_z": -123.4314,
+      "distance": 23.9201,
+      "target_level": "l10_radar"
+    },
+    {
+      "source_x": 275.0111,
+      "source_y": -51.0045,
+      "source_z": -146.7949,
+      "target_x": 264.9962,
+      "target_y": -50.1813,
+      "target_z": -139.9372,
+      "distance": 13.5208,
+      "target_level": "l10_radar"
+    },
+    {
+      "source_x": 280.1411,
+      "source_y": -50.6826,
+      "source_z": -123.4314,
+      "target_x": 275.0111,
+      "target_y": -51.0045,
+      "target_z": -146.7949,
+      "distance": 23.9201,
+      "target_level": "l10_radar"
+    },
+    {
+      "source_x": 280.1411,
+      "source_y": -50.6826,
+      "source_z": -123.4314,
+      "target_x": 297.7196,
+      "target_y": -50.2229,
+      "target_z": -108.8535,
+      "distance": 24.0423,
+      "target_level": "l10_radar"
+    },
+    {
+      "source_x": 299.8555,
+      "source_y": -51.1002,
+      "source_z": -79.0217,
+      "target_x": 297.7196,
+      "target_y": -50.2229,
+      "target_z": -108.8535,
+      "distance": 30.7284,
+      "target_level": "l10_radar"
+    },
+    {
+      "source_x": 299.8555,
+      "source_y": -51.1002,
+      "source_z": -79.0217,
+      "target_x": 324.1982,
+      "target_y": -49.0288,
+      "target_z": -82.4376,
+      "distance": 24.8895,
+      "target_level": "l10_radar"
+    },
+    {
+      "source_x": 297.7196,
+      "source_y": -50.2229,
+      "source_z": -108.8535,
+      "target_x": 314.8233,
+      "target_y": -48.1229,
+      "target_z": -129.0802,
+      "distance": 26.4888,
+      "target_level": "l10_radar"
+    },
+    {
+      "source_x": 297.7196,
+      "source_y": -50.2229,
+      "source_z": -108.8535,
+      "target_x": 299.8555,
+      "target_y": -51.1002,
+      "target_z": -79.0217,
+      "distance": 30.0021,
+      "target_level": "l10_radar"
+    },
+    {
+      "source_x": 297.7196,
+      "source_y": -50.2229,
+      "source_z": -108.8535,
+      "target_x": 280.1411,
+      "target_y": -50.6826,
+      "target_z": -123.4314,
+      "distance": 26.2423,
+      "target_level": "l10_radar"
+    },
+    {
+      "source_x": 314.8233,
+      "source_y": -48.1229,
+      "source_z": -129.0802,
+      "target_x": 301.1618,
+      "target_y": -48.4847,
+      "target_z": -149.2324,
+      "distance": 24.3464,
+      "target_level": "l10_radar"
+    },
+    {
+      "source_x": 314.8233,
+      "source_y": -48.1229,
+      "source_z": -129.0802,
+      "target_x": 341.2344,
+      "target_y": -48.131,
+      "target_z": -119.6745,
+      "distance": 30.5287,
+      "target_level": "l10_radar"
+    },
+    {
+      "source_x": 314.8233,
+      "source_y": -48.1229,
+      "source_z": -129.0802,
+      "target_x": 297.7196,
+      "target_y": -50.2229,
+      "target_z": -108.8535,
+      "distance": 26.4888,
+      "target_level": "l10_radar"
+    },
+    {
+      "source_x": 341.2344,
+      "source_y": -48.131,
+      "source_z": -119.6745,
+      "target_x": 362.1992,
+      "target_y": -47.1342,
+      "target_z": -129.4128,
+      "distance": 23.1162,
+      "target_level": "l10_radar"
+    },
+    {
+      "source_x": 341.2344,
+      "source_y": -48.131,
+      "source_z": -119.6745,
+      "target_x": 324.1982,
+      "target_y": -49.0288,
+      "target_z": -82.4376,
+      "distance": 48.3034,
+      "target_level": "l10_radar"
+    },
+    {
+      "source_x": 341.2344,
+      "source_y": -48.131,
+      "source_z": -119.6745,
+      "target_x": 314.8233,
+      "target_y": -48.1229,
+      "target_z": -129.0802,
+      "distance": 36.7868,
+      "target_level": "l10_radar"
+    },
+    {
+      "source_x": 365.1288,
+      "source_y": -48.8273,
+      "source_z": -105.5926,
+      "target_x": 383.9854,
+      "target_y": -50.4982,
+      "target_z": -110.5036,
+      "distance": 19.4857,
+      "target_level": "l10_radar"
+    },
+    {
+      "source_x": 365.1288,
+      "source_y": -48.8273,
+      "source_z": -105.5926,
+      "target_x": 375.4273,
+      "target_y": -50.0424,
+      "target_z": -84.2699,
+      "distance": 23.6795,
+      "target_level": "l10_radar"
+    },
+    {
+      "source_x": 365.1288,
+      "source_y": -48.8273,
+      "source_z": -105.5926,
+      "target_x": 362.1992,
+      "target_y": -47.1342,
+      "target_z": -129.4128,
+      "distance": 23.9997,
+      "target_level": "l10_radar"
+    },
+    {
+      "source_x": 375.4273,
+      "source_y": -50.0424,
+      "source_z": -84.2699,
+      "target_x": 401.317,
+      "target_y": -52.538,
+      "target_z": -82.023,
+      "distance": 26.4702,
+      "target_level": "l10_radar"
+    },
+    {
+      "source_x": 375.4273,
+      "source_y": -50.0424,
+      "source_z": -84.2699,
+      "target_x": 376.2213,
+      "target_y": -50.2771,
+      "target_z": -54.9879,
+      "distance": 29.5629,
+      "target_level": "l10_radar"
+    },
+    {
+      "source_x": 375.4273,
+      "source_y": -50.0424,
+      "source_z": -84.2699,
+      "target_x": 365.1288,
+      "target_y": -48.8273,
+      "target_z": -105.5926,
+      "distance": 23.6795,
+      "target_level": "l10_radar"
+    },
+    {
+      "source_x": 435.5157,
+      "source_y": -49.2195,
+      "source_z": -76.8587,
+      "target_x": 448.2646,
+      "target_y": -49.3887,
+      "target_z": -49.9349,
+      "distance": 34.3713,
+      "target_level": "l10_radar"
+    },
+    {
+      "source_x": 435.5157,
+      "source_y": -49.2195,
+      "source_z": -76.8587,
+      "target_x": 401.317,
+      "target_y": -52.538,
+      "target_z": -82.023,
+      "distance": 34.5864,
+      "target_level": "l10_radar"
+    },
+    {
+      "source_x": 362.1992,
+      "source_y": -47.1342,
+      "source_z": -129.4128,
+      "target_x": 365.1288,
+      "target_y": -48.8273,
+      "target_z": -105.5926,
+      "distance": 23.9997,
+      "target_level": "l10_radar"
+    },
+    {
+      "source_x": 362.1992,
+      "source_y": -47.1342,
+      "source_z": -129.4128,
+      "target_x": 343.0099,
+      "target_y": -45.9374,
+      "target_z": -148.5068,
+      "distance": 27.0705,
+      "target_level": "l10_radar"
+    },
+    {
+      "source_x": 362.1992,
+      "source_y": -47.1342,
+      "source_z": -129.4128,
+      "target_x": 341.2344,
+      "target_y": -48.131,
+      "target_z": -119.6745,
+      "distance": 23.1162,
+      "target_level": "l10_radar"
+    },
+    {
+      "source_x": 343.0099,
+      "source_y": -45.9374,
+      "source_z": -148.5068,
+      "target_x": 325.611,
+      "target_y": -47.3648,
+      "target_z": -166.4109,
+      "distance": 33.5391,
+      "target_level": "l10_radar"
+    },
+    {
+      "source_x": 343.0099,
+      "source_y": -45.9374,
+      "source_z": -148.5068,
+      "target_x": 362.1992,
+      "target_y": -47.1342,
+      "target_z": -129.4128,
+      "distance": 27.0705,
+      "target_level": "l10_radar"
+    },
+    {
+      "source_x": 348.4459,
+      "source_y": -46.1995,
+      "source_z": -179.6085,
+      "target_x": 337.529,
+      "target_y": -46.3388,
+      "target_z": -202.7759,
+      "distance": 25.6107,
+      "target_level": "l10_radar"
+    },
+    {
+      "source_x": 348.4459,
+      "source_y": -46.1995,
+      "source_z": -179.6085,
+      "target_x": 325.611,
+      "target_y": -47.3648,
+      "target_z": -166.4109,
+      "distance": 36.0925,
+      "target_level": "l10_radar"
+    },
+    {
+      "source_x": 387.537,
+      "source_y": -49.7759,
+      "source_z": -209.6365,
+      "target_x": 390.6915,
+      "target_y": -47.9582,
+      "target_z": -226.9896,
+      "distance": 17.6375,
+      "target_level": "l10_radar"
+    },
+    {
+      "source_x": 387.537,
+      "source_y": -49.7759,
+      "source_z": -209.6365,
+      "target_x": 403.2385,
+      "target_y": -50.3401,
+      "target_z": -207.4823,
+      "distance": 16.8746,
+      "target_level": "l10_radar"
+    },
+    {
+      "source_x": 387.537,
+      "source_y": -49.7759,
+      "source_z": -209.6365,
+      "target_x": 368.8838,
+      "target_y": -47.6937,
+      "target_z": -209.1703,
+      "distance": 18.6591,
+      "target_level": "l10_radar"
+    },
+    {
+      "source_x": 403.2385,
+      "source_y": -50.3401,
+      "source_z": -207.4823,
+      "target_x": 411.4005,
+      "target_y": -55.0882,
+      "target_z": -192.3857,
+      "distance": 17.9322,
+      "target_level": "l10_radar"
+    },
+    {
+      "source_x": 403.2385,
+      "source_y": -50.3401,
+      "source_z": -207.4823,
+      "target_x": 387.537,
+      "target_y": -49.7759,
+      "target_z": -209.6365,
+      "distance": 17.1599,
+      "target_level": "l10_radar"
+    },
+    {
+      "source_x": 390.6915,
+      "source_y": -47.9582,
+      "source_z": -226.9896,
+      "target_x": 395.8329,
+      "target_y": -51.8272,
+      "target_z": -242.4298,
+      "distance": 17.8872,
+      "target_level": "l10_radar"
+    },
+    {
+      "source_x": 390.6915,
+      "source_y": -47.9582,
+      "source_z": -226.9896,
+      "target_x": 416.2422,
+      "target_y": -48.9089,
+      "target_z": -227.1251,
+      "distance": 27.9595,
+      "target_level": "l10_radar"
+    },
+    {
+      "source_x": 390.6915,
+      "source_y": -47.9582,
+      "source_z": -226.9896,
+      "target_x": 387.537,
+      "target_y": -49.7759,
+      "target_z": -209.6365,
+      "distance": 17.6375,
+      "target_level": "l10_radar"
+    },
+    {
+      "source_x": 395.8329,
+      "source_y": -51.8272,
+      "source_z": -242.4298,
+      "target_x": 417.6356,
+      "target_y": -52.8636,
+      "target_z": -247.0439,
+      "distance": 23.65,
+      "target_level": "l10_radar"
+    },
+    {
+      "source_x": 395.8329,
+      "source_y": -51.8272,
+      "source_z": -242.4298,
+      "target_x": 390.6915,
+      "target_y": -47.9582,
+      "target_z": -226.9896,
+      "distance": 16.8857,
+      "target_level": "l10_radar"
+    },
+    {
+      "source_x": 424.7859,
+      "source_y": -55.6616,
+      "source_z": -158.5759,
+      "target_x": 424.7507,
+      "target_y": -54.4238,
+      "target_z": -179.9942,
+      "distance": 21.4183,
+      "target_level": "l10_radar"
+    },
+    {
+      "source_x": 424.7859,
+      "source_y": -55.6616,
+      "source_z": -158.5759,
+      "target_x": 450.0249,
+      "target_y": -48.4896,
+      "target_z": -136.3398,
+      "distance": 38.6779,
+      "target_level": "l10_radar"
+    },
+    {
+      "source_x": 424.7859,
+      "source_y": -55.6616,
+      "source_z": -158.5759,
+      "target_x": 407.5665,
+      "target_y": -54.9942,
+      "target_z": -127.6726,
+      "distance": 43.7171,
+      "target_level": "l10_radar"
+    },
+    {
+      "source_x": 450.0249,
+      "source_y": -48.4896,
+      "source_z": -136.3398,
+      "target_x": 424.7859,
+      "target_y": -55.6616,
+      "target_z": -158.5759,
+      "distance": 38.8214,
+      "target_level": "l10_radar"
+    },
+    {
+      "source_x": 450.0249,
+      "source_y": -48.4896,
+      "source_z": -136.3398,
+      "target_x": 446.1613,
+      "target_y": -55.0545,
+      "target_z": -122.8474,
+      "distance": 24.7773,
+      "target_level": "l10_radar"
+    },
+    {
+      "source_x": 433.5938,
+      "source_y": -55.8254,
+      "source_z": -256.2449,
+      "target_x": 428.4016,
+      "target_y": -53.7703,
+      "target_z": -276.8421,
+      "distance": 22.5784,
+      "target_level": "l10_radar"
+    },
+    {
+      "source_x": 433.5938,
+      "source_y": -55.8254,
+      "source_z": -256.2449,
+      "target_x": 417.6356,
+      "target_y": -52.8636,
+      "target_z": -247.0439,
+      "distance": 24.8003,
+      "target_level": "l10_radar"
+    },
+    {
+      "source_x": 417.6356,
+      "source_y": -52.8636,
+      "source_z": -247.0439,
+      "target_x": 433.5938,
+      "target_y": -55.8254,
+      "target_z": -256.2449,
+      "distance": 21.4895,
+      "target_level": "l10_radar"
+    },
+    {
+      "source_x": 417.6356,
+      "source_y": -52.8636,
+      "source_z": -247.0439,
+      "target_x": 416.2422,
+      "target_y": -48.9089,
+      "target_z": -227.1251,
+      "distance": 20.3706,
+      "target_level": "l10_radar"
+    },
+    {
+      "source_x": 417.6356,
+      "source_y": -52.8636,
+      "source_z": -247.0439,
+      "target_x": 395.8329,
+      "target_y": -51.8272,
+      "target_z": -242.4298,
+      "distance": 23.3696,
+      "target_level": "l10_radar"
+    },
+    {
+      "source_x": 416.2422,
+      "source_y": -48.9089,
+      "source_z": -227.1251,
+      "target_x": 417.6356,
+      "target_y": -52.8636,
+      "target_z": -247.0439,
+      "distance": 20.8163,
+      "target_level": "l10_radar"
+    },
+    {
+      "source_x": 416.2422,
+      "source_y": -48.9089,
+      "source_z": -227.1251,
+      "target_x": 432.1014,
+      "target_y": -48.7232,
+      "target_z": -228.3523,
+      "distance": 15.9066,
+      "target_level": "l10_radar"
+    },
+    {
+      "source_x": 416.2422,
+      "source_y": -48.9089,
+      "source_z": -227.1251,
+      "target_x": 390.6915,
+      "target_y": -47.9582,
+      "target_z": -226.9896,
+      "distance": 27.4298,
+      "target_level": "l10_radar"
+    },
+    {
+      "source_x": 432.1014,
+      "source_y": -48.7232,
+      "source_z": -228.3523,
+      "target_x": 447.8207,
+      "target_y": -49.0625,
+      "target_z": -230.0132,
+      "distance": 15.8325,
+      "target_level": "l10_radar"
+    },
+    {
+      "source_x": 432.1014,
+      "source_y": -48.7232,
+      "source_z": -228.3523,
+      "target_x": 416.2422,
+      "target_y": -48.9089,
+      "target_z": -227.1251,
+      "distance": 15.9066,
+      "target_level": "l10_radar"
+    },
+    {
+      "source_x": 447.8207,
+      "source_y": -49.0625,
+      "source_z": -230.0132,
+      "target_x": 460.6315,
+      "target_y": -52.3364,
+      "target_z": -244.6327,
+      "distance": 23.7076,
+      "target_level": "l10_radar"
+    },
+    {
+      "source_x": 447.8207,
+      "source_y": -49.0625,
+      "source_z": -230.0132,
+      "target_x": 469.7428,
+      "target_y": -48.3374,
+      "target_z": -218.9231,
+      "distance": 25.6814,
+      "target_level": "l10_radar"
+    },
+    {
+      "source_x": 447.8207,
+      "source_y": -49.0625,
+      "source_z": -230.0132,
+      "target_x": 432.1014,
+      "target_y": -48.7232,
+      "target_z": -228.3523,
+      "distance": 16.2803,
+      "target_level": "l10_radar"
+    },
+    {
+      "source_x": 460.6315,
+      "source_y": -52.3364,
+      "source_z": -244.6327,
+      "target_x": 447.8207,
+      "target_y": -49.0625,
+      "target_z": -230.0132,
+      "distance": 26.2379,
+      "target_level": "l10_radar"
+    },
+    {
+      "source_x": 428.4016,
+      "source_y": -53.7703,
+      "source_z": -276.8421,
+      "target_x": 433.5938,
+      "target_y": -55.8254,
+      "target_z": -256.2449,
+      "distance": 26.0356,
+      "target_level": "l10_radar"
+    },
+    {
+      "source_x": 621.3458,
+      "source_y": -52.2735,
+      "source_z": -317.6495,
+      "target_x": 606.8357,
+      "target_y": -52.1797,
+      "target_z": -312.1404,
+      "distance": 25.1804,
+      "target_level": "l10_radar"
+    },
+    {
+      "source_x": 541.2428,
+      "source_y": -50.6447,
+      "source_z": -246.9897,
+      "target_x": 529.0151,
+      "target_y": -49.6586,
+      "target_z": -260.1384,
+      "distance": 22.5152,
+      "target_level": "l10_radar"
+    },
+    {
+      "source_x": 541.2428,
+      "source_y": -50.6447,
+      "source_z": -246.9897,
+      "target_x": 561.8726,
+      "target_y": -59.4388,
+      "target_z": -230.1516,
+      "distance": 40.3632,
+      "target_level": "l10_radar"
+    },
+    {
+      "source_x": 541.2428,
+      "source_y": -50.6447,
+      "source_z": -246.9897,
+      "target_x": 526.9576,
+      "target_y": -50.6698,
+      "target_z": -207.645,
+      "distance": 47.5023,
+      "target_level": "l10_radar"
+    },
+    {
+      "source_x": -32.0,
+      "source_y": -1.0,
+      "source_z": 0.6,
+      "target_x": -23.1069,
+      "target_y": -2.2772,
+      "target_z": -23.8745,
+      "distance": 26.0401,
+      "target_level": "l10_radar"
+    },
+    {
+      "source_x": -32.0,
+      "source_y": -1.0,
+      "source_z": 0.6,
+      "target_x": -29.2376,
+      "target_y": -1.0012,
+      "target_z": 4.749,
+      "distance": 4.9845,
+      "target_level": "l10_radar"
+    },
+    {
+      "source_x": -36.1801,
+      "source_y": -1.0914,
+      "source_z": -86.7999,
+      "target_x": -26.9061,
+      "target_y": -0.981,
+      "target_z": -80.7988,
+      "distance": 12.655,
+      "target_level": "l10_radar"
+    },
+    {
+      "source_x": -36.1801,
+      "source_y": -1.0914,
+      "source_z": -86.7999,
+      "target_x": 329.2339,
+      "target_y": -1.0259,
+      "target_z": -314.3855,
+      "distance": 674.1621,
+      "target_level": "l10_red_forest"
+    },
+    {
+      "source_x": 382.5801,
+      "source_y": -33.6985,
+      "source_z": 154.4859,
+      "target_x": 383.9754,
+      "target_y": -33.9761,
+      "target_z": 141.8694,
+      "distance": 12.6934,
+      "target_level": "l10_radar"
+    },
+    {
+      "source_x": 382.5801,
+      "source_y": -33.6985,
+      "source_z": 154.4859,
+      "target_x": 386.1828,
+      "target_y": -33.4223,
+      "target_z": 162.0417,
+      "distance": 10.6561,
+      "target_level": "l10_radar"
+    },
+    {
+      "source_x": 391.2655,
+      "source_y": -51.76,
+      "source_z": -359.6688,
+      "target_x": 391.4888,
+      "target_y": -51.0124,
+      "target_z": -343.0356,
+      "distance": 17.198,
+      "target_level": "l10_radar"
+    },
+    {
+      "source_x": 391.2655,
+      "source_y": -51.76,
+      "source_z": -359.6688,
+      "target_x": 114.1145,
+      "target_y": -1.3869,
+      "target_z": 368.3296,
+      "distance": 938.8301,
+      "target_level": "l07_military"
+    },
+    {
+      "source_x": 496.7094,
+      "source_y": -50.1777,
+      "source_z": -294.9766,
+      "target_x": 491.4085,
+      "target_y": -52.545,
+      "target_z": -287.4457,
+      "distance": 9.834,
+      "target_level": "l10_radar"
+    },
+    {
+      "source_x": 496.7094,
+      "source_y": -50.1777,
+      "source_z": -294.9766,
+      "target_x": 103.6041,
+      "target_y": 0.5356,
+      "target_z": 466.9259,
+      "distance": 1041.9429,
+      "target_level": "l07_military"
+    },
+    {
+      "source_x": 667.8347,
+      "source_y": -45.6014,
+      "source_z": -39.452,
+      "target_x": 647.106,
+      "target_y": -51.3023,
+      "target_z": -63.536,
+      "distance": 44.2152,
+      "target_level": "l10_radar"
+    },
+    {
+      "source_x": 667.8347,
+      "source_y": -45.6014,
+      "source_z": -39.452,
+      "target_x": 47.6223,
+      "target_y": -2.2279,
+      "target_z": -195.2674,
+      "distance": 1213.1769,
+      "target_level": "l11_pripyat"
+    },
+    {
+      "source_x": 264.9962,
+      "source_y": -50.1813,
+      "source_z": -139.9372,
+      "target_x": 275.0111,
+      "target_y": -51.0045,
+      "target_z": -146.7949,
+      "distance": 15.1007,
+      "target_level": "l10_radar"
+    },
+    {
+      "source_x": 264.9962,
+      "source_y": -50.1813,
+      "source_z": -139.9372,
+      "target_x": 254.6773,
+      "target_y": 1.5748,
+      "target_z": -157.1445,
+      "distance": 1011.79,
+      "target_level": "l10_red_forest"
+    },
+    {
+      "source_x": 299.921,
+      "source_y": -51.8909,
+      "source_z": -328.1543,
+      "target_x": 318.5359,
+      "target_y": -47.5781,
+      "target_z": -314.9886,
+      "distance": 27.2447,
+      "target_level": "l10_radar"
+    },
+    {
+      "source_x": 299.921,
+      "source_y": -51.8909,
+      "source_z": -328.1543,
+      "target_x": 254.6773,
+      "target_y": 1.5748,
+      "target_z": -157.1445,
+      "distance": 1060.4891,
+      "target_level": "l10_red_forest"
+    }
+  ]
+}

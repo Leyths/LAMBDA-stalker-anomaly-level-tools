@@ -1,0 +1,39 @@
+{
+  "level_name": "fake_start",
+  "level_id": 33,
+  "edge_count": 3,
+  "intra_level_edges": 2,
+  "inter_level_edges": 1,
+  "edges": [
+    {
+      "source_x": 0.0094,
+      "source_y": 0.0073,
+      "source_z": 0.0022,
+      "target_x": 0.0427,
+      "target_y": -0.0057,
+      "target_z": 8.3417,
+      "distance": 8.3395,
+      "target_level": "fake_start"
+    },
+    {
+      "source_x": 0.0427,
+      "source_y": -0.0057,
+      "source_z": 8.3417,
+      "target_x": 0.0094,
+      "target_y": 0.0073,
+      "target_z": 0.0022,
+      "distance": 8.3395,
+      "target_level": "fake_start"
+    },
+    {
+      "source_x": 0.0427,
+      "source_y": -0.0057,
+      "source_z": 8.3417,
+      "target_x": -291.6809,
+      "target_y": 0.9355,
+      "target_z": 150.1138,
+      "distance": 1249.7926,
+      "target_level": "k00_marsh"
+    }
+  ]
+}
