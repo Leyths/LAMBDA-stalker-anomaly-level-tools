@@ -138,3 +138,11 @@ This project contains AI-generated code. While efforts have been made to ensure 
 ## License
 
 This project is provided as-is for modding purposes. S.T.A.L.K.E.R. and X-Ray Engine are trademarks of GSC Game World.
+
+## Acknowledgements
+
+Deep thanks to Karobeccary for his knowledge of the STALKER SDK, this wouldn't have been possible without his assistance. 
+Thank you to HailTheMonolith for saying this was impossible, and for his support throughout.
+
+And thanks to bardak, Kolmogor, K.D. and the other authors of [ACDC](https://github.com/PSIget/Universal-ACDC/) which was extremely helpful in writing this.
+
