@@ -51,6 +51,8 @@ You need to extract level files from your Anomaly/GAMMA installation using AXRTo
 
 ### Building all.spawn
 
+#### macOS/Linux
+
 ```bash
 # Main build - runs the complete pipeline
 ./build_anomaly.sh
@@ -63,6 +65,34 @@ You need to extract level files from your Anomaly/GAMMA installation using AXRTo
 
 # Launch 3D visualizer
 ./visualise.sh
+```
+
+#### Windows
+
+First, install Python 3 from [python.org](https://www.python.org/downloads/). Make sure to check "Add Python to PATH" during installation.
+
+Then install pip and dependencies:
+
+```cmd
+py -m pip install --upgrade pip
+py -m pip install numpy
+py -m pip install open3d  :: optional, for visualizer
+```
+
+Then double-click or run from command prompt:
+
+```cmd
+:: Main build - runs the complete pipeline
+build_anomaly.bat
+
+:: Build options
+build_anomaly.bat --force      :: Force rebuild all cross tables
+
+:: Build for GAMMA mod
+build_gamma.bat
+
+:: Launch 3D visualizer
+visualise.bat
 ```
 
 ## Configuration
