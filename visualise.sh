@@ -36,3 +36,5 @@ fi
 cd "$SCRIPT_DIR/visualiser" || { echo "Error: failed to change to visualiser directory" >&2; read -p "Press Enter to exit..."; exit 1; }
 
 $PYTHON run_visualiser.py "$@"
+read -p "Press Enter to exit..."
+    exit 1

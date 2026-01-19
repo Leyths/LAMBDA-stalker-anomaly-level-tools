@@ -42,3 +42,5 @@ $PYTHON build_all_spawn.py \
     --blacklist ../spawn_blacklist.ini \
     --basemod anomaly
     "$@"
+read -p "Press Enter to exit..."
+    exit 1
