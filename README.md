@@ -26,26 +26,15 @@ pip install open3d  # optional, for visualizer
 
 ### Windows
 
-```powershell
-git clone <repo>
-cd LAMBDA-stalker-anomaly-level-tools
-python -m venv venv
-.\venv\Scripts\activate
-pip install numpy
-pip install open3d  # optional, for visualizer
+First, install Python 3 from [python.org](https://www.python.org/downloads/). Make sure to check "Add Python to PATH" during installation.
+
+Then install pip and dependencies:
+
+```cmd
+py -m pip install --upgrade pip
+py -m pip install numpy
+py -m pip install open3d  :: optional, for visualizer
 ```
-
-## Level Data Extraction
-
-You need to extract level files from your Anomaly/GAMMA installation using AXRToolset:
-
-1. Download [AXRToolset](https://www.moddb.com/mods/stalker-anomaly/addons/axrtoolset) from ModDB
-2. Open the `.db0` archives at `<GameDir>/db/levels/<level_name>.db0`
-3. Extract the following files for each level:
-   - `level.ai` - AI navigation mesh
-   - `level.spawn` - Spawn entities
-   - `level.game` - Waypoints and patrols
-4. Place extracted files in `levels/<level_name>/`
 
 ## Usage
 
@@ -68,18 +57,6 @@ You need to extract level files from your Anomaly/GAMMA installation using AXRTo
 ```
 
 #### Windows
-
-First, install Python 3 from [python.org](https://www.python.org/downloads/). Make sure to check "Add Python to PATH" during installation.
-
-Then install pip and dependencies:
-
-```cmd
-py -m pip install --upgrade pip
-py -m pip install numpy
-py -m pip install open3d  :: optional, for visualizer
-```
-
-Then double-click or run from command prompt:
 
 ```cmd
 :: Main build - runs the complete pipeline
