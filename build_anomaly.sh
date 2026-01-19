@@ -7,8 +7,16 @@
 
 SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 
-# Find python
-if command -v python3 &> /dev/null; then
+# Find python - prefer virtual environment if available
+if [[ -f "$SCRIPT_DIR/venv/Scripts/python.exe" ]]; then
+    PYTHON="$SCRIPT_DIR/venv/Scripts/python.exe"
+elif [[ -f "$SCRIPT_DIR/.venv/Scripts/python.exe" ]]; then
+    PYTHON="$SCRIPT_DIR/.venv/Scripts/python.exe"
+elif [[ -f "$SCRIPT_DIR/venv/bin/python" ]]; then
+    PYTHON="$SCRIPT_DIR/venv/bin/python"
+elif [[ -f "$SCRIPT_DIR/.venv/bin/python" ]]; then
+    PYTHON="$SCRIPT_DIR/.venv/bin/python"
+elif command -v python3 &> /dev/null; then
     PYTHON=python3
 elif command -v python &> /dev/null; then
     PYTHON=python
