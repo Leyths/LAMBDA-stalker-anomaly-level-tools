@@ -13,6 +13,7 @@ elif command -v python &> /dev/null; then
     PYTHON=python
 else
     echo "Error: python not found" >&2
+    read -p "Press Enter to exit..."
     exit 1
 fi
 
@@ -20,9 +21,10 @@ fi
 if ! $PYTHON -c "import open3d" &> /dev/null; then
     echo "Error: open3d is not installed" >&2
     echo "Install it with: $PYTHON -m pip install open3d" >&2
+    read -p "Press Enter to exit..."
     exit 1
 fi
 
-cd "$SCRIPT_DIR/visualiser" || exit 1
+cd "$SCRIPT_DIR/visualiser" || { echo "Error: failed to change to visualiser directory" >&2; read -p "Press Enter to exit..."; exit 1; }
 
 $PYTHON run_visualiser.py "$@"
