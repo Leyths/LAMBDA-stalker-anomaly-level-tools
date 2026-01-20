@@ -3,7 +3,18 @@
 
 **Leyths ALife Map Building Data Assembler**
 
-A tool for building and merging game graph data from the X-Ray Engine. Processes multiple game levels and creates a unified `all.spawn` file containing spawn points, patrol paths, game graph topology, and cross-table references.
+A tool for building and merging game graph data from the X-Ray Engine. 
+
+This allows for removing or modifying any existing Anomaly level, as well as adding new levels. See [Updating Levels](docs/UPDATING_LEVELS.md) for a guide.
+
+It does this by processing multiple game levels to create a unified `all.spawn` file containing spawn points, patrol paths, game graph topology, and cross-table references.
+
+## Visualiser
+
+![Cordon](docs/images/cordon_high.png)
+
+An `all.spawn` visualiser tool is included to help debug issues and view maps in ways you never have before. See [Visualiser](docs/VISUALISER.md) for more information.
+
 
 ## Prerequisites
 
