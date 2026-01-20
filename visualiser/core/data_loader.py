@@ -605,3 +605,28 @@ class PatrolData:
         nearest_idx = np.argmin(distances)
         return int(nearest_idx), float(distances[nearest_idx])
 
+    def find_by_name(self, name: str) -> List[Tuple[int, str]]:
+        """Find patrol points by patrol name (case-insensitive substring match).
+
+        Args:
+            name: Search string to match against patrol names
+
+        Returns:
+            List of (point_index, patrol_name) tuples for the first point of each matching patrol
+        """
+        if len(self._points) == 0:
+            return []
+
+        matches = []
+        seen_patrols = set()
+        search_lower = name.lower()
+
+        for idx, patrol_name in self._point_to_patrol.items():
+            if patrol_name in seen_patrols:
+                continue
+            if search_lower in patrol_name.lower():
+                matches.append((idx, patrol_name))
+                seen_patrols.add(patrol_name)
+
+        return matches
+

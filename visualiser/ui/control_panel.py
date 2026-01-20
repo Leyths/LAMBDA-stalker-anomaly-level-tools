@@ -258,7 +258,9 @@ class ControlPanel:
                 on_find_spawn_by_name=self._on_find_spawn_by_name,
                 on_find_spawn_by_xyz=self._on_find_spawn_by_xyz,
                 on_find_graph_by_gvid=self._on_find_graph_by_gvid,
-                on_find_graph_by_xyz=self._on_find_graph_by_xyz
+                on_find_graph_by_xyz=self._on_find_graph_by_xyz,
+                on_find_patrol_by_name=self._on_find_patrol_by_name,
+                on_find_patrol_by_xyz=self._on_find_patrol_by_xyz
             )
 
     def _on_find_ai_by_vertex_id(self, vertex_id):
@@ -337,6 +339,44 @@ class ControlPanel:
             self.set_status(f"Found nearest graph vertex!\nDistance: {distance:.2f} units")
         else:
             DialogFactory.show_error(self.window, "Could not find nearest graph vertex")
+
+    def _on_find_patrol_by_name(self, name):
+        """Handle find patrol by name."""
+        if self.patrol_data is None:
+            return
+
+        matches = self.patrol_data.find_by_name(name)
+        if not matches:
+            DialogFactory.show_error(self.window, f"No patrols found matching '{name}'")
+            return
+
+        if len(matches) == 1:
+            # Single match - go directly
+            idx, _ = matches[0]
+            if self.on_patrol_selected:
+                self.on_patrol_selected(idx)
+        else:
+            # Multiple matches - show selection dialog
+            DialogFactory.show_patrol_selection(
+                self.window,
+                matches,
+                lambda idx: self.on_patrol_selected(idx) if self.on_patrol_selected else None
+            )
+
+    def _on_find_patrol_by_xyz(self, x, y, z):
+        """Handle find patrol by XYZ coordinates."""
+        if self.patrol_data is None:
+            DialogFactory.show_error(self.window, "No patrol data loaded")
+            return
+
+        nearest_idx, distance = self.patrol_data.find_nearest_point(x, y, z)
+        if nearest_idx is not None:
+            if self.on_patrol_selected:
+                self.on_patrol_selected(nearest_idx)
+            self.window.close_dialog()
+            self.set_status(f"Found nearest patrol point!\nDistance: {distance:.2f} units")
+        else:
+            DialogFactory.show_error(self.window, "Could not find nearest patrol point")
 
     def _make_link_navigate_callback(self, link_index):
         """Create callback for navigating to a linked node."""

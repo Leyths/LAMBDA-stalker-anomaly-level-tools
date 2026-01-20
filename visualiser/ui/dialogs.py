@@ -29,7 +29,8 @@ class DialogFactory:
     @staticmethod
     def show_find_menu(window, on_find_ai_by_vertex_id, on_find_ai_by_xyz,
                        on_find_spawn_by_name, on_find_spawn_by_xyz,
-                       on_find_graph_by_gvid, on_find_graph_by_xyz):
+                       on_find_graph_by_gvid, on_find_graph_by_xyz,
+                       on_find_patrol_by_name=None, on_find_patrol_by_xyz=None):
         """Show the category selection menu for finding items."""
         dialog = gui.Dialog("Find Something")
 
@@ -111,6 +112,32 @@ class DialogFactory:
         graph_buttons.add_child(graph_gvid_btn)
         graph_buttons.add_child(graph_xyz_btn)
         layout.add_child(graph_buttons)
+        layout.add_fixed(15)
+
+        # Patrol section
+        patrol_label = gui.Label("Find patrol:")
+        patrol_label.text_color = gui.Color(0.3, 0.3, 0.3)  # Dark grey to match patrol spheres
+        layout.add_child(patrol_label)
+        layout.add_fixed(5)
+
+        patrol_buttons = gui.Horiz(5)
+        patrol_name_btn = gui.Button("By name")
+        patrol_xyz_btn = gui.Button("By XYZ coordinates")
+
+        def on_patrol_name():
+            window.close_dialog()
+            DialogFactory.show_find_patrol_by_name(window, on_find_patrol_by_name)
+
+        def on_patrol_xyz():
+            window.close_dialog()
+            DialogFactory.show_xyz_search(window, "Find Patrol by Coordinates",
+                                          on_find_patrol_by_xyz)
+
+        patrol_name_btn.set_on_clicked(on_patrol_name)
+        patrol_xyz_btn.set_on_clicked(on_patrol_xyz)
+        patrol_buttons.add_child(patrol_name_btn)
+        patrol_buttons.add_child(patrol_xyz_btn)
+        layout.add_child(patrol_buttons)
         layout.add_fixed(20)
 
         # Cancel button
@@ -239,6 +266,45 @@ class DialogFactory:
         window.show_dialog(dialog)
 
     @staticmethod
+    def show_find_patrol_by_name(window, on_find_callback):
+        """Show dialog to find patrol by name."""
+        dialog = gui.Dialog("Find Patrol by Name")
+
+        layout = gui.Vert(0, gui.Margins(10, 10, 10, 10))
+
+        name_label = gui.Label("Patrol name (substring match):")
+        name_input = gui.TextEdit()
+
+        layout.add_child(name_label)
+        layout.add_fixed(5)
+        layout.add_child(name_input)
+        layout.add_fixed(20)
+
+        button_layout = gui.Horiz()
+        search_button = gui.Button("Search")
+        cancel_button = gui.Button("Cancel")
+
+        def on_search():
+            name = name_input.text_value.strip()
+            if name:
+                window.close_dialog()
+                on_find_callback(name)
+            else:
+                DialogFactory.show_error(window, "Please enter a search term")
+
+        search_button.set_on_clicked(on_search)
+        cancel_button.set_on_clicked(lambda: window.close_dialog())
+
+        button_layout.add_stretch()
+        button_layout.add_child(cancel_button)
+        button_layout.add_fixed(10)
+        button_layout.add_child(search_button)
+
+        layout.add_child(button_layout)
+        dialog.add_child(layout)
+        window.show_dialog(dialog)
+
+    @staticmethod
     def show_xyz_search(window, title, on_find_callback):
         """Show dialog to search by XYZ coordinates."""
         dialog = gui.Dialog(title)
@@ -318,6 +384,50 @@ class DialogFactory:
                 def callback():
                     window.close_dialog()
                     on_select_callback(spawn_idx)
+                return callback
+
+            btn.set_on_clicked(make_callback(idx))
+            scroll.add_child(btn)
+            scroll.add_fixed(2)
+
+        layout.add_child(scroll)
+        layout.add_fixed(15)
+
+        cancel_button = gui.Button("Cancel")
+        cancel_button.set_on_clicked(lambda: window.close_dialog())
+        layout.add_child(cancel_button)
+
+        dialog.add_child(layout)
+        window.show_dialog(dialog)
+
+    @staticmethod
+    def show_patrol_selection(window, matches, on_select_callback):
+        """Show dialog to select from multiple patrol matches.
+
+        Args:
+            window: The parent window
+            matches: List of (point_index, patrol_name) tuples
+            on_select_callback: Callback with selected point index
+        """
+        dialog = gui.Dialog("Select Patrol")
+
+        layout = gui.Vert(0, gui.Margins(10, 10, 10, 10))
+
+        count_label = gui.Label(f"Found {len(matches)} matching patrols:")
+        count_label.text_color = gui.Color(0.7, 0.7, 0.7)
+        layout.add_child(count_label)
+        layout.add_fixed(10)
+
+        # Create scrollable list area
+        scroll = gui.ScrollableVert(0, gui.Margins(0, 0, 0, 0))
+
+        for idx, name in matches:
+            btn = gui.Button(f"{name} (#{idx})")
+
+            def make_callback(point_idx):
+                def callback():
+                    window.close_dialog()
+                    on_select_callback(point_idx)
                 return callback
 
             btn.set_on_clicked(make_callback(idx))

@@ -1,10 +1,10 @@
 # Visualiser
 
-A 3D inspection tool for viewing level vertices, spawns, and game graph data.
+A 3D inspection tool for viewing level vertices, spawns, game graph data, and patrol paths.
 
 ## Overview
 
-The visualiser provides a read-only view of game data for analysis and debugging. It renders level AI navigation meshes, spawn objects, and game graph vertices in an interactive 3D environment.
+The visualiser provides a read-only view of game data for analysis and debugging. It renders level AI navigation meshes, spawn objects, game graph vertices, and patrol paths in an interactive 3D environment.
 
 **Launch command:**
 ```bash
@@ -23,13 +23,14 @@ Click the search dropdown to select a search type:
 
 ![Search options dropdown](images/show-search.png)
 
-Three search types are available:
+Four search types are available:
 
 | Search Type | Search By |
 |-------------|-----------|
 | Find AI Node | LVID or coordinates |
 | Find Spawn | Name or coordinates |
 | Find Game Graph Vertex | GVID or coordinates |
+| Find Patrol Point | Patrol name or point name |
 
 ### Searching
 
@@ -70,6 +71,15 @@ Global navigation vertices from the game graph:
 - **Blue spheres**: Local graph vertices (navigation within the level)
 - **Purple spheres**: Inter-level connection vertices (cross-level travel points)
 
+### Patrol Paths
+
+NPC patrol waypoints from `level.patrols` files. These define the paths that NPCs follow during their daily routines.
+
+- **Black spheres**: Patrol waypoints
+- **Black lines**: Connections between waypoints (shown when a patrol point is selected)
+
+Patrol paths are organized by patrol name, with each path containing multiple numbered waypoints.
+
 ## Navigation Controls
 
 | Control | Action |
@@ -106,3 +116,11 @@ Selecting an item displays detailed information in the side panel.
 - Position (x, y, z)
 - Level ID and level mappings
 - Connected edges
+
+### Patrol Point Details
+
+- Patrol name
+- Point index and name
+- Position (x, y, z)
+- Flags and associated data
+- Connected waypoints (visualized as lines)
