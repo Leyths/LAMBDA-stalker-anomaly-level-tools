@@ -17,6 +17,27 @@ from .control_panel import ControlPanel
 class NodeInspectorApp:
     """Main application for node graph inspection (read-only)."""
 
+    # Picking priority thresholds (screen pixels) - used for early-exit optimization
+    GRAPH_PRIORITY_THRESHOLD = 40.0
+    SPAWN_PRIORITY_THRESHOLD = 50.0
+    PATROL_PRIORITY_THRESHOLD = 40.0
+
+    # Ray-based picking parameters (world units)
+    NODE_PICK_DISTANCE = 2.0
+    NODE_PICK_RADIUS = 5.0
+    SPAWN_PICK_DISTANCE = 3.0
+    SPAWN_PICK_RADIUS = 8.0
+    GRAPH_PICK_DISTANCE = 4.0
+    GRAPH_PICK_RADIUS = 10.0
+    PATROL_PICK_DISTANCE = 3.0
+    PATROL_PICK_RADIUS = 8.0
+
+    # Fallback screen-space picking thresholds (pixels)
+    NODE_SCREEN_THRESHOLD = 30.0
+    SPAWN_SCREEN_THRESHOLD = 50.0
+    GRAPH_SCREEN_THRESHOLD = 60.0
+    PATROL_SCREEN_THRESHOLD = 40.0
+
     def __init__(self, level_file: str, level_id: Optional[int] = None, all_spawn_path: Optional[str] = None):
         # Load data (pass all_spawn_path and level_id for cross-table loading)
         print("  Loading level data...", flush=True)
@@ -313,26 +334,21 @@ class NodeInspectorApp:
             # OPTIMIZATION: Compute ray ONCE and reuse for all picking methods
             ray_data = self._compute_pick_ray(event.x, event.y)
 
-            # Priority thresholds - graph and spawn points get priority over dense nav mesh
-            GRAPH_PRIORITY_THRESHOLD = 40.0  # Screen pixels
-            SPAWN_PRIORITY_THRESHOLD = 50.0  # Screen pixels
-            PATROL_PRIORITY_THRESHOLD = 40.0  # Screen pixels
-
             # Try graph first (highest priority) - early exit if clearly the target
             picked_graph_idx, graph_dist = self._pick_graph_with_ray(event.x, event.y, ray_data)
-            if picked_graph_idx is not None and graph_dist < GRAPH_PRIORITY_THRESHOLD:
+            if picked_graph_idx is not None and graph_dist < self.GRAPH_PRIORITY_THRESHOLD:
                 self.inspect_graph(picked_graph_idx, move_camera=True)
                 return gui.SceneWidget.EventCallbackResult.HANDLED
 
             # Try spawn next - early exit if clearly the target
             picked_spawn_idx, spawn_dist = self._pick_spawn_with_ray(event.x, event.y, ray_data)
-            if picked_spawn_idx is not None and spawn_dist < SPAWN_PRIORITY_THRESHOLD:
+            if picked_spawn_idx is not None and spawn_dist < self.SPAWN_PRIORITY_THRESHOLD:
                 self.inspect_spawn(picked_spawn_idx, move_camera=True)
                 return gui.SceneWidget.EventCallbackResult.HANDLED
 
             # Try patrol - early exit if clearly the target
             picked_patrol_idx, patrol_dist = self._pick_patrol_with_ray(event.x, event.y, ray_data)
-            if picked_patrol_idx is not None and patrol_dist < PATROL_PRIORITY_THRESHOLD:
+            if picked_patrol_idx is not None and patrol_dist < self.PATROL_PRIORITY_THRESHOLD:
                 self.inspect_patrol(picked_patrol_idx, move_camera=True)
                 return gui.SceneWidget.EventCallbackResult.HANDLED
 
@@ -467,13 +483,10 @@ class NodeInspectorApp:
             return self._pick_node_screen_distance(screen_x, screen_y)
 
         ray_origin, ray_direction, ray_length = ray_data
-        distance_threshold = 2.0
-        search_radius = 5.0  # Search radius at each sample point
-
         idx, _ = self._pick_along_ray_kdtree(
             ray_origin, ray_direction, ray_length,
             self._level_kdtree, self.level_data.points,
-            distance_threshold, search_radius
+            self.NODE_PICK_DISTANCE, self.NODE_PICK_RADIUS
         )
         return idx
 
@@ -485,13 +498,10 @@ class NodeInspectorApp:
             return idx, float('inf') if idx is None else 0.0
 
         ray_origin, ray_direction, ray_length = ray_data
-        distance_threshold = 2.0
-        search_radius = 5.0
-
         return self._pick_along_ray_kdtree(
             ray_origin, ray_direction, ray_length,
             self._level_kdtree, self.level_data.points,
-            distance_threshold, search_radius
+            self.NODE_PICK_DISTANCE, self.NODE_PICK_RADIUS
         )
 
     def _pick_spawn_at_screen_pos(self, screen_x, screen_y):
@@ -508,84 +518,38 @@ class NodeInspectorApp:
             return self._pick_spawn_screen_distance(screen_x, screen_y)
 
         ray_origin, ray_direction, ray_length = ray_data
-        distance_threshold = 3.0  # Larger threshold for spawns
-        search_radius = 8.0
-
         return self._pick_along_ray_kdtree(
             ray_origin, ray_direction, ray_length,
             self._spawn_kdtree, self._spawn_positions,
-            distance_threshold, search_radius
+            self.SPAWN_PICK_DISTANCE, self.SPAWN_PICK_RADIUS
         )
 
-    def _pick_node_screen_distance(self, screen_x, screen_y):
-        """Fallback picking using screen-space distance."""
-        view_matrix = self.scene.scene.camera.get_view_matrix()
-        proj_matrix = self.scene.scene.camera.get_projection_matrix()
+    def _pick_by_screen_distance(self, screen_x, screen_y, positions, threshold, return_dist=False):
+        """Generic fallback picking using screen-space distance.
 
+        Args:
+            screen_x, screen_y: Screen coordinates to pick at
+            positions: Array/list of [x,y,z] positions to test
+            threshold: Maximum screen-space distance to consider a hit
+            return_dist: If True, return (idx, dist) tuple; else just idx
+
+        Returns:
+            Index of closest item within threshold, or None
+            If return_dist=True, returns (idx, dist) tuple
+        """
         viewport_width = self.scene.frame.width
         viewport_height = self.scene.frame.height
-
         if viewport_width == 0 or viewport_height == 0:
-            return None
+            return (None, float('inf')) if return_dist else None
 
-        view_mat = np.array(view_matrix).reshape(4, 4)
-        proj_mat = np.array(proj_matrix).reshape(4, 4)
+        view_mat = np.array(self.scene.scene.camera.get_view_matrix()).reshape(4, 4)
+        proj_mat = np.array(self.scene.scene.camera.get_projection_matrix()).reshape(4, 4)
         vp_matrix = proj_mat @ view_mat
 
         closest_idx = None
         closest_screen_dist = float('inf')
-        max_screen_dist = 30.0
 
-        for i in range(len(self.level_data)):
-            point = self.level_data.get_point(i)
-            point_h = np.array([point[0], point[1], point[2], 1.0])
-            clip_pos = vp_matrix @ point_h
-
-            if abs(clip_pos[3]) < 1e-6 or clip_pos[3] < 0:
-                continue
-
-            ndc = clip_pos[:3] / clip_pos[3]
-
-            if ndc[2] < -1 or ndc[2] > 1:
-                continue
-
-            screen_pos_x = (ndc[0] + 1.0) * viewport_width / 2.0
-            screen_pos_y = (1.0 - ndc[1]) * viewport_height / 2.0
-
-            dx = screen_pos_x - screen_x
-            dy = screen_pos_y - screen_y
-            screen_dist = np.sqrt(dx*dx + dy*dy)
-
-            if screen_dist < closest_screen_dist and screen_dist < max_screen_dist:
-                closest_screen_dist = screen_dist
-                closest_idx = i
-
-        return closest_idx
-
-    def _pick_spawn_screen_distance(self, screen_x, screen_y):
-        """Fallback spawn picking using screen-space distance."""
-        if self.spawn_data is None or len(self.spawn_data) == 0:
-            return None, float('inf')
-
-        view_matrix = self.scene.scene.camera.get_view_matrix()
-        proj_matrix = self.scene.scene.camera.get_projection_matrix()
-
-        viewport_width = self.scene.frame.width
-        viewport_height = self.scene.frame.height
-
-        if viewport_width == 0 or viewport_height == 0:
-            return None, float('inf')
-
-        view_mat = np.array(view_matrix).reshape(4, 4)
-        proj_mat = np.array(proj_matrix).reshape(4, 4)
-        vp_matrix = proj_mat @ view_mat
-
-        closest_idx = None
-        closest_screen_dist = float('inf')
-        max_screen_dist = 50.0  # Larger threshold for spawns
-
-        for i in range(len(self.spawn_data)):
-            point = self.spawn_data.get_position(i)
+        for i, point in enumerate(positions):
             if point is None:
                 continue
             point_h = np.array([point[0], point[1], point[2], 1.0])
@@ -595,7 +559,6 @@ class NodeInspectorApp:
                 continue
 
             ndc = clip_pos[:3] / clip_pos[3]
-
             if ndc[2] < -1 or ndc[2] > 1:
                 continue
 
@@ -606,11 +569,26 @@ class NodeInspectorApp:
             dy = screen_pos_y - screen_y
             screen_dist = np.sqrt(dx*dx + dy*dy)
 
-            if screen_dist < closest_screen_dist and screen_dist < max_screen_dist:
+            if screen_dist < closest_screen_dist and screen_dist < threshold:
                 closest_screen_dist = screen_dist
                 closest_idx = i
 
-        return closest_idx, closest_screen_dist
+        return (closest_idx, closest_screen_dist) if return_dist else closest_idx
+
+    def _pick_node_screen_distance(self, screen_x, screen_y):
+        """Fallback picking using screen-space distance."""
+        return self._pick_by_screen_distance(
+            screen_x, screen_y, self.level_data.points, self.NODE_SCREEN_THRESHOLD
+        )
+
+    def _pick_spawn_screen_distance(self, screen_x, screen_y):
+        """Fallback spawn picking using screen-space distance."""
+        if self.spawn_data is None or len(self.spawn_data) == 0:
+            return None, float('inf')
+        return self._pick_by_screen_distance(
+            screen_x, screen_y, self._spawn_positions, self.SPAWN_SCREEN_THRESHOLD,
+            return_dist=True
+        )
 
     def _pick_graph_at_screen_pos(self, screen_x, screen_y):
         """Pick a game graph vertex at screen coordinates using ray casting with KDTree.
@@ -626,64 +604,20 @@ class NodeInspectorApp:
             return self._pick_graph_screen_distance(screen_x, screen_y)
 
         ray_origin, ray_direction, ray_length = ray_data
-        distance_threshold = 4.0  # Larger threshold for graph vertices
-        search_radius = 10.0
-
         return self._pick_along_ray_kdtree(
             ray_origin, ray_direction, ray_length,
             self._graph_kdtree, self._graph_positions,
-            distance_threshold, search_radius
+            self.GRAPH_PICK_DISTANCE, self.GRAPH_PICK_RADIUS
         )
 
     def _pick_graph_screen_distance(self, screen_x, screen_y):
         """Fallback graph picking using screen-space distance."""
         if self.graph_data is None or len(self.graph_data) == 0:
             return None, float('inf')
-
-        view_matrix = self.scene.scene.camera.get_view_matrix()
-        proj_matrix = self.scene.scene.camera.get_projection_matrix()
-
-        viewport_width = self.scene.frame.width
-        viewport_height = self.scene.frame.height
-
-        if viewport_width == 0 or viewport_height == 0:
-            return None, float('inf')
-
-        view_mat = np.array(view_matrix).reshape(4, 4)
-        proj_mat = np.array(proj_matrix).reshape(4, 4)
-        vp_matrix = proj_mat @ view_mat
-
-        closest_idx = None
-        closest_screen_dist = float('inf')
-        max_screen_dist = 60.0  # Larger threshold for graph vertices
-
-        for i in range(len(self.graph_data)):
-            point = self.graph_data.get_position(i)
-            if point is None:
-                continue
-            point_h = np.array([point[0], point[1], point[2], 1.0])
-            clip_pos = vp_matrix @ point_h
-
-            if abs(clip_pos[3]) < 1e-6 or clip_pos[3] < 0:
-                continue
-
-            ndc = clip_pos[:3] / clip_pos[3]
-
-            if ndc[2] < -1 or ndc[2] > 1:
-                continue
-
-            screen_pos_x = (ndc[0] + 1.0) * viewport_width / 2.0
-            screen_pos_y = (1.0 - ndc[1]) * viewport_height / 2.0
-
-            dx = screen_pos_x - screen_x
-            dy = screen_pos_y - screen_y
-            screen_dist = np.sqrt(dx*dx + dy*dy)
-
-            if screen_dist < closest_screen_dist and screen_dist < max_screen_dist:
-                closest_screen_dist = screen_dist
-                closest_idx = i
-
-        return closest_idx, closest_screen_dist
+        return self._pick_by_screen_distance(
+            screen_x, screen_y, self._graph_positions, self.GRAPH_SCREEN_THRESHOLD,
+            return_dist=True
+        )
 
     def _pick_graph_with_ray(self, screen_x, screen_y, ray_data):
         """Pick graph vertex using pre-computed ray data."""
@@ -706,7 +640,8 @@ class NodeInspectorApp:
         ray_origin, ray_direction, ray_length = ray_data
         return self._pick_along_ray_kdtree(
             ray_origin, ray_direction, ray_length,
-            self._spawn_kdtree, self._spawn_positions, 3.0, 8.0
+            self._spawn_kdtree, self._spawn_positions,
+            self.SPAWN_PICK_DISTANCE, self.SPAWN_PICK_RADIUS
         )
 
     def _pick_node_with_ray(self, screen_x, screen_y, ray_data):
@@ -717,7 +652,8 @@ class NodeInspectorApp:
         ray_origin, ray_direction, ray_length = ray_data
         return self._pick_along_ray_kdtree(
             ray_origin, ray_direction, ray_length,
-            self._level_kdtree, self.level_data.points, 2.0, 5.0
+            self._level_kdtree, self.level_data.points,
+            self.NODE_PICK_DISTANCE, self.NODE_PICK_RADIUS
         )
 
     def _pick_patrol_with_ray(self, screen_x, screen_y, ray_data):
@@ -729,58 +665,18 @@ class NodeInspectorApp:
         ray_origin, ray_direction, ray_length = ray_data
         return self._pick_along_ray_kdtree(
             ray_origin, ray_direction, ray_length,
-            self._patrol_kdtree, self._patrol_positions, 3.0, 8.0
+            self._patrol_kdtree, self._patrol_positions,
+            self.PATROL_PICK_DISTANCE, self.PATROL_PICK_RADIUS
         )
 
     def _pick_patrol_screen_distance(self, screen_x, screen_y):
         """Fallback patrol picking using screen-space distance."""
         if self.patrol_data is None or len(self.patrol_data) == 0:
             return None, float('inf')
-
-        view_matrix = self.scene.scene.camera.get_view_matrix()
-        proj_matrix = self.scene.scene.camera.get_projection_matrix()
-
-        viewport_width = self.scene.frame.width
-        viewport_height = self.scene.frame.height
-
-        if viewport_width == 0 or viewport_height == 0:
-            return None, float('inf')
-
-        view_mat = np.array(view_matrix).reshape(4, 4)
-        proj_mat = np.array(proj_matrix).reshape(4, 4)
-        vp_matrix = proj_mat @ view_mat
-
-        closest_idx = None
-        closest_screen_dist = float('inf')
-        max_screen_dist = 40.0  # Threshold for patrol points
-
-        for i in range(len(self.patrol_data)):
-            point = self.patrol_data.get_position(i)
-            if point is None:
-                continue
-            point_h = np.array([point[0], point[1], point[2], 1.0])
-            clip_pos = vp_matrix @ point_h
-
-            if abs(clip_pos[3]) < 1e-6 or clip_pos[3] < 0:
-                continue
-
-            ndc = clip_pos[:3] / clip_pos[3]
-
-            if ndc[2] < -1 or ndc[2] > 1:
-                continue
-
-            screen_pos_x = (ndc[0] + 1.0) * viewport_width / 2.0
-            screen_pos_y = (1.0 - ndc[1]) * viewport_height / 2.0
-
-            dx = screen_pos_x - screen_x
-            dy = screen_pos_y - screen_y
-            screen_dist = np.sqrt(dx*dx + dy*dy)
-
-            if screen_dist < closest_screen_dist and screen_dist < max_screen_dist:
-                closest_screen_dist = screen_dist
-                closest_idx = i
-
-        return closest_idx, closest_screen_dist
+        return self._pick_by_screen_distance(
+            screen_x, screen_y, self._patrol_positions, self.PATROL_SCREEN_THRESHOLD,
+            return_dist=True
+        )
 
     def _on_key(self, event):
         """Handle keyboard events."""
@@ -856,6 +752,54 @@ class NodeInspectorApp:
         """Callback when user selects a patrol point via search."""
         self.inspect_patrol(patrol_idx, move_camera=True)
 
+    def _clear_selection(self, selection_type):
+        """Clear a specific selection type and hide its highlight.
+
+        Args:
+            selection_type: One of 'node', 'spawn', 'graph', 'patrol'
+        """
+        if selection_type == 'node':
+            self.scene.scene.remove_geometry("highlight")
+            hidden = self.geometry_manager.hide_highlight()
+            mat = rendering.MaterialRecord()
+            mat.shader = "defaultLit"
+            self.scene.scene.add_geometry("highlight", hidden, mat)
+
+        elif selection_type == 'spawn':
+            self.selected_spawn = None
+            self.control_panel.clear_spawn_selection()
+            if self.spawn_data is not None and len(self.spawn_data) > 0:
+                self.scene.scene.remove_geometry("spawn_highlight")
+                hidden = self.geometry_manager.hide_spawn_highlight()
+                mat = rendering.MaterialRecord()
+                mat.shader = "defaultLitTransparency"
+                mat.base_color = [1.0, 1.0, 0.0, 0.3]
+                self.scene.scene.add_geometry("spawn_highlight", hidden, mat)
+                self._update_space_restrictor_shapes(-1)
+
+        elif selection_type == 'graph':
+            self.selected_graph = None
+            self.control_panel.clear_graph_selection()
+            if self.graph_data is not None and len(self.graph_data) > 0:
+                self.scene.scene.remove_geometry("graph_highlight")
+                hidden = self.geometry_manager.hide_graph_highlight()
+                mat = rendering.MaterialRecord()
+                mat.shader = "defaultLit"
+                self.scene.scene.add_geometry("graph_highlight", hidden, mat)
+            self.geometry_manager.reset_level_vertex_colors()
+            self._update_level_vertex_highlight()
+
+        elif selection_type == 'patrol':
+            self.selected_patrol = None
+            self.control_panel.clear_patrol_selection()
+            if self.patrol_data is not None and len(self.patrol_data) > 0:
+                self.scene.scene.remove_geometry("patrol_highlight")
+                hidden = self.geometry_manager.hide_patrol_highlight()
+                mat = rendering.MaterialRecord()
+                mat.shader = "defaultLit"
+                self.scene.scene.add_geometry("patrol_highlight", hidden, mat)
+                self._update_patrol_edges(None)
+
     def inspect_node(self, idx, reset_camera=False, move_camera=False):
         """Inspect a node."""
         if 0 <= idx < len(self.level_data):
@@ -865,45 +809,10 @@ class NodeInspectorApp:
 
             self.selected_node = idx
 
-            # Clear spawn selection
-            self.selected_spawn = None
-            self.control_panel.clear_spawn_selection()
-            if self.spawn_data is not None and len(self.spawn_data) > 0:
-                self.scene.scene.remove_geometry("spawn_highlight")
-                hidden_highlight = self.geometry_manager.hide_spawn_highlight()
-                spawn_highlight_mat = rendering.MaterialRecord()
-                spawn_highlight_mat.shader = "defaultLitTransparency"
-                spawn_highlight_mat.base_color = [1.0, 1.0, 0.0, 0.3]
-                self.scene.scene.add_geometry("spawn_highlight", hidden_highlight, spawn_highlight_mat)
-
-                # Hide space_restrictor shapes
-                self._update_space_restrictor_shapes(-1)
-
-            # Clear graph selection
-            self.selected_graph = None
-            self.control_panel.clear_graph_selection()
-            if self.graph_data is not None and len(self.graph_data) > 0:
-                self.scene.scene.remove_geometry("graph_highlight")
-                hidden_highlight = self.geometry_manager.hide_graph_highlight()
-                graph_highlight_mat = rendering.MaterialRecord()
-                graph_highlight_mat.shader = "defaultLit"
-                self.scene.scene.add_geometry("graph_highlight", hidden_highlight, graph_highlight_mat)
-
-            # Clear patrol selection
-            self.selected_patrol = None
-            self.control_panel.clear_patrol_selection()
-            if self.patrol_data is not None and len(self.patrol_data) > 0:
-                self.scene.scene.remove_geometry("patrol_highlight")
-                hidden_highlight = self.geometry_manager.hide_patrol_highlight()
-                patrol_highlight_mat = rendering.MaterialRecord()
-                patrol_highlight_mat.shader = "defaultLit"
-                self.scene.scene.add_geometry("patrol_highlight", hidden_highlight, patrol_highlight_mat)
-                # Hide patrol edges
-                self._update_patrol_edges(None)
-
-            # Clear level vertex highlight overlay (in case graph was previously selected)
-            self.geometry_manager.reset_level_vertex_colors()
-            self._update_level_vertex_highlight()
+            # Clear other selections
+            self._clear_selection('spawn')
+            self._clear_selection('graph')
+            self._clear_selection('patrol')
 
             # Update UI
             self.control_panel.set_current_node(idx)
@@ -933,38 +842,10 @@ class NodeInspectorApp:
 
         self.selected_spawn = idx
 
-        # Clear node selection highlight (but keep selected_node for navigation)
-        self.scene.scene.remove_geometry("highlight")
-        hidden_node_highlight = self.geometry_manager.hide_highlight()
-        highlight_mat = rendering.MaterialRecord()
-        highlight_mat.shader = "defaultLit"
-        self.scene.scene.add_geometry("highlight", hidden_node_highlight, highlight_mat)
-
-        # Clear graph selection
-        self.selected_graph = None
-        self.control_panel.clear_graph_selection()
-        if self.graph_data is not None and len(self.graph_data) > 0:
-            self.scene.scene.remove_geometry("graph_highlight")
-            hidden_graph_highlight = self.geometry_manager.hide_graph_highlight()
-            graph_highlight_mat = rendering.MaterialRecord()
-            graph_highlight_mat.shader = "defaultLit"
-            self.scene.scene.add_geometry("graph_highlight", hidden_graph_highlight, graph_highlight_mat)
-
-        # Clear patrol selection
-        self.selected_patrol = None
-        self.control_panel.clear_patrol_selection()
-        if self.patrol_data is not None and len(self.patrol_data) > 0:
-            self.scene.scene.remove_geometry("patrol_highlight")
-            hidden_patrol_highlight = self.geometry_manager.hide_patrol_highlight()
-            patrol_highlight_mat = rendering.MaterialRecord()
-            patrol_highlight_mat.shader = "defaultLit"
-            self.scene.scene.add_geometry("patrol_highlight", hidden_patrol_highlight, patrol_highlight_mat)
-            # Hide patrol edges
-            self._update_patrol_edges(None)
-
-        # Clear level vertex highlight overlay (in case graph was previously selected)
-        self.geometry_manager.reset_level_vertex_colors()
-        self._update_level_vertex_highlight()
+        # Clear other selections
+        self._clear_selection('node')
+        self._clear_selection('graph')
+        self._clear_selection('patrol')
 
         # Update spawn highlight
         self.scene.scene.remove_geometry("spawn_highlight")
@@ -1066,38 +947,10 @@ class NodeInspectorApp:
 
         self.selected_graph = idx
 
-        # Clear node selection highlight (but keep selected_node for navigation)
-        self.scene.scene.remove_geometry("highlight")
-        hidden_node_highlight = self.geometry_manager.hide_highlight()
-        highlight_mat = rendering.MaterialRecord()
-        highlight_mat.shader = "defaultLit"
-        self.scene.scene.add_geometry("highlight", hidden_node_highlight, highlight_mat)
-
-        # Clear spawn selection
-        self.selected_spawn = None
-        self.control_panel.clear_spawn_selection()
-        if self.spawn_data is not None and len(self.spawn_data) > 0:
-            self.scene.scene.remove_geometry("spawn_highlight")
-            hidden_spawn_highlight = self.geometry_manager.hide_spawn_highlight()
-            spawn_highlight_mat = rendering.MaterialRecord()
-            spawn_highlight_mat.shader = "defaultLitTransparency"
-            spawn_highlight_mat.base_color = [1.0, 1.0, 0.0, 0.3]
-            self.scene.scene.add_geometry("spawn_highlight", hidden_spawn_highlight, spawn_highlight_mat)
-
-            # Hide space_restrictor shapes
-            self._update_space_restrictor_shapes(-1)
-
-        # Clear patrol selection
-        self.selected_patrol = None
-        self.control_panel.clear_patrol_selection()
-        if self.patrol_data is not None and len(self.patrol_data) > 0:
-            self.scene.scene.remove_geometry("patrol_highlight")
-            hidden_patrol_highlight = self.geometry_manager.hide_patrol_highlight()
-            patrol_highlight_mat = rendering.MaterialRecord()
-            patrol_highlight_mat.shader = "defaultLit"
-            self.scene.scene.add_geometry("patrol_highlight", hidden_patrol_highlight, patrol_highlight_mat)
-            # Hide patrol edges
-            self._update_patrol_edges(None)
+        # Clear other selections
+        self._clear_selection('node')
+        self._clear_selection('spawn')
+        self._clear_selection('patrol')
 
         # Update graph highlight
         self.scene.scene.remove_geometry("graph_highlight")
@@ -1159,40 +1012,10 @@ class NodeInspectorApp:
 
         self.selected_patrol = idx
 
-        # Clear node selection highlight (but keep selected_node for navigation)
-        self.scene.scene.remove_geometry("highlight")
-        hidden_node_highlight = self.geometry_manager.hide_highlight()
-        highlight_mat = rendering.MaterialRecord()
-        highlight_mat.shader = "defaultLit"
-        self.scene.scene.add_geometry("highlight", hidden_node_highlight, highlight_mat)
-
-        # Clear spawn selection
-        self.selected_spawn = None
-        self.control_panel.clear_spawn_selection()
-        if self.spawn_data is not None and len(self.spawn_data) > 0:
-            self.scene.scene.remove_geometry("spawn_highlight")
-            hidden_spawn_highlight = self.geometry_manager.hide_spawn_highlight()
-            spawn_highlight_mat = rendering.MaterialRecord()
-            spawn_highlight_mat.shader = "defaultLitTransparency"
-            spawn_highlight_mat.base_color = [1.0, 1.0, 0.0, 0.3]
-            self.scene.scene.add_geometry("spawn_highlight", hidden_spawn_highlight, spawn_highlight_mat)
-
-            # Hide space_restrictor shapes
-            self._update_space_restrictor_shapes(-1)
-
-        # Clear graph selection
-        self.selected_graph = None
-        self.control_panel.clear_graph_selection()
-        if self.graph_data is not None and len(self.graph_data) > 0:
-            self.scene.scene.remove_geometry("graph_highlight")
-            hidden_graph_highlight = self.geometry_manager.hide_graph_highlight()
-            graph_highlight_mat = rendering.MaterialRecord()
-            graph_highlight_mat.shader = "defaultLit"
-            self.scene.scene.add_geometry("graph_highlight", hidden_graph_highlight, graph_highlight_mat)
-
-        # Clear level vertex highlight overlay (in case graph was previously selected)
-        self.geometry_manager.reset_level_vertex_colors()
-        self._update_level_vertex_highlight()
+        # Clear other selections
+        self._clear_selection('node')
+        self._clear_selection('spawn')
+        self._clear_selection('graph')
 
         # Update patrol highlight
         self.scene.scene.remove_geometry("patrol_highlight")
