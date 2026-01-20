@@ -1,0 +1,1501 @@
+--CookBook's QoL adjustment of Tweaki_Breeki's
+----_____--______---_____---------------_------------------_----_-_-----_-----_---------------
+---|--__-\|--____|-|--__-\-------------(_)----------------|-|--|-(_)---|-|---|-|--------------
+---|-|__)-|-|__----|-|__)-|___--___-___-___---_____-_-__--|-|__|-|_--__|-|-__|-|-___-_-__-----
+---|--_--/|--__|---|--_--//-_-\/-__/-_-\-\-\-/-/-_-\-'__|-|--__--|-|/-_`-|/-_`-|/-_-\-'_-\----
+---|-|-\-\|-|------|-|-\-\--__/-(_|--__/-|\-V-/--__/-|----|-|--|-|-|-(_|-|-(_|-|--__/-|-|-|---
+---|_|--\_\_|------|_|--\_\___|\___\___|_|-\_/-\___|_|----|_|--|_|_|\__,_|\__,_|\___|_|-|_|---
+---_____-----------_-----------------------_____-_-----_----------------------------_---------
+--|--__-\---------|-|---------------------/-____(_)---|-|--------------------------|-|--------
+--|-|__)-|_-_--___|-|-____-_--__-_--___--|-(___--_--__|-|-___--__-_-_---_--___--___|-|_-___---
+--|--___/-_`-|/-__|-|/-/-_`-|/-_`-|/-_-\--\___-\|-|/-_`-|/-_-\/-_`-|-|-|-|/-_-\/-__|-__/-__|--
+--|-|--|-(_|-|-(__|---<-(_|-|-(_|-|--__/--____)-|-|-(_|-|--__/-(_|-|-|_|-|--__/\__-\-|_\__-\--
+--|_|---\__,_|\___|_|\_\__,_|\__,-|\___|-|_____/|_|\__,_|\___|\__,-|\__,_|\___||___/\__|___/--
+------------------------------__/-|------------------------------|-|--------------------------
+-----------------------------|___/-------------------------------|_|--------------------------
+--Version 1.8
+--23/07/2021
+--This file should be in gamedata\scripts\
+--A fun project to work on so the RF Receiver can be used a bit more than it currently is.
+--Also, learning to play around with writing to and reading from arrays was fun.
+--HUGE thanks goes to HarukaSai for kindly offering to translate all of the English texts into Russian!
+--Also to Real_leaper, Dominus_Imperatoriis, Green_Ghost and Aorushome for bug reports!
+--Further thanks to ptolthegoodguy for helping me test why 1.7 was crashing!
+
+--Cookbook QoL adjustment version 1.4
+--1.0
+--Made hidden loot give arti's simple streamlined upgrades instead of vanilla upgrade items.
+--Adjusted reminder function on initial load to have a failsafe to prevent a missing package crash.
+--Thanks to FuckinSki for the translation of the line used for the failsafe.
+--1.1
+--restructured failsafe code cos i'm dumb and moved the looping relationship check code start behind an if statement.
+--1.2
+--added MCM reminder and upgrade item options.
+--1.3
+--added MCM auto or manual unpacking options as well as a "cancel package" pda right click function
+--1.4
+--added PDA note entry functionality
+--1.5
+--added faction check to bypass psy helm requirement for mono/sin to prevent longstanding crash with those factions.
+--1.5.1
+--unfucked faction check added for previous update
+
+--[TB] VARIABLES NEEDED TO STORE INFORMATION FOR SAVING AND LOADING
+tb_target_item = 0
+tb_sufficient_passed = false
+tb_package_active = false
+tb_reminder = "empty"
+tb_package_in_level = "empty"
+tb_freq = 0
+tb_sender_icon = "empty"
+tb_scan_time = 4000
+tb_tg_scan = 0
+tb_device = "detector_radio"
+tb_relation_diff = 250
+--[TB] ADDED IN V1.3
+tb_target_lvid = 0
+tb_target_gvid = 0
+tb_bonus_items = 0
+tb_badguy_spawned = false
+tb_tg_badguys = 0
+--[TB] ADDED IN V1.6
+tb_previous_level = "empty"
+--[TB] ADDED IN V1.7
+tb_making_package = false
+--[CB] ADDED IN QOL ADJUSTMENT 1.4
+cb_note_given =  false
+
+--[CB] MCM MENU FUNCTIONALITY
+
+----------------------------------------------------------------------------------------------------------------------------------------------
+--defaults for if you don't have MCM
+----------------------------------------------------------------------------------------------------------------------------------------------
+
+cb_reminders = "transitions"
+-- "transitions" gives a reminder whenever you load into an outdoor area with an active package | "transitions" присылает напоминание при переходе на наземную локацию
+-- "local" only gives a reminder when you load into the area the package is in | "local" присылает напоминание только при переходе на локацию с посылкой
+-- "never" stops all reminders except for when the package first spawns | "never" сообщение присылается 1 раз при появлении посылки
+
+cb_upgrades = "vanilla"
+-- "vanilla" gives the default S.T.A.L.K.E.R. anomaly upgrade items | "vanilla" в посылках будут наборы улучшений из Anomaly
+-- "streamlined" gives the upgrade items from Arti's streamlined upgrades mod. don't select this if you don't have that mod installed
+-- "streamlined" в посылках будут наборы улучшений из мода "Упрощенные улучшения Arti" (Arti's streamlined upgrades mod). Не выбирайте эту опцию, если мод не установлен
+cb_unpack = "manual"
+-- "manual" requires you to use the right click menu option to unpack the package | "manual" распкаовка посылки происходит вручную через контекстное меню пда
+-- "automatic" will automatically unpack the package on pickup, useful for not having to figure out which one it is in your inventory.
+-- "automatic" посылки будут автоматически распаковываться при подборе, удобно, чтобы случайно не открыть чужую посылку в инвентаре
+
+----------------------------------------------------------------------------------------------------------------------------------------------
+----------------------------------------------------------------------------------------------------------------------------------------------
+
+function on_option_change()
+	if ui_mcm then
+		cb_reminders = ui_mcm.get("RF_package_patch/reminders")
+		cb_upgrades = ui_mcm.get("RF_package_patch/upgrades")
+	end
+end
+
+--[CB] PDA right click functor for canceling packages, uses some code originally from xcvb's interactive pda mod, modified for demonized dynamic functors format
+
+local function is_pda_and_charged(obj, actor_equ, inventory)
+	local dev_is_pda = string.find(obj:section(), "device_pda_")
+	if dev_is_pda and obj:condition() and obj:condition() > 0.01 then
+		return true
+	end
+end
+
+local function pda_ui_option(obj, actor_equ, inventory)
+	return game.translate_string("cb_pda_cancel")
+end
+
+local function pda_cancellable_package(obj, actor_equ, inventory)
+	if tb_package_active == false then
+		actor_menu.set_item_news("success", "detail", game.translate_string("cb_cancel_package_inactive"))
+		utils_obj.play_sound("device\\pda\\pda_guide_2")
+		return false
+	end 
+	if  GetEvent("underground") then
+		actor_menu.set_item_news("success", "detail", game.translate_string("cb_cancel_package_underground"))
+		utils_obj.play_sound("device\\pda\\pda_guide_2")
+		return false
+	end
+	return true
+end
+
+local function package_cancel(obj, actor_equ, inventory)
+	item_radio.clear_target(tb_target_item)
+	RemoveTimeEvent(tb_target_item,"remind_about_radio_package")
+	tb_package_active = false
+	tb_badguy_spawned = false
+	tb_target_item = 0
+	tb_target_item = 0
+	tb_reminder = "empty"
+	tb_package_in_level = "empty"
+	tb_scan_time = 4000		
+	item_radio.tb_in_range = false
+	item_radio.tb_sound_object = false
+	item_radio.tb_flash_time = 0
+	db.actor:give_game_news(game.translate_string("tb_anon_sender"), game.translate_string("cb_cancel_package_success"), tb_sender_icon, 0, 20000, 0)
+	utils_obj.play_sound("device\\pda\\pda_sos")
+end
+
+--[TB] ARRAY TO STORE CURRENT GOODWILL POINTS AND FACTION IMAGE FOR MESSAGES
+tb_relations = {
+	["army"] = {0,"ui_tb_package_icon_army"},
+	["bandit"] = {0,"ui_tb_package_icon_bandit"},
+	["csky"] = {0,"ui_tb_package_icon_csky"},
+	["dolg"] = {0,"ui_tb_package_icon_dolg"},
+	["ecolog"] = {0,"ui_tb_package_icon_ecolog"},
+	["freedom"] = {0,"ui_tb_package_icon_freedom"},
+	["greh"] = {0,"ui_tb_package_icon_greh"},
+	["isg"] = {0,"ui_tb_package_icon_isg"},
+	["killer"] = {0,"ui_tb_package_icon_killer"},
+	["monolith"] = {0,"ui_tb_package_icon_monolith"},
+	["renegade"] = {0,"ui_tb_package_icon_renegade"},
+	["stalker"] = {0,"ui_tb_package_icon_stalker"},
+}
+
+--[TB] ARRAY OF POSSIBLE ENEMY FACTION MEMBERS TO SPAWN AT PACKAGE WHEN PLAYER WITHIN DISTANCE
+tb_maybe_badguys = {
+	["army"] = {"sim_default_military_0","sim_default_military_1"},
+	["bandit"] = {"sim_default_bandit_0","sim_default_bandit_1","sim_default_bandit_3","sim_default_bandit_4"},
+	["csky"] = {"sim_default_csky_0","sim_default_csky_1","sim_default_csky_2","sim_default_csky_3","sim_default_csky_4"},
+	["dolg"] = {"sim_default_duty_0","sim_default_duty_1","sim_default_duty_2","sim_default_duty_3","sim_default_duty_4"},
+	["ecolog"] = {"sim_default_ecolog_01","sim_default_ecolog_0","sim_default_ecolog_1","sim_default_ecolog_2","sim_default_ecolog_3","sim_default_ecolog_4","sim_default_ecolog_5"},
+	["freedom"] = {"sim_default_freedom_0","sim_default_freedom_1","sim_default_freedom_2","sim_default_freedom_3","sim_default_freedom_4"},
+	["greh"] = {"sim_default_greh_0","sim_default_greh_1","sim_default_greh_2","sim_default_greh_3","sim_default_greh_4"},
+	["isg"] = {"sim_default_isg_1","sim_default_isg_2","sim_default_isg_3","sim_default_isg_4"},
+	["killer"] = {"sim_default_killer_0","sim_default_killer_1","sim_default_killer_2","sim_default_killer_3","sim_default_killer_4"},
+	["monolith"] = {"sim_default_monolith_0","sim_default_monolith_1","sim_default_monolith_2","sim_default_monolith_3","sim_default_monolith_4"},
+	["renegade"] = {"sim_default_renegade_0","sim_default_renegade_1","sim_default_renegade_2"},
+	["stalker"] = {"sim_default_stalker_0","sim_default_stalker_1","sim_default_stalker_2","sim_default_stalker_3","sim_default_stalker_4"}
+}
+
+--[TB] LIST OF FACTION NAMES
+tb_factions = {"army", "bandit", "csky", "dolg", "ecolog", "freedom", "greh", "isg", "killer", "monolith", "renegade", "stalker"}
+
+tb_cut_factions = {"army", "bandit", "csky", "dolg", "ecolog", "freedom", "killer", "renegade", "stalker"}
+
+tb_homebases = {"l03_agroprom", "l04_darkvalley", "k00_marsh", "l05_bar", "l08_yantar", "l07_military", "l10_red_forest", "pripyat", "l09_deadcity", "l11_pripyat", "k00_marsh", "l01_escape"}
+
+--[TB] START EMPTY PACKAGE QUEUE OBJECT
+tb_package_queue = {}
+
+--[TB] ALL POSSIBLE LINKS TO EACH OF THE LEVELS FROM CURRENT LEVEL
+tb_allmaps = {
+	["k00_marsh"] = {"l03_agroprom", "l01_escape"},
+	["k01_darkscape"] = {"l01_escape", "l04_darkvalley"},
+	["l01_escape"] = {"k00_marsh", "k01_darkscape", "l02_garbage", "y04_pole"},
+	["l02_garbage"] = {"l05_bar","l06_rostok", "l03_agroprom", "l04_darkvalley", "l01_escape"},
+	["l03_agroprom"] = {"l08_yantar", "l02_garbage", "k00_marsh"},
+	["l04_darkvalley"] = {"k01_darkscape", "l02_garbage", "k02_trucks_cemetery", "y04_pole"},
+	["l05_bar"] = {"l06_rostok", "l07_military", "l02_garbage", "k02_trucks_cemetery"},
+	["l06_rostok"] = {"l08_yantar", "l02_garbage", "l05_bar"},
+	["l07_military"] = {"l09_deadcity", "l10_red_forest", "l10_radar", "k02_trucks_cemetery", "l05_bar"},
+	["l08_yantar"] = {"l09_deadcity", "l06_rostok", "l03_agroprom"},
+	["l09_deadcity"] = {"l08_yantar", "l10_limansk", "l07_military"},
+	["l10_limansk"] = {"l10_red_forest", "l09_deadcity"}, --l11_hospital
+	["l10_radar"] = {"l11_pripyat", "l10_red_forest", "l07_military"},
+	["l10_red_forest"] = {"l10_limansk", "l07_military", "l10_radar", "jupiter"},
+	["l11_hospital"] = {"l10_limansk", "l12_stancia_2"},
+	["l11_pripyat"] = {"l12_stancia", "l10_radar", "pripyat", "jupiter"},
+	["l12_stancia"] = {"l11_pripyat", "l12_stancia_2", "zaton"},
+	["l12_stancia_2"] = {"l12_stancia", "l13_generators"}, --l11_hospital
+	["l13_generators"] = {"l12_stancia_2"},
+	["zaton"] = {"l12_stancia", "jupiter"},
+	["jupiter"] = {"zaton", "l10_red_forest", "l11_pripyat"},
+	["pripyat"] = {"zaton", "l11_pripyat", "jupiter"}, --{"l11_pripyat"}, --jupiter_underground
+	["k02_trucks_cemetery"] = {"l05_bar", "l04_darkvalley", "l07_military"},
+	["y04_pole"] = {"l01_escape", "l04_darkvalley"},
+	["fake_start"] = {"fake_start"},
+	["jupiter_underground"] = {"jupiter", "zaton", "l10_red_forest", "l11_pripyat", "pripyat", "l11_pripyat"},
+	["l03u_agr_underground"] = {"l03_agroprom", "l08_yantar", "l02_garbage", "k00_marsh"},
+	["l04u_labx18"] = {"l04_darkvalley", "k01_darkscape", "l02_garbage", "k02_trucks_cemetery", "y04_pole"},
+	["l08u_brainlab"] = {"l08_yantar", "l09_deadcity", "l06_rostok", "l03_agroprom"},
+	["l10u_bunker"] = {"l10_radar", "l11_pripyat", "l10_red_forest", "l07_military"},
+	["l12u_control_monolith"] = {"l12_stancia_2", "l12_stancia", "l13_generators"},
+	["l12u_sarcofag"] = {"l12_stancia", "l11_pripyat", "l12_stancia_2", "zaton"},
+	["l13u_warlab"] = {"l13_generators", "l12_stancia_2"},
+	["labx8"] = {"pripyat", "l11_pripyat"},
+
+	["default"] = {"k00_marsh",  "l01_escape", "k01_darkscape", "l02_garbage", "y04_pole", "l04_darkvalley", "l05_bar", "l06_rostok", "l03_agroprom", "l08_yantar"},
+}
+
+--[TB] BUNCH OF POSSIBLE COORDINATES FOR PACKAGES TO SPAWN
+tb_package_coords = {
+{r%level:k00_marsh}
+	["k00_marsh"] = {
+		{{w%x:-1.5272731781006}, {w%y:0.68968999385834}, {w%z:99.114852905273}, {w%lvid:141705}, {w%gvid:68}, "tb_loc_w_r", "tb_loc_mar"},
+		{{w%x:-163.67037963867}, {w%y:0.87495201826096}, {w%z:81.201217651367}, {w%lvid:63895}, {w%gvid:239}, "tb_loc_w_r", "tb_loc_mar"},
+		{{w%x:-26.006544113159}, {w%y:2.4517521858215}, {w%z:282.99658203125}, {w%lvid:130275}, {w%gvid:76}, "tb_loc_nw_r", "tb_loc_mar"},
+		{{w%x:-59.51541519165}, {w%y:0.83969926834106}, {w%z:-38.090526580811}, {w%lvid:109649}, {w%gvid:329}, "tb_loc_sw_r", "tb_loc_mar"},
+		{{w%x:-70.710746765137}, {w%y:0.22978699207306}, {w%z:-173.81959533691}, {w%lvid:103312}, {w%gvid:3}, "tb_loc_sw_r", "tb_loc_mar"},
+		{{w%x:-86.349998474121}, {w%y:0.50133854150772}, {w%z:279.9114074707}, {w%lvid:97508}, {w%gvid:77}, "tb_loc_nw_r", "tb_loc_mar"},
+		{{w%x:207.10589599609}, {w%y:1.3095424175262}, {w%z:170.80838012695}, {w%lvid:263938}, {w%gvid:93}, "tb_loc_ne_r", "tb_loc_mar"},
+		{{w%x:261.69006347656}, {w%y:0.56020641326904}, {w%z:-130.7229309082}, {w%lvid:307947}, {w%gvid:181}, "tb_loc_se_r", "tb_loc_mar"},
+		{{w%x:290.61563110352}, {w%y:4.2152152061462}, {w%z:74.830253601074}, {w%lvid:327413}, {w%gvid:108}, "tb_loc_e_r", "tb_loc_mar"},
+		{{w%x:296.49554443359}, {w%y:0.97202885150909}, {w%z:23.443613052368}, {w%lvid:333148}, {w%gvid:189}, "tb_loc_se_r", "tb_loc_mar"},
+		{{w%x:347.29135131836}, {w%y:7.9713125228882}, {w%z:-80.373580932617}, {w%lvid:365905}, {w%gvid:45}, "tb_loc_se_r", "tb_loc_mar"},
+		{{w%x:384.60894775391}, {w%y:3.8962762355804}, {w%z:267.87451171875}, {w%lvid:394946}, {w%gvid:98}, "tb_loc_ne_r", "tb_loc_mar"},
+		{{w%x:403.49340820313}, {w%y:2.2950587272644}, {w%z:109.63324737549}, {w%lvid:407788}, {w%gvid:258}, "tb_loc_e_r", "tb_loc_mar"},
+		{{w%x:439.56326293945}, {w%y:3.1034772396088}, {w%z:250.46063232422}, {w%lvid:432832}, {w%gvid:238}, "tb_loc_ne_r", "tb_loc_mar"},
+		{{w%x:44.960319519043}, {w%y:1.9129283428192}, {w%z:-191.05424499512}, {w%lvid:163753}, {w%gvid:176}, "tb_loc_s_r", "tb_loc_mar"},
+		{{w%x:524.15209960938}, {w%y:2.9793567657471}, {w%z:-196.34428405762}, {w%lvid:498471}, {w%gvid:283}, "tb_loc_se_r", "tb_loc_mar"},
+		{{w%x:600.65576171875}, {w%y:3.3066146373749}, {w%z:448.03399658203}, {w%lvid:525455}, {w%gvid:134}, "tb_loc_ne_r", "tb_loc_mar"},
+		{{w%x:623.64642333984}, {w%y:2.940780878067}, {w%z:413.06860351563}, {w%lvid:528563}, {w%gvid:226}, "tb_loc_ne_r", "tb_loc_mar"},
+		{{w%x:67.918182373047}, {w%y:0.71128302812576}, {w%z:-94.671340942383}, {w%lvid:178673}, {w%gvid:0}, "tb_loc_sw_r", "tb_loc_mar"},
+		{{w%x:93.229949951172}, {w%y:1.9446181058884}, {w%z:353.8782043457}, {w%lvid:194676}, {w%gvid:215}, "tb_loc_n_r", "tb_loc_mar"}
+	},
+{r%level:k01_darkscape}
+	["k01_darkscape"] = {
+		{{w%x:-148.45112609863}, {w%y:2.1966156959534}, {w%z:-298.90780639648}, {w%lvid:212872}, {w%gvid:1173}, "tb_loc_sw_r", "tb_loc_dsc"},
+		{{w%x:-296.42468261719}, {w%y:4.6278276443481}, {w%z:502.51113891602}, {w%lvid:95197}, {w%gvid:1354}, "tb_loc_nw_r", "tb_loc_dsc"},
+		{{w%x:-33.650966644287}, {w%y:1.7646559476852}, {w%z:-556.98718261719}, {w%lvid:332172}, {w%gvid:1124}, "tb_loc_s_r", "tb_loc_dsc"},
+		{{w%x:-333.30310058594}, {w%y:-1.8749610185623}, {w%z:-435.96838378906}, {w%lvid:78840}, {w%gvid:1133}, "tb_loc_sw_r", "tb_loc_dsc"},
+		{{w%x:-41.75846862793}, {w%y:-1.2083034515381}, {w%z:-351.94256591797}, {w%lvid:325107}, {w%gvid:1185}, "tb_loc_sw_r", "tb_loc_dsc"},
+		{{w%x:-558.31988525391}, {w%y:3.7142128944397}, {w%z:-500.78897094727}, {w%lvid:8409}, {w%gvid:1131}, "tb_loc_sw_r", "tb_loc_dsc"},
+		{{w%x:-83.387214660645}, {w%y:2.8982381820679}, {w%z:476.53887939453}, {w%lvid:280057}, {w%gvid:1334}, "tb_loc_n_r", "tb_loc_dsc"},
+		{{w%x:136.15162658691}, {w%y:1.2467184066772}, {w%z:-74.37833404541}, {w%lvid:531583}, {w%gvid:1236}, "tb_loc_s_r", "tb_loc_dsc"},
+		{{w%x:223.74224853516}, {w%y:-1.1287081241608}, {w%z:-148.19389343262}, {w%lvid:640350}, {w%gvid:1240}, "tb_loc_s_r", "tb_loc_dsc"},
+		{{w%x:243.43673706055}, {w%y:1.3262813091278}, {w%z:-455.61080932617}, {w%lvid:660513}, {w%gvid:1121}, "tb_loc_se_r", "tb_loc_dsc"},
+		{{w%x:299.84014892578}, {w%y:0.11884167790413}, {w%z:-199.96139526367}, {w%lvid:729873}, {w%gvid:1245}, "tb_loc_se_r", "tb_loc_dsc"},
+		{{w%x:302.50964355469}, {w%y:-0.55970251560211}, {w%z:585.89794921875}, {w%lvid:730900}, {w%gvid:1298}, "tb_loc_ne_r", "tb_loc_dsc"},
+		{{w%x:386.78869628906}, {w%y:2.7109062671661}, {w%z:13.446165084839}, {w%lvid:844615}, {w%gvid:1283}, "tb_loc_e_r", "tb_loc_dsc"},
+		{{w%x:449.60089111328}, {w%y:15.593029022217}, {w%z:-81.749877929688}, {w%lvid:952811}, {w%gvid:1266}, "tb_loc_e_r", "tb_loc_dsc"},
+		{{w%x:449.72467041016}, {w%y:16.701789855957}, {w%z:309.17404174805}, {w%lvid:952257}, {w%gvid:1402}, "tb_loc_ne_r", "tb_loc_dsc"},
+		{{w%x:452.27801513672}, {w%y:18.465776443481}, {w%z:270.51092529297}, {w%lvid:954175}, {w%gvid:1401}, "tb_loc_ne_r", "tb_loc_dsc"},
+		{{w%x:472.9130859375}, {w%y:-0.62056577205658}, {w%z:-400.61276245117}, {w%lvid:978490}, {w%gvid:1114}, "tb_loc_se_r", "tb_loc_dsc"},
+		{{w%x:512.28210449219}, {w%y:-0.40387719869614}, {w%z:127.67417144775}, {w%lvid:1010694}, {w%gvid:1104}, "tb_loc_e_r", "tb_loc_dsc"},
+		{{w%x:580.9794921875}, {w%y:0.24546635150909}, {w%z:11.81841468811}, {w%lvid:1039514}, {w%gvid:1392}, "tb_loc_e_r", "tb_loc_dsc"},
+		{{w%x:81.485084533691}, {w%y:-0.17233689129353}, {w%z:-249.88793945313}, {w%lvid:467207}, {w%gvid:1204}, "tb_loc_s_r", "tb_loc_dsc"}
+	},
+{r%level:l01_escape}
+	["l01_escape"] = {
+		{{w%x:-114.05213928223}, {w%y:26.895854949951}, {w%z:322.29055786133}, {w%lvid:150807}, {w%gvid:578}, "tb_loc_nw_r", "tb_loc_esc"},
+		{{w%x:-16.086730957031}, {w%y:30.373596191406}, {w%z:477.37994384766}, {w%lvid:284519}, {w%gvid:406}, "tb_loc_nw_r", "tb_loc_esc"},
+		{{w%x:-160.90948486328}, {w%y:-17.706327438354}, {w%z:-163.85343933105}, {w%lvid:92172}, {w%gvid:585}, "tb_loc_sw_r", "tb_loc_esc"},
+		{{w%x:-208.92816162109}, {w%y:-7.4687371253967}, {w%z:-26.879669189453}, {w%lvid:43561}, {w%gvid:386}, "tb_loc_w_r", "tb_loc_esc"},
+		{{w%x:-228.51176452637}, {w%y:-31.850080490112}, {w%z:-310.31240844727}, {w%lvid:27722}, {w%gvid:576}, "tb_loc_sw_r", "tb_loc_esc"},
+		{{w%x:-73.973022460938}, {w%y:9.5941848754883}, {w%z:126.84217834473}, {w%lvid:200133}, {w%gvid:394}, "tb_loc_w_r", "tb_loc_esc"},
+		{{w%x:-88.582695007324}, {w%y:3.0427131652832}, {w%z:219.37686157227}, {w%lvid:184114}, {w%gvid:579}, "tb_loc_w_r", "tb_loc_esc"},
+		{{w%x:-90.525932312012}, {w%y:-4.8311638832092}, {w%z:-74.958419799805}, {w%lvid:177689}, {w%gvid:383}, "tb_loc_sw_r", "tb_loc_esc"},
+		{{w%x:-98.096084594727}, {w%y:-30.578098297119}, {w%z:-272.18011474609}, {w%lvid:166120}, {w%gvid:375}, "tb_loc_s_r", "tb_loc_esc"},
+		{{w%x:0.2545480132103}, {w%y:-12.459816932678}, {w%z:-119.50346374512}, {w%lvid:303304}, {w%gvid:556}, "tb_loc_s_r", "tb_loc_esc"},
+		{{w%x:102.64688110352}, {w%y:3.6459798812866}, {w%z:561.76531982422}, {w%lvid:434551}, {w%gvid:409}, "tb_loc_n_r", "tb_loc_esc"},
+		{{w%x:144.4086151123}, {w%y:-6.8591675758362}, {w%z:-48.898483276367}, {w%lvid:476416}, {w%gvid:571}, "tb_loc_se_r", "tb_loc_esc"},
+		{{w%x:144.5528717041}, {w%y:0.8191294670105}, {w%z:336.75857543945}, {w%lvid:478862}, {w%gvid:541}, "tb_loc_ne_r", "tb_loc_esc"},
+		{{w%x:169.03742980957}, {w%y:4.6058006286621}, {w%z:91.015502929688}, {w%lvid:497870}, {w%gvid:400}, "tb_loc_e_r", "tb_loc_esc"},
+		{{w%x:218.0364074707}, {w%y:3.0280055999756}, {w%z:299.16744995117}, {w%lvid:536793}, {w%gvid:595}, "tb_loc_e_r", "tb_loc_esc"},
+		{{w%x:306.44253540039}, {w%y:2.9577412605286}, {w%z:118.827293396}, {w%lvid:595515}, {w%gvid:391}, "tb_loc_e_r", "tb_loc_esc"},
+		{{w%x:307.44360351563}, {w%y:14.837079048157}, {w%z:270.55291748047}, {w%lvid:596138}, {w%gvid:542}, "tb_loc_e_r", "tb_loc_esc"},
+		{{w%x:5.8635230064392}, {w%y:2.7852308750153}, {w%z:297.65557861328}, {w%lvid:308393}, {w%gvid:442}, "tb_loc_n_r", "tb_loc_esc"},
+		{{w%x:50.590438842773}, {w%y:4.640688419342}, {w%z:147.5841217041}, {w%lvid:361318}, {w%gvid:436}, "tb_loc_s_r", "tb_loc_esc"},
+		{{w%x:89.734008789063}, {w%y:1.130605340004}, {w%z:460.35699462891}, {w%lvid:415699}, {w%gvid:607}, "tb_loc_n_r", "tb_loc_esc"}
+	},
+{r%level:l02_garbage}
+	["l02_garbage"] = {
+		{{w%x:-118.92726135254}, {w%y:1.5217387676239}, {w%z:-33.088584899902}, {w%lvid:86406}, {w%gvid:725}, "tb_loc_w_r", "tb_loc_gar"},
+		{{w%x:-119.8410949707}, {w%y:-2.365439414978}, {w%z:-231.5634765625}, {w%lvid:83012}, {w%gvid:722}, "tb_loc_sw_r", "tb_loc_gar"},
+		{{w%x:-142.49281311035}, {w%y:-3.9698615074158}, {w%z:155.01322937012}, {w%lvid:66255}, {w%gvid:712}, "tb_loc_nw_r", "tb_loc_gar"},
+		{{w%x:-162.31246948242}, {w%y:0.26283451914787}, {w%z:99.890502929688}, {w%lvid:47789}, {w%gvid:711}, "tb_loc_nw_r", "tb_loc_gar"},
+		{{w%x:-181.58264160156}, {w%y:0.41548922657967}, {w%z:25.372142791748}, {w%lvid:33574}, {w%gvid:798}, "tb_loc_w_r", "tb_loc_gar"},
+		{{w%x:-189.09579467773}, {w%y:-4.8816647529602}, {w%z:-143.54487609863}, {w%lvid:28642}, {w%gvid:813}, "tb_loc_sw_r", "tb_loc_gar"},
+		{{w%x:-32.886863708496}, {w%y:-1.1795054674149}, {w%z:166.14834594727}, {w%lvid:137998}, {w%gvid:825}, "tb_loc_n_r", "tb_loc_gar"},
+		{{w%x:-47.988464355469}, {w%y:0.39313969016075}, {w%z:-36.417682647705}, {w%lvid:129306}, {w%gvid:698}, "tb_loc_w_r", "tb_loc_gar"},
+		{{w%x:-75.132858276367}, {w%y:-2.2647905349731}, {w%z:18.088443756104}, {w%lvid:115890}, {w%gvid:698}, "tb_loc_w_r", "tb_loc_gar"},
+		{{w%x:123.33766937256}, {w%y:-1.6943845748901}, {w%z:176.29930114746}, {w%lvid:270532}, {w%gvid:742}, "tb_loc_ne_r", "tb_loc_gar"},
+		{{w%x:151.05848693848}, {w%y:1.7686952352524}, {w%z:215.8184967041}, {w%lvid:289891}, {w%gvid:705}, "tb_loc_ne_r", "tb_loc_gar"},
+		{{w%x:2.6172926425934}, {w%y:4.3619275093079}, {w%z:90.059852600098}, {w%lvid:160701}, {w%gvid:862}, "tb_loc_n_r", "tb_loc_gar"},
+		{{w%x:232.84286499023}, {w%y:-3.2770516872406}, {w%z:-184.05126953125}, {w%lvid:338854}, {w%gvid:872}, "tb_loc_se_r", "tb_loc_gar"},
+		{{w%x:251.91268920898}, {w%y:1.7374104261398}, {w%z:163.70547485352}, {w%lvid:346444}, {w%gvid:682}, "tb_loc_ne_r", "tb_loc_gar"},
+		{{w%x:270.54412841797}, {w%y:2.8087847232819}, {w%z:130.35424804688}, {w%lvid:353291}, {w%gvid:860}, "tb_loc_ne_r", "tb_loc_gar"},
+		{{w%x:61.807434082031}, {w%y:1.4049496650696}, {w%z:-152.39585876465}, {w%lvid:221794}, {w%gvid:823}, "tb_loc_se_r", "tb_loc_gar"},
+		{{w%x:66.125007629395}, {w%y:0.90890204906464}, {w%z:240.9670715332}, {w%lvid:225993}, {w%gvid:645}, "tb_loc_n_r", "tb_loc_gar"},
+		{{w%x:67.837158203125}, {w%y:-0.74806773662567}, {w%z:-139.11022949219}, {w%lvid:225625}, {w%gvid:668}, "tb_loc_s_r", "tb_loc_gar"},
+		{{w%x:75.291122436523}, {w%y:1.1165518760681}, {w%z:-156.11524963379}, {w%lvid:233276}, {w%gvid:668}, "tb_loc_s_r", "tb_loc_gar"},
+		{{w%x:85.130249023438}, {w%y:4.5372605323792}, {w%z:-6.5853710174561}, {w%lvid:240922}, {w%gvid:650}, "tb_loc_e_r", "tb_loc_gar"}
+	},
+{r%level:l03_agroprom}
+	["l03_agroprom"] = {
+		{{w%x:-108.47958374023}, {w%y:8.8302392959595}, {w%z:131.66314697266}, {w%lvid:102210}, {w%gvid:890}, "tb_loc_nw_r", "tb_loc_agr"},
+		{{w%x:-110.14212036133}, {w%y:1.421982049942}, {w%z:-29.045595169067}, {w%lvid:102037}, {w%gvid:885}, "tb_loc_w_r", "tb_loc_agr"},
+		{{w%x:-130.60736083984}, {w%y:13.860101699829}, {w%z:-260.64321899414}, {w%lvid:83985}, {w%gvid:1049}, "tb_loc_sw_r", "tb_loc_agr"},
+		{{w%x:-164.97407531738}, {w%y:1.9212321043015}, {w%z:-72.234565734863}, {w%lvid:53701}, {w%gvid:945}, "tb_loc_w_r", "tb_loc_agr"},
+		{{w%x:-177.90003967285}, {w%y:20.409210205078}, {w%z:170.44581604004}, {w%lvid:44795}, {w%gvid:1056}, "tb_loc_nw_r", "tb_loc_agr"},
+		{{w%x:-202.4677734375}, {w%y:4.3563866615295}, {w%z:1.1351327896118}, {w%lvid:27069}, {w%gvid:1021}, "tb_loc_w_r", "tb_loc_agr"},
+		{{w%x:-22.331432342529}, {w%y:1.6776245832443}, {w%z:101.70475006104}, {w%lvid:178080}, {w%gvid:1025}, "tb_loc_n_r", "tb_loc_agr"},
+		{{w%x:-69.766593933105}, {w%y:-3.3068227767944}, {w%z:-310.51098632813}, {w%lvid:138757}, {w%gvid:1045}, "tb_loc_s_r", "tb_loc_agr"},
+		{{w%x:-80.118026733398}, {w%y:10.612868309021}, {w%z:-100.60734558105}, {w%lvid:129465}, {w%gvid:878}, "tb_loc_sw_r", "tb_loc_agr"},
+		{{w%x:-92.013259887695}, {w%y:2.6811242103577}, {w%z:48.751991271973}, {w%lvid:117334}, {w%gvid:1014}, "tb_loc_nw_r", "tb_loc_agr"},
+		{{w%x:124.15956878662}, {w%y:0.17284020781517}, {w%z:-38.28369140625}, {w%lvid:302949}, {w%gvid:903}, "tb_loc_e_r", "tb_loc_agr"},
+		{{w%x:137.87501525879}, {w%y:1.2787157297134}, {w%z:60.012344360352}, {w%lvid:316545}, {w%gvid:963}, "tb_loc_e_r", "tb_loc_agr"},
+		{{w%x:158.68569946289}, {w%y:1.4303959608078}, {w%z:-245.01614379883}, {w%lvid:330224}, {w%gvid:951}, "tb_loc_se_r", "tb_loc_agr"},
+		{{w%x:165.92504882813}, {w%y:2.2356534004211}, {w%z:-17.244804382324}, {w%lvid:339451}, {w%gvid:900}, "tb_loc_e_r", "tb_loc_agr"},
+		{{w%x:233.6535949707}, {w%y:11.045555114746}, {w%z:-227.10266113281}, {w%lvid:393863}, {w%gvid:953}, "tb_loc_se_r", "tb_loc_agr"},
+		{{w%x:235.9928894043}, {w%y:23.595277786255}, {w%z:-122.11334228516}, {w%lvid:394460}, {w%gvid:1034}, "tb_loc_e_r", "tb_loc_agr"},
+		{{w%x:24.575061798096}, {w%y:-1.4019615650177}, {w%z:-247.78106689453}, {w%lvid:218056}, {w%gvid:1046}, "tb_loc_s_r", "tb_loc_agr"},
+		{{w%x:243.15594482422}, {w%y:1.5473300218582}, {w%z:5.4475326538086}, {w%lvid:399313}, {w%gvid:1033}, "tb_loc_e_r", "tb_loc_agr"},
+		{{w%x:31.967037200928}, {w%y:3.0770931243896}, {w%z:-71.326301574707}, {w%lvid:228105}, {w%gvid:989}, "tb_loc_s_r", "tb_loc_agr"},
+		{{w%x:69.876655578613}, {w%y:11.596437454224}, {w%z:109.67334747314}, {w%lvid:256348}, {w%gvid:1071}, "tb_loc_ne_r", "tb_loc_agr"}
+	},
+{r%level:l04_darkvalley}
+	["l04_darkvalley"] = {
+		{{w%x:-120.1967086792}, {w%y:7.9381146430969}, {w%z:-98.112762451172}, {w%lvid:37950}, {w%gvid:1584}, "tb_loc_nw_r", "tb_loc_val"},
+		{{w%x:-145.14337158203}, {w%y:1.6816345453262}, {w%z:-464.48291015625}, {w%lvid:16389}, {w%gvid:1449}, "tb_loc_sw_r", "tb_loc_val"},
+		{{w%x:-150.97325134277}, {w%y:-1.0278137922287}, {w%z:-368.98696899414}, {w%lvid:13794}, {w%gvid:1579}, "tb_loc_sw_r", "tb_loc_val"},
+		{{w%x:-19.992944717407}, {w%y:0.10851189494133}, {w%z:-198.31622314453}, {w%lvid:146248}, {w%gvid:1504}, "tb_loc_w_r", "tb_loc_val"},
+		{{w%x:-55.992538452148}, {w%y:-2.5573272705078}, {w%z:-341.56762695313}, {w%lvid:108699}, {w%gvid:1543}, "tb_loc_sw_r", "tb_loc_val"},
+		{{w%x:-69.461837768555}, {w%y:-0.31123107671738}, {w%z:-211.98634338379}, {w%lvid:88985}, {w%gvid:1426}, "tb_loc_w_r", "tb_loc_val"},
+		{{w%x:-75.446571350098}, {w%y:0.18763795495033}, {w%z:-446.33367919922}, {w%lvid:84090}, {w%gvid:1571}, "tb_loc_sw_r", "tb_loc_val"},
+		{{w%x:-79.034042358398}, {w%y:1.8109751939774}, {w%z:-543.67449951172}, {w%lvid:79775}, {w%gvid:1551}, "tb_loc_s_r", "tb_loc_val"},
+		{{w%x:100.14553070068}, {w%y:-0.081931054592133}, {w%z:-307.85284423828}, {w%lvid:276694}, {w%gvid:1509}, "tb_loc_e_r", "tb_loc_val"},
+		{{w%x:12.594738006592}, {w%y:-3.7763333320618}, {w%z:-363.80352783203}, {w%lvid:179473}, {w%gvid:1442}, "tb_loc_s_r", "tb_loc_val"},
+		{{w%x:129.46194458008}, {w%y:-0.87487459182739}, {w%z:42.603408813477}, {w%lvid:311927}, {w%gvid:1456}, "tb_loc_ne_r", "tb_loc_val"},
+		{{w%x:131.76155090332}, {w%y:0.081355094909668}, {w%z:-178.8423614502}, {w%lvid:313051}, {w%gvid:1429}, "tb_loc_e_r", "tb_loc_val"},
+		{{w%x:171.10345458984}, {w%y:0.15314409136772}, {w%z:-228.87164306641}, {w%lvid:356010}, {w%gvid:1429}, "tb_loc_e_r", "tb_loc_val"},
+		{{w%x:182.95742797852}, {w%y:0.70577704906464}, {w%z:-64.609199523926}, {w%lvid:364840}, {w%gvid:1605}, "tb_loc_ne_r", "tb_loc_val"},
+		{{w%x:20.001573562622}, {w%y:0.13497611880302}, {w%z:-193.94746398926}, {w%lvid:188941}, {w%gvid:1598}, "tb_loc_n_r", "tb_loc_val"},
+		{{w%x:35.109008789063}, {w%y:0.87674820423126}, {w%z:66.910110473633}, {w%lvid:206092}, {w%gvid:1499}, "tb_loc_n_r", "tb_loc_val"},
+		{{w%x:39.182544708252}, {w%y:-2.2029337882996}, {w%z:-428.9736328125}, {w%lvid:207963}, {w%gvid:1592}, "tb_loc_s_r", "tb_loc_val"},
+		{{w%x:44.452144622803}, {w%y:-4.7773232460022}, {w%z:-381.37994384766}, {w%lvid:216536}, {w%gvid:1436}, "tb_loc_s_r", "tb_loc_val"},
+		{{w%x:5.2282848358154}, {w%y:0.47438022494316}, {w%z:-534.7509765625}, {w%lvid:171989}, {w%gvid:1451}, "tb_loc_s_r", "tb_loc_val"},
+		{{w%x:85.536064147949}, {w%y:1.719930768013}, {w%z:-511.76110839844}, {w%lvid:265709}, {w%gvid:1593}, "tb_loc_se_r", "tb_loc_val"}
+	},
+{r%level:l05_bar}
+	["l05_bar"] = {
+		{{w%x:101.96125030518}, {w%y:0.095223009586334}, {w%z:86.495819091797}, {w%lvid:31938}, {w%gvid:1728}, "tb_loc_w_r", "tb_loc_bar"},
+		{{w%x:105.68991851807}, {w%y:-0.012038439512253}, {w%z:126.29145050049}, {w%lvid:32710}, {w%gvid:1718}, "tb_loc_w_r", "tb_loc_bar"},
+		{{w%x:108.79559326172}, {w%y:-1.7032694816589}, {w%z:116.89669799805}, {w%lvid:32636}, {w%gvid:1722}, "tb_loc_w_r", "tb_loc_bar"},
+		{{w%x:123.35034942627}, {w%y:1.1448799371719}, {w%z:43.444847106934}, {w%lvid:34878}, {w%gvid:1759}, "tb_loc_sw_r", "tb_loc_bar"},
+		{{w%x:130.6326751709}, {w%y:-1.7001123428345}, {w%z:82.526054382324}, {w%lvid:35908}, {w%gvid:1721}, "tb_loc_w_r", "tb_loc_bar"},
+		{{w%x:134.37145996094}, {w%y:-1.7192585468292}, {w%z:110.80506896973}, {w%lvid:36669}, {w%gvid:1754}, "tb_loc_w_r", "tb_loc_bar"},
+		{{w%x:147.31161499023}, {w%y:-0.010794907808304}, {w%z:135.63993835449}, {w%lvid:39632}, {w%gvid:1709}, "tb_loc_ne_r", "tb_loc_bar"},
+		{{w%x:153.7795715332}, {w%y:-0.00077483057975769}, {w%z:55.941471099854}, {w%lvid:41204}, {w%gvid:1683}, "tb_loc_s_r", "tb_loc_bar"},
+		{{w%x:160.88835144043}, {w%y:0.091102659702301}, {w%z:114.24136352539}, {w%lvid:42701}, {w%gvid:1687}, "tb_loc_n_r", "tb_loc_bar"},
+		{{w%x:186.39889526367}, {w%y:-0.003614604473114}, {w%z:112.48812866211}, {w%lvid:46733}, {w%gvid:1692}, "tb_loc_ne_r", "tb_loc_bar"},
+		{{w%x:195.8127746582}, {w%y:4.7419414520264}, {w%z:-146.63717651367}, {w%lvid:47577}, {w%gvid:1786}, "tb_loc_sw_r", "tb_loc_bar"},
+		{{w%x:200.50505065918}, {w%y:-0.0053596496582031}, {w%z:73.068496704102}, {w%lvid:48932}, {w%gvid:1705}, "tb_loc_e_r", "tb_loc_bar"},
+		{{w%x:205.67820739746}, {w%y:-0.014847338199615}, {w%z:-22.895366668701}, {w%lvid:50663}, {w%gvid:1770}, "tb_loc_s_r", "tb_loc_bar"},
+		{{w%x:235.79553222656}, {w%y:-0.00021082162857056}, {w%z:54.035762786865}, {w%lvid:60661}, {w%gvid:1680}, "tb_loc_e_r", "tb_loc_bar"},
+		{{w%x:241.71691894531}, {w%y:2.1597187519073}, {w%z:-67.598930358887}, {w%lvid:63153}, {w%gvid:1776}, "tb_loc_s_r", "tb_loc_bar"},
+		{{w%x:277.05874633789}, {w%y:3.8030986785889}, {w%z:-141.17218017578}, {w%lvid:70437}, {w%gvid:1787}, "tb_loc_s_r", "tb_loc_bar"},
+		{{w%x:346.26843261719}, {w%y:10.671092987061}, {w%z:-180.60586547852}, {w%lvid:77529}, {w%gvid:1674}, "tb_loc_se_r", "tb_loc_bar"},
+		{{w%x:41.037273406982}, {w%y:1.116414308548}, {w%z:254.74258422852}, {w%lvid:22366}, {w%gvid:1749}, "tb_loc_nw_r", "tb_loc_bar"},
+		{{w%x:57.796447753906}, {w%y:1.2222950458527}, {w%z:197.76739501953}, {w%lvid:26523}, {w%gvid:1748}, "tb_loc_nw_r", "tb_loc_bar"},
+		{{w%x:64.497741699219}, {w%y:0.0085401237010956}, {w%z:125.02346038818}, {w%lvid:29237}, {w%gvid:1745}, "tb_loc_w_r", "tb_loc_bar"}
+	},
+{r%level:l06_rostok}
+	["l06_rostok"] = {
+		{{w%x:-101.50065612793}, {w%y:0.99639928340912}, {w%z:162.4115447998}, {w%lvid:44847}, {w%gvid:1826}, "tb_loc_n_r", "tb_loc_ros"},
+		{{w%x:-116.10995483398}, {w%y:1.6323446035385}, {w%z:132.02626037598}, {w%lvid:43646}, {w%gvid:1961}, "tb_loc_n_r", "tb_loc_ros"},
+		{{w%x:-177.23446655273}, {w%y:-0.0023437142372131}, {w%z:158.16213989258}, {w%lvid:31308}, {w%gvid:1834}, "tb_loc_n_r", "tb_loc_ros"},
+		{{w%x:-186.42109680176}, {w%y:-0.098962485790253}, {w%z:86.473114013672}, {w%lvid:28972}, {w%gvid:1882}, "tb_loc_n_r", "tb_loc_ros"},
+		{{w%x:-214.02505493164}, {w%y:0.088585466146469}, {w%z:145.96459960938}, {w%lvid:23789}, {w%gvid:1874}, "tb_loc_nw_r", "tb_loc_ros"},
+		{{w%x:-215.61323547363}, {w%y:-0.00039410591125488}, {w%z:172.68658447266}, {w%lvid:22677}, {w%gvid:1844}, "tb_loc_nw_r", "tb_loc_ros"},
+		{{w%x:-232.58673095703}, {w%y:-0.0040581822395325}, {w%z:31.302549362183}, {w%lvid:17463}, {w%gvid:1904}, "tb_loc_w_r", "tb_loc_ros"},
+		{{w%x:-243.88798522949}, {w%y:-0.0036972165107727}, {w%z:131.10368347168}, {w%lvid:12300}, {w%gvid:1864}, "tb_loc_nw_r", "tb_loc_ros"},
+		{{w%x:-246.99053955078}, {w%y:-0.0057971775531769}, {w%z:39.667808532715}, {w%lvid:10268}, {w%gvid:1903}, "tb_loc_w_r", "tb_loc_ros"},
+		{{w%x:-255.06991577148}, {w%y:-0.0069873332977295}, {w%z:-34.006652832031}, {w%lvid:8259}, {w%gvid:1910}, "tb_loc_w_r", "tb_loc_ros"},
+		{{w%x:-259.47518920898}, {w%y:-0.00078690052032471}, {w%z:28.694437026978}, {w%lvid:7507}, {w%gvid:1934}, "tb_loc_w_r", "tb_loc_ros"},
+		{{w%x:-262.51651000977}, {w%y:0.12268710136414}, {w%z:10.699193000793}, {w%lvid:5977}, {w%gvid:1905}, "tb_loc_w_r", "tb_loc_ros"},
+		{{w%x:-273.3479309082}, {w%y:0.046719461679459}, {w%z:144.02536010742}, {w%lvid:3848}, {w%gvid:1858}, "tb_loc_nw_r", "tb_loc_ros"},
+		{{w%x:-282.16122436523}, {w%y:-0.00092938542366028}, {w%z:57.950958251953}, {w%lvid:2152}, {w%gvid:1920}, "tb_loc_w_r", "tb_loc_ros"},
+		{{w%x:-285.74276733398}, {w%y:-0.0017593502998352}, {w%z:109.28510284424}, {w%lvid:718}, {w%gvid:1870}, "tb_loc_nw_r", "tb_loc_ros"},
+		{{w%x:-39.953701019287}, {w%y:-0.0063645541667938}, {w%z:127.9927520752}, {w%lvid:60701}, {w%gvid:1929}, "tb_loc_ne_r", "tb_loc_ros"},
+		{{w%x:-56.983612060547}, {w%y:-0.0029295384883881}, {w%z:112.66494750977}, {w%lvid:55663}, {w%gvid:1930}, "tb_loc_e_r", "tb_loc_ros"},
+		{{w%x:-63.318752288818}, {w%y:-11.845592498779}, {w%z:-130.16297912598}, {w%lvid:53737}, {w%gvid:1955}, "tb_loc_se_r", "tb_loc_ros"},
+		{{w%x:-70.748542785645}, {w%y:-0.0069791376590729}, {w%z:150.67283630371}, {w%lvid:51960}, {w%gvid:1818}, "tb_loc_n_r", "tb_loc_ros"},
+		{{w%x:14.443355560303}, {w%y:-0.00014528632164001}, {w%z:114.71719360352}, {w%lvid:66885}, {w%gvid:1925}, "tb_loc_ne_r", "tb_loc_ros"}
+	},
+{r%level:l07_military}
+	["l07_military"] = {
+		{{w%x:-126.77365112305}, {w%y:-7.7190752029419}, {w%z:212.69905090332}, {w%lvid:180663}, {w%gvid:1996}, "tb_loc_n_r", "tb_loc_mil"},
+		{{w%x:-138.27593994141}, {w%y:-15.919235229492}, {w%z:359.70523071289}, {w%lvid:170484}, {w%gvid:2109}, "tb_loc_n_r", "tb_loc_mil"},
+		{{w%x:-170.0983581543}, {w%y:-14.977201461792}, {w%z:397.39135742188}, {w%lvid:143991}, {w%gvid:2034}, "tb_loc_n_r", "tb_loc_mil"},
+		{{w%x:-196.5198059082}, {w%y:-8.0005922317505}, {w%z:317.75903320313}, {w%lvid:122528}, {w%gvid:2028}, "tb_loc_n_r", "tb_loc_mil"},
+		{{w%x:-204.39709472656}, {w%y:-21.537940979004}, {w%z:193.08393859863}, {w%lvid:117104}, {w%gvid:1997}, "tb_loc_n_r", "tb_loc_mil"},
+		{{w%x:-217.59384155273}, {w%y:-20.594947814941}, {w%z:242.06649780273}, {w%lvid:106364}, {w%gvid:2055}, "tb_loc_nw_r", "tb_loc_mil"},
+		{{w%x:-235.27279663086}, {w%y:-13.21934223175}, {w%z:62.60461807251}, {w%lvid:88271}, {w%gvid:2098}, "tb_loc_sw_r", "tb_loc_mil"},
+		{{w%x:-252.19566345215}, {w%y:-14.777551651001}, {w%z:367.13690185547}, {w%lvid:76861}, {w%gvid:2159}, "tb_loc_nw_r", "tb_loc_mil"},
+		{{w%x:-256.81253051758}, {w%y:-22.145307540894}, {w%z:232.89723205566}, {w%lvid:75049}, {w%gvid:2130}, "tb_loc_nw_r", "tb_loc_mil"},
+		{{w%x:-261.54061889648}, {w%y:-8.5548524856567}, {w%z:8.2447776794434}, {w%lvid:72187}, {w%gvid:2101}, "tb_loc_sw_r", "tb_loc_mil"},
+		{{w%x:-314.22845458984}, {w%y:-22.585073471069}, {w%z:233.21206665039}, {w%lvid:30164}, {w%gvid:2022}, "tb_loc_w_r", "tb_loc_mil"},
+		{{w%x:-358.23327636719}, {w%y:-17.900043487549}, {w%z:204.91386413574}, {w%lvid:4028}, {w%gvid:2140}, "tb_loc_w_r", "tb_loc_mil"},
+		{{w%x:-37.800483703613}, {w%y:-14.645964622498}, {w%z:137.06414794922}, {w%lvid:257529}, {w%gvid:2012}, "tb_loc_e_r", "tb_loc_mil"},
+		{{w%x:-50.621578216553}, {w%y:-18.567991256714}, {w%z:346.1005859375}, {w%lvid:245744}, {w%gvid:2124}, "tb_loc_ne_r", "tb_loc_mil"},
+		{{w%x:-77.123756408691}, {w%y:3.5415439605713}, {w%z:89.78653717041}, {w%lvid:229904}, {w%gvid:2107}, "tb_loc_se_r", "tb_loc_mil"},
+		{{w%x:25.518558502197}, {w%y:-1.2604532241821}, {w%z:100.32361602783}, {w%lvid:313869}, {w%gvid:2013}, "tb_loc_se_r", "tb_loc_mil"},
+		{{w%x:46.379188537598}, {w%y:-8.1137228012085}, {w%z:204.30163574219}, {w%lvid:331060}, {w%gvid:2016}, "tb_loc_e_r", "tb_loc_mil"},
+		{{w%x:60.521156311035}, {w%y:-16.105535507202}, {w%z:339.77944946289}, {w%lvid:340285}, {w%gvid:2066}, "tb_loc_ne_r", "tb_loc_mil"},
+		{{w%x:69.481903076172}, {w%y:-12.780811309814}, {w%z:376.78530883789}, {w%lvid:348237}, {w%gvid:2064}, "tb_loc_ne_r", "tb_loc_mil"},
+		{{w%x:72.378601074219}, {w%y:-9.7039031982422}, {w%z:263.15768432617}, {w%lvid:350218}, {w%gvid:1973}, "tb_loc_ne_r", "tb_loc_mil"}
+	},
+{r%level:l08_yantar}
+	["l08_yantar"] = {
+		{{w%x:-0.64203971624374}, {w%y:1.5084668397903}, {w%z:-161.19361877441}, {w%lvid:65284}, {w%gvid:2282}, "tb_loc_s_r", "tb_loc_yan"},
+		{{w%x:-185.65315246582}, {w%y:6.6900253295898}, {w%z:-186.40325927734}, {w%lvid:3224}, {w%gvid:2276}, "tb_loc_w_r", "tb_loc_yan"},
+		{{w%x:-180.59049987793}, {w%y:6.0716352462769}, {w%z:-194.31805419922}, {w%lvid:3866}, {w%gvid:2276}, "tb_loc_sw_r", "tb_loc_yan"},
+		{{w%x:-78.138465881348}, {w%y:-11.547216415405}, {w%z:-292.93246459961}, {w%lvid:32198}, {w%gvid:2260}, "tb_loc_sw_r", "tb_loc_yan"},
+		{{w%x:-91.230171203613}, {w%y:-12.307676315308}, {w%z:-243.73905944824}, {w%lvid:28715}, {w%gvid:2224}, "tb_loc_sw_r", "tb_loc_yan"},
+		{{w%x:98.839820861816}, {w%y:0.37403053045273}, {w%z:-65.573341369629}, {w%lvid:113141}, {w%gvid:2209}, "tb_loc_e_r", "tb_loc_yan"},
+		{{w%x:113.78045654297}, {w%y:-5.7177295684814}, {w%z:-223.16589355469}, {w%lvid:119639}, {w%gvid:2200}, "tb_loc_se_r", "tb_loc_yan"},
+		{{w%x:126.07861328125}, {w%y:-3.2429563999176}, {w%z:61.657562255859}, {w%lvid:128107}, {w%gvid:2286}, "tb_loc_ne_r", "tb_loc_yan"},
+		{{w%x:137.24348449707}, {w%y:2.8570652008057}, {w%z:27.060665130615}, {w%lvid:136042}, {w%gvid:2212}, "tb_loc_ne_r", "tb_loc_yan"},
+		{{w%x:168.85375976563}, {w%y:-7.5038323402405}, {w%z:-82.235260009766}, {w%lvid:148257}, {w%gvid:2292}, "tb_loc_e_r", "tb_loc_yan"},
+		{{w%x:22.862121582031}, {w%y:-11.931819915771}, {w%z:-292.98107910156}, {w%lvid:75512}, {w%gvid:2198}, "tb_loc_s_r", "tb_loc_yan"},
+		{{w%x:35.395118713379}, {w%y:3.0084400177002}, {w%z:-156.01756286621}, {w%lvid:81370}, {w%gvid:2228}, "tb_loc_s_r", "tb_loc_yan"},
+		{{w%x:53.098480224609}, {w%y:-11.108350753784}, {w%z:-251.00079345703}, {w%lvid:91445}, {w%gvid:2288}, "tb_loc_s_r", "tb_loc_yan"},
+		{{w%x:50.164154052734}, {w%y:-11.785552024841}, {w%z:-245.93576049805}, {w%lvid:89814}, {w%gvid:2288}, "tb_loc_s_r", "tb_loc_yan"},
+		{{w%x:95.920890808105}, {w%y:-1.0610380172729}, {w%z:-194.17150878906}, {w%lvid:110406}, {w%gvid:2258}, "tb_loc_se_r", "tb_loc_yan"}
+	},
+{r%level:l09_deadcity}
+	["l09_deadcity"] = {
+		{{w%x:-119.48655700684}, {w%y:5.8051586151123}, {w%z:-228.6826171875}, {w%lvid:62595}, {w%gvid:2315}, "tb_loc_s_r", "tb_loc_cit"},
+		{{w%x:-121.01277160645}, {w%y:1.1036695241928}, {w%z:-114.71089172363}, {w%lvid:62385}, {w%gvid:2359}, "tb_loc_sw_r", "tb_loc_cit"},
+		{{w%x:-126.7142791748}, {w%y:1.9483884572983}, {w%z:-48.898551940918}, {w%lvid:61363}, {w%gvid:2348}, "tb_loc_w_r", "tb_loc_cit"},
+		{{w%x:-153.15214538574}, {w%y:3.0436203479767}, {w%z:33.314311981201}, {w%lvid:44906}, {w%gvid:2414}, "tb_loc_w_r", "tb_loc_cit"},
+		{{w%x:-174.75230407715}, {w%y:2.0423302650452}, {w%z:-154.60816955566}, {w%lvid:30568}, {w%gvid:2316}, "tb_loc_sw_r", "tb_loc_cit"},
+		{{w%x:-214.93588256836}, {w%y:9.4003763198853}, {w%z:-171.56689453125}, {w%lvid:9891}, {w%gvid:2318}, "tb_loc_sw_r", "tb_loc_cit"},
+		{{w%x:10.28111076355}, {w%y:1.8686209917068}, {w%z:115.00714111328}, {w%lvid:142298}, {w%gvid:2324}, "tb_loc_n_r", "tb_loc_cit"},
+		{{w%x:107.64558410645}, {w%y:2.2034559249878}, {w%z:32.364086151123}, {w%lvid:202680}, {w%gvid:2415}, "tb_loc_ne_r", "tb_loc_cit"},
+		{{w%x:109.00594329834}, {w%y:1.2130873203278}, {w%z:88.896751403809}, {w%lvid:203698}, {w%gvid:2357}, "tb_loc_ne_r", "tb_loc_cit"},
+		{{w%x:117.20364379883}, {w%y:1.0405136346817}, {w%z:-134.86596679688}, {w%lvid:207177}, {w%gvid:2353}, "tb_loc_se_r", "tb_loc_cit"},
+		{{w%x:143.55572509766}, {w%y:-2.3428308963776}, {w%z:-20.607921600342}, {w%lvid:224399}, {w%gvid:2404}, "tb_loc_e_r", "tb_loc_cit"},
+		{{w%x:2.0195999145508}, {w%y:1.6021195650101}, {w%z:72.587875366211}, {w%lvid:137548}, {w%gvid:2339}, "tb_loc_n_r", "tb_loc_cit"},
+		{{w%x:25.549657821655}, {w%y:-5.3307709693909}, {w%z:-247.13958740234}, {w%lvid:152663}, {w%gvid:2407}, "tb_loc_s_r", "tb_loc_cit"},
+		{{w%x:71.374847412109}, {w%y:1.2464402914047}, {w%z:-64.560012817383}, {w%lvid:178653}, {w%gvid:2356}, "tb_loc_se_r", "tb_loc_cit"},
+		{{w%x:74.844116210938}, {w%y:1.9796160459518}, {w%z:104.93649291992}, {w%lvid:181061}, {w%gvid:2340}, "tb_loc_ne_r", "tb_loc_cit"}
+	},
+{r%level:l10_limansk}
+	["l10_limansk"] = {
+		{{w%x:-12.09471321106}, {w%y:0.18447890877724}, {w%z:-349.091796875}, {w%lvid:19052}, {w%gvid:2445}, "tb_loc_s_r", "tb_loc_lim"},
+		{{w%x:-16.048357009888}, {w%y:-3.3791344165802}, {w%z:92.27018737793}, {w%lvid:18023}, {w%gvid:2456}, "tb_loc_n_r", "tb_loc_lim"},
+		{{w%x:-29.892189025879}, {w%y:-6.0000038146973}, {w%z:29.720489501953}, {w%lvid:10219}, {w%gvid:2455}, "tb_loc_n_r", "tb_loc_lim"},
+		{{w%x:-33.281387329102}, {w%y:-4.081184387207}, {w%z:172.79325866699}, {w%lvid:8431}, {w%gvid:2477}, "tb_loc_n_r", "tb_loc_lim"},
+		{{w%x:-39.362434387207}, {w%y:-4.0773339271545}, {w%z:-247.48321533203}, {w%lvid:6114}, {w%gvid:2450}, "tb_loc_s_r", "tb_loc_lim"},
+		{{w%x:-40.324081420898}, {w%y:-5.0116167068481}, {w%z:-125.94403076172}, {w%lvid:6272}, {w%gvid:2452}, "tb_loc_s_r", "tb_loc_lim"},
+		{{w%x:-5.6756343841553}, {w%y:15.077376365662}, {w%z:195.9044342041}, {w%lvid:22921}, {w%gvid:2459}, "tb_loc_n_r", "tb_loc_lim"},
+		{{w%x:-5.8033981323242}, {w%y:-4.1972861289978}, {w%z:-246.2313079834}, {w%lvid:22392}, {w%gvid:2431}, "tb_loc_s_r", "tb_loc_lim"},
+		{{w%x:-50.856643676758}, {w%y:-4.7771196365356}, {w%z:-190.2113494873}, {w%lvid:3215}, {w%gvid:2434}, "tb_loc_s_r", "tb_loc_lim"},
+		{{w%x:-8.8189468383789}, {w%y:0.97564727067947}, {w%z:-293.74090576172}, {w%lvid:20362}, {w%gvid:2481}, "tb_loc_s_r", "tb_loc_lim"},
+		{{w%x:13.039494514465}, {w%y:-6.957179069519}, {w%z:-28.787004470825}, {w%lvid:33572}, {w%gvid:2439}, "tb_loc_s_r", "tb_loc_lim"},
+		{{w%x:13.411673545837}, {w%y:-1.9051793813705}, {w%z:125.01847839355}, {w%lvid:32333}, {w%gvid:2458}, "tb_loc_n_r", "tb_loc_lim"},
+		{{w%x:19.360433578491}, {w%y:-4.5075736045837}, {w%z:-81.712692260742}, {w%lvid:36722}, {w%gvid:2437}, "tb_loc_s_r", "tb_loc_lim"},
+		{{w%x:2.4721002578735}, {w%y:-4.9915156364441}, {w%z:-92.004051208496}, {w%lvid:27001}, {w%gvid:2437}, "tb_loc_s_r", "tb_loc_lim"},
+		{{w%x:27.746068954468}, {w%y:-0.058924704790115}, {w%z:-297.24029541016}, {w%lvid:40349}, {w%gvid:2469}, "tb_loc_s_r", "tb_loc_lim"},
+		{{w%x:37.394130706787}, {w%y:4.8722467422485}, {w%z:311.22763061523}, {w%lvid:46731}, {w%gvid:2463}, "tb_loc_n_r", "tb_loc_lim"},
+		{{w%x:40.651641845703}, {w%y:13.206407546997}, {w%z:178.86553955078}, {w%lvid:48900}, {w%gvid:2460}, "tb_loc_n_r", "tb_loc_lim"},
+		{{w%x:52.41707611084}, {w%y:3.2922492027283}, {w%z:253.77940368652}, {w%lvid:53052}, {w%gvid:2461}, "tb_loc_n_r", "tb_loc_lim"},
+		{{w%x:54.917182922363}, {w%y:-5.6246294975281}, {w%z:21.839624404907}, {w%lvid:52770}, {w%gvid:2443}, "tb_loc_n_r", "tb_loc_lim"},
+		{{w%x:68.759017944336}, {w%y:3.3405191898346}, {w%z:283.55429077148}, {w%lvid:57401}, {w%gvid:2462}, "tb_loc_n_r", "tb_loc_lim"}
+	},
+{r%level:l10_radar}
+	["l10_radar"] = {
+		{{w%x:-29.500776290894}, {w%y:-1.0036900043488}, {w%z:88.720458984375}, {w%lvid:2065}, {w%gvid:2641}, "tb_loc_w_r", "tb_loc_rad"},
+		{{w%x:106.94738006592}, {w%y:-0.18738210201263}, {w%z:-4.3478908538818}, {w%lvid:46193}, {w%gvid:2573}, "tb_loc_w_r", "tb_loc_rad"},
+		{{w%x:109.50173950195}, {w%y:1.2345566749573}, {w%z:-82.498916625977}, {w%lvid:46743}, {w%gvid:2498}, "tb_loc_w_r", "tb_loc_rad"},
+		{{w%x:112.95410919189}, {w%y:3.8754880428314}, {w%z:-89.183311462402}, {w%lvid:47412}, {w%gvid:2577}, "tb_loc_w_r", "tb_loc_rad"},
+		{{w%x:24.092491149902}, {w%y:-0.11303205788136}, {w%z:-69.121307373047}, {w%lvid:18705}, {w%gvid:2616}, "tb_loc_w_r", "tb_loc_rad"},
+		{{w%x:316.69274902344}, {w%y:-49.273338317871}, {w%z:18.279706954956}, {w%lvid:76010}, {w%gvid:2552}, "tb_loc_nw_r", "tb_loc_rad"},
+		{{w%x:378.66186523438}, {w%y:-50.510940551758}, {w%z:-20.616247177124}, {w%lvid:110022}, {w%gvid:2487}, "tb_loc_n_r", "tb_loc_rad"},
+		{{w%x:43.938705444336}, {w%y:0.303696423769}, {w%z:25.152782440186}, {w%lvid:26583}, {w%gvid:2622}, "tb_loc_w_r", "tb_loc_rad"},
+		{{w%x:463.3405456543}, {w%y:-48.722007751465}, {w%z:14.92209815979}, {w%lvid:152164}, {w%gvid:2542}, "tb_loc_n_r", "tb_loc_rad"},
+		{{w%x:518.68341064453}, {w%y:-50.501331329346}, {w%z:-20.65020942688}, {w%lvid:175190}, {w%gvid:2540}, "tb_loc_ne_r", "tb_loc_rad"},
+		{{w%x:545.97412109375}, {w%y:-42.564876556396}, {w%z:79.77880859375}, {w%lvid:189171}, {w%gvid:2525}, "tb_loc_ne_r", "tb_loc_rad"},
+		{{w%x:553.47448730469}, {w%y:-59.736686706543}, {w%z:-197.92016601563}, {w%lvid:192547}, {w%gvid:2507}, "tb_loc_se_r", "tb_loc_rad"},
+		{{w%x:558.79779052734}, {w%y:-41.260852813721}, {w%z:177.06163024902}, {w%lvid:194407}, {w%gvid:2528}, "tb_loc_ne_r", "tb_loc_rad"},
+		{{w%x:56.013477325439}, {w%y:3.9075014591217}, {w%z:70.782608032227}, {w%lvid:29292}, {w%gvid:2624}, "tb_loc_w_r", "tb_loc_rad"},
+		{{w%x:579.69256591797}, {w%y:-61.875400543213}, {w%z:-141.9207611084}, {w%lvid:205045}, {w%gvid:2492}, "tb_loc_e_r", "tb_loc_rad"},
+		{{w%x:593.53393554688}, {w%y:-52.285636901855}, {w%z:-51.785236358643}, {w%lvid:210980}, {w%gvid:2521}, "tb_loc_e_r", "tb_loc_rad"},
+		{{w%x:594.20166015625}, {w%y:-51.718811035156}, {w%z:-381.71264648438}, {w%lvid:211744}, {w%gvid:2502}, "tb_loc_se_r", "tb_loc_rad"},
+		{{w%x:610.07208251953}, {w%y:-50.297676086426}, {w%z:3.3322367668152}, {w%lvid:219859}, {w%gvid:2523}, "tb_loc_e_r", "tb_loc_rad"},
+		{{w%x:614.54858398438}, {w%y:-51.905899047852}, {w%z:-286.81042480469}, {w%lvid:220742}, {w%gvid:2505}, "tb_loc_se_r", "tb_loc_rad"},
+		{{w%x:631.37957763672}, {w%y:-51.630462646484}, {w%z:-78.316871643066}, {w%lvid:225659}, {w%gvid:2519}, "tb_loc_e_r", "tb_loc_rad"}
+	},
+{r%level:l10_red_forest}
+	["l10_red_forest"] = {
+		{{w%x:-100.45635986328}, {w%y:-0.011831432580948}, {w%z:-238.17616271973}, {w%lvid:10405}, {w%gvid:2822}, "tb_loc_w_r", "tb_loc_red"},
+		{{w%x:-112.49780273438}, {w%y:1.9576653242111}, {w%z:-291.81942749023}, {w%lvid:8640}, {w%gvid:2792}, "tb_loc_w_r", "tb_loc_red"},
+		{{w%x:-14.74259853363}, {w%y:2.2093436717987}, {w%z:-109.02491760254}, {w%lvid:55645}, {w%gvid:2785}, "tb_loc_n_r", "tb_loc_red"},
+		{{w%x:-34.733444213867}, {w%y:-2.1908299922943}, {w%z:-232.56408691406}, {w%lvid:39063}, {w%gvid:2760}, "tb_loc_w_r", "tb_loc_red"},
+		{{w%x:-37.184448242188}, {w%y:0.78095209598541}, {w%z:-363.05435180664}, {w%lvid:36659}, {w%gvid:2835}, "tb_loc_sw_r", "tb_loc_red"},
+		{{w%x:-59.628273010254}, {w%y:0.62318205833435}, {w%z:33.525249481201}, {w%lvid:23000}, {w%gvid:2769}, "tb_loc_nw_r", "tb_loc_red"},
+		{{w%x:-70.457336425781}, {w%y:1.1789920330048}, {w%z:-33.707012176514}, {w%lvid:16431}, {w%gvid:2770}, "tb_loc_nw_r", "tb_loc_red"},
+		{{w%x:129.3235168457}, {w%y:2.1585819721222}, {w%z:-255.97988891602}, {w%lvid:103783}, {w%gvid:2778}, "tb_loc_e_r", "tb_loc_red"},
+		{{w%x:15.911014556885}, {w%y:-0.82917702198029}, {w%z:-60.65739440918}, {w%lvid:76820}, {w%gvid:2768}, "tb_loc_n_r", "tb_loc_red"},
+		{{w%x:187.8264465332}, {w%y:-5.9757623672485}, {w%z:-21.879493713379}, {w%lvid:122066}, {w%gvid:2774}, "tb_loc_ne_r", "tb_loc_red"},
+		{{w%x:189.99588012695}, {w%y:-7.8130507469177}, {w%z:-116.28408813477}, {w%lvid:124593}, {w%gvid:2773}, "tb_loc_ne_r", "tb_loc_red"},
+		{{w%x:190.32192993164}, {w%y:1.0376524925232}, {w%z:-238.32608032227}, {w%lvid:120612}, {w%gvid:2831}, "tb_loc_e_r", "tb_loc_red"},
+		{{w%x:250.98724365234}, {w%y:-4.539493560791}, {w%z:-94.160758972168}, {w%lvid:151451}, {w%gvid:2844}, "tb_loc_ne_r", "tb_loc_red"},
+		{{w%x:34.550762176514}, {w%y:0.48889991641045}, {w%z:-5.928343296051}, {w%lvid:83178}, {w%gvid:2768}, "tb_loc_nw_r", "tb_loc_red"},
+		{{w%x:62.671501159668}, {w%y:-1.6878155469894}, {w%z:-307.4990234375}, {w%lvid:92758}, {w%gvid:2783}, "tb_loc_s_r", "tb_loc_red"}
+	},
+	--["l11_hospital"] = {
+	--	{-93.503341674805, 32.727638244629, 785.56518554688, 1522, 2892, "the Deserted Hospital"},
+	--},
+{r%level:l11_pripyat}
+	["l11_pripyat"] = {
+		{{w%x:-1.6520437002182}, {w%y:-2.2206122875214}, {w%z:-12.648792266846}, {w%lvid:101353}, {w%gvid:2949}, "tb_loc_s_r", "tb_loc_pri"},
+		{{w%x:-102.42932128906}, {w%y:-2.2260103225708}, {w%z:-28.478969573975}, {w%lvid:14239}, {w%gvid:3046}, "tb_loc_sw_r", "tb_loc_pri"},
+		{{w%x:-148.09417724609}, {w%y:-2.243926525116}, {w%z:29.682828903198}, {w%lvid:2283}, {w%gvid:2931}, "tb_loc_sw_r", "tb_loc_pri"},
+		{{w%x:-38.673408508301}, {w%y:-1.6994947195053}, {w%z:-50.345401763916}, {w%lvid:61614}, {w%gvid:2922}, "tb_loc_sw_r", "tb_loc_pri"},
+		{{w%x:-41.394104003906}, {w%y:-0.56843876838684}, {w%z:214.49374389648}, {w%lvid:57645}, {w%gvid:2943}, "tb_loc_nw_r", "tb_loc_pri"},
+		{{w%x:-99.08349609375}, {w%y:-1.5557813644409}, {w%z:91.854850769043}, {w%lvid:18398}, {w%gvid:2930}, "tb_loc_w_r", "tb_loc_pri"},
+		{{w%x:105.32002258301}, {w%y:2.9202837944031}, {w%z:206.76040649414}, {w%lvid:217424}, {w%gvid:2953}, "tb_loc_e_r", "tb_loc_pri"},
+		{{w%x:106.06272125244}, {w%y:-0.94925463199615}, {w%z:-5.0489568710327}, {w%lvid:215550}, {w%gvid:3019}, "tb_loc_se_r", "tb_loc_pri"},
+		{{w%x:115.97847747803}, {w%y:-2.2209753990173}, {w%z:42.291030883789}, {w%lvid:226150}, {w%gvid:2933}, "tb_loc_se_r", "tb_loc_pri"},
+		{{w%x:125.10976409912}, {w%y:-0.78525876998901}, {w%z:182.11323547363}, {w%lvid:230960}, {w%gvid:2938}, "tb_loc_e_r", "tb_loc_pri"},
+		{{w%x:13.755334854126}, {w%y:0.56257092952728}, {w%z:266.17483520508}, {w%lvid:119021}, {w%gvid:3051}, "tb_loc_n_r", "tb_loc_pri"},
+		{{w%x:172.8278503418}, {w%y:-0.74565225839615}, {w%z:104.54313659668}, {w%lvid:254210}, {w%gvid:3011}, "tb_loc_e_r", "tb_loc_pri"},
+		{{w%x:176.63453674316}, {w%y:-1.1698770523071}, {w%z:158.33099365234}, {w%lvid:255881}, {w%gvid:2936}, "tb_loc_e_r", "tb_loc_pri"},
+		{{w%x:20.970027923584}, {w%y:-1.8328968286514}, {w%z:-243.51919555664}, {w%lvid:128408}, {w%gvid:2918}, "tb_loc_s_r", "tb_loc_pri"},
+		{{w%x:21.002883911133}, {w%y:-1.0010313987732}, {w%z:138.72996520996}, {w%lvid:127849}, {w%gvid:3064}, "tb_loc_n_r", "tb_loc_pri"},
+		{{w%x:33.401092529297}, {w%y:-2.2668821811676}, {w%z:-60.37255859375}, {w%lvid:144079}, {w%gvid:3063}, "tb_loc_s_r", "tb_loc_pri"},
+		{{w%x:4.6835861206055}, {w%y:-1.7322903871536}, {w%z:-89.200981140137}, {w%lvid:107997}, {w%gvid:2921}, "tb_loc_s_r", "tb_loc_pri"},
+		{{w%x:59.245819091797}, {w%y:-1.8315937519073}, {w%z:-168.44749450684}, {w%lvid:172421}, {w%gvid:2925}, "tb_loc_s_r", "tb_loc_pri"},
+		{{w%x:8.8129863739014}, {w%y:-1.3713134527206}, {w%z:-189.54067993164}, {w%lvid:113623}, {w%gvid:2919}, "tb_loc_s_r", "tb_loc_pri"},
+		{{w%x:90.9697265625}, {w%y:-0.55571955442429}, {w%z:243.14401245117}, {w%lvid:202874}, {w%gvid:2953}, "tb_loc_ne_r", "tb_loc_pri"}
+	},
+{r%level:l12_stancia}
+	["l12_stancia"] = {
+		{{w%x:1011.923034668}, {w%y:-0.0053041875362396}, {w%z:-129.94323730469}, {w%lvid:470532}, {w%gvid:3206}, "tb_loc_e_r", "tb_loc_aes1"},
+		{{w%x:273.88821411133}, {w%y:-0.0068168938159943}, {w%z:-38.054210662842}, {w%lvid:116335}, {w%gvid:3189}, "tb_loc_w_r", "tb_loc_aes1"},
+		{{w%x:375.78558349609}, {w%y:1.0255014896393}, {w%z:-77.845336914063}, {w%lvid:163943}, {w%gvid:3195}, "tb_loc_n_r", "tb_loc_aes1"},
+		{{w%x:419.37713623047}, {w%y:1.5121793746948}, {w%z:-15.974581718445}, {w%lvid:186869}, {w%gvid:3192}, "tb_loc_n_r", "tb_loc_aes1"},
+		{{w%x:484.42279052734}, {w%y:0.087662875652313}, {w%z:-28.132146835327}, {w%lvid:217606}, {w%gvid:3112}, "tb_loc_n_r", "tb_loc_aes1"},
+		{{w%x:608.03649902344}, {w%y:-0.0025603473186493}, {w%z:-19.029111862183}, {w%lvid:270200}, {w%gvid:3109}, "tb_loc_n_r", "tb_loc_aes1"},
+		{{w%x:659.34613037109}, {w%y:4.815495967865}, {w%z:-172.2444152832}, {w%lvid:287072}, {w%gvid:3122}, "tb_loc_e_r", "tb_loc_aes1"},
+		{{w%x:728.32019042969}, {w%y:0.0076620876789093}, {w%z:-8.8324661254883}, {w%lvid:319999}, {w%gvid:3105}, "tb_loc_ne_r", "tb_loc_aes1"},
+		{{w%x:741.39758300781}, {w%y:4.8019528388977}, {w%z:-157.10681152344}, {w%lvid:327068}, {w%gvid:3129}, "tb_loc_e_r", "tb_loc_aes1"},
+		{{w%x:782.2373046875}, {w%y:0.03949761390686}, {w%z:-167.95561218262}, {w%lvid:343467}, {w%gvid:3118}, "tb_loc_se_r", "tb_loc_aes1"},
+		{{w%x:832.41674804688}, {w%y:1.4634515047073}, {w%z:-20.510936737061}, {w%lvid:366810}, {w%gvid:3103}, "tb_loc_ne_r", "tb_loc_aes1"},
+		{{w%x:882.08679199219}, {w%y:1.5517052412033}, {w%z:29.894992828369}, {w%lvid:388452}, {w%gvid:3101}, "tb_loc_ne_r", "tb_loc_aes1"},
+		{{w%x:903.24774169922}, {w%y:1.2282946109772}, {w%z:-69.13451385498}, {w%lvid:403087}, {w%gvid:3081}, "tb_loc_e_r", "tb_loc_aes1"},
+		{{w%x:909.26873779297}, {w%y:0.43381687998772}, {w%z:-210.26306152344}, {w%lvid:408743}, {w%gvid:3079}, "tb_loc_se_r", "tb_loc_aes1"},
+		{{w%x:969.02709960938}, {w%y:-0.019600600004196}, {w%z:32.792072296143}, {w%lvid:450071}, {w%gvid:3085}, "tb_loc_ne_r", "tb_loc_aes1"}
+	},
+{r%level:l12_stancia_2}
+	["l12_stancia_2"] = {
+		{{w%x:-20.494522094727}, {w%y:-0.046567112207413}, {w%z:184.03857421875}, {w%lvid:44357}, {w%gvid:3231}, "tb_loc_w_r", "tb_loc_aes2"},
+		{{w%x:-36.914344787598}, {w%y:0.29976305365562}, {w%z:191.64785766602}, {w%lvid:30663}, {w%gvid:3229}, "tb_loc_w_r", "tb_loc_aes2"},
+		{{w%x:113.44429016113}, {w%y:-0.0029491484165192}, {w%z:309.37911987305}, {w%lvid:156742}, {w%gvid:3254}, "tb_loc_nw_r", "tb_loc_aes2"},
+		{{w%x:266.27395629883}, {w%y:1.7058387994766}, {w%z:147.09506225586}, {w%lvid:270507}, {w%gvid:3293}, "tb_loc_sw_r", "tb_loc_aes2"},
+		{{w%x:333.42431640625}, {w%y:-0.021835416555405}, {w%z:272.7922668457}, {w%lvid:328803}, {w%gvid:3298}, "tb_loc_n_r", "tb_loc_aes2"},
+		{{w%x:393.48599243164}, {w%y:6.3676743507385}, {w%z:382.86431884766}, {w%lvid:384468}, {w%gvid:3320}, "tb_loc_n_r", "tb_loc_aes2"},
+		{{w%x:437.16482543945}, {w%y:-0.10010626912117}, {w%z:185.91250610352}, {w%lvid:420929}, {w%gvid:3355}, "tb_loc_s_r", "tb_loc_aes2"},
+		{{w%x:49.157405853271}, {w%y:9.6176128387451}, {w%z:197.42855834961}, {w%lvid:103778}, {w%gvid:3233}, "tb_loc_w_r", "tb_loc_aes2"},
+		{{w%x:500.21954345703}, {w%y:1.2005145549774}, {w%z:224.23970031738}, {w%lvid:468624}, {w%gvid:3354}, "tb_loc_s_r", "tb_loc_aes2"},
+		{{w%x:59.742084503174}, {w%y:4.990128993988}, {w%z:68.551086425781}, {w%lvid:110265}, {w%gvid:3488}, "tb_loc_sw_r", "tb_loc_aes2"},
+		{{w%x:6.3057065010071}, {w%y:4.2675576210022}, {w%z:144.42385864258}, {w%lvid:66438}, {w%gvid:3495}, "tb_loc_sw_r", "tb_loc_aes2"},
+		{{w%x:607.26318359375}, {w%y:1.7128146886826}, {w%z:243.30001831055}, {w%lvid:553568}, {w%gvid:3389}, "tb_loc_e_r", "tb_loc_aes2"},
+		{{w%x:820.28002929688}, {w%y:0.14639401435852}, {w%z:325.43395996094}, {w%lvid:706650}, {w%gvid:3474}, "tb_loc_ne_r", "tb_loc_aes2"},
+		{{w%x:916.76574707031}, {w%y:-0.0028077960014343}, {w%z:141.18156433105}, {w%lvid:777190}, {w%gvid:3448}, "tb_loc_se_r", "tb_loc_aes2"},
+		{{w%x:23.577014923096}, {w%y:29.006227493286}, {w%z:276.13763427734}, {w%lvid:78936}, {w%gvid:3253}, "tb_loc_nw_r", "tb_loc_aes2"}
+	},
+{r%level:l13_generators}
+	["l13_generators"] = {
+		{{w%x:-101.30375671387}, {w%y:39.551937103271}, {w%z:-521.98754882813}, {w%lvid:105904}, {w%gvid:3508}, "tb_loc_s_r", "tb_loc_gen"},
+		{{w%x:-104.63162994385}, {w%y:33.120086669922}, {w%z:-91.40202331543}, {w%lvid:103693}, {w%gvid:3527}, "tb_loc_nw_r", "tb_loc_gen"},
+		{{w%x:-109.94926452637}, {w%y:36.857124328613}, {w%z:-467.39904785156}, {w%lvid:95826}, {w%gvid:3600}, "tb_loc_s_r", "tb_loc_gen"},
+		{{w%x:-118.97431945801}, {w%y:26.009466171265}, {w%z:-404.13766479492}, {w%lvid:86879}, {w%gvid:3515}, "tb_loc_sw_r", "tb_loc_gen"},
+		{{w%x:-158.43014526367}, {w%y:30.718967437744}, {w%z:-291.25653076172}, {w%lvid:54537}, {w%gvid:3556}, "tb_loc_w_r", "tb_loc_gen"},
+		{{w%x:-187.57843017578}, {w%y:33.171287536621}, {w%z:-325.55755615234}, {w%lvid:33463}, {w%gvid:3514}, "tb_loc_w_r", "tb_loc_gen"},
+		{{w%x:-213.19372558594}, {w%y:28.908090591431}, {w%z:-427.97247314453}, {w%lvid:17378}, {w%gvid:3513}, "tb_loc_sw_r", "tb_loc_gen"},
+		{{w%x:-25.256622314453}, {w%y:26.601194381714}, {w%z:-63.542652130127}, {w%lvid:174636}, {w%gvid:3528}, "tb_loc_n_r", "tb_loc_gen"},
+		{{w%x:-48.511688232422}, {w%y:30.428108215332}, {w%z:-435.44784545898}, {w%lvid:152314}, {w%gvid:3597}, "tb_loc_s_r", "tb_loc_gen"},
+		{{w%x:-65.803535461426}, {w%y:32.457206726074}, {w%z:-342.1379699707}, {w%lvid:138574}, {w%gvid:3555}, "tb_loc_w_r", "tb_loc_gen"},
+		{{w%x:101.35711669922}, {w%y:30.285459518433}, {w%z:-550.63092041016}, {w%lvid:299063}, {w%gvid:3550}, "tb_loc_se_r", "tb_loc_gen"},
+		{{w%x:15.34042930603}, {w%y:24.453868865967}, {w%z:-443.03500366211}, {w%lvid:216016}, {w%gvid:3607}, "tb_loc_s_r", "tb_loc_gen"},
+		{{w%x:16.789400100708}, {w%y:26.598768234253}, {w%z:-512.66101074219}, {w%lvid:218284}, {w%gvid:3519}, "tb_loc_s_r", "tb_loc_gen"},
+		{{w%x:165.6121673584}, {w%y:25.879482269287}, {w%z:-78.684875488281}, {w%lvid:362247}, {w%gvid:3532}, "tb_loc_ne_r", "tb_loc_gen"},
+		{{w%x:195.50524902344}, {w%y:27.383646011353}, {w%z:-314.37826538086}, {w%lvid:388814}, {w%gvid:3542}, "tb_loc_e_r", "tb_loc_gen"},
+		{{w%x:204.15455627441}, {w%y:31.585569381714}, {w%z:-487.38842773438}, {w%lvid:396913}, {w%gvid:3548}, "tb_loc_se_r", "tb_loc_gen"},
+		{{w%x:204.18830871582}, {w%y:29.476787567139}, {w%z:-253.64163208008}, {w%lvid:397221}, {w%gvid:3543}, "tb_loc_e_r", "tb_loc_gen"},
+		{{w%x:211.88235473633}, {w%y:20.41397857666}, {w%z:-147.97074890137}, {w%lvid:412680}, {w%gvid:3533}, "tb_loc_ne_r", "tb_loc_gen"},
+		{{w%x:76.752799987793}, {w%y:24.310276031494}, {w%z:-54.284538269043}, {w%lvid:275589}, {w%gvid:3611}, "tb_loc_n_r", "tb_loc_gen"},
+		{{w%x:83.675468444824}, {w%y:30.898843765259}, {w%z:-399.36117553711}, {w%lvid:282156}, {w%gvid:3521}, "tb_loc_se_r", "tb_loc_gen"}
+	},
+{r%level:zaton}
+	["zaton"] = {
+		{{w%x:-147.60580444336}, {w%y:-4.4517121315002}, {w%z:301.91284179688}, {w%lvid:653326}, {w%gvid:4267}, "tb_loc_nw_r", "tb_loc_zat"},
+		{{w%x:-150.77394104004}, {w%y:21.159231185913}, {w%z:-209.54209899902}, {w%lvid:638543}, {w%gvid:4444}, "tb_loc_s_r", "tb_loc_zat"},
+		{{w%x:-160.42599487305}, {w%y:8.0954217910767}, {w%z:85.449028015137}, {w%lvid:616753}, {w%gvid:4383}, "tb_loc_w_r", "tb_loc_zat"},
+		{{w%x:-187.26564025879}, {w%y:-3.3396105766296}, {w%z:14.252264976501}, {w%lvid:570920}, {w%gvid:4399}, "tb_loc_w_r", "tb_loc_zat"},
+		{{w%x:-246.7158203125}, {w%y:28.243530273438}, {w%z:-366.23333740234}, {w%lvid:452971}, {w%gvid:4227}, "tb_loc_sw_r", "tb_loc_zat"},
+		{{w%x:-268.92272949219}, {w%y:32.595615386963}, {w%z:-261.00518798828}, {w%lvid:409370}, {w%gvid:4228}, "tb_loc_sw_r", "tb_loc_zat"},
+		{{w%x:-315.64312744141}, {w%y:10.240501403809}, {w%z:397.57781982422}, {w%lvid:320542}, {w%gvid:4137}, "tb_loc_nw_r", "tb_loc_zat"},
+		{{w%x:-357.13479614258}, {w%y:23.900959014893}, {w%z:-180.05654907227}, {w%lvid:245126}, {w%gvid:4176}, "tb_loc_sw_r", "tb_loc_zat"},
+		{{w%x:-39.139236450195}, {w%y:19.453763961792}, {w%z:-330.19677734375}, {w%lvid:867313}, {w%gvid:4354}, "tb_loc_s_r", "tb_loc_zat"},
+		{{w%x:109.98294830322}, {w%y:-4.1149849891663}, {w%z:-232.71192932129}, {w%lvid:1154858}, {w%gvid:4287}, "tb_loc_s_r", "tb_loc_zat"},
+		{{w%x:120.04262542725}, {w%y:-6.9616460800171}, {w%z:201.5500793457}, {w%lvid:1170909}, {w%gvid:4458}, "tb_loc_ne_r", "tb_loc_zat"},
+		{{w%x:226.37512207031}, {w%y:33.51358795166}, {w%z:-334.55603027344}, {w%lvid:1350097}, {w%gvid:4177}, "tb_loc_se_r", "tb_loc_zat"},
+		{{w%x:230.02919006348}, {w%y:17.533971786499}, {w%z:511.51467895508}, {w%lvid:1356111}, {w%gvid:4429}, "tb_loc_ne_r", "tb_loc_zat"},
+		{{w%x:299.75006103516}, {w%y:16.775381088257}, {w%z:92.539588928223}, {w%lvid:1477383}, {w%gvid:4435}, "tb_loc_e_r", "tb_loc_zat"},
+		{{w%x:301.33633422852}, {w%y:0.43808200955391}, {w%z:197.6625213623}, {w%lvid:1482610}, {w%gvid:4380}, "tb_loc_e_r", "tb_loc_zat"},
+		{{w%x:357.76892089844}, {w%y:33.084365844727}, {w%z:48.02840423584}, {w%lvid:1563115}, {w%gvid:4208}, "tb_loc_e_r", "tb_loc_zat"},
+		{{w%x:378.5354309082}, {w%y:33.320854187012}, {w%z:-444.81268310547}, {w%lvid:1590981}, {w%gvid:4454}, "tb_loc_se_r", "tb_loc_zat"},
+		{{w%x:5.3404722213745}, {w%y:-6.7175259590149}, {w%z:-37.723617553711}, {w%lvid:958100}, {w%gvid:4309}, "tb_loc_s_r", "tb_loc_zat"},
+		{{w%x:554.12841796875}, {w%y:11.073240280151}, {w%z:-297.10116577148}, {w%lvid:1831288}, {w%gvid:4357}, "tb_loc_se_r", "tb_loc_zat"},
+		{{w%x:60.620403289795}, {w%y:-6.1062622070313}, {w%z:464.95904541016}, {w%lvid:1068613}, {w%gvid:4178}, "tb_loc_n_r", "tb_loc_zat"}
+	},
+{r%level:jupiter}
+	["jupiter"] = {
+		{{w%x:-104.63998413086}, {w%y:0.0048342645168304}, {w%z:-139.32943725586}, {w%lvid:543972}, {w%gvid:4733}, "tb_loc_s_r", "tb_loc_jup"},
+		{{w%x:-149.19508361816}, {w%y:0.65769505500793}, {w%z:54.169692993164}, {w%lvid:472265}, {w%gvid:4533}, "tb_loc_w_r", "tb_loc_jup"},
+		{{w%x:-201.09411621094}, {w%y:-13.461722373962}, {w%z:337.40835571289}, {w%lvid:380638}, {w%gvid:4484}, "tb_loc_nw_r", "tb_loc_jup"},
+		{{w%x:-23.251113891602}, {w%y:3.4246072769165}, {w%z:148.1237487793}, {w%lvid:680824}, {w%gvid:4735}, "tb_loc_n_r", "tb_loc_jup"},
+		{{w%x:-301.05633544922}, {w%y:-1.5740859508514}, {w%z:256.71676635742}, {w%lvid:203932}, {w%gvid:4565}, "tb_loc_nw_r", "tb_loc_jup"},
+		{{w%x:-327.68432617188}, {w%y:-0.46692913770676}, {w%z:-344.90570068359}, {w%lvid:159838}, {w%gvid:4624}, "tb_loc_sw_r", "tb_loc_jup"},
+		{{w%x:-428.72314453125}, {w%y:-0.17780922353268}, {w%z:-294.7004699707}, {w%lvid:10070}, {w%gvid:4623}, "tb_loc_sw_r", "tb_loc_jup"},
+		{{w%x:100.95932006836}, {w%y:18.446222305298}, {w%z:-465.22814941406}, {w%lvid:882879}, {w%gvid:4466}, "tb_loc_s_r", "tb_loc_jup"},
+		{{w%x:103.66532897949}, {w%y:1.254568696022}, {w%z:233.56109619141}, {w%lvid:891023}, {w%gvid:4501}, "tb_loc_n_r", "tb_loc_jup"},
+		{{w%x:16.636182785034}, {w%y:28.546026229858}, {w%z:-456.48876953125}, {w%lvid:736912}, {w%gvid:4466}, "tb_loc_s_r", "tb_loc_jup"},
+		{{w%x:229.34550476074}, {w%y:-10.356903076172}, {w%z:191.90386962891}, {w%lvid:1106708}, {w%gvid:4653}, "tb_loc_ne_r", "tb_loc_jup"},
+		{{w%x:285.47573852539}, {w%y:-4.2336525917053}, {w%z:395.10186767578}, {w%lvid:1184870}, {w%gvid:4668}, "tb_loc_ne_r", "tb_loc_jup"},
+		{{w%x:295.51831054688}, {w%y:28.858869552612}, {w%z:-135.67283630371}, {w%lvid:1195724}, {w%gvid:4681}, "tb_loc_se_r", "tb_loc_jup"},
+		{{w%x:380.63952636719}, {w%y:3.4571108818054}, {w%z:12.963842391968}, {w%lvid:1318695}, {w%gvid:4686}, "tb_loc_e_r", "tb_loc_jup"},
+		{{w%x:390.64886474609}, {w%y:4.7495021820068}, {w%z:330.79650878906}, {w%lvid:1333684}, {w%gvid:4496}, "tb_loc_ne_r", "tb_loc_jup"},
+		{{w%x:426.47955322266}, {w%y:28.525848388672}, {w%z:-298.42822265625}, {w%lvid:1389462}, {w%gvid:4696}, "tb_loc_se_r", "tb_loc_jup"},
+		{{w%x:51.799327850342}, {w%y:5.4229297637939}, {w%z:230.49865722656}, {w%lvid:807058}, {w%gvid:4654}, "tb_loc_n_r", "tb_loc_jup"},
+		{{w%x:65.630950927734}, {w%y:25.07837677002}, {w%z:-171.44857788086}, {w%lvid:825080}, {w%gvid:4509}, "tb_loc_s_r", "tb_loc_jup"},
+		{{w%x:8.0445556640625}, {w%y:3.725878238678}, {w%z:-18.601421356201}, {w%lvid:732979}, {w%gvid:4726}, "tb_loc_n_r", "tb_loc_jup"},
+		{{w%x:99.728004455566}, {w%y:18.925405502319}, {w%z:-395.13363647461}, {w%lvid:882976}, {w%gvid:4474}, "tb_loc_s_r", "tb_loc_jup"}
+	},
+{r%level:pripyat}
+	["pripyat"] = {
+		{{w%x:-101.64154052734}, {w%y:-0.44676825404167}, {w%z:-54.60319519043}, {w%lvid:91593}, {w%gvid:4982}, "tb_loc_n_r", "tb_loc_out"},
+		{{w%x:-111.6471862793}, {w%y:1.1057761907578}, {w%z:-124.26145172119}, {w%lvid:82811}, {w%gvid:4985}, "tb_loc_w_r", "tb_loc_out"},
+		{{w%x:-12.619153022766}, {w%y:-0.49894854426384}, {w%z:-351.30596923828}, {w%lvid:180142}, {w%gvid:4994}, "tb_loc_s_r", "tb_loc_out"},
+		{{w%x:-125.50523376465}, {w%y:0.24729087948799}, {w%z:-342.58239746094}, {w%lvid:70662}, {w%gvid:5065}, "tb_loc_sw_r", "tb_loc_out"},
+		{{w%x:-182.07890319824}, {w%y:-0.40769428014755}, {w%z:-214.7306060791}, {w%lvid:34396}, {w%gvid:4888}, "tb_loc_w_r", "tb_loc_out"},
+		{{w%x:-190.35760498047}, {w%y:-0.52376163005829}, {w%z:-76.280349731445}, {w%lvid:29548}, {w%gvid:4963}, "tb_loc_w_r", "tb_loc_out"},
+		{{w%x:-198.20266723633}, {w%y:-0.48836761713028}, {w%z:-133.25802612305}, {w%lvid:24883}, {w%gvid:4964}, "tb_loc_w_r", "tb_loc_out"},
+		{{w%x:-224.12945556641}, {w%y:0.018535047769547}, {w%z:-24.946027755737}, {w%lvid:10610}, {w%gvid:5033}, "tb_loc_w_r", "tb_loc_out"},
+		{{w%x:-41.80460357666}, {w%y:-0.39516311883926}, {w%z:-29.461326599121}, {w%lvid:145456}, {w%gvid:4972}, "tb_loc_n_r", "tb_loc_out"},
+		{{w%x:-58.867652893066}, {w%y:-0.4987365603447}, {w%z:-177.5739440918}, {w%lvid:141265}, {w%gvid:5014}, "tb_loc_s_r", "tb_loc_out"},
+		{{w%x:1.8882836103439}, {w%y:-0.68420362472534}, {w%z:22.258533477783}, {w%lvid:202038}, {w%gvid:4919}, "tb_loc_n_r", "tb_loc_out"},
+		{{w%x:10.972635269165}, {w%y:-0.46581882238388}, {w%z:-284.46224975586}, {w%lvid:212375}, {w%gvid:4917}, "tb_loc_s_r", "tb_loc_out"},
+		{{w%x:122.20041656494}, {w%y:1.2041594982147}, {w%z:296.85092163086}, {w%lvid:348160}, {w%gvid:5024}, "tb_loc_ne_r", "tb_loc_out"},
+		{{w%x:153.31825256348}, {w%y:0.94135230779648}, {w%z:-73.959060668945}, {w%lvid:382627}, {w%gvid:4897}, "tb_loc_e_r", "tb_loc_out"},
+		{{w%x:172.73364257813}, {w%y:0.25077643990517}, {w%z:99.980934143066}, {w%lvid:404130}, {w%gvid:5058}, "tb_loc_ne_r", "tb_loc_out"},
+		{{w%x:240.92733764648}, {w%y:0.45767799019814}, {w%z:305.67468261719}, {w%lvid:456170}, {w%gvid:5021}, "tb_loc_ne_r", "tb_loc_out"},
+		{{w%x:33.580257415771}, {w%y:-0.47251677513123}, {w%z:-28.531055450439}, {w%lvid:245254}, {w%gvid:5028}, "tb_loc_e_r", "tb_loc_out"},
+		{{w%x:46.422595977783}, {w%y:0.45167574286461}, {w%z:-190.53691101074}, {w%lvid:262435}, {w%gvid:5009}, "tb_loc_se_r", "tb_loc_out"},
+		{{w%x:9.8547611236572}, {w%y:0.5790559053421}, {w%z:78.532440185547}, {w%lvid:213625}, {w%gvid:4930}, "tb_loc_n_r", "tb_loc_out"},
+		{{w%x:94.640823364258}, {w%y:1.0876548290253}, {w%z:104.1615524292}, {w%lvid:315181}, {w%gvid:5042}, "tb_loc_ne_r", "tb_loc_out"}
+	},
+{r%level:k02_trucks_cemetery}
+	["k02_trucks_cemetery"] = {
+		{{w%x:-100.21502685547}, {w%y:4.7243037223816}, {w%z:-102.90797424316}, {w%lvid:313602}, {w%gvid:5120}, "tb_loc_s_r", "tb_loc_trc"},
+		{{w%x:-144.03692626953}, {w%y:7.1489720344543}, {w%z:-298.35095214844}, {w%lvid:253982}, {w%gvid:5102}, "tb_loc_sw_r", "tb_loc_trc"},
+		{{w%x:-148.46539306641}, {w%y:3.8976557254791}, {w%z:35.588623046875}, {w%lvid:250812}, {w%gvid:5125}, "tb_loc_w_r", "tb_loc_trc"},
+		{{w%x:-161.89283752441}, {w%y:6.7984261512756}, {w%z:-242.54110717773}, {w%lvid:232945}, {w%gvid:5107}, "tb_loc_sw_r", "tb_loc_trc"},
+		{{w%x:-183.33564758301}, {w%y:5.3201975822449}, {w%z:-102.87693786621}, {w%lvid:200720}, {w%gvid:5119}, "tb_loc_sw_r", "tb_loc_trc"},
+		{{w%x:-198.59362792969}, {w%y:6.0502486228943}, {w%z:59.622711181641}, {w%lvid:180895}, {w%gvid:5240}, "tb_loc_w_r", "tb_loc_trc"},
+		{{w%x:-38.460472106934}, {w%y:6.8957276344299}, {w%z:-303.21362304688}, {w%lvid:396785}, {w%gvid:5113}, "tb_loc_s_r", "tb_loc_trc"},
+		{{w%x:-5.0919346809387}, {w%y:5.6457281112671}, {w%z:-17.330320358276}, {w%lvid:435752}, {w%gvid:5141}, "tb_loc_n_r", "tb_loc_trc"},
+		{{w%x:-87.822326660156}, {w%y:2.1666030883789}, {w%z:12.80560874939}, {w%lvid:329990}, {w%gvid:5139}, "tb_loc_w_r", "tb_loc_trc"},
+		{{w%x:-96.636337280273}, {w%y:5.7147183418274}, {w%z:178.85766601563}, {w%lvid:318771}, {w%gvid:5147}, "tb_loc_nw_r", "tb_loc_trc"},
+		{{w%x:108.95338439941}, {w%y:9.9065179824829}, {w%z:243.52128601074}, {w%lvid:587185}, {w%gvid:5154}, "tb_loc_ne_r", "tb_loc_trc"},
+		{{w%x:117.9610748291}, {w%y:6.7835154533386}, {w%z:-217.46878051758}, {w%lvid:597738}, {w%gvid:5194}, "tb_loc_se_r", "tb_loc_trc"},
+		{{w%x:132.81533813477}, {w%y:3.7070434093475}, {w%z:-175.73069763184}, {w%lvid:615293}, {w%gvid:5223}, "tb_loc_se_r", "tb_loc_trc"},
+		{{w%x:160.58934020996}, {w%y:9.042989730835}, {w%z:11.934228897095}, {w%lvid:654181}, {w%gvid:5188}, "tb_loc_e_r", "tb_loc_trc"},
+		{{w%x:175.95196533203}, {w%y:1.9822694063187}, {w%z:-191.62516784668}, {w%lvid:674235}, {w%gvid:5209}, "tb_loc_se_r", "tb_loc_trc"},
+		{{w%x:187.2619934082}, {w%y:10.18626499176}, {w%z:-16.42200088501}, {w%lvid:689278}, {w%gvid:5176}, "tb_loc_e_r", "tb_loc_trc"},
+		{{w%x:187.48434448242}, {w%y:9.3772869110107}, {w%z:217.56407165527}, {w%lvid:689539}, {w%gvid:5170}, "tb_loc_ne_r", "tb_loc_trc"},
+		{{w%x:19.174194335938}, {w%y:1.2887287139893}, {w%z:119.61190032959}, {w%lvid:469411}, {w%gvid:5145}, "tb_loc_n_r", "tb_loc_trc"},
+		{{w%x:60.071495056152}, {w%y:7.5800023078918}, {w%z:-90.516006469727}, {w%lvid:523300}, {w%gvid:5199}, "tb_loc_e_r", "tb_loc_trc"},
+		{{w%x:98.437477111816}, {w%y:9.5542078018188}, {w%z:-48.85680770874}, {w%lvid:573401}, {w%gvid:5301}, "tb_loc_e_r", "tb_loc_trc"}
+	},
+{r%level:y04_pole}
+	["y04_pole"] = {
+		{{w%x:-105.99816131592}, {w%y:-22.33317565918}, {w%z:-79.057518005371}, {w%lvid:22542}, {w%gvid:5312}, "tb_loc_s_r", "tb_loc_pol"},
+		{{w%x:-111.78207397461}, {w%y:0.25643712282181}, {w%z:141.97560119629}, {w%lvid:18609}, {w%gvid:5323}, "tb_loc_nw_r", "tb_loc_pol"},
+		{{w%x:-112.0022354126}, {w%y:1.8183279037476}, {w%z:78.62483215332}, {w%lvid:20356}, {w%gvid:5315}, "tb_loc_w_r", "tb_loc_pol"},
+		{{w%x:-126.5697479248}, {w%y:0.22408345341682}, {w%z:147.02491760254}, {w%lvid:14981}, {w%gvid:5323}, "tb_loc_nw_r", "tb_loc_pol"},
+		{{w%x:-154.10188293457}, {w%y:-18.530838012695}, {w%z:-42.685253143311}, {w%lvid:7192}, {w%gvid:5311}, "tb_loc_sw_r", "tb_loc_pol"},
+		{{w%x:-33.695232391357}, {w%y:-5.3427844047546}, {w%z:-20.770050048828}, {w%lvid:50835}, {w%gvid:5313}, "tb_loc_se_r", "tb_loc_pol"},
+		{{w%x:-81.073280334473}, {w%y:0.26162666082382}, {w%z:124.30212402344}, {w%lvid:32961}, {w%gvid:5316}, "tb_loc_n_r", "tb_loc_pol"},
+		{{w%x:0.49928486347198}, {w%y:0.28078016638756}, {w%z:164.05612182617}, {w%lvid:66117}, {w%gvid:5335}, "tb_loc_n_r", "tb_loc_pol"},
+		{{w%x:1.3984597921371}, {w%y:-0.63300907611847}, {w%z:83.595222473145}, {w%lvid:66032}, {w%gvid:5327}, "tb_loc_e_r", "tb_loc_pol"},
+		{{w%x:104.1383895874}, {w%y:2.4937195777893}, {w%z:162.59124755859}, {w%lvid:91560}, {w%gvid:5332}, "tb_loc_ne_r", "tb_loc_pol"},
+		{{w%x:12.637714385986}, {w%y:1.4302126169205}, {w%z:57.117660522461}, {w%lvid:69584}, {w%gvid:5314}, "tb_loc_e_r", "tb_loc_pol"},
+		{{w%x:61.238941192627}, {w%y:1.4817223548889}, {w%z:132.2451171875}, {w%lvid:83188}, {w%gvid:5330}, "tb_loc_ne_r", "tb_loc_pol"},
+		{{w%x:80.641723632813}, {w%y:0.042697131633759}, {w%z:124.38198852539}, {w%lvid:87725}, {w%gvid:5331}, "tb_loc_ne_r", "tb_loc_pol"},
+		{{w%x:-118.7970123291}, {w%y:-19.26512336731}, {w%z:-23.763687133789}, {w%lvid:17318}, {w%gvid:5344}, "tb_loc_s_r", "tb_loc_pol"},
+		{{w%x:-203.26054382324}, {w%y:-19.500780105591}, {w%z:-59.575073242188}, {w%lvid:422}, {w%gvid:5337}, "tb_loc_sw_r", "tb_loc_pol"}
+	},
+{r%level:fake_start}
+	["fake_start"] = {
+		{{w%x:7.8561215400696}, {w%y:0.012599855661392}, {w%z:-0.083247311413288}, {w%lvid:531}, {w%gvid:5303}, "tb_loc_e_r", "tb_loc_dbg"},
+		{{w%x:-0.036912433803082}, {w%y:0.0022355318069458}, {w%z:7.4532346725464}, {w%lvid:326}, {w%gvid:5304}, "tb_loc_n_r", "tb_loc_dbg"},
+		{{w%x:-7.923800945282}, {w%y:0.018068969249725}, {w%z:0.52995783090591}, {w%lvid:94}, {w%gvid:5303}, "tb_loc_w_r", "tb_loc_dbg"}
+	},
+}
+
+--[TB] POSSIBLE BONUS ITEMS
+tb_extraloot = {
+	{"ration_ru","st_ration_ru"},
+	{"ration_ukr","st_ration_ukr"},
+	{"mre","st_mre"},
+	{"mineral_water","st_mineral_water"},
+	{"tobacco","st_tobacco"},
+	{"antirad","st_antirad"},
+	{"yadylin","st_yadylin"},
+	{"stimpack","st_stim_impro"},
+	{"medkit","st_medkit"},
+	{"ied_rpg_new","st_ied_rpg"},
+	{"ied_new","st_ied"},
+	{"batteries_dead","st_batteries"},
+	{"hand_watch","st_hand_watch"},
+	{"jewelry_box","st_jewelry_box"},
+}
+
+tb_extraupgrades = {
+	{"upgr_o_1_armor","st_upgr_o_armor"},
+	{"upgr_o_1_arty","st_upgr_o_arty"},
+	{"upgr_o_1_bleed","st_upgr_o_health"},
+	{"upgr_o_1_burn","st_upgr_o_burn"},
+	{"upgr_o_1_carry","st_upgr_o_carry"},
+	{"upgr_o_1_chem","st_upgr_o_chem"},
+	{"upgr_o_1_damage","st_upgr_o_damage"},
+	{"upgr_o_1_durability","st_upgr_o_durability"},
+	{"upgr_o_1_health","st_upgr_o_health"},
+	{"upgr_o_1_power","st_upgr_o_power"},
+	{"upgr_o_1_psi","st_upgr_o_psi"},
+	{"upgr_o_1_rad","st_upgr_o_rad"},
+	{"upgr_o_1_run","st_upgr_o_run"},
+	{"upgr_o_1_shock","st_upgr_o_shock"},
+	{"upgr_o_1_weight","st_upgr_o_weight"},
+	{"upgr_o_2_armor","st_upgr_o_armor"},
+	{"upgr_o_2_arty","st_upgr_o_arty"},
+	{"upgr_o_2_bleed","st_upgr_o_bleed"},
+	{"upgr_o_2_burn","st_upgr_o_burn"},
+	{"upgr_o_2_carry","st_upgr_o_carry"},
+	{"upgr_o_2_chem","st_upgr_o_chem"},
+	{"upgr_o_2_damage","st_upgr_o_damage"},
+	{"upgr_o_2_durability","st_upgr_o_durability"},
+	{"upgr_o_2_health","st_upgr_o_health"},
+	{"upgr_o_2_power","st_upgr_o_power"},
+	{"upgr_o_2_psi","st_upgr_o_psi"},
+	{"upgr_o_2_rad","st_upgr_o_rad"},
+	{"upgr_o_2_run","st_upgr_o_run"},
+	{"upgr_o_2_shock","st_upgr_o_shock"},
+	{"upgr_o_2_weight","st_upgr_o_weight"},
+	{"upgr_o_3_armor","st_upgr_o_armor"},
+	{"upgr_o_3_arty","st_upgr_o_arty"},
+	{"upgr_o_3_bleed","st_upgr_o_bleed"},
+	{"upgr_o_3_burn","st_upgr_o_burn"},
+	{"upgr_o_3_carry","st_upgr_o_carry"},
+	{"upgr_o_3_chem","st_upgr_o_chem"},
+	{"upgr_o_3_damage","st_upgr_o_damage"},
+	{"upgr_o_3_durability","st_upgr_o_durability"},
+	{"upgr_o_3_health","st_upgr_o_health"},
+	{"upgr_o_3_power","st_upgr_o_power"},
+	{"upgr_o_3_psi","st_upgr_o_psi"},
+	{"upgr_o_3_rad","st_upgr_o_rad"},
+	{"upgr_o_3_run","st_upgr_o_run"},
+	{"upgr_o_3_shock","st_upgr_o_shock"},
+	{"upgr_o_3_weight","st_upgr_o_weight"},
+	{"upgr_w_1_calibre","st_upgr_w_calibre"},
+	{"upgr_w_1_dispersion","st_upgr_w_dispersion"},
+	{"upgr_w_1_firemode","st_upgr_w_firemode"},
+	{"upgr_w_1_grenade_mount","st_upgr_w_grenade_mount"},
+	{"upgr_w_1_inertion","st_upgr_w_inertion"},
+	{"upgr_w_1_magazine","st_upgr_w_magazine"},
+	{"upgr_w_1_muffle","st_upgr_w_muffle"},
+	{"upgr_w_1_recoil","st_upgr_w_recoil"},
+	{"upgr_w_1_reliability","st_upgr_w_reliability"},
+	{"upgr_w_1_rpm","st_upgr_w_rpm"},
+	{"upgr_w_1_scope","st_upgr_w_scope"},
+	{"upgr_w_1_scope_mount","st_upgr_w_scope_mount"},
+	{"upgr_w_1_speed","st_upgr_w_speed"},
+	{"upgr_w_1_weight","st_upgr_w_weight"},
+	{"upgr_w_2_calibre","st_upgr_w_calibre"},
+	{"upgr_w_2_dispersion","st_upgr_w_dispersion"},
+	{"upgr_w_2_firemode","st_upgr_w_firemode"},
+	{"upgr_w_2_grenade_mount","st_upgr_w_grenade_mount"},
+	{"upgr_w_2_inertion","st_upgr_w_inertion"},
+	{"upgr_w_2_magazine","st_upgr_w_magazine"},
+	{"upgr_w_2_muffle","st_upgr_w_muffle"},
+	{"upgr_w_2_recoil","st_upgr_w_recoil"},
+	{"upgr_w_2_reliability","st_upgr_w_reliability"},
+	{"upgr_w_2_rpm","st_upgr_w_rpm"},
+	{"upgr_w_2_scope","st_upgr_w_scope"},
+	{"upgr_w_2_scope_mount","st_upgr_w_scope_mount"},
+	{"upgr_w_2_speed","st_upgr_w_speed"},
+	{"upgr_w_2_weight","st_upgr_w_weight"},
+	{"upgr_w_3_calibre","st_upgr_w_calibre"},
+	{"upgr_w_3_dispersion","st_upgr_w_dispersion"},
+	{"upgr_w_3_firemode","st_upgr_w_firemode"},
+	{"upgr_w_3_grenade_mount","st_upgr_w_grenade_mount"},
+	{"upgr_w_3_inertion","st_upgr_w_inertion"},
+	{"upgr_w_3_magazine","st_upgr_w_magazine"},
+	{"upgr_w_3_muffle","st_upgr_w_muffle"},
+	{"upgr_w_3_recoil","st_upgr_w_recoil"},
+	{"upgr_w_3_reliability","st_upgr_w_reliability"},
+	{"upgr_w_3_rpm","st_upgr_w_rpm"},
+	{"upgr_w_3_scope","st_upgr_w_scope"},
+	{"upgr_w_3_scope_mount","st_upgr_w_scope_mount"},
+	{"upgr_w_3_speed","st_upgr_w_speed"},
+	{"upgr_w_3_weight","st_upgr_w_weight"},
+}
+
+CB_streamlined_extraupgrades = {
+	{"upgr_o_1_physical", "st_upgr_o_physical"},
+	{"upgr_o_1_magical", "st_upgr_o_magical"},
+	{"upgr_o_1_utility", "st_upgr_o_utility"},
+	{"upgr_o_2_physical", "st_upgr_o_physical"},
+	{"upgr_o_2_magical", "st_upgr_o_magical"},
+	{"upgr_o_2_utility", "st_upgr_o_utility"},
+	{"upgr_o_3_physical", "st_upgr_o_physical"},
+	{"upgr_o_3_magical", "st_upgr_o_magical"},
+	{"upgr_o_3_utility", "st_upgr_o_utility"},
+	{"upgr_w_1_internal", "st_upgr_w_internal"},
+	{"upgr_w_1_external", "st_upgr_w_external"},
+	{"upgr_w_1_optical", "st_upgr_w_optical"},
+	{"upgr_w_2_internal", "st_upgr_w_internal"},
+	{"upgr_w_2_external", "st_upgr_w_external"},
+	{"upgr_w_2_optical", "st_upgr_w_optical"},
+	{"upgr_w_3_internal", "st_upgr_w_internal"},
+	{"upgr_w_3_external", "st_upgr_w_external"},
+	{"upgr_w_3_optical", "st_upgr_w_optical"},
+}
+
+tb_junks = {
+	{"af_atom","st_af_atom_name"},
+	{"af_ball","st_af_ball_name"},
+	{"af_black_angel","st_af_black_angel_name"},
+	{"af_cell","st_af_cell_name"},
+	{"af_chelust","st_af_chelust_name"},
+	{"af_cocoon","st_af_cocoon_name"},
+	{"af_dragon_eye","st_af_dragon_eye_name"},
+	{"af_ear","st_af_ear_name"},
+	{"af_elektron","st_af_elektron_name"},
+	{"af_fonar","st_af_fonar_name"},
+	{"af_fountain","st_af_fountain_name"},
+	{"af_generator","st_af_generator_name"},
+	{"af_grapes","st_af_grapes_name"},
+	{"af_kislushka","st_af_kislushka_name"},
+	{"af_kogot","st_af_kogot_name"},
+	{"af_lighthouse","st_af_lighthouse_name"},
+	{"af_medallion","st_af_medallion_name"},
+	{"af_moh","st_af_moh_name"},
+	{"af_peas","st_af_peas_name"},
+	{"af_repei","st_af_repei_name"},
+	{"af_sandstone","st_af_sandstone_name"},
+	{"af_signet","st_af_signet_name"},
+	{"af_skull_miser","st_af_skull_miser_name"},
+	{"af_spaika","st_af_spaika_name"},
+	{"af_star_phantom","st_af_star_phantom_name"},
+	{"af_sun","st_af_sun_name"},
+	{"af_tapeworm","st_af_tapeworm_name"},
+	{"af_zhelch","st_af_zhelch_name"},
+}
+
+--[TB] MONKEY PATCH INTO THE RIGHT-CLICK use_package_random FOR POTENTIAL BONUS ITEMS
+tb_copy_of_itms_manager = itms_manager.use_package_random
+function itms_manager.use_package_random(obj)
+	tb_copy_of_itms_manager(obj)
+	if tb_bonus_items >= 1 then
+		local animson = ui_options.get("video/player/animations")
+		if animson then
+			CreateTimeEvent(0,"wait_five_seconds",5,function()
+				give_bonus_items()
+				return true
+			end)
+		else
+			give_bonus_items()
+		end
+		tb_bonus_items = tb_bonus_items - 1
+	end
+end
+
+--[TB] 2 x 50% CHANCE OF GETTING TWO MORE ITEMS FROM THE EXTRA-LISTS, st_msg_stash_title_1_5 SAYS "Hidden loot!"
+function give_bonus_items()
+	local rand_extraloot,rand_extraupgrades,rand_junks,rand_lootname,rand_upgradename,rand_junkname
+	local bonusmessage = game.translate_string("st_msg_stash_title_1_5")
+	local extrabonus = false
+	
+	
+	--[CB] additions for mod upgrade item support
+	if ui_mcm then
+		cb_upgrades = ui_mcm.get("RF_package_patch/upgrades")
+	end
+	
+	local upgradepool = tb_extraupgrades
+	
+	if (cb_upgrades == "streamlined") then
+		upgradepool = CB_streamlined_extraupgrades
+	end
+	
+	if (math.random() > 0.5) then
+		local lootpick = math.random(#tb_extraloot)
+		rand_extraloot = tostring(tb_extraloot[lootpick][1])
+		rand_lootname = game.translate_string(tb_extraloot[lootpick][2])
+		alife_create_item(rand_extraloot, db.actor)
+		bonusmessage = bonusmessage .. "\\n- " .. tostring(rand_lootname)
+		extrabonus = true
+	end
+	if (math.random() > 0.5) then
+		local lootpick = math.random(#upgradepool)
+		rand_extraupgrades = tostring(upgradepool[lootpick][1])
+		rand_upgradename = game.translate_string(upgradepool[lootpick][2])
+		alife_create_item(rand_extraupgrades, db.actor)
+		bonusmessage = bonusmessage .. "\\n- " .. tostring(rand_upgradename)
+		extrabonus = true
+	end
+	if (math.random() > 0.5) then
+		local lootpick = math.random(#tb_junks)
+		rand_junks = tostring(tb_junks[lootpick][1])
+		rand_junkname = game.translate_string(tb_junks[lootpick][2])
+		alife_create_item(rand_junks, db.actor)
+		bonusmessage = bonusmessage .. "\\n- " .. tostring(rand_junkname)
+		extrabonus = true
+	end
+	if extrabonus == true then
+		CreateTimeEvent(0,"wait_one_second",1,function()
+			actor_menu.set_item_news("success", "detail", bonusmessage)
+			utils_obj.play_sound("device\\pda\\pda_guide_2")
+			return true
+		end)
+	end
+end
+
+--[TB] SET tb_radio_has_run_once FLAG WHEN ADDING ADDON MID-GAME
+--[TB] ADDED tb_radio_1_3_has_run_once FLAG for v1.3
+--[TB] ADDED tb_radio_1_6_has_run_once FLAG for v1.6
+--[CB] ADDED cb_1_4_has_run_once for QOL adjustment v1.4
+function on_game_load()
+	printf("--- Loading TBs_RF_Receiver_Hidden_Package_Sidequests_v1.8 ---")
+	local m_data = alife_storage_manager.get_state()
+	if not m_data.tb_radio_has_run_once then
+		m_data.tb_radio_has_run_once = true
+	end
+	if not m_data.tb_radio_1_3_has_run_once then
+		m_data.tb_radio_1_3_has_run_once = true
+	end
+	if not m_data.tb_radio_1_6_has_run_once then
+		--COMMENT OUT CALL TO fix_queue_from_1_5_to_1_6 TO KEEP THE BIG QUEUE
+		--(which should never have happened anyway)
+		fix_queue_from_1_5_to_1_6()
+		m_data.tb_radio_1_6_has_run_once = true
+	end
+	if not m_data.cb_1_4_has_run_once then
+		m_data.cb_1_4_has_run_once = true
+	end
+end
+
+--[TB] FUNCTION TO CLEAR THE PACKAGE QUEUE, LEAVING A FEW DEPENDING ON FACTION COUNT
+function fix_queue_from_1_5_to_1_6()
+	local tb_queue_num = #tb_package_queue
+	local tb_map_names = {}
+	local tb_new_queue = {}
+	for i=1,#tb_package_queue do
+		if not tb_map_names[tb_package_queue[i][2]] then
+			tb_map_names[tb_package_queue[i][2]] = true
+			table.insert(tb_new_queue,tb_package_queue[i])
+		end
+	end
+	tb_package_queue = tb_new_queue
+	printf("--- Cleaning v1.5 package queue for v1.6 | Queue size was: %s, is now: %s ---",tb_queue_num,#tb_package_queue)
+end
+
+--[TB] THIS RUNS FIRST TO REMIND PLAYER PACKAGE EXISTS IF ALREADY SPAWNED, ALSO SET GOODWILL POINTS CHECKER TIMER 30 SECONDS
+--[CB] ADDED FAILSAFE THAT SPAWNS NEW PACKAGE SOMEWHERE ELSE IN THE LEVEL IF THE PACKAGE IS DELETED SOMEHOW AND RESTRUCTURED CHECK FOR 1.0F
+function actor_on_first_update()
+	if not note_given and tb_sufficient_passed then
+		give_note()
+	end
+	CreateTimeEvent(0, "check_relation_change", 30, checkrelationchange)
+	if (tb_package_active == true) and tb_target_item ~= 0 then
+		local checkobj = alife_object(tb_target_item)
+		if (checkobj) then
+			CreateTimeEvent(0, "check_relation_change", 30, checkrelationchange)
+			CreateTimeEvent(tb_target_item, "remind_about_radio_package", math.random(900,1800), remindaboutpackage)
+			remindaboutpackage()
+		else
+			failsafepackagespawn()
+		end
+	end
+end
+
+--[CB]FAILSAFE FUNCTION TO SPAWN NEW PACKAGE IF PACKAGE IS DELETED SOMETIMES 1.1F
+function failsafepackagespawn()
+	tb_making_package = true
+	local surge_state = GetEvent("surge", "state")
+	local psi_storm_state = GetEvent("psi_storm", "state")
+	if (surge_state) or (psi_storm_state) then
+		tb_making_package = false
+		return false
+	end
+	if GetEvent("underground") then
+		tb_making_package = false
+		return false	
+	end
+	if tb_making_package == true then
+		item_radio.clear_target(tb_target_item)
+		RemoveTimeEvent(tb_target_item,"remind_about_radio_package")
+		tb_package_active = false
+		tb_badguy_spawned = false
+		tb_target_item = 0
+		tb_target_item = 0
+		tb_reminder = "empty"
+		tb_package_in_level = "empty"
+		tb_scan_time = 4000
+		local actor_level, chosenmap, randspot, packagespot
+		chosenmap = tb_previous_level
+		tb_package_in_level = chosenmap
+		randspot = math.random(1,#tb_package_coords[chosenmap])
+		packagespot = tb_package_coords[chosenmap][randspot]
+		local rpos = vector():set(packagespot[1],packagespot[2],packagespot[3])
+		local rlvid = packagespot[4]
+		local rgvid = packagespot[5]
+		local availpacks = {"quest_tb_package_1","quest_tb_package_2","quest_tb_package_3","quest_tb_package_4","quest_tb_package_6"}
+		local rfreq = math.random(30,300)
+		tb_freq = rfreq
+		local rlocat = packagespot[6]
+		local rplace = packagespot[7]
+		local se_obj
+		se_obj = alife_create(tostring(availpacks[math.random(#availpacks)]),rpos,rlvid,rgvid)
+		if se_obj then
+			tb_target_item = se_obj.id
+			tb_target_lvid = rlvid
+			tb_target_gvid = rgvid
+		end
+		item_radio.add_target(se_obj.id, rfreq, 150)
+		tb_package_active = true
+		local anonpdamessage = game.translate_string("cb_package_lost") .. " " .. game.translate_string(rlocat) .. " " .. game.translate_string(rplace) .. game.translate_string("tb_use_rf_on_freq") .. " " .. tostring(rfreq) .. game.translate_string("tb_mhz_to_search")
+		tb_reminder = game.translate_string("tb_dont_forget") .. " " .. game.translate_string(rlocat) .. " " .. game.translate_string(rplace) .. game.translate_string("tb_freq_was_on") .. " " .. tostring(rfreq) .. game.translate_string("tb_the_mhz")
+		db.actor:give_game_news(game.translate_string("tb_anon_sender"), anonpdamessage, tb_sender_icon, 0, 20000, 0)
+		utils_obj.play_sound("device\\pda\\pda_sos")
+		CreateTimeEvent(tb_target_item, "remind_about_radio_package", math.random(900,1800), remindaboutpackage)
+		tb_making_package = false
+		CreateTimeEvent(0, "check_relation_change", 30, checkrelationchange)
+		return true
+	end
+	tb_making_package = false
+end
+
+--[TB] CONSTANTLY RUNS TO CHECK IF PLAYER HOLDING RF RECEIVER AND CALL EXTRA BEEPS FUNCTION (IF PACKAGE EXISTS IN SAME LEVEL)
+--[TB] ALSO CHECKS PLAYER DISTANCE FROM PACKAGE FOR CHANCE SPAWNING ENEMY NPCS
+function actor_on_update()
+	if (tb_package_active == true) and tb_package_in_level == level.name() then
+		local tg = time_global()
+		if tb_package_in_level ~= "l05_bar" then
+			if (tg > tb_tg_badguys) then
+				tb_tg_badguys = tg + 2000
+				if tb_badguy_spawned == false then
+					local dist_to_package = db.actor:position():distance_to(alife():object(tb_target_item).position)
+					if (dist_to_package < 100) then
+						spawn_some_badguys()
+						tb_badguy_spawned = true
+					end
+				end
+			end
+		end
+		
+		local obj_det
+		if reworked_rf_receiver_mcm then
+			if reworked_rf_receiver_mcm.get_config("only_equip_rf") then
+				obj_det = db.actor:item_in_slot(9)
+			else
+				obj_det = db.actor:active_detector()
+			end
+		else
+			obj_det = db.actor:active_detector()
+		end
+
+		
+		if not (obj_det and obj_det:section() == tb_device and obj_det:condition() >= obj_det:power_critical()) then
+			return
+		end
+		if (tg > tb_tg_scan) then
+			tb_tg_scan = tg + tb_scan_time
+			boop_if_nearby()
+		end
+	end
+end
+
+--[TB] CHECK GOODWILL POINTS FOR EACH FACTION, IF HIGHER THAN BEFORE PLUS DIFFERENCE THEN RECORD GOODWILL, CALL PACKAGE CREATION IF APPROPRIATE
+--[TB] ALSO CHECKS OR ADDS TO A QUEUE WITH FACTION MESSAGE IMAGE AND LEVEL OF GOODWILL RISE, CALLS PACKAGE CREATION IF APPROPRIATE
+--[TB] ALSO RUNS A ONCE-ONLY MESSAGE TO TELL PLAYER ABOUT GETTING RF RECEIVER
+--[TB] ONLY ONE PACKAGE CAN BE ACTIVE AT ONCE
+--[TB] IF ADDON ADDED MID-GAME, USE THE FACTION BASE LEVELS FOR QUEUED PACKAGE LINK SPAWN
+function checkrelationchange()
+	if (not tb_making_package) then
+		for i=1, 12 do
+			local oldrelation = tb_relations[tb_factions[i]][1]
+			local newrelation = relation_registry.community_goodwill(tb_factions[i], AC_ID)
+			if newrelation >= oldrelation+tb_relation_diff then
+				tb_sender_icon = tb_relations[tb_factions[i]][2]
+				if tb_package_active == false then
+					if tb_radio_thing() then
+						tb_relations[tb_factions[i]][1] = newrelation
+					end
+					tb_sufficient_passed = true
+				else
+					local m_data = alife_storage_manager.get_state()
+					if m_data.tb_package_active then
+						table.insert(tb_package_queue,{level.name(),tb_relations[tb_factions[i]][2]})
+						tb_relations[tb_factions[i]][1] = newrelation
+					else
+						table.insert(tb_package_queue,{tb_homebases[i],tb_relations[tb_factions[i]][2]})
+						tb_relations[tb_factions[i]][1] = newrelation
+					end
+				end
+			else
+				if tb_package_queue[1] ~= nil then
+					tb_radio_thing()
+				end
+			end
+			if tb_sufficient_passed == false then
+				if newrelation >= oldrelation+50 then
+					tb_sender_icon = tb_relations[tb_factions[i]][2]
+					tb_reminder = game.translate_string("tb_sooner_rf")
+					db.actor:give_game_news(game.translate_string("tb_anon_sender"), tb_reminder, tb_sender_icon, 0, 20000, 0)
+					utils_obj.play_sound("device\\pda\\pda_sos")
+					tb_sufficient_passed = true
+					give_note()
+				end
+			end
+		end
+		ResetTimeEvent(0,"check_relation_change",30)
+	end
+	ResetTimeEvent(0,"check_relation_change",30)
+end
+
+--[TB] REMINDS PLAYER ABOUT PACKAGE IF EXISTS
+--[CB] ADDED CHECKS FOR MCM OPTION FUNCTIONALITY
+function remindaboutpackage()
+	if ui_mcm then
+		cb_reminders = ui_mcm.get("RF_package_patch/reminders")
+	end
+	
+	local cb_see_reminder = true
+	if ((cb_reminders == "local" and tb_package_in_level ~= level.name()) or (cb_reminders == "never")) then
+		cb_see_reminder = false
+	end	
+
+	if tb_package_active == true then
+		if (cb_see_reminder == true) and GetEvent("underground") == false then
+			db.actor:give_game_news(game.translate_string("tb_anon_sender"), tb_reminder, tb_sender_icon, 0, 10000, 0)
+		end
+		utils_obj.play_sound("device\\pda\\pda_alarm")
+	end
+	ResetTimeEvent(tb_target_item,"remind_about_radio_package",math.random(900,1800))
+end
+
+--[TB] CREATES A NEW PACKAGE BY CHOOSING APPROPRIATE LEVEL (CHECKS FOR PSY HELMET ALSO), SETS VARIABLES FOR item_radio.script TO TRACK PACKAGE
+--[TB] ALSO SENDS PLAYER A MESSAGE, SETS REMINDER TIMER
+function tb_radio_thing()
+	tb_making_package = true
+	local surge_state = GetEvent("surge", "state")
+	local psi_storm_state = GetEvent("psi_storm", "state")
+	if (surge_state) or (psi_storm_state) then
+		tb_making_package = false
+		return false
+	end
+	if GetEvent("underground") then
+		tb_making_package = false
+		return false
+	end
+	if tb_package_active == false then
+		local actor_level, randpath, chosenmap, randspot, packagespot, suitablemapforpsyhelmet, sameaspreviousmap, suitablemapforgrokpsyfields, loop_success
+		local actor_faction = get_actor_true_community()
+		suitablemapforpsyhelmet = false
+		sameaspreviousmap = false
+		suitablemapforgrokpsyfields = false
+		loop_success = false
+		if tb_package_queue[1] ~= nil then
+			actor_level = tb_package_queue[1][1]
+			tb_sender_icon = tb_package_queue[1][2]
+			table.remove(tb_package_queue,1)
+		else
+			actor_level = level.name()
+		end
+		if (tb_allmaps[actor_level]) then
+			-- oleh5230
+			-- limited loop iterations
+			-- select level from default list if loop fails
+			for i=1,25 do
+				randpath = math.random(1,#tb_allmaps[actor_level])
+				chosenmap = tb_allmaps[actor_level][randpath]
+				if chosenmap == tb_previous_level then
+					sameaspreviousmap = true
+				else
+					sameaspreviousmap = false
+				end
+
+				if (db.actor:object("bad_psy_helmet") ~= nil or db.actor:object("good_psy_helmet") ~= nil or actor_faction == "monolith" or actor_faction == "greh" or actor_faction == "zombied") then
+					suitablemapforpsyhelmet = true
+				else
+					if (chosenmap == "l10_radar" or chosenmap == "l11_pripyat" or chosenmap == "l12_stancia" or chosenmap == "l12_stancia_2" or chosenmap == "l13_generators") then
+						suitablemapforpsyhelmet = false
+					else
+						suitablemapforpsyhelmet = true
+					end
+				end
+
+				-- oleh5230
+				-- GAMMA extra psy fields condition
+				if	grok_psy_fields_in_the_north and grok_psy_fields_in_the_north.psy_immune_factions[actor_faction]
+				or	(has_alife_info("yan_labx16_switcher_primary_off") and has_alife_info("bar_deactivate_radar_done"))
+				or	has_alife_info("story_mode_disabled")
+				then
+					suitablemapforgrokpsyfields = true
+				else
+					if grok_psy_fields_in_the_north and grok_psy_fields_in_the_north.psy_extra_levels[chosenmap] then
+						suitablemapforgrokpsyfields = false
+					else
+						suitablemapforgrokpsyfields = true
+					end
+				end
+				if not sameaspreviousmap and suitablemapforpsyhelmet and suitablemapforgrokpsyfields then loop_success = true break end
+			end
+		end
+		if not loop_success then
+			randpath = math.random(1,#tb_allmaps["default"])
+			chosenmap = tb_allmaps["default"][randpath]
+		end
+		tb_previous_level = chosenmap
+		tb_package_in_level = chosenmap
+		randspot = math.random(1,#tb_package_coords[chosenmap])
+		packagespot = tb_package_coords[chosenmap][randspot]
+		local rpos = vector():set(packagespot[1],packagespot[2],packagespot[3])
+		local rlvid = packagespot[4]
+		local rgvid = packagespot[5]
+		local availpacks = {"quest_tb_package_1","quest_tb_package_2","quest_tb_package_3","quest_tb_package_4","quest_tb_package_6"}
+		local rfreq = math.random(30,300)
+		tb_freq = rfreq
+		local rlocat = packagespot[6]
+		local rplace = packagespot[7]
+		local se_obj
+		se_obj = alife_create(tostring(availpacks[math.random(#availpacks)]),rpos,rlvid,rgvid)
+		if se_obj then
+			tb_target_item = se_obj.id
+			tb_target_lvid = rlvid
+			tb_target_gvid = rgvid
+		end
+		item_radio.add_target(se_obj.id, rfreq, 150)
+		tb_package_active = true
+		local anonpdamessage = game.translate_string("tb_package_can_be_found") .. " " .. game.translate_string(rlocat) .. " " .. game.translate_string(rplace) .. game.translate_string("tb_use_rf_on_freq") .. " " .. tostring(rfreq) .. game.translate_string("tb_mhz_to_search")
+		tb_reminder = game.translate_string("tb_dont_forget") .. " " .. game.translate_string(rlocat) .. " " .. game.translate_string(rplace) .. game.translate_string("tb_freq_was_on") .. " " .. tostring(rfreq) .. game.translate_string("tb_the_mhz")
+		db.actor:give_game_news(game.translate_string("tb_anon_sender"), anonpdamessage, tb_sender_icon, 0, 20000, 0)
+		utils_obj.play_sound("device\\pda\\pda_sos")
+		CreateTimeEvent(tb_target_item, "remind_about_radio_package", math.random(900,1800), remindaboutpackage)
+		tb_making_package = false
+		return true
+	end
+	tb_making_package = false
+end
+
+--[TB] THIS SPAWNS ENEMY NPCS AT PACKAGE LOACTION, A 50% CHANCE TO HAPPEN
+--[TB] i CANNOT UNDERSTAND HOW TO USE AI LOGIC, OR SCHEMES... I HAVE TRIED SO HARD BUT I DON'T KNOW HOW :(
+--[TB] CURRENTLY THE NPCS SPAWN IN AND START WALKING AROUND RANDOMLY, HOW DOES THE AI WORK?
+function spawn_some_badguys()
+	if (math.random() < 0.5) then
+		local notfriends = {}
+		local bg_array = {}
+		local actor_faction = get_actor_true_community()
+		for i=1,#tb_cut_factions do
+			local friendorfoe = relation_registry.community_relation(actor_faction, tb_cut_factions[i])
+			if friendorfoe < 0 then
+				table.insert(notfriends,tb_cut_factions[i])
+			end
+		end
+		local badguygroup = notfriends[math.random(#notfriends)]
+		for i=1,math.random(1,2) do
+			local abadguy = tb_maybe_badguys[badguygroup][math.random(#tb_maybe_badguys[badguygroup])]
+			local abadguyVec = vector():set(alife():object(tb_target_item).position.x,alife():object(tb_target_item).position.y+5,alife():object(tb_target_item).position.z)
+			local bg_obj = alife_create(abadguy,abadguyVec,tb_target_lvid,tb_target_gvid)
+			if bg_obj then
+				local bg_num = bg_obj.id
+				table.insert(bg_array,bg_num)
+			end
+		end
+	end
+end
+
+local lowbeep = sound_object("detectors\\tb_lowbeep")
+local midbeep = sound_object("detectors\\tb_midbeep")
+local highbeep = sound_object("detectors\\tb_highbeep")
+
+local tb_lowbeep_flash_time = 200
+local tb_midbeep_flash_time = 400
+local tb_highbeep_flash_time = 600
+
+--[TB] THIS PLAYS ADDITIONAL BEEPS, INCREASES THE SPEED OF BEEPS THE CLOSER THE PLAYER TO THE PACKAGE
+function boop_if_nearby()
+	if tb_package_active == true then
+		local currentfreq = item_radio.get_freq()
+		if tb_package_in_level == level.name() then
+			if tb_target_item ~= 0 then
+				if (currentfreq <= tb_freq+1) and (currentfreq >= tb_freq-1) then
+					local se_obj = alife_object(tb_target_item)
+					if se_obj then
+						local objpos = se_obj.position
+						local dist_pos = db.actor:position():distance_to(objpos)
+						-- local lowbeep = ("detectors\\tb_lowbeep")
+						-- local midbeep = ("detectors\\tb_midbeep")
+						-- local highbeep = ("detectors\\tb_highbeep")
+						if dist_pos < 10 then
+							item_radio.tb_sound_object = highbeep
+							item_radio.tb_flash_time = tb_lowbeep_flash_time
+							item_radio.tb_in_range = true
+							
+							tb_scan_time = 1000
+							highbeep:play(db.actor, 0, sound_object.s2d)
+							-- xr_effects.play_snd(actor, nil, {
+							-- [1] = highbeep
+							-- })
+						end
+						if (dist_pos >= 10) and (dist_pos < 50) then
+							item_radio.tb_sound_object = midbeep
+							item_radio.tb_flash_time = tb_midbeep_flash_time
+							item_radio.tb_in_range = true
+							
+							tb_scan_time = 2000
+							midbeep:play(db.actor, 0, sound_object.s2d)
+							-- xr_effects.play_snd(actor, nil, {
+							-- [1] = midbeep
+							-- })
+						end
+						if (dist_pos >= 50) and (dist_pos < 75) then
+							item_radio.tb_sound_object = lowbeep
+							item_radio.tb_flash_time = tb_lowbeep_flash_time
+							item_radio.tb_in_range = true
+							
+							tb_scan_time = 3000
+							lowbeep:play(db.actor, 0, sound_object.s2d)
+							-- xr_effects.play_snd(actor, nil, {
+							-- [1] = lowbeep
+							-- })
+						end
+						if (dist_pos >= 75) and (dist_pos < 150) then
+							item_radio.tb_in_range = false
+							item_radio.tb_sound_object = false
+							
+							tb_scan_time = 4000
+						end
+					end
+				end
+			end
+		end
+	end
+end
+
+--[TB] WATCHES ITEM PICKUPS, CHECKS IF ITEM IS A tb_package, REMOVES THE tb_package, CREATES REAL PACKAGE IN INVENTORY
+--[CB] ADDED MCM FUNCTIONALITY TO ALLOW CHOICE BETWEEN AUTOMATIC OR MANUAL UNPACKING 
+function actor_on_item_take(item)
+	local itemid = item:id()
+	local itemname = item:section()
+	local invobj = 0
+	if ui_mcm then
+		cb_unpack = ui_mcm.get ("RF_package_patch/unpacking")
+	end	
+	if (itemid == tb_target_item) and tb_package_active == true then
+		item_radio.clear_target(tb_target_item)
+		RemoveTimeEvent(tb_target_item,"remind_about_radio_package")
+		tb_package_active = false
+		tb_badguy_spawned = false
+		tb_target_item = 0
+		tb_target_item = 0
+		tb_reminder = "empty"
+		tb_package_in_level = "empty"
+		tb_scan_time = 4000
+		
+		item_radio.tb_in_range = false
+		item_radio.tb_sound_object = false
+		item_radio.tb_flash_time = 0
+	end
+	if string.find(itemname,"quest_tb_package_") then		
+		for i=1, 8 do
+			local checkname = "quest_tb_package_" .. tostring(i)
+			local givename = "quest_package_" .. tostring(i)
+			if itemname == checkname then
+				if tb_bonus_items == nil then
+					tb_bonus_items = 0
+				end
+				tb_bonus_items = tb_bonus_items + 1
+				invobj = alife_create_item(givename, db.actor)
+				if cb_unpack == "automatic" then
+					CreateTimeEvent(0,".5_second_delay",0.5,function()
+						itms_manager.use_package_random(get_object_by_id(invobj.id))
+						return true
+					end)
+				end
+				alife_release(item)
+			end
+		end
+	end
+end
+
+--[CB] NOTE-GIVING FUNCTION FOR PDA ENTRY
+function give_note()
+	if not note_given then
+		ui_pda_encyclopedia_tab.unlock_note("encyclopedia__notes_rfpackages")
+		note_given = true
+	end
+end
+
+--[TB] TO SAVE VARIABLE DATA
+function save_state(m_data)
+	m_data.tb_target_item = tb_target_item
+	m_data.tb_sufficient_passed = tb_sufficient_passed
+	m_data.tb_package_active = tb_package_active
+	m_data.tb_reminder = tb_reminder
+	m_data.tb_package_in_level = tb_package_in_level
+	m_data.tb_freq = tb_freq
+	m_data.tb_sender_icon = tb_sender_icon
+	m_data.tb_relations = tb_relations
+	m_data.tb_package_queue = tb_package_queue
+	m_data.tb_target_lvid = tb_target_lvid
+	m_data.tb_target_gvid = tb_target_gvid
+	m_data.tb_bonus_items = tb_bonus_items
+	m_data.tb_badguy_spawned = tb_badguy_spawned
+	m_data.tb_previous_level = tb_previous_level
+	m_data.cb_note_given = cb_note_given
+end
+
+--[TB] TO LOAD VARIABLE DATA
+--[TB] USING tb_radio_has_run_once FLAG FOR ADDING ADDON MID-GAME ELSE NIL DATA IS SET ON GAME LOAD
+--[TB] ADDED tb_radio_1_3_has_run_once FLAG
+function load_state(m_data)
+	local m_data = alife_storage_manager.get_state()
+	if m_data.tb_radio_has_run_once then
+		tb_target_item = m_data.tb_target_item
+		tb_sufficient_passed = m_data.tb_sufficient_passed
+		tb_package_active = m_data.tb_package_active
+		tb_reminder = m_data.tb_reminder
+		tb_package_in_level = m_data.tb_package_in_level
+		tb_freq = m_data.tb_freq
+		tb_sender_icon = m_data.tb_sender_icon
+		tb_relations = m_data.tb_relations
+		tb_package_queue = m_data.tb_package_queue
+	end
+	if m_data.tb_radio_1_3_has_run_once then
+		tb_target_lvid = m_data.tb_target_lvid
+		tb_target_gvid = m_data.tb_target_gvid
+		tb_bonus_items = m_data.tb_bonus_items
+		tb_badguy_spawned = m_data.tb_badguy_spawned
+	end
+	if m_data.tb_radio_1_6_has_run_once then
+		tb_previous_level = m_data.tb_previous_level
+	end
+	if m_data.cb_radio_1_4_has_run_once then
+		cb_note_given = m_data.cb_note_given
+	end
+end
+
+--[TB] REQUIRED FUNCTION TO REGISTER CALLBACKS
+--[CB] ADDED FUNCTOR AUTOINJECTOR FOR PDA RIGHT CLICK OPTION
+function on_game_start()
+	RegisterScriptCallback("on_game_load",on_game_load)
+	RegisterScriptCallback("actor_on_update",actor_on_update)
+	RegisterScriptCallback("actor_on_first_update",actor_on_first_update)
+	RegisterScriptCallback("actor_on_item_take",actor_on_item_take)
+	RegisterScriptCallback("save_state",save_state)
+	RegisterScriptCallback("load_state",load_state)
+	custom_functor_autoinject.add_functor("pda_package_cancel", is_pda_and_charged, pda_ui_option, pda_cancellable_package, package_cancel, true)
+end

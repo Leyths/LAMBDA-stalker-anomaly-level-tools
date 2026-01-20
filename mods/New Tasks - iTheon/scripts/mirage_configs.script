@@ -1,0 +1,92 @@
+teleport_activator_center_point = vector():set(-423.5822,39.9999,-392.2540)
+teleport_activation_distance = 190
+
+{r%level:zaton}
+first_spawn_activator = vector():set(-350.9619,40.0389,-333.7500)
+first_spawn_activation_distance = 15
+first_spawn_spots = {{
+    section = "mirage_stalker",
+    vector = vector():set({w%x:-409.9541},{w%y:40.0406},{w%z:-332.8609}),
+    lvid = {w%lvid:162535},
+    gvid = {w%gvid:4442}
+},{
+    section = "mirage_stalker",
+    vector = vector():set({w%x:-405.8711},{w%y:40.0611},{w%z:-363.4880}),
+    lvid = {w%lvid:168786},
+    gvid = {w%gvid:4442}
+},{
+    section = "mirage_stalker",
+    vector = vector():set({w%x:-319.4792},{w%y:39.9152},{w%z:-382.9309}),
+    lvid = {w%lvid:310137},
+    gvid = {w%gvid:4339}
+}}
+
+second_spawn_activator = vector():set(-409.0541,40.0467,-379.4803)
+second_spawn_activation_distance = 20
+second_spawn_spots = {{
+    section = "mirage_stalker",
+    vector = vector():set({w%x:-427.4034},{w%y:39.2767},{w%z:-396.1748}),
+    lvid = {w%lvid:137122},
+    gvid = {w%gvid:4443}
+},{
+    section = "mirage_stalker",
+    vector = vector():set({w%x:-427.4034},{w%y:39.2767},{w%z:-396.1748}),
+    lvid = {w%lvid:137122},
+    gvid = {w%gvid:4443}
+},{
+    section = "mirage_stalker",
+    vector = vector():set({w%x:-427.4034},{w%y:39.2767},{w%z:-396.1748}),
+    lvid = {w%lvid:137122},
+    gvid = {w%gvid:4443}
+}}
+
+third_spawn_activator = vector():set(-407.9597,32.1984,-376.7980)
+third_spawn_activation_distance = 5
+third_spawn_spots = {{
+    section = "mirage_stalker",
+    vector = vector():set({w%x:-403.0205},{w%y:32.2020},{w%z:-345.0370}),
+    lvid = {w%lvid:173103},
+    gvid = {w%gvid:4139}
+},{
+    section = "mirage_stalker",
+    vector = vector():set({w%x:-403.0205},{w%y:32.2020},{w%z:-345.0370}),
+    lvid = {w%lvid:173103},
+    gvid = {w%gvid:4139}
+}}
+
+sidor_spawn_activator = vector():set(-404.8524,32.1999,-339.5040)
+sidor_spawn_activation_distance = 2
+
+med_table_spawn_config = {
+    section = 'med_stolik_01',
+    vector = vector():set({w%x:-408.9797},{w%y:32.1991},{w%z:-338.5486}),
+    lvid = {w%lvid:164618},
+    gvid = {w%gvid:4139}
+}
+
+sidor_spawn_config = {
+    section = 'fake_sidor',
+    vector = vector():set({w%x:-408.5952},{w%y:32.7},{w%z:-338.4614}),
+    lvid = {w%lvid:165681},
+    gvid = {w%gvid:4139},
+    angle = vector():set(0,4.3,0)
+}
+
+sidor_controllers_configs = {{
+    section = 'stalker_trader_controller',
+    vector = vector():set({w%x:-407.7743},{w%y:32.1608},{w%z:-322.4551}),
+    lvid = {w%lvid:165720},
+    gvid = {w%gvid:4139}
+}, {
+    section = 'stalker_trader_controller',
+    vector = vector():set({w%x:-407.5741},{w%y:32.1976},{w%z:-371.9575}),
+    lvid = {w%lvid:166683},
+    gvid = {w%gvid:4139}
+}}
+
+burer_spawn_config = {
+    section = 'burer_big',
+    vector = vector():set({w%x:-417.1585},{w%y:24.2274},{w%z:-326.3945}),
+    lvid = {w%lvid:152095},
+    gvid = {w%gvid:4394}
+}

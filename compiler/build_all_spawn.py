@@ -168,17 +168,11 @@ class GameGraphBuilder:
 
         self._write_game_graph(game_graph, self.output_path)
 
-        # Step 5: Remap start locations
+        # Step 5: Copy mod variant files (with tag rewriting)
         log("\n" + "=" * 70)
-        log("STEP 5: Remapping Start Locations")
+        log("STEP 5: Copying Mod Variant Files")
         log("=" * 70)
-        self._remap_start_locations(game_graph)
-
-        # Step 6: Copy mod variant files
-        log("\n" + "=" * 70)
-        log("STEP 6: Copying Mod Variant Files")
-        log("=" * 70)
-        self._copy_mod_variant_files()
+        self._copy_mod_variant_files(game_graph)
 
         elapsed = time.time() - start_time
         log("\n" + "=" * 70)
@@ -467,37 +461,13 @@ class GameGraphBuilder:
 
         return level_guids
 
-    def _remap_start_locations(self, game_graph: GameGraph):
-        """
-        Remap new_game_start_locations.ltx with updated LVID and GVID values.
-
-        Finds the source file from enabled mods (first match wins).
-
-        Args:
-            game_graph: GameGraph object for position-based lookups
-        """
-        from remapping import remap_start_locations
-
-        dest_path = self.base_path / ".." / "gamedata" / "configs" / "plugins" / "new_game_start_locations.ltx"
-
-        # Find source from enabled mods
-        source_path = None
-        if self.mod_config:
-            source_path = self.mod_copier.find_file_in_enabled_mods(
-                self.mod_config,
-                "configs/plugins/new_game_start_locations.ltx"
-            )
-
-        if not source_path:
-            log(f"  No start locations file found in enabled mods")
-            return
-
-        log(f"  Source: {source_path}")
-        remap_start_locations(source_path, dest_path, game_graph)
-
-    def _copy_mod_variant_files(self):
+    def _copy_mod_variant_files(self, game_graph: GameGraph):
         """
         Copy enabled mod files from mods/ to gamedata/ using ModCopier.
+        Files listed in rewrite_files are processed by TagRewriter.
+
+        Args:
+            game_graph: GameGraph for tag rewriting (LVID/GVID lookups)
         """
         if not self.mod_config:
             log(f"  No mod configuration loaded")
@@ -506,13 +476,13 @@ class GameGraphBuilder:
         log(f"  Mods directory: {self.mods_dir}")
         log(f"  Destination: {self.gamedata_dir}")
 
-        # Files handled by special processing (don't copy here)
-        skip_files = {'new_game_start_locations.ltx'}
+        # Create ModCopier with game_graph for tag rewriting
+        mod_copier = ModCopier(self.mods_dir, self.gamedata_dir, game_graph)
 
-        # Copy all enabled mods
-        copied_count = self.mod_copier.copy_all_enabled_mods(self.mod_config, skip_files)
+        # Copy all enabled mods (files in rewrite_files will be processed by TagRewriter)
+        copied_count = mod_copier.copy_all_enabled_mods(self.mod_config)
 
-        log(f"  Total files copied: {copied_count}")
+        log(f"  Total files processed: {copied_count}")
 
 
 def main():

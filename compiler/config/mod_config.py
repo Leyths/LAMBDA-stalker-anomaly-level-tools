@@ -6,17 +6,18 @@ Parses INI files (anomaly.ini, gamma.ini) that define which mods are enabled
 for a given basemod configuration.
 
 INI Format:
-    [config]
-    ; Global configuration options (reserved for future use)
+    [Mod Name]
+    include = true
+    rewrite_files = configs/plugins/file1.ltx
+                    configs/plugins/file2.ltx
 
-    [mods]
-    Dynamic Items And Anomalies Anomaly = true
-    _New Game Start Locations Anomaly = true
+Each mod is a section where the section name is the mod name.
+- include = true/false controls whether mod is enabled
+- rewrite_files lists files (one per line) that need tag processing
 """
 
-import configparser
 from pathlib import Path
-from typing import List, Optional
+from typing import List, Optional, Set
 
 from utils import log, logWarning
 
@@ -34,8 +35,8 @@ class ModConfig:
             config_path: Path to the INI file (e.g., anomaly.ini, gamma.ini)
         """
         self.config_path = Path(config_path)
-        self.config = configparser.ConfigParser()
         self._enabled_mods: List[str] = []
+        self._rewrite_files: dict[str, List[str]] = {}  # mod_name -> list of files
 
         self._load()
 
@@ -45,55 +46,85 @@ class ModConfig:
             logWarning(f"Mod config not found: {self.config_path}")
             return
 
-        # Read with UTF-8 encoding
-        self.config.read(self.config_path, encoding='utf-8')
+        self._parse_mod_sections()
 
-        # Parse [mods] section
-        if 'mods' in self.config:
-            for mod_name, value in self.config['mods'].items():
-                # ConfigParser lowercases keys, so we need to preserve original case
-                # Re-read the file to get original case
-                pass
-
-        # Re-read to preserve case (ConfigParser lowercases keys by default)
-        self._parse_mods_section()
-
-    def _parse_mods_section(self) -> None:
-        """Parse [mods] section preserving original key case."""
+    def _parse_mod_sections(self) -> None:
+        """Parse mod sections, each section name is a mod name."""
         if not self.config_path.exists():
             return
 
         content = self.config_path.read_text(encoding='utf-8')
-        in_mods_section = False
+
+        current_section = None
+        current_include = False
+        current_rewrite_files: List[str] = []
+        in_rewrite_files = False
 
         for line in content.split('\n'):
-            line = line.strip()
+            stripped = line.strip()
 
             # Skip comments and empty lines
-            if line.startswith(';') or line.startswith('#') or not line:
+            if stripped.startswith(';') or stripped.startswith('#') or not stripped:
+                in_rewrite_files = False  # Multiline rewrite_files ends on blank/comment
                 continue
 
             # Section header
-            if line.startswith('[') and line.endswith(']'):
-                section_name = line[1:-1].strip().lower()
-                in_mods_section = (section_name == 'mods')
+            if stripped.startswith('[') and stripped.endswith(']'):
+                # Save previous section if it was a mod
+                if current_section and current_section.lower() != 'config':
+                    if current_include:
+                        self._enabled_mods.append(current_section)
+                    if current_rewrite_files:
+                        self._rewrite_files[current_section] = current_rewrite_files
+
+                # Start new section
+                current_section = stripped[1:-1].strip()
+                current_include = False
+                current_rewrite_files = []
+                in_rewrite_files = False
                 continue
 
-            # Parse mod entries in [mods] section
-            if in_mods_section and '=' in line:
-                parts = line.split('=', 1)
-                mod_name = parts[0].strip()
-                value = parts[1].strip().lower()
+            # Skip [config] section
+            if current_section and current_section.lower() == 'config':
+                continue
 
-                if value in ('true', '1', 'yes', 'on'):
-                    self._enabled_mods.append(mod_name)
+            # Parse key = value pairs
+            if '=' in stripped:
+                parts = stripped.split('=', 1)
+                key = parts[0].strip().lower()
+                value = parts[1].strip()
+
+                if key == 'include':
+                    current_include = value.lower() in ('true', '1', 'yes', 'on')
+                    in_rewrite_files = False
+                elif key == 'rewrite_files':
+                    in_rewrite_files = True
+                    # Value may be on same line or on following lines
+                    if value:
+                        # Handle comma-separated or single value
+                        files = [f.strip() for f in value.split(',') if f.strip()]
+                        current_rewrite_files.extend(files)
+                else:
+                    in_rewrite_files = False
+            elif in_rewrite_files:
+                # Continuation line for rewrite_files
+                # Handle comma-separated or single value
+                files = [f.strip() for f in stripped.split(',') if f.strip()]
+                current_rewrite_files.extend(files)
+
+        # Save final section
+        if current_section and current_section.lower() != 'config':
+            if current_include:
+                self._enabled_mods.append(current_section)
+            if current_rewrite_files:
+                self._rewrite_files[current_section] = current_rewrite_files
 
     def get_enabled_mods(self) -> List[str]:
         """
         Get list of enabled mod names in order.
 
         Returns:
-            List of mod names where value is true
+            List of mod names where include = true
         """
         return self._enabled_mods.copy()
 
@@ -109,20 +140,29 @@ class ModConfig:
         """
         return mod_name in self._enabled_mods
 
-    def get_config_value(self, key: str, default: Optional[str] = None) -> Optional[str]:
+    def get_rewrite_files(self, mod_name: str) -> List[str]:
         """
-        Get a value from the [config] section.
+        Get list of files that need tag rewriting for a mod.
 
         Args:
-            key: Configuration key
-            default: Default value if key not found
+            mod_name: Name of the mod
 
         Returns:
-            Configuration value or default
+            List of relative file paths that need tag processing
         """
-        if 'config' in self.config:
-            return self.config['config'].get(key, default)
-        return default
+        return self._rewrite_files.get(mod_name, []).copy()
+
+    def get_all_rewrite_files(self) -> Set[str]:
+        """
+        Get all rewrite files from all enabled mods.
+
+        Returns:
+            Set of relative file paths that need tag processing
+        """
+        all_files: Set[str] = set()
+        for mod_name in self._enabled_mods:
+            all_files.update(self._rewrite_files.get(mod_name, []))
+        return all_files
 
     def __repr__(self) -> str:
         return f"ModConfig({self.config_path}, enabled_mods={self._enabled_mods})"

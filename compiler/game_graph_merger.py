@@ -529,7 +529,7 @@ class GameGraphMerger:
                         break
 
                 if target_local_id is None:
-                    logWarning(f"    Error: Target point not found: Source {graph_point['name_replace']} in {level.name} TO {target_point_name} in {target_level_name}")
+                    logWarning(f"    Warning: Target point not found: Source {graph_point['name_replace']} in {level.name} TO {target_point_name} in {target_level_name}")
                     target_point_not_found += 1
                     continue
 

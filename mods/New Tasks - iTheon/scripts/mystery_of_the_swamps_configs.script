@@ -1,0 +1,253 @@
+{r%level:l08_yantar}
+stalker_squad_1_config = {
+    section = "nta_mots_stalker_squad_1",
+    vector = vector():set({w%x:50.7723},{w%y:-11.8801},{w%z:-269.1232}),
+    lvid = {w%lvid:90125},
+    gvid = {w%gvid:2288},
+    is_squad = true
+}
+
+eco_squad_1_config = {
+    section = "nta_mots_ecolog_squad_1",
+    vector = vector():set({w%x:50.7723},{w%y:-11.8801},{w%z:-269.1232}),
+    lvid = {w%lvid:90125},
+    gvid = {w%gvid:2288},
+    is_squad = true
+}
+
+{r%level:l07_military}
+aw_message_point = vector():set(104.9109,-11.6276,166.1361)
+aw_message_activation_distance = 75
+
+aw_karlik_configs = {{
+    section = "m_karlik_e",
+    vector = vector():set({w%x:77.7028},{w%y:-12.4854},{w%z:164.0059}),
+    lvid = {w%lvid:352828},
+    gvid = {w%gvid:2015}
+},{
+    section = "m_karlik_e",
+    vector = vector():set({w%x:93.1515},{w%y:-12.1905},{w%z:189.5512}),
+    lvid = {w%lvid:363824},
+    gvid = {w%gvid:2015}
+},{
+    section = "m_karlik_e",
+    vector = vector():set({w%x:76.8912},{w%y:-8.0990},{w%z:183.8730}),
+    lvid = {w%lvid:352853},
+    gvid = {w%gvid:2016}
+}}
+
+{r%level:l02_garbage}
+dead_ecolog_spawn_config = {
+    section = "nta_mots_dead_ecolog",
+    vector = vector():set({w%x:123.5494},{w%y:0.0870},{w%z:-128.2986}),
+    lvid = {w%lvid:269196},
+    gvid = {w%gvid:844},
+}
+
+garbage_karlik_configs = {{
+    section = "m_karlik_e",
+    vector = vector():set({w%x:142.2154},{w%y:0.1118},{w%z:-121.2643}),
+    lvid = {w%lvid:282459},
+    gvid = {w%gvid:831}
+},{
+    section = "m_karlik_e",
+    vector = vector():set({w%x:142.8509},{w%y:0.1051},{w%z:-122.0291}),
+    lvid = {w%lvid:283952},
+    gvid = {w%gvid:831}
+},{
+    section = "m_karlik_e",
+    vector = vector():set({w%x:121.1636},{w%y:0.0034},{w%z:-141.3363}),
+    lvid = {w%lvid:268151},
+    gvid = {w%gvid:661}
+}}
+
+garbage_ghost_configs = {{
+    section = "nta_tough_zombie_ghost",
+    vector = vector():set({w%x:124.3751},{w%y:0.0869},{w%z:-130.8341}),
+    lvid = {w%lvid:270232},
+    gvid = {w%gvid:844},
+    sound = [[monsters\zombie_blind\zombie_blind_attack_2]]
+}}
+
+{r%level:l04_darkvalley}
+dead_ecolog_2_spawn_config = {
+    section = "nta_mots_dead_ecolog_2",
+    vector = vector():set({w%x:-33.6560},{w%y:0.4608},{w%z:-520.1382}),
+    lvid = {w%lvid:132243},
+    gvid = {w%gvid:1473}
+}
+
+stalker_squad_2_configs = {
+    section = 'nta_mots_stalker_squad_2',
+    vector = vector():set({w%x:22.3546},{w%y:1.9527},{w%z:-472.8051}),
+    lvid = {w%lvid:190983},
+    gvid = {w%gvid:1440},
+    is_squad = true
+}
+
+stalker_squad_3_configs = {
+    section = 'nta_mots_stalker_squad_3',
+    vector = vector():set({w%x:23.5880},{w%y:1.8132},{w%z:-474.3630}),
+    lvid = {w%lvid:192449},
+    gvid = {w%gvid:1440},
+    is_squad = true
+}
+
+{r%level:k01_darkscape}
+ds_ghosts_configs = {{
+    section = "nta_tough_zombie_ghost",
+    vector = vector():set({w%x:245.7287},{w%y:-2.4321},{w%z:604.9596}),
+    lvid = {w%lvid:663500},
+    gvid = {w%gvid:1305},
+    sound = "new_tasks_addon\\teleport_work_old",
+    particles = "anomaly2\\teleport_out_00"
+},{
+    section = "nta_tough_zombie_ghost",
+    vector = vector():set({w%x:233.0034},{w%y:-2.7059},{w%z:614.3851}),
+    lvid = {w%lvid:649394},
+    gvid = {w%gvid:1305},
+    sound = "new_tasks_addon\\teleport_work_old",
+    particles = "anomaly2\\teleport_out_00"
+}}
+
+ds_swamp_trigger = {
+    vector = vector():set({w%x:245.5741},{w%y:-2.6289},{w%z:618.4694}),
+    lvid = {w%lvid:663518},
+    gvid = {w%gvid:1305}
+}
+
+ds_baba_yaga_config = {
+    section = "baba_yaga_controller",
+    vector = vector():set({w%x:231.1000},{w%y:0.8773},{w%z:569.8445}),
+    lvid = {w%lvid:646926},
+    gvid = {w%gvid:1095},
+    sound = "new_tasks_addon\\teleport_work_old",
+    particles = "anomaly2\\teleport_out_00"
+}
+
+{r%level:jupiter}
+jupiter_campfire_config = {
+    section = 'campfire',
+    vector = vector():set({w%x:-333.7086},{w%y:-2.8604},{w%z:266.3536}),
+    lvid = {w%lvid:151362},
+    gvid = {w%gvid:4526},
+    is_anomaly = true,
+    anomaly_radius = 0.7
+}
+
+jupiter_skeleton_config = {
+    section = 'skeleton_phys_object',
+    vector = vector():set({w%x:-333.7086},{w%y:-2.8604},{w%z:266.3536}),
+    lvid = {w%lvid:151362},
+    gvid = {w%gvid:4526}
+}
+
+jupiter_karlik_activation_distance = 105
+jupiter_karlik_configs = {{
+    section = "m_karlik_e",
+    vector = vector():set({w%x:-324.0136},{w%y:-3.6942},{w%z:181.9645}),
+    lvid = {w%lvid:167374},
+    gvid = {w%gvid:4527}
+},{
+    section = "m_karlik_e",
+    vector = vector():set({w%x:-317.6022},{w%y:-2.6634},{w%z:196.5189}),
+    lvid = {w%lvid:175583},
+    gvid = {w%gvid:4527}
+},{
+    section = "m_karlik_e",
+    vector = vector():set({w%x:-307.3151},{w%y:-2.1534},{w%z:202.7843}),
+    lvid = {w%lvid:195638},
+    gvid = {w%gvid:4565}
+},{
+    section = "m_karlik_e",
+    vector = vector():set({w%x:-315.9379},{w%y:-2.2406},{w%z:217.7372}),
+    lvid = {w%lvid:181492},
+    gvid = {w%gvid:4565}
+},{
+    section = "m_karlik_e",
+    vector = vector():set({w%x:-371.5882},{w%y:-3.0164},{w%z:215.2446}),
+    lvid = {w%lvid:87523},
+    gvid = {w%gvid:4788}
+}}
+
+jupiter_ghost_activation_distance = 48
+jupiter_ghost_configs = {{
+    vector = vector():set({w%x:-358.3731},{w%y:-2.6981},{w%z:234.4760}),
+    lvid = {w%lvid:110373},
+    gvid = {w%gvid:4526},
+    section = "nta_tough_zombie_ghost",
+    sound = "new_tasks_addon\\teleport_work_old",
+    particles = "anomaly2\\teleport_out_00"
+},{
+    vector = vector():set({w%x:-318.3514},{w%y:-3.3825},{w%z:256.4112}),
+    lvid = {w%lvid:176823},
+    gvid = {w%gvid:4565},
+    section = "nta_tough_zombie_ghost",
+    sound = "new_tasks_addon\\teleport_work_old",
+    particles = "anomaly2\\teleport_out_00"
+},{
+    vector = vector():set({w%x:-308.7598},{w%y:-2.1359},{w%z:248.7710}),
+    lvid = {w%lvid:193366},
+    gvid = {w%gvid:4565},
+    section = "nta_tough_zombie_ghost",
+    sound = "new_tasks_addon\\teleport_work_old",
+    particles = "anomaly2\\teleport_out_00"
+},{
+    vector = vector():set({w%x:-340.5529},{w%y:-4.1575},{w%z:215.2570}),
+    lvid = {w%lvid:139767},
+    gvid = {w%gvid:4526},
+    section = "nta_tough_zombie_ghost",
+    sound = "new_tasks_addon\\teleport_work_old",
+    particles = "anomaly2\\teleport_out_00"
+},{
+    vector = vector():set({w%x:-350.4876},{w%y:-4.1986},{w%z:214.5330}),
+    lvid = {w%lvid:123580},
+    gvid = {w%gvid:4526},
+    section = "nta_tough_zombie_ghost",
+    sound = "new_tasks_addon\\teleport_work_old",
+    particles = "anomaly2\\teleport_out_00"
+},{
+    vector = vector():set({w%x:-347.5453},{w%y:-4.4720},{w%z:206.2958}),
+    lvid = {w%lvid:129439},
+    gvid = {w%gvid:4527},
+    section = "nta_tough_zombie_ghost",
+    sound = "new_tasks_addon\\teleport_work_old",
+    particles = "anomaly2\\teleport_out_00"
+},{
+    vector = vector():set({w%x:-327.0408},{w%y:-3.3744},{w%z:206.8032}),
+    lvid = {w%lvid:162830},
+    gvid = {w%gvid:4527},
+    section = "nta_tough_zombie_ghost",
+    sound = "new_tasks_addon\\teleport_work_old",
+    particles = "anomaly2\\teleport_out_00"
+},{
+    vector = vector():set({w%x:-318.5709},{w%y:-3.0957},{w%z:265.5612}),
+    lvid = {w%lvid:176836},
+    gvid = {w%gvid:4565},
+    section = "nta_tough_zombie_ghost",
+    sound = "new_tasks_addon\\teleport_work_old",
+    particles = "anomaly2\\teleport_out_00"
+},{
+    vector = vector():set({w%x:-356.3354},{w%y:-1.8408},{w%z:275.5382}),
+    lvid = {w%lvid:113988},
+    gvid = {w%gvid:4791},
+    section = "nta_tough_zombie_ghost",
+    sound = "new_tasks_addon\\teleport_work_old",
+    particles = "anomaly2\\teleport_out_00"
+}}
+
+jupiter_baba_yaga_config = {
+    vector = vector():set({w%x:-340.8392},{w%y:-3.4608},{w%z:251.3207}),
+    lvid = {w%lvid:139818},
+    gvid = {w%gvid:4526},
+    section = "baba_yaga_controller",
+    sound = "new_tasks_addon\\teleport_work_old",
+    particles = "anomaly2\\teleport_out_00"
+}
+
+jupiter_lost_soul_config = {
+    section = 'af_tlf_lost_soul',
+    vector = vector():set({w%x:-333.7086},{w%y:1.3604},{w%z:266.3536}),
+    lvid = {w%lvid:151362},
+    gvid = {w%gvid:4526}
+}

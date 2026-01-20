@@ -1,0 +1,21 @@
+[lc_cordon_south_darkscape_collapsed_tunnel]:lc_extra_level_transition_base{r%level:l01_escape}
+lc_extra_level_transition = true 								; mandatory field
+story_id = lc_cordon_south_darkscape_collapsed_tunnel			; story_id, without it the item wont be added              
+pos = {w%x:-59},{w%y:-30},{w%z:-477}		                                    ; position of item
+gvid = {w%gvid:449}			                        					; Gvid of item
+spot = level_changer_right			                            ; texture to use for spot on the map                      
+hint = esc_space_restrictor_to_darkscape_descr	{r%level:k01_darkscape}		        ; string id for hint description, defined in xml files
+to_pos = {w%x:513.7},{w%y:-1.5},{w%z:-420.8}			                            ; position where to teleport actor
+to_gvid = {w%gvid:1119}                    					 			; Gvid where to teleport actor
+; dir = 0,60,0								;; actor facing
+; trigger_radius = 1.2 						;; Radius to trigger transition (default is 6)
+
+[lc_darkscape_collapsed_tunnel_cordon_south]:lc_extra_level_transition_base
+lc_extra_level_transition = true 								; mandatory field
+story_id = lc_darkscape_collapsed_tunnel_cordon_south{r%level:k01_darkscape}
+pos = {w%x:520.17},{w%y:-1.35},{w%z:-429.54}
+gvid = {w%gvid:1119}
+spot = level_changer_down
+hint = ds_space_restrictor_to_escape_descr{r%level:l01_escape}
+to_pos = {w%x:-64},{w%y:-29},{w%z:-457}
+to_gvid = {w%gvid:449}

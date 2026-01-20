@@ -1,0 +1,36 @@
+{r%level:k00_marsh}
+house_location = {
+    vector = vector():set({w%x:42.3506},{w%y:2.9134},{w%z:-240.3371}),
+    lvid = {w%lvid:164412},
+    gvid = {w%gvid:13},
+}
+
+zombie_location = {
+    section = "nta_tough_zombie_ghost",
+    vector = vector():set({w%x:43.7496},{w%y:2.9150},{w%z:-235.1493}),
+    lvid = {w%lvid:165513},
+    gvid = {w%gvid:13}
+}
+
+dog_location = {
+    section = "dog_strong_black",
+    vector = vector():set({w%x:40.2969},{w%y:2.9149},{w%z:-238.9956}),
+    lvid = {w%lvid:163708},
+    gvid = {w%gvid:13},
+}
+
+board_location = {
+    section = "wooden_board",
+    vector = vector():set({w%x:43.6599},{w%y:2.9510},{w%z:-233.3910}),
+    lvid = {w%lvid:165154},
+    gvid = {w%gvid:13},
+    angle = vector():set(0, 0.79662138223648, 0)
+}
+
+hanged_man_location = {
+    section = "hanged_man",
+    vector = vector():set({w%x:39.4740},{w%y:4.6137},{w%z:-246.1686}),
+    lvid = {w%lvid:163012},
+    gvid = {w%gvid:13},
+    angle = vector():set(1.4887789487839, 3, -0.0059659997932613)
+}

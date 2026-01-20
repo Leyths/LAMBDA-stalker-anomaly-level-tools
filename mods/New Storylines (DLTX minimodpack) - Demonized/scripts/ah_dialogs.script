@@ -1,0 +1,540 @@
+---��� ������� -----
+
+local aditional_spawn_table = {
+-- {x, y, z, level_vertex_id, game_vertex_id, count}
+{r%level:k00_marsh}
+	spawn_bol_o1 = {['af_ah_o1'] = {{w%x:241.87088012695},{w%y:5.9297779083252},{w%z:52.383800506592}, {w%lvid:293187}, {w%gvid:63}}},
+	spawn_bol_o2 = {['af_ah_o2'] = {{w%x:386.03338623047},{w%y:0.98510533571243},{w%z:314.71539306641}, {w%lvid:400778}, {w%gvid:270}}},
+	spawn_bol_e1 = {['af_ah_e1'] = {{w%x:459.04193115234},{w%y:1.9701368808746},{w%z:-7.0784845352173}, {w%lvid:448532}, {w%gvid:246}}},
+{r%level:l03_agroprom}
+	spawn_agr_pda = {['kovalev_pda_item'] = {{w%x:47.145408630371},{w%y:8.4094705581665},{w%z:-12.874572753906}, {w%lvid:238350}, {w%gvid:1013}}},
+	spawn_agr_g1 = {['af_ah_g1'] = {{w%x:-199.63502502441},{w%y:0.90268939733505},{w%z:-28.170597076416}, {w%lvid:29987}, {w%gvid:943}}},
+	spawn_agr_g2 = {['af_ah_g2'] = {{w%x:22.595127105713},{w%y:6.0576524734497},{w%z:-275.8801574707}, {w%lvid:218591}, {w%gvid:1046}}},
+	spawn_agr_h1 = {['af_ah_h1'] = {{w%x:-195.37408447266},{w%y:1.1277058124542},{w%z:66.171974182129}, {w%lvid:19691}, {w%gvid:970}}},
+
+{r%level:l08_yantar}
+	spawn_yan_o1 = {['af_ah_o1'] = {{w%x:-174.13641357422},{w%y:3.2181444168091},{w%z:-143.85270690918}, {w%lvid:5663}, {w%gvid:2195}}},
+	spawn_yan_h1 = {['af_ah_h1'] = {{w%x:-41.927017211914},{w%y:-13.217215538025},{w%z:-246.43304443359}, {w%lvid:48764}, {w%gvid:2197}}},
+	spawn_yan_h2 = {['af_ah_h2'] = {{w%x:175.21632385254},{w%y:2.2580873966217},{w%z:89.942222595215}, {w%lvid:147072}, {w%gvid:2213}}},
+{r%level:l06_rostok}
+	spawn_dt_o1 = {['af_ah_o1'] = {{w%x:-126.15940856934},{w%y:-1.9097385406494},{w%z:123.05704498291}, {w%lvid:41994}, {w%gvid:1821}}},
+	spawn_dt_e1 = {['af_ah_e1'] = {{w%x:-266.98266601563},{w%y:3.8934457302094},{w%z:167.24801635742}, {w%lvid:5398}, {w%gvid:1851}}},
+	spawn_dt_e2 = {['af_ah_e2'] = {{w%x:-242.76332092285},{w%y:-5.0310530662537},{w%z:85.509910583496}, {w%lvid:12572}, {w%gvid:1892}}},
+{r%level:l08_yantar}
+	spawn_yan_e1 = {['af_ah_e1'] = {{w%x:88.04581451416},{w%y:0.9254247546196},{w%z:-61.850219726563}, {w%lvid:108615}, {w%gvid:2247}}},
+	spawn_yan_e2 = {['af_ah_e2'] = {{w%x:89.392547607422},{w%y:-0.0059276223182678},{w%z:-7.53919506073}, {w%lvid:108333}, {w%gvid:2234}}},
+	spawn_yan_g1 = {['af_ah_g1'] = {{w%x:-0.77743142843246},{w%y:27.662294387817},{w%z:-11.827794075012}, {w%lvid:68524}, {w%gvid:2217}}},
+
+{r%level:l04_darkvalley}
+	spawn_td_o1 = {['af_ah_o1'] = {{w%x:-6.3827834129333},{w%y:10.674922943115},{w%z:-179.35498046875}, {w%lvid:161161}, {w%gvid:1630}}},
+	spawn_td_o2 = {['af_ah_o2'] = {{w%x:126.88205718994},{w%y:2.4974358081818},{w%z:-483.04809570313}, {w%lvid:309930}, {w%gvid:1622}}},
+	spawn_td_e1 = {['af_ah_e1'] = {{w%x:121.47485351563},{w%y:12.745860099792},{w%z:-49.468452453613}, {w%lvid:302078}, {w%gvid:1491}}},
+{r%level:k02_trucks_cemetery}
+	spawn_kt_g1 = {['af_ah_g1'] = {{w%x:-153.09321594238},{w%y:-8.7200832366943},{w%z:-94.427383422852}, {w%lvid:243570}, {w%gvid:5119}}},
+	spawn_kt_o1 = {['af_ah_o1'] = {{w%x:266.24267578125},{w%y:21.628379821777},{w%z:-277.0832824707}, {w%lvid:797231}, {w%gvid:5207}}},
+	spawn_kt_h1 = {['af_ah_h1'] = {{w%x:-301.37066650391},{w%y:16.750459671021},{w%z:-121.78722381592}, {w%lvid:34211}, {w%gvid:5263}}},
+{r%level:l02_garbage}
+	spawn_sv_pda = {['pirogov_pda_item'] = {{w%x:102.02368164063},{w%y:-5.1749172210693},{w%z:156.94705200195}, {w%lvid:253604}, {w%gvid:645}}},
+	spawn_sv_g1 = {['af_ah_g1'] = {{w%x:-255.91717529297},{w%y:4.1241917610168},{w%z:98.584175109863}, {w%lvid:4340}, {w%gvid:692}}},
+	spawn_sv_h1 = {['af_ah_h1'] = {{w%x:106.09580993652},{w%y:2.1096873283386},{w%z:-137.30087280273}, {w%lvid:237993}, {w%gvid:668}}},
+
+{r%level:l07_military}
+	spawn_mil_h1 = {['af_ah_h1'] = {{w%x:104.25748443604},{w%y:-7.7414011955261},{w%z:167.05085754395}, {w%lvid:372272}, {w%gvid:2015}}},
+	spawn_mil_g1 = {['af_ah_g1'] = {{w%x:-157.77574157715},{w%y:-0.27874371409416},{w%z:10.363350868225}, {w%lvid:154022}, {w%gvid:2186}}},
+	spawn_mil_o1 = {['af_ah_o1'] = {{w%x:-247.53811645508},{w%y:-17.218084335327},{w%z:225.62403869629}, {w%lvid:81174}, {w%gvid:2130}}},
+{r%level:l10_red_forest}
+	spawn_les_pda = {['strelok_pda_item'] = {{w%x:-76.873001098633},{w%y:-4.3313798904419},{w%z:-164.41079711914}, {w%lvid:14445}, {w%gvid:2792}}},
+	spawn_les_o1 = {['af_ah_o1'] = {{w%x:219.65069580078},{w%y:-7.3071460723877},{w%z:-94.532341003418}, {w%lvid:137835}, {w%gvid:2773}}},
+	spawn_les_e1 = {['af_ah_e1'] = {{w%x:-121.0258102417},{w%y:-5.4002523422241},{w%z:-42.273204803467}, {w%lvid:7481}, {w%gvid:2772}}},
+
+{r%level:l10_limansk}
+	spawn_lim_s1 = {['af_ah_s1'] = {{w%x:71.559020996094},{w%y:11.673633575439},{w%z:256.08560180664}, {w%lvid:58203}, {w%gvid:2473}}},
+
+{r%level:l10_radar}
+	spawn_rad_pda = {['chernov_pda_item'] = {{w%x:662.60522460938},{w%y:-43.904781341553},{w%z:171.93785095215}, {w%lvid:227308}, {w%gvid:2537}}},
+	spawn_rad_r1 = {['af_ah_r1'] = {{w%x:470.09167480469},{w%y:-47.758029937744},{w%z:-265.94635009766}, {w%lvid:156143}, {w%gvid:2690}}},
+	spawn_rad_r2 = {['af_ah_r2'] = {{w%x:356.06051635742},{w%y:-39.192668914795},{w%z:-197.50382995605}, {w%lvid:97838}, {w%gvid:2723}}},
+	spawn_rad_r3 = {['af_ah_r3'] = {{w%x:551.74591064453},{w%y:-48.829395294189},{w%z:-88.514717102051}, {w%lvid:191604}, {w%gvid:2667}}},
+{r%level:l09_deadcity}
+	spawn_mg_o1 = {['af_ah_o1'] = {{w%x:-134.83152770996},{w%y:2.9880950450897},{w%z:32.194671630859}, {w%lvid:55687}, {w%gvid:2361}}},
+	spawn_mg_g1 = {['af_ah_g1'] = {{w%x:159.51693725586},{w%y:4.3780035972595},{w%z:-61.599414825439}, {w%lvid:234620}, {w%gvid:2332}}},
+
+{r%level:zaton}
+	spawn_up_g1 = {['af_ah_g1'] = {{w%x:226.7353515625},{w%y:12.497895240784},{w%z:-126.44523620605}, {w%lvid:1104135}, {w%gvid:4477}}},
+	spawn_up_h1 = {['af_ah_h1'] = {{w%x:240.87431335449},{w%y:16.29806137085},{w%z:-306.95077514648}, {w%lvid:1122230}, {w%gvid:4477}}},
+{r%level:jupiter}
+	spawn_up_h2 = {['af_ah_h2'] = {{w%x:82.844253540039},{w%y:7.2727770805359},{w%z:19.8655128479}, {w%lvid:860122}, {w%gvid:4698}}},
+	spawn_up_e1 = {['af_ah_e1'] = {{w%x:-374.17404174805},{w%y:5.0997858047485},{w%z:385.88662719727}, {w%lvid:115301}, {w%gvid:4581}}},
+	spawn_up_e2 = {['af_ah_e2'] = {{w%x:-184.40615844727},{w%y:5.8987579345703},{w%z:-66.753799438477}, {w%lvid:407076}, {w%gvid:4539}}},
+	spawn_up_g2 = {['af_ah_g2'] = {{w%x:-409.46270751953},{w%y:3.3450148105621},{w%z:9.6419630050659}, {w%lvid:31416}, {w%gvid:4523}}},
+
+{r%level:pripyat}
+	spawn_p_h1 = {['af_ah_h1'] = {{w%x:136.44596862793},{w%y:30.190256118774},{w%z:239.75834655762}, {w%lvid:294108}, {w%gvid:5045}}},
+	spawn_p_g1 = {['af_ah_g1'] = {{w%x:73.222862243652},{w%y:10.05225276947},{w%z:123.31704711914}, {w%lvid:293323}, {w%gvid:5045}}},
+	spawn_p_g2 = {['af_ah_g2'] = {{w%x:-39.609481811523},{w%y:2.2897946834564},{w%z:349.08999633789}, {w%lvid:59084}, {w%gvid:2946}}},
+	spawn_p_e1 = {['af_ah_e1'] = {{w%x:46.502857208252},{w%y:-1.7335567474365},{w%z:-17.505851745605}, {w%lvid:159425}, {w%gvid:3018}}},
+
+{r%level:zaton}
+	spawn_zat_pda = {['vorobushkin_pda_item'] = {{w%x:-445.25088500977},{w%y:6.1879630088806},{w%z:46.998878479004}, {w%lvid:117515}, {w%gvid:4151}}},
+	spawn_zat_h1 = {['af_ah_h1'] = {{w%x:-399.41204833984},{w%y:-6.0142226219177},{w%z:183.90542602539}, {w%lvid:183046}, {w%gvid:4398}}},
+	spawn_zat_h2 = {['af_ah_h2'] = {{w%x:-316.50579833984},{w%y:32.358577728271},{w%z:-159.77275085449}, {w%lvid:344948}, {w%gvid:4158}}},
+	spawn_zat_g1 = {['af_ah_g1'] = {{w%x:-125.387840271},{w%y:-7.0910167694092},{w%z:-225.74705505371}, {w%lvid:690469}, {w%gvid:4142}}},
+	spawn_zat_g2 = {['af_ah_g2'] = {{w%x:433.74664306641},{w%y:34.359256744385},{w%z:-191.26034545898}, {w%lvid:1676984}, {w%gvid:4172}}},
+	spawn_zat_o1 = {['af_ah_o1'] = {{w%x:389.83050537109},{w%y:0.49227422475815},{w%z:438.83108520508}, {w%lvid:1661766}, {w%gvid:4172}}},
+
+{r%level:l12_stancia_2}
+	spawn_gen_f1 = {['af_ah_f1'] = {{w%x:11.673232078552},{w%y:38.033100128174},{w%z:-232.00248718262}, {w%lvid:211717}, {w%gvid:3505}}}
+}
+
+
+----����� ������� ----
+local function ah_spawn(name)
+	local tbl = aditional_spawn_table[name]
+	for k, v in pairs(tbl) do
+		for i = 1, (v[6] or 1) do 
+			alife():create(k, vector():set(v[1], v[2], v[3]), v[4], v[5])
+		end
+	end
+end
+
+function give_simple_detector(first_speaker, second_speaker) 
+      dialogs.relocate_item_section(second_speaker, "detector_simple", "in",1)
+end  
+
+function give_expert_detector(first_speaker, second_speaker) 
+      dialogs.relocate_item_section(second_speaker, "detector_elite", "in",1) 
+end  
+
+function give_ah_gramota(first_speaker, second_speaker) 
+      dialogs.relocate_item_section(second_speaker, "ah_gramota", "in",1) 
+end  
+
+----�������� ����� ��� ������, �� ����� ������----
+function create_story_line_phrase()
+	local ah_level_counter=1
+	if has_alife_info("ahi_kovalev_1_quest_end") then ah_level_counter = ah_level_counter + 1
+	end
+	if has_alife_info("ahi_kovalev_2_quest_end") then ah_level_counter = ah_level_counter + 1
+	end	
+	if has_alife_info("ahi_markov_1_quest_end") then ah_level_counter = ah_level_counter + 1
+	end	
+	if has_alife_info("ahi_markov_2_quest_end") then ah_level_counter = ah_level_counter + 1
+	end	
+	if has_alife_info("ahi_markov_3_quest_end") then ah_level_counter = ah_level_counter + 1
+	end	
+	if has_alife_info("ahi_pirogov_1_quest_end") then ah_level_counter = ah_level_counter + 1
+	end	
+	if has_alife_info("ahi_pirogov_2_quest_end") then ah_level_counter = ah_level_counter + 1
+	end	
+	if has_alife_info("ahi_pirogov_3_quest_end") then ah_level_counter = ah_level_counter + 1
+	end	
+	if has_alife_info("ahi_chernov_1_quest_end") then ah_level_counter = ah_level_counter + 1
+	end	
+	if has_alife_info("ahi_chernov_6_quest_end") then ah_level_counter = ah_level_counter + 1
+	end
+	
+	if has_alife_info("ahi_juk_1_quest_end") then ah_level_counter = ah_level_counter + 1
+	end
+	if has_alife_info("ahi_juk_2_quest_end") then ah_level_counter = ah_level_counter + 1
+	end
+	if has_alife_info("ahi_juk_3_quest_end") then ah_level_counter = ah_level_counter + 1	
+	end
+	if has_alife_info("ahi_vorobushkin_1_quest_end") then ah_level_counter = ah_level_counter + 1	
+	end
+	if has_alife_info("ahi_vorobushkin_2_quest_end") then ah_level_counter = ah_level_counter + 1
+	end
+	printf("�������_"..ah_level_counter)
+	if ah_level_counter >= 15 then 
+		give_info("ahi_goto_scabinsky")
+		printf("���� � �����������")
+	end	
+	return game.translate_string("story_line_dialog_"..ah_level_counter)
+end
+
+
+
+----�������� ����� ������ ��� ��, �� ������----
+function create_story_line_answer_phrase()
+	local ah_level_counter=1
+	if has_alife_info("ahi_kovalev_1_quest_end") then ah_level_counter = ah_level_counter + 1
+	end
+	if has_alife_info("ahi_kovalev_2_quest_end") then ah_level_counter = ah_level_counter + 1
+	end	
+	if has_alife_info("ahi_markov_1_quest_end") then ah_level_counter = ah_level_counter + 1
+	end	
+	if has_alife_info("ahi_markov_2_quest_end") then ah_level_counter = ah_level_counter + 1
+	end	
+	if has_alife_info("ahi_markov_3_quest_end") then ah_level_counter = ah_level_counter + 1
+	end	
+	if has_alife_info("ahi_pirogov_1_quest_end") then ah_level_counter = ah_level_counter + 1
+	end	
+	if has_alife_info("ahi_pirogov_2_quest_end") then ah_level_counter = ah_level_counter + 1
+	end	
+	if has_alife_info("ahi_pirogov_3_quest_end") then ah_level_counter = ah_level_counter + 1
+	end	
+	if has_alife_info("ahi_chernov_1_quest_end") then ah_level_counter = ah_level_counter + 1
+	end	
+	if has_alife_info("ahi_chernov_6_quest_end") then ah_level_counter = ah_level_counter + 1
+	end
+	
+	if has_alife_info("ahi_juk_1_quest_end") then ah_level_counter = ah_level_counter + 1
+	end
+	if has_alife_info("ahi_juk_2_quest_end") then ah_level_counter = ah_level_counter + 1
+	end
+	if has_alife_info("ahi_juk_3_quest_end") then ah_level_counter = ah_level_counter + 1	
+	end
+	if has_alife_info("ahi_vorobushkin_1_quest_end") then ah_level_counter = ah_level_counter + 1	
+	end
+	if has_alife_info("ahi_vorobushkin_2_quest_end") then ah_level_counter = ah_level_counter + 1
+	end
+	
+	return game.translate_string("story_line_answer_"..ah_level_counter)
+end
+
+
+--- ��������� � � �������� �� ����� ---
+function check_community_actor(first_speaker, second_speaker) 
+      return (db.actor:character_community() == "actor_monolith" )
+--db.actor "monolith"
+--if npc:character_community() ~= "(dolg)" then 
+--	npc:set_character_community("dolg", 0, 0) 
+--end
+end
+
+
+function ah_signal(first_speaker, second_speaker)
+---	get_console():execute("�������_�����") 
+--- local se_obj = get_story_se_object( "kovalev_pda_item" )
+--- local stash_id = alun_utils.load_var( db.actor, "kovalev_pda_item_id", nil )
+	printf("�������_�����")
+	news_manager.send_tip(db.actor,"Quest1_title", nil, "seeker", nil, 3000) 
+end
+
+
+
+function redirect_give_quest()
+	if not has_alife_info("ahi_kovalev_2_quest_end") then
+		give_info("ahi_redirect_quest_inprogress")
+		give_info("ahi_redirect_kovalev_quest_start")
+		disable_info("ahi_redirect_kovalev_quest_end")
+        task_manager.get_task_manager():give_task("ah_redirect_to_kovalev_quest")         
+	elseif not has_alife_info("ahi_markov_3_quest_end") then
+		give_info("ahi_redirect_quest_inprogress")
+		give_info("ahi_redirect_markov_quest_start")
+		disable_info("ahi_redirect_markov_quest_end")		
+        task_manager.get_task_manager():give_task("ah_redirect_to_markov_quest")  
+	elseif not has_alife_info("ahi_pirogov_3_quest_end") then
+		give_info("ahi_redirect_quest_inprogress")
+		give_info("ahi_redirect_pirogov_quest_start")
+		disable_info("ahi_redirect_pirogov_quest_end")		
+        task_manager.get_task_manager():give_task("ah_redirect_to_pirogov_quest")  
+	elseif not has_alife_info("ahi_chernov_6_quest_end") then
+		give_info("ahi_redirect_quest_inprogress")
+		give_info("ahi_redirect_chernov_quest_start")
+		disable_info("ahi_redirect_chernov_quest_end")
+        task_manager.get_task_manager():give_task("ah_redirect_to_chernov_quest")  
+	elseif not has_alife_info("ahi_juk_3_quest_end") then
+		give_info("ahi_redirect_quest_inprogress")
+		give_info("ahi_redirect_juk_quest_start")
+		disable_info("ahi_redirect_juk_quest_end")
+        task_manager.get_task_manager():give_task("ah_redirect_to_juk_quest")  
+	elseif not has_alife_info("ahi_vorobushkin_2_quest_end") then
+		give_info("ahi_redirect_quest_inprogress")
+		give_info("ahi_redirect_vorobushkin_quest_start")
+		disable_info("ahi_redirect_vorobushkin_quest_end")
+        task_manager.get_task_manager():give_task("ah_redirect_to_vorobushkin_quest")  
+		
+	end
+end 
+
+
+function redirect_give_quest_small_revers()
+	if not has_alife_info("ahi_chernov_6_quest_end") then
+		give_info("ahi_redirect_quest_inprogress")
+		give_info("ahi_redirect_chernov_quest_start")
+		disable_info("ahi_redirect_chernov_quest_end")
+        task_manager.get_task_manager():give_task("ah_redirect_to_chernov_quest")  
+	elseif not has_alife_info("ahi_pirogov_3_quest_end") then
+		give_info("ahi_redirect_quest_inprogress")
+		give_info("ahi_redirect_pirogov_quest_start")
+		disable_info("ahi_redirect_pirogov_quest_end")		
+        task_manager.get_task_manager():give_task("ah_redirect_to_pirogov_quest")  
+	elseif not has_alife_info("ahi_markov_3_quest_end") then
+		give_info("ahi_redirect_quest_inprogress")
+		give_info("ahi_redirect_markov_quest_start")
+		disable_info("ahi_redirect_markov_quest_end")		
+        task_manager.get_task_manager():give_task("ah_redirect_to_markov_quest")  
+	elseif not has_alife_info("ahi_kovalev_2_quest_end") then
+		give_info("ahi_redirect_quest_inprogress")
+		give_info("ahi_redirect_kovalev_quest_start")
+		disable_info("ahi_redirect_kovalev_quest_end")
+        task_manager.get_task_manager():give_task("ah_redirect_to_kovalev_quest")      
+	elseif not has_alife_info("ahi_juk_3_quest_end") then
+		give_info("ahi_redirect_quest_inprogress")
+		give_info("ahi_redirect_juk_quest_start")
+		disable_info("ahi_redirect_juk_quest_end")
+        task_manager.get_task_manager():give_task("ah_redirect_to_juk_quest")  
+	elseif not has_alife_info("ahi_vorobushkin_2_quest_end") then
+		give_info("ahi_redirect_quest_inprogress")
+		give_info("ahi_redirect_vorobushkin_quest_start")
+		disable_info("ahi_redirect_vorobushkin_quest_end")
+        task_manager.get_task_manager():give_task("ah_redirect_to_vorobushkin_quest")  		
+	end	
+end 
+
+
+function redirect_give_quest_revers()
+
+	if not has_alife_info("ahi_vorobushkin_2_quest_end") then
+		give_info("ahi_redirect_quest_inprogress")
+		give_info("ahi_redirect_vorobushkin_quest_start")
+		disable_info("ahi_redirect_vorobushkin_quest_end")
+        task_manager.get_task_manager():give_task("ah_redirect_to_vorobushkin_quest")  
+	elseif not has_alife_info("ahi_juk_3_quest_end") then
+		give_info("ahi_redirect_quest_inprogress")
+		give_info("ahi_redirect_juk_quest_start")
+		disable_info("ahi_redirect_juk_quest_end")
+        task_manager.get_task_manager():give_task("ah_redirect_to_juk_quest") 
+	elseif not has_alife_info("ahi_chernov_6_quest_end") then
+		give_info("ahi_redirect_quest_inprogress")
+		give_info("ahi_redirect_chernov_quest_start")
+		disable_info("ahi_redirect_chernov_quest_end")
+        task_manager.get_task_manager():give_task("ah_redirect_to_chernov_quest")  
+	elseif not has_alife_info("ahi_pirogov_3_quest_end") then
+		give_info("ahi_redirect_quest_inprogress")
+		give_info("ahi_redirect_pirogov_quest_start")
+		disable_info("ahi_redirect_pirogov_quest_end")		
+        task_manager.get_task_manager():give_task("ah_redirect_to_pirogov_quest")  
+	elseif not has_alife_info("ahi_markov_3_quest_end") then
+		give_info("ahi_redirect_quest_inprogress")
+		give_info("ahi_redirect_markov_quest_start")
+		disable_info("ahi_redirect_markov_quest_end")		
+        task_manager.get_task_manager():give_task("ah_redirect_to_markov_quest")  
+		
+	elseif not has_alife_info("ahi_kovalev_2_quest_end") then
+		give_info("ahi_redirect_quest_inprogress")
+		give_info("ahi_redirect_kovalev_quest_start")
+		disable_info("ahi_redirect_kovalev_quest_end")
+        task_manager.get_task_manager():give_task("ah_redirect_to_kovalev_quest")      
+	end
+end 
+
+function redirect_give_quest_skabinsky()
+		give_info("ahi_redirect_quest_inprogress")
+		give_info("ahi_redirect_skabinsky_quest_start")
+		disable_info("ahi_redirect_skabinsky_quest_end")		
+        task_manager.get_task_manager():give_task("ah_redirect_to_skabinsky_quest")
+end
+
+function give_fail_quest_skabinsky()
+		give_info("ahi_redirect_quest_inprogress")
+        task_manager.get_task_manager():give_task("ah_fail_skabinsky_quest")
+end
+
+function ah_fail_timer()
+		if not has_alife_info("ah_fail_step_1") then 
+			give_info("ah_fail_step_1")
+			printf("������ ������")
+		elseif not has_alife_info("ah_fail_step_2") then 
+			give_info("ah_fail_step_2")
+			printf("������ ������")
+		elseif not has_alife_info("ah_fail_step_3") then 
+			give_info("ah_fail_step_3")
+			printf("������ ������")
+		end	
+end
+
+
+
+function kovalev_give_quest1() 
+---		ah_spawn('spawn_bol_o1')
+---		ah_spawn('spawn_bol_o2')
+---		ah_spawn('spawn_bol_e1')
+        task_manager.get_task_manager():give_task("ah_kovalev_quest1")
+		task_manager.get_task_manager():give_task("ah_bol_o1_kovalev_quest1")  
+		task_manager.get_task_manager():give_task("ah_bol_g1_kovalev_quest1")  
+		task_manager.get_task_manager():give_task("ah_bol_e1_kovalev_quest1")	
+end 
+
+
+function kovalev_give_quest2()   
+---		ah_spawn('spawn_agr_pda')
+---		ah_spawn('spawn_agr_g1')
+---		ah_spawn('spawn_agr_g2')
+---		ah_spawn('spawn_agr_h1')
+        task_manager.get_task_manager():give_task("ah_kovalev_quest2")
+		task_manager.get_task_manager():give_task("ah_agr_pda_kovalev_quest2")		
+		task_manager.get_task_manager():give_task("ah_agr_g1_kovalev_quest2")  
+		task_manager.get_task_manager():give_task("ah_agr_g2_kovalev_quest2")  
+		task_manager.get_task_manager():give_task("ah_agr_h1_kovalev_quest2")	
+end 
+
+function markov_give_quest1() 
+---		ah_spawn('spawn_yan_o1')
+---		ah_spawn('spawn_yan_h1')
+---		ah_spawn('spawn_yan_h2')
+        task_manager.get_task_manager():give_task("ah_markov_quest1")		
+		task_manager.get_task_manager():give_task("ah_yan_o1_markov_quest1")  
+		task_manager.get_task_manager():give_task("ah_yan_h1_markov_quest1")  
+		task_manager.get_task_manager():give_task("ah_yan_g1_markov_quest1")		
+end 
+
+function markov_give_quest2() 
+---		ah_spawn('spawn_dt_o1')
+---		ah_spawn('spawn_dt_e1')
+---		ah_spawn('spawn_dt_e2')
+        task_manager.get_task_manager():give_task("ah_markov_quest2")		
+		task_manager.get_task_manager():give_task("ah_dt_o1_markov_quest2")  
+		task_manager.get_task_manager():give_task("ah_dt_e1_markov_quest2")  
+		task_manager.get_task_manager():give_task("ah_dt_e2_markov_quest2")		
+end 
+
+function markov_give_quest3() 
+---		ah_spawn('spawn_yan_e1')
+---		ah_spawn('spawn_yan_e2')
+---		ah_spawn('spawn_yan_g1')
+        task_manager.get_task_manager():give_task("ah_markov_quest3")		
+		task_manager.get_task_manager():give_task("ah_yan_e1_markov_quest3")  
+		task_manager.get_task_manager():give_task("ah_yan_e2_markov_quest3")  
+		task_manager.get_task_manager():give_task("ah_yan_g1_markov_quest3")		
+end
+ 
+
+function pirogov_give_quest1() 
+		ah_spawn('spawn_td_o1')
+---		ah_spawn('spawn_td_o2')
+---		ah_spawn('spawn_td_e1')
+        task_manager.get_task_manager():give_task("ah_pirogov_quest1")
+		task_manager.get_task_manager():give_task("ah_td_o1_pirogov_quest1")  
+		task_manager.get_task_manager():give_task("ah_td_o2_pirogov_quest1")  
+		task_manager.get_task_manager():give_task("ah_td_e1_pirogov_quest1")		
+end 
+
+function pirogov_give_quest2() 
+---		ah_spawn('spawn_kt_g1')
+---		ah_spawn('spawn_kt_o1')
+---		ah_spawn('spawn_kt_h1')
+        task_manager.get_task_manager():give_task("ah_pirogov_quest2")
+		task_manager.get_task_manager():give_task("ah_kt_g1_pirogov_quest2")  
+		task_manager.get_task_manager():give_task("ah_kt_o1_pirogov_quest2")  
+		task_manager.get_task_manager():give_task("ah_kt_h1_pirogov_quest2")		
+end 
+
+function pirogov_give_quest3() 
+---		ah_spawn('spawn_sv_pda')
+---		ah_spawn('spawn_sv_g1')
+		ah_spawn('spawn_sv_h1')
+        task_manager.get_task_manager():give_task("ah_pirogov_quest3")
+		task_manager.get_task_manager():give_task("ah_sv_pda_pirogov_quest3")  
+		task_manager.get_task_manager():give_task("ah_sv_g1_pirogov_quest3")  
+		task_manager.get_task_manager():give_task("ah_sv_h1_pirogov_quest3")		
+end 
+
+function chernov_give_quest1() 
+		ah_spawn('spawn_mil_h1')
+		ah_spawn('spawn_mil_g1')
+		ah_spawn('spawn_mil_o1')
+        task_manager.get_task_manager():give_task("ah_chernov_quest1")
+		task_manager.get_task_manager():give_task("ah_mil_h1_chernov_quest1")  
+		task_manager.get_task_manager():give_task("ah_mil_g1_chernov_quest1")  
+		task_manager.get_task_manager():give_task("ah_mil_o1_chernov_quest1")		
+end 
+
+function chernov_give_quest3() 
+---		ah_spawn('spawn_les_pda')
+---		ah_spawn('spawn_les_o1')
+---		ah_spawn('spawn_les_e1')
+        task_manager.get_task_manager():give_task("ah_chernov_quest3")
+		task_manager.get_task_manager():give_task("ah_les_pda_chernov_quest3")  
+		task_manager.get_task_manager():give_task("ah_les_o1_chernov_quest3")  
+		task_manager.get_task_manager():give_task("ah_les_e1_chernov_quest3")		
+end 
+
+function chernov_give_quest4() 
+		ah_spawn('spawn_lim_s1')
+        task_manager.get_task_manager():give_task("ah_chernov_quest4")
+end 
+
+function chernov_give_quest5() 
+		ah_spawn('spawn_rad_pda')
+		ah_spawn('spawn_rad_r1')
+		ah_spawn('spawn_rad_r2')
+		ah_spawn('spawn_rad_r3')		
+        task_manager.get_task_manager():give_task("ah_chernov_quest5") 
+		task_manager.get_task_manager():give_task("ah_rad_pda_chernov_quest5")  		
+---		task_manager.get_task_manager():give_task("ah_rad_r1_chernov_quest5")  
+---		task_manager.get_task_manager():give_task("ah_rad_r2_chernov_quest5")  
+---		task_manager.get_task_manager():give_task("ah_rad_r3_chernov_quest5")  
+end 
+
+function chernov_give_quest6() 
+---		ah_spawn('spawn_mg_o1')
+---		ah_spawn('spawn_mg_g1')
+        task_manager.get_task_manager():give_task("ah_chernov_quest6")
+		task_manager.get_task_manager():give_task("ah_mg_o1_chernov_quest6")  
+		task_manager.get_task_manager():give_task("ah_mg_g1_chernov_quest6")  
+end 
+
+function juk_give_quest1() 
+		ah_spawn('spawn_up_g1')
+		ah_spawn('spawn_up_h1')
+		ah_spawn('spawn_up_h2')
+        task_manager.get_task_manager():give_task("ah_juk_quest1")
+		task_manager.get_task_manager():give_task("ah_up_g1_juk_quest1")
+		task_manager.get_task_manager():give_task("ah_up_h1_juk_quest1")  
+		task_manager.get_task_manager():give_task("ah_up_h2_juk_quest1")		
+end 
+
+function juk_give_quest2() 
+		ah_spawn('spawn_up_e1')
+		ah_spawn('spawn_up_e2')
+		ah_spawn('spawn_up_g2')
+        task_manager.get_task_manager():give_task("ah_juk_quest2")
+		task_manager.get_task_manager():give_task("ah_up_e1_juk_quest2")
+		task_manager.get_task_manager():give_task("ah_up_e2_juk_quest2")  
+		task_manager.get_task_manager():give_task("ah_up_g2_juk_quest2")		
+end 
+
+function juk_give_quest3() 
+		ah_spawn('spawn_p_h1')
+		ah_spawn('spawn_p_g1')
+		ah_spawn('spawn_p_g2')
+		ah_spawn('spawn_p_e1')		
+        task_manager.get_task_manager():give_task("ah_juk_quest3")
+		task_manager.get_task_manager():give_task("ah_p_h1_juk_quest3")
+		task_manager.get_task_manager():give_task("ah_p_g1_juk_quest3")  
+		task_manager.get_task_manager():give_task("ah_p_g2_juk_quest3")
+		task_manager.get_task_manager():give_task("ah_p_e1_juk_quest3")		
+end 
+
+
+
+function vorobushkin_give_quest1() 
+		ah_spawn('spawn_zat_pda')
+		ah_spawn('spawn_zat_h1')
+		ah_spawn('spawn_zat_h2')
+        task_manager.get_task_manager():give_task("ah_vorobushkin_quest1")
+		task_manager.get_task_manager():give_task("ah_zat_pda_vorobushkin_quest1")
+		task_manager.get_task_manager():give_task("ah_zat_h1_vorobushkin_quest1")  
+		task_manager.get_task_manager():give_task("ah_zat_h2_vorobushkin_quest1")		
+end 
+
+function vorobushkin_give_quest2() 
+		ah_spawn('spawn_zat_g1')
+		ah_spawn('spawn_zat_o1')
+		ah_spawn('spawn_zat_g2')
+        task_manager.get_task_manager():give_task("ah_vorobushkin_quest2")
+		task_manager.get_task_manager():give_task("ah_zat_g1_vorobushkin_quest2")
+		task_manager.get_task_manager():give_task("ah_zat_o1_vorobushkin_quest2")  
+		task_manager.get_task_manager():give_task("ah_zat_g2_vorobushkin_quest2")		
+end 
+
+function skabinsky_give_quest1() 
+---		ah_spawn('spawn_gen_f1')
+        task_manager.get_task_manager():give_task("ah_skabinsky_quest1")
+		task_manager.get_task_manager():give_task("ah_gen_f1_skabinsky_quest1")
+
+end 
+
+
+ 

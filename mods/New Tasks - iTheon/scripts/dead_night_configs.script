@@ -1,0 +1,201 @@
+{r%level:k01_darkscape}
+local behind_far_rock = vector():set({w%x:-240.4750},{w%y:0.8257},{w%z:-264.7484}) -- aka controller rock
+local behind_bush = vector():set({w%x:-206.0665},{w%y:5.1084},{w%z:-332.1737})
+
+local zombie_sections = {"zombi_9", "zombi_x3", "zombi_x4", "zombi_babka_1", "zombi_babka_2", "zombi_babka_3", "zombie_ghol", "zombie_strong", "zombie_teta", "zombie_wich"}
+function rand_section()
+    return zombie_sections[math.random(1, #zombie_sections)]
+end
+
+spawn_trigger = vector():set(-226.5967,4.5275,-317.1637)
+
+spawn_configs = {{
+    vector = vector():set({w%x:-247.1113},{w%y:2.8423},{w%z:-346.4324}),
+    lvid = {w%lvid:123926},
+    gvid = {w%gvid:1137},
+    section_func = rand_section
+},{
+    vector = vector():set({w%x:-243.0021},{w%y:2.9494},{w%z:-350.3575}),
+    lvid = {w%lvid:126747},
+    gvid = {w%gvid:1137},
+    section_func = rand_section
+},{
+    vector = vector():set({w%x:-238.8718},{w%y:3.0437},{w%z:-353.8205}),
+    lvid = {w%lvid:129723},
+    gvid = {w%gvid:1137},
+    section_func = rand_section
+},{
+    vector = vector():set({w%x:-232.0464},{w%y:3.2420},{w%z:-355.8819}),
+    lvid = {w%lvid:134703},
+    gvid = {w%gvid:1137},
+    section_func = rand_section
+},{
+    vector = vector():set({w%x:-228.2870},{w%y:3.3124},{w%z:-356.6165}),
+    lvid = {w%lvid:137457},
+    gvid = {w%gvid:1137},
+    section_func = rand_section
+},{
+    vector = vector():set({w%x:-230.5793},{w%y:3.3233},{w%z:-353.4182}),
+    lvid = {w%lvid:135762},
+    gvid = {w%gvid:1137},
+    section_func = rand_section
+},{
+    vector = vector():set({w%x:-234.6074},{w%y:3.2556},{w%z:-351.4312}),
+    lvid = {w%lvid:132718},
+    gvid = {w%gvid:1137},
+    section_func = rand_section
+},{
+    vector = vector():set({w%x:-230.0392},{w%y:3.3837},{w%z:-351.1981}),
+    lvid = {w%lvid:135765},
+    gvid = {w%gvid:1137},
+    section_func = rand_section
+},{
+    vector = vector():set({w%x:-226.6025},{w%y:3.4403},{w%z:-352.4969}),
+    lvid = {w%lvid:138660},
+    gvid = {w%gvid:1137},
+    section_func = rand_section
+},{
+    vector = vector():set({w%x:-224.8007},{w%y:3.5183},{w%z:-350.9209}),
+    lvid = {w%lvid:140476},
+    gvid = {w%gvid:1137},
+    section_func = rand_section
+},{
+    vector = vector():set({w%x:-224.6801},{w%y:3.6152},{w%z:-347.6444}),
+    lvid = {w%lvid:140480},
+    gvid = {w%gvid:1137},
+    section_func = rand_section
+},{
+    vector = vector():set({w%x:-221.3647},{w%y:3.5831},{w%z:-351.3995}),
+    lvid = {w%lvid:143424},
+    gvid = {w%gvid:1137},
+    section_func = rand_section
+},{
+    vector = vector():set({w%x:-219.5868},{w%y:3.7664},{w%z:-347.2143}),
+    lvid = {w%lvid:144638},
+    gvid = {w%gvid:1137},
+    section_func = rand_section
+},{
+    vector = vector():set({w%x:-217.7688},{w%y:4.2901},{w%z:-336.7264}),
+    lvid = {w%lvid:146488},
+    gvid = {w%gvid:1137},
+    section_func = rand_section
+},{
+    vector = vector():set({w%x:-215.5252},{w%y:4.4611},{w%z:-334.6634}),
+    lvid = {w%lvid:148350},
+    gvid = {w%gvid:1137},
+    section_func = rand_section
+},{
+    vector = vector():set({w%x:-218.3918},{w%y:4.4461},{w%z:-332.6107}),
+    lvid = {w%lvid:145883},
+    gvid = {w%gvid:1138},
+    section_func = rand_section
+},{
+    vector = vector():set({w%x:-212.2242},{w%y:5.0561},{w%z:-327.9320}),
+    lvid = {w%lvid:151430},
+    gvid = {w%gvid:1138},
+    section_func = rand_section
+},{
+    vector = vector():set({w%x:-212.7550},{w%y:5.1044},{w%z:-325.3429}),
+    lvid = {w%lvid:150809},
+    gvid = {w%gvid:1138},
+    section_func = rand_section
+},{
+    vector = vector():set({w%x:-215.0276},{w%y:4.9861},{w%z:-325.1922}),
+    lvid = {w%lvid:148975},
+    gvid = {w%gvid:1138},
+    section_func = rand_section
+},{
+    vector = vector():set({w%x:-214.4962},{w%y:5.1027},{w%z:-322.2921}),
+    lvid = {w%lvid:148978},
+    gvid = {w%gvid:1138},
+    section_func = rand_section
+},{
+    vector = vector():set({w%x:-214.7527},{w%y:5.2889},{w%z:-314.7313}),
+    lvid = {w%lvid:148980},
+    gvid = {w%gvid:1138},
+    section_func = rand_section
+},{
+    vector = vector():set({w%x:-217.1104},{w%y:5.1440},{w%z:-314.6437}),
+    lvid = {w%lvid:147125},
+    gvid = {w%gvid:1138},
+    section_func = rand_section
+},{
+    vector = vector():set({w%x:-216.1961},{w%y:5.1803},{w%z:-312.2639}),
+    lvid = {w%lvid:147752},
+    gvid = {w%gvid:1138},
+    section_func = rand_section
+},{
+    vector = vector():set({w%x:-219.0162},{w%y:5.0025},{w%z:-311.4751}),
+    lvid = {w%lvid:145291},
+    gvid = {w%gvid:1138},
+    section_func = rand_section
+},{
+    vector = vector():set({w%x:-219.3450},{w%y:4.9606},{w%z:-308.8696}),
+    lvid = {w%lvid:145295},
+    gvid = {w%gvid:1138},
+    section_func = rand_section
+},{
+    vector = vector():set({w%x:-222.0306},{w%y:4.7969},{w%z:-308.9708}),
+    lvid = {w%lvid:142881},
+    gvid = {w%gvid:1138},
+    section_func = rand_section
+},{
+    vector = vector():set({w%x:-223.1866},{w%y:4.7033},{w%z:-307.2904}),
+    lvid = {w%lvid:141717},
+    gvid = {w%gvid:1138},
+    section_func = rand_section
+},{
+    vector = vector():set({w%x:-225.4436},{w%y:4.5723},{w%z:-309.0473}),
+    lvid = {w%lvid:139929},
+    gvid = {w%gvid:1138},
+    section_func = rand_section
+},{
+    vector = vector():set({w%x:-227.1106},{w%y:4.4448},{w%z:-306.8075}),
+    lvid = {w%lvid:138726},
+    gvid = {w%gvid:1138},
+    section_func = rand_section
+},{
+    vector = vector():set({w%x:-229.2381},{w%y:4.3060},{w%z:-306.9550}),
+    lvid = {w%lvid:136932},
+    gvid = {w%gvid:1138},
+    section_func = rand_section
+},{
+    vector = vector():set({w%x:-243.6296},{w%y:3.1699},{w%z:-303.0005}),
+    lvid = {w%lvid:126322},
+    gvid = {w%gvid:1139},
+    section_func = rand_section
+},{
+    vector = vector():set({w%x:-246.1562},{w%y:2.9700},{w%z:-302.9780}),
+    lvid = {w%lvid:124414},
+    gvid = {w%gvid:1139},
+    section_func = rand_section
+},{
+    vector = vector():set({w%x:-243.8637},{w%y:3.0685},{w%z:-300.7435}),
+    lvid = {w%lvid:126325},
+    gvid = {w%gvid:1139},
+    section_func = rand_section
+},{
+    vector = vector():set({w%x:-240.2427},{w%y:3.4718},{w%z:-304.2067}),
+    lvid = {w%lvid:128790},
+    gvid = {w%gvid:1138},
+    section_func = rand_section
+},
+
+{
+    vector = behind_bush,
+    lvid = {w%lvid:157274},
+    gvid = {w%gvid:1160},
+    section_func = function() return "zombie_blind" end
+},
+{
+    vector = behind_far_rock,
+    lvid = {w%lvid:128321},
+    gvid = {w%gvid:1140},
+    section_func = function() return "zombie_blind" end
+},
+{
+    vector = behind_far_rock,
+    lvid = {w%lvid:128321},
+    gvid = {w%gvid:1140},
+    section_func = function() return "m_controller_normal" end
+}}

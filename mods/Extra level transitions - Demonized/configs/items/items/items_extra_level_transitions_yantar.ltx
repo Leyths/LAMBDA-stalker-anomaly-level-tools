@@ -1,0 +1,21 @@
+; Yantar <-> Dead City
+[lc_yantar_west_dead_city_west]:lc_extra_level_transition_base
+lc_extra_level_transition = true					;; mandatory field
+story_id = lc_yantar_west_dead_city_west{r%level:l08_yantar}			;; story_id, without it the item wont be added
+pos = {w%x:-219.6},{w%y:6.7},{w%z:-48.95}						;; position of item
+gvid = {w%gvid:2307}								;; Gvid of item
+spot = level_changer_up						;; texture to use for spot on the map
+hint = space_restrictor_to_deadcity_desc{r%level:l09_deadcity}			;; string id for hint description, defined in xml files
+to_pos = {w%x:-226},{w%y:10.01},{w%z:-181.52}					;; position where to teleport actor
+to_gvid = {w%gvid:2318}								;; Gvid where to teleport actor
+
+[lc_dead_city_west_yantar_west]:lc_extra_level_transition_base
+lc_extra_level_transition = true					;; mandatory field
+story_id = lc_yantar_west_dead_city_west{r%level:l09_deadcity}			;; story_id, without it the item wont be added
+pos = {w%x:-234.17},{w%y:9.86},{w%z:-190.01}						;; position of item
+gvid = {w%gvid:2318}								;; Gvid of item
+spot = level_changer_down						;; texture to use for spot on the map
+hint = space_restrictor_to_yantar_desc{r%level:l08_yantar}				;; string id for hint description, defined in xml files
+to_pos = {w%x:-222.64},{w%y:7.48},{w%z:-62.54}					;; position where to teleport actor
+dir = 0,60,0								;; actor facing
+to_gvid = {w%gvid:2307}								;; Gvid where to teleport actor

@@ -1,0 +1,19 @@
+[lc_limansk_river_jupiter_bandit_base]:lc_extra_level_transition_base
+lc_extra_level_transition = true 								; mandatory field
+story_id = lc_limansk_river_jupiter_bandit_base	{r%level:l10_limansk}		; story_id, without it the item wont be added
+pos = {w%x:68.83},{w%y:-7},{w%z:-15.85}			                                    ; position of item
+gvid = {w%gvid:2440}		                        					; Gvid of item
+spot = level_changer_up_right			                            ; texture to use for spot on the map                      
+hint = space_restrictor_to_jupiter_desc	{r%level:jupiter}		        ; string id for hint description, defined in xml files
+to_pos = {w%x:-446},{w%y:0},{w%z:-345.2}			                            ; position where to teleport actor
+to_gvid = {w%gvid:4818}                    					 			; Gvid where to teleport actor
+
+[lc_jupiter_bandit_base_limansk_river]:lc_extra_level_transition_base
+lc_extra_level_transition = true 								; mandatory field
+story_id = lc_jupiter_bandit_base_limansk_river{r%level:jupiter}
+pos = {w%x:-455.8},{w%y:0},{w%z:-345.9}
+gvid = {w%gvid:4818}
+spot = level_changer_down_left
+hint = space_restrictor_to_limansk_desc{r%level:l10_limansk}
+to_pos = {w%x:60.1},{w%y:-7},{w%z:-5.51}
+to_gvid = {w%gvid:2440}

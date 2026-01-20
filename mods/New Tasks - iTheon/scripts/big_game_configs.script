@@ -1,0 +1,24 @@
+{r%level:jupiter}
+small_giants_spots = {{
+    section = 'gigant_weak',
+    vector = vector():set({w%x:-209.7836},{w%y:3.4920},{w%z:-414.5185}),
+    lvid = {w%lvid:360771},
+    gvid = {w%gvid:4626}
+},{
+    section = 'gigant_weak',
+    vector = vector():set({w%x:-212.1727},{w%y:3.3605},{w%z:-416.7569}),
+    lvid = {w%lvid:357230},
+    gvid = {w%gvid:4626}
+},{
+    section = 'gigant_weak',
+    vector = vector():set({w%x:-215.2613},{w%y:3.4917},{w%z:-414.0819}),
+    lvid = {w%lvid:351332},
+    gvid = {w%gvid:4626}
+}}
+
+big_giant_spot = {
+    section = "gigant_very_big",
+    vector = vector():set({w%x:-209.7836},{w%y:3.4920},{w%z:-414.5185}),
+    lvid = {w%lvid:360771},
+    gvid = {w%gvid:4626}
+}

@@ -1,0 +1,577 @@
+--Tweaki_Breeki's
+---_--_-______-_____---_---_------------------_____-_------------_-------_---------------------_---_-------------------
+--|-||-|____--|-____|-|-\-|-|----------------/-____|-|----------|-|-----|-|-------------------|-|-(_)------------------
+--|-||-|_--/-/|-|__---|--\|-|-_____------__-|-(___-|-|_-__-_-___|-|__---|-|-----___---___-__-_|-|_-_--___--_-__--___---
+--|__---_|/-/-|___-\--|-.-`-|/-_-\-\-/\-/-/--\___-\|-__/-_`-/-__|-'_-\--|-|----/-_-\-/-__/-_`-|-__|-|/-_-\|-'_-\/-__|--
+-----|-|-/-/---___)-|-|-|\--|--__/\-V--V-/---____)-|-||-(_|-\__-\-|-|-|-|-|___|-(_)-|-(_|-(_|-|-|_|-|-(_)-|-|-|-\__-\--
+-----|_|/_/---|____/--|_|-\_|\___|-\_/\_/---|_____/-\__\__,_|___/_|-|_|-|______\___/-\___\__,_|\__|_|\___/|_|-|_|___/--
+--Version 1.4
+--30/05/2021
+--This file should be in gamedata\scripts\
+--This is the main script to monkey patch into treasure_manager.init_settings and place appropriate new stashes in Darkscape, which will get added to the stash list via treasure manager.
+--Huge thanks to RavenAscendant for teaching me how to monkey patch and explain script load order and callbacks!
+
+tb_copy_of_init_settings = treasure_manager.init_settings
+
+function treasure_manager.init_settings()
+	make_new_stashes()
+	tb_copy_of_init_settings()
+end
+
+function make_new_stashes()
+	
+	local m_data = alife_storage_manager.get_state()
+	if (m_data.custom_spawn_stashes_only_once) then
+	return
+	end
+	--write a flag to the storage manager once only
+	m_data.custom_spawn_stashes_only_once = true
+	
+	--array sections are: X, Y, Z, lvl_id, game_id, place a model?, big or small model?
+	
+	NewStashes = {
+		--agroprom 22
+{r%level:l03_agroprom}
+		{{w%x:-1.0024355649948},{w%y:12.228872299194},{w%z:19.650024414063},{w%lvid:198281},{w%gvid:1026},0,4},      --north-west of the northern complex [NO MODEL]
+		{{w%x:-136.77301025391},{w%y:-1.7627657651901},{w%z:-304.10098266602},{w%lvid:75679},{w%gvid:1048},1,8},     --south of the southern complex [BIG]
+		{{w%x:-14.412698745728},{w%y:-0.20023339986801},{w%z:-15.863082885742},{w%lvid:184829},{w%gvid:993},1,4},    --west of the northern complex
+		{{w%x:-142.03851318359},{w%y:11.384363174438},{w%z:85.420791625977},{w%lvid:76073},{w%gvid:982},1,4},        --east of the swamps
+		{{w%x:-15.962207794189},{w%y:0.79348558187485},{w%z:37.79231262207},{w%lvid:184900},{w%gvid:1008},1,4},      --north-west of the northern complex
+		{{w%x:-173.67001342773},{w%y:-0.00023949146270752},{w%z:-159.19296264648},{w%lvid:47542},{w%gvid:1017},1,4}, --west of the southern complex
+		{{w%x:-190.21881103516},{w%y:5.1818571090698},{w%z:27.887079238892},{w%lvid:35282},{w%gvid:970},1,4},        --south-east of the swamps
+		{{w%x:-5.9683389663696},{w%y:6.4419746398926},{w%z:123.48187255859},{w%lvid:195687},{w%gvid:1025},1,4},      --north of the northern complex
+		{{w%x:-84.807861328125},{w%y:-1.4761927127838},{w%z:-211.92013549805},{w%lvid:124983},{w%gvid:906},1,4},     --south-east of the southern complex
+		{{w%x:-96.973838806152},{w%y:9.7843055725098},{w%z:132.16831970215},{w%lvid:114863},{w%gvid:938},1,4},       --north-east of the swamps
+		{{w%x:106.68867492676},{w%y:2.2816343307495},{w%z:-203.57577514648},{w%lvid:290998},{w%gvid:951},1,4},       --east of the anomaly to the south
+		{{w%x:126.63942718506},{w%y:13.649764060974},{w%z:66.090156555176},{w%lvid:306225},{w%gvid:928},1,8},        --south-west of the anomaly on the hill [BIG]
+		{{w%x:14.352824211121},{w%y:-1.9017696380615},{w%z:2.2595489025116},{w%lvid:212102},{w%gvid:1026},1,4},      --north-west of the northern complex
+		{{w%x:18.704942703247},{w%y:-0.15465466678143},{w%z:44.18404006958},{w%lvid:215297},{w%gvid:935},1,4},       --north of the northern complex
+		{{w%x:235.771484375},{w%y:26.328844070435},{w%z:-178.83438110352},{w%lvid:396266},{w%gvid:954},1,4},         --east of the anomaly to the south
+		{{w%x:257.51516723633},{w%y:1.3617050647736},{w%z:76.664878845215},{w%lvid:410116},{w%gvid:1031},1,4},       --east of the anomaly on the hill
+		{{w%x:273.80310058594},{w%y:22.81672668457},{w%z:-98.00902557373},{w%lvid:417100},{w%gvid:1002},1,4},        --south-east of the anomaly on the hill
+		{{w%x:28.378438949585},{w%y:9.4515352249146},{w%z:-303.16973876953},{w%lvid:223816},{w%gvid:1046},1,4},      --south of the anomaly to the south
+		{{w%x:32.009246826172},{w%y:-0.014935851097107},{w%z:3.0179064273834},{w%lvid:226397},{w%gvid:1013},1,4},    --north-east of the northern complex
+		{{w%x:50.373191833496},{w%y:16.431028366089},{w%z:121.05798339844},{w%lvid:240081},{w%gvid:1071},1,4},       --west of the anomaly on the hill
+		{{w%x:80.505706787109},{w%y:0.19744750857353},{w%z:1.1951835155487},{w%lvid:266943},{w%gvid:1015},1,4},      --east of the northern complex
+		{{w%x:93.916709899902},{w%y:0.4029795229435},{w%z:-73.451629638672},{w%lvid:278873},{w%gvid:927},1,4},       --south-east of the northern complex
+		--army warehouses 24
+{r%level:l07_military}
+		{{w%x:-119.79273986816},{w%y:-12.330327033997},{w%z:-23.354217529297},{w%lvid:187852},{w%gvid:2164},1,8},    --south-east of the anomaly on the southern hill [BIG]
+		{{w%x:-170.13372802734},{w%y:-16.20464515686},{w%z:365.90606689453},{w%lvid:143410},{w%gvid:2020},1,4},      --south of the road to Radar
+		{{w%x:-178.56309509277},{w%y:-2.7255780696869},{w%z:0.73084604740143},{w%lvid:135467},{w%gvid:2185},1,4},    --south of the anomaly on the southern hill
+		{{w%x:-214.21481323242},{w%y:-17.241374969482},{w%z:240.37733459473},{w%lvid:106973},{w%gvid:2055},1,4},     --east of the abandoned village
+		{{w%x:-223.78848266602},{w%y:-18.404447555542},{w%z:206.15887451172},{w%lvid:99858},{w%gvid:2055},1,4},      --east of the abandoned village
+		{{w%x:-248.69776916504},{w%y:-2.0195486545563},{w%z:431.60507202148},{w%lvid:81901},{w%gvid:2182},1,4},      --west of the road to Radar
+		{{w%x:-26.447069168091},{w%y:-7.0321860313416},{w%z:-30.963855743408},{w%lvid:268459},{w%gvid:2178},0,4},    --south of the Freedom base [NO MODEL]
+		{{w%x:-300.7053527832},{w%y:-22.530523300171},{w%z:280.68319702148},{w%lvid:40770},{w%gvid:1987},1,4},       --north of the abandoned village
+		{{w%x:-303.94555664063},{w%y:-11.504428863525},{w%z:110.72775268555},{w%lvid:40147},{w%gvid:2145},1,4},      --north of the old farmstead
+		{{w%x:-306.25021362305},{w%y:-27.532138824463},{w%z:205.96185302734},{w%lvid:38730},{w%gvid:2133},1,4},      --south of the abandoned village
+		{{w%x:-325.14804077148},{w%y:-21.334854125977},{w%z:270.17486572266},{w%lvid:22356},{w%gvid:2129},1,4},      --north-west of the abandoned village
+		{{w%x:-334.93273925781},{w%y:-24.153532028198},{w%z:239.62840270996},{w%lvid:16560},{w%gvid:2022},1,4},      --west of the abandoned village
+		{{w%x:-34.676197052002},{w%y:-10.542362213135},{w%z:49.181488037109},{w%lvid:259165},{w%gvid:2045},1,4},     --north-west of the Freedom base
+		{{w%x:-388.33685302734},{w%y:-13.08242225647},{w%z:407.88854980469},{w%lvid:1351},{w%gvid:1967},1,4},        --west of the road to Radar
+		{{w%x:-78.566749572754},{w%y:-7.0353136062622},{w%z:59.389846801758},{w%lvid:218759},{w%gvid:2045},1,4},     --west of the Freedom base
+		{{w%x:-79.355163574219},{w%y:-7.8853931427002},{w%z:36.877170562744},{w%lvid:223405},{w%gvid:2150},1,4},     --west of the Freedom base
+		{{w%x:-8.6563911437988},{w%y:-15.335598945618},{w%z:171.05000305176},{w%lvid:282927},{w%gvid:2162},1,4},     --north-west of the old shack
+		{{w%x:-93.448471069336},{w%y:-20.499027252197},{w%z:234.83047485352},{w%lvid:211214},{w%gvid:2125},1,4},     --north-west of the old shack
+		{{w%x:108.67199707031},{w%y:-6.1068530082703},{w%z:11.064054489136},{w%lvid:375016},{w%gvid:2052},1,4},      --east of the Freedom base
+		{{w%x:108.88528442383},{w%y:-4.9982657432556},{w%z:103.90533447266},{w%lvid:373161},{w%gvid:2015},1,4},      --east of the old shack
+		{{w%x:123.08103942871},{w%y:2.4742896556854},{w%z:346.33822631836},{w%lvid:378961},{w%gvid:2183},1,4},       --south-east of the road to Dead City
+		{{w%x:13.699436187744},{w%y:-0.4465120434761},{w%z:-19.486766815186},{w%lvid:303523},{w%gvid:2069},1,4},     --south of the Freedom base
+		{{w%x:36.427093505859},{w%y:-7.0367364883423},{w%z:403.26635742188},{w%lvid:318513},{w%gvid:2067},1,4},      --south-east of the road to Dead City
+		{{w%x:60.632926940918},{w%y:-8.457501411438},{w%z:-41.690055847168},{w%lvid:341429},{w%gvid:2052},1,4},      --south-east of the Freedom base
+		--cordon 14
+{r%level:l01_escape}
+		{{w%x:-106.46270751953},{w%y:-30.331539154053},{w%z:-392.88421630859},{w%lvid:154522},{w%gvid:449},1,8},     --south-east of the southern checkpoint [BIG]
+		{{w%x:-170.57934570313},{w%y:-16.680252075195},{w%z:-132.04510498047},{w%lvid:78649},{w%gvid:488},1,4},      --north-east of the rookie village
+		{{w%x:-19.92218208313},{w%y:2.1629786491394},{w%z:275.64038085938},{w%lvid:277769},{w%gvid:632},1,4},        --west of the farm
+		{{w%x:-199.52900695801},{w%y:26.869112014771},{w%z:253.26397705078},{w%lvid:56348},{w%gvid:364},1,4},        --west of the farm
+		{{w%x:-208.31134033203},{w%y:-37.048271179199},{w%z:-307.28701782227},{w%lvid:43845},{w%gvid:576},1,4},      --north-west of the southern checkpoint
+		{{w%x:-28.8922996521},{w%y:9.0443029403687},{w%z:86.972106933594},{w%lvid:265048},{w%gvid:461},1,4},         --south-west of the railway bridge
+		{{w%x:-3.9298160076141},{w%y:21.714532852173},{w%z:157.42106628418},{w%lvid:302706},{w%gvid:486},1,4},       --in Cordon, west of the railway bridge
+		{{w%x:-36.732593536377},{w%y:42.160190582275},{w%z:595.74822998047},{w%lvid:260456},{w%gvid:640},1,4},       --south-west of the northern checkpoint
+		{{w%x:-77.960182189941},{w%y:-4.9218173027039},{w%z:50.527954101563},{w%lvid:193359},{w%gvid:501},1,4},      --south-west of the railway bridge
+		{{w%x:129.16580200195},{w%y:3.4584379196167},{w%z:341.93853759766},{w%lvid:461107},{w%gvid:457},1,4},        --north-east of the farm
+		{{w%x:129.94665527344},{w%y:-3.954225063324},{w%z:-2.902449131012},{w%lvid:462130},{w%gvid:445},1,4},        --east of the car park
+		{{w%x:130.49589538574},{w%y:2.5596721172333},{w%z:504.38372802734},{w%lvid:465604},{w%gvid:405},1,4},        --east of the anomaly in the woods
+		{{w%x:291.82968139648},{w%y:19.556648254395},{w%z:44.514377593994},{w%lvid:585889},{w%gvid:600},1,4},        --south of the train tunnel
+		{{w%x:335.81747436523},{w%y:21.019540786743},{w%z:-35.237888336182},{w%lvid:611123},{w%gvid:574},1,4},       --east of the car park
+		--dark valley 21
+{r%level:l04_darkvalley}
+		{{w%x:-100.01907348633},{w%y:1.2854799032211},{w%z:-131.09976196289},{w%lvid:57663},{w%gvid:1422},1,4},      --north-east of the exit to the Garbage
+		{{w%x:-108.71495056152},{w%y:2.0100846290588},{w%z:-490.23013305664},{w%lvid:47231},{w%gvid:1550},1,4},      --near the abandoned farm
+		{{w%x:-138.11824035645},{w%y:0.29630851745605},{w%z:-272.56246948242},{w%lvid:23281},{w%gvid:1580},1,4},     --south of the exit to the Garbage
+		{{w%x:-163.14819335938},{w%y:1.059522986412},{w%z:-456.19448852539},{w%lvid:6412},{w%gvid:1449},1,4},        --north-west of the abandoned farm
+		{{w%x:-178.28649902344},{w%y:4.0600047111511},{w%z:-171.91474914551},{w%lvid:3475},{w%gvid:1562},1,4},       --north-west of the exit to the Garbage
+		{{w%x:-33.399757385254},{w%y:3.5213198661804},{w%z:-511.80383300781},{w%lvid:132254},{w%gvid:1473},1,4},     --east of the abandoned farm
+		{{w%x:-58.40193939209},{w%y:0.079894602298737},{w%z:-132.20475769043},{w%lvid:102051},{w%gvid:1535},1,4},    --west of the factory
+		{{w%x:-67.683364868164},{w%y:-6.3815293312073},{w%z:-20.340848922729},{w%lvid:93142},{w%gvid:1524},1,4},     --west of the bandit base
+		{{w%x:-98.019302368164},{w%y:1.1670356988907},{w%z:-387.62713623047},{w%lvid:61207},{w%gvid:1445},1,4},      --north of the abandoned farm
+		{{w%x:106.94033050537},{w%y:7.7428555488586},{w%z:-6.2245917320251},{w%lvid:285386},{w%gvid:1490},1,4},      --north of the gas station
+		{{w%x:108.91310882568},{w%y:3.3212199211121},{w%z:-421.0983581543},{w%lvid:288527},{w%gvid:1438},1,8},       --north of the Glowing Pit anomaly [BIG]
+		{{w%x:11.560947418213},{w%y:0.70882624387741},{w%z:-223.71151733398},{w%lvid:179578},{w%gvid:1575},1,4},     --south of the factory
+		{{w%x:13.36395740509},{w%y:-4.9844832420349},{w%z:-287.94366455078},{w%lvid:177451},{w%gvid:1434},1,4},      --west of the moving fireball
+		{{w%x:145.85717773438},{w%y:14.218613624573},{w%z:-379.92150878906},{w%lvid:328463},{w%gvid:1505},1,4},      --south of the moving fireball
+		{{w%x:147.88934326172},{w%y:1.2279899120331},{w%z:-276.98889160156},{w%lvid:329409},{w%gvid:1432},1,4},      --north of the moving fireball
+		{{w%x:155.7335357666},{w%y:-4.5681939125061},{w%z:-97.980178833008},{w%lvid:341101},{w%gvid:1416},1,4},      --south-east of the gas station
+		{{w%x:170.8687286377},{w%y:0.1475738286972},{w%z:-234.11352539063},{w%lvid:353972},{w%gvid:1621},1,4},       --north of the moving fireball
+		{{w%x:180.34603881836},{w%y:8.1599235534668},{w%z:45.140766143799},{w%lvid:361891},{w%gvid:1670},1,4},       --north-east of the gas station
+		{{w%x:191.0998840332},{w%y:5.6552119255066},{w%z:-156.39895629883},{w%lvid:369740},{w%gvid:1428},1,4},       --south-east of the gas station
+		{{w%x:36.776515960693},{w%y:0.63037437200546},{w%z:-159.17613220215},{w%lvid:209054},{w%gvid:1419},0,4},     --south of the factory [NO MODEL]
+		{{w%x:46.275859832764},{w%y:1.0811333656311},{w%z:-204.05967712402},{w%lvid:219329},{w%gvid:1619},0,4},      --south of the factory [NO MODEL]
+		--darkscape 33
+{r%level:k01_darkscape}
+		{{w%x:-120.37452697754},{w%y:1.5902532339096},{w%z:-139.91705322266},{w%lvid:241751},{w%gvid:1151},1,4},     --E of little camp in rocks
+		{{w%x:-176.90745544434},{w%y:3.2122311592102},{w%z:617.01892089844},{w%lvid:185971},{w%gvid:1375},1,8},      --toward n-exit behind a rock [BIG]
+		{{w%x:-191.64215087891},{w%y:3.2099688053131},{w%z:-146.98336791992},{w%lvid:172022},{w%gvid:1145},1,4},     --little camp in tarp on building roof
+		{{w%x:-210.11512756348},{w%y:-0.96160632371902},{w%z:-232.82295227051},{w%lvid:155464},{w%gvid:1157},1,4},   --S of little camp in bush
+		{{w%x:-236.5523223877},{w%y:2.740882396698},{w%z:499.99359130859},{w%lvid:129930},{w%gvid:1350},1,4},        --toward n-exit in bush
+		{{w%x:-278.64294433594},{w%y:-3.5712683200836},{w%z:-502.74212646484},{w%lvid:105236},{w%gvid:1126},1,4},    --back of electric jeep in the road
+		{{w%x:-312.66717529297},{w%y:0.90410852432251},{w%z:588.13012695313},{w%lvid:88529},{w%gvid:1370},1,4},      --near n-exit under rocks
+		{{w%x:-496.09515380859},{w%y:4.6599035263062},{w%z:-444.93255615234},{w%lvid:24019},{w%gvid:1129},1,4},      --in tree by Cordon exit
+		{{w%x:-497.74328613281},{w%y:2.4664509296417},{w%z:-519.76702880859},{w%lvid:24085},{w%gvid:1129},1,4},      --in rocks near Cordon exit
+		{{w%x:-558.36651611328},{w%y:2.0986888408661},{w%z:-376.02642822266},{w%lvid:8991},{w%gvid:1396},1,4},       --closer in rocks by Cordon exit
+		{{w%x:-95.240104675293},{w%y:-0.58998656272888},{w%z:-293.25836181641},{w%lvid:266447},{w%gvid:1174},1,4},   --in rocks by static body parts
+		{{w%x:23.64041519165},{w%y:2.4479818344116},{w%z:595.24108886719},{w%lvid:401545},{w%gvid:1319},1,4},        --top of level end of fallen tree in bush
+		{{w%x:232.60467529297},{w%y:12.55483341217},{w%z:-411.03356933594},{w%lvid:650521},{w%gvid:1257},1,4},       --SE middle hill under fallen tree
+		{{w%x:233.5160369873},{w%y:0.66757416725159},{w%z:-181.14375305176},{w%lvid:650844},{w%gvid:1221},0,4},      --barrel outside main building [NO MODEL]
+		{{w%x:257.09045410156},{w%y:-5.152407169342},{w%z:525.23962402344},{w%lvid:678860},{w%gvid:1313},1,4},       --near north bridge inside barred pipe entrance
+		{{w%x:266.05291748047},{w%y:8.3295679092407},{w%z:642.96459960938},{w%lvid:679010},{w%gvid:1302},1,4},       --top of level on top of big rocks
+		{{w%x:310.93927001953},{w%y:-0.32430803775787},{w%z:-78.01212310791},{w%lvid:742123},{w%gvid:1269},1,4},     --rusty jeep under panel
+		{{w%x:384.53219604492},{w%y:22.815906524658},{w%z:283.11532592773},{w%lvid:854166},{w%gvid:1400},1,4},       --inside fallen carriage on bridge
+		{{w%x:400.83575439453},{w%y:2.3562841415405},{w%z:-465.72222900391},{w%lvid:871418},{w%gvid:1119},1,4},      --jump from helicopter into tree
+		{{w%x:411.2978515625},{w%y:17.0374584198},{w%z:-128.98118591309},{w%lvid:887112},{w%gvid:1265},1,4},         --bottom of lookout tower
+		{{w%x:422.06512451172},{w%y:0.44334545731544},{w%z:411.55841064453},{w%lvid:901360},{w%gvid:1099},1,4},      --NE of level between rocks
+		{{w%x:424.45050048828},{w%y:-1.57524061203},{w%z:175.74925231934},{w%lvid:908493},{w%gvid:1103},1,4},        --inside squashed car south of big bridge
+		{{w%x:425.96862792969},{w%y:-1.8293484449387},{w%z:-360.18154907227},{w%lvid:913342},{w%gvid:1404},1,8},     --in gas station building [BIG]
+		{{w%x:426.32482910156},{w%y:18.768964767456},{w%z:286.21466064453},{w%lvid:918648},{w%gvid:1393},1,4},       --under big bridge
+		{{w%x:438.63357543945},{w%y:4.1056580543518},{w%z:457.65423583984},{w%lvid:939868},{w%gvid:1290},1,4},       --NE of level behind mossy rocks
+		{{w%x:45.502323150635},{w%y:-0.22851401567459},{w%z:-104.45372009277},{w%lvid:421577},{w%gvid:1199},1,4},    --between rocks W of main building
+		{{w%x:457.40924072266},{w%y:-1.3119196891785},{w%z:-519.89862060547},{w%lvid:956151},{w%gvid:1119},1,4},     --south tunnel in rocks
+		{{w%x:458.43560791016},{w%y:-0.4602355659008},{w%z:-364.81307983398},{w%lvid:960842},{w%gvid:1404},1,4},     --under fallen tree E of gas station
+		{{w%x:51.087783813477},{w%y:-0.18558791279793},{w%z:-225.43235778809},{w%lvid:432331},{w%gvid:1202},1,4},    --W of main building base of tree
+		{{w%x:512.23596191406},{w%y:-1.3859264850616},{w%z:-431.79989624023},{w%lvid:976932},{w%gvid:1118},1,4},     --east electri tunnel under rock
+		{{w%x:577.72698974609},{w%y:12.048778533936},{w%z:-51.745735168457},{w%lvid:1038543},{w%gvid:1107},1,4},     --jump up rocks to jump in tree
+		{{w%x:596.17742919922},{w%y:2.7337446212769},{w%z:50.970447540283},{w%lvid:1043112},{w%gvid:1105},1,4},      --top E of level inside rock pile
+		{{w%x:66.447105407715},{w%y:7.4171786308289},{w%z:-617.82861328125},{w%lvid:442231},{w%gvid:1123},1,4},      --S of level on rock covered by tree
+		--dead city 11
+{r%level:l09_deadcity}
+		{{w%x:-110.75201416016},{w%y:-3.9908621311188},{w%z:-156.21257019043},{w%lvid:67995},{w%gvid:2317},1,4},     --south of the isolated houses
+		{{w%x:-121.59698486328},{w%y:19.054054260254},{w%z:-15.226713180542},{w%lvid:63897},{w%gvid:2360},1,4},      --north of the isolated houses
+		{{w%x:-54.530319213867},{w%y:1.2512264251709},{w%z:76.485427856445},{w%lvid:98396},{w%gvid:2323},1,8},       --south of the road to Limansk [BIG]
+		{{w%x:-91.620582580566},{w%y:15.624184608459},{w%z:-38.520240783691},{w%lvid:77206},{w%gvid:2417},1,4},      --north-west of the derelict monoblock
+		{{w%x:109.23956298828},{w%y:1.0790770053864},{w%z:24.950202941895},{w%lvid:203629},{w%gvid:2415},1,8},       --north-west of the tunnel to the Army Warehouses [BIG]
+		{{w%x:117.64723205566},{w%y:1.4244995117188},{w%z:61.330131530762},{w%lvid:210169},{w%gvid:2416},1,4},       --north of the tunnel to the Army Warehouses
+		{{w%x:13.095472335815},{w%y:6.0718588829041},{w%z:-29.455169677734},{w%lvid:143999},{w%gvid:2396},1,4},      --north of the abandoned school
+		{{w%x:186.61642456055},{w%y:5.0219211578369},{w%z:-124.91282653809},{w%lvid:242949},{w%gvid:2329},1,4},      --south of the tunnel to the Army Warehouses
+		{{w%x:24.258369445801},{w%y:3.3814096450806},{w%z:64.354248046875},{w%lvid:124267},{w%gvid:2323},0,4},       --east of the mercenary base [NO MODEL]
+		{{w%x:50.524085998535},{w%y:6.9392848014832},{w%z:-22.263790130615},{w%lvid:166463},{w%gvid:2384},1,4},      --north of the abandoned school
+		{{w%x:86.749053955078},{w%y:1.0383923053741},{w%z:63.327621459961},{w%lvid:188537},{w%gvid:2340},1,4},       --north-west of the tunnel to the Army Warehouses
+		--deserted hospital 7
+{r%level:l11_hospital}
+		{{w%x:-69.22314453125},{w%y:25.089853286743},{w%z:637.87316894531},{w%lvid:7807},{w%gvid:2868},1,4},         --No GetPointDescription
+		{{w%x:-74.322944641113},{w%y:34.045299530029},{w%z:641.87109375},{w%lvid:7239},{w%gvid:2873},1,4},           --No GetPointDescription
+		{{w%x:-90.481025695801},{w%y:21.236824035645},{w%z:569.27502441406},{w%lvid:2523},{w%gvid:2902},1,4},        --No GetPointDescription
+		{{w%x:-90.988372802734},{w%y:27.462247848511},{w%z:735.21801757813},{w%lvid:2317},{w%gvid:2851},1,4},        --No GetPointDescription
+		{{w%x:-94.201766967773},{w%y:33.653316497803},{w%z:701.57843017578},{w%lvid:1074},{w%gvid:2904},1,4},        --No GetPointDescription
+		{{w%x:-95.348838806152},{w%y:23.768491744995},{w%z:750.29150390625},{w%lvid:1837},{w%gvid:2893},1,4},        --No GetPointDescription
+		{{w%x:-97.881988525391},{w%y:32.737724304199},{w%z:794.94189453125},{w%lvid:1528},{w%gvid:2891},1,4},        --No GetPointDescription
+		--garbage 38
+{r%level:l02_garbage}
+		{{w%x:-0.83896964788437},{w%y:2.2809164524078},{w%z:-293.5754699707},{w%lvid:160275},{w%gvid:653},1,4},      --west of the road to Cordon
+		{{w%x:-104.1028137207},{w%y:2.7987458705902},{w%z:-24.366268157959},{w%lvid:98280},{w%gvid:725},0,4},        --south of the Depot [NO MODEL]
+		{{w%x:-125.71890258789},{w%y:3.6434643268585},{w%z:37.759746551514},{w%lvid:79577},{w%gvid:725},1,4},        --north of the Depot
+		{{w%x:-129.28562927246},{w%y:-1.9300301074982},{w%z:-185.111328125},{w%lvid:78025},{w%gvid:727},1,4},        --west of the vehicle graveyard
+		{{w%x:-14.777242660522},{w%y:6.2688798904419},{w%z:-250.74368286133},{w%lvid:148626},{w%gvid:701},1,8},      --north-west of the road to Cordon [BIG]
+		{{w%x:-140.0406036377},{w%y:1.4585264921188},{w%z:-32.377208709717},{w%lvid:67901},{w%gvid:689},0,4},        --south-west of the Depot [NO MODEL]
+		{{w%x:-15.700407028198},{w%y:1.8549231290817},{w%z:145.15029907227},{w%lvid:148987},{w%gvid:686},1,4},       --south-west of the Rostok checkpoint
+		{{w%x:-167.07568359375},{w%y:0.95361602306366},{w%z:-262.30648803711},{w%lvid:43568},{w%gvid:679},1,4},      --south-west of the vehicle graveyard
+		{{w%x:-186.11555480957},{w%y:-2.6911120414734},{w%z:82.683853149414},{w%lvid:32177},{w%gvid:802},1,4},       --south-east of the Synapse anomaly
+		{{w%x:-237.3046875},{w%y:-0.21913293004036},{w%z:83.068946838379},{w%lvid:6205},{w%gvid:692},1,4},           --south-west of the Synapse anomaly
+		{{w%x:-249.25827026367},{w%y:-6.2816433906555},{w%z:-160.54705810547},{w%lvid:5397},{w%gvid:775},1,4},       --west of the vehicle graveyard
+		{{w%x:-26.916114807129},{w%y:1.3888552188873},{w%z:283.49432373047},{w%lvid:146482},{w%gvid:865},1,4},       --north-west of the Rostok checkpoint
+		{{w%x:-32.952621459961},{w%y:21.25958442688},{w%z:-113.19148254395},{w%lvid:174902},{w%gvid:823},1,4},       --north of the vehicle graveyard
+		{{w%x:-40.292888641357},{w%y:16.363252639771},{w%z:90.798294067383},{w%lvid:93604},{w%gvid:713},1,4},        --north-east of the Depot
+		{{w%x:-64.964553833008},{w%y:25.242502212524},{w%z:-110.89974212646},{w%lvid:174902},{w%gvid:823},1,4},      --north of the vehicle graveyard
+		{{w%x:-65.146438598633},{w%y:-1.0707302093506},{w%z:-195.48416137695},{w%lvid:120691},{w%gvid:790},1,4},     --north-east of the vehicle graveyard
+		{{w%x:-70.174797058105},{w%y:17.3244972229},{w%z:16.220808029175},{w%lvid:118774},{w%gvid:725},1,4},         --east of the Depot
+		{{w%x:-71.205375671387},{w%y:10.563936233521},{w%z:-1.3177092075348},{w%lvid:117321},{w%gvid:725},1,4},      --east of the Depot
+		{{w%x:-74.783164978027},{w%y:-3.3737649917603},{w%z:193.12008666992},{w%lvid:116009},{w%gvid:760},1,4},      --west of the Rostok checkpoint
+		{{w%x:-75.872299194336},{w%y:20.594160079956},{w%z:-97.090133666992},{w%lvid:174902},{w%gvid:823},1,4},      --south of the Depot
+		{{w%x:-76.227928161621},{w%y:18.296636581421},{w%z:101.77244567871},{w%lvid:93604},{w%gvid:713},1,4},        --north of the Depot
+		{{w%x:-81.41480255127},{w%y:1.5216820240021},{w%z:-39.172760009766},{w%lvid:111649},{w%gvid:725},1,4},       --south-east of the Depot
+		{{w%x:-87.478958129883},{w%y:4.0433554649353},{w%z:25.775096893311},{w%lvid:107062},{w%gvid:725},1,4},       --north-east of the Depot
+		{{w%x:-94.839935302734},{w%y:-2.6010551452637},{w%z:-225.0885925293},{w%lvid:102921},{w%gvid:729},1,4},      --south-west of the vehicle graveyard
+		{{w%x:10.84553527832},{w%y:0.65226298570633},{w%z:222.67687988281},{w%lvid:173918},{w%gvid:858},1,4},        --west of the Rostok checkpoint
+		{{w%x:100.32252502441},{w%y:-2.2033874988556},{w%z:-264.36972045898},{w%lvid:250550},{w%gvid:833},1,4},      --by the anomaly by the road
+		{{w%x:107.50386047363},{w%y:13.199769973755},{w%z:159.60537719727},{w%lvid:257396},{w%gvid:757},1,4},        --south-east of the Rostok checkpoint
+		{{w%x:137.49374389648},{w%y:4.301372051239},{w%z:-56.007831573486},{w%lvid:279476},{w%gvid:649},0,4},        --north of the swamp [NO MODEL]
+		{{w%x:152.02757263184},{w%y:1.5683325529099},{w%z:-91.559036254883},{w%lvid:289608},{w%gvid:831},1,4},       --north-east of the swamp
+		{{w%x:164.77618408203},{w%y:-1.6313121318817},{w%z:250.50071716309},{w%lvid:301396},{w%gvid:684},1,4},       --east of the Rostok checkpoint
+		{{w%x:199.45693969727},{w%y:-0.95789980888367},{w%z:-148.66612243652},{w%lvid:323296},{w%gvid:670},1,8},     --east of the swamp [BIG]
+		{{w%x:263.00381469727},{w%y:-9.5882396697998},{w%z:-143.90927124023},{w%lvid:350707},{w%gvid:846},1,4},      --east of the swamp
+		{{w%x:32.6243019104},{w%y:2.2690756320953},{w%z:-294.68627929688},{w%lvid:192593},{w%gvid:657},0,4},         --in the Garbage, by the road to Cordon [NO MODEL]
+		{{w%x:41.118133544922},{w%y:0.45650687813759},{w%z:-314.79916381836},{w%lvid:200457},{w%gvid:657},1,4},      --south of the road to Cordon
+		{{w%x:49.478839874268},{w%y:8.34876537323},{w%z:259.28048706055},{w%lvid:208737},{w%gvid:685},0,4},          --north of the Rostok checkpoint [NO MODEL]
+		{{w%x:65.439018249512},{w%y:15.424837112427},{w%z:49.128463745117},{w%lvid:287897},{w%gvid:744},1,4},        --south of the Rostok checkpoint
+		{{w%x:66.595687866211},{w%y:1.5306757688522},{w%z:-165.20797729492},{w%lvid:224492},{w%gvid:658},1,4},       --south-west of the swamp
+		{{w%x:74.685699462891},{w%y:16.5514087677},{w%z:32.796871185303},{w%lvid:287897},{w%gvid:744},1,8},          --north of the swamp [BIG]
+		--jupiter 37
+{r%level:jupiter}
+		{{w%x:-1.2068271636963},{w%y:-5.4663453102112},{w%z:410.48175048828},{w%lvid:713268},{w%gvid:4584},1,4},     --north-west of the substation
+		{{w%x:-121.30625915527},{w%y:2.6620378494263},{w%z:469.27255249023},{w%lvid:518328},{w%gvid:4709},1,4},      --north of the tower
+		{{w%x:-169.93853759766},{w%y:26.763256072998},{w%z:-489.82574462891},{w%lvid:426128},{w%gvid:4813},1,4},     --west of the helipad
+		{{w%x:-179.29598999023},{w%y:3.8205223083496},{w%z:-280.25448608398},{w%lvid:411628},{w%gvid:4704},1,4},     --west of the ventilation complex
+		{{w%x:-188.40902709961},{w%y:0.8734815120697},{w%z:-272.1526184082},{w%lvid:397277},{w%gvid:4704},0,4},      --west of the ventilation complex [NO MODEL]
+		{{w%x:-199.36427307129},{w%y:14.546111106873},{w%z:375.70755004883},{w%lvid:379524},{w%gvid:4574},1,8},      --west of the tower [BIG]
+		{{w%x:-202.64915466309},{w%y:-4.2860479354858},{w%z:170.04125976563},{w%lvid:374714},{w%gvid:4740},1,4},     --north of the mobile lab
+		{{w%x:-228.04733276367},{w%y:1.6057276725769},{w%z:70.481597900391},{w%lvid:329945},{w%gvid:4531},1,4},      --west of the mobile lab
+		{{w%x:-290.00720214844},{w%y:5.6895298957825},{w%z:-453.01983642578},{w%lvid:225560},{w%gvid:4721},1,4},     --west of the helipad
+		{{w%x:-35.752052307129},{w%y:2.1198263168335},{w%z:-19.289638519287},{w%lvid:658395},{w%gvid:4726},1,4},     --west of the anomalous grove
+		{{w%x:-377.60229492188},{w%y:7.4646081924438},{w%z:410.29272460938},{w%lvid:74856},{w%gvid:4822},1,4},       --west of the Ash Heap anomaly
+		{{w%x:-389.98645019531},{w%y:0.05942177772522},{w%z:-394.85470581055},{w%lvid:58218},{w%gvid:4470},1,4},     --south of the storage containers
+		{{w%x:-397.11279296875},{w%y:21.829698562622},{w%z:450.77960205078},{w%lvid:51186},{w%gvid:4822},1,4},       --north-west of the Ash Heap anomaly
+		{{w%x:-397.90982055664},{w%y:3.385333776474},{w%z:-355.50390625},{w%lvid:54231},{w%gvid:4468},1,4},          --south-east of the storage containers
+		{{w%x:-41.203460693359},{w%y:5.5076270103455},{w%z:182.05982971191},{w%lvid:647665},{w%gvid:4494},1,4},      --south-east of Jupiter
+		{{w%x:-412.01397705078},{w%y:3.1933782100677},{w%z:-381.18243408203},{w%lvid:27198},{w%gvid:4470},1,4},      --south of the storage containers
+		{{w%x:-435.17446899414},{w%y:-2.9455485343933},{w%z:194.18408203125},{w%lvid:7269},{w%gvid:4789},1,4},       --west of Kopachy
+		{{w%x:-443.96542358398},{w%y:2.878350019455},{w%z:-374.734375},{w%lvid:1185},{w%gvid:4818},1,4},             --south-west of the storage containers
+		{{w%x:-452.46026611328},{w%y:4.109842300415},{w%z:-354.85919189453},{w%lvid:184},{w%gvid:4818},1,4},         --west of the storage containers
+		{{w%x:-5.7120566368103},{w%y:24.9518699646},{w%z:244.28805541992},{w%lvid:705076},{w%gvid:4556},1,4},        --north-east of Jupiter
+		{{w%x:109.28881072998},{w%y:4.2262654304504},{w%z:191.14138793945},{w%lvid:904251},{w%gvid:4492},1,4},       --south of the substation
+		{{w%x:16.307905197144},{w%y:3.7676458358765},{w%z:170.55638122559},{w%lvid:743096},{w%gvid:4510},1,4},       --east of Jupiter
+		{{w%x:223.56979370117},{w%y:-29.941785812378},{w%z:124.63381195068},{w%lvid:1102199},{w%gvid:4491},1,4},     --south-west of the quarry
+		{{w%x:231.49450683594},{w%y:35.74426651001},{w%z:-438.9462890625},{w%lvid:1110521},{w%gvid:4488},1,4},       --south of the Concrete Bath anomaly
+		{{w%x:232.4292755127},{w%y:-29.913290023804},{w%z:35.664180755615},{w%lvid:1115671},{w%gvid:4765},1,4},      --north of the Bitumen anomaly
+		{{w%x:274.39804077148},{w%y:29.494533538818},{w%z:-228.17864990234},{w%lvid:1170456},{w%gvid:4693},1,4},     --near the Jupiter factory
+		{{w%x:301.49908447266},{w%y:28.838407516479},{w%z:-298.89071655273},{w%lvid:1205225},{w%gvid:4517},1,4},     --east of the Concrete Bath anomaly
+		{{w%x:324.35775756836},{w%y:35.032064056396},{w%z:-303.5510559082},{w%lvid:1234540},{w%gvid:4517},1,4},      --south-east of the Jupiter factory
+		{{w%x:355.39291381836},{w%y:31.968969345093},{w%z:-365.56619262695},{w%lvid:1281643},{w%gvid:4771},1,4},     --east of the Concrete Bath anomaly
+		{{w%x:380.98187255859},{w%y:12.284766197205},{w%z:356.04656982422},{w%lvid:1318142},{w%gvid:4496},1,4},      --north-east of the cement factory
+		{{w%x:384.59680175781},{w%y:4.4068040847778},{w%z:-126.49955749512},{w%lvid:1323260},{w%gvid:4677},1,8},     --south-west of the eastern tunnel [BIG]
+		{{w%x:418.48486328125},{w%y:28.472011566162},{w%z:-464.83853149414},{w%lvid:1374834},{w%gvid:4700},1,4},     --south-east of the Concrete Bath anomaly
+		{{w%x:457.19915771484},{w%y:27.853290557861},{w%z:-320.47790527344},{w%lvid:1439068},{w%gvid:4697},1,8},     --east of the Jupiter factory [BIG]
+		{{w%x:473.48937988281},{w%y:-6.00648021698},{w%z:253.75430297852},{w%lvid:1463250},{w%gvid:4665},1,4},       --south-east of the cement factory
+		{{w%x:485.10467529297},{w%y:27.249662399292},{w%z:-246.4892578125},{w%lvid:1476350},{w%gvid:4479},1,4},      --south-east of the eastern tunnel
+		{{w%x:57.101722717285},{w%y:28.263418197632},{w%z:-199.62586975098},{w%lvid:816345},{w%gvid:4509},1,4},      --south-east of the checkpoint
+		{{w%x:65.641418457031},{w%y:3.5499222278595},{w%z:346.76324462891},{w%lvid:828088},{w%gvid:4656},0,4},       --north of the substation [NO MODEL]
+		--limansk 23
+{r%level:l10_limansk}
+		{{w%x:-1.637232542038},{w%y:-3.9629728794098},{w%z:-78.903625488281},{w%lvid:24264},{w%gvid:2437},0,4},      --north-east of the gastronom [NO MODEL]
+		{{w%x:-12.205861091614},{w%y:-7.1464905738831},{w%z:-150.4705657959},{w%lvid:19164},{w%gvid:2444},1,4},      --east of the gastronom
+		{{w%x:-17.421772003174},{w%y:16.278310775757},{w%z:207.9365234375},{w%lvid:14920},{w%gvid:2484},1,4},        --north-west of the construction site
+		{{w%x:-26.659006118774},{w%y:1.497361779213},{w%z:-320.15985107422},{w%lvid:12788},{w%gvid:2429},1,4},       --north-west of the tunnel to Red Forest
+		{{w%x:-49.212341308594},{w%y:-4.0121912956238},{w%z:84.647323608398},{w%lvid:4258},{w%gvid:2456},1,4},       --north-west of the bridge outpost
+		{{w%x:-50.970985412598},{w%y:-10.75507068634},{w%z:-178.49063110352},{w%lvid:3237},{w%gvid:2434},1,4},       --south of the gastronom
+		{{w%x:-60.409549713135},{w%y:-5.003849029541},{w%z:-120.22436523438},{w%lvid:1509},{w%gvid:2480},1,4},       --north of the gastronom
+		{{w%x:-61.074806213379},{w%y:-3.3369662761688},{w%z:-194.20596313477},{w%lvid:1335},{w%gvid:2479},1,4},      --south of the gastronom
+		{{w%x:-8.527587890625},{w%y:-4.1920075416565},{w%z:-136.91398620605},{w%lvid:20727},{w%gvid:2436},1,8},      --east of the gastronom [BIG]
+		{{w%x:15.731013298035},{w%y:6.6207690238953},{w%z:151.41528320313},{w%lvid:34580},{w%gvid:2459},1,4},        --south of the construction site
+		{{w%x:17.019632339478},{w%y:3.2998242378235},{w%z:239.99493408203},{w%lvid:36262},{w%gvid:2461},1,4},        --north of the construction site
+		{{w%x:2.174115896225},{w%y:-3.6232876777649},{w%z:-55.449954986572},{w%lvid:27029},{w%gvid:2474},1,4},       --south of the bridge outpost
+		{{w%x:20.122117996216},{w%y:1.9426327943802},{w%z:49.755783081055},{w%lvid:37192},{w%gvid:2475},1,4},        --north of the bridge outpost
+		{{w%x:22.347198486328},{w%y:-7.934449672699},{w%z:-2.2489311695099},{w%lvid:38961},{w%gvid:2440},1,4},       --south of the bridge outpost
+		{{w%x:27.806213378906},{w%y:-2.5141267776489},{w%z:-250.58163452148},{w%lvid:41122},{w%gvid:2482},1,4},      --east of the road to Dead City
+		{{w%x:30.804492950439},{w%y:4.179322719574},{w%z:-48.363628387451},{w%lvid:41870},{w%gvid:2454},1,4},        --south of the bridge outpost
+		{{w%x:35.498516082764},{w%y:3.4025692939758},{w%z:266.54061889648},{w%lvid:45845},{w%gvid:2461},1,4},        --south-west of the radiowave institute
+		{{w%x:36.723373413086},{w%y:-1.9194012880325},{w%z:102.57301330566},{w%lvid:45624},{w%gvid:2456},1,4},       --north of the bridge outpost
+		{{w%x:6.719419002533},{w%y:-1.947612285614},{w%z:54.41051864624},{w%lvid:29361},{w%gvid:2443},0,4},          --north-west of the bridge outpost [NO MODEL]
+		{{w%x:62.531059265137},{w%y:-6.0001964569092},{w%z:51.595714569092},{w%lvid:55350},{w%gvid:2475},1,4},       --east of the bridge outpost
+		{{w%x:69.181663513184},{w%y:3.1481754779816},{w%z:231.83381652832},{w%lvid:57846},{w%gvid:2461},1,4},        --south of the radiowave institute
+		{{w%x:70.900695800781},{w%y:10.297480583191},{w%z:301.29864501953},{w%lvid:58005},{w%gvid:2463},1,4},        --by the radiowave institute
+		{{w%x:8.7992362976074},{w%y:-0.47675126791},{w%z:-340.62161254883},{w%lvid:30533},{w%gvid:2445},1,4},        --north of the tunnel to Red Forest
+		--meadows 15
+{r%level:y04_pole}
+		{{w%x:-102.02187347412},{w%y:-17.855741500854},{w%z:-33.090496063232},{w%lvid:24624},{w%gvid:5310},0,4},     --east of the village [NO MODEL]
+		{{w%x:-116.32188415527},{w%y:0.60072064399719},{w%z:88.509994506836},{w%lvid:18224},{w%gvid:5315},1,8},      --north-west of the factory's canteen [BIG]
+		{{w%x:-119.20779418945},{w%y:0.45166739821434},{w%z:176.47122192383},{w%lvid:17019},{w%gvid:5324},1,4},      --north of the old car park
+		{{w%x:-15.237644195557},{w%y:-0.013623535633087},{w%z:89.200798034668},{w%lvid:59819},{w%gvid:5327},0,4},    --south-west of the abandoned factory [NO MODEL]
+		{{w%x:-152.46894836426},{w%y:-16.335481643677},{w%z:-29.749053955078},{w%lvid:7793},{w%gvid:5310},1,4},      --north-west of the village
+		{{w%x:-165.90238952637},{w%y:2.4746122360229},{w%z:185.47906494141},{w%lvid:4903},{w%gvid:5325},1,4},        --west of the old car park
+		{{w%x:-186.08325195313},{w%y:-16.598924636841},{w%z:-15.442888259888},{w%lvid:2177},{w%gvid:5337},0,4},      --west of the village [NO MODEL]
+		{{w%x:-73.407257080078},{w%y:1.9914873838425},{w%z:141.85429382324},{w%lvid:37090},{w%gvid:5322},1,4},       --east of the old car park
+		{{w%x:-85.182479858398},{w%y:2.8025140762329},{w%z:56.83447265625},{w%lvid:31815},{w%gvid:5314},1,4},        --south-east of the factory's canteen
+		{{w%x:14.125988960266},{w%y:0.17863515019417},{w%z:137.79597473145},{w%lvid:70356},{w%gvid:5329},1,4},       --west of the abandoned factory
+		{{w%x:14.511529922485},{w%y:1.0057504177094},{w%z:63.700702667236},{w%lvid:71438},{w%gvid:5327},1,4},        --south of the abandoned factory
+		{{w%x:4.59827709198},{w%y:-5.4037175178528},{w%z:-32.655536651611},{w%lvid:66880},{w%gvid:5313},1,4},        --east of the village
+		{{w%x:57.415512084961},{w%y:3.944925069809},{w%z:197.7444152832},{w%lvid:82204},{w%gvid:5343},1,4},          --north of the abandoned factory
+		{{w%x:67.815277099609},{w%y:-1.5008471012115},{w%z:149.25082397461},{w%lvid:84960},{w%gvid:5305},1,8},       --east of the abandoned factory [BIG]
+		{{w%x:97.363067626953},{w%y:-0.0036479830741882},{w%z:111.00639343262},{w%lvid:90499},{w%gvid:5331},1,4},    --east of the abandoned factory
+		--outskirts 20
+{r%level:pripyat}
+		{{w%x:-138.42474365234},{w%y:-0.45436477661133},{w%z:-176.16653442383},{w%lvid:62916},{w%gvid:4996},1,4},    --east of the grocery store
+		{{w%x:-167.99163818359},{w%y:-0.013003379106522},{w%z:-288.64129638672},{w%lvid:42236},{w%gvid:4885},1,4},   --north of the book store
+		{{w%x:-18.663724899292},{w%y:0.17874744534492},{w%z:-153.68515014648},{w%lvid:173579},{w%gvid:4989},1,4},    --west of the dormitory
+		{{w%x:-21.204837799072},{w%y:-0.24107146263123},{w%z:61.279777526855},{w%lvid:168135},{w%gvid:4930},1,4},    --south-east of KBO Jubilee
+		{{w%x:-212.8551940918},{w%y:-0.463797301054},{w%z:-112.8194732666},{w%lvid:16454},{w%gvid:4964},1,8},        --north of the grocery store [BIG]
+		{{w%x:-239.14794921875},{w%y:-0.41973835229874},{w%z:-347.08380126953},{w%lvid:1660},{w%gvid:5070},1,4},     --west of the book store
+		{{w%x:-24.165309906006},{w%y:0.6327817440033},{w%z:162.54080200195},{w%lvid:164040},{w%gvid:4970},0,4},      --north of KBO Jubilee [NO MODEL]
+		{{w%x:-36.641426086426},{w%y:0.20596608519554},{w%z:-47.169719696045},{w%lvid:152827},{w%gvid:4973},1,4},    --north-east of the playground
+		{{w%x:-47.982276916504},{w%y:-0.43323177099228},{w%z:-229.03125},{w%lvid:142602},{w%gvid:5016},1,4},         --east of the department store
+		{{w%x:-56.837554931641},{w%y:0.50393199920654},{w%z:104.23809814453},{w%lvid:134318},{w%gvid:4943},0,4},     --north of KBO Jubilee [NO MODEL]
+		{{w%x:109.15952301025},{w%y:35.634803771973},{w%z:251.68414306641},{w%lvid:334582},{w%gvid:5024},1,4},       --north-west of the Vine anomaly
+		{{w%x:112.31951904297},{w%y:28.908128738403},{w%z:236.02157592773},{w%lvid:354368},{w%gvid:4920},1,4},       --west of the Vine anomaly
+		{{w%x:145.36897277832},{w%y:-0.24542871117592},{w%z:-281.0364074707},{w%lvid:374900},{w%gvid:5011},1,4},     --south of the laundromat
+		{{w%x:151.10328674316},{w%y:-0.31087705492973},{w%z:-87.096504211426},{w%lvid:382617},{w%gvid:4897},1,4},    --north of the laundromat
+		{{w%x:160.0611114502},{w%y:-0.50759434700012},{w%z:-179.85655212402},{w%lvid:390592},{w%gvid:4918},1,4},     --by the laundromat
+		{{w%x:162.63970947266},{w%y:9.0177354812622},{w%z:332.30429077148},{w%lvid:390358},{w%gvid:5020},1,4},       --north of the Vine anomaly
+		{{w%x:194.48910522461},{w%y:0.65620124340057},{w%z:74.502288818359},{w%lvid:422913},{w%gvid:4881},0,4},      --north-west of the hospital [NO MODEL]
+		{{w%x:292.04974365234},{w%y:6.4458823204041},{w%z:220.66178894043},{w%lvid:475969},{w%gvid:4894},1,4},       --south of the river port
+		{{w%x:46.958744049072},{w%y:-0.44477909803391},{w%z:51.885940551758},{w%lvid:263519},{w%gvid:4901},1,4},     --south of the school
+		{{w%x:55.093894958496},{w%y:-0.41728132963181},{w%z:-149.75428771973},{w%lvid:272020},{w%gvid:5031},1,4},    --south-east of the dormitory
+		--pripyat 16
+{r%level:l11_pripyat}
+		{{w%x:-146.09368896484},{w%y:-0.76325798034668},{w%z:75.248512268066},{w%lvid:2327},{w%gvid:2931},1,4},      --west of the Monolith base
+		{{w%x:-153.00721740723},{w%y:-2.2981173992157},{w%z:3.7674055099487},{w%lvid:1376},{w%gvid:3038},1,4},       --south-west of the Monolith base
+		{{w%x:-18.296751022339},{w%y:10.671569824219},{w%z:162.07524108887},{w%lvid:78121},{w%gvid:2980},1,4},       --west of the Monolith base
+		{{w%x:-21.34595489502},{w%y:-0.98701655864716},{w%z:100.76523590088},{w%lvid:78054},{w%gvid:3064},1,4},      --south of the Monolith base
+		{{w%x:-69.196273803711},{w%y:-3.4501917362213},{w%z:52.012855529785},{w%lvid:34270},{w%gvid:2929},1,4},      --south-west of the Monolith base
+		{{w%x:-92.413696289063},{w%y:-2.2217936515808},{w%z:-39.588623046875},{w%lvid:22499},{w%gvid:3047},1,4},     --south of the Monolith base
+		{{w%x:-97.75218963623},{w%y:-2.1596975326538},{w%z:240.71328735352},{w%lvid:19339},{w%gvid:2941},1,4},       --north-west of the Monolith base
+		{{w%x:101.49967193604},{w%y:3.3504123687744},{w%z:-24.821643829346},{w%lvid:214193},{w%gvid:3022},1,4},      --south of the Monolith base
+		{{w%x:103.45552062988},{w%y:4.4334516525269},{w%z:131.27838134766},{w%lvid:216402},{w%gvid:2975},0,4},       --east of the Monolith base [NO MODEL]
+		{{w%x:108.36291503906},{w%y:3.999844789505},{w%z:152.79092407227},{w%lvid:220903},{w%gvid:2975},1,4},        --east of the Monolith base
+		{{w%x:113.08160400391},{w%y:-7.3994836807251},{w%z:9.469428062439},{w%lvid:223861},{w%gvid:3016},1,4},       --south-east of the Monolith base
+		{{w%x:145.36863708496},{w%y:3.3506672382355},{w%z:-22.280111312866},{w%lvid:242409},{w%gvid:3032},1,4},      --south-east of the Monolith base
+		{{w%x:159.95739746094},{w%y:0.096308261156082},{w%z:191.03894042969},{w%lvid:249339},{w%gvid:2936},1,4},     --east of the Monolith base
+		{{w%x:177.36157226563},{w%y:-1.6108365058899},{w%z:78.369689941406},{w%lvid:256744},{w%gvid:2935},1,4},      --east of the Monolith base
+		{{w%x:195.80268859863},{w%y:-2.063000202179},{w%z:221.42317199707},{w%lvid:261491},{w%gvid:3009},1,4},       --east of the Monolith base
+		{{w%x:36.63289642334},{w%y:-2.2979309558868},{w%z:-74.002883911133},{w%lvid:146487},{w%gvid:2913},1,4},      --north of the road to Radar
+		--radar 22
+{r%level:l10_radar}
+		{{w%x:-11.935123443604},{w%y:0.30684643983841},{w%z:-67.991371154785},{w%lvid:6757},{w%gvid:2583},0,4},      --west of the antennas [NO MODEL]
+		{{w%x:-30.150783538818},{w%y:3.5486979484558},{w%z:-63.045684814453},{w%lvid:1043},{w%gvid:2583},1,4},       --west of the antennas
+		{{w%x:14.034010887146},{w%y:-1.2438886165619},{w%z:30.306535720825},{w%lvid:14703},{w%gvid:2636},1,8},       --north of the antennas [BIG]
+		{{w%x:311.05859375},{w%y:-45.345222473145},{w%z:-26.152484893799},{w%lvid:72896},{w%gvid:2653},1,4},         --west of the road block
+		{{w%x:314.0778503418},{w%y:-42.776596069336},{w%z:-101.95524597168},{w%lvid:71743},{w%gvid:2715},1,4},       --west of the forest
+		{{w%x:324.10214233398},{w%y:-52.083690643311},{w%z:-256.27301025391},{w%lvid:78079},{w%gvid:2700},1,4},      --south-west of the forest
+		{{w%x:34.185108184814},{w%y:-3.3742501735687},{w%z:-44.303230285645},{w%lvid:21834},{w%gvid:2620},1,8},      --north-east of the antennas [BIG]
+		{{w%x:35.061195373535},{w%y:-0.43271780014038},{w%z:-36.595748901367},{w%lvid:19248},{w%gvid:2614},1,4},     --north-east of the antennas
+		{{w%x:359.57550048828},{w%y:-50.792812347412},{w%z:-27.273126602173},{w%lvid:98013},{w%gvid:2654},1,4},      --west of the road block
+		{{w%x:373.86770629883},{w%y:-44.617778778076},{w%z:92.25513458252},{w%lvid:106595},{w%gvid:2547},1,4},       --south of the road to Pripyat
+		{{w%x:402.47311401367},{w%y:-52.16609954834},{w%z:-248.32766723633},{w%lvid:125742},{w%gvid:2727},1,4},      --south of the forest
+		{{w%x:457.44549560547},{w%y:-52.841159820557},{w%z:-182.49285888672},{w%lvid:150045},{w%gvid:2679},1,4},     --south-east of the forest
+		{{w%x:463.11712646484},{w%y:-52.799320220947},{w%z:-275.62771606445},{w%lvid:158359},{w%gvid:2686},1,4},     --south of the forest
+		{{w%x:487.19830322266},{w%y:-52.855903625488},{w%z:-119.7134552002},{w%lvid:161250},{w%gvid:2673},1,4},      --north-east of the forest
+		{{w%x:560.18975830078},{w%y:-55.355289459229},{w%z:-87.265251159668},{w%lvid:194281},{w%gvid:2667},1,4},     --east of the forest
+		{{w%x:575.76696777344},{w%y:-46.827045440674},{w%z:39.057144165039},{w%lvid:203165},{w%gvid:2524},1,4},      --east of the road block
+		{{w%x:589.83666992188},{w%y:-60.837493896484},{w%z:-166.04206848145},{w%lvid:210883},{w%gvid:2513},1,4},     --east of the forest
+		{{w%x:614.85882568359},{w%y:-47.216152191162},{w%z:-313.14624023438},{w%lvid:220713},{w%gvid:2504},1,4},     --north of the road to Army Warehouses
+		{{w%x:655.43658447266},{w%y:-49.818355560303},{w%z:-52.935009002686},{w%lvid:227035},{w%gvid:2519},1,4},     --east of the road block
+		{{w%x:7.8251309394836},{w%y:5.8779125213623},{w%z:72.504196166992},{w%lvid:13371},{w%gvid:2639},1,4},        --north of the antennas
+		{{w%x:88.268829345703},{w%y:2.7919356822968},{w%z:91.467086791992},{w%lvid:39681},{w%gvid:2570},1,4},        --north of the antennas
+		{{w%x:90.860427856445},{w%y:-0.33459120988846},{w%z:-16.990633010864},{w%lvid:40902},{w%gvid:2605},1,4},     --north-east of the antennas
+		--red forest 23
+{r%level:l10_red_forest}
+		{{w%x:-11.200133323669},{w%y:-2.2552096843719},{w%z:-268.65728759766},{w%lvid:57497},{w%gvid:2826},1,4},     --south of the Superconductor anomaly
+		{{w%x:-120.0901184082},{w%y:-6.2510209083557},{w%z:-45.346221923828},{w%lvid:7562},{w%gvid:2772},1,4},       --west of the open field
+		{{w%x:-137.4188079834},{w%y:-5.1511216163635},{w%z:-273.87091064453},{w%lvid:6227},{w%gvid:2841},1,4},       --west of the bridge
+		{{w%x:-14.270754814148},{w%y:0.10679048299789},{w%z:17.512519836426},{w%lvid:58452},{w%gvid:2812},1,4},      --north-east of the road to Jupiter
+		{{w%x:-145.73872375488},{w%y:2.1667580604553},{w%z:-21.846836090088},{w%lvid:6023},{w%gvid:2838},1,4},       --north-west of the open field
+		{{w%x:-151.68980407715},{w%y:-5.4854388237},{w%z:-315.21792602539},{w%lvid:5337},{w%gvid:2847},1,4},         --south-west of the bridge
+		{{w%x:-171.34436035156},{w%y:1.6410539150238},{w%z:-282.68829345703},{w%lvid:3404},{w%gvid:2836},1,4},       --west of the bridge
+		{{w%x:-26.966186523438},{w%y:-1.9577376842499},{w%z:-200.654296875},{w%lvid:43475},{w%gvid:2762},1,4},       --north-west of the Superconductor anomaly
+		{{w%x:-33.478771209717},{w%y:2.7629489898682},{w%z:-155.18647766113},{w%lvid:39588},{w%gvid:2815},1,4},      --north of the Superconductor anomaly
+		{{w%x:-39.375900268555},{w%y:-1.9157385826111},{w%z:-246.92433166504},{w%lvid:34562},{w%gvid:2823},1,4},     --west of the Superconductor anomaly
+		{{w%x:-53.326522827148},{w%y:3.3509936332703},{w%z:50.257987976074},{w%lvid:26582},{w%gvid:2769},1,4},       --north of the road to Jupiter
+		{{w%x:-71.557075500488},{w%y:1.9704273939133},{w%z:-122.48286437988},{w%lvid:17305},{w%gvid:2765},1,4},      --south of the open field
+		{{w%x:-78.418258666992},{w%y:5.5265417098999},{w%z:-45.48983001709},{w%lvid:14695},{w%gvid:2816},1,4},       --north-east of the open field
+		{{w%x:-78.861419677734},{w%y:0.80767011642456},{w%z:10.377114295959},{w%lvid:14329},{w%gvid:2798},1,4},      --north of the road to Jupiter
+		{{w%x:-96.776885986328},{w%y:0.036779314279556},{w%z:-201.14291381836},{w%lvid:11247},{w%gvid:2792},1,4},    --north of the bridge
+		{{w%x:132.60362243652},{w%y:2.0935800075531},{w%z:-252.1379699707},{w%lvid:103784},{w%gvid:2778},1,4},       --north of the road to Radar
+		{{w%x:147.41395568848},{w%y:0.17399296164513},{w%z:-51.891021728516},{w%lvid:105445},{w%gvid:2834},1,4},     --north-west of the tunnel camp
+		{{w%x:161.73484802246},{w%y:1.1838766336441},{w%z:80.269805908203},{w%lvid:109667},{w%gvid:2775},1,4},       --north of the tunnel camp
+		{{w%x:23.473924636841},{w%y:0.85983622074127},{w%z:25.997943878174},{w%lvid:79287},{w%gvid:2812},0,4},       --north-east of the road to Jupiter [NO MODEL]
+		{{w%x:237.86645507813},{w%y:-7.1540784835815},{w%z:-90.358528137207},{w%lvid:146301},{w%gvid:2834},1,8},     --east of the tunnel camp [BIG]
+		{{w%x:239.59405517578},{w%y:-0.53109157085419},{w%z:-33.404052734375},{w%lvid:148410},{w%gvid:2774},1,4},    --north of the tunnel camp
+		{{w%x:25.747695922852},{w%y:17.338399887085},{w%z:20.454599380493},{w%lvid:81437},{w%gvid:2812},1,4},        --north-east of the road to Jupiter
+		{{w%x:34.470886230469},{w%y:5.5053377151489},{w%z:35.08927154541},{w%lvid:82039},{w%gvid:2812},1,4},         --north-east of the road to Jupiter
+		--rostok 19
+{r%level:l06_rostok}
+		{{w%x:104.4581451416},{w%y:-0.0010948777198792},{w%z:114.4861831665},{w%lvid:32486},{w%gvid:1723},1,4},      --south-east of the western checkpoint
+		{{w%x:107.30197143555},{w%y:1.6329758167267},{w%z:75.58519744873},{w%lvid:32527},{w%gvid:1728},1,4},         --north-west of the entrance to the bar
+		{{w%x:110.11337280273},{w%y:0.003795325756073},{w%z:131.05731201172},{w%lvid:32919},{w%gvid:1718},1,4},      --east of the western checkpoint
+		{{w%x:130.73962402344},{w%y:6.6668000221252},{w%z:79.065483093262},{w%lvid:36372},{w%gvid:1733},1,4},        --north of the entrance to the bar
+		{{w%x:131.96189880371},{w%y:-0.0004112720489502},{w%z:138.95283508301},{w%lvid:36408},{w%gvid:1718},1,4},    --east of the western checkpoint
+		{{w%x:136.6907043457},{w%y:-1.7005071640015},{w%z:92.719116210938},{w%lvid:37369},{w%gvid:1688},1,4},        --north of the entrance to the bar
+		{{w%x:151.42030334473},{w%y:-0.003129243850708},{w%z:53.333526611328},{w%lvid:39915},{w%gvid:1758},1,4},     --east of the entrance to the bar
+		{{w%x:18.548856735229},{w%y:0.72824370861053},{w%z:249.05128479004},{w%lvid:22531},{w%gvid:1749},1,4},       --south of the road to the Army Warehouses
+		{{w%x:194.11109924316},{w%y:0.49837452173233},{w%z:70.212348937988},{w%lvid:48322},{w%gvid:1705},1,4},       --south of the Duty base
+		{{w%x:197.08293151855},{w%y:0.095879077911377},{w%z:72.359710693359},{w%lvid:48006},{w%gvid:1693},1,8},      --south of the Duty base [BIG]
+		{{w%x:212.07273864746},{w%y:2.5483605861664},{w%z:-15.862721443176},{w%lvid:56044},{w%gvid:1768},1,4},       --south-east of the entrance to the bar
+		{{w%x:232.41386413574},{w%y:-5.4494438171387},{w%z:136.20066833496},{w%lvid:59794},{w%gvid:1703},1,4},       --north-east of the Duty base
+		{{w%x:239.23893737793},{w%y:1.279999256134},{w%z:-120.17097473145},{w%lvid:62755},{w%gvid:1785},1,4},        --south-east of the entrance to the bar
+		{{w%x:250.78645324707},{w%y:-0.013290494680405},{w%z:11.443507194519},{w%lvid:65131},{w%gvid:1767},1,4},     --south of the Duty base
+		{{w%x:271.19790649414},{w%y:6.4905958175659},{w%z:-135.43110656738},{w%lvid:69553},{w%gvid:1787},1,4},       --south-east of the entrance to the bar
+		{{w%x:280.55770874023},{w%y:0.81710356473923},{w%z:-77.854415893555},{w%lvid:71197},{w%gvid:1779},1,4},      --south of the Duty base
+		{{w%x:44.227283477783},{w%y:-0.14439609646797},{w%z:146.2780456543},{w%lvid:22483},{w%gvid:1752},1,4},       --west of the western checkpoint
+		{{w%x:74.487312316895},{w%y:0.0033032894134521},{w%z:297.41052246094},{w%lvid:29227},{w%gvid:1749},1,4},     --east of the road to the Army Warehouses
+		{{w%x:91.718414306641},{w%y:0.9490077495575},{w%z:154.68818664551},{w%lvid:30694},{w%gvid:1726},0,4},        --north of the western checkpoint [NO MODEL]
+		--swamp 23
+{r%level:k00_marsh}
+		{{w%x:-131.83486938477},{w%y:1.6482354402542},{w%z:-311.95297241211},{w%lvid:79673},{w%gvid:138},0,4},       --east of the Clear Sky base [NO MODEL]
+		{{w%x:-138.09959411621},{w%y:0.27025038003922},{w%z:7.5151205062866},{w%lvid:77423},{w%gvid:328},1,8},       --west of the pump station [BIG]
+--		{-166.80088806152,-0.027478903532028,-271.3967590332,60071,142,1,4},     --north of the Clear Sky base [MOVED TO BELOW]
+		{{w%x:-163.1173248291},{w%y:0.21033677458763},{w%z:-266.44299316406},{w%lvid:62507},{w%gvid:142},1,8},       --north of the Clear Sky base
+		{{w%x:-190.34677124023},{w%y:5.9933619499207},{w%z:516.52520751953},{w%lvid:39388},{w%gvid:361},1,8},        --west of the road to Agroprom [BIG]
+		{{w%x:-210.61433410645},{w%y:-0.19949227571487},{w%z:397.72991943359},{w%lvid:37122},{w%gvid:80},1,4},       --west of the road to Agroprom
+		{{w%x:-26.913009643555},{w%y:5.2790670394897},{w%z:308.96273803711},{w%lvid:130323},{w%gvid:212},1,4},       --north of the pump station
+--		{-40.869869232178,-0.67909348011017,266.04385375977,122175,76,1,4},      --north of the pump station [MOVED TO BELOW]
+		{{w%x:-37.395202636719},{w%y:-0.32349157333374},{w%z:249.65588378906},{w%lvid:122986},{w%gvid:75},1,4},      --north of the pump station
+		{{w%x:-49.641056060791},{w%y:-0.64179885387421},{w%z:188.09915161133},{w%lvid:115463},{w%gvid:115},1,4},     --north of the pump station
+		{{w%x:1.2512962818146},{w%y:-0.016813427209854},{w%z:-240.58557128906},{w%lvid:143267},{w%gvid:4},1,4},      --west of the fishery
+		{{w%x:149.80239868164},{w%y:0.91884911060333},{w%z:-144.15991210938},{w%lvid:227950},{w%gvid:180},1,4},      --west of the old church
+		{{w%x:298.69018554688},{w%y:1.8088257312775},{w%z:416.7961730957},{w%lvid:331473},{w%gvid:267},1,4},         --south-east of the road to Agroprom
+		{{w%x:303.68249511719},{w%y:4.3913311958313},{w%z:141.38040161133},{w%lvid:336228},{w%gvid:272},1,4},        --north of the burnt house
+--		{304.03344726563,0.62583184242249,-122.98781585693,336933,222,1,4},      --north of the old church [MOVED TO BELOW]
+		{{w%x:307.57580566406},{w%y:5.3171963691711},{w%z:-122.81585693359},{w%lvid:339753},{w%gvid:276},1,4},       --north of the old church
+		{{w%x:378.16394042969},{w%y:2.8103075027466},{w%z:266.04675292969},{w%lvid:389792},{w%gvid:98},1,4},         --north-west of the machine yard
+		{{w%x:412.33514404297},{w%y:0.97912901639938},{w%z:-75.830184936523},{w%lvid:412241},{w%gvid:106},1,4},      --north-west of the southern checkpoint
+		{{w%x:437.10424804688},{w%y:7.0111889839172},{w%z:266.24179077148},{w%lvid:426839},{w%gvid:238},1,4},        --north-east of the machine yard
+		{{w%x:472.54037475586},{w%y:3.7571783065796},{w%z:417.83770751953},{w%lvid:465714},{w%gvid:289},1,4},        --north of the machine yard
+		{{w%x:497.38208007813},{w%y:6.5780076980591},{w%z:-171.08143615723},{w%lvid:480394},{w%gvid:62},1,4},        --east of the southern checkpoint
+		{{w%x:53.737571716309},{w%y:0.69307923316956},{w%z:-215.81634521484},{w%lvid:169930},{w%gvid:13},1,4},       --north-east of the fishery
+		{{w%x:564.65356445313},{w%y:3.0769717693329},{w%z:-62.712882995605},{w%lvid:516542},{w%gvid:251},1,4},       --north-east of the southern checkpoint
+		{{w%x:573.26080322266},{w%y:2.6918816566467},{w%z:447.08422851563},{w%lvid:519666},{w%gvid:133},1,4},        --north-east of the machine yard
+		{{w%x:91.167915344238},{w%y:-0.021297574043274},{w%z:45.612007141113},{w%lvid:192804},{w%gvid:33},1,4},      --east of the pump station
+		{{w%x:91.175033569336},{w%y:1.5625618696213},{w%z:340.05450439453},{w%lvid:193033},{w%gvid:84},1,4},         --south of the road to Agroprom
+		--trucks cemetery 28
+{r%level:k02_trucks_cemetery}
+		{{w%x:-13.791519165039},{w%y:19.043260574341},{w%z:294.40029907227},{w%lvid:424933},{w%gvid:5252},1,4},      --south of the radioactive hills
+		{{w%x:-146.97619628906},{w%y:1.3109568357468},{w%z:-68.903602600098},{w%lvid:253363},{w%gvid:5238},1,4},     --south of the valley
+		{{w%x:-157.79043579102},{w%y:4.7823033332825},{w%z:68.597694396973},{w%lvid:235197},{w%gvid:5137},1,4},      --south-east of the way to Rostok
+		{{w%x:-164.58337402344},{w%y:-1.1607495546341},{w%z:-187.09991455078},{w%lvid:228266},{w%gvid:5116},1,4},    --north-west of the containers
+		{{w%x:-190.91854858398},{w%y:8.6200075149536},{w%z:-336.03720092773},{w%lvid:190780},{w%gvid:5109},1,4},     --west of the containers
+		{{w%x:-196.49858093262},{w%y:13.034063339233},{w%z:290.31683349609},{w%lvid:176641},{w%gvid:5249},1,4},      --north of the way to Rostok
+		{{w%x:-36.523952484131},{w%y:3.0490026473999},{w%z:-9.1333408355713},{w%lvid:400688},{w%gvid:5140},1,4},     --north of the hill in the woods
+		{{w%x:-36.58846282959},{w%y:9.6764116287231},{w%z:-145.4333190918},{w%lvid:400529},{w%gvid:5127},1,4},       --south of the hill in the woods
+		{{w%x:-48.545429229736},{w%y:0.30031940340996},{w%z:68.031700134277},{w%lvid:381245},{w%gvid:5244},1,4},     --west of the helicopters
+		{{w%x:-70.62654876709},{w%y:2.4766521453857},{w%z:128.71238708496},{w%lvid:354759},{w%gvid:5243},1,4},       --east of the way to Rostok
+		{{w%x:100.22137451172},{w%y:7.7454714775085},{w%z:-83.423393249512},{w%lvid:575026},{w%gvid:5190},1,4},      --east of the hill in the woods
+		{{w%x:100.50212097168},{w%y:9.0497722625732},{w%z:214.1969909668},{w%lvid:576200},{w%gvid:5155},1,4},        --north-east of the fire trucks
+		{{w%x:118.77662658691},{w%y:8.9366149902344},{w%z:-34.487499237061},{w%lvid:600402},{w%gvid:5187},1,4},      --south of the helicopters
+		{{w%x:158.68818664551},{w%y:11.68864440918},{w%z:157.42211914063},{w%lvid:650393},{w%gvid:5181},1,4},        --south-east of the fire trucks
+		{{w%x:161.44248962402},{w%y:3.5883717536926},{w%z:-113.57250976563},{w%lvid:652016},{w%gvid:5204},1,4},      --east of the hill in the woods
+		{{w%x:168.4627532959},{w%y:11.041913032532},{w%z:-85.602500915527},{w%lvid:663760},{w%gvid:5203},1,4},       --south of the helicopters
+		{{w%x:172.32797241211},{w%y:3.6720385551453},{w%z:-165.44207763672},{w%lvid:667163},{w%gvid:5208},1,4},      --east of the hill in the woods
+		{{w%x:212.49948120117},{w%y:10.899524688721},{w%z:97.43627166748},{w%lvid:720954},{w%gvid:5184},1,4},        --east of the helicopters
+		{{w%x:230.8904876709},{w%y:12.462491989136},{w%z:287.77301025391},{w%lvid:747241},{w%gvid:5297},1,8},        --south-east of the north-eastern checkpoint [BIG]
+		{{w%x:24.978343963623},{w%y:5.5821738243103},{w%z:-317.40850830078},{w%lvid:475277},{w%gvid:5232},1,8},      --north of the southern parking lot [BIG]
+		{{w%x:251.54602050781},{w%y:2.8290252685547},{w%z:-182.56842041016},{w%lvid:776214},{w%gvid:5205},1,4},      --north-east of the southern parking lot
+		{{w%x:281.33596801758},{w%y:9.2732486724854},{w%z:20.771919250488},{w%lvid:820312},{w%gvid:5174},1,4},       --east of the helicopters
+		{{w%x:288.91375732422},{w%y:19.437572479248},{w%z:-398.69927978516},{w%lvid:834313},{w%gvid:5281},1,4},      --east of the southern parking lot
+		{{w%x:334.67474365234},{w%y:8.5159959793091},{w%z:-95.97900390625},{w%lvid:899582},{w%gvid:5277},1,4},       --south-east of the helicopters
+		{{w%x:46.972850799561},{w%y:3.7886123657227},{w%z:168.43495178223},{w%lvid:507390},{w%gvid:5248},1,4},       --south-west of the fire trucks
+		{{w%x:7.6930603981018},{w%y:13.540204048157},{w%z:-192.45837402344},{w%lvid:452742},{w%gvid:5220},1,4},      --south of the hill in the woods
+		{{w%x:77.573455810547},{w%y:5.9247388839722},{w%z:-204.33268737793},{w%lvid:545826},{w%gvid:5222},1,4},      --south-east of the hill in the woods
+		{{w%x:89.51676940918},{w%y:12.483743667603},{w%z:10.327732086182},{w%lvid:566740},{w%gvid:5187},1,4},        --south of the helicopters
+		--wild territory 19
+{r%level:l06_rostok}
+		{{w%x:-101.29085540771},{w%y:1.0687646865845},{w%z:138.82485961914},{w%lvid:45030},{w%gvid:1820},1,4},       --west of the parking lot
+		{{w%x:-104.38494110107},{w%y:0.052030503749847},{w%z:144.20797729492},{w%lvid:44755},{w%gvid:1821},1,8},     --west of the parking lot [BIG]
+		{{w%x:-106.55619049072},{w%y:-4.1337108612061},{w%z:-133.77458190918},{w%lvid:44440},{w%gvid:1947},1,4},     --south-east of the burning tunnel
+		{{w%x:-118.51854705811},{w%y:-0.0050471127033234},{w%z:129.04273986816},{w%lvid:43379},{w%gvid:1961},1,4},   --west of the parking lot
+		{{w%x:-15.935523986816},{w%y:2.9729719161987},{w%z:152.91839599609},{w%lvid:64827},{w%gvid:1926},1,4},       --north-east of the parking lot
+		{{w%x:-153.48083496094},{w%y:2.5387699604034},{w%z:115.36125946045},{w%lvid:38385},{w%gvid:1829},1,4},       --north-east of the construction site
+		{{w%x:-164.37344360352},{w%y:0.097804933786392},{w%z:180.3117980957},{w%lvid:34477},{w%gvid:1838},1,4},      --west of the parking lot
+		{{w%x:-189.80760192871},{w%y:-0.0030730962753296},{w%z:123.5078125},{w%lvid:29131},{w%gvid:1833},1,4},       --north-east of the construction site
+		{{w%x:-212.16049194336},{w%y:2.9699668884277},{w%z:43.939079284668},{w%lvid:4041},{w%gvid:1850},1,4},        --east of the construction site
+		{{w%x:-217.26864624023},{w%y:1.9948834180832},{w%z:89.310928344727},{w%lvid:22241},{w%gvid:1890},0,4},       --north of the construction site [NO MODEL]
+		{{w%x:-238.94459533691},{w%y:-0.0051734149456024},{w%z:139.14207458496},{w%lvid:15298},{w%gvid:1856},1,4},   --north of the construction site
+		{{w%x:-240.70614624023},{w%y:4.8471755981445},{w%z:99.273178100586},{w%lvid:15561},{w%gvid:1872},1,4},       --north of the construction site
+		{{w%x:-245.46881103516},{w%y:-5.1772904396057},{w%z:87.766571044922},{w%lvid:11626},{w%gvid:1886},1,4},      --north of the construction site
+		{{w%x:-245.86763000488},{w%y:3.7911121845245},{w%z:140.10621643066},{w%lvid:22476},{w%gvid:1874},1,4},       --north of the construction site
+		{{w%x:-260.84411621094},{w%y:-0.0015003085136414},{w%z:26.672733306885},{w%lvid:6333},{w%gvid:1905},1,4},    --south-west of the construction site
+		{{w%x:-282.90982055664},{w%y:-0.00049951672554016},{w%z:51.206489562988},{w%lvid:1464},{w%gvid:1902},1,4},   --west of the construction site
+		{{w%x:-290.17913818359},{w%y:-0.00031593441963196},{w%z:165.24768066406},{w%lvid:527},{w%gvid:1852},1,4},    --north of the construction site
+		{{w%x:-46.814762115479},{w%y:0.00057101249694824},{w%z:148.30725097656},{w%lvid:58709},{w%gvid:1957},1,4},   --west of the parking lot
+		{{w%x:-68.244483947754},{w%y:-12.381524085999},{w%z:-136.61956787109},{w%lvid:51876},{w%gvid:1939},0,4},     --north of the road to Yantar [NO MODEL]
+		--yantar 21
+{r%level:l08_yantar}
+		{{w%x:-137.01412963867},{w%y:4.8006310462952},{w%z:-150.97248840332},{w%lvid:18906},{w%gvid:2233},1,4},      --east of the plant
+		{{w%x:-14.655479431152},{w%y:0.30480197072029},{w%z:-33.81921005249},{w%lvid:61019},{w%gvid:2246},1,4},      --south of the road to Dead City
+		{{w%x:-4.5721945762634},{w%y:-13.23822593689},{w%z:-231.26893615723},{w%lvid:64169},{w%gvid:2264},1,8},      --north-east of the anomaly behind the plant [BIG]
+		{{w%x:-43.564723968506},{w%y:-6.2599129676819},{w%z:-196.83148193359},{w%lvid:48264},{w%gvid:2280},0,4},     --north of the anomaly behind the plant [NO MODEL]
+		{{w%x:-70.149368286133},{w%y:1.2423337697983},{w%z:-147.89985656738},{w%lvid:35184},{w%gvid:2219},1,4},      --east of the plant
+		{{w%x:126.23915100098},{w%y:-3.1902508735657},{w%z:49.622535705566},{w%lvid:127668},{w%gvid:2212},1,4},      --north of the entrance to the plant
+		{{w%x:139.14872741699},{w%y:-3.1754331588745},{w%z:-138.95338439941},{w%lvid:137918},{w%gvid:2207},1,4},     --south of the entrance to the plant
+		{{w%x:163.51358032227},{w%y:-6.8774814605713},{w%z:-62.072151184082},{w%lvid:147675},{w%gvid:2292},1,4},     --east of the entrance to the plant
+		{{w%x:17.897960662842},{w%y:-9.1997051239014},{w%z:-211.76396179199},{w%lvid:75025},{w%gvid:2272},1,4},      --north-east of the anomaly behind the plant
+		{{w%x:179.04156494141},{w%y:4.66672706604},{w%z:96.568031311035},{w%lvid:147072},{w%gvid:2213},1,4},         --north of the entrance to the plant
+		{{w%x:19.298196792603},{w%y:0.31061905622482},{w%z:-118.07691192627},{w%lvid:74837},{w%gvid:2223},1,8},      --south-west of the entrance to the plant [BIG]
+		{{w%x:2.9809989929199},{w%y:4.0720920562744},{w%z:-88.170074462891},{w%lvid:67568},{w%gvid:2244},1,4},       --south of the road to Dead City
+		{{w%x:20.974937438965},{w%y:-1.4644218683243},{w%z:-52.119029998779},{w%lvid:75408},{w%gvid:2215},0,4},      --south-east of the road to Dead City [NO MODEL]
+		{{w%x:23.262825012207},{w%y:-11.879865646362},{w%z:-236.29591369629},{w%lvid:76465},{w%gvid:2198},1,4},      --north of the mobile lab
+		{{w%x:23.337398529053},{w%y:-5.9428400993347},{w%z:-264.46594238281},{w%lvid:76129},{w%gvid:2198},1,8},      --north-west of the mobile lab [BIG]
+		{{w%x:24.002031326294},{w%y:-9.8229742050171},{w%z:-292.10903930664},{w%lvid:75513},{w%gvid:2198},1,4},      --south of the mobile lab
+		{{w%x:30.070659637451},{w%y:0.067012369632721},{w%z:27.028804779053},{w%lvid:82191},{w%gvid:2234},1,4},      --east of the road to Dead City
+		{{w%x:34.011985778809},{w%y:0.95372402667999},{w%z:-2.2716126441956},{w%lvid:82172},{w%gvid:2234},1,4},      --east of the road to Dead City
+		{{w%x:37.857391357422},{w%y:-1.5920963287354},{w%z:-52.399971008301},{w%lvid:83404},{w%gvid:2215},1,4},      --west of the entrance to the plant
+		{{w%x:4.9508328437805},{w%y:14.274620056152},{w%z:14.628349304199},{w%lvid:68854},{w%gvid:2243},1,4},        --east of the road to Dead City
+		{{w%x:40.768005371094},{w%y:2.1800622940063},{w%z:-160.59594726563},{w%lvid:84684},{w%gvid:2228},1,4},       --north-east of the anomaly behind the plant
+		--zaton 14
+{r%level:zaton}
+		{{w%x:-148.10874938965},{w%y:26.688041687012},{w%z:-432.01089477539},{w%lvid:646853},{w%gvid:4141},1,4},     --south-west of the workshop substation
+		{{w%x:-169.03302001953},{w%y:26.178148269653},{w%z:-195.54400634766},{w%lvid:607854},{w%gvid:4194},1,4},     --west of the refuelling station
+		{{w%x:-208.29849243164},{w%y:-6.0540518760681},{w%z:376.80865478516},{w%lvid:516028},{w%gvid:4250},1,4},     --east of the sawmill
+		{{w%x:-292.70425415039},{w%y:41.034927368164},{w%z:-465.76666259766},{w%lvid:366930},{w%gvid:4167},1,4},     --south of the Iron Forest anomaly
+		{{w%x:-315.83459472656},{w%y:9.7695274353027},{w%z:411.74026489258},{w%lvid:315129},{w%gvid:4137},1,4},      --north of the sawmill
+		{{w%x:-402.09298706055},{w%y:0.030741423368454},{w%z:-13.320134162903},{w%lvid:176632},{w%gvid:4151},1,4},   --by the antenna complex
+		{{w%x:-406.84783935547},{w%y:34.461681365967},{w%z:-349.54486083984},{w%lvid:166722},{w%gvid:4139},1,4},     --west of the Iron Forest anomaly
+		{{w%x:-428.32824707031},{w%y:24.198919296265},{w%z:-377.37115478516},{w%lvid:142030},{w%gvid:4140},1,4},     --south-west of the Iron Forest anomaly
+		{{w%x:-449.34173583984},{w%y:7.2647252082825},{w%z:60.708358764648},{w%lvid:113671},{w%gvid:4151},1,4},      --north-west of the antenna complex
+		{{w%x:286.51196289063},{w%y:18.882074356079},{w%z:508.67889404297},{w%lvid:1457540},{w%gvid:4143},1,4},      --north-west of the Boiler anomaly
+		{{w%x:293.21249389648},{w%y:35.687870025635},{w%z:-441.64456176758},{w%lvid:1464348},{w%gvid:4138},1,4},     --south-west of the waste processing plant
+		{{w%x:449.43127441406},{w%y:34.765033721924},{w%z:69.113708496094},{w%lvid:1700812},{w%gvid:4433},1,4},      --north of the ranger station
+		{{w%x:475.69427490234},{w%y:13.698192596436},{w%z:598.35815429688},{w%lvid:1743856},{w%gvid:4165},1,4},      --north of the Boiler anomaly
+		{{w%x:54.890525817871},{w%y:8.9683971405029},{w%z:753.46130371094},{w%lvid:1043353},{w%gvid:4427},1,4},      --north of the burnt village
+		--chernobyl npp (south)
+{r%level:l12_stancia}
+		{{w%x:-72.12313079834},{w%y:-0.00011637806892395},{w%z:-75.958587646484},{w%lvid:965},{w%gvid:3179},1,4},    --No GetPointDescription
+		{{w%x:1006.1878662109},{w%y:0.9461424946785},{w%z:46.310897827148},{w%lvid:467679},{w%gvid:3085},0,4},       --No GetPointDescription [NO MODEL]
+		{{w%x:219.20118713379},{w%y:5.1048460006714},{w%z:-177.46684265137},{w%lvid:94414},{w%gvid:3161},1,4},       --No GetPointDescription
+		{{w%x:295.6764831543},{w%y:-0.00017473101615906},{w%z:-223.74545288086},{w%lvid:126228},{w%gvid:3162},1,4},  --No GetPointDescription
+		{{w%x:611.65185546875},{w%y:4.7991309165955},{w%z:-103.80444335938},{w%lvid:273608},{w%gvid:3200},1,4},      --No GetPointDescription
+		{{w%x:737.4140625},{w%y:-0.01605486869812},{w%z:-2.5285105705261},{w%lvid:324299},{w%gvid:3105},1,4},        --No GetPointDescription
+		{{w%x:748.48571777344},{w%y:0.65725862979889},{w%z:-206.26043701172},{w%lvid:329382},{w%gvid:3119},1,4},     --No GetPointDescription
+		{{w%x:847.95208740234},{w%y:-0.0014355182647705},{w%z:-115.94441986084},{w%lvid:373727},{w%gvid:3116},1,4},  --No GetPointDescription
+		{{w%x:864.28942871094},{w%y:0.14666053652763},{w%z:-28.292572021484},{w%lvid:380869},{w%gvid:3100},1,4},     --No GetPointDescription
+		{{w%x:941.37591552734},{w%y:-0.073891818523407},{w%z:-306.15979003906},{w%lvid:431348},{w%gvid:3214},1,4},   --No GetPointDescription
+		--chernobyl npp (north)
+{r%level:l12_stancia_2}
+		{{w%x:1031.83984375},{w%y:8.6847162246704},{w%z:212.49186706543},{w%lvid:846324},{w%gvid:3437},1,4},         --No GetPointDescription
+		{{w%x:114.00671386719},{w%y:1.705734372139},{w%z:307.80072021484},{w%lvid:158830},{w%gvid:3254},1,4},        --No GetPointDescription
+		{{w%x:174.23020935059},{w%y:71.177154541016},{w%z:135.06123352051},{w%lvid:201963},{w%gvid:3280},1,4},       --No GetPointDescription
+		{{w%x:244.01612854004},{w%y:50.010387420654},{w%z:137.87469482422},{w%lvid:255655},{w%gvid:3291},1,4},       --No GetPointDescription
+		{{w%x:327.34939575195},{w%y:1.8518348932266},{w%z:152.98779296875},{w%lvid:323620},{w%gvid:3332},1,4},       --No GetPointDescription
+		{{w%x:358.49743652344},{w%y:8.4733543395996},{w%z:311.8464050293},{w%lvid:351114},{w%gvid:3315},1,4},        --No GetPointDescription
+		{{w%x:4.001944065094},{w%y:28.19868850708},{w%z:272.10986328125},{w%lvid:64147},{w%gvid:3249},1,8},          --No GetPointDescription [BIG]
+		{{w%x:549.51806640625},{w%y:20.302885055542},{w%z:268.88778686523},{w%lvid:507162},{w%gvid:3381},1,4},       --No GetPointDescription
+		{{w%x:869.95739746094},{w%y:11.196738243103},{w%z:133.19541931152},{w%lvid:745257},{w%gvid:3423},1,4},       --No GetPointDescription
+		{{w%x:873.53576660156},{w%y:0.1443387567997},{w%z:341.01968383789},{w%lvid:747361},{w%gvid:3472},1,4},       --No GetPointDescription
+		{{w%x:876.80438232422},{w%y:8.2243366241455},{w%z:217.4260559082},{w%lvid:749584},{w%gvid:3426},1,4},        --No GetPointDescription
+		{{w%x:443.98358154297},{w%y:9.2384786605835},{w%z:171.65557861328},{w%lvid:425806},{w%gvid:3497},1,4},       --No GetPointDescription
+		{{w%x:628.13299560547},{w%y:9.995701789856},{w%z:329.48062133789},{w%lvid:569313},{w%gvid:3379},1,4},        --No GetPointDescription
+		{{w%x:667.55322265625},{w%y:10.610108375549},{w%z:130.30883789063},{w%lvid:579783},{w%gvid:3396},1,8},       --No GetPointDescription [BIG]
+		{{w%x:736.921875},{w%y:22.463209152222},{w%z:107.6252746582},{w%lvid:645251},{w%gvid:3412},1,4}              --No GetPointDescription
+	}
+	
+	for i = 1, #NewStashes do
+		local tbpos = vector():set(NewStashes[i][1],NewStashes[i][2],NewStashes[i][3])
+		local tblid = NewStashes[i][4]
+		local tbgid = NewStashes[i][5]
+		local tbyespack = NewStashes[i][6]
+		local tbsize = NewStashes[i][7]
+		if tbyespack == 1 then
+			if tbsize == 4 then
+				local randsizes = math.random(1,19)
+				alife_create_item("tb_stsh_" .. randsizes, {tbpos, tblid, tbgid})
+			else
+				local randsizeb = math.random(1,9)
+				alife_create_item("tb_btsh_" .. randsizeb, {tbpos, tblid, tbgid})
+			end
+		end
+		alife_create_item("inventory_box", {tbpos, tblid, tbgid})
+	end
+	printf("\n\n----- [%s] New Stashes Created! -----\n\n",#NewStashes)
+end

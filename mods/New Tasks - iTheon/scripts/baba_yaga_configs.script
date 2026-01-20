@@ -1,0 +1,45 @@
+{r%level:l02_garbage}
+art_location = {
+    vector = vector():set({w%x:106.5142},{w%y:0.0487},{w%z:-121.0433}),
+    lvid = {w%lvid:256639},
+    gvid = {w%gvid:844}
+}
+
+teleport_to_location = {
+    vector = vector():set({w%x:270.8843},{w%y:-8.9478},{w%z:-132.6434}),
+    lvid = {w%lvid:352607},
+    gvid = {w%gvid:660}
+}
+
+karlik_spots = {{
+    section = 'm_karlik_e',
+    vector = vector():set({w%x:265.7138},{w%y:-9.1120},{w%z:-154.1806}),
+    lvid = {w%lvid:351150},
+    gvid = {w%gvid:846}
+},{
+    section = 'm_karlik_e',
+    vector = vector():set({w%x:249.6845},{w%y:-5.2066},{w%z:-146.9241}),
+    lvid = {w%lvid:345584},
+    gvid = {w%gvid:846}
+},{
+    section = 'm_karlik_e',
+    vector = vector():set({w%x:240.0387},{w%y:-2.4944},{w%z:-124.3965}),
+    lvid = {w%lvid:342116},
+    gvid = {w%gvid:660}
+}}
+
+hag_spot = {
+    section = "baba_yaga",
+    vector = vector():set({w%x:256.2065},{w%y:-8.6728},{w%z:-136.2168}),
+    lvid = {w%lvid:347821},
+    gvid = {w%gvid:660}
+}
+
+art_sections = {
+    "af_elektron",
+    "af_black_angel",
+    "af_kogot", -- claw
+    "af_spaika", -- spike
+    "af_zhelch", -- scar
+    "af_signet",
+}

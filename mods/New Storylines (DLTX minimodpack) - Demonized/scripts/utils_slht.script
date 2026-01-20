@@ -1,0 +1,693 @@
+--[[
+
+    Storyline: Hidden Threat
+	Version:   1.0
+    Autor:     Longreed
+	Last Edit: 06/12/2021
+  
+  ]]--
+
+--- Debug mode On/Off ---
+debug_mode = false
+
+------------------------- Variables ---------------------------------------------
+
+local uptime = 5
+local queue_time_event = {}
+
+reward_table = {}
+
+--- ini ---
+task_table = ini_file("misc\\tasks_hidden_threat.ltx")
+local ammo_table = ini_file("items\\settings\\hidden_threat_spooner_barter.ltx")
+-- npc table --
+local npc_table = {
+["kuznetsov"]  = {"agr_kuznetsov_name", "ui_inGame2_Kuznetsov"},
+["sidorovich"] = {"escape_trader_name", "ui_inGame2_sid"},
+["kirillov"]   = {"agr_smart_terrain_1_6_army_mechanic_stalker_name","ui_inGame2_Kirilov"},
+["gorobez"]    = {"st_hidden_threat_ser_gorobez_name", "ui_inGame2_Soldier_1"},
+["degtyarev"]    = {"st_hidden_threat_degtyarev_name", "ui_inGame2_Hero"}
+                   }
+-- postprocces table --
+local postprocc_table = {
+["deimos1"]     = "deimos1.ppe",
+["fade_out"]    = "fade_out.ppe",
+["fade_in"]     = "fade_in.ppe",
+["fade_in_out"] = "fade_in_out.ppe",
+["snd_shock"]   = "snd_shock.ppe",
+["black"]       = "black.ppe",
+["blur"]        = "blur.ppe"
+                        }
+-- points --
+local actor_pos = {}
+points = {
+{r%level:k01_darkscape}
+[1] = {vector():set({w%x:285.556274414063},{w%y:-0.688713014125824},{w%z:-188.317260742188}),{w%lvid:710944},{w%gvid:1245}}, -- ds spawn cut scene 1
+[2] = {vector():set({w%x:258.280914306641},{w%y:-0.519319772720337},{w%z:-188.304870605469}),{w%lvid:678708},{w%gvid:1405}}, -- ds spawn cut scene 2
+{r%level:l03_agroprom}
+[3] = {vector():set({w%x:97.806350708008},{w%y:0.44343876838684},{w%z:-45.561874389648}),{w%lvid:280846},{w%gvid:1029}},     -- agr dead courier
+[4] = {vector():set({w%x:98.331954956055},{w%y:0.47475481033325},{w%z:-44.798767089844}),{w%lvid:280847},{w%gvid:1029}},     -- agr quest package
+{r%level:pripyat}
+[5] = {vector():set({w%x:-124.27033616602},{w%y:0.68663150072098},{w%z:-265.50639358163}),{w%lvid:71235},{w%gvid:4889}},     -- pri agent's case
+[6] = {vector():set({w%x:297.92715454102},{w%y:-0.50883787870407},{w%z:-300.18185424805}),{w%lvid:356805},{w%gvid:5024}},    -- pri safe teleport actor
+[7]	= {vector():set({w%x:50.256832122803},{w%y:-0.2864902317524},{w%z:-188.7834777832}),{w%lvid:265063},{w%gvid:5009}},	     -- pri end scene teleport actor
+{r%level:l09_deadcity}
+[8]	= {vector():set({w%x:-171.45},{w%y:8.52},{w%z:-220.71}),{w%lvid:33561},{w%gvid:2410}}                                    -- cit quest radio
+		 }
+
+local month_table = {
+        [1] = 31,
+		[2] = 28,
+		[3] = 31,
+		[4] = 30,
+		[5] = 31,
+		[6] = 30,
+		[7] = 31,
+		[8] = 31,
+		[9] = 30,
+	   [10] = 31,
+	   [11] = 30,
+	   [12] = 31
+	}
+---------------------------------------------------------------------------------
+function valid_faction_actor()
+	local actor_com = get_actor_true_community()
+	local factions = { ["army"] = true }
+	if actor_com and factions[actor_com] then 
+	    return true 
+	end
+	return false
+end
+
+function actor_name(color)
+    local name = db.actor:character_name()
+	if color == true then 
+	    name = "%c[255,0,255,255]" .. name .. "%c[default]"
+	end
+    return name
+end
+
+function map_spot_campfire(smart, mode)
+    local get_id_campfire = function()
+	    local smart_campfires = db.campfire_table_by_smart_names[smart]
+        if smart_campfires ~= nil and is_not_empty(smart_campfires) then
+         	for k,v in pairs (smart_campfires) do
+    	    	if v.campfire then return k end
+         	end
+     	end
+    	return nil
+	end
+	local cf_id = get_id_campfire(smart)
+	if mode == true and cf_id and level.map_has_object_spot(cf_id, "green_location") == 0 then
+		level.map_add_object_spot_ser(cf_id, "green_location", "st_sl_hidden_threat_map_spot_cf")
+	elseif mode == false and cf_id and level.map_has_object_spot(cf_id, "green_location") ~= 0 then
+	    level.map_remove_object_spot(cf_id, "green_location")
+	end  
+end
+
+function set_enemy_map_spot(squads)
+    if is_empty(squads) then return end
+	for i=1, #squads do
+	    local squad = get_story_squad(squads[i])
+		if squad then
+			if db.actor:position():distance_to_sqr(squad.position) > 500 then
+				if (squad:clsid() == clsid.online_offline_group_s) then
+					if (squad.id and level.map_has_object_spot(squad.id,"red_location") == 0) then
+						level.map_add_object_spot(squad.id, "red_location", "st_ui_pda_task_unknown_enemy")
+					end
+				end
+			else
+				if (squad:clsid() == clsid.online_offline_group_s) then
+					if (squad.id and level.map_has_object_spot(squad.id,"red_location") == 1) then
+						level.map_remove_object_spot(squad.id, "red_location")
+					end
+				end
+			end
+		end
+	end
+end
+
+function turn_on_campfires_by_smart(smart)
+    local smart_campfires = db.campfire_table_by_smart_names[smart]
+	if smart_campfires ~= nil and is_not_empty(smart_campfires) then
+		for k,v in pairs (smart_campfires) do
+			if (v.campfire and (not v.campfire:is_on())) then
+				v.campfire:turn_on()
+			end
+		end
+	end
+end
+
+function actor_in_smart(smart, dist)
+	local smart = SIMBOARD.smarts_by_names[smart]
+	if (smart.position:distance_to(db.actor:position()) <= (dist or 5)) then 
+	    return true 
+	end
+	return false
+end
+
+function create_reward(flag, sec)
+    if not flag or not sec then 
+    	if debug_mode then
+		    printf("[SLHT] Flag or Section: not found")
+		end
+		return 
+	end
+	
+	local reward = nil
+    local str = task_table:r_string_ex(sec,"items") or ""
+	local str_path = task_table:r_string_ex(sec,"container") or "none"
+	local reward_items = str_explode(str,",")
+		
+	if #reward_items > 0 then
+		reward = reward_items[math.random(1,#reward_items)]
+		if str_path ~= "none" then
+		    reward = reward .. "_" .. str_path
+		else
+    		if math.random() > 0.75 then reward = reward .. "_up" end
+		end
+		reward_table[flag] = reward
+	end
+	if debug_mode then
+		local txt = game.translate_string("st_" .. tostring(reward) .. "_name")
+		printf("[SLHT] %s | Item = %s", tostring(flag), txt)
+	end
+	
+	return
+end
+
+function end_bribe_exclusive()
+    utils_slht.HTCreateNews("sidorovich", "st_sl_hidden_threat_msg_armistice_end", 0, true, true)
+	xr_bribe.cmd.bribes_reset()
+end
+
+function bribe_exclusive_2_hours_stalker()
+	xr_bribe.set_bribe("stalker", 0, 12000)
+	--- Postpone ---
+	local title = game.translate_string("st_sl_hidden_threat_msg_armistice_title")
+	local msg = game.translate_string("st_sl_hidden_threat_msg_armistice_msg")
+	local path = "%c[green]" .. game.translate_string("st_sl_hidden_threat_msg_armistice_path") .. "%c[default]"
+	local icon = "ui_inGame2_PD_Diplomat"
+	
+	msg = strformat(msg, path)
+	db.actor:give_talk_message2(title, msg, icon, "iconed_answer_item")
+	---------------
+	
+	HTCreateNews("sidorovich", "st_sl_hidden_threat_msg_armistice_start", 10, true, true)
+	
+	HTCreateTimeEvent("slht_bribe", 7200, end_bribe_exclusive)
+end
+
+function HTCreateNews(who,str,timeout,actor_msg,color)
+    if not npc_table[who] then 
+	    if debug_mode then
+		    printf("![SLHT] Wrong parametr 'who=%s' for news!!!",tostring(who))
+		end
+		return 
+	end
+    
+	local msg = game.translate_string(str) or nil
+	local npc_name = game.translate_string(npc_table[who][1]) or nil
+	local npc_icon = npc_table[who][2] or nil
+	
+	if actor_msg == true then
+	    msg = strformat(msg, actor_name(color))
+	end
+	
+	if npc_name and npc_icon and msg then
+        dynamic_news_helper.send_tip(msg, npc_name, timeout, 10, npc_icon, "news", "npc")
+	else
+	    if debug_mode then
+            printf("![SLHT] Wrong 'npc_table=%s' for news!!!",tostring(who))	
+		end
+	end
+end
+
+function check_ammo_with_actor(sec)
+    local ammo_section = utils_data.parse_ini_section_to_array(ammo_table,sec)
+	
+	if not ammo_section then 
+		printf("[SLHT]!Warning: couldn't load file gamedata/configs/items/settings/hidden_threat_spooner_barter.ltx, feature disabled!")
+		return false
+	end
+	
+	for k,v in pairs(ammo_section) do
+	    local t = str_explode(v,",") or {}
+		if #t > 3 then
+		    local amount = utils_item.get_amount(db.actor, t[1], 1)
+    		assert(tonumber(t[2]), "value: must be a number")
+	    	if amount >= tonumber(t[2]) then return true end
+		end
+	end
+	
+	return false
+end
+
+function exchange_ammo_with_actor(a,b,sec)
+    if check_ammo_with_actor(sec) then
+		local str = ammo_table:r_string_ex(sec, sec .. "_value") or ""
+		local t = str_explode(str,",") or {}
+		if #t > 3 then
+			assert(tonumber(t[2]), "value: must be a number")
+			assert(tonumber(t[4]), "value: must be a number")
+			dialogs.relocate_item_section_from_actor(a, b, t[1], tonumber(t[2]))
+			dialogs.relocate_item_section_to_actor(a, b, t[3], tonumber(t[4]))
+		end
+	end
+end
+
+function val_1_2_attack_msg_sound()
+    local header = game.translate_string("st_sl_hidden_threat_darkvalley_msg_header")
+	local msg = game.translate_string("st_sl_hidden_threat_darkvalley_msg_text")
+	local ui_sender = "ui_inGame2_Soldier_2"
+    xr_sound.set_sound_play(db.actor:id(), "val_attack_isg_sound")
+    db.actor:give_game_news(header, msg, ui_sender, 0, 2000)
+end
+
+function pri_b304_spawn_agent_case()
+    alife_create("sl_ht_case_quest_task_5", points[5][1],points[5][2],points[5][3])
+end
+
+function cit_spawn_ph_radio()
+    alife_create("cit_ht_ph_quest_radio", points[8][1],points[8][2],points[8][3])
+end
+
+function aes_companion_squad_in_level()
+    if xr_conditions.squad_exist(nil,nil, {"aes_sm_soldier_army_squad"}) then
+		if (level.name() ~= "l12_stancia_2" and level.name() ~= "l12_stancia") then 
+		    if has_alife_info("aes_companion_squad") then
+		        xr_effects.remove_task_companion(nil,nil,{"aes_sm_soldier_army_squad"})
+				xr_effects.teleport_squad(nil,nil,{"aes_sm_soldier_army_squad","aes_smart_terran_soldier_home_1"})
+			    db.actor:disable_info_portion("aes_companion_squad")
+			end
+		elseif (level.name() == "l12_stancia_2" or level.name() == "l12_stancia") then
+		    if not has_alife_info("aes_companion_squad") then
+		        xr_effects.add_task_companion(nil,nil,{"aes_sm_soldier_army_squad"})
+				local squad = get_story_squad("aes_sm_soldier_army_squad")
+				squad:set_squad_position(db.actor:position(),db.actor:level_vertex_id(),db.actor:game_vertex_id())
+			    db.actor:give_info_portion("aes_companion_squad")
+			end
+	    end
+	end
+end
+
+-------------------------- Addons itms_manager -----------------------------------
+itms_manager.ht_use_spooner_package_random = function(obj)
+	local t = {
+            [1] = "ammo_9x19_fmj",
+			[2] = "ammo_11.43x23_fmj",
+			[3] = "ammo_5.56x45_fmj",
+			[4] = "ammo_7.62x51_fmj"
+	}
+	local pick = {}
+	for i=1,#t do
+		if (#pick < 6) and (math.random(100) < 50) then
+			pick[#pick+1] = t[i]
+		end
+	end
+	pick = #pick > 1 and pick or {t[1],t[2],t[3],t[4]}
+	
+	utils_item.delay_event(pick, {obj:id()}, "package_content", true, 5)
+	
+	if has_alife_info("hidden_threat_second_task_2_box") then
+    	db.actor:give_info_portion("hidden_threat_second_task_2_fail")
+	end
+end
+
+-------------------------- Addons xr_effects --------------------------------------
+xr_effects.ht_hit_obj_on_job = function(actor,npc,p)
+    local h = hit()
+	local board = SIMBOARD
+	local smart = p[1] and board and board.smarts_by_names[p[1]]
+	local obj = smart and smart.npc_by_job_section["logic@"..p[2]]
+	obj = obj and level.object_by_id(obj)
+	if not obj or not obj:alive() then
+		return false
+	end
+	
+	h:bone("bip01_head")
+	h.power = 2
+	h.impulse = 12
+	h.direction = vec_sub(npc:position(), obj:position())
+	
+	h.draftsman = sid or npc
+	h.type = hit.wound
+	obj:hit(h)
+end
+
+xr_effects.ht_ds_domik_st_prestart_cut_scene = function(actor,npc,p)
+    if not p[1] then return end
+	assert(tonumber(p[1]), 'value must be a number')
+	local ind = tonumber(p[1])
+    db.actor:set_actor_position(patrol("ds2_ht_actor_cam_position_walk"):point(0))
+	local se_obj = alife_create("hidden_threat_spirit", points[ind][1],points[ind][2],points[ind][3])
+	utils_obj.switch_online(se_obj.id)
+end
+
+xr_effects.ht_npc_set_visual = function(actor,npc,p)
+    npc:set_visual_name(db.actor:get_visual_name())
+	for i=2, 3 do
+		if db.actor:item_in_slot(i) ~= nil then
+			xr_effects.spawn_item_to_npc(nil,npc,{db.actor:item_in_slot(i):section()})
+    	end
+	end
+end
+
+xr_effects.ht_run_cam_effector_global = function(actor,npc,p)
+    local loop, num = false, (1000 + math.random(100))
+	if p[2] and type(p[2]) == "number" and p[2] > 0 then
+		 num = p[2]
+	end
+	if p[3] and p[3] == "true" then
+			loop = true
+		end
+	local fov = device().fov
+	if p[4] ~= nil and type(p[4]) == "number" then
+		fov = p[4]
+	end
+	level.add_cam_effector("camera_effects\\" .. p[1] .. ".anm", num, loop, "xr_effects.cam_effector_callback", fov)
+end
+
+xr_effects.ht_run_postprocess = function(actor,npc,p)
+    if p and p[1] and postprocc_table[p[1]] then
+		local num = 2000 + math.random(100)
+		local looped = false
+		if(p[2] and type(p[2]) == "number" and p[2]>0) then num = p[2] end
+		if p[3] and p[3] == "true" then looped = true end
+		level.add_pp_effector(postprocc_table[p[1]], num, looped)
+		if debug_mode then
+		    printf("[SLHT] Adding postprocces [%s] | ID = %s | looped = %s", tostring(p[1]), tostring(num), tostring(looped))
+		end
+	else
+	    if debug_mode then
+		    printf("[SLHT] Postprocces [%s] is no set!", tostring(p[1]))
+		end
+	end
+end
+
+xr_effects.ht_stop_postprocess = function(actor,npc,p)
+    if p and p[1] then
+	    assert(tonumber(p[1]),"value: must be a number")
+		level.remove_pp_effector(tonumber(p[1]))
+	end
+end
+
+xr_effects.ht_remove_npc = function(actor,npc,p)
+    if not p or not p[1] then return end
+    local npc = get_story_se_object(tostring(p[1]))
+	if npc ~= nil then
+		xr_effects.remove_npc(nil,nil,{tostring(p[1])})
+	end
+end
+
+xr_effects.ht_add_mine = function(actor,npc,p)
+    local pos = vector():set(db.actor:position().x - 1,db.actor:position().y,db.actor:position().z)
+    alife_create("tch_ht_quest_mine_blow",pos,db.actor:level_vertex_id(),db.actor:game_vertex_id())
+end
+
+xr_effects.actor_add_item = function(actor,npc,p)
+    if p and p[1] then
+        alife_create_item(p[1],db.actor)
+		news_manager.relocate_item(db.actor,"in",p[1])
+	end
+end
+
+xr_effects.ht_init_second_task_2 = function(actor,npc,p)
+    alife_create("agr_dead_courier", points[3][1],points[3][2],points[3][3]):on_death()
+	alife_create("sl_ht_spooner_quest_package",points[4][1],points[4][2],points[4][3])
+end
+
+xr_effects.ht_fail_storyline_task_5 = function(actor,npc,p)
+    if xr_conditions.squad_exist(nil,nil, {"pri_army_ser_gorobez_squad"}) then
+	    xr_effects.remove_squad(nil,nil,{"pri_army_ser_gorobez_squad"})
+	end	
+	if xr_conditions.squad_exist(nil,nil, {"pri_isg_guard_squad"}) then
+	    xr_effects.remove_squad(nil,nil,{"pri_isg_guard_squad"})
+	end
+	if xr_conditions.squad_exist(nil,nil, {"pri_isg_leader_squad"}) then
+	    xr_effects.remove_squad(nil,nil,{"pri_isg_leader_squad"})
+	end
+	if xr_conditions.squad_exist(nil,nil, {"pri_isg_agent_squad"}) then
+	    xr_effects.remove_squad(nil,nil,{"pri_isg_agent_squad"})
+	end
+	if xr_conditions.squad_exist(nil,nil, {"pri_b35_mercs_ht_strelok_squad"}) then
+        xr_effects.remove_squad(nil,nil,{"pri_b35_mercs_ht_strelok_squad"})
+    end
+	if xr_conditions.squad_exist(nil,nil, {"agr_1_6_ht_degtyarev_squad"}) then
+        xr_effects.remove_squad(nil,nil,{"agr_1_6_ht_degtyarev_squad"})
+    end
+end
+
+xr_effects.ht_fail_storyline_task_6 = function(actor,npc,p)
+    xr_effects.ht_alife_release_object(cit_ht_ph_quest_radio)
+	if xr_conditions.squad_exist(nil,nil, {"aes_sm_monolith_blokpost4_monolith_squad"}) then
+	    xr_effects.remove_squad(nil,nil,{"aes_sm_monolith_blokpost4_monolith_squad"})
+	end
+	if xr_conditions.squad_exist(nil,nil, {"aes_sm_monolith_blokpost4_merck_squad"}) then
+	    xr_effects.remove_squad(nil,nil,{"aes_sm_monolith_blokpost4_merck_squad"})
+	end	
+	if xr_conditions.squad_exist(nil,nil, {"aes_sm_soldier_army_squad"}) then
+	    xr_effects.remove_squad(nil,nil,{"aes_sm_soldier_army_squad"})
+	end	
+	if xr_conditions.squad_exist(nil,nil, {"agr_1_6_ht_degtyarev_squad"}) then
+	    xr_effects.remove_squad(nil,nil,{"agr_1_6_ht_degtyarev_squad"})
+	end	
+	if xr_conditions.squad_exist(nil,nil, {"aes2_monolith_camp_1_isg_squad"}) then
+	    xr_effects.remove_squad(nil,nil,{"aes2_monolith_camp_1_isg_squad"})
+	end	
+	if xr_conditions.squad_exist(nil,nil, {"aes2_monolith_camp_2_isg_squad"}) then
+	    xr_effects.remove_squad(nil,nil,{"aes2_monolith_camp_2_isg_squad"})
+	end	
+end
+
+xr_effects.ht_fail_storyline_task_7 = function(actor,npc,p)
+    if xr_conditions.squad_exist(nil,nil, {"agr_1_6_ht_vereshagin_squad"}) then
+	    xr_effects.remove_squad(nil,nil,{"agr_1_6_ht_vereshagin_squad"})
+	end
+	if xr_conditions.squad_exist(nil,nil, {"pri_a15_ht_sbu_squad"}) then
+	    xr_effects.remove_squad(nil,nil,{"pri_a15_ht_sbu_squad"})
+	end	
+	if xr_conditions.squad_exist(nil,nil, {"jup_b208_ht_sbu_squad"}) then
+	    xr_effects.remove_squad(nil,nil,{"jup_b208_ht_sbu_squad"})
+	end
+	if xr_conditions.squad_exist(nil,nil, {"jup_b208_ht_sbu_agent_squad"}) then
+	    xr_effects.remove_squad(nil,nil,{"jup_b208_ht_sbu_agent_squad"})
+	end
+	if xr_conditions.squad_exist(nil,nil, {"jup_ht_companion_army_squad"}) then
+	    xr_effects.remove_squad(nil,nil,{"jup_ht_companion_army_squad"})
+	end	
+	if xr_conditions.squad_exist(nil,nil, {"pas_b400_fake_isg_squad"}) then
+	    xr_effects.remove_squad(nil,nil,{"pas_b400_fake_isg_squad"})
+	end	
+	if xr_conditions.squad_exist(nil,nil, {"pas_b400_elevator_isg_squad"}) then
+	    xr_effects.remove_squad(nil,nil,{"pas_b400_elevator_isg_squad"})
+	end	
+	if xr_conditions.squad_exist(nil,nil, {"pas_b400_track_isg_squad"}) then
+	    xr_effects.remove_squad(nil,nil,{"pas_b400_track_isg_squad"})
+	end
+	if xr_conditions.squad_exist(nil,nil, {"pas_b400_tunnel_isg_squad"}) then
+	    xr_effects.remove_squad(nil,nil,{"pas_b400_tunnel_isg_squad"})
+	end
+	if xr_conditions.squad_exist(nil,nil, {"pas_b400_hall_isg_squad"}) then
+	    xr_effects.remove_squad(nil,nil,{"pas_b400_hall_isg_squad"})
+	end
+	if xr_conditions.squad_exist(nil,nil, {"pas_b400_hall_isg_leader_squad"}) then
+	    xr_effects.remove_squad(nil,nil,{"pas_b400_hall_isg_leader_squad"})
+	end
+	if xr_conditions.squad_exist(nil,nil, {"pas_b400_hall_isg_sniper_squad"}) then
+	    xr_effects.remove_squad(nil,nil,{"pas_b400_hall_isg_sniper_squad"})
+	end
+end
+
+xr_effects.ht_pri_b35_teleport_actor = function(actor,npc,p)
+    if p and p[1] and p[1] == "safe" then
+        actor_pos = {[1] = vector():set(db.actor:position()),
+	    		     [2] = db.actor:level_vertex_id(),
+		     	     [3] = db.actor:game_vertex_id()}
+    	db.actor:set_actor_position(points[6][1],points[6][2],points[6][3])
+	else
+	    if actor_pos and #actor_pos > 0 then
+    	    db.actor:set_actor_position(actor_pos[1],actor_pos[2],actor_pos[3])
+	    	actor_pos = {}
+    	else
+        	db.actor:set_actor_position(points[7][1],points[7][2],points[7][3])
+    	end
+	end
+end
+
+xr_effects.ht_pri_a17_play_sound = function(actor,npc,p)
+    xr_sound.set_sound_play(db.actor:id(), "pri_actor_heart_sound")
+end
+
+xr_effects.ht_alife_release_object = function(actor,npc,p)
+    if p and p[1] then
+		local sim = alife()
+		for i=1,65534 do
+			local obj = sim:object(i)
+			if obj then
+				local sec = obj:section_name() or ""
+				if sec == tostring(p[1]) then 
+					sim:release(obj,true)
+					if debug_mode then
+						printf("~[SLHT] Alife release [%s]", tostring(p[1]))				
+					end
+					break
+				end
+			end
+		end
+	end
+end
+
+---------------------------------------------------------------------------------------------------------
+local HTTimeEventUpdate = function()
+	
+	ResetTimeEvent("cycle","slht_update_time_event",uptime)
+	
+	local curr = utils_data.CTime_to_table(game.get_game_time())
+	
+	for k,v in pairs(queue_time_event) do
+	
+		if (curr.Y >  v.ETime.Y) or
+		   (curr.Y == v.ETime.Y and curr.M >  v.ETime.M) or
+		   (curr.Y == v.ETime.Y and curr.M == v.ETime.M and curr.D >  v.ETime.D) or 
+		   (curr.Y == v.ETime.Y and curr.M == v.ETime.M and curr.D == v.ETime.D and curr.h >  v.ETime.h) or 
+		   (curr.Y == v.ETime.Y and curr.M == v.ETime.M and curr.D == v.ETime.D and curr.h == v.ETime.h and curr.m >  v.ETime.m) or
+		   (curr.Y == v.ETime.Y and curr.M == v.ETime.M and curr.D == v.ETime.D and curr.h == v.ETime.h and curr.m == v.ETime.m and curr.s > v.ETime.s) then
+		  
+			if debug_mode then
+				printf("[SLHT] TimeEventDisabled | ID: %s", tostring(k))
+				printf("*** Day:%s Time:%s:%s:%s",
+						tostring(curr.D),
+						tostring(curr.h),
+						tostring(curr.m),
+						tostring(curr.s)) end
+		
+			queue_time_event[k].EFunc(unpack(queue_time_event[k].EArgs))
+			
+			empty_table(queue_time_event[k].ETime)
+			empty_table(queue_time_event[k].EArgs)
+			queue_time_event[k].EFunc = nil
+			queue_time_event[k] = nil
+		
+		end
+		
+	end
+end
+
+
+local HTFormatTime = function(value, curr_time)
+    
+	if not value then return nil end
+	if not curr_time then return nil end
+
+	local v = tonumber(value)
+
+	local t = {  
+	                Y = curr_time.Y,
+					M = curr_time.M,
+	                D = curr_time.D + math.floor(v/86400),
+                    h = curr_time.h + math.floor((v - (math.floor(v/86400)*86400))/3600),
+                    m = curr_time.m + math.floor((v - (math.floor(v/3600)*3600))/60),
+                    s = curr_time.s + (v - (math.floor(v/60)*60)),
+					ms = curr_time.ms
+				}
+	
+	if t.s >= 60 then t.s = t.s - 60 t.m = t.m + 1 end
+	if t.m >= 60 then t.m = t.m - 60 t.h = t.h + 1 end
+	if t.h >= 24 then t.h = t.h - 24 t.D = t.D + 1 end
+	if t.D > month_table[t.M] then t.D = t.D - month_table[t.M] t.M = t.M + 1 end
+    if t.M > 12 then t.M = 1 t.Y = t.Y + 1 end
+	
+	
+	return t
+end
+
+
+HTCreateTimeEvent = function(teid,value,func,...)	
+
+	if not teid or not value or not func then return end
+	
+	if type(value) ~= "number" then return end
+    value = tonumber(value)
+	
+	local curr = utils_data.CTime_to_table(game.get_game_time())
+	
+    if queue_time_event and not queue_time_event[teid] then
+
+		local event_time = HTFormatTime(value,curr)
+		
+		if not event_time or type(event_time) ~= "table" then return end
+		
+		queue_time_event[teid] = {}
+		queue_time_event[teid].ETime = event_time
+		queue_time_event[teid].EFunc = func
+		queue_time_event[teid].EArgs = {...}
+
+        if debug_mode then
+			printf("[SLHT] TimeEventEnabled | ID: %s", tostring(teid))
+			printf("*** Value: %s seconds",tostring(value))
+			printf("*** Start: Day:%s Time:%s:%s:%s",
+						tostring(curr.D),
+						tostring(curr.h),
+						tostring(curr.m),
+						tostring(curr.s))
+			printf("*** End:  Day:%s Time:%s:%s:%s",
+						tostring(event_time.D),
+						tostring(event_time.h),
+						tostring(event_time.m),
+						tostring(event_time.s))	
+        end
+        
+        return true
+		
+	end
+end
+
+--code demonized
+xr_effects.clear_scene_from_monsters = function(actor, npc, p)
+	local smart_name = p[1]
+	if not smart_name then 
+		printf("Hidden Threat, no smart specified")
+		return
+	end
+	local smart = SIMBOARD.smarts_by_names[smart_name]
+	if not smart then
+		printf("Hidden Threat, no smart found with name %s", smart_name)
+		return
+	end
+
+	local clean_distance = (p[2] or 60) ^ 2
+	for i = 1, 65534 do
+		local se_obj = alife_object(i)
+		if se_obj and IsMonster(nil, se_obj:clsid()) then
+			local dist = smart.position:distance_to_sqr(se_obj.position)
+			if dist <= clean_distance then
+				printf("Hidden Threat, cleaning scene from monster %s, dist_sqr %s", se_obj:name(), dist)
+				alife():release(se_obj)
+			end
+		end
+	end
+end
+--code demonized end
+
+local function save_state(m_data)
+	m_data.slht_queue_time_event = queue_time_event
+	m_data.slht_reward_table = reward_table
+end
+
+local function load_state(m_data)
+	queue_time_event = m_data.slht_queue_time_event or {}
+	reward_table = m_data.slht_reward_table or {}
+end
+
+local function on_game_load() 
+	CreateTimeEvent("cycle", "slht_update_time_event", uptime, HTTimeEventUpdate) 
+end
+
+function on_game_start()
+
+    RegisterScriptCallback("on_game_load", on_game_load)
+    RegisterScriptCallback("save_state",save_state)
+	RegisterScriptCallback("load_state",load_state)  
+
+end

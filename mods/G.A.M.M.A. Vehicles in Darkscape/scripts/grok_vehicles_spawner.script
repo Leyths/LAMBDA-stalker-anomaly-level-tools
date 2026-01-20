@@ -1,0 +1,100 @@
+
+{r%level:k01_darkscape}
+vtbl_darkscape = {
+	veh1 = {'veh_tr13', {w%x:-541.1818}, {w%y:-1.7894}, {w%z:-454.6665}, {w%lvid:12964}, {w%gvid:1396}},
+	veh2 = {'veh_zaz_968', {w%x:-298.5625}, {w%y:-5.4998}, {w%z:-504.7299}, {w%lvid:94992}, {w%gvid:1127}},
+	veh3 = {'veh_niva', {w%x:418.9117}, {w%y:7.1031}, {w%z:-363.6832}, {w%lvid:900374}, {w%gvid:1190}},
+	veh4 = {'veh_uaz_01', {w%x:413.6206}, {w%y:-0.2639}, {w%z:-353.2987}, {w%lvid:890855}, {w%gvid:1190}},
+	veh5 = {'veh_uaz_02', {w%x:384.9842}, {w%y:-0.7985}, {w%z:-449.0479}, {w%lvid:840565}, {w%gvid:1190}},
+	veh6 = {'veh_niva', {w%x:423.7749}, {w%y:-0.7194}, {w%z:192.2425}, {w%lvid:909672}, {w%gvid:1190}},
+	veh7 = {'veh_tr13', {w%x:-363.2407}, {w%y:2.7025}, {w%z:574.1415}, {w%lvid:65611}, {w%gvid:1190}},
+	veh8 = {'veh_kamaz', {w%x:-348.1494}, {w%y:3.0001}, {w%z:584.8413}, {w%lvid:72678}, {w%gvid:1190}},
+	veh9 = {'veh_zaz', {w%x:-499.8231}, {w%y:0.8414}, {w%z:-458.8291}, {w%lvid:23361}, {w%gvid:1190}},
+	veh10 = {'veh_niva', {w%x:291.0005}, {w%y:1.5107}, {w%z:-195.3195}, {w%lvid:717159}, {w%gvid:1190}},
+	veh11 = {'veh_zaz_968', {w%x:-173.8721}, {w%y:2.1128}, {w%z:-165.7107}, {w%lvid:189139}, {w%gvid:1190}},
+}
+
+{r%level:zaton}
+vtbl_zaton = {
+	zaton_1 = {'veh_niva', {w%x:455.52291870117}, {w%y:35.013370513916}, {w%z:48.938179016113}, {w%lvid:1712078}, {w%gvid:4433}},
+	zaton_2 = {'veh_uaz_01', {w%x:460.46954345703}, {w%y:36.718688964844}, {w%z:-59.10139465332}, {w%lvid:1718992}, {w%gvid:4359}},
+	zaton_3 = {'veh_uaz_02', {w%x:287.8210144043}, {w%y:33.253658294678}, {w%z:-441.96395874023}, {w%lvid:1456502}, {w%gvid:4138}},
+	zaton_4 = {'veh_niva', {w%x:431.78756713867}, {w%y:33.252380371094}, {w%z:-314.50045776367}, {w%lvid:1674357}, {w%gvid:4211}},
+	zaton_5 = {'veh_uaz_02', {w%x:-111.56352233887}, {w%y:21.71445274353}, {w%z:-370.46929931641}, {w%lvid:717375}, {w%gvid:4225}},
+	zaton_6 = {'veh_uaz_01', {w%x:-293.86917114258}, {w%y:41.041011810303}, {w%z:-450.02639770508}, {w%lvid:358049}, {w%gvid:4227}},
+	zaton_7 = {'veh_niva', {w%x:-330.82434082031}, {w%y:9.731164932251}, {w%z:415.77960205078}, {w%lvid:289479}, {w%gvid:4137}},
+}
+
+{r%level:jupiter}
+vtbl_jupiter = {
+	jupiter_1 = {'veh_niva', {w%x:398.42413330078}, {w%y:3.924732208252}, {w%z:356.17260742188}, {w%lvid:1343900}, {w%gvid:4496}},
+    jupiter_2 = {'veh_uaz_01', {w%x:372.19540405273}, {w%y:27.978965759277}, {w%z:-224.09083557129}, {w%lvid:1306508}, {w%gvid:4487}},
+    jupiter_3 = {'veh_uaz_02', {w%x:167.85171508789}, {w%y:28.461494445801}, {w%z:-433.81878662109}, {w%lvid:1001527}, {w%gvid:4755}},
+    jupiter_4 = {'veh_niva', {w%x:168.68266296387}, {w%y:16.709003448486}, {w%z:-253.05743408203}, {w%lvid:1002980}, {w%gvid:4634}},
+    jupiter_5 = {'veh_uaz_02', {w%x:155.55085754395}, {w%y:16.557994842529}, {w%z:-434.01507568359}, {w%lvid:980609}, {w%gvid:4474}},
+    jupiter_6 = {'veh_niva', {w%x:-219.73474121094}, {w%y:3.3454337120056}, {w%z:-392.56204223633}, {w%lvid:344015}, {w%gvid:4626}},
+    jupiter_7 = {'veh_uaz_01', {w%x:-139.03602600098}, {w%y:26.81196975708}, {w%z:-496.96459960938}, {w%lvid:483820}, {w%gvid:4813}},
+    jupiter_8 = {'veh_niva', {w%x:-434.99182128906}, {w%y:0.056571811437607}, {w%z:-388.98669433594}, {w%lvid:5497}, {w%gvid:4470}},
+    jupiter_9 = {'veh_niva', {w%x:-350.11486816406}, {w%y:2.6415646076202}, {w%z:-7.2504911422729}, {w%lvid:124470}, {w%gvid:4520}},
+}
+
+{r%level:l12_stancia}
+vtbl_cnpp = {
+    l12_stancia_1  = {'veh_niva', {w%x:273.47662353516}, {w%y:7.3075294494629e-05}, {w%z:-201.60314941406}, {w%lvid:115198}, {w%gvid:3162}},
+    l12_stancia_2  = {'veh_uaz_01', {w%x:121.06073760986}, {w%y:-0.10145169496536}, {w%z:-76.471519470215}, {w%lvid:63658}, {w%gvid:3222}},
+    l12_stancia_3  = {'veh_uaz_02', {w%x:364.61950683594}, {w%y:-0.001543715596199}, {w%z:-3.3924090862274}, {w%lvid:158931}, {w%gvid:3192}},
+    l12_stancia_4  = {'veh_uaz_01', {w%x:827.76257324219}, {w%y:-0.0075042098760605}, {w%z:-181.00523376465}, {w%lvid:364137}, {w%gvid:3131}},
+    l12_stancia_5  = {'veh_zaz', {w%x:828.83837890625}, {w%y:-0.0016829967498779}, {w%z:-4.2838230133057}, {w%lvid:364669}, {w%gvid:3103}},
+    l12_stancia_6  = {'veh_niva', {w%x:1008.3409423828}, {w%y:-0.097792476415634}, {w%z:32.908493041992}, {w%lvid:469056}, {w%gvid:3085}},
+    l12_stancia_7  = {'veh_uaz_02', {w%x:909.74249267578}, {w%y:-0.0019557178020477}, {w%z:-312.14324951172}, {w%lvid:408256}, {w%gvid:3214}}
+}
+
+function actor_on_first_update()
+	if not grok_vehicle_spawned then
+		for k, v in pairs(vtbl_darkscape) do
+			alife():create(v[1], vector():set(v[2], v[3], v[4]), v[5], v[6])
+		end
+		grok_vehicle_spawned = true
+	end
+
+	if not grok_vehicle_spawned_zaton then
+		for k, v in pairs(vtbl_zaton) do
+			alife():create(v[1], vector():set(v[2], v[3], v[4]), v[5], v[6])
+		end
+		grok_vehicle_spawned_zaton = true
+	end
+
+	if not grok_vehicle_spawned_jupiter then
+		for k, v in pairs(vtbl_jupiter) do
+			alife():create(v[1], vector():set(v[2], v[3], v[4]), v[5], v[6])
+		end
+		grok_vehicle_spawned_jupiter = true
+	end
+
+	if not grok_vehicle_spawned_cnpp then
+		for k, v in pairs(vtbl_cnpp) do
+			alife():create(v[1], vector():set(v[2], v[3], v[4]), v[5], v[6])
+		end
+		grok_vehicle_spawned_cnpp = true
+	end
+end
+
+function save_state(m_data)
+    m_data.grok_vehicle_spawned = grok_vehicle_spawned
+	m_data.grok_vehicle_spawned_zaton = grok_vehicle_spawned_zaton
+	m_data.grok_vehicle_spawned_jupiter = grok_vehicle_spawned_jupiter
+	m_data.grok_vehicle_spawned_cnpp = grok_vehicle_spawned_cnpp
+end
+
+function load_state(m_data)
+    grok_vehicle_spawned = m_data.grok_vehicle_spawned
+    grok_vehicle_spawned_zaton = m_data.grok_vehicle_spawned_zaton
+    grok_vehicle_spawned_jupiter = m_data.grok_vehicle_spawned_jupiter
+    grok_vehicle_spawned_cnpp = m_data.grok_vehicle_spawned_cnpp
+end
+
+function on_game_start()
+	RegisterScriptCallback("actor_on_first_update",actor_on_first_update)
+	RegisterScriptCallback("save_state",save_state)
+	RegisterScriptCallback("load_state",load_state)
+end
