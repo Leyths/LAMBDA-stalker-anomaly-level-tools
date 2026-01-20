@@ -91,9 +91,20 @@ If you disabled `original_edges`, you need to create new graph connections manua
 ### Find Connection Points
 
 1. Launch the visualiser:
+
+Mac
    ```bash
+   cd LAMBDA-stalker-anomaly-level-tools
    ./visualise.sh
    ```
+
+Windows
+   ```bash
+   cd LAMBDA-stalker-anomaly-level-tools
+   ./visualise.bat
+   ```
+
+[See this](../README.md#installation) if you encounter an error about open3d not being installed.
 
 2. Open your modified map and find **graph nodes** (blue orbs) near the edges that should connect to adjacent maps
 

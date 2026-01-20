@@ -18,7 +18,7 @@ An `all.spawn` visualiser tool is included to help debug issues and view maps in
 
 ## Prerequisites
 
-- Python 3.11+
+- Python 3.12 is recommended (if you want to run the visualiser).
 - S.T.A.L.K.E.R. Anomaly or GAMMA installation (for level data extraction)
 - Git
 
@@ -37,7 +37,7 @@ pip install open3d  # optional, for visualizer
 
 ### Windows
 
-First, install Python 3 from [python.org](https://www.python.org/downloads/). Make sure to check "Add Python to PATH" during installation.
+First, install Python 3.12 from [python.org](https://www.python.org/downloads/release/python-31212/). Make sure to check "Add Python to PATH" during installation.
 
 Then install pip and dependencies:
 
