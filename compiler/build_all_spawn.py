@@ -55,7 +55,7 @@ class GameGraphBuilder:
         self.config.set_paths(self.base_path, self.build_dir)
 
         # Output path
-        self.output_path = Path(output_path) if output_path else self.base_path / ".." / "gamedata" / "scripts" / "all.spawn"
+        self.output_path = Path(output_path) if output_path else self.base_path / ".." / "gamedata" / "spawns" / "all.spawn"
 
         # Blacklist path
         self.blacklist_path = Path(blacklist_path) if blacklist_path else None

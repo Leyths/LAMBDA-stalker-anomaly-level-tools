@@ -8,7 +8,8 @@ Technical documentation for the L.A.M.B.D.A build pipeline.
 compiler/
 ├── build_all_spawn.py          # Master orchestrator (GameGraphBuilder)
 ├── game_graph_merger.py        # Merges per-level graphs
-├── spawn_graph_builder.py      # Builds spawn chunk
+├── spawn_graph/                # Spawn graph building
+│   └── builder.py              # Builds spawn chunk
 ├── extraction/                 # Phase 1: Spawn entity extraction
 ├── graph/                      # GameGraph data structure
 ├── crosstables/                # Cross table building
@@ -35,7 +36,7 @@ The build follows a 6-phase pipeline:
                             ↓
 ┌─────────────────────────────────────────────────────────────┐
 │                  PHASE 2: CROSS TABLES                       │
-│  crosstables/build_cross_table.py → .gct files               │
+│  crosstables/builder.py → .gct files                        │
 │  - Build LVID → GVID mapping for each level                  │
 │  - Cache in .tmp/ directory                                  │
 └─────────────────────────────────────────────────────────────┘
@@ -87,7 +88,7 @@ Central data structure holding all game graph vertices, edges, and mappings acro
 
 ### Death Points
 
-Spawn/respawn locations for the player. Sampled at approximately 10% from game graph vertices.
+Spawn/respawn locations for the player. Randomly selected from approximately 10% of game graph vertices.
 
 ### Level Files Relationship
 
@@ -218,11 +219,15 @@ Level changers **not** listed in this file are removed from all.spawn.
 
 Vanilla Anomaly used hardcoded locations with hardcoded LVID and GVID values for dynamic item spawns. This approach breaks when the game graph is rebuilt, as the vertex IDs change.
 
-**Solution:** During the build process, a `space_restrictor` entity is inserted into every level. This restrictor has an attached script that spawns items using XYZ world coordinates from `dynamic_item_spawn_locations.ltx` instead of vertex IDs. The game engine resolves the correct LVID/GVID at runtime from the coordinates.
+**Solution:** During the build process, a `space_restrictor` entity is inserted into every level. This restrictor has an attached script that spawns items using XYZ world coordinates from `dynamic_item_spawn_locations.ltx` instead of vertex IDs.
+
+The game engine resolves the correct LVID/GVID at runtime from the coordinates.
 
 ### Dynamic Anomalies
 
-Similarly, vanilla used hardcoded vertex IDs for dynamic anomaly placement. The build now inserts space restrictors that reference `dynamic_anomaly_locations.ltx`, spawning anomalies by world coordinates rather than pre-baked vertex IDs.
+Vanilla used hardcoded vertex IDs for dynamic anomaly placement. This has the same problem as dynamic items when the game graph changes.
+
+The build now inserts space restrictors that reference `dynamic_anomaly_locations.ltx`, spawning anomalies by world coordinates rather than pre-baked vertex IDs.
 
 This coordinate-based approach ensures dynamic spawns remain valid regardless of game graph changes.
 
@@ -232,9 +237,9 @@ This coordinate-based approach ensures dynamic spawns remain valid regardless of
 |--------|---------|
 | `build_all_spawn.py` | Master orchestrator (GameGraphBuilder class) |
 | `game_graph_merger.py` | Merges per-level graphs; GameVertex/GameEdge/DeathPoint |
-| `spawn_graph_builder.py` | Builds spawn chunk; M_SPAWN/M_UPDATE packets |
+| `spawn_graph/builder.py` | Builds spawn chunk; M_SPAWN/M_UPDATE packets |
 | `graph/game_graph.py` | GameGraph - caches level.ai, cross tables, provides GVID lookups |
 | `remapping/spawn_remapper.py` | Updates entity GVIDs based on position |
 | `remapping/patrol_remapper.py` | Updates patrol point GVIDs |
 | `extraction/spawn_entity_extractor.py` | Extracts/merges spawn entities |
-| `crosstables/build_cross_table.py` | Builds .gct files; LevelGraphNavigator pathfinding |
+| `crosstables/builder.py` | Builds .gct files; LevelGraphNavigator pathfinding |

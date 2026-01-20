@@ -26,9 +26,7 @@ class NodeInspectorApp:
         self.graph_data: Optional[GraphData] = None
         if level_id is not None and all_spawn_path and os.path.exists(all_spawn_path):
             self.spawn_data = SpawnData(all_spawn_path, level_id)
-            print(f"Loaded {len(self.spawn_data)} spawn objects for this level")
             self.graph_data = GraphData(all_spawn_path, level_id)
-            print(f"Loaded {len(self.graph_data)} game graph vertices for this level")
 
         self.geometry_manager = GeometryManager(self.level_data, self.spawn_data, self.graph_data)
 
