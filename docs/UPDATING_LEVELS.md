@@ -47,6 +47,9 @@ original_edges = extractedanomalyspawns/k01_darkscape.edges.json
 # original_spawn = extractedanomalyspawns/k01_darkscape.spawn
 # original_patrols = extractedanomalyspawns/k01_darkscape.patrols
 # original_edges = extractedanomalyspawns/k01_darkscape.edges.json
+
+# Optional: Auto-connect orphan graph nodes (see Step 6.5)
+connect_orphans_automatically = true
 ```
 
 **Keep originals** if you want to maintain compatibility with other mods or preserve the vanilla experience.
@@ -165,6 +168,66 @@ Note how source/target coordinates are swapped compared to your map's file.
 
 ```ini
 original_edges = path/to/your/k01_darkscape.edges.json
+```
+
+## Step 6.5: Auto-Connect Disconnected Nodes (Optional)
+
+Modified levels sometimes end up with disconnected graph nodes - vertices that exist but aren't connected to the main navigation graph. This can happen when:
+
+- New areas are added that weren't properly connected during level compilation
+- The level editor didn't generate all necessary graph edges
+- Graph nodes exist at positions where edges couldn't be automatically computed
+
+Disconnected nodes cause NPC pathfinding failures - NPCs simply cannot navigate to or through these areas.
+
+### Detecting Disconnected Nodes
+
+You may have disconnected nodes if:
+- NPCs refuse to walk to certain areas of your map
+- The visualiser shows isolated blue orbs with no connecting lines
+- Build logs mention disconnected vertices
+
+### Automatic Fix
+
+Add this flag to your level's entry in `levels.ini`:
+
+```ini
+connect_orphans_automatically = true
+```
+
+This enables automatic connection of disconnected graph nodes, which:
+
+1. **Detects** all vertices belonging to your level
+2. **Finds** vertices that are disconnected from the main graph
+3. **Connects** them to the nearest reachable vertex using a greedy nearest-neighbor algorithm
+4. **Creates** bidirectional edges to ensure full connectivity
+
+The algorithm minimizes total edge distance added while ensuring all level vertices form a single connected component.
+
+### When to Use
+
+- **Enable** when your modified level has pathfinding issues or disconnected areas
+- **Disable** (default) for unmodified levels or when you want manual control over graph edges
+
+### Important: Manual Connections Recommended
+
+For best results, manually connect important graph points in the SDK, especially around buildings and complex geometry. The automatic algorithm uses straight-line distance calculations which can result in poor AI pathfinding behaviour - NPCs may try to walk through walls or take nonsensical routes.
+
+The recommended workflow is:
+
+1. **Manually connect** key graph nodes within your level using the SDK (doorways, building entrances, important waypoints)
+2. **Enable** `connect_orphans_automatically = true` to let the algorithm connect your manually-connected nodes to the wider world graph
+
+This way you maintain control over critical pathfinding areas while avoiding the tedious work of connecting every single node on your level to adjacent maps.
+
+### Build Output
+
+When enabled, you'll see output like:
+
+```
+  Connecting orphan vertices...
+    k01_darkscape: 3 vertices need connection
+    Connected vertex 1234 to 5678 (45.2m)
 ```
 
 ## Step 7: Final Build and Verify
