@@ -31,6 +31,7 @@ class LevelData:
 
         # Load cross-table mapping if all_spawn_path and level_id are provided
         self._cross_table_gvids: Optional[np.ndarray] = None
+        self._gvid_to_level_vertices: dict = {}  # Reverse mapping: gvid -> set of level vertex ids
         if all_spawn_path and level_id is not None:
             self._load_cross_table(all_spawn_path, level_id)
 
@@ -45,6 +46,12 @@ class LevelData:
             cross_table = game_graph.get_cross_table_for_level(level_id)
             if cross_table:
                 self._cross_table_gvids = np.array(cross_table['gvids'], dtype=np.uint16)
+                # Build reverse mapping: gvid -> set of level vertex ids
+                for lvid, gvid in enumerate(self._cross_table_gvids):
+                    gvid_int = int(gvid)
+                    if gvid_int not in self._gvid_to_level_vertices:
+                        self._gvid_to_level_vertices[gvid_int] = set()
+                    self._gvid_to_level_vertices[gvid_int].add(lvid)
         except Exception:
             pass  # Failed to load cross-table, leave as None
 
@@ -59,6 +66,17 @@ class LevelData:
         if level_vertex_id < 0 or level_vertex_id >= len(self._cross_table_gvids):
             return None
         return int(self._cross_table_gvids[level_vertex_id])
+
+    def get_level_vertices_for_gvid(self, gvid: int) -> set:
+        """Get all level vertex IDs that map to the given game graph vertex ID.
+
+        Args:
+            gvid: Game graph vertex ID
+
+        Returns:
+            Set of level vertex IDs, or empty set if none found
+        """
+        return self._gvid_to_level_vertices.get(gvid, set())
 
     def get_point(self, idx: int) -> np.ndarray:
         """Get the 3D point for a vertex."""
@@ -75,6 +93,15 @@ class LevelData:
     def get_links(self, idx: int) -> list:
         """Get the raw link values for a vertex (4 values, including invalid markers)."""
         return self._parser.get_vertex_raw_links(idx)
+
+    def get_all_links(self) -> np.ndarray:
+        """Get all vertex links as (vertex_count, 4) array in single read.
+
+        Returns:
+            (vertex_count, 4) int32 array where each row contains 4 link values.
+            Invalid links are marked with INVALID_LINK (0x7FFFFF).
+        """
+        return self._parser.get_all_links()
 
     def find_nearest_node(self, x: float, y: float, z: float) -> tuple:
         """Find the nearest vertex to given coordinates.

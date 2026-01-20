@@ -342,6 +342,29 @@ class LevelAIParser:
         node_data = self._mmap_handle[offset:offset + self.NODE_SIZE]
         return self._parse_links(node_data)
 
+    def get_all_links(self) -> np.ndarray:
+        """
+        Bulk read all vertex links as a (vertex_count, 4) numpy array.
+
+        This is significantly faster than calling get_vertex_raw_links() for each
+        vertex individually, as it reads the entire file in a single pass.
+
+        Returns:
+            (vertex_count, 4) int32 array where each row contains 4 link values.
+            Invalid links are marked with 0x7FFFFF.
+        """
+        vertex_count = self._header.vertex_count
+        links = np.zeros((vertex_count, 4), dtype=np.int32)
+
+        with open(self.filepath, 'rb') as f:
+            f.seek(self.HEADER_SIZE)
+
+            for i in range(vertex_count):
+                node_data = f.read(self.NODE_SIZE)
+                links[i] = self._parse_links(node_data)
+
+        return links
+
     def find_nearest_vertex(self, position: Tuple[float, float, float]) -> int:
         """
         Find the nearest vertex to a world position.

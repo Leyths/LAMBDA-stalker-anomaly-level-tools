@@ -2,6 +2,7 @@
 Manages Open3D geometry objects for visualization
 """
 from typing import Optional
+from collections import defaultdict
 import numpy as np
 import open3d as o3d
 import matplotlib.cm as cm
@@ -25,6 +26,20 @@ class GeometryManager:
     SPAWN_HIGHLIGHT_COLOR = [1, 1, 0]  # Yellow
     SPAWN_POINT_SIZE = 0.5
     SPAWN_HIGHLIGHT_SIZE = 0.7
+
+    # Spawn type keys for template caching
+    SPAWN_TYPE_DEFAULT = "default"
+    SPAWN_TYPE_LEVEL_CHANGER = "level_changer"
+    SPAWN_TYPE_LIGHTS = "lights"
+    SPAWN_TYPE_PHYSIC = "physic"
+    SPAWN_TYPE_SPACE_RESTRICTOR = "space_restrictor"
+    SPAWN_TYPE_AMMO = "ammo"
+    SPAWN_TYPE_INVENTORY_BOX = "inventory_box"
+    SPAWN_TYPE_ZONE = "zone"
+    SPAWN_TYPE_WEAPON = "weapon"
+    SPAWN_TYPE_DETECTOR = "detector"
+    SPAWN_TYPE_SMART_COVER = "smart_cover"
+    SPAWN_TYPE_CAMPFIRE = "campfire"
 
     # Special spawn type colors
     LEVEL_CHANGER_COLOR = [1.0, 0.5, 0.0]  # Orange
@@ -69,7 +84,19 @@ class GeometryManager:
         self.graph_vertices = None  # Game graph vertex spheres
         self.graph_edges = None  # Game graph edge lines
         self.graph_highlight = None  # Game graph highlight sphere
+        self.level_vertex_highlight = None  # Separate point cloud for highlighted level vertices
         self._original_point_colors = None  # Store original colors for reset
+
+        # Cached template meshes for highlights (created once, copied when needed)
+        self._highlight_sphere_template = None
+        self._spawn_highlight_template = None
+        self._graph_highlight_template = None
+
+        # Cached spawn templates by type (for batched mesh construction)
+        self._spawn_templates = {}
+
+        # Track currently highlighted level vertices for efficient color updates
+        self._highlighted_level_vertices = set()
 
         self._create_geometries()
 
@@ -84,6 +111,68 @@ class GeometryManager:
         self._create_graph_vertices()
         self._create_graph_edges()
         self._create_graph_highlight()
+        self._create_level_vertex_highlight()
+
+    def _get_spawn_type(self, section_name: str) -> str:
+        """Get the spawn type key for a section name (used for template caching)."""
+        if section_name == "level_changer":
+            return self.SPAWN_TYPE_LEVEL_CHANGER
+        elif section_name.startswith("lights_"):
+            return self.SPAWN_TYPE_LIGHTS
+        elif section_name.startswith("physic_") or section_name.startswith("explosive_"):
+            return self.SPAWN_TYPE_PHYSIC
+        elif section_name in ("space_restrictor", "smart_terrain"):
+            return self.SPAWN_TYPE_SPACE_RESTRICTOR
+        elif section_name.startswith("ammo_"):
+            return self.SPAWN_TYPE_AMMO
+        elif section_name.startswith("inventory_box"):
+            return self.SPAWN_TYPE_INVENTORY_BOX
+        elif section_name.startswith("zone_"):
+            return self.SPAWN_TYPE_ZONE
+        elif section_name.startswith("wpn_"):
+            return self.SPAWN_TYPE_WEAPON
+        elif section_name.startswith("detector_"):
+            return self.SPAWN_TYPE_DETECTOR
+        elif section_name == "smart_cover":
+            return self.SPAWN_TYPE_SMART_COVER
+        elif section_name == "campfire":
+            return self.SPAWN_TYPE_CAMPFIRE
+        else:
+            return self.SPAWN_TYPE_DEFAULT
+
+    def _get_spawn_template(self, spawn_type: str) -> o3d.geometry.TriangleMesh:
+        """Get or create a cached spawn template mesh for the given type."""
+        if spawn_type in self._spawn_templates:
+            return self._spawn_templates[spawn_type]
+
+        # Create template based on type
+        if spawn_type == self.SPAWN_TYPE_LEVEL_CHANGER:
+            template = self._create_level_changer_mesh()
+        elif spawn_type == self.SPAWN_TYPE_LIGHTS:
+            template = self._create_lightbulb_mesh()
+        elif spawn_type == self.SPAWN_TYPE_PHYSIC:
+            template = self._create_explosion_mesh()
+        elif spawn_type == self.SPAWN_TYPE_SPACE_RESTRICTOR:
+            template = self._create_space_restrictor_marker_mesh()
+        elif spawn_type == self.SPAWN_TYPE_AMMO:
+            template = self._create_ammo_mesh()
+        elif spawn_type == self.SPAWN_TYPE_INVENTORY_BOX:
+            template = self._create_inventory_box_mesh()
+        elif spawn_type == self.SPAWN_TYPE_ZONE:
+            template = self._create_zone_mesh()
+        elif spawn_type == self.SPAWN_TYPE_WEAPON:
+            template = self._create_weapon_mesh()
+        elif spawn_type == self.SPAWN_TYPE_DETECTOR:
+            template = self._create_detector_mesh()
+        elif spawn_type == self.SPAWN_TYPE_SMART_COVER:
+            template = self._create_smart_cover_mesh()
+        elif spawn_type == self.SPAWN_TYPE_CAMPFIRE:
+            template = self._create_campfire_mesh()
+        else:
+            template = self._create_default_spawn_mesh()
+
+        self._spawn_templates[spawn_type] = template
+        return template
 
     def _create_point_cloud(self):
         """Create the point cloud from vertex data"""
@@ -110,22 +199,32 @@ class GeometryManager:
         self.point_cloud.colors = o3d.utility.Vector3dVector(colors_rgb)
 
     def _create_line_set(self):
-        """Create lines for vertex connections"""
+        """Create lines for vertex connections using vectorized operations."""
         points = self.level_data.points
         vertex_count = len(self.level_data)
 
-        lines = []
-        line_colors = []
+        # Bulk read all links in a single pass (much faster than per-vertex reads)
+        all_links = self.level_data.get_all_links()  # (vertex_count, 4) array
 
-        for i in range(vertex_count):
-            links = self.level_data.get_links(i)
-            for link_id in links:
-                if link_id != LevelData.INVALID_LINK and link_id < vertex_count:
-                    lines.append([i, link_id])
-                    line_colors.append([0.5, 0.5, 0.5])  # grey lines
+        # Create source vertex indices repeated 4 times each (one per link slot)
+        sources = np.repeat(np.arange(vertex_count, dtype=np.int32), 4)
 
-        lines = np.array(lines) if lines else np.zeros((0, 2), dtype=np.int32)
-        line_colors = np.array(line_colors) if line_colors else np.zeros((0, 3))
+        # Flatten links to match sources
+        targets = all_links.flatten()
+
+        # Filter to valid links only
+        valid_mask = (targets != LevelData.INVALID_LINK) & (targets < vertex_count)
+        valid_sources = sources[valid_mask]
+        valid_targets = targets[valid_mask]
+
+        # Stack into (N, 2) lines array
+        if len(valid_sources) > 0:
+            lines = np.stack([valid_sources, valid_targets], axis=1)
+            # Pre-allocate colors using tile (faster than list comprehension)
+            line_colors = np.tile([0.5, 0.5, 0.5], (len(lines), 1)).astype(np.float32)
+        else:
+            lines = np.zeros((0, 2), dtype=np.int32)
+            line_colors = np.zeros((0, 3), dtype=np.float32)
 
         self.line_set = o3d.geometry.LineSet(
             points=o3d.utility.Vector3dVector(points),
@@ -134,82 +233,123 @@ class GeometryManager:
         self.line_set.colors = o3d.utility.Vector3dVector(line_colors)
 
     def _create_highlight_sphere(self):
-        """Create the highlight sphere for selected vertices"""
-        self.highlight_sphere = o3d.geometry.TriangleMesh.create_sphere(radius=0.5)
-        self.highlight_sphere.paint_uniform_color([1, 0, 0])
-        self.highlight_sphere.translate([0, -10000, 0])  # Hide initially
+        """Create the highlight sphere template and initial instance"""
+        # Create template at origin (reused for all highlights)
+        # Use resolution=12 for highlights (large, few)
+        self._highlight_sphere_template = o3d.geometry.TriangleMesh.create_sphere(
+            radius=0.5, resolution=12
+        )
+        self._highlight_sphere_template.paint_uniform_color([1, 0, 0])
+        self._highlight_sphere_template.compute_vertex_normals()
+
+        # Create initial instance hidden off-screen
+        self.highlight_sphere = o3d.geometry.TriangleMesh(self._highlight_sphere_template)
+        self.highlight_sphere.translate([0, -10000, 0])
 
     def update_highlight_position(self, idx: int):
-        """Update the highlight sphere position"""
+        """Update the highlight sphere position by copying cached template"""
         point = self.level_data.get_point(idx)
         if point is not None:
-            # Create new sphere at position
-            self.highlight_sphere = o3d.geometry.TriangleMesh.create_sphere(radius=0.5)
-            self.highlight_sphere.paint_uniform_color([1, 0, 0])
+            # Copy template and translate to new position
+            self.highlight_sphere = o3d.geometry.TriangleMesh(self._highlight_sphere_template)
             self.highlight_sphere.translate(point)
             return self.highlight_sphere
         return None
 
+    def hide_highlight(self):
+        """Hide the highlight sphere by returning a copy moved off-screen"""
+        self.highlight_sphere = o3d.geometry.TriangleMesh(self._highlight_sphere_template)
+        self.highlight_sphere.translate([0, -10000, 0])
+        return self.highlight_sphere
+
     def _create_spawn_points(self):
-        """Create meshes for spawn points with different shapes based on type"""
+        """Create meshes for spawn points using batched template construction.
+
+        Groups spawns by type and batch constructs each group to avoid O(n²) mesh merging.
+        """
         if self.spawn_data is None or len(self.spawn_data) == 0:
-            # Create empty mesh to avoid issues
             self.spawn_points = o3d.geometry.TriangleMesh()
             return
 
-        # Combine all spawn point meshes into one
-        combined_mesh = o3d.geometry.TriangleMesh()
-
+        # Group spawns by type with their positions
+        spawns_by_type = defaultdict(list)
         for i in range(len(self.spawn_data)):
             entity = self.spawn_data.get_entity(i)
             pos = self.spawn_data.get_position(i)
             if pos is None or entity is None:
                 continue
+            spawn_type = self._get_spawn_type(entity.section_name)
+            spawns_by_type[spawn_type].append(pos)
 
-            section_name = entity.section_name
+        if not spawns_by_type:
+            self.spawn_points = o3d.geometry.TriangleMesh()
+            return
 
-            if section_name == "level_changer":
-                # Large orange sphere (1/3 larger than default)
-                mesh = self._create_level_changer_mesh()
-            elif section_name.startswith("lights_"):
-                # Yellow lightbulb
-                mesh = self._create_lightbulb_mesh()
-            elif section_name.startswith("physic_") or section_name.startswith("explosive_"):
-                # Spikey explosion
-                mesh = self._create_explosion_mesh()
-            elif section_name in ("space_restrictor", "smart_terrain"):
-                # Small green sphere (shapes rendered separately with transparency)
-                mesh = self._create_space_restrictor_marker_mesh()
-            elif section_name.startswith("ammo_"):
-                # Brass bullet pile
-                mesh = self._create_ammo_mesh()
-            elif section_name.startswith("inventory_box"):
-                # Gold chest/crate
-                mesh = self._create_inventory_box_mesh()
-            elif section_name.startswith("zone_"):
-                # Bright blue lightning bolt
-                mesh = self._create_zone_mesh()
-            elif section_name.startswith("wpn_"):
-                # Dark gunmetal pistol
-                mesh = self._create_weapon_mesh()
-            elif section_name.startswith("detector_"):
-                # Detector device (TV remote style)
-                mesh = self._create_detector_mesh()
-            elif section_name == "smart_cover":
-                # Sandbag barricade
-                mesh = self._create_smart_cover_mesh()
-            elif section_name == "campfire":
-                # Campfire with logs and flames
-                mesh = self._create_campfire_mesh()
+        # Pre-compute total vertices and triangles across all types
+        all_verts_list = []
+        all_tris_list = []
+        all_colors_list = []
+        vertex_offset = 0
+
+        # Batch construct each type group
+        for spawn_type, positions in spawns_by_type.items():
+            if not positions:
+                continue
+
+            # Get cached template for this type
+            template = self._get_spawn_template(spawn_type)
+            template_verts = np.asarray(template.vertices)
+            template_tris = np.asarray(template.triangles)
+
+            # Get template colors (may have per-vertex colors)
+            if template.has_vertex_colors():
+                template_colors = np.asarray(template.vertex_colors)
             else:
-                # Default green box
-                mesh = self._create_default_spawn_mesh()
+                # Uniform color - this shouldn't happen but handle it
+                template_colors = np.full((len(template_verts), 3), 0.5)
 
-            # Center and position the mesh
-            mesh.translate(pos)
-            combined_mesh += mesh
+            n_verts = len(template_verts)
+            n_tris = len(template_tris)
+            n_spawns = len(positions)
 
-        self.spawn_points = combined_mesh
+            # Pre-allocate arrays for this type group
+            group_verts = np.empty((n_spawns * n_verts, 3), dtype=np.float64)
+            group_tris = np.empty((n_spawns * n_tris, 3), dtype=np.int32)
+            group_colors = np.empty((n_spawns * n_verts, 3), dtype=np.float64)
+
+            for i, pos in enumerate(positions):
+                v_start = i * n_verts
+                t_start = i * n_tris
+
+                # Translate template vertices to position
+                group_verts[v_start:v_start + n_verts] = template_verts + pos
+
+                # Offset triangle indices (relative to this group)
+                group_tris[t_start:t_start + n_tris] = template_tris + v_start
+
+                # Copy template colors
+                group_colors[v_start:v_start + n_verts] = template_colors
+
+            # Offset triangles by global vertex offset and append to lists
+            group_tris += vertex_offset
+            all_verts_list.append(group_verts)
+            all_tris_list.append(group_tris)
+            all_colors_list.append(group_colors)
+            vertex_offset += len(group_verts)
+
+        # Combine all groups into single mesh
+        if all_verts_list:
+            all_verts = np.vstack(all_verts_list)
+            all_tris = np.vstack(all_tris_list)
+            all_colors = np.vstack(all_colors_list)
+
+            self.spawn_points = o3d.geometry.TriangleMesh()
+            self.spawn_points.vertices = o3d.utility.Vector3dVector(all_verts)
+            self.spawn_points.triangles = o3d.utility.Vector3iVector(all_tris)
+            self.spawn_points.vertex_colors = o3d.utility.Vector3dVector(all_colors)
+            self.spawn_points.compute_vertex_normals()
+        else:
+            self.spawn_points = o3d.geometry.TriangleMesh()
 
     def _create_default_spawn_mesh(self):
         """Create default green box for regular spawns"""
@@ -814,77 +954,101 @@ class GeometryManager:
         return self.space_restrictor_shapes
 
     def _create_spawn_highlight(self):
-        """Create the highlight cube for selected spawn objects"""
-        self.spawn_highlight = o3d.geometry.TriangleMesh.create_box(
+        """Create the highlight cube template and initial instance"""
+        # Create template centered at origin (reused for all highlights)
+        self._spawn_highlight_template = o3d.geometry.TriangleMesh.create_box(
             width=self.SPAWN_HIGHLIGHT_SIZE,
             height=self.SPAWN_HIGHLIGHT_SIZE,
             depth=self.SPAWN_HIGHLIGHT_SIZE
         )
-        self.spawn_highlight.paint_uniform_color(self.SPAWN_HIGHLIGHT_COLOR)
-        # Hide initially (move far off-screen)
+        # Center the template on origin
+        self._spawn_highlight_template.translate(np.array([
+            -self.SPAWN_HIGHLIGHT_SIZE / 2,
+            -self.SPAWN_HIGHLIGHT_SIZE / 2,
+            -self.SPAWN_HIGHLIGHT_SIZE / 2
+        ]))
+        self._spawn_highlight_template.paint_uniform_color(self.SPAWN_HIGHLIGHT_COLOR)
+        self._spawn_highlight_template.compute_vertex_normals()
+
+        # Create initial instance hidden off-screen
+        self.spawn_highlight = o3d.geometry.TriangleMesh(self._spawn_highlight_template)
         self.spawn_highlight.translate([0, -10000, 0])
 
     def update_spawn_highlight_position(self, idx: int):
-        """Update the spawn highlight cube position"""
+        """Update the spawn highlight cube position by copying cached template"""
         if self.spawn_data is None:
             return None
 
         pos = self.spawn_data.get_position(idx)
         if pos is not None:
-            # Create new box at position
-            self.spawn_highlight = o3d.geometry.TriangleMesh.create_box(
-                width=self.SPAWN_HIGHLIGHT_SIZE,
-                height=self.SPAWN_HIGHLIGHT_SIZE,
-                depth=self.SPAWN_HIGHLIGHT_SIZE
-            )
-            self.spawn_highlight.paint_uniform_color(self.SPAWN_HIGHLIGHT_COLOR)
-            # Center the box on the position
-            self.spawn_highlight.translate(pos - np.array([
-                self.SPAWN_HIGHLIGHT_SIZE / 2,
-                self.SPAWN_HIGHLIGHT_SIZE / 2,
-                self.SPAWN_HIGHLIGHT_SIZE / 2
-            ]))
+            # Copy template (already centered) and translate to position
+            self.spawn_highlight = o3d.geometry.TriangleMesh(self._spawn_highlight_template)
+            self.spawn_highlight.translate(pos)
             return self.spawn_highlight
         return None
 
     def hide_spawn_highlight(self):
-        """Hide the spawn highlight by moving it off-screen"""
-        self.spawn_highlight = o3d.geometry.TriangleMesh.create_box(
-            width=self.SPAWN_HIGHLIGHT_SIZE,
-            height=self.SPAWN_HIGHLIGHT_SIZE,
-            depth=self.SPAWN_HIGHLIGHT_SIZE
-        )
-        self.spawn_highlight.paint_uniform_color(self.SPAWN_HIGHLIGHT_COLOR)
+        """Hide the spawn highlight by returning a copy moved off-screen"""
+        self.spawn_highlight = o3d.geometry.TriangleMesh(self._spawn_highlight_template)
         self.spawn_highlight.translate([0, -10000, 0])
         return self.spawn_highlight
 
     def _create_graph_vertices(self):
-        """Create spheres for game graph vertices with colors based on inter-level status"""
+        """Create spheres for game graph vertices using batched template construction.
+
+        Uses a single template sphere and pre-allocated arrays to avoid O(n²) mesh merging.
+        """
         if self.graph_data is None or len(self.graph_data) == 0:
             self.graph_vertices = o3d.geometry.TriangleMesh()
             return
 
-        combined_mesh = o3d.geometry.TriangleMesh()
+        # Get positions array and filter out None positions
+        positions = self.graph_data.positions
         inter_level_flags = self.graph_data.inter_level_flags
+        n = len(positions)
 
-        for i in range(len(self.graph_data)):
-            pos = self.graph_data.get_position(i)
-            if pos is None:
-                continue
+        if n == 0:
+            self.graph_vertices = o3d.geometry.TriangleMesh()
+            return
 
-            # Create sphere
-            sphere = o3d.geometry.TriangleMesh.create_sphere(radius=self.GRAPH_VERTEX_SIZE)
+        # Create low-resolution template sphere at origin (resolution=8 for small spheres)
+        template = o3d.geometry.TriangleMesh.create_sphere(
+            radius=self.GRAPH_VERTEX_SIZE, resolution=8
+        )
+        template_verts = np.asarray(template.vertices)
+        template_tris = np.asarray(template.triangles)
+        n_verts = len(template_verts)
+        n_tris = len(template_tris)
 
-            # Color based on inter-level status
+        # Pre-allocate arrays for all spheres
+        all_verts = np.empty((n * n_verts, 3), dtype=np.float64)
+        all_tris = np.empty((n * n_tris, 3), dtype=np.int32)
+        all_colors = np.empty((n * n_verts, 3), dtype=np.float64)
+
+        # Batch construct all spheres
+        for i in range(n):
+            v_start = i * n_verts
+            t_start = i * n_tris
+
+            # Translate template vertices to position
+            all_verts[v_start:v_start + n_verts] = template_verts + positions[i]
+
+            # Offset triangle indices
+            all_tris[t_start:t_start + n_tris] = template_tris + v_start
+
+            # Set color based on inter-level status
             if i < len(inter_level_flags) and inter_level_flags[i]:
-                sphere.paint_uniform_color(self.GRAPH_VERTEX_INTER_LEVEL_COLOR)
+                color = self.GRAPH_VERTEX_INTER_LEVEL_COLOR
             else:
-                sphere.paint_uniform_color(self.GRAPH_VERTEX_COLOR)
+                color = self.GRAPH_VERTEX_COLOR
+            all_colors[v_start:v_start + n_verts] = color
 
-            sphere.translate(pos)
-            combined_mesh += sphere
-
-        self.graph_vertices = combined_mesh
+        # Create single mesh from arrays
+        self.graph_vertices = o3d.geometry.TriangleMesh()
+        self.graph_vertices.vertices = o3d.utility.Vector3dVector(all_verts)
+        self.graph_vertices.triangles = o3d.utility.Vector3iVector(all_tris)
+        self.graph_vertices.vertex_colors = o3d.utility.Vector3dVector(all_colors)
+        self.graph_vertices.compute_vertex_normals()
 
     def _create_graph_edges(self):
         """Create line set for intra-level game graph edges"""
@@ -900,7 +1064,8 @@ class GeometryManager:
             return
 
         lines = np.array(edges, dtype=np.int32)
-        line_colors = np.array([self.GRAPH_EDGE_COLOR for _ in range(len(edges))])
+        # Use np.tile for efficient color array creation
+        line_colors = np.tile(self.GRAPH_EDGE_COLOR, (len(edges), 1)).astype(np.float32)
 
         self.graph_edges = o3d.geometry.LineSet(
             points=o3d.utility.Vector3dVector(positions),
@@ -909,55 +1074,80 @@ class GeometryManager:
         self.graph_edges.colors = o3d.utility.Vector3dVector(line_colors)
 
     def _create_graph_highlight(self):
-        """Create the highlight sphere for selected graph vertices"""
-        self.graph_highlight = o3d.geometry.TriangleMesh.create_sphere(radius=self.GRAPH_HIGHLIGHT_SIZE)
-        self.graph_highlight.paint_uniform_color(self.GRAPH_HIGHLIGHT_COLOR)
-        self.graph_highlight.translate([0, -10000, 0])  # Hide initially
+        """Create the highlight sphere template and initial instance"""
+        # Create template at origin (reused for all highlights)
+        # Use resolution=12 for highlights (large, few)
+        self._graph_highlight_template = o3d.geometry.TriangleMesh.create_sphere(
+            radius=self.GRAPH_HIGHLIGHT_SIZE, resolution=12
+        )
+        self._graph_highlight_template.paint_uniform_color(self.GRAPH_HIGHLIGHT_COLOR)
+        self._graph_highlight_template.compute_vertex_normals()
+
+        # Create initial instance hidden off-screen
+        self.graph_highlight = o3d.geometry.TriangleMesh(self._graph_highlight_template)
+        self.graph_highlight.translate([0, -10000, 0])
 
     def update_graph_highlight_position(self, idx: int):
-        """Update the graph highlight sphere position"""
+        """Update the graph highlight sphere position by copying cached template"""
         if self.graph_data is None:
             return None
 
         pos = self.graph_data.get_position(idx)
         if pos is not None:
-            self.graph_highlight = o3d.geometry.TriangleMesh.create_sphere(radius=self.GRAPH_HIGHLIGHT_SIZE)
-            self.graph_highlight.paint_uniform_color(self.GRAPH_HIGHLIGHT_COLOR)
+            # Copy template and translate to new position
+            self.graph_highlight = o3d.geometry.TriangleMesh(self._graph_highlight_template)
             self.graph_highlight.translate(pos)
             return self.graph_highlight
         return None
 
     def hide_graph_highlight(self):
-        """Hide the graph highlight by moving it off-screen"""
-        self.graph_highlight = o3d.geometry.TriangleMesh.create_sphere(radius=self.GRAPH_HIGHLIGHT_SIZE)
-        self.graph_highlight.paint_uniform_color(self.GRAPH_HIGHLIGHT_COLOR)
+        """Hide the graph highlight by returning a copy moved off-screen"""
+        self.graph_highlight = o3d.geometry.TriangleMesh(self._graph_highlight_template)
         self.graph_highlight.translate([0, -10000, 0])
         return self.graph_highlight
 
+    def _create_level_vertex_highlight(self):
+        """Create an empty point cloud for level vertex highlighting."""
+        self.level_vertex_highlight = o3d.geometry.PointCloud()
+
     def highlight_level_vertices(self, vertex_ids: set):
-        """Highlight specific level vertices in red, keep others normal.
+        """Highlight specific level vertices by creating a separate overlay point cloud.
+
+        This is much faster than modifying the main point cloud colors.
 
         Args:
             vertex_ids: Set of level vertex IDs to highlight in red
         """
-        if self._original_point_colors is None:
+        if not vertex_ids:
+            # Clear highlight - create empty point cloud
+            self.level_vertex_highlight = o3d.geometry.PointCloud()
+            self._highlighted_level_vertices = set()
             return
 
-        # Start with original colors
-        new_colors = self._original_point_colors.copy()
-
-        # Set highlighted vertices to red
+        # Get positions for highlighted vertices
+        highlighted_points = []
         for vid in vertex_ids:
-            if 0 <= vid < len(new_colors):
-                new_colors[vid] = self.LINKED_HIGHLIGHT_COLOR
+            if 0 <= vid < len(self.level_data.points):
+                highlighted_points.append(self.level_data.points[vid])
 
-        # Update point cloud colors
-        self.point_cloud.colors = o3d.utility.Vector3dVector(new_colors)
+        if not highlighted_points:
+            self.level_vertex_highlight = o3d.geometry.PointCloud()
+            self._highlighted_level_vertices = set()
+            return
+
+        # Create new point cloud with just the highlighted vertices
+        points_array = np.array(highlighted_points)
+        # Use np.tile for efficient color array creation
+        colors_array = np.tile(self.LINKED_HIGHLIGHT_COLOR, (len(highlighted_points), 1)).astype(np.float32)
+
+        self.level_vertex_highlight = o3d.geometry.PointCloud()
+        self.level_vertex_highlight.points = o3d.utility.Vector3dVector(points_array)
+        self.level_vertex_highlight.colors = o3d.utility.Vector3dVector(colors_array)
+
+        # Track highlighted vertices
+        self._highlighted_level_vertices = vertex_ids.copy()
 
     def reset_level_vertex_colors(self):
-        """Reset all level vertex colors to normal cover score gradient."""
-        if self._original_point_colors is None:
-            return
-
-        # Restore original plasma colormap colors
-        self.point_cloud.colors = o3d.utility.Vector3dVector(self._original_point_colors.copy())
+        """Clear the level vertex highlight overlay."""
+        self.level_vertex_highlight = o3d.geometry.PointCloud()
+        self._highlighted_level_vertices = set()

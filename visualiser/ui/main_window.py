@@ -19,16 +19,24 @@ class NodeInspectorApp:
 
     def __init__(self, level_file: str, level_id: Optional[int] = None, all_spawn_path: Optional[str] = None):
         # Load data (pass all_spawn_path and level_id for cross-table loading)
+        print("  Loading level data...", flush=True)
         self.level_data = LevelData(level_file, all_spawn_path, level_id)
 
         # Load spawn data if level_id and all_spawn_path are provided
         self.spawn_data: Optional[SpawnData] = None
         self.graph_data: Optional[GraphData] = None
         if level_id is not None and all_spawn_path and os.path.exists(all_spawn_path):
+            print("  Loading spawn data...", flush=True)
             self.spawn_data = SpawnData(all_spawn_path, level_id)
+            print("  Loading graph data...", flush=True)
             self.graph_data = GraphData(all_spawn_path, level_id)
 
+        print("  Creating geometry...", flush=True)
         self.geometry_manager = GeometryManager(self.level_data, self.spawn_data, self.graph_data)
+
+        # Build spatial indices for fast picking
+        print("  Building spatial indices...", flush=True)
+        self._build_spatial_indices()
 
         # State
         self.selected_node = None
@@ -61,6 +69,7 @@ class NodeInspectorApp:
 
         # Initialize - select node 0 and focus camera on it
         self.inspect_node(0, reset_camera=True)
+        print("  Ready!", flush=True)
 
     def _setup_scene(self):
         """Setup the 3D scene."""
@@ -161,9 +170,54 @@ class NodeInspectorApp:
                 graph_highlight_mat
             )
 
+            # Add level vertex highlight overlay (for highlighting AI nodes linked to graph vertex)
+            level_highlight_mat = rendering.MaterialRecord()
+            level_highlight_mat.shader = "defaultUnlit"
+            level_highlight_mat.point_size = 7  # Slightly larger than main point cloud
+            self.scene.scene.add_geometry(
+                "level_vertex_highlight",
+                self.geometry_manager.level_vertex_highlight,
+                level_highlight_mat
+            )
+
         # Setup camera
         bounds = self.scene.scene.bounding_box
         self.scene.setup_camera(60, bounds, bounds.get_center())
+
+    def _build_spatial_indices(self):
+        """Build KDTree spatial indices for fast picking queries."""
+        # Build KDTree for level vertices
+        self._level_kdtree = o3d.geometry.KDTreeFlann(self.geometry_manager.point_cloud)
+
+        # Build KDTree for spawn points
+        self._spawn_kdtree = None
+        self._spawn_positions = None
+        if self.spawn_data is not None and len(self.spawn_data) > 0:
+            spawn_positions = []
+            for i in range(len(self.spawn_data)):
+                pos = self.spawn_data.get_position(i)
+                if pos is not None:
+                    spawn_positions.append(pos)
+            if spawn_positions:
+                self._spawn_positions = np.array(spawn_positions)
+                spawn_pcd = o3d.geometry.PointCloud()
+                spawn_pcd.points = o3d.utility.Vector3dVector(self._spawn_positions)
+                self._spawn_kdtree = o3d.geometry.KDTreeFlann(spawn_pcd)
+
+        # Build KDTree for graph vertices
+        self._graph_kdtree = None
+        self._graph_positions = None
+        if self.graph_data is not None and len(self.graph_data) > 0:
+            graph_positions = []
+            for i in range(len(self.graph_data)):
+                pos = self.graph_data.get_position(i)
+                if pos is not None:
+                    graph_positions.append(pos)
+            if graph_positions:
+                self._graph_positions = np.array(graph_positions)
+                graph_pcd = o3d.geometry.PointCloud()
+                graph_pcd.points = o3d.utility.Vector3dVector(self._graph_positions)
+                self._graph_kdtree = o3d.geometry.KDTreeFlann(graph_pcd)
 
     def _on_layout(self, layout_context):
         """Handle window layout."""
@@ -204,48 +258,53 @@ class NodeInspectorApp:
            event.is_button_down(gui.MouseButton.LEFT) and \
            event.is_modifier_down(gui.KeyModifier.CTRL):
 
-            # Pick graph vertices, spawns, and level vertices
-            picked_graph_idx, graph_dist = self._pick_graph_at_screen_pos(event.x, event.y)
-            picked_spawn_idx, spawn_dist = self._pick_spawn_at_screen_pos(event.x, event.y)
-            picked_node_idx, node_dist = self._pick_node_at_screen_pos_with_dist(event.x, event.y)
+            # OPTIMIZATION: Compute ray ONCE and reuse for all picking methods
+            ray_data = self._compute_pick_ray(event.x, event.y)
 
             # Priority thresholds - graph and spawn points get priority over dense nav mesh
-            graph_priority_threshold = 40.0  # Screen pixels
-            spawn_priority_threshold = 50.0  # Screen pixels
+            GRAPH_PRIORITY_THRESHOLD = 40.0  # Screen pixels
+            SPAWN_PRIORITY_THRESHOLD = 50.0  # Screen pixels
 
-            # Graph vertices have highest priority (they're larger and more meaningful)
-            if picked_graph_idx is not None and graph_dist < graph_priority_threshold:
+            # Try graph first (highest priority) - early exit if clearly the target
+            picked_graph_idx, graph_dist = self._pick_graph_with_ray(event.x, event.y, ray_data)
+            if picked_graph_idx is not None and graph_dist < GRAPH_PRIORITY_THRESHOLD:
                 self.inspect_graph(picked_graph_idx, move_camera=True)
-            # Then spawn points
-            elif picked_spawn_idx is not None and spawn_dist < spawn_priority_threshold:
-                self.inspect_spawn(picked_spawn_idx, move_camera=True)
-            # Then compare distances between all candidates
-            else:
-                candidates = []
-                if picked_graph_idx is not None:
-                    candidates.append(('graph', picked_graph_idx, graph_dist))
-                if picked_spawn_idx is not None:
-                    candidates.append(('spawn', picked_spawn_idx, spawn_dist))
-                if picked_node_idx is not None:
-                    candidates.append(('node', picked_node_idx, node_dist))
+                return gui.SceneWidget.EventCallbackResult.HANDLED
 
-                if candidates:
-                    # Sort by distance and pick closest
-                    candidates.sort(key=lambda x: x[2])
-                    best_type, best_idx, _ = candidates[0]
-                    if best_type == 'graph':
-                        self.inspect_graph(best_idx, move_camera=True)
-                    elif best_type == 'spawn':
-                        self.inspect_spawn(best_idx, move_camera=True)
-                    else:
-                        self.inspect_node(best_idx, move_camera=True)
+            # Try spawn next - early exit if clearly the target
+            picked_spawn_idx, spawn_dist = self._pick_spawn_with_ray(event.x, event.y, ray_data)
+            if picked_spawn_idx is not None and spawn_dist < SPAWN_PRIORITY_THRESHOLD:
+                self.inspect_spawn(picked_spawn_idx, move_camera=True)
+                return gui.SceneWidget.EventCallbackResult.HANDLED
+
+            # No clear early match - need to compare all candidates including nodes
+            picked_node_idx, node_dist = self._pick_node_with_ray(event.x, event.y, ray_data)
+
+            candidates = []
+            if picked_graph_idx is not None:
+                candidates.append(('graph', picked_graph_idx, graph_dist))
+            if picked_spawn_idx is not None:
+                candidates.append(('spawn', picked_spawn_idx, spawn_dist))
+            if picked_node_idx is not None:
+                candidates.append(('node', picked_node_idx, node_dist))
+
+            if candidates:
+                # Sort by distance and pick closest
+                candidates.sort(key=lambda x: x[2])
+                best_type, best_idx, _ = candidates[0]
+                if best_type == 'graph':
+                    self.inspect_graph(best_idx, move_camera=True)
+                elif best_type == 'spawn':
+                    self.inspect_spawn(best_idx, move_camera=True)
+                else:
+                    self.inspect_node(best_idx, move_camera=True)
 
             return gui.SceneWidget.EventCallbackResult.HANDLED
 
         return gui.SceneWidget.EventCallbackResult.IGNORED
 
-    def _pick_node_at_screen_pos(self, screen_x, screen_y):
-        """Pick a node at screen coordinates using ray casting."""
+    def _compute_pick_ray(self, screen_x, screen_y):
+        """Compute pick ray from screen coordinates. Returns (ray_origin, ray_direction, ray_length) or None."""
         view_matrix = self.scene.scene.camera.get_view_matrix()
         proj_matrix = self.scene.scene.camera.get_projection_matrix()
 
@@ -268,81 +327,14 @@ class NodeInspectorApp:
 
         try:
             inv_vp_matrix = np.linalg.inv(vp_matrix)
-        except:
-            return self._pick_node_screen_distance(screen_x, screen_y)
-
-        near_world = inv_vp_matrix @ near_ndc
-        far_world = inv_vp_matrix @ far_ndc
-
-        if abs(near_world[3]) < 1e-6 or abs(far_world[3]) < 1e-6:
-            return self._pick_node_screen_distance(screen_x, screen_y)
-
-        near_world = near_world[:3] / near_world[3]
-        far_world = far_world[:3] / far_world[3]
-
-        ray_origin = near_world
-        ray_direction = far_world - near_world
-        ray_length = np.linalg.norm(ray_direction)
-
-        if ray_length < 1e-6:
-            return self._pick_node_screen_distance(screen_x, screen_y)
-
-        ray_direction = ray_direction / ray_length
-
-        # Find closest node to ray
-        closest_idx = None
-        closest_distance = float('inf')
-        distance_threshold = 2.0
-
-        for i in range(len(self.level_data)):
-            point = self.level_data.get_point(i)
-            to_point = point - ray_origin
-            projection_length = np.dot(to_point, ray_direction)
-
-            if projection_length > 0:
-                closest_on_ray = ray_origin + projection_length * ray_direction
-                distance_to_ray = np.linalg.norm(point - closest_on_ray)
-
-                if distance_to_ray < closest_distance and distance_to_ray < distance_threshold:
-                    closest_distance = distance_to_ray
-                    closest_idx = i
-
-        return closest_idx
-
-    def _pick_node_at_screen_pos_with_dist(self, screen_x, screen_y):
-        """Pick a node at screen coordinates and return (index, distance) tuple."""
-        view_matrix = self.scene.scene.camera.get_view_matrix()
-        proj_matrix = self.scene.scene.camera.get_projection_matrix()
-
-        viewport_width = self.scene.frame.width
-        viewport_height = self.scene.frame.height
-
-        if viewport_width == 0 or viewport_height == 0:
-            return None, float('inf')
-
-        # Convert to NDC
-        ndc_x = (2.0 * screen_x) / viewport_width - 1.0
-        ndc_y = 1.0 - (2.0 * screen_y) / viewport_height
-
-        near_ndc = np.array([ndc_x, ndc_y, -1.0, 1.0])
-        far_ndc = np.array([ndc_x, ndc_y, 1.0, 1.0])
-
-        view_mat = np.array(view_matrix).reshape(4, 4)
-        proj_mat = np.array(proj_matrix).reshape(4, 4)
-        vp_matrix = proj_mat @ view_mat
-
-        try:
-            inv_vp_matrix = np.linalg.inv(vp_matrix)
         except Exception:
-            idx = self._pick_node_screen_distance(screen_x, screen_y)
-            return idx, float('inf') if idx is None else 0.0
+            return None
 
         near_world = inv_vp_matrix @ near_ndc
         far_world = inv_vp_matrix @ far_ndc
 
         if abs(near_world[3]) < 1e-6 or abs(far_world[3]) < 1e-6:
-            idx = self._pick_node_screen_distance(screen_x, screen_y)
-            return idx, float('inf') if idx is None else 0.0
+            return None
 
         near_world = near_world[:3] / near_world[3]
         far_world = far_world[:3] / far_world[3]
@@ -352,105 +344,115 @@ class NodeInspectorApp:
         ray_length = np.linalg.norm(ray_direction)
 
         if ray_length < 1e-6:
-            idx = self._pick_node_screen_distance(screen_x, screen_y)
-            return idx, float('inf') if idx is None else 0.0
+            return None
 
         ray_direction = ray_direction / ray_length
+        return ray_origin, ray_direction, ray_length
 
-        # Find closest node to ray
+    def _pick_along_ray_kdtree(self, ray_origin, ray_direction, ray_length, kdtree, points,
+                                distance_threshold, search_radius, num_samples=12):
+        """Use KDTree to find closest point to ray by sampling along the ray.
+
+        Args:
+            ray_origin: Start of ray
+            ray_direction: Normalized ray direction
+            ray_length: Length of ray
+            kdtree: Open3D KDTreeFlann to query
+            points: Numpy array of point positions (for distance calculation)
+            distance_threshold: Max distance from ray to consider a hit
+            search_radius: Radius for KDTree search at each sample point
+            num_samples: Number of points to sample along ray
+
+        Returns:
+            (index, distance) tuple or (None, inf)
+        """
         closest_idx = None
         closest_distance = float('inf')
-        distance_threshold = 2.0
+        checked_indices = set()
 
-        for i in range(len(self.level_data)):
-            point = self.level_data.get_point(i)
-            to_point = point - ray_origin
-            projection_length = np.dot(to_point, ray_direction)
+        # Sample points along the ray
+        for t in np.linspace(0, ray_length, num_samples):
+            sample_point = ray_origin + t * ray_direction
 
-            if projection_length > 0:
-                closest_on_ray = ray_origin + projection_length * ray_direction
-                distance_to_ray = np.linalg.norm(point - closest_on_ray)
+            # Query KDTree for nearby points
+            [k, idx, _] = kdtree.search_radius_vector_3d(sample_point, search_radius)
 
-                if distance_to_ray < closest_distance and distance_to_ray < distance_threshold:
-                    closest_distance = distance_to_ray
-                    closest_idx = i
+            for i in range(k):
+                point_idx = idx[i]
+                if point_idx in checked_indices:
+                    continue
+                checked_indices.add(point_idx)
+
+                point = points[point_idx]
+                to_point = point - ray_origin
+                projection_length = np.dot(to_point, ray_direction)
+
+                if projection_length > 0:
+                    closest_on_ray = ray_origin + projection_length * ray_direction
+                    distance_to_ray = np.linalg.norm(point - closest_on_ray)
+
+                    if distance_to_ray < closest_distance and distance_to_ray < distance_threshold:
+                        closest_distance = distance_to_ray
+                        closest_idx = point_idx
 
         return closest_idx, closest_distance
 
+    def _pick_node_at_screen_pos(self, screen_x, screen_y):
+        """Pick a node at screen coordinates using ray casting with KDTree."""
+        ray_data = self._compute_pick_ray(screen_x, screen_y)
+        if ray_data is None:
+            return self._pick_node_screen_distance(screen_x, screen_y)
+
+        ray_origin, ray_direction, ray_length = ray_data
+        distance_threshold = 2.0
+        search_radius = 5.0  # Search radius at each sample point
+
+        idx, _ = self._pick_along_ray_kdtree(
+            ray_origin, ray_direction, ray_length,
+            self._level_kdtree, self.level_data.points,
+            distance_threshold, search_radius
+        )
+        return idx
+
+    def _pick_node_at_screen_pos_with_dist(self, screen_x, screen_y):
+        """Pick a node at screen coordinates and return (index, distance) tuple."""
+        ray_data = self._compute_pick_ray(screen_x, screen_y)
+        if ray_data is None:
+            idx = self._pick_node_screen_distance(screen_x, screen_y)
+            return idx, float('inf') if idx is None else 0.0
+
+        ray_origin, ray_direction, ray_length = ray_data
+        distance_threshold = 2.0
+        search_radius = 5.0
+
+        return self._pick_along_ray_kdtree(
+            ray_origin, ray_direction, ray_length,
+            self._level_kdtree, self.level_data.points,
+            distance_threshold, search_radius
+        )
+
     def _pick_spawn_at_screen_pos(self, screen_x, screen_y):
-        """Pick a spawn object at screen coordinates using ray casting.
+        """Pick a spawn object at screen coordinates using ray casting with KDTree.
 
         Returns:
             (spawn_index, distance) tuple
         """
-        if self.spawn_data is None or len(self.spawn_data) == 0:
+        if self.spawn_data is None or len(self.spawn_data) == 0 or self._spawn_kdtree is None:
             return None, float('inf')
 
-        view_matrix = self.scene.scene.camera.get_view_matrix()
-        proj_matrix = self.scene.scene.camera.get_projection_matrix()
-
-        viewport_width = self.scene.frame.width
-        viewport_height = self.scene.frame.height
-
-        if viewport_width == 0 or viewport_height == 0:
-            return None, float('inf')
-
-        # Convert to NDC
-        ndc_x = (2.0 * screen_x) / viewport_width - 1.0
-        ndc_y = 1.0 - (2.0 * screen_y) / viewport_height
-
-        near_ndc = np.array([ndc_x, ndc_y, -1.0, 1.0])
-        far_ndc = np.array([ndc_x, ndc_y, 1.0, 1.0])
-
-        view_mat = np.array(view_matrix).reshape(4, 4)
-        proj_mat = np.array(proj_matrix).reshape(4, 4)
-        vp_matrix = proj_mat @ view_mat
-
-        try:
-            inv_vp_matrix = np.linalg.inv(vp_matrix)
-        except:
+        ray_data = self._compute_pick_ray(screen_x, screen_y)
+        if ray_data is None:
             return self._pick_spawn_screen_distance(screen_x, screen_y)
 
-        near_world = inv_vp_matrix @ near_ndc
-        far_world = inv_vp_matrix @ far_ndc
+        ray_origin, ray_direction, ray_length = ray_data
+        distance_threshold = 3.0  # Larger threshold for spawns
+        search_radius = 8.0
 
-        if abs(near_world[3]) < 1e-6 or abs(far_world[3]) < 1e-6:
-            return self._pick_spawn_screen_distance(screen_x, screen_y)
-
-        near_world = near_world[:3] / near_world[3]
-        far_world = far_world[:3] / far_world[3]
-
-        ray_origin = near_world
-        ray_direction = far_world - near_world
-        ray_length = np.linalg.norm(ray_direction)
-
-        if ray_length < 1e-6:
-            return self._pick_spawn_screen_distance(screen_x, screen_y)
-
-        ray_direction = ray_direction / ray_length
-
-        # Find closest spawn to ray
-        # Use larger threshold than vertices since spawns are less dense
-        closest_idx = None
-        closest_distance = float('inf')
-        distance_threshold = 3.0
-
-        for i in range(len(self.spawn_data)):
-            point = self.spawn_data.get_position(i)
-            if point is None:
-                continue
-            to_point = point - ray_origin
-            projection_length = np.dot(to_point, ray_direction)
-
-            if projection_length > 0:
-                closest_on_ray = ray_origin + projection_length * ray_direction
-                distance_to_ray = np.linalg.norm(point - closest_on_ray)
-
-                if distance_to_ray < closest_distance and distance_to_ray < distance_threshold:
-                    closest_distance = distance_to_ray
-                    closest_idx = i
-
-        return closest_idx, closest_distance
+        return self._pick_along_ray_kdtree(
+            ray_origin, ray_direction, ray_length,
+            self._spawn_kdtree, self._spawn_positions,
+            distance_threshold, search_radius
+        )
 
     def _pick_node_screen_distance(self, screen_x, screen_y):
         """Fallback picking using screen-space distance."""
@@ -548,79 +550,27 @@ class NodeInspectorApp:
         return closest_idx, closest_screen_dist
 
     def _pick_graph_at_screen_pos(self, screen_x, screen_y):
-        """Pick a game graph vertex at screen coordinates using ray casting.
+        """Pick a game graph vertex at screen coordinates using ray casting with KDTree.
 
         Returns:
             (graph_index, distance) tuple
         """
-        if self.graph_data is None or len(self.graph_data) == 0:
+        if self.graph_data is None or len(self.graph_data) == 0 or self._graph_kdtree is None:
             return None, float('inf')
 
-        view_matrix = self.scene.scene.camera.get_view_matrix()
-        proj_matrix = self.scene.scene.camera.get_projection_matrix()
-
-        viewport_width = self.scene.frame.width
-        viewport_height = self.scene.frame.height
-
-        if viewport_width == 0 or viewport_height == 0:
-            return None, float('inf')
-
-        # Convert to NDC
-        ndc_x = (2.0 * screen_x) / viewport_width - 1.0
-        ndc_y = 1.0 - (2.0 * screen_y) / viewport_height
-
-        near_ndc = np.array([ndc_x, ndc_y, -1.0, 1.0])
-        far_ndc = np.array([ndc_x, ndc_y, 1.0, 1.0])
-
-        view_mat = np.array(view_matrix).reshape(4, 4)
-        proj_mat = np.array(proj_matrix).reshape(4, 4)
-        vp_matrix = proj_mat @ view_mat
-
-        try:
-            inv_vp_matrix = np.linalg.inv(vp_matrix)
-        except Exception:
+        ray_data = self._compute_pick_ray(screen_x, screen_y)
+        if ray_data is None:
             return self._pick_graph_screen_distance(screen_x, screen_y)
 
-        near_world = inv_vp_matrix @ near_ndc
-        far_world = inv_vp_matrix @ far_ndc
-
-        if abs(near_world[3]) < 1e-6 or abs(far_world[3]) < 1e-6:
-            return self._pick_graph_screen_distance(screen_x, screen_y)
-
-        near_world = near_world[:3] / near_world[3]
-        far_world = far_world[:3] / far_world[3]
-
-        ray_origin = near_world
-        ray_direction = far_world - near_world
-        ray_length = np.linalg.norm(ray_direction)
-
-        if ray_length < 1e-6:
-            return self._pick_graph_screen_distance(screen_x, screen_y)
-
-        ray_direction = ray_direction / ray_length
-
-        # Find closest graph vertex to ray
-        # Use larger threshold than level vertices since graph vertices are larger
-        closest_idx = None
-        closest_distance = float('inf')
+        ray_origin, ray_direction, ray_length = ray_data
         distance_threshold = 4.0  # Larger threshold for graph vertices
+        search_radius = 10.0
 
-        for i in range(len(self.graph_data)):
-            point = self.graph_data.get_position(i)
-            if point is None:
-                continue
-            to_point = point - ray_origin
-            projection_length = np.dot(to_point, ray_direction)
-
-            if projection_length > 0:
-                closest_on_ray = ray_origin + projection_length * ray_direction
-                distance_to_ray = np.linalg.norm(point - closest_on_ray)
-
-                if distance_to_ray < closest_distance and distance_to_ray < distance_threshold:
-                    closest_distance = distance_to_ray
-                    closest_idx = i
-
-        return closest_idx, closest_distance
+        return self._pick_along_ray_kdtree(
+            ray_origin, ray_direction, ray_length,
+            self._graph_kdtree, self._graph_positions,
+            distance_threshold, search_radius
+        )
 
     def _pick_graph_screen_distance(self, screen_x, screen_y):
         """Fallback graph picking using screen-space distance."""
@@ -671,6 +621,41 @@ class NodeInspectorApp:
                 closest_idx = i
 
         return closest_idx, closest_screen_dist
+
+    def _pick_graph_with_ray(self, screen_x, screen_y, ray_data):
+        """Pick graph vertex using pre-computed ray data."""
+        if self.graph_data is None or len(self.graph_data) == 0 or self._graph_kdtree is None:
+            return None, float('inf')
+        if ray_data is None:
+            return self._pick_graph_screen_distance(screen_x, screen_y)
+        ray_origin, ray_direction, ray_length = ray_data
+        return self._pick_along_ray_kdtree(
+            ray_origin, ray_direction, ray_length,
+            self._graph_kdtree, self._graph_positions, 4.0, 10.0
+        )
+
+    def _pick_spawn_with_ray(self, screen_x, screen_y, ray_data):
+        """Pick spawn object using pre-computed ray data."""
+        if self.spawn_data is None or len(self.spawn_data) == 0 or self._spawn_kdtree is None:
+            return None, float('inf')
+        if ray_data is None:
+            return self._pick_spawn_screen_distance(screen_x, screen_y)
+        ray_origin, ray_direction, ray_length = ray_data
+        return self._pick_along_ray_kdtree(
+            ray_origin, ray_direction, ray_length,
+            self._spawn_kdtree, self._spawn_positions, 3.0, 8.0
+        )
+
+    def _pick_node_with_ray(self, screen_x, screen_y, ray_data):
+        """Pick nav mesh node using pre-computed ray data."""
+        if ray_data is None:
+            idx = self._pick_node_screen_distance(screen_x, screen_y)
+            return idx, float('inf') if idx is None else 0.0
+        ray_origin, ray_direction, ray_length = ray_data
+        return self._pick_along_ray_kdtree(
+            ray_origin, ray_direction, ray_length,
+            self._level_kdtree, self.level_data.points, 2.0, 5.0
+        )
 
     def _on_key(self, event):
         """Handle keyboard events."""
@@ -772,9 +757,9 @@ class NodeInspectorApp:
                 graph_highlight_mat.shader = "defaultLit"
                 self.scene.scene.add_geometry("graph_highlight", hidden_highlight, graph_highlight_mat)
 
-            # Reset AI node colors to normal (in case graph was previously selected)
+            # Clear level vertex highlight overlay (in case graph was previously selected)
             self.geometry_manager.reset_level_vertex_colors()
-            self._update_point_cloud_geometry()
+            self._update_level_vertex_highlight()
 
             # Update UI
             self.control_panel.set_current_node(idx)
@@ -806,10 +791,7 @@ class NodeInspectorApp:
 
         # Clear node selection highlight (but keep selected_node for navigation)
         self.scene.scene.remove_geometry("highlight")
-        # Move node highlight off-screen
-        hidden_node_highlight = o3d.geometry.TriangleMesh.create_sphere(radius=0.5)
-        hidden_node_highlight.paint_uniform_color([1, 0, 0])
-        hidden_node_highlight.translate([0, -10000, 0])
+        hidden_node_highlight = self.geometry_manager.hide_highlight()
         highlight_mat = rendering.MaterialRecord()
         highlight_mat.shader = "defaultLit"
         self.scene.scene.add_geometry("highlight", hidden_node_highlight, highlight_mat)
@@ -824,9 +806,9 @@ class NodeInspectorApp:
             graph_highlight_mat.shader = "defaultLit"
             self.scene.scene.add_geometry("graph_highlight", hidden_graph_highlight, graph_highlight_mat)
 
-        # Reset AI node colors to normal (in case graph was previously selected)
+        # Clear level vertex highlight overlay (in case graph was previously selected)
         self.geometry_manager.reset_level_vertex_colors()
-        self._update_point_cloud_geometry()
+        self._update_level_vertex_highlight()
 
         # Update spawn highlight
         self.scene.scene.remove_geometry("spawn_highlight")
@@ -878,6 +860,22 @@ class NodeInspectorApp:
         mat.point_size = 5
         self.scene.scene.add_geometry("point_cloud", self.geometry_manager.point_cloud, mat)
 
+    def _update_level_vertex_highlight(self):
+        """Update the level vertex highlight overlay geometry."""
+        if self.graph_data is None or len(self.graph_data) == 0:
+            return
+        if not self.scene.scene.has_geometry("level_vertex_highlight"):
+            return
+        self.scene.scene.remove_geometry("level_vertex_highlight")
+        level_highlight_mat = rendering.MaterialRecord()
+        level_highlight_mat.shader = "defaultUnlit"
+        level_highlight_mat.point_size = 7
+        self.scene.scene.add_geometry(
+            "level_vertex_highlight",
+            self.geometry_manager.level_vertex_highlight,
+            level_highlight_mat
+        )
+
     def focus_on_node(self, idx):
         """Focus camera on a node (resets camera perspective)."""
         point = self.level_data.get_point(idx)
@@ -913,9 +911,7 @@ class NodeInspectorApp:
 
         # Clear node selection highlight (but keep selected_node for navigation)
         self.scene.scene.remove_geometry("highlight")
-        hidden_node_highlight = o3d.geometry.TriangleMesh.create_sphere(radius=0.5)
-        hidden_node_highlight.paint_uniform_color([1, 0, 0])
-        hidden_node_highlight.translate([0, -10000, 0])
+        hidden_node_highlight = self.geometry_manager.hide_highlight()
         highlight_mat = rendering.MaterialRecord()
         highlight_mat.shader = "defaultLit"
         self.scene.scene.add_geometry("highlight", hidden_node_highlight, highlight_mat)
@@ -947,15 +943,13 @@ class NodeInspectorApp:
         vertex = self.graph_data.get_vertex(idx)
         target_gvid = vertex.vertex_id if vertex else None
 
-        # Find all level vertices with matching GVID from cross-table
+        # Find all level vertices with matching GVID from cross-table (O(1) lookup)
         level_vertex_ids = set()
         if target_gvid is not None and self.level_data.has_cross_table():
-            for lvid in range(len(self.level_data)):
-                if self.level_data.get_gvid(lvid) == target_gvid:
-                    level_vertex_ids.add(lvid)
+            level_vertex_ids = self.level_data.get_level_vertices_for_gvid(target_gvid)
 
         self.geometry_manager.highlight_level_vertices(level_vertex_ids)
-        self._update_point_cloud_geometry()
+        self._update_level_vertex_highlight()
 
         # Update UI
         vertex = self.graph_data.get_vertex(idx)
