@@ -864,9 +864,10 @@ class NodeInspectorApp:
         """Update the level vertex highlight overlay geometry."""
         if self.graph_data is None or len(self.graph_data) == 0:
             return
-        if not self.scene.scene.has_geometry("level_vertex_highlight"):
-            return
-        self.scene.scene.remove_geometry("level_vertex_highlight")
+        # Remove existing geometry if present
+        if self.scene.scene.has_geometry("level_vertex_highlight"):
+            self.scene.scene.remove_geometry("level_vertex_highlight")
+        # Always add the geometry (even if empty, for consistency)
         level_highlight_mat = rendering.MaterialRecord()
         level_highlight_mat.shader = "defaultUnlit"
         level_highlight_mat.point_size = 7
