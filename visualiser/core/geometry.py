@@ -7,7 +7,7 @@ import numpy as np
 import open3d as o3d
 import matplotlib.cm as cm
 
-from core.data_loader import LevelData, SpawnData, GraphData
+from core.data_loader import LevelData, SpawnData, GraphData, PatrolData
 
 # Import shape parsing from shared parsers
 import sys
@@ -81,11 +81,19 @@ class GeometryManager:
     # Linked graph vertex highlighting
     LINKED_HIGHLIGHT_COLOR = [1.0, 0.0, 0.0]  # Bright red
 
+    # Patrol path rendering constants
+    PATROL_POINT_COLOR = [0.1, 0.1, 0.1]  # Near-black
+    PATROL_EDGE_COLOR = [0.1, 0.1, 0.1]   # Near-black
+    PATROL_HIGHLIGHT_COLOR = [1.0, 0.5, 0.0]  # Orange
+    PATROL_POINT_SIZE = 0.2  # Small spheres
+    PATROL_HIGHLIGHT_SIZE = 0.3
+
     def __init__(self, level_data: LevelData, spawn_data: Optional[SpawnData] = None,
-                 graph_data: Optional[GraphData] = None):
+                 graph_data: Optional[GraphData] = None, patrol_data: Optional[PatrolData] = None):
         self.level_data = level_data
         self.spawn_data = spawn_data
         self.graph_data = graph_data
+        self.patrol_data = patrol_data
         self.point_cloud = None
         self.line_set = None
         self.highlight_sphere = None
@@ -96,12 +104,16 @@ class GeometryManager:
         self.graph_edges = None  # Game graph edge lines
         self.graph_highlight = None  # Game graph highlight sphere
         self.level_vertex_highlight = None  # Separate point cloud for highlighted level vertices
+        self.patrol_points = None  # Patrol path node spheres
+        self.patrol_edges = None  # Patrol path connection lines
+        self.patrol_highlight = None  # Patrol point highlight sphere
         self._original_point_colors = None  # Store original colors for reset
 
         # Cached template meshes for highlights (created once, copied when needed)
         self._highlight_sphere_template = None
         self._spawn_highlight_template = None
         self._graph_highlight_template = None
+        self._patrol_highlight_template = None
 
         # Cached spawn templates by type (for batched mesh construction)
         self._spawn_templates = {}
@@ -123,6 +135,9 @@ class GeometryManager:
         self._create_graph_edges()
         self._create_graph_highlight()
         self._create_level_vertex_highlight()
+        self._create_patrol_points()
+        self._create_patrol_edges()
+        self._create_patrol_highlight()
 
     def _get_spawn_type(self, section_name: str) -> str:
         """Get the spawn type key for a section name (used for template caching)."""
@@ -1372,3 +1387,122 @@ class GeometryManager:
         """Clear the level vertex highlight overlay."""
         self.level_vertex_highlight = o3d.geometry.PointCloud()
         self._highlighted_level_vertices = set()
+
+    def _create_patrol_points(self):
+        """Create spheres for patrol path points using batched template construction."""
+        if self.patrol_data is None or len(self.patrol_data) == 0:
+            self.patrol_points = o3d.geometry.TriangleMesh()
+            return
+
+        positions = self.patrol_data.positions
+        n = len(positions)
+
+        if n == 0:
+            self.patrol_points = o3d.geometry.TriangleMesh()
+            return
+
+        # Create low-resolution template sphere at origin (resolution=6 for small spheres)
+        template = o3d.geometry.TriangleMesh.create_sphere(
+            radius=self.PATROL_POINT_SIZE, resolution=6
+        )
+        template_verts = np.asarray(template.vertices)
+        template_tris = np.asarray(template.triangles)
+        n_verts = len(template_verts)
+        n_tris = len(template_tris)
+
+        # Pre-allocate arrays for all spheres
+        all_verts = np.empty((n * n_verts, 3), dtype=np.float64)
+        all_tris = np.empty((n * n_tris, 3), dtype=np.int32)
+        all_colors = np.empty((n * n_verts, 3), dtype=np.float64)
+
+        # Batch construct all spheres
+        for i in range(n):
+            v_start = i * n_verts
+            t_start = i * n_tris
+
+            # Translate template vertices to position
+            all_verts[v_start:v_start + n_verts] = template_verts + positions[i]
+
+            # Offset triangle indices
+            all_tris[t_start:t_start + n_tris] = template_tris + v_start
+
+            # Set uniform color
+            all_colors[v_start:v_start + n_verts] = self.PATROL_POINT_COLOR
+
+        # Create single mesh from arrays
+        self.patrol_points = o3d.geometry.TriangleMesh()
+        self.patrol_points.vertices = o3d.utility.Vector3dVector(all_verts)
+        self.patrol_points.triangles = o3d.utility.Vector3iVector(all_tris)
+        self.patrol_points.vertex_colors = o3d.utility.Vector3dVector(all_colors)
+        self.patrol_points.compute_vertex_normals()
+
+    def _create_patrol_edges(self):
+        """Create empty line set for patrol path edges (shown on selection only)."""
+        self.patrol_edges = o3d.geometry.LineSet()
+
+    def update_patrol_edges_for_patrol(self, patrol_name: str):
+        """Update patrol edges to show only edges for the specified patrol.
+
+        Args:
+            patrol_name: Name of the patrol to show edges for
+
+        Returns:
+            Updated LineSet geometry
+        """
+        if self.patrol_data is None or len(self.patrol_data) == 0:
+            self.patrol_edges = o3d.geometry.LineSet()
+            return self.patrol_edges
+
+        edges = self.patrol_data.get_patrol_edges(patrol_name)
+
+        if len(edges) == 0:
+            self.patrol_edges = o3d.geometry.LineSet()
+            return self.patrol_edges
+
+        positions = self.patrol_data.positions
+        lines = np.array(edges, dtype=np.int32)
+        line_colors = np.tile(self.PATROL_EDGE_COLOR, (len(edges), 1)).astype(np.float64)
+
+        self.patrol_edges = o3d.geometry.LineSet(
+            points=o3d.utility.Vector3dVector(positions),
+            lines=o3d.utility.Vector2iVector(lines),
+        )
+        self.patrol_edges.colors = o3d.utility.Vector3dVector(line_colors)
+        return self.patrol_edges
+
+    def hide_patrol_edges(self):
+        """Hide patrol edges by returning an empty LineSet."""
+        self.patrol_edges = o3d.geometry.LineSet()
+        return self.patrol_edges
+
+    def _create_patrol_highlight(self):
+        """Create the patrol highlight sphere template and initial instance."""
+        # Create template at origin (reused for all highlights)
+        self._patrol_highlight_template = o3d.geometry.TriangleMesh.create_sphere(
+            radius=self.PATROL_HIGHLIGHT_SIZE, resolution=12
+        )
+        self._patrol_highlight_template.paint_uniform_color(self.PATROL_HIGHLIGHT_COLOR)
+        self._patrol_highlight_template.compute_vertex_normals()
+
+        # Create initial instance hidden off-screen
+        self.patrol_highlight = o3d.geometry.TriangleMesh(self._patrol_highlight_template)
+        self.patrol_highlight.translate([0, -10000, 0])
+
+    def update_patrol_highlight_position(self, idx: int):
+        """Update the patrol highlight sphere position by copying cached template."""
+        if self.patrol_data is None:
+            return None
+
+        pos = self.patrol_data.get_position(idx)
+        if pos is not None:
+            # Copy template and translate to new position
+            self.patrol_highlight = o3d.geometry.TriangleMesh(self._patrol_highlight_template)
+            self.patrol_highlight.translate(pos)
+            return self.patrol_highlight
+        return None
+
+    def hide_patrol_highlight(self):
+        """Hide the patrol highlight by returning a copy moved off-screen."""
+        self.patrol_highlight = o3d.geometry.TriangleMesh(self._patrol_highlight_template)
+        self.patrol_highlight.translate([0, -10000, 0])
+        return self.patrol_highlight

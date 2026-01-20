@@ -5,8 +5,8 @@ Rebuilds panel content when switching between node, spawn, and graph selection m
 from typing import Optional, Callable
 import open3d.visualization.gui as gui
 
-from core.data_loader import LevelData, SpawnData, GraphData
-from utils.helpers import format_node_info, format_spawn_info, format_graph_vertex_info
+from core.data_loader import LevelData, SpawnData, GraphData, PatrolData
+from utils.helpers import format_node_info, format_spawn_info, format_graph_vertex_info, format_patrol_point_info
 from .dialogs import DialogFactory
 
 
@@ -18,25 +18,33 @@ class ControlPanel:
     MODE_NODE = 1
     MODE_SPAWN = 2
     MODE_GRAPH = 3
+    MODE_PATROL = 4
 
     def __init__(self, level_data: LevelData, on_node_selected, on_coordinate_search,
                  spawn_data: Optional[SpawnData] = None,
                  graph_data: Optional[GraphData] = None,
+                 patrol_data: Optional[PatrolData] = None,
                  on_panel_rebuild: Optional[Callable] = None,
                  on_spawn_selected: Optional[Callable] = None,
-                 on_graph_selected: Optional[Callable] = None):
+                 on_graph_selected: Optional[Callable] = None,
+                 on_patrol_selected: Optional[Callable] = None):
         self.level_data = level_data
         self.spawn_data = spawn_data
         self.graph_data = graph_data
+        self.patrol_data = patrol_data
         self.on_node_selected = on_node_selected
         self.on_coordinate_search = on_coordinate_search
         self.on_panel_rebuild = on_panel_rebuild  # Callback when panel needs to be swapped
         self.on_spawn_selected = on_spawn_selected
         self.on_graph_selected = on_graph_selected
+        self.on_patrol_selected = on_patrol_selected
 
         self.current_node_idx = None
         self.current_spawn_idx = None
         self.current_graph_idx = None
+        self.current_patrol_idx = None
+        self.current_patrol_name = None
+        self.current_patrol_connected = []
         self.selection_mode = self.MODE_NONE
         self.window = None
 
@@ -55,7 +63,7 @@ class ControlPanel:
         self.panel.add_fixed(10)
 
         # Instructions - vary based on mode
-        if self.selection_mode in (self.MODE_SPAWN, self.MODE_GRAPH):
+        if self.selection_mode in (self.MODE_SPAWN, self.MODE_GRAPH, self.MODE_PATROL):
             instruction_text = (
                 "Controls:\n"
                 "- Left Click+Drag: Rotate camera\n"
@@ -85,6 +93,8 @@ class ControlPanel:
             self._add_spawn_content()
         elif self.selection_mode == self.MODE_GRAPH:
             self._add_graph_content()
+        elif self.selection_mode == self.MODE_PATROL:
+            self._add_patrol_content()
         else:
             self._add_node_content()
 
@@ -435,5 +445,67 @@ class ControlPanel:
         """Clear the graph selection display."""
         self.current_graph_idx = None
         if self.selection_mode == self.MODE_GRAPH:
+            self.selection_mode = self.MODE_NONE
+            self._request_rebuild()
+
+    def _add_patrol_content(self):
+        """Add patrol point-specific content."""
+        # Selection type
+        type_label = gui.Label("Patrol Path Point")
+        type_label.text_color = gui.Color(0.3, 0.3, 0.3)  # Dark grey to match patrol spheres
+        self.panel.add_child(type_label)
+        self.panel.add_fixed(10)
+
+        # Patrol point count
+        if self.patrol_data is not None:
+            count_label = gui.Label(f"{len(self.patrol_data)} patrol points on this level")
+            count_label.text_color = gui.Color(0.7, 0.7, 0.7)
+            self.panel.add_child(count_label)
+            self.panel.add_fixed(10)
+
+        # Patrol point info
+        if self.current_patrol_idx is not None and self.patrol_data is not None:
+            point = self.patrol_data.get_point(self.current_patrol_idx)
+            if point:
+                info_text = format_patrol_point_info(
+                    point,
+                    self.current_patrol_name,
+                    self.current_patrol_idx,
+                    self.current_patrol_connected
+                )
+            else:
+                info_text = "Error loading patrol point data"
+        else:
+            info_text = "Click a patrol point to see details"
+
+        self.info_label = gui.Label(info_text)
+        self.info_label.text_color = gui.Color(1, 1, 1)
+        self.panel.add_child(self.info_label)
+
+    def set_current_patrol(self, point, patrol_name: str, idx: int, connected_points: list):
+        """Update the UI for a selected patrol point."""
+        old_mode = self.selection_mode
+        self.current_patrol_idx = idx
+        self.current_patrol_name = patrol_name
+        self.current_patrol_connected = connected_points
+        self.current_node_idx = None
+        self.current_spawn_idx = None
+        self.current_graph_idx = None
+        self.selection_mode = self.MODE_PATROL
+
+        # Rebuild panel if mode changed
+        if old_mode != self.MODE_PATROL:
+            self._request_rebuild()
+        else:
+            # Just update the content
+            info_text = format_patrol_point_info(point, patrol_name, idx, connected_points)
+            self.info_label.text = info_text
+
+    def clear_patrol_selection(self):
+        """Clear the patrol selection display."""
+        self.current_patrol_idx = None
+        self.current_patrol_name = None
+        self.current_patrol_connected = []
+        if self.selection_mode == self.MODE_PATROL:
             self.selection_mode = self.MODE_NONE
             self._request_rebuild()

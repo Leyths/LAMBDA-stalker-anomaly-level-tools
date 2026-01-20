@@ -8,7 +8,7 @@ import open3d as o3d
 import open3d.visualization.gui as gui
 import open3d.visualization.rendering as rendering
 
-from core.data_loader import LevelData, SpawnData, GraphData
+from core.data_loader import LevelData, SpawnData, GraphData, PatrolData
 from core.geometry import GeometryManager
 from .dialogs import DialogFactory
 from .control_panel import ControlPanel
@@ -25,14 +25,17 @@ class NodeInspectorApp:
         # Load spawn data if level_id and all_spawn_path are provided
         self.spawn_data: Optional[SpawnData] = None
         self.graph_data: Optional[GraphData] = None
+        self.patrol_data: Optional[PatrolData] = None
         if level_id is not None and all_spawn_path and os.path.exists(all_spawn_path):
             print("  Loading spawn data...", flush=True)
             self.spawn_data = SpawnData(all_spawn_path, level_id)
             print("  Loading graph data...", flush=True)
             self.graph_data = GraphData(all_spawn_path, level_id)
+            print("  Loading patrol data...", flush=True)
+            self.patrol_data = PatrolData(all_spawn_path, level_id)
 
         print("  Creating geometry...", flush=True)
-        self.geometry_manager = GeometryManager(self.level_data, self.spawn_data, self.graph_data)
+        self.geometry_manager = GeometryManager(self.level_data, self.spawn_data, self.graph_data, self.patrol_data)
 
         # Build spatial indices for fast picking
         print("  Building spatial indices...", flush=True)
@@ -42,6 +45,7 @@ class NodeInspectorApp:
         self.selected_node = None
         self.selected_spawn = None
         self.selected_graph = None
+        self.selected_patrol = None
 
         # Create window
         self.window = gui.Application.instance.create_window(
@@ -60,9 +64,11 @@ class NodeInspectorApp:
             self._on_coordinate_search,
             spawn_data=self.spawn_data,
             graph_data=self.graph_data,
+            patrol_data=self.patrol_data,
             on_panel_rebuild=self._on_panel_rebuild,
             on_spawn_selected=self._on_spawn_selected,
-            on_graph_selected=self._on_graph_selected
+            on_graph_selected=self._on_graph_selected,
+            on_patrol_selected=self._on_patrol_selected
         )
         self.control_panel.set_window(self.window)
         self.window.add_child(self.control_panel.panel)
@@ -180,6 +186,37 @@ class NodeInspectorApp:
                 level_highlight_mat
             )
 
+        # Add patrol path geometries if available
+        if self.patrol_data is not None and len(self.patrol_data) > 0:
+            # Patrol points (translucent black spheres)
+            patrol_point_mat = rendering.MaterialRecord()
+            patrol_point_mat.shader = "defaultLitTransparency"
+            patrol_point_mat.base_color = [0.1, 0.1, 0.1, 0.7]  # Black, 70% opaque
+            self.scene.scene.add_geometry(
+                "patrol_points",
+                self.geometry_manager.patrol_points,
+                patrol_point_mat
+            )
+
+            # Patrol edges (translucent black lines)
+            patrol_edge_mat = rendering.MaterialRecord()
+            patrol_edge_mat.shader = "unlitLine"
+            patrol_edge_mat.line_width = 1.5
+            self.scene.scene.add_geometry(
+                "patrol_edges",
+                self.geometry_manager.patrol_edges,
+                patrol_edge_mat
+            )
+
+            # Patrol highlight
+            patrol_highlight_mat = rendering.MaterialRecord()
+            patrol_highlight_mat.shader = "defaultLit"
+            self.scene.scene.add_geometry(
+                "patrol_highlight",
+                self.geometry_manager.patrol_highlight,
+                patrol_highlight_mat
+            )
+
         # Setup camera
         bounds = self.scene.scene.bounding_box
         self.scene.setup_camera(60, bounds, bounds.get_center())
@@ -218,6 +255,21 @@ class NodeInspectorApp:
                 graph_pcd = o3d.geometry.PointCloud()
                 graph_pcd.points = o3d.utility.Vector3dVector(self._graph_positions)
                 self._graph_kdtree = o3d.geometry.KDTreeFlann(graph_pcd)
+
+        # Build KDTree for patrol points
+        self._patrol_kdtree = None
+        self._patrol_positions = None
+        if self.patrol_data is not None and len(self.patrol_data) > 0:
+            patrol_positions = []
+            for i in range(len(self.patrol_data)):
+                pos = self.patrol_data.get_position(i)
+                if pos is not None:
+                    patrol_positions.append(pos)
+            if patrol_positions:
+                self._patrol_positions = np.array(patrol_positions)
+                patrol_pcd = o3d.geometry.PointCloud()
+                patrol_pcd.points = o3d.utility.Vector3dVector(self._patrol_positions)
+                self._patrol_kdtree = o3d.geometry.KDTreeFlann(patrol_pcd)
 
     def _on_layout(self, layout_context):
         """Handle window layout."""
@@ -264,6 +316,7 @@ class NodeInspectorApp:
             # Priority thresholds - graph and spawn points get priority over dense nav mesh
             GRAPH_PRIORITY_THRESHOLD = 40.0  # Screen pixels
             SPAWN_PRIORITY_THRESHOLD = 50.0  # Screen pixels
+            PATROL_PRIORITY_THRESHOLD = 40.0  # Screen pixels
 
             # Try graph first (highest priority) - early exit if clearly the target
             picked_graph_idx, graph_dist = self._pick_graph_with_ray(event.x, event.y, ray_data)
@@ -277,6 +330,12 @@ class NodeInspectorApp:
                 self.inspect_spawn(picked_spawn_idx, move_camera=True)
                 return gui.SceneWidget.EventCallbackResult.HANDLED
 
+            # Try patrol - early exit if clearly the target
+            picked_patrol_idx, patrol_dist = self._pick_patrol_with_ray(event.x, event.y, ray_data)
+            if picked_patrol_idx is not None and patrol_dist < PATROL_PRIORITY_THRESHOLD:
+                self.inspect_patrol(picked_patrol_idx, move_camera=True)
+                return gui.SceneWidget.EventCallbackResult.HANDLED
+
             # No clear early match - need to compare all candidates including nodes
             picked_node_idx, node_dist = self._pick_node_with_ray(event.x, event.y, ray_data)
 
@@ -285,6 +344,8 @@ class NodeInspectorApp:
                 candidates.append(('graph', picked_graph_idx, graph_dist))
             if picked_spawn_idx is not None:
                 candidates.append(('spawn', picked_spawn_idx, spawn_dist))
+            if picked_patrol_idx is not None:
+                candidates.append(('patrol', picked_patrol_idx, patrol_dist))
             if picked_node_idx is not None:
                 candidates.append(('node', picked_node_idx, node_dist))
 
@@ -296,6 +357,8 @@ class NodeInspectorApp:
                     self.inspect_graph(best_idx, move_camera=True)
                 elif best_type == 'spawn':
                     self.inspect_spawn(best_idx, move_camera=True)
+                elif best_type == 'patrol':
+                    self.inspect_patrol(best_idx, move_camera=True)
                 else:
                     self.inspect_node(best_idx, move_camera=True)
 
@@ -657,12 +720,77 @@ class NodeInspectorApp:
             self._level_kdtree, self.level_data.points, 2.0, 5.0
         )
 
+    def _pick_patrol_with_ray(self, screen_x, screen_y, ray_data):
+        """Pick patrol point using pre-computed ray data."""
+        if self.patrol_data is None or len(self.patrol_data) == 0 or self._patrol_kdtree is None:
+            return None, float('inf')
+        if ray_data is None:
+            return self._pick_patrol_screen_distance(screen_x, screen_y)
+        ray_origin, ray_direction, ray_length = ray_data
+        return self._pick_along_ray_kdtree(
+            ray_origin, ray_direction, ray_length,
+            self._patrol_kdtree, self._patrol_positions, 3.0, 8.0
+        )
+
+    def _pick_patrol_screen_distance(self, screen_x, screen_y):
+        """Fallback patrol picking using screen-space distance."""
+        if self.patrol_data is None or len(self.patrol_data) == 0:
+            return None, float('inf')
+
+        view_matrix = self.scene.scene.camera.get_view_matrix()
+        proj_matrix = self.scene.scene.camera.get_projection_matrix()
+
+        viewport_width = self.scene.frame.width
+        viewport_height = self.scene.frame.height
+
+        if viewport_width == 0 or viewport_height == 0:
+            return None, float('inf')
+
+        view_mat = np.array(view_matrix).reshape(4, 4)
+        proj_mat = np.array(proj_matrix).reshape(4, 4)
+        vp_matrix = proj_mat @ view_mat
+
+        closest_idx = None
+        closest_screen_dist = float('inf')
+        max_screen_dist = 40.0  # Threshold for patrol points
+
+        for i in range(len(self.patrol_data)):
+            point = self.patrol_data.get_position(i)
+            if point is None:
+                continue
+            point_h = np.array([point[0], point[1], point[2], 1.0])
+            clip_pos = vp_matrix @ point_h
+
+            if abs(clip_pos[3]) < 1e-6 or clip_pos[3] < 0:
+                continue
+
+            ndc = clip_pos[:3] / clip_pos[3]
+
+            if ndc[2] < -1 or ndc[2] > 1:
+                continue
+
+            screen_pos_x = (ndc[0] + 1.0) * viewport_width / 2.0
+            screen_pos_y = (1.0 - ndc[1]) * viewport_height / 2.0
+
+            dx = screen_pos_x - screen_x
+            dy = screen_pos_y - screen_y
+            screen_dist = np.sqrt(dx*dx + dy*dy)
+
+            if screen_dist < closest_screen_dist and screen_dist < max_screen_dist:
+                closest_screen_dist = screen_dist
+                closest_idx = i
+
+        return closest_idx, closest_screen_dist
+
     def _on_key(self, event):
         """Handle keyboard events."""
         if event.type == gui.KeyEvent.Type.DOWN:
-            # Handle Space for nodes, spawns, and graph vertices
+            # Handle Space for nodes, spawns, graph vertices, and patrol points
             if event.key == gui.KeyName.SPACE:
-                if self.selected_graph is not None:
+                if self.selected_patrol is not None:
+                    self.focus_on_patrol(self.selected_patrol)
+                    return True
+                elif self.selected_graph is not None:
                     self.focus_on_graph(self.selected_graph)
                     return True
                 elif self.selected_spawn is not None:
@@ -724,6 +852,10 @@ class NodeInspectorApp:
         """Callback when user selects a graph vertex via search."""
         self.inspect_graph(graph_idx, move_camera=True)
 
+    def _on_patrol_selected(self, patrol_idx):
+        """Callback when user selects a patrol point via search."""
+        self.inspect_patrol(patrol_idx, move_camera=True)
+
     def inspect_node(self, idx, reset_camera=False, move_camera=False):
         """Inspect a node."""
         if 0 <= idx < len(self.level_data):
@@ -756,6 +888,18 @@ class NodeInspectorApp:
                 graph_highlight_mat = rendering.MaterialRecord()
                 graph_highlight_mat.shader = "defaultLit"
                 self.scene.scene.add_geometry("graph_highlight", hidden_highlight, graph_highlight_mat)
+
+            # Clear patrol selection
+            self.selected_patrol = None
+            self.control_panel.clear_patrol_selection()
+            if self.patrol_data is not None and len(self.patrol_data) > 0:
+                self.scene.scene.remove_geometry("patrol_highlight")
+                hidden_highlight = self.geometry_manager.hide_patrol_highlight()
+                patrol_highlight_mat = rendering.MaterialRecord()
+                patrol_highlight_mat.shader = "defaultLit"
+                self.scene.scene.add_geometry("patrol_highlight", hidden_highlight, patrol_highlight_mat)
+                # Hide patrol edges
+                self._update_patrol_edges(None)
 
             # Clear level vertex highlight overlay (in case graph was previously selected)
             self.geometry_manager.reset_level_vertex_colors()
@@ -805,6 +949,18 @@ class NodeInspectorApp:
             graph_highlight_mat = rendering.MaterialRecord()
             graph_highlight_mat.shader = "defaultLit"
             self.scene.scene.add_geometry("graph_highlight", hidden_graph_highlight, graph_highlight_mat)
+
+        # Clear patrol selection
+        self.selected_patrol = None
+        self.control_panel.clear_patrol_selection()
+        if self.patrol_data is not None and len(self.patrol_data) > 0:
+            self.scene.scene.remove_geometry("patrol_highlight")
+            hidden_patrol_highlight = self.geometry_manager.hide_patrol_highlight()
+            patrol_highlight_mat = rendering.MaterialRecord()
+            patrol_highlight_mat.shader = "defaultLit"
+            self.scene.scene.add_geometry("patrol_highlight", hidden_patrol_highlight, patrol_highlight_mat)
+            # Hide patrol edges
+            self._update_patrol_edges(None)
 
         # Clear level vertex highlight overlay (in case graph was previously selected)
         self.geometry_manager.reset_level_vertex_colors()
@@ -931,6 +1087,18 @@ class NodeInspectorApp:
             # Hide space_restrictor shapes
             self._update_space_restrictor_shapes(-1)
 
+        # Clear patrol selection
+        self.selected_patrol = None
+        self.control_panel.clear_patrol_selection()
+        if self.patrol_data is not None and len(self.patrol_data) > 0:
+            self.scene.scene.remove_geometry("patrol_highlight")
+            hidden_patrol_highlight = self.geometry_manager.hide_patrol_highlight()
+            patrol_highlight_mat = rendering.MaterialRecord()
+            patrol_highlight_mat.shader = "defaultLit"
+            self.scene.scene.add_geometry("patrol_highlight", hidden_patrol_highlight, patrol_highlight_mat)
+            # Hide patrol edges
+            self._update_patrol_edges(None)
+
         # Update graph highlight
         self.scene.scene.remove_geometry("graph_highlight")
         new_highlight = self.geometry_manager.update_graph_highlight_position(idx)
@@ -980,6 +1148,115 @@ class NodeInspectorApp:
             return
         self._move_camera_to_point(new_target)
 
+    def inspect_patrol(self, idx, move_camera=False):
+        """Inspect a patrol path point."""
+        if self.patrol_data is None or not (0 <= idx < len(self.patrol_data)):
+            return
+
+        # Move camera BEFORE updating selection (so we use old selection as reference)
+        if move_camera:
+            self.move_camera_to_patrol(idx)
+
+        self.selected_patrol = idx
+
+        # Clear node selection highlight (but keep selected_node for navigation)
+        self.scene.scene.remove_geometry("highlight")
+        hidden_node_highlight = self.geometry_manager.hide_highlight()
+        highlight_mat = rendering.MaterialRecord()
+        highlight_mat.shader = "defaultLit"
+        self.scene.scene.add_geometry("highlight", hidden_node_highlight, highlight_mat)
+
+        # Clear spawn selection
+        self.selected_spawn = None
+        self.control_panel.clear_spawn_selection()
+        if self.spawn_data is not None and len(self.spawn_data) > 0:
+            self.scene.scene.remove_geometry("spawn_highlight")
+            hidden_spawn_highlight = self.geometry_manager.hide_spawn_highlight()
+            spawn_highlight_mat = rendering.MaterialRecord()
+            spawn_highlight_mat.shader = "defaultLitTransparency"
+            spawn_highlight_mat.base_color = [1.0, 1.0, 0.0, 0.3]
+            self.scene.scene.add_geometry("spawn_highlight", hidden_spawn_highlight, spawn_highlight_mat)
+
+            # Hide space_restrictor shapes
+            self._update_space_restrictor_shapes(-1)
+
+        # Clear graph selection
+        self.selected_graph = None
+        self.control_panel.clear_graph_selection()
+        if self.graph_data is not None and len(self.graph_data) > 0:
+            self.scene.scene.remove_geometry("graph_highlight")
+            hidden_graph_highlight = self.geometry_manager.hide_graph_highlight()
+            graph_highlight_mat = rendering.MaterialRecord()
+            graph_highlight_mat.shader = "defaultLit"
+            self.scene.scene.add_geometry("graph_highlight", hidden_graph_highlight, graph_highlight_mat)
+
+        # Clear level vertex highlight overlay (in case graph was previously selected)
+        self.geometry_manager.reset_level_vertex_colors()
+        self._update_level_vertex_highlight()
+
+        # Update patrol highlight
+        self.scene.scene.remove_geometry("patrol_highlight")
+        new_highlight = self.geometry_manager.update_patrol_highlight_position(idx)
+
+        if new_highlight is not None:
+            patrol_highlight_mat = rendering.MaterialRecord()
+            patrol_highlight_mat.shader = "defaultLit"
+            self.scene.scene.add_geometry("patrol_highlight", new_highlight, patrol_highlight_mat)
+
+        # Show edges for the selected patrol chain
+        patrol_name = self.patrol_data.get_patrol_name(idx)
+        self._update_patrol_edges(patrol_name)
+
+        # Update UI
+        point = self.patrol_data.get_point(idx)
+        connected_points = self.patrol_data.get_connected_points(idx)
+        if point:
+            self.control_panel.set_current_patrol(point, patrol_name, idx, connected_points)
+
+        self.scene.force_redraw()
+
+    def focus_on_patrol(self, idx):
+        """Focus camera on a patrol point (resets camera perspective)."""
+        if self.patrol_data is None:
+            return
+        point = self.patrol_data.get_position(idx)
+        if point is not None:
+            extent = 5.0
+            min_bound = point - extent
+            max_bound = point + extent
+            bounds = o3d.geometry.AxisAlignedBoundingBox(min_bound, max_bound)
+            self.scene.setup_camera(60, bounds, point)
+
+    def move_camera_to_patrol(self, idx):
+        """Move camera to a patrol point while preserving perspective."""
+        if self.patrol_data is None:
+            return
+        new_target = self.patrol_data.get_position(idx)
+        if new_target is None:
+            return
+        self._move_camera_to_point(new_target)
+
+    def _update_patrol_edges(self, patrol_name: str = None):
+        """Update patrol edges to show only the specified patrol, or hide all."""
+        if self.patrol_data is None or len(self.patrol_data) == 0:
+            return
+
+        # Remove existing geometry
+        if self.scene.scene.has_geometry("patrol_edges"):
+            self.scene.scene.remove_geometry("patrol_edges")
+
+        # Create new edges (for specified patrol or empty)
+        if patrol_name:
+            new_edges = self.geometry_manager.update_patrol_edges_for_patrol(patrol_name)
+        else:
+            new_edges = self.geometry_manager.hide_patrol_edges()
+
+        # Add to scene
+        patrol_edge_mat = rendering.MaterialRecord()
+        patrol_edge_mat.shader = "unlitLine"
+        patrol_edge_mat.line_width = 1.5
+        self.scene.scene.add_geometry("patrol_edges", new_edges, patrol_edge_mat)
+
     def move_camera_to_node(self, idx):
         """Move camera to a node while preserving perspective (viewing angle and distance)."""
         new_target = self.level_data.get_point(idx)
@@ -1005,8 +1282,10 @@ class NodeInspectorApp:
         inv_view = np.linalg.inv(view_matrix)
         current_eye = inv_view[:3, 3]
 
-        # Get current target - prefer graph, then spawn, then node (since node is never cleared)
-        if self.selected_graph is not None and self.graph_data is not None:
+        # Get current target - prefer patrol, then graph, then spawn, then node (since node is never cleared)
+        if self.selected_patrol is not None and self.patrol_data is not None:
+            current_target = self.patrol_data.get_position(self.selected_patrol)
+        elif self.selected_graph is not None and self.graph_data is not None:
             current_target = self.graph_data.get_position(self.selected_graph)
         elif self.selected_spawn is not None and self.spawn_data is not None:
             current_target = self.spawn_data.get_position(self.selected_spawn)

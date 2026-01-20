@@ -10,7 +10,7 @@ from typing import List
 compiler_path = str(Path(__file__).parent.parent.parent / "compiler")
 if compiler_path not in sys.path:
     sys.path.append(compiler_path)
-from parsers import parse_alife_object, parse_level_changer_data, GameGraphVertex
+from parsers import parse_alife_object, parse_level_changer_data, GameGraphVertex, PatrolPoint
 
 
 def format_node_info(idx: int, point, cover_score: float, gvid: int = None) -> str:
@@ -154,5 +154,47 @@ Death Points: {vertex.death_point_count}
             info_text += f"  -> {edge['target_vertex_id']} ({edge['level_name']}) d={edge['distance']:.1f}{inter_marker}\n"
     else:
         info_text += "\nNo edges\n"
+
+    return info_text
+
+
+def format_patrol_point_info(point: PatrolPoint, patrol_name: str, local_idx: int,
+                              connected_points: List[int]) -> str:
+    """Format patrol point information for display.
+
+    Args:
+        point: PatrolPoint object with point data
+        patrol_name: Name of the patrol path this point belongs to
+        local_idx: Local index within the filtered points
+        connected_points: List of indices of connected points
+
+    Returns:
+        Formatted string for display
+    """
+    info_text = f"""PATROL PATH POINT
+Patrol: {patrol_name or '(unknown)'}
+Point Name: {point.name or '(unnamed)'}
+Point ID: {point.id} (local #{local_idx})
+
+Position:
+  X: {point.position[0]:.2f}
+  Y: {point.position[1]:.2f}
+  Z: {point.position[2]:.2f}
+
+Level Vertex ID: {point.level_vertex_id}
+Game Vertex ID: {point.game_vertex_id}
+"""
+
+    # Add flags if present
+    if point.flags != 0:
+        info_text += f"Flags: {point.flags}\n"
+
+    # Add connected points
+    if connected_points:
+        info_text += f"\nConnected Points: {len(connected_points)}\n"
+        for idx in connected_points:
+            info_text += f"  -> Point #{idx}\n"
+    else:
+        info_text += "\nNo outgoing connections\n"
 
     return info_text

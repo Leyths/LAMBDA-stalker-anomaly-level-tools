@@ -3,14 +3,14 @@ Data loading for level.ai files and spawn data using shared parsers.
 """
 import sys
 from pathlib import Path
-from typing import Optional, List, Tuple
+from typing import Optional, List, Tuple, Dict
 import numpy as np
 
 # Add compiler to path for shared parser access (append to avoid shadowing visualiser modules)
 compiler_path = str(Path(__file__).parent.parent.parent / "compiler")
 if compiler_path not in sys.path:
     sys.path.append(compiler_path)
-from parsers import LevelAIParser, GameGraphParser, GameGraphVertex, SpawnEntity, AllSpawnSpawnIterator
+from parsers import LevelAIParser, GameGraphParser, GameGraphVertex, SpawnEntity, AllSpawnSpawnIterator, PatrolPathParser, PatrolPoint, PatrolEdge
 
 
 class LevelData:
@@ -410,4 +410,198 @@ class GraphData:
             })
 
         return result
+
+
+class PatrolData:
+    """Manages patrol path data from all.spawn for visualization."""
+
+    def __init__(self, all_spawn_path: str, level_id: int):
+        """
+        Load and filter patrol points for a specific level.
+
+        Args:
+            all_spawn_path: Path to all.spawn file
+            level_id: Level ID to filter points by
+        """
+        self.filepath = all_spawn_path
+        self.level_id = level_id
+        self._points: List[PatrolPoint] = []
+        self._positions: Optional[np.ndarray] = None
+        self._edges: List[Tuple[int, int]] = []
+        self._point_to_patrol: dict = {}  # Maps point index to patrol name
+        self._point_edges: dict = {}  # Maps point index to list of connected point indices
+
+        self._load_patrols()
+
+    def _load_patrols(self):
+        """Load patrol data from all.spawn, filtering by level_id."""
+        filepath = Path(self.filepath)
+        if not filepath.exists():
+            return
+
+        # Parse game graph to build game_vertex_id -> level_id mapping
+        try:
+            game_graph = GameGraphParser.from_all_spawn(filepath)
+        except Exception:
+            return
+
+        # Build vertex_id -> level_id mapping
+        vertex_to_level = {}
+        for vertex_id in range(game_graph.vertex_count):
+            vertex_to_level[vertex_id] = game_graph.get_level_id_for_vertex(vertex_id)
+
+        # Parse patrol paths using shared parser
+        try:
+            patrol_parser = PatrolPathParser.from_all_spawn(filepath)
+        except Exception:
+            return
+
+        # Flatten all patrol points, filtering by level_id
+        # We need to track the original point IDs within each patrol for edge mapping
+        patrol_point_mapping = {}  # (patrol_name, original_id) -> local_index
+
+        for patrol in patrol_parser.get_patrols():
+            for point in patrol.points:
+                game_vertex_id = point.game_vertex_id
+                if game_vertex_id in vertex_to_level:
+                    if vertex_to_level[game_vertex_id] == self.level_id:
+                        local_idx = len(self._points)
+                        self._points.append(point)
+                        self._point_to_patrol[local_idx] = patrol.name
+                        patrol_point_mapping[(patrol.name, point.id)] = local_idx
+
+        # Build positions array (Z mirrored for display)
+        if self._points:
+            positions = []
+            for point in self._points:
+                x, y, z = point.position
+                positions.append([x, y, -z])  # Mirror Z for display
+            self._positions = np.array(positions, dtype=np.float64)
+        else:
+            self._positions = np.zeros((0, 3), dtype=np.float64)
+
+        # Build edges list using local indices
+        # First, try explicit edges from the parser
+        for patrol in patrol_parser.get_patrols():
+            has_explicit_edges = sum(len(e) for e in patrol.edges.values()) > 0
+
+            if has_explicit_edges:
+                # Use explicit edges
+                for source_id, edges in patrol.edges.items():
+                    source_key = (patrol.name, source_id)
+                    if source_key not in patrol_point_mapping:
+                        continue
+                    source_idx = patrol_point_mapping[source_key]
+
+                    for edge in edges:
+                        target_key = (patrol.name, edge.target_id)
+                        if target_key not in patrol_point_mapping:
+                            continue
+                        target_idx = patrol_point_mapping[target_key]
+
+                        # Add edge (source -> target)
+                        self._edges.append((source_idx, target_idx))
+
+                        # Track connections for each point
+                        if source_idx not in self._point_edges:
+                            self._point_edges[source_idx] = []
+                        self._point_edges[source_idx].append(target_idx)
+            else:
+                # No explicit edges - create sequential connections
+                # Collect points from this patrol that are on this level, in order
+                patrol_local_indices = []
+                for point in patrol.points:
+                    key = (patrol.name, point.id)
+                    if key in patrol_point_mapping:
+                        patrol_local_indices.append(patrol_point_mapping[key])
+
+                # Connect sequential points
+                for i in range(len(patrol_local_indices) - 1):
+                    source_idx = patrol_local_indices[i]
+                    target_idx = patrol_local_indices[i + 1]
+
+                    self._edges.append((source_idx, target_idx))
+
+                    if source_idx not in self._point_edges:
+                        self._point_edges[source_idx] = []
+                    self._point_edges[source_idx].append(target_idx)
+
+    def __len__(self) -> int:
+        """Return the number of patrol points."""
+        return len(self._points)
+
+    def get_point(self, idx: int) -> Optional[PatrolPoint]:
+        """Get a patrol point by index."""
+        if 0 <= idx < len(self._points):
+            return self._points[idx]
+        return None
+
+    def get_position(self, idx: int) -> Optional[np.ndarray]:
+        """Get the position of a patrol point (Z mirrored for display)."""
+        if 0 <= idx < len(self._points):
+            return self._positions[idx]
+        return None
+
+    @property
+    def positions(self) -> np.ndarray:
+        """Get all positions as numpy array (Z mirrored for display)."""
+        return self._positions
+
+    @property
+    def edges(self) -> List[Tuple[int, int]]:
+        """Get all edges as list of (source_idx, target_idx) tuples."""
+        return self._edges
+
+    def get_patrol_name(self, idx: int) -> Optional[str]:
+        """Get the patrol name for a point index."""
+        return self._point_to_patrol.get(idx)
+
+    def get_connected_points(self, idx: int) -> List[int]:
+        """Get indices of points connected to the given point."""
+        return self._point_edges.get(idx, [])
+
+    def get_patrol_point_indices(self, patrol_name: str) -> List[int]:
+        """Get all point indices belonging to a patrol path.
+
+        Args:
+            patrol_name: Name of the patrol path
+
+        Returns:
+            List of point indices in this patrol
+        """
+        indices = []
+        for idx, name in self._point_to_patrol.items():
+            if name == patrol_name:
+                indices.append(idx)
+        return sorted(indices)
+
+    def get_patrol_edges(self, patrol_name: str) -> List[Tuple[int, int]]:
+        """Get all edges belonging to a patrol path.
+
+        Args:
+            patrol_name: Name of the patrol path
+
+        Returns:
+            List of (source_idx, target_idx) tuples for edges in this patrol
+        """
+        patrol_indices = set(self.get_patrol_point_indices(patrol_name))
+        return [(src, tgt) for src, tgt in self._edges
+                if src in patrol_indices and tgt in patrol_indices]
+
+    def find_nearest_point(self, x: float, y: float, z: float) -> Tuple[Optional[int], float]:
+        """Find the nearest patrol point to given coordinates.
+
+        Args:
+            x, y, z: World coordinates (Z should be mirrored to match display)
+
+        Returns:
+            (point_index, distance) tuple
+        """
+        if len(self._points) == 0:
+            return None, float('inf')
+
+        target = np.array([x, y, z])
+        distances = np.linalg.norm(self._positions - target, axis=1)
+        nearest_idx = np.argmin(distances)
+        return int(nearest_idx), float(distances[nearest_idx])
 
