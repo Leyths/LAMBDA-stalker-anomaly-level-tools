@@ -32,14 +32,13 @@ class ItemRestrictorConverter:
         """
         Load level list from merged config file.
 
+        The config file should already be in gamedata/ (copied by ModCopier).
+
         Args:
-            base_mod: Base mod variant (anomaly, gamma)
+            base_mod: Base mod variant (anomaly, gamma) - kept for backwards compatibility
         """
-        # Config path (use anomaly as default, could be parameterized)
-        if base_mod == 'gamma':
-            config_path = Path(__file__).parent.parent.parent / "lua_variants/gamma/configs/items/settings/dynamic_item_spawn_locations.ltx"
-        else:
-            config_path = Path(__file__).parent.parent.parent / "lua_variants/anomaly/configs/items/settings/dynamic_item_spawn_locations.ltx"
+        # Config path - look in gamedata/ where ModCopier places it
+        config_path = Path(__file__).parent.parent.parent / "gamedata/configs/items/settings/dynamic_item_spawn_locations.ltx"
 
         self.levels: List[str] = []
         self.locations: Dict[str, LevelRestrictorInfo] = {}

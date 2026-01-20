@@ -15,6 +15,7 @@ if TYPE_CHECKING:
     from game_graph_merger import GameVertex, GameEdge, DeathPoint
     from parsers import CrossTableParser
     from crosstables import LevelGraphNavigator
+    from config import ModConfig
 
 
 @dataclass
@@ -36,6 +37,9 @@ class GameGraph:
 
     # Base mod that is being targeted
     base_mod: str = None
+
+    # Mod configuration (from {basemod}.ini)
+    mod_config: Optional['ModConfig'] = None
 
     # Level offsets: level_name -> cumulative GVID offset
     # The offset for a level is the sum of all previous levels' vertex counts

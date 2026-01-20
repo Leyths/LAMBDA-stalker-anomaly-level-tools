@@ -32,10 +32,12 @@ class AnomalyRestrictorConverter:
         """
         Load level list from merged config file.
 
+        The config file should already be in gamedata/ (copied by ModCopier).
+
         Args:
-            base_mod: Base mod variant (anomaly, gamma)
+            base_mod: Base mod variant (anomaly, gamma) - kept for backwards compatibility
         """
-        # Config path
+        # Config path - look in gamedata/ where ModCopier places it
         config_path = Path(__file__).parent.parent.parent / "gamedata/configs/zones/dynamic_anomaly_locations.ltx"
 
         self.levels: List[str] = []

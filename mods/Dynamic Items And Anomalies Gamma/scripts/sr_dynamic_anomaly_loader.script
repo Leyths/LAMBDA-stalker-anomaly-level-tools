@@ -1,0 +1,6 @@
+-- Loader script for sr_dynamic_anomaly scheme
+-- Registers the scheme without modifying modules.script
+
+function on_game_start()
+    LoadScheme("sr_dynamic_anomaly", "sr_dynamic_anomaly", modules.stype_restrictor)
+end

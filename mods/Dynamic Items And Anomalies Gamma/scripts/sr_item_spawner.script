@@ -1,0 +1,86 @@
+--[[
+    sr_item_spawner.script
+
+    Space restrictor scheme for triggering dynamic item spawning.
+    One restrictor per level triggers sr_item_spawn_manager to spawn
+    all items for that level from dynamic_item_spawn_locations.ltx.
+
+    Custom data format:
+    [logic]
+    active = sr_item_spawner
+
+    Updated: 2026/1/19 - Refactored to one restrictor per level
+--]]
+
+local function log(fmt, ...)
+    printf("sr_item_spawner | " .. fmt, ...)
+end
+
+-- Log that script is loaded
+printf("sr_item_spawner.script LOADED")
+
+class "action_item_spawner"
+
+function action_item_spawner:__init(obj, storage)
+    self.object = obj
+    self.st = storage
+    self.triggered = false
+end
+
+function action_item_spawner:reset_scheme()
+    self.st.signals = empty_table(self.st.signals)
+    log("reset_scheme called for %s", self.object:name())
+end
+
+function action_item_spawner:deactivate()
+    -- Deactivate this scheme to stop per-frame updates
+    local root_st = db.storage[self.object:id()]
+    if root_st then
+        root_st.active_section = nil
+        root_st.active_scheme = nil
+    end
+    log("Deactivated restrictor: %s", self.object:name())
+end
+
+function action_item_spawner:update(delta)
+    -- Only trigger once
+    if self.triggered then
+        self:deactivate()
+        return
+    end
+
+    -- Get current level name from restrictor name: sr_item_spawner_<level>
+    local restrictor_name = self.object:name()
+    local level_name = string.match(restrictor_name, "^sr_item_spawner_(.+)$")
+
+    if not level_name then
+        -- Fallback to current level name
+        level_name = level.name()
+    end
+
+    log("Triggering item spawn for level: %s", level_name)
+
+    -- Tell manager to spawn all items for this level
+    if sr_item_spawn_manager and sr_item_spawn_manager.spawn_all_items_for_level then
+        sr_item_spawn_manager.spawn_all_items_for_level(level_name)
+        log("Successfully triggered item spawn for level %s", level_name)
+    else
+        log("ERROR: sr_item_spawn_manager.spawn_all_items_for_level not available!")
+    end
+
+    self.triggered = true
+    self:deactivate()
+end
+
+--------------------------------------------------------------------------------
+-- Standard scheme functions
+--------------------------------------------------------------------------------
+function add_to_binder(npc, ini, scheme, section, storage)
+    local action = action_item_spawner(npc, storage)
+    xr_logic.subscribe_action_for_events(npc, storage, action)
+end
+
+function set_scheme(obj, ini, scheme, section, gulag_name)
+    local st = xr_logic.assign_storage_and_bind(obj, ini, scheme, section)
+    st.logic = xr_logic.cfg_get_switch_conditions(ini, section, obj)
+end

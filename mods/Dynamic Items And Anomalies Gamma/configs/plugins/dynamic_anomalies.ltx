@@ -1,0 +1,46 @@
+; Tronex
+; 2019/6/14
+; Dynamic anomalies
+
+; 1. Script (txr_anomalies.script) will read the list of anomalies and their position/types from the config (you can recorded custom pos for your anomalies)
+; 2. Then spawn all anomalies on new game, then disable a random number of them.
+; 3. When an enmission happen, anomalies will shuffle between off/on state (the dynamic factor)
+
+;--================================================================================================================
+;-- Anomaly sections
+
+[categories]
+		electric
+		chemical
+		thermal
+		gravitational
+		radioactive
+
+[electric]
+		zone_mine_electric_weak            = 1
+		zone_mine_electric_average         = 1
+
+[chemical]
+		zone_mine_acidic_weak              = 1
+		zone_mine_acidic_average           = 1
+		zone_mine_chemical_weak            = 1
+		zone_mine_chemical_average         = 1
+
+[thermal]
+		zone_mine_thermal_weak             = 1
+		zone_mine_thermal_average          = 1
+
+[gravitational]
+		zone_mine_gravitational_weak       = 1
+		zone_mine_gravitational_average    = 1
+		zone_mine_gravitational_strong     = 1
+
+[radioactive]
+		zone_radioactive_weak              = 1
+		zone_radioactive_average           = 1
+
+
+;--================================================================================================================
+;-- DISABLED: See sr_dynamic_anomaly.script / sr_dynamic_anomaly_manager.script for the replacement
+
+[levels]

@@ -1,0 +1,376 @@
+--[[
+    sr_dynamic_anomaly_manager.script
+
+    One-restrictor-per-level dynamic anomaly spawn system.
+    Reads spawn locations from dynamic_anomaly_locations.ltx and spawns
+    anomalies at runtime using engine's level.vertex_id() for LVID lookup.
+
+    Config file used:
+        configs\zones\dynamic_anomaly_locations.ltx
+        Format: spawn_name = type, x, y, z
+
+    Created: 2026/1/18
+    Updated: 2026/1/19 - Refactored to one restrictor per level
+--]]
+
+local enable_debug = true
+local inited = false
+local sfind = string.find
+
+-- State tables
+local spawn_locations = {}       -- [level][name] = {type, x, y, z}
+local spawned_anomalies = {}     -- [name] = {anomaly_id, enabled, type}
+local ano_type_sections = {}     -- [type] = {sections...}
+local levels_spawned = {}        -- [level] = true if already spawned
+
+local dyn_ano_chance = 35        -- [0-100] % chance enabled after emission
+
+-- Debug logging
+local function print_debug(...)
+    if enable_debug then
+        printf(...)
+    end
+end
+
+-- Map markers for debug
+local marker_by_type = {
+    ["electric"]      = "anomaly_electric",
+    ["chemical"]      = "anomaly_chemical",
+    ["thermal"]       = "anomaly_thermal",
+    ["gravitational"] = "anomaly_gravitational",
+    ["radioactive"]   = "anomaly_radioactive",
+    ["disabled"]      = "anomaly_disabled",
+}
+
+local function add_marker(name, section, id, typ, enabled)
+    if enable_debug and id then
+        -- Remove any existing markers
+        for k, v in pairs(marker_by_type) do
+            if (level.map_has_object_spot(id, v) ~= 0) then
+                level.map_remove_object_spot(id, v)
+            end
+        end
+
+        local spot = marker_by_type[typ] or marker_by_type["gravitational"]
+        if not enabled then
+            spot = marker_by_type["disabled"]
+        end
+        level.map_add_object_spot_ser(id, spot, "Name: " .. name .. " \\nType: " .. typ .. " \\nSection: " .. section)
+    end
+end
+
+-------------------------------
+-- Initialization
+-------------------------------
+function init_settings()
+    if inited then return end
+    inited = true
+
+    local ini_ano = ini_file("zones\\dynamic_anomaly_locations.ltx")
+    if not ini_ano then
+        print_debug("! sr_dynamic_anomaly_manager | dynamic_anomaly_locations.ltx not found!")
+        return
+    end
+
+    local n, m = 0, 0
+    local result, id, value = "", "", ""
+    local name, info = "", ""
+
+    -- Gather anomaly type sections (category pools)
+    if ini_ano:section_exist("categories") then
+        n = ini_ano:line_count("categories") or 0
+        for i = 0, n - 1 do
+            result, id, value = ini_ano:r_line_ex("categories", i, "", "")
+            ano_type_sections[id] = {}
+
+            if ini_ano:section_exist(id) then
+                m = ini_ano:line_count(id) or 0
+                for ii = 0, m - 1 do
+                    result, name, info = ini_ano:r_line_ex(id, ii, "", "")
+                    if name and info then
+                        -- Add section with its weight (add multiple times for weighting)
+                        for j = 1, tonumber(info) or 1 do
+                            local size = #ano_type_sections[id] + 1
+                            ano_type_sections[id][size] = name
+                        end
+                    end
+                end
+            end
+        end
+        print_debug("- sr_dynamic_anomaly_manager | Loaded %s anomaly categories", size_table(ano_type_sections))
+    end
+
+    -- Gather spawn locations for all levels
+    if ini_ano:section_exist("levels") then
+        n = ini_ano:line_count("levels") or 0
+        for i = 0, n - 1 do
+            result, id, value = ini_ano:r_line_ex("levels", i, "", "")
+            if ini_ano:section_exist(id) then
+                spawn_locations[id] = {}
+                m = ini_ano:line_count(id) or 0
+                for ii = 0, m - 1 do
+                    result, name, info = ini_ano:r_line_ex(id, ii, "", "")
+                    if name and info then
+                        -- Parse: type, x, y, z
+                        local parts = str_explode(info, ",")
+                        if parts and #parts >= 4 then
+                            local ano_type = string.gsub(parts[1], "^%s*(.-)%s*$", "%1")
+                            local x = tonumber(parts[2])
+                            local y = tonumber(parts[3])
+                            local z = tonumber(parts[4])
+                            if ano_type and x and y and z then
+                                spawn_locations[id][name] = {
+                                    type = ano_type,
+                                    x = x,
+                                    y = y,
+                                    z = z
+                                }
+                            end
+                        end
+                    end
+                end
+                print_debug("- sr_dynamic_anomaly_manager | Level %s: %s spawn locations", id, size_table(spawn_locations[id]))
+            end
+        end
+    end
+end
+
+-------------------------------
+-- Spawn Functions
+-------------------------------
+
+function get_random_section(ano_type)
+    -- Get a random anomaly section from the type pool
+    init_settings()
+
+    local sections = ano_type_sections[ano_type]
+    if sections and #sections > 0 then
+        return sections[math.random(#sections)]
+    end
+
+    print_debug("! sr_dynamic_anomaly_manager | No sections found for type: %s", ano_type)
+    return nil
+end
+
+function spawn_anomaly_at_position(name, ano_type, pos, lvid, gvid)
+    -- Spawn a single anomaly at the given position
+    local section = get_random_section(ano_type)
+    if not section then
+        print_debug("! sr_dynamic_anomaly_manager | No section for type: %s", ano_type)
+        return nil
+    end
+
+    if not ini_sys:section_exist(section) then
+        print_debug("! sr_dynamic_anomaly_manager | Section doesn't exist: %s", section)
+        return nil
+    end
+
+    -- Spawn the anomaly
+    local se_obj = alife_create(section, pos, lvid, gvid)
+    if not se_obj then
+        print_debug("! sr_dynamic_anomaly_manager | Failed to spawn anomaly [%s] at %s", section, name)
+        return nil
+    end
+
+    -- Set anomaly shape (matching bind_anomaly_field.script exactly)
+    local stpk = utils_stpk.get_anom_zone_data(se_obj)
+    if stpk then
+        stpk.shapes[1] = {}
+        stpk.shapes[1].shtype = 0
+        stpk.shapes[1].offset = vector():set(0, 0, 0)
+        stpk.shapes[1].center = vector():set(0, 0, 0)
+        stpk.shapes[1].radius = 3
+        utils_stpk.set_anom_zone_data(stpk, se_obj)
+    end
+
+    return se_obj.id, section
+end
+
+-------------------------------
+-- Public API (called by sr_dynamic_anomaly)
+-------------------------------
+
+function spawn_all_anomalies_for_level(level_name)
+    -- Called by sr_dynamic_anomaly scheme on first update
+    -- Spawns all anomalies for the current level
+    init_settings()
+
+    -- Check if already spawned for this level (in this game session)
+    if levels_spawned[level_name] then
+        print_debug("/ sr_dynamic_anomaly_manager | Level %s already spawned this session", level_name)
+        return
+    end
+
+    local locations = spawn_locations[level_name]
+    if not locations then
+        print_debug("! sr_dynamic_anomaly_manager | No spawn locations for level: %s", level_name)
+        return
+    end
+
+    -- Get actor's GVID for same-level spawns
+    local actor_gvid = db.actor:game_vertex_id()
+
+    local spawn_count = 0
+    local skip_count = 0
+
+    for name, data in pairs(locations) do
+        -- Skip if already spawned (from save/load)
+        if spawned_anomalies[name] then
+            print_debug("/ sr_dynamic_anomaly_manager | %s already exists, skipping", name)
+            skip_count = skip_count + 1
+        else
+            -- Random chance to spawn
+            local should_enable = math.random(100) <= dyn_ano_chance
+            if should_enable then
+                -- Create position vector
+                local pos = vector():set(data.x, data.y, data.z)
+
+                -- Get LVID from position at runtime
+                local lvid = level.vertex_id(pos)
+                if lvid == 4294967295 then
+                    -- Invalid LVID, try to find nearest valid vertex
+                    lvid = level.vertex_in_direction(level.vertex_id(db.actor:position()), pos, 1000)
+                    if lvid == 4294967295 then
+                        print_debug("! sr_dynamic_anomaly_manager | Invalid LVID for %s at %.1f, %.1f, %.1f", name, data.x, data.y, data.z)
+                        skip_count = skip_count + 1
+                        -- Still track it as "spawned but disabled" so we don't retry
+                        spawned_anomalies[name] = {
+                            anomaly_id = nil,
+                            enabled = false,
+                            type = data.type
+                        }
+                        goto continue
+                    end
+                end
+
+                -- Spawn the anomaly
+                local anomaly_id, section = spawn_anomaly_at_position(name, data.type, pos, lvid, actor_gvid)
+                if anomaly_id then
+                    spawned_anomalies[name] = {
+                        anomaly_id = anomaly_id,
+                        enabled = true,
+                        type = data.type
+                    }
+                    spawn_count = spawn_count + 1
+                    add_marker(name, section, anomaly_id, data.type, true)
+                end
+            else
+                -- Not spawning, but track it for shuffle-on-emission
+                spawned_anomalies[name] = {
+                    anomaly_id = nil,
+                    enabled = false,
+                    type = data.type
+                }
+                skip_count = skip_count + 1
+            end
+        end
+        ::continue::
+    end
+
+    levels_spawned[level_name] = true
+    print_debug("/ sr_dynamic_anomaly_manager | Level %s: spawned %s anomalies, skipped %s", level_name, spawn_count, skip_count)
+end
+
+-------------------------------
+-- Shuffle on Emission
+-------------------------------
+
+function shuffle_anomalies()
+    -- Called after emission ends - shuffle all anomalies on current level
+    local lvl = level.name()
+    if not lvl then return end
+
+    print_debug("/ sr_dynamic_anomaly_manager | Shuffling anomalies for level %s...", lvl)
+
+    local locations = spawn_locations[lvl]
+    if not locations then return end
+
+    -- Get actor's GVID for same-level spawns
+    local actor_gvid = db.actor:game_vertex_id()
+
+    local enabled_count = 0
+    local disabled_count = 0
+
+    for name, data in pairs(locations) do
+        local ano_data = spawned_anomalies[name]
+        local should_enable = math.random(100) <= dyn_ano_chance
+
+        if ano_data and ano_data.anomaly_id then
+            -- Anomaly already exists, just enable/disable it
+            local obj = level.object_by_id(ano_data.anomaly_id)
+            if obj then
+                if should_enable then
+                    obj:enable_anomaly()
+                    ano_data.enabled = true
+                    enabled_count = enabled_count + 1
+                else
+                    obj:disable_anomaly()
+                    ano_data.enabled = false
+                    disabled_count = disabled_count + 1
+                end
+
+                -- Update marker
+                local se_obj = alife_object(ano_data.anomaly_id)
+                if se_obj and enable_debug then
+                    add_marker(name, se_obj:section_name(), ano_data.anomaly_id, data.type, ano_data.enabled)
+                end
+            end
+        elseif should_enable then
+            -- No anomaly exists yet, spawn one
+            local pos = vector():set(data.x, data.y, data.z)
+            local lvid = level.vertex_id(pos)
+            if lvid ~= 4294967295 then
+                local anomaly_id, section = spawn_anomaly_at_position(name, data.type, pos, lvid, actor_gvid)
+                if anomaly_id then
+                    spawned_anomalies[name] = {
+                        anomaly_id = anomaly_id,
+                        enabled = true,
+                        type = data.type
+                    }
+                    enabled_count = enabled_count + 1
+                    add_marker(name, section, anomaly_id, data.type, true)
+                end
+            end
+        end
+    end
+
+    print_debug("/ sr_dynamic_anomaly_manager | Shuffle complete: %s enabled, %s disabled", enabled_count, disabled_count)
+end
+
+-------------------------------
+-- Callbacks
+-------------------------------
+
+local function actor_on_interaction(typ, obj, name)
+    -- Called on various game events - check for emission end
+    if typ == "anomalies" and name == "emission_end" then
+        shuffle_anomalies()
+    end
+end
+
+local function save_state(m_data)
+    m_data.sr_dynamic_anomaly_spawned = spawned_anomalies
+    m_data.sr_dynamic_anomaly_levels_spawned = levels_spawned
+    print_debug("# sr_dynamic_anomaly_manager SAVING: spawned [%s] - levels [%s]",
+        size_table(spawned_anomalies), size_table(levels_spawned))
+end
+
+local function load_state(m_data)
+    spawned_anomalies = m_data.sr_dynamic_anomaly_spawned or {}
+    levels_spawned = m_data.sr_dynamic_anomaly_levels_spawned or {}
+    print_debug("# sr_dynamic_anomaly_manager LOADING: spawned [%s] - levels [%s]",
+        size_table(spawned_anomalies), size_table(levels_spawned))
+end
+
+-------------------------------
+-- Script entry point
+-------------------------------
+function on_game_start()
+    RegisterScriptCallback("actor_on_interaction", actor_on_interaction)
+    RegisterScriptCallback("save_state", save_state)
+    RegisterScriptCallback("load_state", load_state)
+    print_debug("- sr_dynamic_anomaly_manager | Registered callbacks")
+end
+
+-- Log that script is loaded
+printf("sr_dynamic_anomaly_manager.script LOADED")

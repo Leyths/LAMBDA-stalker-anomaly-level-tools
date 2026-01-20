@@ -27,6 +27,7 @@ import time
 from levels import LevelsConfig, LevelConfig
 from graph import GameGraph
 from utils import log, logWarning, logError, init_logging, print_summary
+from config import ModConfig, ModCopier
 
 
 class GameGraphBuilder:
@@ -44,6 +45,7 @@ class GameGraphBuilder:
             base_path: Base path for resolving relative paths
             blacklist_path: Path to spawn_blacklist.ini file
             output_path: Path to output all.spawn file
+            base_mod: Base mod name (anomaly, gamma)
         """
         self.config = config
         self.base_path = Path(base_path)
@@ -59,6 +61,21 @@ class GameGraphBuilder:
 
         # Blacklist path
         self.blacklist_path = Path(blacklist_path) if blacklist_path else None
+
+        # Load mod configuration from {basemod}.ini
+        mod_config_path = self.base_path / ".." / f"{base_mod}.ini"
+        self.mod_config = None
+        if mod_config_path.exists():
+            self.mod_config = ModConfig(mod_config_path)
+            log(f"Mod config: {mod_config_path}")
+            log(f"  Enabled mods: {self.mod_config.get_enabled_mods()}")
+        else:
+            logWarning(f"Mod config not found: {mod_config_path}")
+
+        # Initialize mod copier
+        self.mods_dir = self.base_path / ".." / "mods"
+        self.gamedata_dir = self.base_path / ".." / "gamedata"
+        self.mod_copier = ModCopier(self.mods_dir, self.gamedata_dir)
 
         # Initialize dependency tracker
         from crosstables import DependencyTracker
@@ -317,7 +334,8 @@ class GameGraphBuilder:
             levels_config=self.config,
             graph_points_by_level=graph_points_by_level,
             random_seed=42,
-            base_mod=self.base_mod
+            base_mod=self.base_mod,
+            mod_config=self.mod_config
         )
         game_graph = merger.merge()
 
@@ -453,53 +471,46 @@ class GameGraphBuilder:
         """
         Remap new_game_start_locations.ltx with updated LVID and GVID values.
 
+        Finds the source file from enabled mods (first match wins).
+
         Args:
             game_graph: GameGraph object for position-based lookups
         """
         from remapping import remap_start_locations
 
-        source_path = self.base_path / ".." / "lua_variants" / self.base_mod / "configs" / "plugins" / "new_game_start_locations.ltx"
         dest_path = self.base_path / ".." / "gamedata" / "configs" / "plugins" / "new_game_start_locations.ltx"
 
-        if not source_path.exists():
-            log(f"  No start locations file for '{self.base_mod}': {source_path}")
+        # Find source from enabled mods
+        source_path = None
+        if self.mod_config:
+            source_path = self.mod_copier.find_file_in_enabled_mods(
+                self.mod_config,
+                "configs/plugins/new_game_start_locations.ltx"
+            )
+
+        if not source_path:
+            log(f"  No start locations file found in enabled mods")
             return
 
+        log(f"  Source: {source_path}")
         remap_start_locations(source_path, dest_path, game_graph)
 
     def _copy_mod_variant_files(self):
         """
-        Copy mod-specific files from lua_variants/<base_mod>/ to gamedata/
+        Copy enabled mod files from mods/ to gamedata/ using ModCopier.
         """
-        import shutil
-
-        variant_dir = self.base_path / ".." / "lua_variants" / self.base_mod
-        gamedata_dir = self.base_path / ".." / "gamedata"
-
-        if not variant_dir.exists():
-            log(f"  No variant directory for '{self.base_mod}': {variant_dir}")
+        if not self.mod_config:
+            log(f"  No mod configuration loaded")
             return
 
-        log(f"  Source: {variant_dir}")
-        log(f"  Destination: {gamedata_dir}")
+        log(f"  Mods directory: {self.mods_dir}")
+        log(f"  Destination: {self.gamedata_dir}")
 
         # Files handled by special processing (don't copy here)
         skip_files = {'new_game_start_locations.ltx'}
 
-        # Copy all contents, preserving directory structure
-        copied_count = 0
-        for src_path in variant_dir.rglob('*'):
-            if src_path.is_file():
-                # Skip files handled by special processing
-                if src_path.name in skip_files:
-                    continue
-
-                rel_path = src_path.relative_to(variant_dir)
-                dst_path = gamedata_dir / rel_path
-                dst_path.parent.mkdir(parents=True, exist_ok=True)
-                shutil.copy2(src_path, dst_path)
-                log(f"    Copied: {rel_path}")
-                copied_count += 1
+        # Copy all enabled mods
+        copied_count = self.mod_copier.copy_all_enabled_mods(self.mod_config, skip_files)
 
         log(f"  Total files copied: {copied_count}")
 

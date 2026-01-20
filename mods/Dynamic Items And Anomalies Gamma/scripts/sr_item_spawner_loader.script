@@ -1,0 +1,6 @@
+-- Loader script for sr_item_spawner scheme
+-- Registers the scheme without modifying modules.script
+
+function on_game_start()
+    LoadScheme("sr_item_spawner", "sr_item_spawner", modules.stype_restrictor)
+end

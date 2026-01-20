@@ -155,7 +155,8 @@ class GameGraphMerger:
                  levels_config: LevelsConfig,
                  graph_points_by_level: Dict[int, List[dict]],
                  random_seed: Optional[int] = None,
-                 base_mod: str = None):
+                 base_mod: str = None,
+                 mod_config=None):
         """
         Initialize merger.
 
@@ -163,10 +164,13 @@ class GameGraphMerger:
             levels_config: Level configurations (provides paths, lookups)
             graph_points_by_level: Map of level_id -> extracted graph points
             random_seed: Optional seed for death point randomization
+            base_mod: Base mod name (anomaly, gamma)
+            mod_config: ModConfig instance for enabled mods
         """
         self.levels_config = levels_config
         self.graph_points_by_level = graph_points_by_level
         self.base_mod = base_mod
+        self.mod_config = mod_config
 
         # Set random seed for reproducibility
         if random_seed is not None:
@@ -256,7 +260,8 @@ class GameGraphMerger:
             name_to_gvid=self.name_to_gvid,
             vertex_mapping=self.vertex_mapping,
             levels_config=self.levels_config,
-            base_mod=self.base_mod
+            base_mod=self.base_mod,
+            mod_config=self.mod_config
         )
 
     def _merge_vertices(self):
