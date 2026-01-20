@@ -22,8 +22,7 @@ if TYPE_CHECKING:
     from graph import GameGraph
 
 
-def extract_patrol_paths_from_level(level_dir: Path,
-                                    original_patrols_path: Path = None,
+def extract_patrol_paths_from_level(level_config,
                                     game_graph: 'GameGraph' = None) -> Dict[str, bytes]:
     """
     Extract patrol paths from a level directory
@@ -33,8 +32,7 @@ def extract_patrol_paths_from_level(level_dir: Path,
     2. original_patrols file (if provided) - extracted from original all.spawn
 
     Args:
-        level_dir: Path to level directory
-        original_patrols_path: Optional path to .patrols file with original patrol paths
+        level_config: LevelConfig object with level metadata
         game_graph: GameGraph object for GVID resolution
 
     Returns:
@@ -42,6 +40,23 @@ def extract_patrol_paths_from_level(level_dir: Path,
     """
     from .read_extracted_patrols import read_extracted_patrols
     from remapping import validate_and_remap_patrols
+
+    level_name = level_config.name
+    level_dir = Path(level_config.path)
+
+    if not level_dir.exists():
+        logError(f"      Level directory not found: {level_dir}")
+        return {}
+
+    # Resolve original_patrols path if provided
+    original_patrols_path = None
+    if level_config.original_patrols:
+        original_patrols_path = Path(level_config.original_patrols)
+        if not original_patrols_path.exists():
+            # Skip logging for fake_start as this is expected
+            if level_name != "fake_start":
+                logError(f"      Original patrols file not found: {original_patrols_path}")
+            original_patrols_path = None
 
     new_patrols = {}
     original_patrols = {}
@@ -59,7 +74,7 @@ def extract_patrol_paths_from_level(level_dir: Path,
         try:
             # Get paths for vertex lookups
             level_ai = level_dir / "level.ai"
-            cross_table = Path(f"../.tmp/{level_dir.name}.gct")
+            cross_table = Path(f"../.tmp/{level_name}.gct")
 
             if not level_ai.exists():
                 logError(f"      level.ai not found: {level_ai}")
@@ -78,7 +93,6 @@ def extract_patrol_paths_from_level(level_dir: Path,
     # 3. Merge if we have both sources
     if original_patrols and new_patrols:
         logDebug(f"      Merging original and new patrol paths...")
-        level_name = level_dir.name
 
         # Import and use the old merge function with remapping integration
         from .patrol_path_merger import merge_patrol_paths_with_game_graph
@@ -93,7 +107,6 @@ def extract_patrol_paths_from_level(level_dir: Path,
         logDebug(f"      Using {len(original_patrols)} original patrol paths")
         # Update IDs just like we do when merging - this was previously a bug
         # where original patrols were returned without updating GVIDs!
-        level_name = level_dir.name
         if game_graph:
             level_ai = game_graph.get_level_ai_for_level(level_name)
             cross_table = game_graph.get_cross_table_for_level(level_name)
@@ -115,8 +128,8 @@ def extract_patrol_paths_from_level(level_dir: Path,
         return new_patrols
 
     # fake_start is a quirk of the engine and has no patrol paths by design
-    if level_dir.name != "fake_start":
-        logError(f"      No patrol paths found for level: {level_dir.name}")
+    if level_name != "fake_start":
+        logError(f"      No patrol paths found for level: {level_name}")
     return {}
 
 
@@ -145,14 +158,12 @@ def _extract_from_level_game(level_game_path: Path,
 
 
 def merge_patrol_paths(level_configs: List = None,
-                       base_path: Path = Path('.'),
                        game_graph: 'GameGraph' = None) -> bytes:
     """
     Merge patrol paths from multiple sources
 
     Args:
         level_configs: List of LevelConfig objects with level info and original_patrols paths
-        base_path: Base path for resolving relative paths
         game_graph: GameGraph object for GVID resolution
 
     Returns:
@@ -167,28 +178,11 @@ def merge_patrol_paths(level_configs: List = None,
         return _build_empty_patrol_storage()
 
     for level_config in level_configs:
-        level_dir = base_path / level_config.path
-
-        if not level_dir.exists():
-            logError(f"    Level directory not found: {level_dir}")
-            continue
-
         log(f"    Processing {level_config.name}...")
-
-        # Resolve original_patrols path if provided
-        original_patrols_path = None
-        if level_config.original_patrols:
-            original_patrols_path = base_path / level_config.original_patrols
-            if not original_patrols_path.exists():
-                # Skip logging for fake start as this is expected - any other level is likely a sign of things being broken
-                if not level_config.name == "fake_start":
-                    logError(f"      Original patrols file not found: {original_patrols_path}")
-                original_patrols_path = None
 
         # Extract patrols (merging new and original if both exist)
         patrols = extract_patrol_paths_from_level(
-            level_dir,
-            original_patrols_path,
+            level_config,
             game_graph
         )
 

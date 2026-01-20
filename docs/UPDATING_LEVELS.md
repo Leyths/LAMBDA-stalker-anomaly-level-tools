@@ -267,3 +267,14 @@ Then add your level-specific files:
 **Spawns from vanilla conflict with my changes**
 - Disable original_spawn in levels.ini
 - Add conflicting entities to spawn_blacklist.ini
+
+**Spawning at fake_start (a room with four pillars) instead of on a level**
+- A mod is trying to spawn the player at a GVID that no longer exists due to your level changes
+- Find the mod responsible and update its GVID/LVID values to match your new game graph
+- See [Tag-Based File Rewriting](mods-system.md#tag-based-file-rewriting) for how to add tags that automatically recompute these values during build
+
+**Game crashes when saving or transitioning between levels**
+- A mod is spawning an item or NPC at a GVID/LVID that no longer exists in your modified game graph
+- Check your mod load order for mods that dynamically spawn entities (items, NPCs, anomalies)
+- Find the offending mod and update its hardcoded GVID/LVID values
+- See [Tag-Based File Rewriting](mods-system.md#tag-based-file-rewriting) for how to convert hardcoded values to automatically-computed tags

@@ -83,7 +83,7 @@ def build_all_spawn(game_graph_data: bytes,
 
     # Chunk 3: Patrol paths
     log("Building patrol paths...")
-    patrols = build_patrol_paths(level_configs, base_path, game_graph)
+    patrols = build_patrol_paths(level_configs, game_graph)
 
     # Create header
     log("Creating header...")

@@ -7,9 +7,6 @@ Builds chunk 3 (patrol paths) for all.spawn.
 Extracts patrol paths from level files if available, otherwise creates empty storage.
 """
 
-import struct
-import io
-from pathlib import Path
 from typing import List, TYPE_CHECKING
 
 from .patrol_path_extractor import merge_patrol_paths
@@ -18,7 +15,7 @@ if TYPE_CHECKING:
     from graph import GameGraph
 
 
-def build_patrol_paths(level_configs: List = None, base_path: Path = Path('.'),
+def build_patrol_paths(level_configs: List = None,
                        game_graph: 'GameGraph' = None) -> bytes:
     """
     Build patrol paths chunk
@@ -28,7 +25,6 @@ def build_patrol_paths(level_configs: List = None, base_path: Path = Path('.'),
 
     Args:
         level_configs: List of LevelConfig objects
-        base_path: Base path for resolving relative paths
         game_graph: GameGraph object for GVID resolution
 
     Returns:
@@ -37,7 +33,7 @@ def build_patrol_paths(level_configs: List = None, base_path: Path = Path('.'),
     print("  Building patrol paths...")
 
     # Extract and merge from all sources
-    return merge_patrol_paths(level_configs, base_path, game_graph)
+    return merge_patrol_paths(level_configs, game_graph)
 
 
 if __name__ == '__main__':
