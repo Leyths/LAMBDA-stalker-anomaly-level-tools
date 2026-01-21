@@ -119,6 +119,19 @@ class SpawnEntity:
     comparison_data: bytes = field(default=b'')
 
 
+def make_entity_key(entity: SpawnEntity) -> tuple:
+    """Create unique key for entity using name and rounded position.
+
+    Entities with the same name can exist on different levels (different positions).
+    Using (name, position) as key prevents deduplication of legitimate duplicates.
+    Position is rounded to 2 decimal places for float comparison stability.
+    """
+    pos = (round(entity.position[0], 2),
+           round(entity.position[1], 2),
+           round(entity.position[2], 2))
+    return (entity.entity_name, pos)
+
+
 def parse_game_graph(game_graph_data: bytes) -> Tuple[Dict[int, LevelInfo], Dict[int, int], List[GameGraphVertex]]:
     """
     Parse game graph to extract:
@@ -464,7 +477,7 @@ def parse_spawn_packet(packet: bytes, vertex_index: int) -> Optional[SpawnEntity
 
 
 def parse_all_spawn(filepath: Path) -> Tuple[
-    Dict[int, LevelInfo], Dict[int, int], List[GameGraphVertex], Dict[str, SpawnEntity]]:
+    Dict[int, LevelInfo], Dict[int, int], List[GameGraphVertex], Dict[tuple, SpawnEntity]]:
     """
     Parse all.spawn and return:
     1. Level definitions
@@ -581,7 +594,7 @@ def parse_all_spawn(filepath: Path) -> Tuple[
             entity = parse_spawn_packet(spawn_packet, vertex_id)
             if entity:
                 entity.update_packet = update_packet  # Attach the M_UPDATE packet
-                entities[entity.entity_name] = entity
+                entities[make_entity_key(entity)] = entity
                 parsed += 1
 
         v_offset += 8 + v_chunk_size
