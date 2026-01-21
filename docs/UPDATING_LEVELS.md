@@ -74,6 +74,34 @@ ds_level_changer_to_escape.pos = 346.87, 15.01, -28.19
 ds_level_changer_to_escape.dir = 0.00, 0.79, 0.00
 ```
 
+## Step 5: Adjust Spawn Locations
+
+If your level is a total overhaul you may need to manually adjust the spawn point:
+  - Open up `mods/_New Game Start Locations <your base mod>`
+  - Find your level and edit the X/Y/Z coordinates to be where you actually want the player to spawn:
+
+```
+[car_park]{r%level:l01_escape}
+gvid    = {w%gvid:440}
+lvid    = {w%lvid:436975}
+x       = {w%x:106.27}
+y       = {w%y:-2.86}
+z       = {w%z:-1.75}
+```
+
+Do not delete the 'tag' formatting (`{w%x:<actual coordinate>}`) just modify the actual coordinate. You don't need to adjust the GVID or LVID, they will get recalculated during the build.
+
+So if the car park has moved you'd change it to:
+
+```
+[car_park]{r%level:l01_escape}
+gvid    = {w%gvid:440}
+lvid    = {w%lvid:436975}
+x       = {w%x:300.27}
+y       = {w%y:-1.86}
+z       = {w%z:-50.75}
+```
+
 ## Step 5: Initial Build
 
 Run the build:
@@ -267,25 +295,37 @@ Then add your level-specific files:
 
 ## Troubleshooting
 
-**NPCs can't pathfind to/from my level**
+**NPCs can't pathfind to/from my level - or I see errors about not being able to find a path to a position in the logs**
 - Check that graph edges exist connecting your map to adjacent maps
 - Verify edge coordinates match actual graph node positions
 
-**Level changer doesn't work**
-- Ensure the entity name in level_changers.ini matches exactly
+**Level changer doesn't work - I'm being teleported to the wrong location on a map**
+- Ensure the entity name in `level_changers.ini` matches exactly
 - Verify destination coordinates are valid (not inside geometry)
 
+**Level changer doesn't work - I'm being teleported to the wrong map entirely (often under the map**
+- Check the `level_changers.ini` is set up correctly.
+- Inspect the level changer in the visualiser and note down the target GVID - is it on the map you're trying to move to?
+- If it isn't, please raise a bug - this shouldn't be happening. 
+
+**When I start a new game I'm being spawned on the wrong level / under the map**
+- Please follow the steps in [Adjust spawn location](UPDATING_LEVELS.md##adjust-spawn-locations)
+
 **Spawns from vanilla conflict with my changes**
-- Disable original_spawn in levels.ini
-- Add conflicting entities to spawn_blacklist.ini
+- Disable original_spawn in `levels.ini` for your level
+- Add conflicting entities to `spawn_blacklist.ini`
+
+**There are items on the level that I didn't add in the SDK**
+- Disable original_spawn in `levels.ini` for your level
+
 
 **Spawning at fake_start (a room with four pillars) instead of on a level**
 - A mod is trying to spawn the player at a GVID that no longer exists due to your level changes
 - Find the mod responsible and update its GVID/LVID values to match your new game graph
-- See [Tag-Based File Rewriting](mods-system.md#tag-based-file-rewriting) for how to add tags that automatically recompute these values during build
+- See [Tag-Based File Rewriting](mods-system.md##tag-based-file-rewriting) for how to add tags that automatically recompute these values during build
 
 **Game crashes when saving or transitioning between levels**
 - A mod is spawning an item or NPC at a GVID/LVID that no longer exists in your modified game graph
 - Check your mod load order for mods that dynamically spawn entities (items, NPCs, anomalies)
 - Find the offending mod and update its hardcoded GVID/LVID values
-- See [Tag-Based File Rewriting](mods-system.md#tag-based-file-rewriting) for how to convert hardcoded values to automatically-computed tags
+- See [Tag-Based File Rewriting](mods-system.md#t#ag-based-file-rewriting) for how to convert hardcoded values to automatically-computed tags
