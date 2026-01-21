@@ -145,6 +145,7 @@ An example (Cordon -> Darkscape)
 
 An example (Darkscape -> Cordon)
 ![Cordon to Darkscape](images/darkscape-node-cordon-selected.png)
+If the orbs are Purple like in the screenshot above it's a sign it already has an out-of-level connection.
 
 ### Create edges.json
 
@@ -208,6 +209,8 @@ Example addition to Cordon's (`l01_escape`) edges.json:
 ```
 
 Note how source/target coordinates are swapped compared to your map's file.
+
+**NOTE**: Connections are always ONE WAY. This can make sense when you might want to have a way into a level that you cannot leave from (a drop from a cliff), but for two way connections (eg, a tunnel or a gate) you must set both maps edges to point to each other, or the AI will not be able to travel back out.
 
 ### Point levels.ini to New Edges
 
