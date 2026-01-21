@@ -255,6 +255,12 @@ def collect_level_entities(
             entity_name = extract_entity_name(spawn_packet)
             section_name = extract_section_name(spawn_packet)
 
+            # Automatically filter actors on non-fake_start levels
+            if section_name == 'actor' and level_name != 'fake_start':
+                blacklisted_count += 1
+                log(f"    Auto-filtered actor '{entity_name}' (only allowed on fake_start)")
+                continue
+
             # Check blacklist
             if is_blacklisted(entity_name, section_name, blacklist_exact, blacklist_patterns):
                 blacklisted_count += 1
@@ -299,6 +305,12 @@ def collect_level_entities(
 
             # Skip graph points (they are level specific)
             if section == 'graph_point':
+                continue
+
+            # Automatically filter actors on non-fake_start levels
+            if section == 'actor' and level_name != 'fake_start':
+                blacklisted_old += 1
+                blacklisted_count += 1
                 continue
 
             if is_blacklisted(name, section, blacklist_exact, blacklist_patterns):
