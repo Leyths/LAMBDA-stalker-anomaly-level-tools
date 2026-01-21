@@ -276,8 +276,9 @@ class SpawnGraphBuilder:
                         logWarning(f"Failed to resolve IDs for entity {spawn_id}: {e}")
 
                 # === FIX FOR ANOMALY SPAWN PACKETS ===
-                # Always check if the spawn packet needs the 'last_spawn_time' fix
-                # for se_zone_anom classes (applies to raw level.spawn packets)
+                # Anomaly zone entities (se_zone_anom / CSE_ALifeSpaceRestrictor) need an additional
+                # 'last_spawn_time' field to prevent engine crashes. Raw level.spawn files from the
+                # editor lack this field, so we append a null byte (0x00) meaning "never spawned".
                 spawn_packet = self._fix_anomaly_spawn_packet(spawn_packet)
 
                 # === SMART UPDATE PACKET LOGIC ===
@@ -429,8 +430,9 @@ class SpawnGraphBuilder:
     def _build_vertices(self) -> bytes:
         buffer = io.BytesIO()
         for vertex_id, (_, spawn_packet, update_packet) in enumerate(self.entities):
-            # FIX: Update m_tSpawnID in packet to match vertex_id
-            # Without this, the engine crashes when looking up entities
+            # FIX: Update m_tSpawnID to match vertex_id in our spawn graph.
+            # The engine indexes spawn entities by m_tSpawnID. If it doesn't match our graph's
+            # vertex_id, the engine accesses non-existent vertices and crashes.
             spawn_packet = self._fix_spawn_id_in_packet(spawn_packet, vertex_id)
 
             vertex_buffer = io.BytesIO()

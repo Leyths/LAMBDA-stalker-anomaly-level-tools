@@ -63,24 +63,17 @@ def remap_update_packet_gvids(update_packet: bytes, section_name: str,
     """
     Remap m_tNextGraphID and m_tPrevGraphID in M_UPDATE packets for monsters/stalkers.
 
-    CSE_ALifeMonsterAbstract::UPDATE_Write structure:
-    - u16: packet_size
-    - u16: message_type (0)
-    - f32: fHealth
-    - u32: timestamp
-    - u8: flags
-    - vec3: o_Position (12 bytes)
-    - f32: o_model, o_torso.yaw, o_torso.pitch, o_torso.roll (16 bytes)
-    - u8: s_team, s_squad, s_group (3 bytes)
-    - u16: m_tNextGraphID  <- offset 44
-    - u16: m_tPrevGraphID  <- offset 46
-    - f32: m_fDistanceFromPoint, m_fDistanceToPoint (8 bytes)
-    Total: 56 bytes
+    CSE_ALifeMonsterAbstract::UPDATE_Write binary layout (56 bytes)
+    Used by engine to sync monster state. We must remap graph vertex fields:
+      [0-43]  Header, health, position, rotation, team info
+      [44-45] u16: m_tNextGraphID  <- REMAP: target vertex in AI navigation
+      [46-47] u16: m_tPrevGraphID  <- REMAP: previous vertex in AI navigation
+      [48-55] Path distance fields
 
     The engine initializes these as: m_tNextGraphID = m_tPrevGraphID = m_tGraphID
-    We remap ALL GVIDs to the entity's current resolved position since the old
-    values may reference locations that no longer exist or are in wrong positions
-    in the reorganized game graph.
+    We remap monster/stalker GVIDs to the entity's current resolved position since
+    the old values may reference locations that no longer exist or are in wrong
+    positions in the reorganized game graph.
 
     Args:
         update_packet: The M_UPDATE packet with size prefix

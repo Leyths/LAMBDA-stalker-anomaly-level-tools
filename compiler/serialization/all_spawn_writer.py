@@ -75,7 +75,7 @@ def build_all_spawn(game_graph_data: bytes,
         game_graph=game_graph
     )
 
-    # Chunk 2: Empty artefacts
+    # Chunk 2: Artefact spawns (empty - dynamic artefact spawning not used in this mod)
     log("Creating artefact spawns...")
     artefact_buffer = io.BytesIO()
     artefact_buffer.write(struct.pack('<I', 0))  # count = 0

@@ -17,8 +17,8 @@ from .control_panel import ControlPanel
 class NodeInspectorApp:
     """Main application for node graph inspection (read-only)."""
 
-    # Picking priority thresholds (screen pixels) - used for early-exit optimization
-    GRAPH_PRIORITY_THRESHOLD = 40.0
+    # Picking priority thresholds (screen pixels) - prioritize items within this screen distance
+    GRAPH_PRIORITY_THRESHOLD = 40.0  # pixels - prioritize graph vertices within this screen distance
     SPAWN_PRIORITY_THRESHOLD = 50.0
     PATROL_PRIORITY_THRESHOLD = 40.0
 
@@ -310,8 +310,7 @@ class NodeInspectorApp:
 
     def _on_panel_rebuild(self, old_panel, new_panel):
         """Handle control panel rebuild - swap old panel for new one."""
-        # Open3D doesn't support removing children, so we hide the old panel
-        # by moving it off-screen
+        # Open3D GUI lacks removeChild(), so simulate panel removal by moving off-screen
         old_panel.frame = gui.Rect(-10000, -10000, 1, 1)
 
         self.window.add_child(new_panel)

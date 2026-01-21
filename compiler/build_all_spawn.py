@@ -284,9 +284,9 @@ class GameGraphBuilder:
             level_path = self.base_path / level_config.path
             level_spawn_path = level_path / "level.spawn"
 
-            # Use extract_and_merge_graph_points to ensure SAME ordering as cross-table builder
-            # CRITICAL: The cross-table assigns local GVIDs based on this order.
-            # If we use a different order here, the GVID remapping will be wrong.
+            # Extract graph points in the same order as the cross-table builder for GVID consistency.
+            # The cross-table iterates vertices spatially and assigns sequential local GVIDs (0, 1, 2...).
+            # If we iterate differently, our vertex indices won't match cross-table GVID offsets.
             original_spawn_path = None
             if level_config.original_spawn:
                 original_spawn_path = self.base_path / level_config.original_spawn

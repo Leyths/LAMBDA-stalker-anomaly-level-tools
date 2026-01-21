@@ -55,7 +55,7 @@ class SpawnMeshFactory:
 
     def create_level_changer_mesh(self) -> o3d.geometry.TriangleMesh:
         """Create large orange sphere for level changers."""
-        # 1.5x larger than default size
+        # 1.5x larger than default - level changers are important navigation landmarks
         radius = self.spawn_point_size * 1.5 / 2
         sphere = o3d.geometry.TriangleMesh.create_sphere(radius=radius)
         sphere.paint_uniform_color(self.LEVEL_CHANGER_COLOR)
@@ -93,7 +93,7 @@ class SpawnMeshFactory:
 
     def create_explosion_mesh(self) -> o3d.geometry.TriangleMesh:
         """Create spikey explosion shape for physics objects."""
-        # 40% bigger than original
+        # 0.6 = base scale for explosion shape, 1.4 = 40% size boost for visibility
         size = self.spawn_point_size * 0.6 * 1.4
 
         # Start with icosahedron
@@ -149,11 +149,11 @@ class SpawnMeshFactory:
         bullet_radius = size * 0.08
         bullet_height = size * 0.35
 
-        # Base layer - 3 bullets lying flat
+        # Base layer - 3 bullets lying flat (offsets create scattered pile appearance)
         positions = [
             ([0, 0, 0], [np.pi / 2, 0, 0]),                    # Center
-            ([size * 0.15, 0, size * 0.1], [np.pi / 2, 0, 0.3]),   # Right
-            ([-size * 0.12, 0, size * 0.08], [np.pi / 2, 0, -0.2]),  # Left
+            ([size * 0.15, 0, size * 0.1], [np.pi / 2, 0, 0.3]),   # Right, rotated 0.3 rad
+            ([-size * 0.12, 0, size * 0.08], [np.pi / 2, 0, -0.2]),  # Left, rotated -0.2 rad
         ]
 
         # Second layer - 2 bullets on top

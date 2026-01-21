@@ -237,13 +237,12 @@ class LevelSpawnParser:
             connection_level_name = ""
             locations = bytes([0, 0, 0, 0])
 
-            # Detect format by checking if first bytes look like a string or binary data
-            # If first byte is printable ASCII (0x20-0x7E) or null (0x00), it's NEW format
+            # Detect format: NEW format starts with a string (connection_point_name),
+            # OLD format starts with binary game_vertex_id. Check if first byte is
+            # printable ASCII (0x20=space to 0x7E=tilde) or null (string terminator).
             is_new_format = True
             if data_size >= 20 and len(state_data) >= 2:
                 first_byte = state_data[0]
-                # Binary data typically has non-printable first byte (game_vertex_id low byte)
-                # String data starts with printable char or null terminator
                 if first_byte != 0 and (first_byte < 0x20 or first_byte > 0x7E):
                     is_new_format = False
 
