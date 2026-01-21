@@ -136,9 +136,15 @@ Windows
 
 2. Open your modified map and find **graph nodes** (blue orbs) near the edges that should connect to adjacent maps
 
+An example (Cordon -> Darkscape)
+![Cordon to Darkscape](images/cordon-node-darkscape-selected.png)
+
 3. Note down their X/Y/Z coordinates
 
 4. Open adjacent maps and find corresponding edge nodes that will connect back to your map
+
+An example (Darkscape -> Cordon)
+![Cordon to Darkscape](images/darkscape-node-cordon-selected.png)
 
 ### Create edges.json
 
