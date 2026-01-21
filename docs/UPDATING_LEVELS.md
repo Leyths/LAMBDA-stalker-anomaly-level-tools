@@ -102,7 +102,7 @@ y       = {w%y:-1.86}
 z       = {w%z:-50.75}
 ```
 
-## Step 5: Initial Build
+## Step 6: Initial Build
 
 Run the build:
 
@@ -112,7 +112,7 @@ Run the build:
 ./build_gamma.sh
 ```
 
-## Step 6: Create Graph Edges (if originals disabled)
+## Step 7: Create Graph Edges (if originals disabled)
 
 If you disabled `original_edges`, you need to create new graph connections manually.
 
@@ -209,7 +209,7 @@ Note how source/target coordinates are swapped compared to your map's file.
 original_edges = path/to/your/k01_darkscape.edges.json
 ```
 
-## Step 6.5: Auto-Connect Disconnected Nodes (Optional)
+## Step 7.5: Auto-Connect Disconnected Nodes (Optional)
 
 Modified levels sometimes end up with disconnected graph nodes - vertices that exist but aren't connected to the main navigation graph. This can happen when:
 
@@ -269,7 +269,7 @@ When enabled, you'll see output like:
     Connected vertex 1234 to 5678 (45.2m)
 ```
 
-## Step 7: Final Build and Verify
+## Step 8: Final Build and Verify
 
 1. Rebuild:
    ```bash
@@ -309,7 +309,7 @@ Then add your level-specific files:
 - If it isn't, please raise a bug - this shouldn't be happening. 
 
 **When I start a new game I'm being spawned on the wrong level / under the map**
-- Please follow the steps in [Adjust spawn location](UPDATING_LEVELS.md##adjust-spawn-locations)
+- Please follow the steps in [Adjust spawn location](#step-5-adjust-spawn-locations)
 
 **Spawns from vanilla conflict with my changes**
 - Disable original_spawn in `levels.ini` for your level
@@ -322,10 +322,10 @@ Then add your level-specific files:
 **Spawning at fake_start (a room with four pillars) instead of on a level**
 - A mod is trying to spawn the player at a GVID that no longer exists due to your level changes
 - Find the mod responsible and update its GVID/LVID values to match your new game graph
-- See [Tag-Based File Rewriting](mods-system.md##tag-based-file-rewriting) for how to add tags that automatically recompute these values during build
+- See [Tag-Based File Rewriting](MODS-SYSTEM.md#tag-based-file-rewriting) for how to add tags that automatically recompute these values during build
 
 **Game crashes when saving or transitioning between levels**
 - A mod is spawning an item or NPC at a GVID/LVID that no longer exists in your modified game graph
 - Check your mod load order for mods that dynamically spawn entities (items, NPCs, anomalies)
 - Find the offending mod and update its hardcoded GVID/LVID values
-- See [Tag-Based File Rewriting](mods-system.md#t#ag-based-file-rewriting) for how to convert hardcoded values to automatically-computed tags
+- See [Tag-Based File Rewriting](MODS-SYSTEM.md#tag-based-file-rewriting) for how to convert hardcoded values to automatically-computed tags
