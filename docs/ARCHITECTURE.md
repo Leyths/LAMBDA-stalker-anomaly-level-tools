@@ -101,7 +101,9 @@ Spawn/respawn locations for the player. Randomly selected from approximately 10%
 
 ## Binary File Formats
 
-The X-Ray Engine uses several binary formats. Reference source files from the engine:
+The X-Ray Engine uses several binary formats. Reference source files from the engine.
+
+> For comprehensive documentation of the all.spawn format including entity types, M_UPDATE packet sizes, GVID calculations, and X-Ray source references, see [all.spawn Format](ALL_SPAWN_FORMAT.md).
 
 ### Game Graph
 

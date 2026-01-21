@@ -147,6 +147,7 @@ lambda/
 ## Documentation
 
 - [Architecture](docs/ARCHITECTURE.md) - Technical documentation and build pipeline details
+- [all.spawn Format](docs/ALL_SPAWN_FORMAT.md) - Deep dive into the all.spawn binary format, entity types, and GVIDs
 - [Updating Levels](docs/UPDATING_LEVELS.md) - Guide for integrating modified or rebuilt levels
 
 ## Disclaimer
