@@ -159,6 +159,75 @@ class GameGraph:
         """Clear all cached data to free memory."""
         self._cross_table_cache.clear()
         self._level_ai_cache.clear()
+        if hasattr(self, '_level_positions_cache'):
+            self._level_positions_cache.clear()
+        if hasattr(self, '_cross_table_data_cache'):
+            self._cross_table_data_cache.clear()
+
+    def get_level_ai_positions(self, level_name: str):
+        """
+        Get cached level.ai vertex positions.
+
+        Uses LevelAIParser for correct coordinate decoding.
+
+        Args:
+            level_name: Name of the level
+
+        Returns:
+            Nx3 numpy array of positions, or None if not available
+        """
+        if not hasattr(self, '_level_positions_cache'):
+            self._level_positions_cache = {}
+
+        if level_name in self._level_positions_cache:
+            return self._level_positions_cache[level_name]
+
+        level_config = self._get_level_config(level_name)
+        if level_config is None or self.base_path is None:
+            return None
+
+        level_ai_path = self.base_path / level_config.path / "level.ai"
+        if not level_ai_path.exists():
+            return None
+
+        try:
+            from parsers import load_level_ai_positions
+            positions = load_level_ai_positions(level_ai_path)
+            self._level_positions_cache[level_name] = positions
+            return positions
+        except Exception:
+            return None
+
+    def get_cross_table_cache(self, level_name: str):
+        """
+        Get cached cross table data for fast lookups.
+
+        Args:
+            level_name: Name of the level
+
+        Returns:
+            CrossTableCache instance, or None if not available
+        """
+        if not hasattr(self, '_cross_table_data_cache'):
+            self._cross_table_data_cache = {}
+
+        if level_name in self._cross_table_data_cache:
+            return self._cross_table_data_cache[level_name]
+
+        if self.cross_table_dir is None:
+            return None
+
+        cross_table_path = self.cross_table_dir / f"{level_name}.gct"
+        if not cross_table_path.exists():
+            return None
+
+        try:
+            from converters.waypoint import CrossTableCache
+            cache = CrossTableCache(cross_table_path)
+            self._cross_table_data_cache[level_name] = cache
+            return cache
+        except Exception:
+            return None
 
     # =========================================================================
     # GVID Resolution Methods

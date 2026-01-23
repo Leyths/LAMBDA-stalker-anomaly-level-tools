@@ -147,6 +147,53 @@ class LevelGraphNavigator:
         end = self.row_ptr[vertex_id + 1]
         return self.edge_destinations[start:end]
 
+    def multi_source_bfs_distances(self, start_vertices: List[int]) -> Tuple[np.ndarray, np.ndarray]:
+        """
+        BFS from all sources simultaneously. Each vertex is assigned to its
+        nearest source (graph point).
+
+        Tie-breaking: When multiple graph points are equidistant from a vertex,
+        the lower-indexed graph point wins (matching original per-source BFS behavior).
+
+        Returns: (assignments, min_distances)
+          - assignments[v] = index of nearest graph point
+          - min_distances[v] = edge distance to that graph point
+        """
+        vertex_count = self.header['vertex_count']
+        INFINITY = np.iinfo(np.uint32).max
+
+        min_distances = np.full(vertex_count, INFINITY, dtype=np.uint32)
+        assignments = np.full(vertex_count, 0xFFFF, dtype=np.uint16)  # Use 0xFFFF as "unassigned"
+
+        # Initialize all sources with distance 0
+        current_fringe = deque()
+        for i, start in enumerate(start_vertices):
+            min_distances[start] = 0
+            assignments[start] = i
+            current_fringe.append(start)
+
+        curr_dist = 0
+        while current_fringe:
+            next_fringe = deque()
+            for vertex in current_fringe:
+                source_idx = assignments[vertex]
+                for neighbor in self.get_neighbors(vertex):
+                    neighbor_dist = min_distances[neighbor]
+                    new_dist = curr_dist + 1
+                    if neighbor_dist == INFINITY:
+                        # First time reaching this vertex
+                        min_distances[neighbor] = new_dist
+                        assignments[neighbor] = source_idx
+                        next_fringe.append(int(neighbor))
+                    elif neighbor_dist == new_dist and source_idx < assignments[neighbor]:
+                        # Same distance but lower source index - update assignment
+                        # (vertex already in next_fringe, just update assignment)
+                        assignments[neighbor] = source_idx
+            current_fringe = next_fringe
+            curr_dist += 1
+
+        return assignments, min_distances
+
     def bfs_distances(self, start_vertex: int, max_distance: Optional[int] = None) -> np.ndarray:
         vertex_count = self.header['vertex_count']
         INFINITY = np.iinfo(np.uint32).max

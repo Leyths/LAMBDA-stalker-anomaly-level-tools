@@ -20,7 +20,7 @@ File format:
 import struct
 import numpy as np
 from pathlib import Path
-from typing import Tuple, Optional, Union
+from typing import Dict, Tuple, Optional, Union
 from dataclasses import dataclass
 
 from .base import ChunkReader
@@ -187,11 +187,16 @@ class CrossTableParser:
         return self._cells
 
 
+# Cache for CrossTableParser instances
+_cross_table_cache: Dict[str, CrossTableParser] = {}
+
+
 def find_game_vertex_from_cross_table(level_vertex_id: int, cross_table_path: Path) -> int:
     """
     Legacy function: Look up local game vertex ID from cross table.
 
     This is a compatibility wrapper for code that hasn't migrated to CrossTableParser.
+    Uses caching to avoid re-parsing the same cross table multiple times.
 
     Args:
         level_vertex_id: Level-local vertex ID
@@ -200,8 +205,15 @@ def find_game_vertex_from_cross_table(level_vertex_id: int, cross_table_path: Pa
     Returns:
         Local game vertex ID, or 0xFFFF on error
     """
+    global _cross_table_cache
+    cache_key = str(cross_table_path)
+
     try:
-        parser = CrossTableParser(cross_table_path)
+        # Get or create cached parser
+        if cache_key not in _cross_table_cache:
+            _cross_table_cache[cache_key] = CrossTableParser(cross_table_path)
+
+        parser = _cross_table_cache[cache_key]
         if level_vertex_id >= parser.level_vertex_count:
             return 0xFFFF
         return parser.get_game_vertex_id(level_vertex_id)

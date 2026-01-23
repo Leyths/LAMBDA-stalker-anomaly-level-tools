@@ -39,33 +39,26 @@ class CrossTableBuilder:
         log(f"  Game vertices: {len(self.graph_points)}")
         log(f"  Level vertices: {self.vertex_count:,}")
 
-        # Initialize
+        # Get all starting vertices
+        start_vertices = [gp.level_vertex_id for gp in self.graph_points]
+
+        log(f"\n  Calculating distances (single multi-source BFS)...")
+        start = time.time()
+
+        # Single BFS from all graph points simultaneously
+        assignments, distances_edges = self.level_graph.multi_source_bfs_distances(start_vertices)
+
+        elapsed = time.time() - start
+        log(f"  BFS complete in {elapsed:.1f}s")
+
+        # Convert edge distances to meters
+        INFINITY_EDGES = np.iinfo(np.uint32).max
         INFINITY = np.finfo(np.float32).max
-        min_distances = np.full(self.vertex_count, INFINITY, dtype=np.float32)
-        assignments = np.zeros(self.vertex_count, dtype=np.uint16)
-
-        # Calculate distances
-        log(f"\n  Calculating distances (this may take several minutes)...\n")
-
-        for game_vertex_idx, gp in enumerate(self.graph_points):
-            start = time.time()
-
-            distances_edges = self.level_graph.bfs_distances(gp.level_vertex_id)
-            INFINITY_EDGES = np.iinfo(np.uint32).max
-
-            distances_meters = np.where(
-                distances_edges == INFINITY_EDGES,
-                INFINITY,
-                distances_edges.astype(np.float32) * self.cell_size
-            )
-
-            closer_mask = distances_meters < min_distances
-            min_distances[closer_mask] = distances_meters[closer_mask]
-            assignments[closer_mask] = game_vertex_idx
-
-            elapsed = time.time() - start
-            assigned = np.sum(closer_mask)
-            log(f"{gp.name}... {assigned:,} vertices ({elapsed:.1f}s)")
+        distances_meters = np.where(
+            distances_edges == INFINITY_EDGES,
+            INFINITY,
+            distances_edges.astype(np.float32) * self.cell_size
+        )
 
         # Build cross table
         log(f"\n  Building cross table cells...")
@@ -73,7 +66,7 @@ class CrossTableBuilder:
         for level_vertex_id in range(self.vertex_count):
             cell = CrossTableCell(
                 game_vertex_id=int(assignments[level_vertex_id]),
-                distance=float(min_distances[level_vertex_id])
+                distance=float(distances_meters[level_vertex_id])
             )
             cross_table.append(cell)
 

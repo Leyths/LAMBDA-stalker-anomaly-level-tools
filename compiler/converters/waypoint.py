@@ -527,6 +527,57 @@ def find_nearest_level_vertex(position: Tuple[float, float, float],
         return 0xFFFFFFFF
 
 
+class CrossTableCache:
+    """
+    Cached cross table for fast game vertex lookups.
+
+    Loads entire cross table data into memory once for efficient repeated lookups.
+    """
+
+    def __init__(self, cross_table_path: Path):
+        """Load cross table data into memory."""
+        import numpy as np
+
+        self.path = cross_table_path
+        self.level_vertex_count = 0
+        self.game_vertex_ids = None  # numpy array of u16
+
+        with open(cross_table_path, 'rb') as f:
+            # Read chunk 0xFFFF header
+            chunk_id = struct.unpack('<I', f.read(4))[0]
+            chunk_size = struct.unpack('<I', f.read(4))[0]
+
+            if chunk_id != 0xFFFF:
+                raise ValueError(f"Invalid cross table format (chunk_id={chunk_id:#x})")
+
+            # Read header
+            version = struct.unpack('<I', f.read(4))[0]
+            self.level_vertex_count = struct.unpack('<I', f.read(4))[0]
+            game_vertex_count = struct.unpack('<I', f.read(4))[0]
+            f.read(32)  # Skip GUIDs
+
+            # Read data chunk header
+            chunk_id = struct.unpack('<I', f.read(4))[0]
+            chunk_size = struct.unpack('<I', f.read(4))[0]
+
+            if chunk_id != 1:
+                raise ValueError(f"Expected data chunk 1, got {chunk_id}")
+
+            # Read all entries at once (6 bytes per entry: u16 + f32)
+            data = f.read(self.level_vertex_count * 6)
+
+            # Parse game_vertex_ids using numpy structured array
+            dtype = np.dtype([('game_vertex_id', np.uint16), ('distance', np.float32)])
+            cells = np.frombuffer(data, dtype=dtype)
+            self.game_vertex_ids = cells['game_vertex_id']
+
+    def get_game_vertex(self, level_vertex_id: int) -> int:
+        """Get game vertex ID for a level vertex. Returns 0xFFFF if out of range."""
+        if level_vertex_id < 0 or level_vertex_id >= self.level_vertex_count:
+            return 0xFFFF
+        return int(self.game_vertex_ids[level_vertex_id])
+
+
 def find_game_vertex_from_cross_table(level_vertex_id: int,
                                        cross_table_path: Path) -> int:
     """

@@ -275,14 +275,15 @@ def validate_and_remap_patrols(patrols: Dict[str, bytes],
 
     This function:
     1. Gets level bounds from GameGraph's cached level AI
-    2. For each patrol path:
+    2. Pre-loads level.ai positions and cross table into memory ONCE
+    3. For each patrol path:
        - Validates each point's position is within level bounds
-       - Updates level_vertex_id via GameGraph lookup
-       - Updates game_vertex_id via GameGraph lookup
+       - Updates level_vertex_id via cached lookup
+       - Updates game_vertex_id via cached cross table lookup
        - Filters out points with invalid IDs
        - Re-indexes edges to account for removed points
        - Removes patrol paths where all points are invalid
-    3. Returns dict of valid patrol paths only
+    4. Returns dict of valid patrol paths only
 
     Args:
         patrols: Dict of {patrol_name: patrol_data}
@@ -302,13 +303,20 @@ def validate_and_remap_patrols(patrols: Dict[str, bytes],
     min_bounds = level_ai.header['min']
     max_bounds = level_ai.header['max']
 
+    # Pre-load level.ai positions into memory ONCE for all patrol points
+    level_positions = game_graph.get_level_ai_positions(level_name)
+
+    # Pre-load cross table data into memory ONCE
+    cross_table_cache = game_graph.get_cross_table_cache(level_name)
+
     validated_patrols = {}
     total_points_filtered = 0
     total_patrols_removed = 0
 
     for name, patrol_data in patrols.items():
         result = _validate_and_update_patrol(
-            name, patrol_data, game_graph, level_name, min_bounds, max_bounds
+            name, patrol_data, game_graph, level_name, min_bounds, max_bounds,
+            level_positions, cross_table_cache
         )
 
         if result is None:
@@ -331,7 +339,9 @@ def _validate_and_update_patrol(name: str,
                                  game_graph: 'GameGraph',
                                  level_name: str,
                                  min_bounds: Tuple[float, float, float],
-                                 max_bounds: Tuple[float, float, float]) -> Optional[Tuple[bytes, int]]:
+                                 max_bounds: Tuple[float, float, float],
+                                 level_positions=None,
+                                 cross_table_cache=None) -> Optional[Tuple[bytes, int]]:
     """
     Validate and update a single patrol path.
 
@@ -377,7 +387,8 @@ def _validate_and_update_patrol(name: str,
 
     # Parse and validate vertices
     valid_vertices, old_to_new_idx, points_filtered = _parse_and_validate_vertices(
-        vertices_chunk_data, game_graph, level_name, min_bounds, max_bounds
+        vertices_chunk_data, game_graph, level_name, min_bounds, max_bounds,
+        level_positions, cross_table_cache
     )
 
     if not valid_vertices:
@@ -407,7 +418,9 @@ def _parse_and_validate_vertices(vertices_data: bytes,
                                   game_graph: 'GameGraph',
                                   level_name: str,
                                   min_bounds: Tuple[float, float, float],
-                                  max_bounds: Tuple[float, float, float]) -> Tuple[List[Tuple[int, bytes]], Dict[int, int], int]:
+                                  max_bounds: Tuple[float, float, float],
+                                  level_positions=None,
+                                  cross_table_cache=None) -> Tuple[List[Tuple[int, bytes]], Dict[int, int], int]:
     """
     Parse vertices, validate positions, update IDs, filter invalid.
 
@@ -436,7 +449,8 @@ def _parse_and_validate_vertices(vertices_data: bytes,
 
         # Parse the vertex's sub-chunks to get position and update IDs
         is_valid, updated_data = _validate_and_update_vertex(
-            v_chunk_data, game_graph, level_name, min_bounds, max_bounds
+            v_chunk_data, game_graph, level_name, min_bounds, max_bounds,
+            level_positions, cross_table_cache
         )
 
         if is_valid:
@@ -455,7 +469,9 @@ def _validate_and_update_vertex(vertex_data: bytes,
                                  game_graph: 'GameGraph',
                                  level_name: str,
                                  min_bounds: Tuple[float, float, float],
-                                 max_bounds: Tuple[float, float, float]) -> Tuple[bool, bytes]:
+                                 max_bounds: Tuple[float, float, float],
+                                 level_positions=None,
+                                 cross_table_cache=None) -> Tuple[bool, bytes]:
     """
     Validate a vertex position and update its IDs.
 
@@ -503,23 +519,37 @@ def _validate_and_update_vertex(vertex_data: bytes,
     if not is_position_in_bounds(position, min_bounds, max_bounds):
         return False, vertex_data
 
-    # Get paths from GameGraph for resolution
-    # We use the same functions as the original resolver for consistency
-    level_config = game_graph._get_level_config(level_name)
-    if level_config is None:
-        return False, vertex_data
+    # Use cached data for fast lookups if available
+    if level_positions is not None and cross_table_cache is not None:
+        # Find nearest vertex using cached positions
+        import numpy as np
+        px, py, pz = position
+        dx = level_positions[:, 0] - np.float32(px)
+        dy = level_positions[:, 1] - np.float32(py)
+        dz = level_positions[:, 2] - np.float32(pz)
+        dist_sq = dx.astype(np.float64) ** 2 + dy.astype(np.float64) ** 2 + dz.astype(np.float64) ** 2
+        new_level_vertex_id = int(np.argmin(dist_sq))
 
-    level_ai_path = game_graph.base_path / level_config.path / "level.ai"
-    cross_table_path = game_graph.cross_table_dir / f"{level_name}.gct"
+        # Look up game vertex from cached cross table
+        local_game_id = cross_table_cache.get_game_vertex(new_level_vertex_id)
+        if local_game_id == 0xFFFF:
+            return False, vertex_data
+    else:
+        # Fallback to file-based lookups
+        level_config = game_graph._get_level_config(level_name)
+        if level_config is None:
+            return False, vertex_data
 
-    # Use same functions as original for position-based GVID resolution
-    new_level_vertex_id = find_nearest_level_vertex(position, level_ai_path)
-    if new_level_vertex_id == 0xFFFFFFFF:
-        return False, vertex_data
+        level_ai_path = game_graph.base_path / level_config.path / "level.ai"
+        cross_table_path = game_graph.cross_table_dir / f"{level_name}.gct"
 
-    local_game_id = find_game_vertex_from_cross_table(new_level_vertex_id, cross_table_path)
-    if local_game_id == 0xFFFF:
-        return False, vertex_data
+        new_level_vertex_id = find_nearest_level_vertex(position, level_ai_path)
+        if new_level_vertex_id == 0xFFFFFFFF:
+            return False, vertex_data
+
+        local_game_id = find_game_vertex_from_cross_table(new_level_vertex_id, cross_table_path)
+        if local_game_id == 0xFFFF:
+            return False, vertex_data
 
     game_vertex_offset = game_graph.get_level_offset(level_name)
     new_game_vertex_id = local_game_id + game_vertex_offset
