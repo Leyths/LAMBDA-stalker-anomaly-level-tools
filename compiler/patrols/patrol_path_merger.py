@@ -31,7 +31,7 @@ def merge_patrol_paths_with_game_graph(new_patrols: Dict[str, bytes],
 
     print(f"      Merging patrols: {len(new_patrols)} new, {len(original_patrols)} original")
 
-    # Validate and update original patrols (they take precedence)
+    # Validate and update original patrols
     validated_original = validate_and_remap_patrols(
         original_patrols, game_graph, level_name
     )
@@ -41,22 +41,22 @@ def merge_patrol_paths_with_game_graph(new_patrols: Dict[str, bytes],
         new_patrols, game_graph, level_name
     )
 
-    # Merge: original takes precedence
-    merged = dict(validated_original)
+    # Merge: level.game (new) takes precedence
+    merged = dict(validated_new)
 
-    # Add new patrols (only if not already in original)
-    added_new = 0
-    for name, patrol_data in validated_new.items():
+    # Add original patrols (only if not already in new)
+    added_original = 0
+    for name, patrol_data in validated_original.items():
         if name not in merged:
             merged[name] = patrol_data
-            added_new += 1
+            added_original += 1
 
-    if added_new > 0:
-        print(f"        Added {added_new} new patrols not in original")
+    if added_original > 0:
+        print(f"        Added {added_original} original patrols not in level.game")
 
-    duplicates = len(validated_new) - added_new
+    duplicates = len(validated_original) - added_original
     if duplicates > 0:
-        print(f"        Skipped {duplicates} duplicates (using original versions)")
+        print(f"        Skipped {duplicates} duplicates (using level.game versions)")
 
     return merged
 
