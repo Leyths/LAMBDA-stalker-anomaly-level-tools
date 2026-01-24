@@ -10,6 +10,7 @@ Also handles validation of patrol point positions and filtering of invalid point
 
 import struct
 import io
+import numpy as np
 from typing import Dict, List, Tuple, Optional, TYPE_CHECKING
 from utils import logDebug, logError, log
 
@@ -303,9 +304,6 @@ def validate_and_remap_patrols(patrols: Dict[str, bytes],
     min_bounds = level_ai.header['min']
     max_bounds = level_ai.header['max']
 
-    # Pre-load level.ai positions into memory ONCE for all patrol points
-    level_positions = game_graph.get_level_ai_positions(level_name)
-
     # Pre-load cross table data into memory ONCE
     cross_table_cache = game_graph.get_cross_table_cache(level_name)
 
@@ -316,7 +314,7 @@ def validate_and_remap_patrols(patrols: Dict[str, bytes],
     for name, patrol_data in patrols.items():
         result = _validate_and_update_patrol(
             name, patrol_data, game_graph, level_name, min_bounds, max_bounds,
-            level_positions, cross_table_cache
+            level_ai, cross_table_cache
         )
 
         if result is None:
@@ -340,7 +338,7 @@ def _validate_and_update_patrol(name: str,
                                  level_name: str,
                                  min_bounds: Tuple[float, float, float],
                                  max_bounds: Tuple[float, float, float],
-                                 level_positions=None,
+                                 level_ai=None,
                                  cross_table_cache=None) -> Optional[Tuple[bytes, int]]:
     """
     Validate and update a single patrol path.
@@ -367,14 +365,17 @@ def _validate_and_update_patrol(name: str,
         offset += chunk_size
         chunks.append((chunk_id, chunk_data))
 
-    # Find vertices chunk (chunk 1) and edges chunk (chunk 2)
+    # Find vertex count chunk (chunk 0), vertices chunk (chunk 1) and edges chunk (chunk 2)
+    vertex_count_chunk_idx = None
     vertices_chunk_data = None
     edges_chunk_data = None
     vertices_chunk_idx = None
     edges_chunk_idx = None
 
     for i, (chunk_id, chunk_data) in enumerate(chunks):
-        if chunk_id == 1:
+        if chunk_id == 0:
+            vertex_count_chunk_idx = i
+        elif chunk_id == 1:
             vertices_chunk_data = chunk_data
             vertices_chunk_idx = i
         elif chunk_id == 2:
@@ -388,12 +389,16 @@ def _validate_and_update_patrol(name: str,
     # Parse and validate vertices
     valid_vertices, old_to_new_idx, points_filtered = _parse_and_validate_vertices(
         vertices_chunk_data, game_graph, level_name, min_bounds, max_bounds,
-        level_positions, cross_table_cache
+        level_ai, cross_table_cache
     )
 
     if not valid_vertices:
         # All points invalid, remove entire patrol
         return None
+
+    # Update vertex count in chunk 0
+    if vertex_count_chunk_idx is not None:
+        chunks[vertex_count_chunk_idx] = (0, struct.pack('<I', len(valid_vertices)))
 
     # Rebuild vertices chunk
     new_vertices_data = _rebuild_vertices_chunk(valid_vertices)
@@ -419,19 +424,19 @@ def _parse_and_validate_vertices(vertices_data: bytes,
                                   level_name: str,
                                   min_bounds: Tuple[float, float, float],
                                   max_bounds: Tuple[float, float, float],
-                                  level_positions=None,
+                                  level_ai=None,
                                   cross_table_cache=None) -> Tuple[List[Tuple[int, bytes]], Dict[int, int], int]:
     """
     Parse vertices, validate positions, update IDs, filter invalid.
 
     Returns:
         Tuple of (valid_vertices, old_to_new_index_map, points_filtered_count)
+        Note: old_to_new_index_map maps OLD vertex_id (from sub-chunk 0) to NEW sequential index
     """
     offset = 0
     valid_vertices = []
     old_to_new_idx = {}
     points_filtered = 0
-    original_idx = 0
 
     while offset < len(vertices_data):
         if offset + 8 > len(vertices_data):
@@ -447,42 +452,31 @@ def _parse_and_validate_vertices(vertices_data: bytes,
         v_chunk_data = vertices_data[offset:offset + v_chunk_size]
         offset += v_chunk_size
 
-        # Parse the vertex's sub-chunks to get position and update IDs
-        is_valid, updated_data = _validate_and_update_vertex(
+        # Parse the vertex's sub-chunks to get position, vertex_id, and update IDs
+        is_valid, updated_data, old_vertex_id = _validate_and_update_vertex(
             v_chunk_data, game_graph, level_name, min_bounds, max_bounds,
-            level_positions, cross_table_cache
+            level_ai, cross_table_cache
         )
 
         if is_valid:
             new_idx = len(valid_vertices)
-            old_to_new_idx[original_idx] = new_idx
+            # Map OLD vertex_id (from sub-chunk 0) to NEW sequential index
+            # This is what edges reference
+            old_to_new_idx[old_vertex_id] = new_idx
+            # Update the vertex data with the new vertex_id
+            updated_data = _update_vertex_id_in_data(updated_data, new_idx)
             valid_vertices.append((new_idx, updated_data))
         else:
             points_filtered += 1
 
-        original_idx += 1
-
     return valid_vertices, old_to_new_idx, points_filtered
 
 
-def _validate_and_update_vertex(vertex_data: bytes,
-                                 game_graph: 'GameGraph',
-                                 level_name: str,
-                                 min_bounds: Tuple[float, float, float],
-                                 max_bounds: Tuple[float, float, float],
-                                 level_positions=None,
-                                 cross_table_cache=None) -> Tuple[bool, bytes]:
-    """
-    Validate a vertex position and update its IDs.
-
-    Returns:
-        Tuple of (is_valid, updated_vertex_data)
-    """
+def _update_vertex_id_in_data(vertex_data: bytes, new_vertex_id: int) -> bytes:
+    """Update the vertex_id in sub-chunk 0 of vertex data."""
     # Parse sub-chunks
     offset = 0
     subchunks = []
-    point_data = None
-    point_chunk_idx = None
 
     while offset < len(vertex_data):
         if offset + 8 > len(vertex_data):
@@ -498,7 +492,60 @@ def _validate_and_update_vertex(vertex_data: bytes,
         chunk_data = vertex_data[offset:offset + chunk_size]
         offset += chunk_size
 
-        if chunk_id == 1:  # CPatrolPoint
+        # Update sub-chunk 0 (vertex_id) with new value
+        if chunk_id == 0:
+            chunk_data = struct.pack('<I', new_vertex_id)
+
+        subchunks.append((chunk_id, chunk_data))
+
+    # Rebuild vertex data
+    buffer = io.BytesIO()
+    for chunk_id, chunk_data in subchunks:
+        buffer.write(struct.pack('<I', chunk_id))
+        buffer.write(struct.pack('<I', len(chunk_data)))
+        buffer.write(chunk_data)
+
+    return buffer.getvalue()
+
+
+def _validate_and_update_vertex(vertex_data: bytes,
+                                 game_graph: 'GameGraph',
+                                 level_name: str,
+                                 min_bounds: Tuple[float, float, float],
+                                 max_bounds: Tuple[float, float, float],
+                                 level_ai=None,
+                                 cross_table_cache=None) -> Tuple[bool, bytes, int]:
+    """
+    Validate a vertex position and update its IDs.
+
+    Returns:
+        Tuple of (is_valid, updated_vertex_data, old_vertex_id)
+        old_vertex_id is the original vertex_id from sub-chunk 0 (used for edge remapping)
+    """
+    # Parse sub-chunks
+    offset = 0
+    subchunks = []
+    point_data = None
+    point_chunk_idx = None
+    old_vertex_id = 0  # Will be read from sub-chunk 0
+
+    while offset < len(vertex_data):
+        if offset + 8 > len(vertex_data):
+            break
+
+        chunk_id = struct.unpack_from('<I', vertex_data, offset)[0]
+        chunk_size = struct.unpack_from('<I', vertex_data, offset + 4)[0]
+        offset += 8
+
+        if offset + chunk_size > len(vertex_data):
+            break
+
+        chunk_data = vertex_data[offset:offset + chunk_size]
+        offset += chunk_size
+
+        if chunk_id == 0 and chunk_size >= 4:  # vertex_id sub-chunk
+            old_vertex_id = struct.unpack_from('<I', chunk_data, 0)[0]
+        elif chunk_id == 1:  # CPatrolPoint
             point_data = chunk_data
             point_chunk_idx = len(subchunks)
 
@@ -506,50 +553,46 @@ def _validate_and_update_vertex(vertex_data: bytes,
 
     if point_data is None:
         # No point data, can't validate
-        return True, vertex_data
+        return True, vertex_data, old_vertex_id
 
     # Parse the point
     point, _ = parse_patrol_point(point_data, 0)
     if not point:
-        return True, vertex_data
+        return True, vertex_data, old_vertex_id
 
     position = point['position']
 
     # Check if position is in bounds
     if not is_position_in_bounds(position, min_bounds, max_bounds):
-        return False, vertex_data
+        return False, vertex_data, old_vertex_id
 
     # Use cached data for fast lookups if available
-    if level_positions is not None and cross_table_cache is not None:
-        # Find nearest vertex using cached positions
-        import numpy as np
-        px, py, pz = position
-        dx = level_positions[:, 0] - np.float32(px)
-        dy = level_positions[:, 1] - np.float32(py)
-        dz = level_positions[:, 2] - np.float32(pz)
-        dist_sq = dx.astype(np.float64) ** 2 + dy.astype(np.float64) ** 2 + dz.astype(np.float64) ** 2
-        new_level_vertex_id = int(np.argmin(dist_sq))
+    if level_ai is not None and cross_table_cache is not None:
+        # Find nearest vertex using grid-based spatial index (O(1) average)
+        new_level_vertex_id = level_ai.find_nearest_vertex(position)
+        if new_level_vertex_id is None or new_level_vertex_id == 0xFFFFFFFF:
+            return False, vertex_data, old_vertex_id
 
         # Look up game vertex from cached cross table
         local_game_id = cross_table_cache.get_game_vertex(new_level_vertex_id)
         if local_game_id == 0xFFFF:
-            return False, vertex_data
+            return False, vertex_data, old_vertex_id
     else:
         # Fallback to file-based lookups
         level_config = game_graph._get_level_config(level_name)
         if level_config is None:
-            return False, vertex_data
+            return False, vertex_data, old_vertex_id
 
         level_ai_path = game_graph.base_path / level_config.path / "level.ai"
         cross_table_path = game_graph.cross_table_dir / f"{level_name}.gct"
 
         new_level_vertex_id = find_nearest_level_vertex(position, level_ai_path)
         if new_level_vertex_id == 0xFFFFFFFF:
-            return False, vertex_data
+            return False, vertex_data, old_vertex_id
 
         local_game_id = find_game_vertex_from_cross_table(new_level_vertex_id, cross_table_path)
         if local_game_id == 0xFFFF:
-            return False, vertex_data
+            return False, vertex_data, old_vertex_id
 
     game_vertex_offset = game_graph.get_level_offset(level_name)
     new_game_vertex_id = local_game_id + game_vertex_offset
@@ -571,7 +614,7 @@ def _validate_and_update_vertex(vertex_data: bytes,
         buffer.write(struct.pack('<I', len(chunk_data)))
         buffer.write(chunk_data)
 
-    return True, buffer.getvalue()
+    return True, buffer.getvalue(), old_vertex_id
 
 
 def _rebuild_vertices_chunk(valid_vertices: List[Tuple[int, bytes]]) -> bytes:
@@ -588,80 +631,62 @@ def _remap_edges(edges_data: bytes, old_to_new_idx: Dict[int, int]) -> bytes:
     """
     Remap edge vertex indices after filtering.
     Remove edges that reference removed vertices.
+
+    Edges chunk format (flat, NOT chunked):
+    - For each source vertex with outgoing edges:
+      - source_vertex_id (u32)
+      - edge_count (u32)
+      - For each edge: target_vertex_id (u32), weight (f32)
     """
     offset = 0
-    valid_edges = []
-    new_edge_idx = 0
+    remapped_edges = {}  # new_source_id -> [(new_target_id, weight), ...]
 
-    while offset < len(edges_data):
-        if offset + 8 > len(edges_data):
-            break
+    while offset + 8 <= len(edges_data):
+        source_vertex_id = struct.unpack_from('<I', edges_data, offset)[0]
+        offset += 4
 
-        edge_chunk_id = struct.unpack_from('<I', edges_data, offset)[0]
-        edge_chunk_size = struct.unpack_from('<I', edges_data, offset + 4)[0]
-        offset += 8
+        edge_count = struct.unpack_from('<I', edges_data, offset)[0]
+        offset += 4
 
-        if offset + edge_chunk_size > len(edges_data):
-            break
+        # Check if source vertex was kept
+        if source_vertex_id not in old_to_new_idx:
+            # Source vertex was removed, skip all its edges
+            offset += edge_count * 8  # 8 bytes per edge (u32 + f32)
+            continue
 
-        edge_data = edges_data[offset:offset + edge_chunk_size]
-        offset += edge_chunk_size
+        new_source_id = old_to_new_idx[source_vertex_id]
 
-        # Parse edge sub-chunks to find and update vertex indices
-        updated_edge = _remap_edge_indices(edge_data, old_to_new_idx)
-        if updated_edge is not None:
-            valid_edges.append((new_edge_idx, updated_edge))
-            new_edge_idx += 1
+        # Process edges from this source
+        for _ in range(edge_count):
+            if offset + 8 > len(edges_data):
+                break
 
-    # Rebuild edges chunk
+            target_vertex_id = struct.unpack_from('<I', edges_data, offset)[0]
+            weight = struct.unpack_from('<f', edges_data, offset + 4)[0]
+            offset += 8
+
+            # Check if target vertex was kept
+            if target_vertex_id not in old_to_new_idx:
+                # Target vertex was removed, skip this edge
+                continue
+
+            new_target_id = old_to_new_idx[target_vertex_id]
+
+            # Add to remapped edges
+            if new_source_id not in remapped_edges:
+                remapped_edges[new_source_id] = []
+            remapped_edges[new_source_id].append((new_target_id, weight))
+
+    # Rebuild edges chunk in flat format
     buffer = io.BytesIO()
-    for edge_idx, edge_data in valid_edges:
-        buffer.write(struct.pack('<I', edge_idx))
-        buffer.write(struct.pack('<I', len(edge_data)))
-        buffer.write(edge_data)
+    for source_id in sorted(remapped_edges.keys()):
+        edges = remapped_edges[source_id]
+        buffer.write(struct.pack('<I', source_id))  # source vertex id
+        buffer.write(struct.pack('<I', len(edges)))  # edge count
+        for target_id, weight in edges:
+            buffer.write(struct.pack('<I', target_id))  # target vertex id
+            buffer.write(struct.pack('<f', weight))  # weight
 
     return buffer.getvalue()
 
 
-def _remap_edge_indices(edge_data: bytes, old_to_new_idx: Dict[int, int]) -> Optional[bytes]:
-    """
-    Remap vertex indices in an edge. Returns None if edge should be removed.
-
-    Edge format contains sub-chunks with vertex indices (chunk 0 = vertex0, chunk 1 = vertex1)
-    """
-    offset = 0
-    subchunks = []
-
-    while offset < len(edge_data):
-        if offset + 8 > len(edge_data):
-            break
-
-        chunk_id = struct.unpack_from('<I', edge_data, offset)[0]
-        chunk_size = struct.unpack_from('<I', edge_data, offset + 4)[0]
-        offset += 8
-
-        if offset + chunk_size > len(edge_data):
-            break
-
-        chunk_data = edge_data[offset:offset + chunk_size]
-        offset += chunk_size
-
-        # Chunk 0 and 1 contain vertex indices (u32)
-        if chunk_id in (0, 1) and chunk_size >= 4:
-            vertex_idx = struct.unpack_from('<I', chunk_data, 0)[0]
-            if vertex_idx not in old_to_new_idx:
-                # This edge references a removed vertex, drop the edge
-                return None
-            new_idx = old_to_new_idx[vertex_idx]
-            chunk_data = struct.pack('<I', new_idx) + chunk_data[4:]
-
-        subchunks.append((chunk_id, chunk_data))
-
-    # Rebuild edge data
-    buffer = io.BytesIO()
-    for chunk_id, chunk_data in subchunks:
-        buffer.write(struct.pack('<I', chunk_id))
-        buffer.write(struct.pack('<I', len(chunk_data)))
-        buffer.write(chunk_data)
-
-    return buffer.getvalue()

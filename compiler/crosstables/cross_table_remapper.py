@@ -154,7 +154,7 @@ class CrossTableRemapper:
                 new_game_vertex_id = old_game_vertex_id + vertex_offset
 
                 if new_game_vertex_id >= 0xFFFF:
-                    logWarning(f"Remapped vertex ID overflow: {new_game_vertex_id}")
+                    logWarning(f"Remapped vertex ID overflow {level.name}: {new_game_vertex_id}")
                     new_game_vertex_id = 0xFFFF
 
                 remapped_cells.extend(struct.pack('<H', new_game_vertex_id))

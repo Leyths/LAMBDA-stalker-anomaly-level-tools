@@ -18,7 +18,6 @@ from parsers import (
     parse_level_changer_data,
     parse_spawn_packet,
     SpawnEntity,
-    find_nearest_level_vertex,
     find_game_vertex_from_cross_table,
 )
 
@@ -180,14 +179,16 @@ def remap_entity_gvids(spawn_packet: bytes,
             logError(f"[{entity_index}] {section_name} '{entity_name}': No level config for {level_name}")
             return spawn_packet
 
-        level_ai_path = game_graph.base_path / level_config.path / "level.ai"
-        cross_table_path = game_graph.cross_table_dir / f"{level_name}.gct"
-
-        # Calculate new level_vertex_id based on position (using same function as original)
-        new_level_id = find_nearest_level_vertex(position, level_ai_path)
-        if new_level_id == 0xFFFFFFFF:
+        level_ai = game_graph.get_level_ai_for_level(level_name)
+        if level_ai is None:
+            logError(f"[{entity_index}] {section_name} '{entity_name}': No level AI for {level_name}")
+            return spawn_packet
+        new_level_id = level_ai.find_nearest_vertex(position)
+        if new_level_id is None:
             logError(f"[{entity_index}] {section_name} '{entity_name}': Could not find level vertex for position {position}")
             return spawn_packet
+
+        cross_table_path = game_graph.cross_table_dir / f"{level_name}.gct"
 
         # Calculate new game_vertex_id from cross table + offset (using same function as original)
         local_game_id = find_game_vertex_from_cross_table(new_level_id, cross_table_path)

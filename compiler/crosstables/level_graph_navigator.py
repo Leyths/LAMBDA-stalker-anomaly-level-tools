@@ -330,41 +330,31 @@ class LevelGraphNavigator:
 
         return (x, y_pos, z)
 
-    def find_nearest_vertex(self, position: Tuple[float, float, float]) -> int:
+    def find_nearest_vertex(self, position: Tuple[float, float, float]) -> Optional[int]:
         """
         Find the nearest level.ai vertex to the given world position.
-        Uses the spatial index for fast grid-based lookup with spiral search.
-
-        For positions outside the AI mesh (buildings, water, etc.), this will
-        expand the search until it finds the nearest walkable vertex.
+        Uses spatial index for fast grid-based lookup, with numpy fallback for edge cases.
         """
         x, y, z = position
         cell_size = self.header['cell_size']
         min_x = self.header['min'][0]
         min_z = self.header['min'][2]
-        max_x = self.header['max'][0]
-        max_z = self.header['max'][2]
 
         # Calculate target grid cell
         target_x_idx = int((x - min_x) / cell_size)
         target_z_idx = int((z - min_z) / cell_size)
 
-        # Calculate maximum possible radius (diagonal of entire level)
-        max_x_cells = int((max_x - min_x) / cell_size) + 1
-        max_z_cells = int((max_z - min_z) / cell_size) + 1
-        max_radius = max(max_x_cells, max_z_cells) + 100  # Extra margin for safety
+        # Limit search radius to ~100 meters (reasonable for any entity placement)
+        MAX_SEARCH_RADIUS = 150  # cells, ~100m with 0.7m cell size
 
-        # Search in expanding squares around target cell
         best_vertex = None
         best_dist_sq = float('inf')
 
-        for radius in range(max_radius + 1):
-            # Search all cells at this radius
+        for radius in range(MAX_SEARCH_RADIUS + 1):
             found_any_at_radius = False
 
             for dx in range(-radius, radius + 1):
                 for dz in range(-radius, radius + 1):
-                    # Only check cells on the perimeter of this square
                     if radius > 0 and abs(dx) != radius and abs(dz) != radius:
                         continue
 
@@ -374,11 +364,9 @@ class LevelGraphNavigator:
                     if x_idx < 0 or z_idx < 0:
                         continue
 
-                    # Calculate packed xz coordinate
                     xz = x_idx * self.row_length + z_idx
 
                     if xz in self.xz_to_vertices:
-                        # Check ALL vertices at this XZ cell (there may be multiple at different heights)
                         for vertex_id in self.xz_to_vertices[xz]:
                             vpos = self.vertex_positions[vertex_id]
                             dx_pos = vpos[0] - x
@@ -392,18 +380,17 @@ class LevelGraphNavigator:
 
                         found_any_at_radius = True
 
-            # If we found vertices at this radius and best is close enough, stop searching
             if best_vertex is not None and found_any_at_radius:
-                # The minimum possible distance at radius+1 is (radius+1)*cell_size
-                # If our best distance is less than that, we've found the optimal
                 min_possible_dist_sq = ((radius + 1) * cell_size) ** 2
                 if best_dist_sq <= min_possible_dist_sq:
-                    break
+                    return best_vertex
 
+        # Fallback: numpy brute-force for positions far from AI mesh
         if best_vertex is None:
-            # This should only happen if level.ai has no vertices at all
-            logError(f"ERROR: No vertex found in entire level for position ({x:.1f}, {y:.1f}, {z:.1f})")
-            return 0
+            pos = np.array([x, y, z], dtype=np.float32)
+            diff = self.vertex_positions - pos
+            dist_sq = np.sum(diff * diff, axis=1)
+            best_vertex = int(np.argmin(dist_sq))
 
         return best_vertex
 
