@@ -39,7 +39,9 @@ pip install open3d  # optional, for visualizer
 
 First, install Python 3.12 from [python.org](https://www.python.org/downloads/release/python-31212/). Make sure to check "Add Python to PATH" during installation.
 
-Then install pip and dependencies:
+Then install pip and dependencies.
+
+Open the start menu and type "cmd", then open the command prompt and paste each of these lines in one by one:
 
 ```cmd
 py -m pip install --upgrade pip
@@ -77,7 +79,7 @@ build_anomaly.bat
 build_anomaly.bat --force      :: Force rebuild all cross tables
 
 :: Build for GAMMA mod
-build_gamma.bat
+build_gamma_0.94.bat
 
 :: Launch 3D visualizer
 visualise.bat

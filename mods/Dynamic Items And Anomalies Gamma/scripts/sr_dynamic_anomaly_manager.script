@@ -252,7 +252,7 @@ function spawn_all_anomalies_for_level(level_name)
                         type = data.type
                     }
                     spawn_count = spawn_count + 1
-                    add_marker(name, section, anomaly_id, data.type, true)
+--                    add_marker(name, section, anomaly_id, data.type, true)
                 end
             else
                 -- Not spawning, but track it for shuffle-on-emission

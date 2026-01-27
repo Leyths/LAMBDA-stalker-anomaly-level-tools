@@ -4,263 +4,263 @@
     "level_ai_hash": "5cd244bfeb631b8a7e17562b28c36ae4f9e67d60ecfbab7b4f1164ca9168c5fd",
     "level_spawn_hash": "31387fff59ff996afd6939c38990dffd1444bf8dbc00afc9b19f2e4f8a0f5db2",
     "cross_table_path": "../.tmp/k00_marsh.gct",
-    "timestamp": 1768996655.0824199,
-    "original_spawn_hash": "77bcbaa7e5e121227ad96910ed2a337d859d7e8ee8e0f689ba06b01b7dc89b19"
+    "timestamp": 1769505230.653446,
+    "original_spawn_hash": "db934b4314c7ebb399dee40f9d1e2046214d4f3e3b09b63f47c1d21eb1fda966"
   },
   "l01_escape": {
     "level_name": "l01_escape",
     "level_ai_hash": "3441eef80aca3de1409a21fe043ba10705f49782c2d9fc3ac5bd843e89fe2cd5",
     "level_spawn_hash": "0e0a6a769e12224956b3b6e04334e7004b07fbab74230ec73dd0255b1975a1d1",
     "cross_table_path": "../.tmp/l01_escape.gct",
-    "timestamp": 1768999733.171456,
-    "original_spawn_hash": "7d947e68f6e93d84cfb4b5e8758519808d3e5845f86bc36c8febc9ba8233f7e1"
+    "timestamp": 1769505232.547439,
+    "original_spawn_hash": "e11488f4bda40f5497286564cb9d8fee5e45b147369624d1259839df3beec9ca"
   },
   "l02_garbage": {
     "level_name": "l02_garbage",
     "level_ai_hash": "d7b035eb374347539f323035890987838c7248d743b30df28cc1cd57149a8397",
     "level_spawn_hash": "a205d2c6a7a38417473bc444733ba65382e3c0dc3d20ad871873f641d7c33726",
     "cross_table_path": "../.tmp/l02_garbage.gct",
-    "timestamp": 1768996867.805054,
-    "original_spawn_hash": "b9a746fc67a181b78b155e5e17c65d66a132b71578b8a0d22c4f6b78a2d1eb0e"
+    "timestamp": 1769517084.1819022,
+    "original_spawn_hash": "91ae0635a11f5bb23f88b1eeba5d75803f1ff9cd7b658a73f4b9b1e5dd6c61e2"
   },
   "l03_agroprom": {
     "level_name": "l03_agroprom",
     "level_ai_hash": "2907f30f7312ea0d84b52f2300c21e14c15e5a8a9cbc50b61116bd61f77b7712",
     "level_spawn_hash": "f642380ef93858c414e38e86a958232940ea51d5fdf87e2fc3b9859544a1342d",
     "cross_table_path": "../.tmp/l03_agroprom.gct",
-    "timestamp": 1768996941.447675,
-    "original_spawn_hash": "a9a184be709589538c2a2e0114fb631b0c67ed07a988fd4aa994cd43cee1e2e8"
+    "timestamp": 1769505240.2499928,
+    "original_spawn_hash": "2b7ad27ccc2fe9f87db28f06ab95d3ffaf1deaaa22bf8e0ea1c489ff2c380cc1"
   },
   "k01_darkscape": {
     "level_name": "k01_darkscape",
     "level_ai_hash": "2a2cf68cafe6249044db48332a1ba3f95a58f4d4816c9077668ab7260e21ff41",
     "level_spawn_hash": "b23baae44b38cd066ac22c9194d8111e9952a61874ada34f55e0d394d5b54597",
     "cross_table_path": "../.tmp/k01_darkscape.gct",
-    "timestamp": 1769003262.124253,
-    "original_spawn_hash": "dab95bb47c21ee92d9873a9cb3798e080e976b49a3fa0077e44c88feee30eb44"
+    "timestamp": 1769505243.55927,
+    "original_spawn_hash": "ea2412c2605ad6cfb6171beecafe9b71982875f3eb51ab7e7a0e99e583bafcc3"
   },
   "l04_darkvalley": {
     "level_name": "l04_darkvalley",
     "level_ai_hash": "5d443ca212ccd07f915eeac0d8a3b6e0770710af86ab20cf5718c60f81e675e1",
     "level_spawn_hash": "9215b154541813fe804a4fd5698507495a8ad2233a7045005c569a3067080b3b",
     "cross_table_path": "../.tmp/l04_darkvalley.gct",
-    "timestamp": 1768999811.4085069,
-    "original_spawn_hash": "d46719582ca4beeaa57d6bf986970b61d99ce5aea25f80034faffdb1a584a5dc"
+    "timestamp": 1769505244.664544,
+    "original_spawn_hash": "0401c133d555a933b32f71ca59ed9b5677f242f67bc87eff2c2e478f90387288"
   },
   "l05_bar": {
     "level_name": "l05_bar",
     "level_ai_hash": "663d7464612b9efb58abc16fe94b22d95115149c959e710d78630f87125a7f53",
     "level_spawn_hash": "72b5636728794af01cffd967a9ea2dd990d97de14db0a78ce9effca3a8e9c12c",
     "cross_table_path": "../.tmp/l05_bar.gct",
-    "timestamp": 1768997032.727539,
-    "original_spawn_hash": "3cdea252994c1233186a10ae198957dcdd5bfae386180f28c3bed7f7ed2e0f80"
+    "timestamp": 1769505244.959263,
+    "original_spawn_hash": "9e639877a69c23a76cf0203efa9ef8b3e4c1f7bf6a7b414c1c0e44dbb9e1d1b3"
   },
   "l06_rostok": {
     "level_name": "l06_rostok",
     "level_ai_hash": "f25c34d6eefd1724be193d236fee74b4d893bf59db2478bd047d4ce75b5eb661",
     "level_spawn_hash": "4664a768d61857484521c272452aac5d3e3713530cbd68d4c8134fce0581e170",
     "cross_table_path": "../.tmp/l06_rostok.gct",
-    "timestamp": 1768997041.38892,
-    "original_spawn_hash": "18a9fac94f9c3ccdd4c19b6af1a3820cb8fbf68cf8eeabb84e8715c5f84d521c"
+    "timestamp": 1769505245.1657019,
+    "original_spawn_hash": "cc6a9d647de34ebbeed061764bd8cc642cb9f533278e0416447a6c15d5a8d1b0"
   },
   "l07_military": {
     "level_name": "l07_military",
     "level_ai_hash": "00971f235878cec42c1122ce9b7352983935551aa6f17fb8c64614cf05796fc1",
     "level_spawn_hash": "5b6c9576193f09f8d772f02a0c935502587658532ac74695fb78264890f55288",
     "cross_table_path": "../.tmp/l07_military.gct",
-    "timestamp": 1768997111.950432,
-    "original_spawn_hash": "d6473f4fff86ced02e33fc8e383447e7f6d1ef3b860ab983ab58f97fc50e505a"
+    "timestamp": 1769505246.332169,
+    "original_spawn_hash": "318e4a8f391a2f7e458c8b51b58874eaaeffe3a7521b4c0a9c0a546ab40acc6f"
   },
   "l08_yantar": {
     "level_name": "l08_yantar",
     "level_ai_hash": "98b0551fda04b9065956f93b8640958cf9b2994be565f090da1a4163ee1ba709",
     "level_spawn_hash": "3e69414c4a5c4bb49bfb796345865b757ddaa5f4c93b082420bb3201e9fe532e",
     "cross_table_path": "../.tmp/l08_yantar.gct",
-    "timestamp": 1768997195.064988,
-    "original_spawn_hash": "a93cb9c6d41224fe2eff37b854bb045e213f98a83e61bf99292e7b9ce2bdf32f"
+    "timestamp": 1769505246.78599,
+    "original_spawn_hash": "87d527ea586a50c5754d6212b765fab6f0475dcfdf1202712570cd1e12c79c17"
   },
   "l09_deadcity": {
     "level_name": "l09_deadcity",
     "level_ai_hash": "ec646da175f682fc04cc896fd99937ca6e38b58376e4b792526120a8b7fecc35",
     "level_spawn_hash": "7c5d56e94615af13165c250f01c317d928b678e14de4d21e6a19a484cd4bc342",
     "cross_table_path": "../.tmp/l09_deadcity.gct",
-    "timestamp": 1768999835.454977,
-    "original_spawn_hash": "43cf7d6127e93a1bf66f375ba1e132de1b21438f06012000a7fe7dab72a3b369"
+    "timestamp": 1769505247.526536,
+    "original_spawn_hash": "f4d92f5752fd449669fd232910625295ff89fb0b6dee1f201b27e730c398fc60"
   },
   "l10_limansk": {
     "level_name": "l10_limansk",
     "level_ai_hash": "e193a240add585f5263c083d9807f4e0092ff369030080674485a4b44e474898",
     "level_spawn_hash": "4b5fac6ff8bb82e1f3239e6448f9264ffbf198a9cdc3d7599208d62cf417057f",
     "cross_table_path": "../.tmp/l10_limansk.gct",
-    "timestamp": 1768997222.1541078,
-    "original_spawn_hash": "edc464f5891f0bc6b1a4042e19d7e2f033f94510530aae0d98a9cdcd243c5040"
+    "timestamp": 1769505247.7006452,
+    "original_spawn_hash": "40a25946c9ed79c1e65b65233c8a2732971652fcf2c54e0f776671f2d03f86cb"
   },
   "l10_radar": {
     "level_name": "l10_radar",
     "level_ai_hash": "db3a358d9223274601a414c6eb694af801817aee03c18b1f4437afea173c7243",
     "level_spawn_hash": "90966ba7887443fb99fb11fc6b937d7a26478113bbe77533e6f2e6f783455eee",
     "cross_table_path": "../.tmp/l10_radar.gct",
-    "timestamp": 1768997270.3860312,
-    "original_spawn_hash": "42369c0c77681e25c5efe64b1c7177ad24069063a251c460c5d0cc6dc288503e"
+    "timestamp": 1769505248.401995,
+    "original_spawn_hash": "ce51b000e3f85bbdc77fc895f6a929d7be14708c71c78086626ef0de24a667d0"
   },
   "l10_red_forest": {
     "level_name": "l10_red_forest",
     "level_ai_hash": "154a895a3e78ecca203675cf6a1bb2c79c9de190ecc5bfb13a95fb3f6a3ccdab",
     "level_spawn_hash": "083454839cc402e58823678e76fe585e87a3441fceaadb74639b0ba59fc03871",
     "cross_table_path": "../.tmp/l10_red_forest.gct",
-    "timestamp": 1768999849.4616761,
-    "original_spawn_hash": "32db055d19b54efa44c393aab6f3f15615caf9a4fe624f16c2945d9c0338236b"
+    "timestamp": 1769505248.885311,
+    "original_spawn_hash": "7e1a4c490e96a565e8554c100f1a0042a6893c62e2058b3389bb3b520716974c"
   },
   "l11_hospital": {
     "level_name": "l11_hospital",
     "level_ai_hash": "c9f11c80c3a58b217d089510b06c7f7215cfa24762ca58ff121c241092b5dee8",
     "level_spawn_hash": "1d30ae9547836ab963091f4a981b3600739180c6365bd899b4dd365e0e0d69b2",
     "cross_table_path": "../.tmp/l11_hospital.gct",
-    "timestamp": 1768997284.697789,
-    "original_spawn_hash": "4e87952a3235f5d8555baab3a7a1b3491847deff17fc26ac0319e836bc8454e4"
+    "timestamp": 1769505248.90975,
+    "original_spawn_hash": "9f3f026b18702ecf8460422b80bfc21ab8d39c028be0e53337a967f850d6ed86"
   },
   "l11_pripyat": {
     "level_name": "l11_pripyat",
     "level_ai_hash": "9c48cc0d403fa2552167edc048313e7fc939036393ca2fdcce684441cec3ef42",
     "level_spawn_hash": "e4ef7263418c4b8b9d7c224efd3a7db2ad00b11bf21d452c84553e56eec4aff2",
     "cross_table_path": "../.tmp/l11_pripyat.gct",
-    "timestamp": 1768997321.0909529,
-    "original_spawn_hash": "d3bce157742828a35f9d681e86e83a6c7e95cf30b018fcd66905f12fcdea6da1"
+    "timestamp": 1769505249.718888,
+    "original_spawn_hash": "f03d8ee62309e15274b18dc83fb0f814219e1d2f600b15a7db61ecfadbcc65ff"
   },
   "l12_stancia": {
     "level_name": "l12_stancia",
     "level_ai_hash": "adb86904ded0033f2d1daaffdbf3019a93dd4e79def1f5a25e7e992f02b6920a",
     "level_spawn_hash": "4f5a5898d5040e86e2825b3db075b5dd0abbc8dd295fecc7f9846be96c6f13ca",
     "cross_table_path": "../.tmp/l12_stancia.gct",
-    "timestamp": 1768997380.590729,
-    "original_spawn_hash": "311a4acdb816ff5b2318a586a31144cf5b608bb0b7e416df723006e9b3026dfd"
+    "timestamp": 1769505251.231413,
+    "original_spawn_hash": "1552b9c261f6fa71e7e7a0230cd520e2a24c7330c8d027c90f71815322e4f847"
   },
   "l12_stancia_2": {
     "level_name": "l12_stancia_2",
     "level_ai_hash": "3b725dfb91390f618d17c66baeed998f7e0797ff8fe399063bf6800db667f6fd",
     "level_spawn_hash": "42313834ae7544cef81b928b674481b4dc4e4ffb9e978ce1b4d4933f20ac6687",
     "cross_table_path": "../.tmp/l12_stancia_2.gct",
-    "timestamp": 1768997585.45737,
-    "original_spawn_hash": "be38d51fb39edc5a0b4c1f0e366f9da50a64a84487df70472297e49c2493624c"
+    "timestamp": 1769505254.13585,
+    "original_spawn_hash": "dc9d0fc64c92b81b95805c85785c59e876cec46309089acc7dd8853d0aea5268"
   },
   "l13_generators": {
     "level_name": "l13_generators",
     "level_ai_hash": "126080aa60572f5b0c1c4bc448469087bcb5903d1ab529a0114de8fd5fb9a349",
     "level_spawn_hash": "992deb5dbd1ea518880bd580bb043a647d7fe7d7e3d8eebd0aecfd294f44026b",
     "cross_table_path": "../.tmp/l13_generators.gct",
-    "timestamp": 1768997625.683549,
-    "original_spawn_hash": "32a96f70048e34bc5a836f68b4d00d7ed6338152aa667fc64deb8ef5e46494bf"
+    "timestamp": 1769505255.441795,
+    "original_spawn_hash": "e11b904f2ac0418ddcee4bc22654dfb0702fdca279969e03ba0f25cd02ef224f"
   },
   "l03u_agr_underground": {
     "level_name": "l03u_agr_underground",
     "level_ai_hash": "47f96e8f206b4863a7fc4691b829797f0f0c0e59fe55566893275333b3e95863",
     "level_spawn_hash": "a85396539b9083850f5b82b4d75ad35b12afa8ffd8d19c4896165ec01883a8d2",
     "cross_table_path": "../.tmp/l03u_agr_underground.gct",
-    "timestamp": 1768997626.766402,
-    "original_spawn_hash": "13dad46301463686f27b62d135a30a5db9459e5517ae5f42b00aa2cda67ead55"
+    "timestamp": 1769505255.477568,
+    "original_spawn_hash": "0e0dfb701b1e45a86a67f69bfcf8a3648658e5511c3b2872b92caa3fb79d2622"
   },
   "l04u_labx18": {
     "level_name": "l04u_labx18",
     "level_ai_hash": "dd53aa3befe608258ec26889d992d05dbed6be2e6b871e9b1cdf3def8c3efcef",
     "level_spawn_hash": "1db5a6989b89d63230b0589dc237b6c63b9173e5c0a8f76bf325dd137097f2c5",
     "cross_table_path": "../.tmp/l04u_labx18.gct",
-    "timestamp": 1768997627.153474,
-    "original_spawn_hash": "613f29573fc48f0cc8298a4f9f98f1d82b3eb25d2fd5cd7491bcac0ba8f16099"
+    "timestamp": 1769505255.501375,
+    "original_spawn_hash": "5710a6c0fd0b9879377ab55f8c49b028716d105d301627be7a08a1e9970fee41"
   },
   "l08u_brainlab": {
     "level_name": "l08u_brainlab",
     "level_ai_hash": "3742246eabe6f8cc79c9437bb3eedc9624642e930dce47b4d159469d5f922796",
     "level_spawn_hash": "4740722c32a1198839eccbf68568dcf5532b27e214c16241d0f4d0ca02b11015",
     "cross_table_path": "../.tmp/l08u_brainlab.gct",
-    "timestamp": 1768997627.2994418,
-    "original_spawn_hash": "8039b84ddf7913acaa0aa68c10c54d9577c0b8425959a6e039920394b33f11c3"
+    "timestamp": 1769505255.52536,
+    "original_spawn_hash": "cc7d52970c447d199fc485b155bd91f904d549bfadc19a71ff7df1983b91055d"
   },
   "l10u_bunker": {
     "level_name": "l10u_bunker",
     "level_ai_hash": "156bedd740c2950e9029dadbf04b5022135544274e29c1ecdae5fc7393c762a1",
     "level_spawn_hash": "ab2ba762e104fc16e048cd66316bcfa7d0f2b96b3a8e5d636c1d655d65d3a1c6",
     "cross_table_path": "../.tmp/l10u_bunker.gct",
-    "timestamp": 1768997628.291531,
-    "original_spawn_hash": "06f3aee33614bf732a74d3cf83cbbc42740485784cc5fe720858a68876e13d17"
+    "timestamp": 1769505255.553091,
+    "original_spawn_hash": "3be08ebb430adb6135f021f1995f91503ad204e4e41903b26490fc3605c5d47f"
   },
   "l12u_sarcofag": {
     "level_name": "l12u_sarcofag",
     "level_ai_hash": "43a83d869093e85743e97d7ef9a519ece5f9dbaad8e7c99345040771e9fd564c",
     "level_spawn_hash": "6eda3dac74680eba833e3329832d15b32e5a912cbe15dd400d5baf9127e5a6bd",
     "cross_table_path": "../.tmp/l12u_sarcofag.gct",
-    "timestamp": 1768997628.913217,
-    "original_spawn_hash": "8ae086e3308c09305242e51b531fbfadff1ad92a0d047cf4fae24c62aacab29f"
+    "timestamp": 1769505255.5854201,
+    "original_spawn_hash": "b8dda4e492bdbca1bfabecafe6e278a6e055ad87b68e5835c3620c03e91a4fd7"
   },
   "l12u_control_monolith": {
     "level_name": "l12u_control_monolith",
     "level_ai_hash": "e747a87c0949e8acd2eb58394ebced2509038ac45c2d77eb39aa756f76904363",
     "level_spawn_hash": "ef497095aa14ee420e52f10638adeebcc5027e53b05f7ea26ab1ba8df9ddddca",
     "cross_table_path": "../.tmp/l12u_control_monolith.gct",
-    "timestamp": 1768997629.0926,
-    "original_spawn_hash": "55fa2904e716cb4b9311a36eaf80d9db52d47df0543160d8d8d8a14de352b2db"
+    "timestamp": 1769505255.59792,
+    "original_spawn_hash": "d98c224f00ecdd76fefcc2916432ae20433dbbe7817184f357b37641d8fc3396"
   },
   "l13u_warlab": {
     "level_name": "l13u_warlab",
     "level_ai_hash": "19f55cef66eb5e89e2f5a928be474e80f5eae6d328f14fb9fd6253e7635f0ead",
     "level_spawn_hash": "8502105004668bdc898c20c7ff972a507620cfff5618b1dc8d51ec3ec8dcc18b",
     "cross_table_path": "../.tmp/l13u_warlab.gct",
-    "timestamp": 1768997629.62183,
-    "original_spawn_hash": "87b130a953fb53a5b3f613c20fbbfb641227a721cfe1681c804114029a96f488"
+    "timestamp": 1769505255.623179,
+    "original_spawn_hash": "92deec21dd319eb32e51b0161bf0f26c0900dfa144a2916c4cd1ff36dc3312a5"
   },
   "zaton": {
     "level_name": "zaton",
     "level_ai_hash": "5f08b7092fd83e9f1b3790c33fa6f1e13ebf00adcb6bbab1d189b8fbc31e4c79",
     "level_spawn_hash": "4b766044714f9a76457fb0f80d37dff532ef5fc30ee1f19082de5509e2ac45fc",
     "cross_table_path": "../.tmp/zaton.gct",
-    "timestamp": 1769000346.7221298,
-    "original_spawn_hash": "861614383565f6358059e503def84227aa2d86140ae37a9dc501012ce500d326"
+    "timestamp": 1769505261.483278,
+    "original_spawn_hash": "cc631af477b21e2f6dfc815a430f36d2a0827891a9f6ea0c33b8d4de669cc352"
   },
   "jupiter": {
     "level_name": "jupiter",
     "level_ai_hash": "ad2d96b6285412232a1773c7cc09300586c4064551bdb11d0789453a206520cb",
     "level_spawn_hash": "b5c29a47a217552b8f3877d304aa6e786dbec702b3089ba2dc1d2b58fa697add",
     "cross_table_path": "../.tmp/jupiter.gct",
-    "timestamp": 1769000794.1610081,
-    "original_spawn_hash": "630e51d0aade8fff6c8d431e4976c391313f70f0bf69fc3a1c767f43c6ade5dc"
+    "timestamp": 1769505266.131945,
+    "original_spawn_hash": "3f39e34298ffc4d4c4ecce7a741ed78ad113bc86f023bffdacf4755a50668b0c"
   },
   "jupiter_underground": {
     "level_name": "jupiter_underground",
     "level_ai_hash": "1575206702e66874b37f07d9b42a4ff1734c2e3a0c38d1ccc80aa6664faedc58",
     "level_spawn_hash": "da5b4ed1cf0195ff582f1005b49ff96c335dc7650452a70a153cd4245cf39a6f",
     "cross_table_path": "../.tmp/jupiter_underground.gct",
-    "timestamp": 1768998582.83455,
-    "original_spawn_hash": "c33439c2ced44abef6aa8996d3ba5e8dac1e4214f9cfe2e52790e9108145c9b7"
+    "timestamp": 1769505266.245928,
+    "original_spawn_hash": "4cf30ce535c3e23ea67e2d2ddddbd596a2301b01eb62df932e69f9311c3584cb"
   },
   "pripyat": {
     "level_name": "pripyat",
     "level_ai_hash": "f0935e60934ac9e523133ec70d84b494c4ee4167a2f40821b84aa14414a8ea9a",
     "level_spawn_hash": "bf26684569f481ce67c54e4e880aec011fa89eb047504d423360af42a4244e05",
     "cross_table_path": "../.tmp/pripyat.gct",
-    "timestamp": 1769000908.2710972,
-    "original_spawn_hash": "2d75652f4f55d53df013a0ec0a2bf188b38d20e624278ac5a4dff2ca3aa1ac09"
+    "timestamp": 1769505267.743062,
+    "original_spawn_hash": "670825719e0bc9927c06cfad19ec8dbe97ed820ae8c4d56e4ba9b84e3d05118b"
   },
   "labx8": {
     "level_name": "labx8",
     "level_ai_hash": "415d427269eef16b4ce15a04894ea6f26248312479560b1b114851b7a2e31453",
     "level_spawn_hash": "9a9508a9e4777a6cdb316c4196d111dd832cb8d5bcd088fd6738256a6ff03e4b",
     "cross_table_path": "../.tmp/labx8.gct",
-    "timestamp": 1768998663.638634,
-    "original_spawn_hash": "bf4092dc22302e9b5df791d48ee1e719442a5d83eedbe88f467eaa163f08f8b3"
+    "timestamp": 1769505267.76377,
+    "original_spawn_hash": "fd0f00f8c7509cb320385aad097a98dd8d602cf53ff10d09d4593112218be745"
   },
   "k02_trucks_cemetery": {
     "level_name": "k02_trucks_cemetery",
     "level_ai_hash": "62a589fc650084370e6fe6862a37e42ae99e01f01d27706668b08391867274ea",
     "level_spawn_hash": "f851c8ca24b7d7f1be3ede9dd15018d28d98e5132b57239efab2a149a97d4c24",
     "cross_table_path": "../.tmp/k02_trucks_cemetery.gct",
-    "timestamp": 1768998813.938166,
-    "original_spawn_hash": "3f70f665af9dce35005af199482e6d59f1a8f48f1e75fe1e1bb2d0630f9eb3e0"
+    "timestamp": 1769505270.5510342,
+    "original_spawn_hash": "50f6a24724c219ab6bd6fd5bdd6f5a1fd39fd535d71347f26eb45c167e7dd701"
   },
   "fake_start": {
     "level_name": "fake_start",
     "level_ai_hash": "a94159091e071dc93265d41aeb6a54364580bebec2b8cd82b6f78ebaefcf5f44",
     "level_spawn_hash": "c6d4124200a9806bad26cfd66e80920817bb079dd99128dda6addb22a743e118",
     "cross_table_path": "../.tmp/fake_start.gct",
-    "timestamp": 1768679040.260418,
+    "timestamp": 1769464746.41396,
     "original_spawn_hash": "8666e9167595f0660e28136cea8685946fb5797d48541cef38961deb156e3c7b"
   },
   "y04_pole": {
@@ -268,7 +268,7 @@
     "level_ai_hash": "d1f3310a2c050e2eb32642a50d0380fadcd497d6850ff84c3399e01ceecc0e11",
     "level_spawn_hash": "7865a287e1604262d29dea0bb0c0be184bb6bb2fb0813ee5dc47cd04c28f8af4",
     "cross_table_path": "../.tmp/y04_pole.gct",
-    "timestamp": 1768998817.0464342,
-    "original_spawn_hash": "87e50d0299c89b2b936dfbf9e8c9e2ef4c309c2aed13703f6ad85bc1a2245487"
+    "timestamp": 1769505270.810316,
+    "original_spawn_hash": "c7891cbe28ba8d53fcd09825d5b3c1c3841e6bf789554a83e4838eb552e81b8b"
   }
 }

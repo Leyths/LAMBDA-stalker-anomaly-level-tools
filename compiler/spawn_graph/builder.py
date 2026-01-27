@@ -316,6 +316,9 @@ class SpawnGraphBuilder:
             if level_changers_removed_this_level > 0:
                 log(f"    Removed {level_changers_removed_this_level} level changers (not in config)")
 
+        # Sort entities by section name to match vanilla ordering
+        self._sort_entities_by_section()
+
         return self.build()
 
     def _fix_anomaly_spawn_packet(self, spawn_packet: bytes) -> bytes:
@@ -336,6 +339,36 @@ class SpawnGraphBuilder:
             return struct.pack('<H', len(data)) + data
 
         return spawn_packet
+
+    def _sort_entities_by_section(self):
+        """
+        Sort collected entities by section name to group similar types together.
+
+        This matches vanilla all.spawn ordering where entities of the same type
+        are grouped together, preventing ID mismatch issues caused by the engine's
+        clsid-based processing order.
+
+        When entities are interleaved by level (as our generator produces), the engine
+        processes them by clsid order, causing lower-clsid entities (zones ~99, smart_cover ~122)
+        to get IDs before higher-clsid entities (smart_terrain ~127). This breaks smart terrain
+        registration when their runtime IDs don't match the expected spawn graph indices.
+        """
+        def sort_key(entity_tuple):
+            spawn_id, spawn_packet, update_packet = entity_tuple
+            section = extract_section_name(spawn_packet)
+            name = extract_entity_name(spawn_packet)
+            return (section, name)
+
+        # Sort in place
+        self.entities.sort(key=sort_key)
+
+        # Reassign spawn_ids after sorting
+        for i, (old_id, spawn_packet, update_packet) in enumerate(self.entities):
+            self.entities[i] = (i, spawn_packet, update_packet)
+
+        self.next_spawn_id = len(self.entities)
+
+        log(f"  Sorted {len(self.entities)} entities by section name")
 
     def _fix_spawn_id_in_packet(self, spawn_packet: bytes, vertex_id: int) -> bytes:
         """

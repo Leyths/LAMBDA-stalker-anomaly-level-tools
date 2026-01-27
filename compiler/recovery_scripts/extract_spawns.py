@@ -1,13 +1,21 @@
 #!/usr/bin/env python3
 """
-Spawn Extractor V3 - With Graph Point Extraction
+Spawn Extractor V4 - With Graph Point Extraction
 
-Extracts entities from original all.spawn and splits them by level based on
+Extracts entities from all.spawn and splits them by level based on
 the GAME GRAPH structure, not entity name prefixes.
 
 Also extracts graph points from the GAME GRAPH VERTICES since graph_point
 entities are compiled into game graph vertices during the build process and
 are NOT stored in the spawn entities section.
+
+Supports two modes:
+
+1. Single-source mode (extract ALL entities):
+   python extract_spawns.py <all.spawn> <output_dir>
+
+2. Comparison mode (extract only differences):
+   python extract_spawns.py <all.spawn> <output_dir> --original <original_all.spawn>
 
 Flow:
 1. Parse game graph header to get level definitions (level_id -> level_name)
@@ -15,12 +23,9 @@ Flow:
    - Build game_vertex_id -> level_id mapping
    - Extract graph point data (position, level_vertex_id, location types)
 3. Parse spawn entities and assign to levels based on their game_vertex_id
-4. Compare with generated spawn and extract entities that differ
+4. (Comparison mode only) Compare with original spawn and extract entities that differ
 5. Create graph_point spawn packets from game graph vertices
 6. Write per-level spawn files containing both entities AND graph points
-
-Usage:
-    python extract_spawns.py <original_all.spawn> <generated_all.spawn> <output_dir>
 """
 
 import struct
@@ -659,79 +664,112 @@ def write_level_spawn(entities: List[SpawnEntity], graph_point_packets: List[Tup
 
 
 def main():
-    if len(sys.argv) < 4:
-        print("Usage: python extract_spawns.py <original_all.spawn> <generated_all.spawn> <output_dir> [--names-ini <file.ini>]")
-        print("\nExtracts entities from original that differ from generated,")
-        print("plus graph points from the game graph, split into per-level spawn files.")
-        print("\nOptions:")
-        print("  --names-ini <file.ini>  INI file mapping coordinates to custom graph point names")
-        sys.exit(1)
+    import argparse
+    parser = argparse.ArgumentParser(
+        description='Extract spawn entities from all.spawn into per-level files',
+        epilog='Examples:\n'
+               '  %(prog)s all.spawn output/          # Extract ALL entities\n'
+               '  %(prog)s all.spawn output/ --original orig.spawn  # Compare mode\n',
+        formatter_class=argparse.RawDescriptionHelpFormatter
+    )
+    parser.add_argument('all_spawn', type=Path,
+                        help='Path to all.spawn file to extract from')
+    parser.add_argument('output_dir', type=Path,
+                        help='Output directory for per-level spawn files')
+    parser.add_argument('--original', type=Path, default=None,
+                        help='Optional original all.spawn for comparison mode (extract only differences)')
+    parser.add_argument('--names-ini', type=Path, default=None,
+                        help='INI file mapping coordinates to custom graph point names')
+    args = parser.parse_args()
 
-    original_path = Path(sys.argv[1])
-    generated_path = Path(sys.argv[2])
-    output_dir = Path(sys.argv[3])
-
-    # Parse optional --names-ini
-    names_ini_path = None
-    if '--names-ini' in sys.argv:
-        idx = sys.argv.index('--names-ini')
-        if idx + 1 < len(sys.argv):
-            names_ini_path = Path(sys.argv[idx + 1])
-
+    output_dir = args.output_dir
     output_dir.mkdir(parents=True, exist_ok=True)
-
-    # Parse original (includes game graph for level boundaries AND graph points)
-    orig_levels, orig_vertex_to_level, orig_graph_vertices, original_entities = parse_all_spawn(original_path)
-
-    # Parse generated (may not have valid game graph, just need entities)
-    _, _, gen_graph_vertices, generated_entities = parse_all_spawn(generated_path)
 
     # Load custom graph point names if provided
     custom_names = {}
-    if names_ini_path and names_ini_path.exists():
-        custom_names = parse_graph_point_names_ini(names_ini_path)
+    if args.names_ini and args.names_ini.exists():
+        custom_names = parse_graph_point_names_ini(args.names_ini)
         total = sum(len(v) for v in custom_names.values())
-        print(f"\nLoaded {total} custom graph point names from {names_ini_path}")
+        print(f"\nLoaded {total} custom graph point names from {args.names_ini}")
 
-    print(f"\n{'=' * 70}")
-    print("COMPARISON")
-    print('=' * 70)
+    comparison_mode = args.original is not None
 
-    # Find entities that differ
-    only_in_original = []
-    only_in_generated = []
-    differ = []
-    same = []
+    if comparison_mode:
+        # --- COMPARISON MODE (existing behavior) ---
+        # Parse original (includes game graph for level boundaries AND graph points)
+        orig_levels, orig_vertex_to_level, orig_graph_vertices, original_entities = parse_all_spawn(args.original)
 
-    all_names = set(original_entities.keys()) | set(generated_entities.keys())
+        # Parse generated (may not have valid game graph, just need entities)
+        _, _, gen_graph_vertices, generated_entities = parse_all_spawn(args.all_spawn)
 
-    for name in all_names:
-        orig = original_entities.get(name)
-        gen = generated_entities.get(name)
+        print(f"\n{'=' * 70}")
+        print("COMPARISON")
+        print('=' * 70)
 
-        if orig and not gen:
-            only_in_original.append(orig)
-        elif gen and not orig:
-            only_in_generated.append(gen)
-        elif orig and gen:
-            if orig.comparison_data == gen.comparison_data:
-                same.append(name)
-            else:
-                differ.append((orig, gen))
+        # Find entities that differ
+        only_in_original = []
+        only_in_generated = []
+        differ = []
+        same = []
 
-    print(f"\nSpawn Entity Results:")
-    print(f"  Only in original: {len(only_in_original)}")
-    print(f"  Only in generated: {len(only_in_generated)}")
-    print(f"  Same (ignoring graph IDs): {len(same)}")
-    print(f"  Different: {len(differ)}")
+        all_keys = set(original_entities.keys()) | set(generated_entities.keys())
 
-    # Compare graph points
-    print(f"\nGraph Point Results:")
-    print(f"  Original game graph vertices: {len(orig_graph_vertices)}")
-    print(f"  Generated game graph vertices: {len(gen_graph_vertices)}")
+        for key in all_keys:
+            orig = original_entities.get(key)
+            gen = generated_entities.get(key)
+
+            if orig and not gen:
+                only_in_original.append(orig)
+            elif gen and not orig:
+                only_in_generated.append(gen)
+            elif orig and gen:
+                if orig.comparison_data == gen.comparison_data:
+                    same.append(key)
+                else:
+                    differ.append((orig, gen))
+
+        print(f"\nSpawn Entity Results:")
+        print(f"  Only in original: {len(only_in_original)}")
+        print(f"  Only in generated: {len(only_in_generated)}")
+        print(f"  Same (ignoring graph IDs): {len(same)}")
+        print(f"  Different: {len(differ)}")
+
+        print(f"\nGraph Point Results:")
+        print(f"  Original game graph vertices: {len(orig_graph_vertices)}")
+        print(f"  Generated game graph vertices: {len(gen_graph_vertices)}")
+
+        levels = orig_levels
+        vertex_to_level = orig_vertex_to_level
+        graph_vertices = orig_graph_vertices
+
+        # Entities to extract: only_in_original + differ (use original version)
+        extract_entities = list(only_in_original)
+        for orig, gen in differ:
+            extract_entities.append(orig)
+
+        # Build set of generated graph vertex IDs for comparison
+        gen_vertex_ids = {v.vertex_id for v in gen_graph_vertices}
+    else:
+        # --- SINGLE-SOURCE MODE (extract ALL entities) ---
+        levels, vertex_to_level, graph_vertices, all_entities = parse_all_spawn(args.all_spawn)
+
+        print(f"\n{'=' * 70}")
+        print("EXTRACTION (single-source mode)")
+        print('=' * 70)
+
+        print(f"\nSpawn Entity Results:")
+        print(f"  Total entities: {len(all_entities)}")
+
+        print(f"\nGraph Point Results:")
+        print(f"  Game graph vertices: {len(graph_vertices)}")
+
+        # Extract ALL entities
+        extract_entities = list(all_entities.values())
+
+        gen_vertex_ids = None  # Not used in single-source mode
 
     # Build level name lookup
-    level_id_to_name = {info.level_id: info.name for info in orig_levels.values()}
+    level_id_to_name = {info.level_id: info.name for info in levels.values()}
 
     # Group entities by level
     entities_by_level: Dict[str, List[SpawnEntity]] = {}
@@ -742,7 +780,7 @@ def main():
         if gvid == 0xFFFF:
             unmapped_entities.append(entity)
             return
-        level_id = orig_vertex_to_level.get(gvid)
+        level_id = vertex_to_level.get(gvid)
         if level_id is None:
             unmapped_entities.append(entity)
             return
@@ -751,44 +789,34 @@ def main():
             entities_by_level[level_name] = []
         entities_by_level[level_name].append(entity)
 
-    # Assign entities only in original
-    for entity in only_in_original:
+    for entity in extract_entities:
         assign_to_level(entity)
 
-    # Assign differing entities (use original version)
-    for orig, gen in differ:
-        assign_to_level(orig)
-
-    # Group graph points by level (from original game graph)
+    # Group graph points by level
     graph_points_by_level: Dict[str, List[Tuple[str, bytes]]] = {}
 
-    # Build set of generated graph vertex IDs for comparison
-    gen_vertex_ids = {v.vertex_id for v in gen_graph_vertices}
-
     missing_gp_count = 0
-    for vertex in orig_graph_vertices:
+    for vertex in graph_vertices:
         level_name = level_id_to_name.get(vertex.level_id, f"level_{vertex.level_id}")
 
-        # Create graph point packet if this vertex is missing from generated
-        # OR always include (since we need them for cross table building)
-        if vertex.vertex_id not in gen_vertex_ids or True:  # Always include for now
-            if level_name not in graph_points_by_level:
-                graph_points_by_level[level_name] = []
+        if level_name not in graph_points_by_level:
+            graph_points_by_level[level_name] = []
 
-            # Generate name for this graph point (use custom name if available)
-            level_coords = custom_names.get(level_name, {})
-            custom_name = find_matching_name(vertex.local_position, level_coords)
-            if custom_name:
-                gp_name = custom_name
-            else:
-                gp_name = f"graph_point_{vertex.vertex_id:04d}"
-            packet = create_graph_point_packet(vertex, gp_name)
-            graph_points_by_level[level_name].append((gp_name, packet))
+        # Generate name for this graph point (use custom name if available)
+        level_coords = custom_names.get(level_name, {})
+        custom_name = find_matching_name(vertex.local_position, level_coords)
+        if custom_name:
+            gp_name = custom_name
+        else:
+            gp_name = f"graph_point_{vertex.vertex_id:04d}"
+        packet = create_graph_point_packet(vertex, gp_name)
+        graph_points_by_level[level_name].append((gp_name, packet))
 
-            if vertex.vertex_id not in gen_vertex_ids:
-                missing_gp_count += 1
+        if gen_vertex_ids is not None and vertex.vertex_id not in gen_vertex_ids:
+            missing_gp_count += 1
 
-    print(f"  Graph points missing from generated: {missing_gp_count}")
+    if comparison_mode:
+        print(f"  Graph points missing from generated: {missing_gp_count}")
 
     print(f"\nEntities to extract by level:")
     for level_name in sorted(set(entities_by_level.keys()) | set(graph_points_by_level.keys())):
@@ -822,68 +850,113 @@ def main():
         print(f"  Wrote {len(unmapped_entities)} unmapped entities to {output_path}")
 
     # Write summary JSON
-    summary = {
-        'original_file': str(original_path),
-        'generated_file': str(generated_path),
-        'spawn_entities': {
-            'only_in_original': len(only_in_original),
-            'only_in_generated': len(only_in_generated),
-            'same': len(same),
-            'different': len(differ),
-        },
-        'graph_points': {
-            'original_count': len(orig_graph_vertices),
-            'generated_count': len(gen_graph_vertices),
-            'missing_in_generated': missing_gp_count,
-        },
-        'levels_from_game_graph': [
-            {'level_id': lid, 'name': name}
-            for lid, name in sorted(level_id_to_name.items())
-        ],
-        'extracted_by_level': {
-            level: {
-                'entities': [e.entity_name for e in entities_by_level.get(level, [])],
-                'graph_points': len(graph_points_by_level.get(level, []))
-            }
-            for level in all_levels
-        },
-        'unmapped_entities': [e.entity_name for e in unmapped_entities]
-    }
+    if comparison_mode:
+        summary = {
+            'mode': 'comparison',
+            'source_file': str(args.all_spawn),
+            'original_file': str(args.original),
+            'spawn_entities': {
+                'only_in_original': len(only_in_original),
+                'only_in_generated': len(only_in_generated),
+                'same': len(same),
+                'different': len(differ),
+            },
+            'graph_points': {
+                'original_count': len(orig_graph_vertices),
+                'generated_count': len(gen_graph_vertices),
+                'missing_in_generated': missing_gp_count,
+            },
+            'levels_from_game_graph': [
+                {'level_id': lid, 'name': name}
+                for lid, name in sorted(level_id_to_name.items())
+            ],
+            'extracted_by_level': {
+                level: {
+                    'entities': [e.entity_name for e in entities_by_level.get(level, [])],
+                    'graph_points': len(graph_points_by_level.get(level, []))
+                }
+                for level in all_levels
+            },
+            'unmapped_entities': [e.entity_name for e in unmapped_entities]
+        }
+    else:
+        summary = {
+            'mode': 'single_source',
+            'source_file': str(args.all_spawn),
+            'spawn_entities': {
+                'total': len(extract_entities),
+            },
+            'graph_points': {
+                'total': len(graph_vertices),
+            },
+            'levels_from_game_graph': [
+                {'level_id': lid, 'name': name}
+                for lid, name in sorted(level_id_to_name.items())
+            ],
+            'extracted_by_level': {
+                level: {
+                    'entities': [e.entity_name for e in entities_by_level.get(level, [])],
+                    'graph_points': len(graph_points_by_level.get(level, []))
+                }
+                for level in all_levels
+            },
+            'unmapped_entities': [e.entity_name for e in unmapped_entities]
+        }
 
     summary_path = output_dir / "extraction_summary.json"
     with open(summary_path, 'w') as f:
         json.dump(summary, f, indent=2)
     print(f"\nWrote summary to {summary_path}")
 
-    # Write diff report
-    diff_report_path = output_dir / "diff_report.txt"
-    with open(diff_report_path, 'w') as f:
+    # Write report
+    report_path = output_dir / "diff_report.txt"
+    with open(report_path, 'w') as f:
         f.write("SPAWN EXTRACTION REPORT\n")
         f.write("=" * 70 + "\n\n")
 
-        f.write(f"Graph Points: {len(orig_graph_vertices)} extracted from original game graph\n\n")
+        f.write(f"Graph Points: {len(graph_vertices)} extracted from game graph\n\n")
 
-        f.write(f"Only in original ({len(only_in_original)}):\n")
-        for e in sorted(only_in_original, key=lambda x: x.entity_name):
-            level_id = orig_vertex_to_level.get(e.game_vertex_id, -1)
-            level_name = level_id_to_name.get(level_id, "unknown")
-            f.write(f"  {e.entity_name} (section={e.section_name}, gvid={e.game_vertex_id}, level={level_name})\n")
+        if comparison_mode:
+            f.write(f"Mode: comparison\n")
+            f.write(f"Original: {args.original}\n")
+            f.write(f"Generated: {args.all_spawn}\n\n")
 
-        f.write(f"\nOnly in generated ({len(only_in_generated)}):\n")
-        for e in sorted(only_in_generated, key=lambda x: x.entity_name):
-            f.write(f"  {e.entity_name} (section={e.section_name}, gvid={e.game_vertex_id})\n")
+            f.write(f"Only in original ({len(only_in_original)}):\n")
+            for e in sorted(only_in_original, key=lambda x: x.entity_name):
+                level_id = vertex_to_level.get(e.game_vertex_id, -1)
+                level_name = level_id_to_name.get(level_id, "unknown")
+                f.write(f"  {e.entity_name} (section={e.section_name}, gvid={e.game_vertex_id}, level={level_name})\n")
 
-        f.write(f"\nDifferent ({len(differ)}):\n")
-        for orig, gen in sorted(differ, key=lambda x: x[0].entity_name):
-            level_id = orig_vertex_to_level.get(orig.game_vertex_id, -1)
-            level_name = level_id_to_name.get(level_id, "unknown")
-            f.write(f"  {orig.entity_name} (level={level_name}):\n")
-            f.write(
-                f"    Original: {len(orig.raw_packet)} bytes, gvid={orig.game_vertex_id}, lvid={orig.level_vertex_id}\n")
-            f.write(
-                f"    Generated: {len(gen.raw_packet)} bytes, gvid={gen.game_vertex_id}, lvid={gen.level_vertex_id}\n")
+            f.write(f"\nOnly in generated ({len(only_in_generated)}):\n")
+            for e in sorted(only_in_generated, key=lambda x: x.entity_name):
+                f.write(f"  {e.entity_name} (section={e.section_name}, gvid={e.game_vertex_id})\n")
 
-    print(f"Wrote diff report to {diff_report_path}")
+            f.write(f"\nDifferent ({len(differ)}):\n")
+            for orig, gen in sorted(differ, key=lambda x: x[0].entity_name):
+                level_id = vertex_to_level.get(orig.game_vertex_id, -1)
+                level_name = level_id_to_name.get(level_id, "unknown")
+                f.write(f"  {orig.entity_name} (level={level_name}):\n")
+                f.write(
+                    f"    Original: {len(orig.raw_packet)} bytes, gvid={orig.game_vertex_id}, lvid={orig.level_vertex_id}\n")
+                f.write(
+                    f"    Generated: {len(gen.raw_packet)} bytes, gvid={gen.game_vertex_id}, lvid={gen.level_vertex_id}\n")
+        else:
+            f.write(f"Mode: single_source\n")
+            f.write(f"Source: {args.all_spawn}\n\n")
+
+            f.write(f"Total entities extracted: {len(extract_entities)}\n\n")
+            f.write(f"Entities by level:\n")
+            for level_name in all_levels:
+                ent_count = len(entities_by_level.get(level_name, []))
+                gp_count = len(graph_points_by_level.get(level_name, []))
+                f.write(f"  {level_name}: {ent_count} entities, {gp_count} graph points\n")
+
+            if unmapped_entities:
+                f.write(f"\nUnmapped entities ({len(unmapped_entities)}):\n")
+                for e in unmapped_entities:
+                    f.write(f"  {e.entity_name} (section={e.section_name}, gvid={e.game_vertex_id})\n")
+
+    print(f"Wrote report to {report_path}")
 
     print(f"\n{'=' * 70}")
     print("DONE")
