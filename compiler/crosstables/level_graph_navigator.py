@@ -11,7 +11,7 @@ import mmap
 from collections import deque
 from typing import List, Tuple, Optional
 
-from utils import logError
+from utils import log, logError
 from constants import FLOAT_EPSILON
 
 
@@ -191,6 +191,24 @@ class LevelGraphNavigator:
                         assignments[neighbor] = source_idx
             current_fringe = next_fringe
             curr_dist += 1
+
+        # Assign unreachable nodes (disconnected AI mesh islands) to nearest game vertex by Euclidean distance
+        unassigned_mask = (assignments == 0xFFFF)
+        unassigned_count = int(np.sum(unassigned_mask))
+
+        if unassigned_count > 0:
+            gv_positions = self.vertex_positions[start_vertices]  # shape (N, 3)
+            unassigned_indices = np.where(unassigned_mask)[0]
+
+            for idx in unassigned_indices:
+                pos = self.vertex_positions[idx]
+                diff = gv_positions - pos
+                dist_sq = np.sum(diff * diff, axis=1)
+                nearest = int(np.argmin(dist_sq))
+                assignments[idx] = nearest
+                min_distances[idx] = int(np.sqrt(dist_sq[nearest]) / self.header['cell_size'])
+
+            log(f"    Assigned {unassigned_count} unreachable AI nodes to nearest game vertex by distance")
 
         return assignments, min_distances
 
