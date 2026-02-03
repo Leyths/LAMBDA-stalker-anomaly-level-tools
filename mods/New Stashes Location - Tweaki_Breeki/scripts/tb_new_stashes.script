@@ -386,8 +386,8 @@ function make_new_stashes()
 		{{w%x:239.59405517578},{w%y:-0.53109157085419},{w%z:-33.404052734375},{w%lvid:148410},{w%gvid:2774},1,4},    --north of the tunnel camp
 		{{w%x:25.747695922852},{w%y:17.338399887085},{w%z:20.454599380493},{w%lvid:81437},{w%gvid:2812},1,4},        --north-east of the road to Jupiter
 		{{w%x:34.470886230469},{w%y:5.5053377151489},{w%z:35.08927154541},{w%lvid:82039},{w%gvid:2812},1,4},         --north-east of the road to Jupiter
-		--rostok 19
-{r%level:l06_rostok}
+		--bar (rostok proper) 19
+{r%level:l05_bar}
 		{{w%x:104.4581451416},{w%y:-0.0010948777198792},{w%z:114.4861831665},{w%lvid:32486},{w%gvid:1723},1,4},      --south-east of the western checkpoint
 		{{w%x:107.30197143555},{w%y:1.6329758167267},{w%z:75.58519744873},{w%lvid:32527},{w%gvid:1728},1,4},         --north-west of the entrance to the bar
 		{{w%x:110.11337280273},{w%y:0.003795325756073},{w%z:131.05731201172},{w%lvid:32919},{w%gvid:1718},1,4},      --east of the western checkpoint
