@@ -41,6 +41,7 @@ from extraction import (
 
 # Import spawn packet parser
 from parsers import parse_spawn_packet
+from parsers.level_spawn.alife_parser import parse_alife_object
 
 # Unified logging and utilities
 from utils import log, logWarning, logError, logDebug, write_chunk
@@ -71,6 +72,20 @@ try:
     ANOMALY_RESTRICTORS_AVAILABLE = True
 except ImportError:
     ANOMALY_RESTRICTORS_AVAILABLE = False
+
+# Import dynamic item spawn exporter (optional)
+try:
+    from converters import DynamicItemSpawnExporter
+    DYNAMIC_ITEM_EXPORTER_AVAILABLE = True
+except ImportError:
+    DYNAMIC_ITEM_EXPORTER_AVAILABLE = False
+
+# Import dynamic anomaly spawn exporter (optional)
+try:
+    from converters import DynamicAnomalySpawnExporter
+    DYNAMIC_ANOMALY_EXPORTER_AVAILABLE = True
+except ImportError:
+    DYNAMIC_ANOMALY_EXPORTER_AVAILABLE = False
 
 
 class SpawnGraphBuilder:
@@ -129,6 +144,58 @@ class SpawnGraphBuilder:
             except Exception as e:
                 logWarning(f"  Warning: Could not initialize dynamic anomaly restrictor converter: {e}")
 
+        # Dynamic item spawn exporter (strips dynamic_item_spawn_* from build, exports positions)
+        self.dynamic_item_exporter = None
+        self.dynamic_item_export_count = 0
+        if DYNAMIC_ITEM_EXPORTER_AVAILABLE:
+            try:
+                source_config = self._find_dynamic_item_config()
+                self.dynamic_item_exporter = DynamicItemSpawnExporter(
+                    base_mod=game_graph.base_mod if game_graph else None,
+                    source_config_path=source_config
+                )
+                log("  Dynamic item spawn exporter initialized")
+            except Exception as e:
+                logError(f"  Warning: Could not initialize dynamic item spawn exporter: {e}")
+
+        # Dynamic anomaly spawn exporter (strips dynamic_anomaly_spawn_* from build, exports positions)
+        self.dynamic_anomaly_exporter = None
+        self.dynamic_anomaly_export_count = 0
+        if DYNAMIC_ANOMALY_EXPORTER_AVAILABLE:
+            try:
+                source_config = self._find_dynamic_anomaly_config()
+                self.dynamic_anomaly_exporter = DynamicAnomalySpawnExporter(
+                    base_mod=game_graph.base_mod if game_graph else None,
+                    source_config_path=source_config
+                )
+                log("  Dynamic anomaly spawn exporter initialized")
+            except Exception as e:
+                logError(f"  Warning: Could not initialize dynamic anomaly spawn exporter: {e}")
+
+    def _find_dynamic_item_config(self) -> Optional[Path]:
+        """Find dynamic_item_spawn_locations.ltx in the enabled mods."""
+        if not self.game_graph or not self.game_graph.mod_config:
+            return None
+        mods_dir = self.base_path / ".." / "mods"
+        config_rel = Path("configs/items/settings/dynamic_item_spawn_locations.ltx")
+        for mod_name in self.game_graph.mod_config.get_enabled_mods():
+            candidate = mods_dir / mod_name / config_rel
+            if candidate.exists():
+                return candidate
+        return None
+
+    def _find_dynamic_anomaly_config(self) -> Optional[Path]:
+        """Find dynamic_anomaly_locations.ltx in the enabled mods."""
+        if not self.game_graph or not self.game_graph.mod_config:
+            return None
+        mods_dir = self.base_path / ".." / "mods"
+        config_rel = Path("configs/zones/dynamic_anomaly_locations.ltx")
+        for mod_name in self.game_graph.mod_config.get_enabled_mods():
+            candidate = mods_dir / mod_name / config_rel
+            if candidate.exists():
+                return candidate
+        return None
+
     def _read_cross_table_game_vertex_count(self, cross_table_path: Path) -> int:
         """Read game_vertex_count from cross table header"""
         with open(cross_table_path, 'rb') as f:
@@ -160,6 +227,50 @@ class SpawnGraphBuilder:
             blacklist_exact=self.blacklist_exact,
             blacklist_patterns=self.blacklist_patterns
         )
+
+        # Extract dynamic item spawn restrictors before they enter the build
+        if self.dynamic_item_exporter:
+            filtered_packets = []
+            exported_count = 0
+            for spawn_packet, update_packet in merged_packets:
+                entity_name = extract_entity_name(spawn_packet)
+                if entity_name.startswith('dynamic_item_spawn_'):
+                    # Use existing parsers to get position and custom_data
+                    entity = parse_spawn_packet(spawn_packet)
+                    if entity:
+                        alife = parse_alife_object(entity)
+                        custom_data = alife.ini_string if alife else ""
+                        self.dynamic_item_exporter.collect_entity(
+                            level_name, entity_name, entity.position, custom_data
+                        )
+                        exported_count += 1
+                    continue  # Don't include in build
+                filtered_packets.append((spawn_packet, update_packet))
+            merged_packets = filtered_packets
+            self.dynamic_item_export_count += exported_count
+            if exported_count > 0:
+                log(f"    Exported {exported_count} dynamic item spawn positions")
+
+        # Extract dynamic anomaly spawn zones before they enter the build
+        if self.dynamic_anomaly_exporter:
+            filtered_packets = []
+            exported_count = 0
+            for spawn_packet, update_packet in merged_packets:
+                entity_name = extract_entity_name(spawn_packet)
+                if entity_name.startswith('dynamic_anomaly_spawn_'):
+                    entity = parse_spawn_packet(spawn_packet)
+                    if entity:
+                        section_name = extract_section_name(spawn_packet)
+                        self.dynamic_anomaly_exporter.collect_entity(
+                            level_name, entity_name, section_name, entity.position
+                        )
+                        exported_count += 1
+                    continue  # Don't include in build
+                filtered_packets.append((spawn_packet, update_packet))
+            merged_packets = filtered_packets
+            self.dynamic_anomaly_export_count += exported_count
+            if exported_count > 0:
+                log(f"    Exported {exported_count} dynamic anomaly spawn positions")
 
         # Add item spawn restrictors for this level
         if self.item_restrictor_converter:
@@ -212,6 +323,16 @@ class SpawnGraphBuilder:
             log("\n[Pass 1.5] Using GameGraph for level offsets...")
             if self.game_graph:
                 log(f"  Total game vertices: {len(self.game_graph.vertices)}")
+
+        # Write dynamic item spawn positions to config after all levels processed
+        if self.dynamic_item_exporter:
+            log(f"\n  Writing dynamic item spawn config ({self.dynamic_item_export_count} entities collected)...")
+            self.dynamic_item_exporter.write_config()
+
+        # Write dynamic anomaly spawn positions to config after all levels processed
+        if self.dynamic_anomaly_exporter:
+            log(f"\n  Writing dynamic anomaly spawn config ({self.dynamic_anomaly_export_count} entities collected)...")
+            self.dynamic_anomaly_exporter.write_config()
 
         # === PASS 2: Resolve graph IDs ===
         log("\n[Pass 2] Resolving graph IDs...")
@@ -507,6 +628,10 @@ class SpawnGraphBuilder:
             log(f"    Item spawn restrictors: {self.item_restrictor_count}")
         if self.anomaly_restrictor_count > 0:
             log(f"    Anomaly spawn restrictors: {self.anomaly_restrictor_count}")
+        if self.dynamic_item_export_count > 0:
+            log(f"    Dynamic item spawns exported: {self.dynamic_item_export_count}")
+        if self.dynamic_anomaly_export_count > 0:
+            log(f"    Dynamic anomaly spawns exported: {self.dynamic_anomaly_export_count}")
         buffer = io.BytesIO()
         write_chunk(buffer, 0, self._build_vertex_count())
         write_chunk(buffer, 1, self._build_vertices())
