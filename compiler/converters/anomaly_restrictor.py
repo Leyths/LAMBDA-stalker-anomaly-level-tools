@@ -28,17 +28,19 @@ class AnomalyRestrictorConverter:
     Creates one space_restrictor per level for dynamic anomaly spawning.
     """
 
-    def __init__(self, base_mod: str = None):
+    def __init__(self, base_mod: str = None, source_config_path: Path = None):
         """
-        Load level list from merged config file.
-
-        The config file should already be in gamedata/ (copied by ModCopier).
+        Load level list from config file.
 
         Args:
             base_mod: Base mod variant (anomaly, gamma) - kept for backwards compatibility
+            source_config_path: Path to config in mods/ directory. Falls back to gamedata/ if not provided.
         """
-        # Config path - look in gamedata/ where ModCopier places it
-        config_path = Path(__file__).parent.parent.parent / "gamedata/configs/zones/dynamic_anomaly_locations.ltx"
+        if source_config_path and source_config_path.exists():
+            config_path = source_config_path
+        else:
+            # Fallback to gamedata/ path
+            config_path = Path(__file__).parent.parent.parent / "gamedata/configs/zones/dynamic_anomaly_locations.ltx"
 
         self.levels: List[str] = []
         self.locations: Dict[str, LevelRestrictorInfo] = {}

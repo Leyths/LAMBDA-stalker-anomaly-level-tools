@@ -129,7 +129,11 @@ class SpawnGraphBuilder:
         self.item_restrictor_count = 0
         if enable_item_restrictors and ITEM_RESTRICTORS_AVAILABLE:
             try:
-                self.item_restrictor_converter = ItemRestrictorConverter(base_mod = game_graph.base_mod)
+                source_config = self._find_dynamic_item_config()
+                self.item_restrictor_converter = ItemRestrictorConverter(
+                    base_mod=game_graph.base_mod,
+                    source_config_path=source_config
+                )
                 log("  Item restrictor converter initialized")
             except Exception as e:
                 logWarning(f"  Warning: Could not initialize dynamic item restrictor converter: {e}")
@@ -139,7 +143,11 @@ class SpawnGraphBuilder:
         self.anomaly_restrictor_count = 0
         if ANOMALY_RESTRICTORS_AVAILABLE:
             try:
-                self.anomaly_restrictor_converter = AnomalyRestrictorConverter(base_mod = game_graph.base_mod if game_graph else None)
+                source_config = self._find_dynamic_anomaly_config()
+                self.anomaly_restrictor_converter = AnomalyRestrictorConverter(
+                    base_mod=game_graph.base_mod if game_graph else None,
+                    source_config_path=source_config
+                )
                 log("  Anomaly restrictor converter initialized")
             except Exception as e:
                 logWarning(f"  Warning: Could not initialize dynamic anomaly restrictor converter: {e}")
