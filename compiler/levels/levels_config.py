@@ -27,6 +27,9 @@ class LevelConfig:
     original_patrols: Optional[str] = None  # Path to original patrols file (.patrols binary)
     original_edges: Optional[str] = None  # Path to original edges file (.edges.json)
     connect_orphans_automatically: bool = False  # Auto-connect orphan nodes (default: preserve existing behavior)
+    vanilla_hash_ai: Optional[str] = None  # SHA-256 prefix of vanilla level.ai
+    vanilla_hash_spawn: Optional[str] = None  # SHA-256 prefix of vanilla level.spawn
+    vanilla_hash_game: Optional[str] = None  # SHA-256 prefix of vanilla level.game
 
     def __post_init__(self):
         """Validate level configuration"""
@@ -127,6 +130,17 @@ class LevelsConfig:
         connect_orphans_str = data.get('connect_orphans_automatically', 'false')
         connect_orphans_automatically = connect_orphans_str.lower() in ('true', '1', 'yes', 'on')
 
+        # Optional vanilla file hashes (SHA-256 prefix, 16 hex chars)
+        vanilla_hash_ai = data.get('vanilla_hash_ai', None)
+        if vanilla_hash_ai:
+            vanilla_hash_ai = vanilla_hash_ai.strip()
+        vanilla_hash_spawn = data.get('vanilla_hash_spawn', None)
+        if vanilla_hash_spawn:
+            vanilla_hash_spawn = vanilla_hash_spawn.strip()
+        vanilla_hash_game = data.get('vanilla_hash_game', None)
+        if vanilla_hash_game:
+            vanilla_hash_game = vanilla_hash_game.strip()
+
         return LevelConfig(
             section=section,
             name=name,
@@ -137,7 +151,10 @@ class LevelsConfig:
             original_spawn=original_spawn,
             original_patrols=original_patrols,
             original_edges=original_edges,
-            connect_orphans_automatically=connect_orphans_automatically
+            connect_orphans_automatically=connect_orphans_automatically,
+            vanilla_hash_ai=vanilla_hash_ai,
+            vanilla_hash_spawn=vanilla_hash_spawn,
+            vanilla_hash_game=vanilla_hash_game
         )
 
     def _parse_offset(self, offset_str: str) -> Tuple[float, float, float]:

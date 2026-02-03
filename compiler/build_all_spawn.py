@@ -19,7 +19,9 @@ Usage:
 
 import sys
 import argparse
+import hashlib
 import json
+import shutil
 from pathlib import Path
 from typing import List, Optional
 import time
@@ -173,6 +175,12 @@ class GameGraphBuilder:
         log("STEP 5: Copying Mod Variant Files")
         log("=" * 70)
         self._copy_mod_variant_files(game_graph)
+
+        # Step 6: Copy modified level files to gamedata
+        log("\n" + "=" * 70)
+        log("STEP 6: Checking Level Files For Changes")
+        log("=" * 70)
+        self._copy_modified_level_files()
 
         elapsed = time.time() - start_time
         log("\n" + "=" * 70)
@@ -483,6 +491,46 @@ class GameGraphBuilder:
         copied_count = mod_copier.copy_all_enabled_mods(self.mod_config)
 
         log(f"  Total files processed: {copied_count}")
+
+    def _copy_modified_level_files(self):
+        """
+        Compare level.ai, level.spawn, and level.game against vanilla hashes.
+        If a file differs from vanilla, copy it to gamedata/levels/<name>/.
+        """
+        copied = 0
+        checked = 0
+
+        for level in self.config.levels:
+            level_dir = self.base_path / level.path
+
+            files_to_check = [
+                ("level.ai", level.vanilla_hash_ai),
+                ("level.spawn", level.vanilla_hash_spawn),
+                ("level.game", level.vanilla_hash_game),
+            ]
+
+            for filename, vanilla_hash in files_to_check:
+                if not vanilla_hash:
+                    continue
+
+                filepath = level_dir / filename
+                if not filepath.exists():
+                    continue
+
+                checked += 1
+                current_hash = hashlib.sha256(filepath.read_bytes()).hexdigest()[:16]
+
+                if current_hash != vanilla_hash:
+                    dest = self.gamedata_dir / "levels" / level.name / filename
+                    dest.parent.mkdir(parents=True, exist_ok=True)
+                    shutil.copy2(filepath, dest)
+                    copied += 1
+                    log(f"  {level.name}/{filename} modified -> copied to gamedata")
+
+        if copied == 0:
+            log(f"  No modified level files detected ({checked} files checked)")
+        else:
+            log(f"  Copied {copied} modified file(s) to gamedata/levels/ ({checked} checked)")
 
 
 def main():
