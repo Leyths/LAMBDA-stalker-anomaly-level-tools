@@ -104,6 +104,40 @@ def extract_entity_name(packet: bytes) -> str:
         return ""
 
 
+def extract_entity_position(packet: bytes) -> Optional[Tuple[float, float, float]]:
+    """
+    Extract entity position from spawn packet (with size prefix).
+
+    Args:
+        packet: Spawn packet bytes with u16 size prefix
+
+    Returns:
+        (x, y, z) tuple rounded to 2 decimal places, or None if extraction fails
+    """
+    try:
+        offset = 2  # Skip size prefix
+        offset += 2  # Skip M_SPAWN type
+        # Skip section name
+        end = packet.find(b'\x00', offset)
+        if end == -1:
+            return None
+        offset = end + 1
+        # Skip entity name
+        end = packet.find(b'\x00', offset)
+        if end == -1:
+            return None
+        offset = end + 1
+        # Skip gameid (u8) + s_RP (u8)
+        offset += 2
+        # Read position (3 floats)
+        if offset + 12 > len(packet):
+            return None
+        x, y, z = struct.unpack_from('<3f', packet, offset)
+        return (round(x, 2), round(y, 2), round(z, 2))
+    except Exception:
+        return None
+
+
 def extract_section_name(packet: bytes) -> str:
     """
     Extract section name from spawn packet (with size prefix).
@@ -126,7 +160,7 @@ def extract_section_name(packet: bytes) -> str:
         return ""
 
 
-def load_entities_from_spawn_file(spawn_path: Path) -> Dict[str, Tuple[bytes, Optional[bytes]]]:
+def load_entities_from_spawn_file(spawn_path: Path) -> Dict[tuple, Tuple[bytes, Optional[bytes]]]:
     """
     Load entities from a spawn file.
     Detects if file has Wrapper chunks (Spawn+Update) or flat chunks.
@@ -135,8 +169,9 @@ def load_entities_from_spawn_file(spawn_path: Path) -> Dict[str, Tuple[bytes, Op
         spawn_path: Path to the spawn file
 
     Returns:
-        Dict mapping entity_name to (spawn_packet, update_packet) tuple.
+        Dict mapping (entity_name, rounded_position) to (spawn_packet, update_packet) tuple.
         update_packet may be None if not present.
+        Uses (name, position) key to distinguish entities with the same name at different locations.
     """
     entities = {}
 
@@ -177,10 +212,12 @@ def load_entities_from_spawn_file(spawn_path: Path) -> Dict[str, Tuple[bytes, Op
                 spawn_packet = struct.pack('<H', len(chunk_data)) + chunk_data
                 update_packet = None
 
-            # Extract name
+            # Extract name and position for unique key
             name = extract_entity_name(spawn_packet)
             if name:
-                entities[name] = (spawn_packet, update_packet)
+                pos = extract_entity_position(spawn_packet)
+                key = (name, pos)
+                entities[key] = (spawn_packet, update_packet)
 
     return entities
 
@@ -214,16 +251,25 @@ def collect_level_entities(
     """
     log(f"  Collecting entities for {level_name}...")
 
-    # 1. Load old spawn entities (Name -> (SpawnPacket, UpdatePacket))
-    old_entities_by_name = {}
+    # 1. Load old spawn entities ((Name, Position) -> (SpawnPacket, UpdatePacket))
+    old_entities = {}
     if old_spawn_path:
         if isinstance(old_spawn_path, str):
             old_spawn_path = Path(old_spawn_path)
         if old_spawn_path.exists():
-            old_entities_by_name = load_entities_from_spawn_file(old_spawn_path)
-            log(f"    Loaded {len(old_entities_by_name)} entities from old spawn for merging")
+            old_entities = load_entities_from_spawn_file(old_spawn_path)
+            log(f"    Loaded {len(old_entities)} entities from old spawn for merging")
 
-    used_old_entities = set()
+    # Build a name-only index for matching new entities to old ones
+    # Maps entity_name -> list of (key, spawn_packet, update_packet)
+    old_by_name: Dict[str, List[tuple]] = {}
+    for key, (old_spawn, old_update) in old_entities.items():
+        name = key[0]
+        if name not in old_by_name:
+            old_by_name[name] = []
+        old_by_name[name].append((key, old_spawn, old_update))
+
+    used_old_keys = set()
     merged_packets = []
     graph_point_count = 0
     merged_count = 0
@@ -254,6 +300,7 @@ def collect_level_entities(
             # Extract info
             entity_name = extract_entity_name(spawn_packet)
             section_name = extract_section_name(spawn_packet)
+            entity_pos = extract_entity_position(spawn_packet)
 
             # Automatically filter actors on non-fake_start levels
             if section_name == 'actor' and level_name != 'fake_start':
@@ -264,24 +311,40 @@ def collect_level_entities(
             # Check blacklist
             if is_blacklisted(entity_name, section_name, blacklist_exact, blacklist_patterns):
                 blacklisted_count += 1
+                log(f"    Blacklisted: '{entity_name}' (section: {section_name})")
                 continue
 
-            # MERGE LOGIC
-            if entity_name and entity_name in old_entities_by_name:
-                old_spawn, old_update = old_entities_by_name[entity_name]
+            # MERGE LOGIC - try exact (name, position) match first, then name-only
+            old_spawn_pkt = None
+            old_update_pkt = None
+            matched_key = None
 
+            exact_key = (entity_name, entity_pos)
+            if exact_key in old_entities:
+                old_spawn_pkt, old_update_pkt = old_entities[exact_key]
+                matched_key = exact_key
+            elif entity_name in old_by_name:
+                # Fall back to first unused entry with same name
+                for candidate_key, candidate_spawn, candidate_update in old_by_name[entity_name]:
+                    if candidate_key not in used_old_keys:
+                        old_spawn_pkt = candidate_spawn
+                        old_update_pkt = candidate_update
+                        matched_key = candidate_key
+                        break
+
+            if matched_key is not None:
                 # Use old packet if it has more data (custom_data, etc)
-                if len(old_spawn) > len(spawn_packet):
-                    final_spawn = old_spawn
-                    final_update = old_update  # Preserve existing update packet!
+                if len(old_spawn_pkt) > len(spawn_packet):
+                    final_spawn = old_spawn_pkt
+                    final_update = old_update_pkt  # Preserve existing update packet!
                     merged_count += 1
                 else:
                     # Use NEW spawn data
                     final_spawn = spawn_packet
                     # Use OLD update packet if available (preserve physics state/ammo from old build)
-                    final_update = old_update
+                    final_update = old_update_pkt
 
-                used_old_entities.add(entity_name)
+                used_old_keys.add(matched_key)
             else:
                 # New entity, no history
                 final_spawn = spawn_packet
@@ -299,8 +362,9 @@ def collect_level_entities(
     # 3. Add remaining Old Entities (not in new file)
     added_old = 0
     blacklisted_old = 0
-    for name, (old_spawn, old_update) in old_entities_by_name.items():
-        if name not in used_old_entities:
+    for key, (old_spawn, old_update) in old_entities.items():
+        if key not in used_old_keys:
+            name = key[0]
             section = extract_section_name(old_spawn)
 
             # Skip graph points (they are level specific)
@@ -316,6 +380,7 @@ def collect_level_entities(
             if is_blacklisted(name, section, blacklist_exact, blacklist_patterns):
                 blacklisted_old += 1
                 blacklisted_count += 1
+                log(f"    Blacklisted (old spawn): '{name}' (section: {section})")
                 continue
 
             merged_packets.append((old_spawn, old_update))

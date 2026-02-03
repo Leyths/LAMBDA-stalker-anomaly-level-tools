@@ -9,6 +9,7 @@ from .spawn_entity_extractor import (
     load_blacklist,
     is_blacklisted,
     extract_entity_name,
+    extract_entity_position,
     extract_section_name,
     load_entities_from_spawn_file,
     collect_level_entities,
