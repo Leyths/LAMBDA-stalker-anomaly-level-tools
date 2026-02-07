@@ -167,3 +167,120 @@ xr_effects.spawn_item_at_pos = function(actor, npc, p)
         end
     end
 end
+
+------------------------------------------------------
+-- make_a_wish (Wish Granter - immortality ChangeLevel)
+-- Tagged ChangeLevel to k00_marsh
+------------------------------------------------------
+{r%level:k00_marsh}
+xr_effects.make_a_wish = function(actor, npc, p)
+    disable_info("drx_sl_on_find_wish_granter")
+
+    local action_list = {}
+
+    action_list[1] = function()
+        local str = game.translate_string("st_zone_disappeared")
+        error(str,2)
+        return
+    end
+
+    action_list[2] = function()
+        give_info("actor_made_wish")
+        give_info("actor_made_wish_for_control")
+        return
+    end
+
+    action_list[3] = function()
+        local sim = alife()
+        local function remove_this_squad(id)
+            local squad = id and sim:object(id)
+            if not (squad) then
+                return true
+            end
+            printf("DEBUG: removing squad %s from the game",squad:name())
+            SIMBOARD:assign_squad_to_smart(squad, nil)
+            squad:remove_squad()
+            return true
+        end
+        local squad
+        for i=1,65534 do
+            squad = sim:object(i)
+            if (squad and squad:clsid() == clsid.online_offline_group_s) then
+                CreateTimeEvent("remove_this_squad",squad.id,math.random(1,10),remove_this_squad,squad.id)
+            end
+        end
+        give_info("actor_made_wish_for_peace")
+        give_info("actor_made_wish")
+        return
+    end
+
+    action_list[4] = function()
+        local sim = alife()
+        local s_find = string.find
+        local ltx = ini_file("plugins\\spawner_blacklist.ltx")
+        local pos = db.actor:position()
+        local lid = db.actor:level_vertex_id()
+        local gid = db.actor:game_vertex_id()
+        ini_sys:section_for_each( function(section)
+            local cost = ini_sys:r_float_ex(section,"cost")
+            if cost and cost > 0 and (not ltx:line_exist("ignore_sections",section)) then
+                local parent = ini_sys:r_string_ex(section,"parent_section")
+                local qst_itm = ini_sys:r_bool_ex(section,"quest_item")
+                local anm_itm = IsItem("anim",section)
+                local tch_itm = s_find(section,"tch_") and true or false
+                local bse_itm = s_find(section,"base") and true or false
+                local main_itm = (not parent) or (parent and parent == section)
+
+                if not (qst_itm and anm_itm and tch_itm and bse_itm and main_itm) then
+                    local x = ini_sys:r_float_ex(section,"inv_grid_x")
+                    local y = ini_sys:r_float_ex(section,"inv_grid_y")
+                    if (x and x ~= 0) and (y and y ~= 0) then
+                        sim:create(section, pos, lid, gid, AC_ID)
+                    end
+                end
+            end
+        end)
+
+        local function remove_backpack(id)
+            local function itr(npc,itm)
+                if (itm:section() == "itm_actor_backpack" or itm:section() == "itm_backpack") then
+                    alife_release_id(itm:id())
+                    return
+                end
+            end
+            db.actor:iterate_inventory(itr,db.actor)
+        end
+
+        CreateTimeEvent(0,"remove_backpack",1,remove_backpack,0)
+
+        give_info("actor_made_wish_for_riches")
+        give_info("actor_made_wish")
+        return
+    end
+
+    action_list[5] = function()
+        local se_actor = alife():actor()
+        local data = utils_stpk.get_actor_data(se_actor)
+        if (data) then
+            data.specific_character = "actor_zombied"
+            utils_stpk.set_actor_data(data,se_actor)
+        end
+
+        set_actor_true_community("zombied")
+        give_info("actor_made_wish_immortal")
+        give_info("actor_made_wish")
+
+        inc_faction_goodwill_to_actor(db.actor, nil, {"monolith", 5000})
+        inc_faction_goodwill_to_actor(db.actor, nil, {"zombied", 5000})
+        ChangeLevel(vector():set({w%x:266.99}, {w%y:0.00}, {w%z:-131.07}), {w%lvid:310937}, {w%gvid:181}, VEC_ZERO)
+        return
+    end
+
+    -- Hide and disable the immortality wish if actor is in Zombified or Monolith factions.
+    if (character_community(db.actor) == "actor_zombied" or character_community(db.actor) == "actor_monolith") then
+        action_list[5] = nil
+        ui_dyn_msg_box.multi_choice(action_list,"st_wish_1","st_wish_2","st_wish_3","st_wish_4","st_wish_99")
+    else
+        ui_dyn_msg_box.multi_choice(action_list,"st_wish_1","st_wish_2","st_wish_3","st_wish_4","st_wish_5","st_wish_99")
+    end
+end

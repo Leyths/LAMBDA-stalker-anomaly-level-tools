@@ -1,0 +1,112 @@
+--[[
+    Main Story Fixes - Leyths
+    Override hardcoded LVID/GVID values in mlr_utils SPWN and CLT tables
+    so they can be recomputed during level recompilation via tag rewriter.
+--]]
+
+------------------------------------------------------
+-- SPWN table override (mlr_utils.script)
+-- Items grouped by level for tag rewriter context
+------------------------------------------------------
+{r%level:l01_escape}
+local SPWN_override = {
+    spawn_1_11_af_medusa_kmb = {["af_medusa"] = {{w%x:-245.78}, {w%y:-14.29}, {w%z:-16.55}, {w%lvid:16254}, {w%gvid:381}}},
+    spawn_wpn_ak74_jurov_task_2_1 = {["wpn_ak74_jurov_task_2"] = {{w%x:-65.71}, {w%y:-31.52}, {w%z:-352.51}, {w%lvid:314724}, {w%gvid:571}}},
+    spawn_wpn_ak74_jurov_task_2_2 = {["wpn_ak74_jurov_task_2"] = {{w%x:-106.22}, {w%y:-29.38}, {w%z:-394.22}, {w%lvid:232856}, {w%gvid:443}}},
+{r%level:l03_agroprom}
+    wpn_svd_bandit_depo_task_1_1 = {["wpn_svd_bandit_depo_task_1"] = {{w%x:-219.37}, {w%y:1.37}, {w%z:209.31}, {w%lvid:1777}, {w%gvid:971}}},
+    wpn_svd_bandit_depo_task_1_2 = {["wpn_svd_bandit_depo_task_1"] = {{w%x:-240.83}, {w%y:3.53}, {w%z:217.42}, {w%lvid:203}, {w%gvid:935}}},
+    wpn_svd_bandit_depo_task_1_3 = {["wpn_svd_bandit_depo_task_1"] = {{w%x:-213.45}, {w%y:3.63}, {w%z:269.33}, {w%lvid:2672}, {w%gvid:977}}},
+{r%level:l07_military}
+    spawn_povars_12_70 = {["ammo_12x70_buck"] = {{w%x:25.58}, {w%y:-11.88}, {w%z:-236.22}, {w%lvid:77453}, {w%gvid:1986}, 5}},
+    spawn_povars_ammo_pkm_100 = {["ammo_pkm_100"] = {{w%x:25.58}, {w%y:-11.88}, {w%z:-236.22}, {w%lvid:77453}, {w%gvid:1986}, 5}},
+    spawn_povars_9_18_6 = {["ammo_9x18_fmj"] = {{w%x:25.58}, {w%y:-11.88}, {w%z:-236.22}, {w%lvid:77453}, {w%gvid:1986}, 6}},
+    spawn_povars_5_45_3 = {["ammo_5.45x39_fmj"] = {{w%x:25.58}, {w%y:-11.88}, {w%z:-236.22}, {w%lvid:77453}, {w%gvid:1986}, 3}},
+    spawn_povars_5_45_6 = {["ammo_5.45x39_fmj"] = {{w%x:25.58}, {w%y:-11.88}, {w%z:-236.22}, {w%lvid:77453}, {w%gvid:1986}, 6}},
+    spawn_povars_7_62 = {["ammo_7.62x54_7h1"] = {{w%x:25.58}, {w%y:-11.88}, {w%z:-236.22}, {w%lvid:77453}, {w%gvid:1986}, 2}},
+    spawn_povars_berill = {["specops_outfit"] = {{w%x:25.54}, {w%y:-11.88}, {w%z:-234.85}, {w%lvid:77112}, {w%gvid:1986}}},
+{r%level:k02_trucks_cemetery}
+    spawn_wpn_saiga_rookie_pole = {["wpn_saiga_rookie_pole"] = {{w%x:-164.93}, {w%y:0.16}, {w%z:77.97}, {w%lvid:80940}, {w%gvid:5146}}},
+}
+
+mlr_utils.spawn_item = function(name)
+    local tbl = SPWN_override[name]
+    if not tbl then return end
+    for k, v in pairs(tbl) do
+        for i = 1, (v[6] or 1) do
+            alife_create(k, vector():set(v[1], v[2], v[3]), v[4], v[5])
+        end
+    end
+end
+
+------------------------------------------------------
+-- CLT table override (mlr_utils.script)
+-- ChangeLevel destinations grouped by level
+------------------------------------------------------
+{r%level:k00_marsh}
+local CLT_override = {
+    marsh_guid = {{w%x:641.22045898438}, {w%y:9.9145269393921}, {w%z:463.4518737793}, {w%lvid:531344}, {w%gvid:226}},
+{r%level:l01_escape}
+    escp_guid_mil_speed = {{w%x:-17.040597915649}, {w%y:0.69932228326797}, {w%z:277.01373291016}, {w%lvid:279632}, {w%gvid:632}},
+    escape_guid_military = {{w%x:-132.42623901367}, {w%y:-30.139842987061}, {w%z:-394.85430908203}, {w%lvid:122849}, {w%gvid:373}},
+    escape_village_guid = {{w%x:-168.36848449707}, {w%y:-20.235736846924}, {w%z:-155.74464416504}, {w%lvid:81102}, {w%gvid:452}},
+    pripyat_guid = {{w%x:-247.2088470459}, {w%y:-0.51004129648209}, {w%z:-133.41319274902}, {w%lvid:5072}, {w%gvid:615}},
+    escape_guid = {{w%x:-52.625671386719}, {w%y:-10.05776309967}, {w%z:-64.016700744629}, {w%lvid:236395}, {w%gvid:559}},
+{r%level:l02_garbage}
+    garbage_guid = {{w%x:20.42943572998}, {w%y:0.3997375369072}, {w%z:239.76965332031}, {w%lvid:178228}, {w%gvid:858}},
+{r%level:l03_agroprom}
+    agroprom_guid_military = {{w%x:-175.5033416748}, {w%y:5.3152875900269}, {w%z:-186.05902099609}, {w%lvid:46523}, {w%gvid:1037}},
+    agroprom_guid = {{w%x:-8.4884414672852}, {w%y:-4.9986891746521}, {w%z:-321.14392089844}, {w%lvid:190767}, {w%gvid:874}},
+{r%level:k01_darkscape}
+    darkscape_guid_military = {{w%x:416.24505615234}, {w%y:-2.0682604312897}, {w%z:-381.73083496094}, {w%lvid:896271}, {w%gvid:1114}},
+{r%level:l05_bar}
+    l05_bar_guid = {{w%x:57.820430755615}, {w%y:-0.0016859173774719}, {w%z:123.71918487549}, {w%lvid:26958}, {w%gvid:1745}},
+{r%level:l07_military}
+    military_guid = {{w%x:-323.85864257813}, {w%y:-25.816766738892}, {w%z:55.820461273193}, {w%lvid:23506}, {w%gvid:2110}},
+{r%level:l08_yantar}
+    yantar_guid_from_freedom_base = {{w%x:170.966796875}, {w%y:1.8648002147675}, {w%z:87.093704223633}, {w%lvid:147072}, {w%gvid:2213}},
+    mil_to_yant_on_heli = {{w%x:53.360538482666}, {w%y:-11.887294769287}, {w%z:-280.54272460938}, {w%lvid:91046}, {w%gvid:2288}},
+    yantar_guid = {{w%x:209.00457763672}, {w%y:6.3322243690491}, {w%z:-246.66212463379}, {w%lvid:151270}, {w%gvid:2190}},
+{r%level:l09_deadcity}
+    ds_soviet_store = {{w%x:-56.60}, {w%y:8.92}, {w%z:37.57}, {w%lvid:96425}, {w%gvid:2367}},
+{r%level:l10_radar}
+    radar_guid = {{w%x:659.78375244141}, {w%y:-43.879955291748}, {w%z:170.1953125}, {w%lvid:227224}, {w%gvid:2538}},
+{r%level:l10_red_forest}
+    red_forest_guid_mon = {{w%x:-174.38987731934}, {w%y:0.39412915706635}, {w%z:-268.97796630859}, {w%lvid:3338}, {w%gvid:2790}},
+    red_forest_guid = {{w%x:30.185470581055}, {w%y:-0.0034164488315582}, {w%z:16.55979347229}, {w%lvid:81736}, {w%gvid:2812}},
+{r%level:l11_hospital}
+    jupiter_underground_guid = {{w%x:-35.938255310059}, {w%y:8.0647020339966}, {w%z:409.55804443359}, {w%lvid:4828}, {w%gvid:2874}},
+{r%level:l11_pripyat}
+    l11_pripyat_guid_mon = {{w%x:-125.87271881104}, {w%y:-2.3243350982666}, {w%z:79.815246582031}, {w%lvid:5834}, {w%gvid:2930}},
+    pripyat_2_guid = {{w%x:203.07299804688}, {w%y:-0.39944335818291}, {w%z:207.8582611084}, {w%lvid:261726}, {w%gvid:3067}},
+    l11_pripyat_guid = {{w%x:-124.84135437012}, {w%y:-0.4021889269352}, {w%z:100.8790435791}, {w%lvid:6083}, {w%gvid:3068}},
+{r%level:l12_stancia}
+    stancia_guid = {{w%x:993.24591064453}, {w%y:-0.12632231414318}, {w%z:-317.42514038086}, {w%lvid:461400}, {w%gvid:3214}},
+{r%level:zaton}
+    zat_trash_station = {{w%x:430.74}, {w%y:30.45}, {w%z:-420.38}, {w%lvid:1671704}, {w%gvid:4454}},
+    zaton_guid = {{w%x:120.02467346191}, {w%y:-7.3487234115601}, {w%z:185.89865112305}, {w%lvid:1172089}, {w%gvid:4457}},
+{r%level:jupiter}
+    jup_guid_bandit_cont = {{w%x:-436.17681884766}, {w%y:0.023663967847824}, {w%z:-352.67199707031}, {w%lvid:4818}, {w%gvid:4632}},
+    jupiter_guid_mon = {{w%x:388.51870727539}, {w%y:4.2755246162415}, {w%z:-127.71376800537}, {w%lvid:1328885}, {w%gvid:4677}},
+    jup_bunker_guid = {{w%x:-203.84951782227}, {w%y:-4.2126941680908}, {w%z:66.718566894531}, {w%lvid:372256}, {w%gvid:4486}},
+    jupiter_guid = {{w%x:-50.628776550293}, {w%y:3.4879410266876}, {w%z:199.19316101074}, {w%lvid:635022}, {w%gvid:4478}},
+    jup_depo = {{w%x:423.711029052734}, {w%y:9.95538330078125}, {w%z:-91.8379669189453}, {w%lvid:1384937}, {w%gvid:4816}},
+{r%level:jupiter_underground}
+    jupiter_underground_2_guid = {{w%x:82.033393859863}, {w%y:4.0361824035645}, {w%z:-217.11773681641}, {w%lvid:40763}, {w%gvid:4877}},
+    pass_hall = {{w%x:23.93337059021}, {w%y:-0.0002819299697876}, {w%z:6.6123156547546}, {w%lvid:27828}, {w%gvid:4864}},
+{r%level:pripyat}
+    pripyat_guid_mon = {{w%x:-118.44010162354}, {w%y:-0.50860524177551}, {w%z:103.26635742188}, {w%lvid:77100}, {w%gvid:5050}},
+    out_entrance = {{w%x:186.211975097656}, {w%y:-0.50654798746109}, {w%z:-255.105880737305}, {w%lvid:416193}, {w%gvid:4909}},
+{r%level:k02_trucks_cemetery}
+    trucks_cemetery_guid = {{w%x:232.85961914063}, {w%y:7.5902180671692}, {w%z:308.79092407227}, {w%lvid:749878}, {w%gvid:5167}},
+}
+
+mlr_utils.change_lvl = function(p)
+    if db.actor:is_talking() then
+        db.actor:stop_talk()
+    end
+    local v = CLT_override[p]
+    if v then
+        ChangeLevel(vector():set(v[1], v[2], v[3]), v[4], v[5], vector():set(v[6] or 0, v[7] or 0, v[8] or 0), true)
+    end
+end
