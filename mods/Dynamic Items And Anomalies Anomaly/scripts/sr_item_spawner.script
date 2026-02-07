@@ -62,7 +62,11 @@ function action_item_spawner:update(delta)
 
     -- Tell manager to spawn all items for this level
     if sr_item_spawn_manager and sr_item_spawn_manager.spawn_all_items_for_level then
-        sr_item_spawn_manager.spawn_all_items_for_level(level_name)
+        local success = sr_item_spawn_manager.spawn_all_items_for_level(level_name)
+        if not success then
+            -- State not loaded yet, retry next frame
+            return
+        end
         log("Successfully triggered item spawn for level %s", level_name)
     else
         log("ERROR: sr_item_spawn_manager.spawn_all_items_for_level not available!")

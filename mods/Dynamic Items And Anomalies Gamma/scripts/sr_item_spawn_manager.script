@@ -17,6 +17,7 @@
 
 local enable_debug = true
 local inited = false
+local state_loaded = false
 local sfind = string.find
 
 -- State tables
@@ -213,16 +214,22 @@ function spawn_all_items_for_level(level_name)
     -- Spawns all items for the current level
     init_settings()
 
+    -- Guard: don't spawn until save state has been loaded (prevents duplicates on load)
+    if not state_loaded then
+        print_debug("/ sr_item_spawn_manager | Waiting for state load, deferring spawn for %s", level_name)
+        return false
+    end
+
     -- Check if already spawned for this level (in this game session)
     if levels_spawned[level_name] then
         print_debug("/ sr_item_spawn_manager | Level %s already spawned this session", level_name)
-        return
+        return true
     end
 
     local locations = spawn_locations[level_name]
     if not locations then
         print_debug("! sr_item_spawn_manager | No spawn locations for level: %s", level_name)
-        return
+        return true
     end
 
     -- Get difficulty multiplier for spawn chance
@@ -236,48 +243,69 @@ function spawn_all_items_for_level(level_name)
     local skip_count = 0
 
     for name, data in pairs(locations) do
-        -- Skip if already spawned (from save/load)
+        -- Check if this location already has an active item
         if spawned_items[name] then
-            print_debug("/ sr_item_spawn_manager | %s already exists, skipping", name)
-            skip_count = skip_count + 1
-        else
-            -- Difficulty-based spawn chance
-            if math.random() < multi then
-                -- Create position vector
-                local pos = vector():set(data.x, data.y, data.z)
-
-                -- Get LVID from position at runtime
-                local lvid = level.vertex_id(pos)
-                if lvid == 4294967295 then
-                    -- Invalid LVID, try to find nearest valid vertex
-                    lvid = level.vertex_in_direction(level.vertex_id(db.actor:position()), pos, 1000)
-                    if lvid == 4294967295 then
-                        print_debug("! sr_item_spawn_manager | Invalid LVID for %s at %.1f, %.1f, %.1f", name, data.x, data.y, data.z)
-                        skip_count = skip_count + 1
-                        goto continue
-                    end
-                end
-
-                -- Spawn the item
-                local item_id, section = spawn_item_at_position(name, data.category, pos, lvid, actor_gvid)
-                if item_id then
-                    spawned_items[name] = {
-                        item_id = item_id,
-                        category = data.category
-                    }
-                    world_itm_on[item_id] = name
-                    spawn_count = spawn_count + 1
---                    add_marker(name, section, item_id, data.category)
+            local tracked = spawned_items[name]
+            if tracked.item_id then
+                -- Verify item still exists in simulation
+                local se_obj = alife():object(tracked.item_id)
+                if se_obj then
+                    print_debug("/ sr_item_spawn_manager | %s (id=%s) verified exists, skipping", name, tracked.item_id)
+                    skip_count = skip_count + 1
+                    goto continue
+                else
+                    -- Item destroyed outside pickup callback, clean up stale tracking
+                    print_debug("/ sr_item_spawn_manager | %s (id=%s) no longer exists, cleaning up", name, tracked.item_id)
+                    world_itm_on[tracked.item_id] = nil
+                    world_itm_num[name] = nil
+                    spawned_items[name] = nil
+                    -- Fall through to spawn below
                 end
             else
+                -- item_id is nil = item was picked up, skip (respawn happens elsewhere)
+                print_debug("/ sr_item_spawn_manager | %s was already taken, skipping", name)
                 skip_count = skip_count + 1
+                goto continue
             end
+        end
+
+        -- Difficulty-based spawn chance
+        if math.random() < multi then
+            -- Create position vector
+            local pos = vector():set(data.x, data.y, data.z)
+
+            -- Get LVID from position at runtime
+            local lvid = level.vertex_id(pos)
+            if lvid == 4294967295 then
+                -- Invalid LVID, try to find nearest valid vertex
+                lvid = level.vertex_in_direction(level.vertex_id(db.actor:position()), pos, 1000)
+                if lvid == 4294967295 then
+                    print_debug("! sr_item_spawn_manager | Invalid LVID for %s at %.1f, %.1f, %.1f", name, data.x, data.y, data.z)
+                    skip_count = skip_count + 1
+                    goto continue
+                end
+            end
+
+            -- Spawn the item
+            local item_id, section = spawn_item_at_position(name, data.category, pos, lvid, actor_gvid)
+            if item_id then
+                spawned_items[name] = {
+                    item_id = item_id,
+                    category = data.category
+                }
+                world_itm_on[item_id] = name
+                spawn_count = spawn_count + 1
+--                    add_marker(name, section, item_id, data.category)
+            end
+        else
+            skip_count = skip_count + 1
         end
         ::continue::
     end
 
     levels_spawned[level_name] = true
     print_debug("/ sr_item_spawn_manager | Level %s: spawned %s items, skipped %s (multi=%s)", level_name, spawn_count, skip_count, string.format("%.2f", multi))
+    return true
 end
 
 function is_restrictor_item(id)
@@ -384,8 +412,28 @@ local function load_state(m_data)
     world_itm_on = m_data.sr_item_spawn_world_itm_on or {}
     world_itm_num = m_data.sr_item_spawn_world_itm_num or {}
     levels_spawned = m_data.sr_item_spawn_levels_spawned or {}
-    print_debug("# sr_item_spawn_manager LOADING: items [%s] - levels [%s]",
-        size_table(spawned_items), size_table(levels_spawned))
+    state_loaded = true
+
+    -- Clean stale entries where tracked items no longer exist
+    if alife() then
+        local cleaned = 0
+        for item_id, spawn_name in pairs(world_itm_on) do
+            if not alife():object(item_id) then
+                print_debug("/ sr_item_spawn_manager | Cleaning stale item: %s (id=%s)", spawn_name, item_id)
+                world_itm_on[item_id] = nil
+                world_itm_num[spawn_name] = nil
+                if spawned_items[spawn_name] then
+                    spawned_items[spawn_name] = nil
+                end
+                cleaned = cleaned + 1
+            end
+        end
+        print_debug("# sr_item_spawn_manager LOADING: items [%s] - levels [%s] - cleaned [%s]",
+            size_table(spawned_items), size_table(levels_spawned), cleaned)
+    else
+        print_debug("# sr_item_spawn_manager LOADING: items [%s] - levels [%s] (alife not ready, skipping cleanup)",
+            size_table(spawned_items), size_table(levels_spawned))
+    end
 end
 
 -------------------------------
@@ -395,6 +443,10 @@ function on_game_start()
     RegisterScriptCallback("actor_on_item_take", actor_on_item_take)
     RegisterScriptCallback("save_state", save_state)
     RegisterScriptCallback("load_state", load_state)
+    RegisterScriptCallback("actor_on_first_update", function()
+        state_loaded = true
+        print_debug("- sr_item_spawn_manager | actor_on_first_update: state_loaded = true")
+    end)
     print_debug("- sr_item_spawn_manager | Registered callbacks")
 end
 
