@@ -1,0 +1,169 @@
+--[[
+    Main Story Fixes - Leyths
+    Override hardcoded LVID/GVID values in xr_effects spawn functions
+    so they can be recomputed during level recompilation via tag rewriter.
+--]]
+
+------------------------------------------------------
+-- spawn_strelok_notes (Living Legend Task 2)
+------------------------------------------------------
+{r%level:l03u_agr_underground}
+xr_effects.spawn_strelok_notes = function(actor, npc, p)
+    local pos = vector():set({w%x:43.601459503174}, {w%y:1.3544018268585}, {w%z:75.227851867676})
+    local se_obj = alife_create("strelok_notes", pos, {w%lvid:3762}, {w%gvid:3630})
+    if (not se_obj) then
+        printe("!ERROR: unable to spawn strelok_notes")
+    end
+end
+
+------------------------------------------------------
+-- spawn_wpn_gauss_quest (Living Legend Task 9)
+------------------------------------------------------
+{r%level:zaton}
+xr_effects.spawn_wpn_gauss_quest = function(actor, npc, p)
+    local quest_item_locations_list = {
+        {{w%x:-421.80874633789}, {w%y:23.745666503906}, {w%z:-328.25729370117}, {w%lvid:145096}, {w%gvid:4394}},
+        {{w%x:-411.07214355469}, {w%y:32.196994781494}, {w%z:-334.24200439453}, {w%lvid:161488}, {w%gvid:4139}},
+        {{w%x:-424.48648071289}, {w%y:24.198583602905}, {w%z:-381.48046875}, {w%lvid:142021}, {w%gvid:4140}},
+    }
+    local i = math.random(#quest_item_locations_list)
+    local loc = quest_item_locations_list[i]
+    local pos = vector():set(loc[1], loc[2], loc[3])
+    local se_obj = alife_create("wpn_gauss_quest", pos, loc[4], loc[5])
+    if (not se_obj) then
+        printe("!ERROR: unable to spawn wpn_gauss_quest")
+    end
+end
+
+------------------------------------------------------
+-- spawn_x8_documents (Living Legend Task 13)
+------------------------------------------------------
+{r%level:labx8}
+xr_effects.spawn_x8_documents = function(actor, npc, p)
+    local quest_item_locations_list = {
+        {{w%x:-79.236862182617}, {w%y:-24.324705123901}, {w%z:89.061508178711}, {w%lvid:3417}, {w%gvid:5077}},
+        {{w%x:-101.86143493652}, {w%y:-31.362953186035}, {w%z:90.774269104004}, {w%lvid:636}, {w%gvid:5090}},
+        {{w%x:-79.810501098633}, {w%y:-15.038819313049}, {w%z:114.17692565918}, {w%lvid:3459}, {w%gvid:5098}},
+    }
+    local i = math.random(#quest_item_locations_list)
+    local loc = quest_item_locations_list[i]
+    local pos = vector():set(loc[1], loc[2], loc[3])
+    local se_obj = alife_create("x8_documents", pos, loc[4], loc[5])
+    if (not se_obj) then
+        printe("!ERROR: unable to spawn x8_documents")
+    end
+end
+
+------------------------------------------------------
+-- spawn_monolith_shard (Living Legend)
+------------------------------------------------------
+{r%level:l12u_sarcofag}
+xr_effects.spawn_monolith_shard = function(actor, npc, p)
+    local pos = vector():set({w%x:0.072339810431004}, {w%y:-34.356998443604}, {w%z:17.800102233887})
+    local se_obj = alife_create("monolith_shard", pos, {w%lvid:1849}, {w%gvid:4055})
+    if (not se_obj) then
+        printe("!ERROR: unable to spawn monolith_shard")
+    end
+end
+
+------------------------------------------------------
+-- spawn_stitch_decoder (Mortal Sin)
+------------------------------------------------------
+{r%level:k02_trucks_cemetery}
+xr_effects.spawn_stitch_decoder = function(actor, npc, p)
+    local quest_item_locations_list = {
+        {{w%x:50.247924804688}, {w%y:3.9755771160126}, {w%z:156.77543640137}, {w%lvid:509188}, {w%gvid:5248}},
+        {{w%x:51.563461303711}, {w%y:7.1993789672852}, {w%z:224.42543029785}, {w%lvid:514950}, {w%gvid:5155}},
+        {{w%x:19.012723922729}, {w%y:1.1766533851624}, {w%z:112.65353393555}, {w%lvid:472104}, {w%gvid:5144}},
+    }
+    local i = math.random(#quest_item_locations_list)
+    local loc = quest_item_locations_list[i]
+    local pos = vector():set(loc[1], loc[2], loc[3])
+    local se_obj = alife_create("stitch_decoder", pos, loc[4], loc[5])
+    if se_obj then
+        item_radio.add_target(se_obj.id, 171, 75)
+    else
+        printe("!ERROR: unable to spawn stitch_decoder")
+    end
+end
+
+------------------------------------------------------
+-- spawn_contact_lost_pda (Mortal Sin)
+------------------------------------------------------
+{r%level:l10_radar}
+xr_effects.spawn_contact_lost_pda = function(actor, npc, p)
+    local quest_item_locations_list = {
+        {{w%x:-35.871238708496}, {w%y:-4.0057287216187}, {w%z:139.02619934082}, {w%lvid:8109}, {w%gvid:2458}},
+        {{w%x:-18.989786148071}, {w%y:-3.9511435031891}, {w%z:143.22698974609}, {w%lvid:15620}, {w%gvid:2477}},
+        {{w%x:-24.930610656738}, {w%y:-4.015763759613}, {w%z:139.54330444336}, {w%lvid:12734}, {w%gvid:2458}},
+    }
+    local i = math.random(#quest_item_locations_list)
+    local loc = quest_item_locations_list[i]
+    local pos = vector():set(loc[1], loc[2], loc[3])
+    local se_obj = alife_create("contact_lost_pda", pos, loc[4], loc[5])
+    if (not se_obj) then
+        printe("!ERROR: unable to spawn contact_lost_pda")
+    end
+end
+
+------------------------------------------------------
+-- spawn_jupiter_documents (Operation Afterglow)
+------------------------------------------------------
+{r%level:jupiter}
+xr_effects.spawn_jupiter_documents = function(actor, npc, p)
+    local quest_item_locations_list = {
+        {{w%x:304.7744140625}, {w%y:28.783397674561}, {w%z:-299.32592773438}, {w%lvid:1209997}, {w%gvid:4517}},
+        {{w%x:324.68350219727}, {w%y:31.384368896484}, {w%z:-305.80865478516}, {w%lvid:1235548}, {w%gvid:4517}},
+        {{w%x:351.95175170898}, {w%y:27.543346405029}, {w%z:-343.99871826172}, {w%lvid:1276714}, {w%gvid:4516}},
+    }
+    local i = math.random(#quest_item_locations_list)
+    local loc = quest_item_locations_list[i]
+    local pos = vector():set(loc[1], loc[2], loc[3])
+    local se_obj = alife_create("jupiter_documents", pos, loc[4], loc[5])
+    if (not se_obj) then
+        printe("!ERROR: unable to spawn jupiter_documents")
+    end
+end
+
+------------------------------------------------------
+-- pos_itms table and spawn_item_at_pos override
+-- Items grouped by level for tag rewriter context
+------------------------------------------------------
+{r%level:labx8}
+local pos_itms_override = {
+    ["drx_x8_documents"] = {{w%x:-101.9361038208}, {w%y:-31.361772537231}, {w%z:90.615669250488}, {w%lvid:636}, {w%gvid:5090}},
+    ["lx8_history_documents"] = {{w%x:-93.635635375977}, {w%y:-27.296674728394}, {w%z:96.18310546875}, {w%lvid:1318}, {w%gvid:5079}},
+    ["lx8_history_2_documents"] = {{w%x:-116.10192871094}, {w%y:-27.196212768555}, {w%z:82.614562988281}, {w%lvid:30}, {w%gvid:5090}},
+    ["lx8_history_3_documents"] = {{w%x:-43.184757232666}, {w%y:-19.527189254761}, {w%z:67.334884643555}, {w%lvid:6770}, {w%gvid:5094}},
+{r%level:l08u_brainlab}
+    ["drx_x16_documents"] = {{w%x:-46.306594848633}, {w%y:20.461000442505}, {w%z:2.1229863166809}, {w%lvid:2220}, {w%gvid:3792}},
+{r%level:l04u_labx18}
+    ["drx_x18_documents"] = {{w%x:23.617618560791}, {w%y:-5.6467723846436}, {w%z:-18.183609008789}, {w%lvid:6311}, {w%gvid:3760}},
+{r%level:l10u_bunker}
+    ["drx_x19_documents"] = {{w%x:6.817852973938}, {w%y:-7.8305835723877}, {w%z:-15.558134078979}, {w%lvid:7638}, {w%gvid:3842}},
+{r%level:l03u_agr_underground}
+    ["drx_agr_u_documents"] = {{w%x:46.072761535645}, {w%y:1.8872995376587}, {w%z:75.970985412598}, {w%lvid:3968}, {w%gvid:3630}},
+{r%level:jupiter_underground}
+    ["drx_jup_u_documents"] = {{w%x:27.983295440674}, {w%y:12.515381813049}, {w%z:-1.1357840299606}, {w%lvid:39736}, {w%gvid:4861}},
+{r%level:zaton}
+    ["wpn_gauss_quest"] = {{w%x:-426.44213867188}, {w%y:26.069364547729}, {w%z:-383.1135559082}, {w%lvid:138111}, {w%gvid:4140}},
+}
+
+xr_effects.spawn_item_at_pos = function(actor, npc, p)
+    if not (p and p[1]) then return end
+
+    if (pos_itms_override[p[1]]) then
+        local v = pos_itms_override[p[1]]
+        local pos = vector():set(v[1], v[2], v[3])
+        local se_obj = alife_create(p[1], pos, v[4], v[5])
+        if (not se_obj) then
+            printe("!ERROR: spawn_item_at_pos | unable to spawn [%s]", p[1])
+        end
+    else
+        -- Item not in our override table, spawn at actor position as fallback
+        local se_obj = alife_create_item(p[1], db.actor)
+        if se_obj then
+            news_manager.relocate_item(db.actor, "in", p[1])
+        end
+    end
+end

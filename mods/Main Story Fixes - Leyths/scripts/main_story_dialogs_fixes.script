@@ -1,0 +1,31 @@
+--[[
+    Main Story Fixes - Leyths
+    Override hardcoded LVID/GVID values in dialogs_lostzone aditional_spawn_table
+    so they can be recomputed during level recompilation via tag rewriter.
+--]]
+
+------------------------------------------------------
+-- aditional_spawn_table override (dialogs_lostzone.script)
+-- All entries are on l01_escape
+------------------------------------------------------
+{r%level:l01_escape}
+local aditional_spawn_table_override = {
+    spawn_wpn_ak74_jurov_task_2_1 = {wpn_ak74_jurov_task_2 = {{w%x:-118.6462097168}, {w%y:-30.205032348633}, {w%z:-359.24914550781}, {w%lvid:140513}, {w%gvid:465}}},
+    spawn_wpn_ak74_jurov_task_2_2 = {wpn_ak74_jurov_task_2 = {{w%x:-177.9986114502}, {w%y:-29.81822013855}, {w%z:-355.06866455078}, {w%lvid:73576}, {w%gvid:460}}},
+    spawn_wpn_ak74_jurov_task_2_3 = {wpn_ak74_jurov_task_2 = {{w%x:-138.13748168945}, {w%y:-25.463516235352}, {w%z:-352.16937255859}, {w%lvid:118138}, {w%gvid:451}}},
+    spawn_wpn_pm_esc_2_12_stalker_fanat_task_3_1 = {wpn_pm_esc_2_12_stalker_fanat_task_3 = {{w%x:113.63149261475}, {w%y:0.20527046918869}, {w%z:-36.471702575684}, {w%lvid:445153}, {w%gvid:444}}},
+    spawn_wpn_pm_esc_2_12_stalker_fanat_task_3_2 = {wpn_pm_esc_2_12_stalker_fanat_task_3 = {{w%x:105.98963928223}, {w%y:-7.5173659324646}, {w%z:10.584038734436}, {w%lvid:436192}, {w%gvid:440}}},
+    spawn_wpn_pm_esc_2_12_stalker_fanat_task_3_3 = {wpn_pm_esc_2_12_stalker_fanat_task_3 = {{w%x:129.74220275879}, {w%y:-3.9539701938629}, {w%z:-2.0078217983246}, {w%lvid:462132}, {w%gvid:445}}},
+    spawn_wpn_pm_esc_2_12_stalker_fanat_task_3_4 = {wpn_pm_esc_2_12_stalker_fanat_task_3 = {{w%x:107.52114105225}, {w%y:0.41759753227234}, {w%z:10.651744842529}, {w%lvid:438618}, {w%gvid:440}}},
+    spawn_wpn_pm_esc_2_12_stalker_fanat_task_3_5 = {wpn_pm_esc_2_12_stalker_fanat_task_3 = {{w%x:95.632209777832}, {w%y:-2.4896833896637}, {w%z:-22.111057281494}, {w%lvid:424676}, {w%gvid:444}}},
+}
+
+dialogs_lostzone.aditional_spawn = function(name)
+    local tbl = aditional_spawn_table_override[name]
+    if not tbl then return end
+    for k, v in pairs(tbl) do
+        for i = 1, (v[6] or 1) do
+            alife_create(k, vector():set(v[1], v[2], v[3]), v[4], v[5])
+        end
+    end
+end
