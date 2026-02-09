@@ -33,7 +33,7 @@ class WayObject:
         self.points = []   # List of (position: tuple, flags: int, name: str)
         self.links = []    # List of (from_idx: int, to_idx: int)
 
-    def to_patrol_path(self, level_ai=None, cross_table_path: Path = None) -> bytes:
+    def to_patrol_path(self, level_ai=None, cross_table_path: Path = None, game_vertex_offset: int = 0) -> bytes:
         """
         Convert to CPatrolPath (CGraphAbstractSerialize) format
 
@@ -117,6 +117,7 @@ class WayObject:
             # Game vertex ID - find in cross table if available
             if cross_table_path and cross_table_path.exists() and level_vertex_id != 0xFFFFFFFF:
                 game_vertex_id = find_game_vertex_from_cross_table(level_vertex_id, cross_table_path)
+                game_vertex_id += game_vertex_offset
             else:
                 game_vertex_id = 0  # Will be calculated at runtime
             point_buffer.write(struct.pack('<H', game_vertex_id))
@@ -255,7 +256,8 @@ def parse_wayobject(data: bytes) -> WayObject:
 
 def convert_wayobjects_to_patrol_paths(wayobjects: List[bytes],
                                         level_ai_path: Path = None,
-                                        cross_table_path: Path = None) -> Dict[str, bytes]:
+                                        cross_table_path: Path = None,
+                                        game_vertex_offset: int = 0) -> Dict[str, bytes]:
     """
     Convert list of wayobject data to patrol paths
 
@@ -296,7 +298,7 @@ def convert_wayobjects_to_patrol_paths(wayobjects: List[bytes],
                 # Only include patrol paths (wtPatrolPath = 0)
                 if obj.way_type == 0:
                     # Pass the pre-loaded navigator instead of the path
-                    patrol_data = obj.to_patrol_path(level_ai, cross_table_path)
+                    patrol_data = obj.to_patrol_path(level_ai, cross_table_path, game_vertex_offset)
                     patrol_paths[obj.name] = patrol_data
 
         except Exception as e:

@@ -81,7 +81,8 @@ def extract_patrol_paths_from_level(level_config,
             if not cross_table.exists():
                 logError(f"      cross_table not found: {cross_table}")
 
-            new_patrols = _extract_from_level_game(level_game, level_ai, cross_table)
+            game_vertex_offset = game_graph.get_level_offset(level_name) if game_graph else 0
+            new_patrols = _extract_from_level_game(level_game, level_ai, cross_table, game_vertex_offset)
             log(f"        Extracted {len(new_patrols)} patrol paths from level.game")
         except Exception as e:
             logWarning(f"      Could not extract patrols from {level_game}: {e}")
@@ -135,7 +136,8 @@ def extract_patrol_paths_from_level(level_config,
 
 def _extract_from_level_game(level_game_path: Path,
                              level_ai_path: Path,
-                             cross_table_path: Path) -> Dict[str, bytes]:
+                             cross_table_path: Path,
+                             game_vertex_offset: int = 0) -> Dict[str, bytes]:
     """
     Extract patrol paths from level.game file
 
@@ -151,7 +153,8 @@ def _extract_from_level_game(level_game_path: Path,
         return convert_wayobjects_to_patrol_paths(
             waypoints[0x1000],
             level_ai_path,
-            cross_table_path
+            cross_table_path,
+            game_vertex_offset
         )
 
     return {}
