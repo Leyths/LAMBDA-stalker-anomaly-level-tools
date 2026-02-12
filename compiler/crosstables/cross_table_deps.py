@@ -29,15 +29,18 @@ class CrossTableDependencies:
     cross_table_path: str
     timestamp: float  # Unix timestamp of build
     original_spawn_hash: str = ""  # Optional: hash of original_spawn file
-    
+    original_only: bool = False  # Track base_anomaly_spawns_only flag
+
     def to_dict(self) -> dict:
         return asdict(self)
-    
+
     @classmethod
     def from_dict(cls, data: dict) -> 'CrossTableDependencies':
-        # Handle old format without original_spawn_hash
+        # Handle old format without newer fields
         if 'original_spawn_hash' not in data:
             data['original_spawn_hash'] = ""
+        if 'original_only' not in data:
+            data['original_only'] = False
         return cls(**data)
 
 
@@ -114,47 +117,53 @@ class DependencyTracker:
         except Exception:
             return ""
     
-    def needs_rebuild(self, level_name: str, 
-                      level_ai_path: Path, 
+    def needs_rebuild(self, level_name: str,
+                      level_ai_path: Path,
                       level_spawn_path: Path,
                       cross_table_path: Path,
-                      original_spawn: Optional[Path] = None) -> tuple[bool, str]:
+                      original_spawn: Optional[Path] = None,
+                      original_only: bool = False) -> tuple[bool, str]:
         """
         Check if cross table needs to be rebuilt
-        
+
         Args:
             level_name: Internal level name
             level_ai_path: Path to level.ai
             level_spawn_path: Path to level.spawn
             cross_table_path: Path to cross table output
             original_spawn: Optional path to original spawn file
-        
+            original_only: Whether only original_spawn graph points are used
+
         Returns:
             (needs_rebuild, reason)
         """
         # Check if cross table exists
         if not cross_table_path.exists():
             return True, "cross table doesn't exist"
-        
+
         # Check if we have dependency info
         if level_name not in self.dependencies:
             return True, "no dependency info (first build)"
-        
+
         # Get stored dependencies
         deps = self.dependencies[level_name]
-        
+
+        # Check if original_only flag changed
+        if original_only != deps.original_only:
+            return True, "original_only flag changed"
+
         # Calculate current hashes
         current_ai_hash = self._hash_file(level_ai_path)
         current_spawn_hash = self._hash_file(level_spawn_path)
         current_original_hash = self._hash_file(original_spawn) if original_spawn else ""
-        
+
         # Check if files have changed
         if current_ai_hash != deps.level_ai_hash:
             return True, "level.ai changed"
-        
+
         if current_spawn_hash != deps.level_spawn_hash:
             return True, "level.spawn changed"
-        
+
         if current_original_hash != deps.original_spawn_hash:
             if current_original_hash and not deps.original_spawn_hash:
                 return True, "original_spawn added"
@@ -162,11 +171,11 @@ class DependencyTracker:
                 return True, "original_spawn removed"
             else:
                 return True, "original_spawn changed"
-        
+
         # Check if cross table path changed (compare resolved paths to handle relative path variations)
         if cross_table_path.resolve() != Path(deps.cross_table_path).resolve():
             return True, "output path changed"
-        
+
         # No rebuild needed
         return False, "up to date"
     
@@ -174,28 +183,31 @@ class DependencyTracker:
                level_ai_path: Path,
                level_spawn_path: Path,
                cross_table_path: Path,
-               original_spawn: Optional[Path] = None):
+               original_spawn: Optional[Path] = None,
+               original_only: bool = False):
         """
         Update dependency info after successful build
-        
+
         Args:
             level_name: Internal level name
             level_ai_path: Path to level.ai
             level_spawn_path: Path to level.spawn
             cross_table_path: Path to cross table output
             original_spawn: Optional path to original spawn file
+            original_only: Whether only original_spawn graph points were used
         """
         import time
-        
+
         deps = CrossTableDependencies(
             level_name=level_name,
             level_ai_hash=self._hash_file(level_ai_path),
             level_spawn_hash=self._hash_file(level_spawn_path),
             cross_table_path=str(cross_table_path),
             timestamp=time.time(),
-            original_spawn_hash=self._hash_file(original_spawn) if original_spawn else ""
+            original_spawn_hash=self._hash_file(original_spawn) if original_spawn else "",
+            original_only=original_only
         )
-        
+
         self.dependencies[level_name] = deps
         self._save()
     

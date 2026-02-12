@@ -18,7 +18,6 @@ from parsers import (
     parse_level_changer_data,
     parse_spawn_packet,
     SpawnEntity,
-    find_game_vertex_from_cross_table,
 )
 
 if TYPE_CHECKING:
@@ -172,32 +171,17 @@ def remap_entity_gvids(spawn_packet: bytes,
         old_game_id = entity.game_vertex_id
         old_level_id = entity.level_vertex_id
 
-        # Get paths from GameGraph for resolution
-        # We use the same functions as the original resolver for consistency
-        level_config = game_graph._get_level_config(level_name)
-        if level_config is None:
-            logError(f"[{entity_index}] {section_name} '{entity_name}': No level config for {level_name}")
-            return spawn_packet
-
-        level_ai = game_graph.get_level_ai_for_level(level_name)
-        if level_ai is None:
-            logError(f"[{entity_index}] {section_name} '{entity_name}': No level AI for {level_name}")
-            return spawn_packet
-        new_level_id = level_ai.find_nearest_vertex(position)
+        # Resolve level vertex ID from position
+        new_level_id = game_graph.get_level_vertex_for_position(level_name, position)
         if new_level_id is None:
             logError(f"[{entity_index}] {section_name} '{entity_name}': Could not find level vertex for position {position}")
             return spawn_packet
 
-        cross_table_path = game_graph.cross_table_dir / f"{level_name}.gct"
-
-        # Calculate new game_vertex_id from cross table + offset (using same function as original)
-        local_game_id = find_game_vertex_from_cross_table(new_level_id, cross_table_path)
-        if local_game_id == 0xFFFF:
-            logError(f"[{entity_index}] {section_name} '{entity_name}': Could not find game vertex for level vertex {new_level_id}")
+        # Resolve game vertex ID from position (with overflow protection)
+        new_game_id = game_graph.get_gvid_for_position(level_name, position)
+        if new_game_id is None:
+            logError(f"[{entity_index}] {section_name} '{entity_name}': Could not resolve GVID for position {position}")
             return spawn_packet
-
-        game_vertex_offset = game_graph.get_level_offset(level_name)
-        new_game_id = local_game_id + game_vertex_offset
 
         # Check if update needed for base graph IDs
         if new_game_id == old_game_id and new_level_id == old_level_id:

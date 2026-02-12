@@ -222,7 +222,8 @@ class GameGraphBuilder:
                 level_ai,
                 level_spawn,
                 cross_table,
-                original_spawn=original_spawn
+                original_spawn=original_spawn,
+                original_only=level.base_anomaly_spawns_only
             )
 
             if not needs_rebuild:
@@ -250,7 +251,8 @@ class GameGraphBuilder:
             level_ai,
             level_spawn,
             cross_table,
-            original_spawn=original_spawn
+            original_spawn=original_spawn,
+            original_only=level.base_anomaly_spawns_only
         )
 
         return cross_table

@@ -10,6 +10,8 @@ from dataclasses import dataclass, field
 from pathlib import Path
 from typing import List, Dict, Tuple, Optional, Any, TYPE_CHECKING
 
+from utils import logWarning
+
 if TYPE_CHECKING:
     from levels import LevelConfig, LevelsConfig
     from game_graph_merger import GameVertex, GameEdge, DeathPoint
@@ -268,6 +270,17 @@ class GameGraph:
         """Get total number of game vertices."""
         return len(self.vertices)
 
+    def get_level_game_vertex_count(self, level_name: str) -> int:
+        """Get number of game vertices for a specific level."""
+        offset = self.level_offsets.get(level_name)
+        if offset is None:
+            return 0
+        sorted_offsets = sorted(self.level_offsets.values())
+        idx = sorted_offsets.index(offset)
+        if idx + 1 < len(sorted_offsets):
+            return sorted_offsets[idx + 1] - offset
+        return len(self.vertices) - offset
+
     def get_edge_count(self) -> int:
         """Get total number of edges."""
         return len(self.edges)
@@ -290,7 +303,8 @@ class GameGraph:
         Steps:
         1. Find nearest level.ai vertex to position (spatial search)
         2. Look up that level vertex in the cross table -> local GVID
-        3. Add level offset -> global GVID
+        3. Validate local GVID is within this level's vertex range
+        4. Add level offset -> global GVID
 
         Args:
             level_name: Name of the level (e.g., "zaton")
@@ -315,12 +329,42 @@ class GameGraph:
                 return None
             local_gvid = cross_table.get_game_vertex_id(level_vertex_id)
 
+            # Validate local GVID is within this level's vertex range
+            # A stale cross table can return IDs beyond the level's actual count
+            level_count = self.get_level_game_vertex_count(level_name)
+            if level_count > 0 and local_gvid >= level_count:
+                logWarning(f"GVID overflow on {level_name}: cross table returned local {local_gvid}, "
+                           f"level has {level_count} vertices. Using nearest valid vertex.")
+                return self._find_nearest_valid_gvid(level_name, position)
+
             # Add level offset to get global GVID
             offset = self.get_level_offset(level_name)
             return local_gvid + offset
 
         except (IndexError, ValueError):
             return None
+
+    def _find_nearest_valid_gvid(self, level_name: str, position: Tuple[float, float, float]) -> Optional[int]:
+        """
+        Find nearest game vertex on this level by position.
+        Used as fallback when cross table returns an out-of-range local GVID.
+        """
+        offset = self.get_level_offset(level_name)
+        count = self.get_level_game_vertex_count(level_name)
+        if count == 0:
+            return None
+        best_gvid = None
+        best_dist_sq = float('inf')
+        for i in range(count):
+            v = self.vertices[offset + i]
+            dx = v.level_point[0] - position[0]
+            dy = v.level_point[1] - position[1]
+            dz = v.level_point[2] - position[2]
+            dist_sq = dx * dx + dy * dy + dz * dz
+            if dist_sq < best_dist_sq:
+                best_dist_sq = dist_sq
+                best_gvid = offset + i
+        return best_gvid
 
     def get_level_vertex_for_position(self, level_name: str, position: Tuple[float, float, float]) -> Optional[int]:
         """
