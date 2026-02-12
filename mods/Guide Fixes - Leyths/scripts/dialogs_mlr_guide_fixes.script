@@ -1,0 +1,62 @@
+--[[
+    Guide Fixes - Leyths
+    Override hardcoded LVID/GVID values in dialogs_mlr guide functions
+    so they can be recomputed during level recompilation via tag rewriter.
+--]]
+
+------------------------------------------------------
+-- marsh_post_guid (Guide teleport to Marsh Post)
+------------------------------------------------------
+{r%level:k00_marsh}
+dialogs_mlr.marsh_post_guid = function(first_speaker, second_speaker)
+    level.add_pp_effector("fade_in.ppe", 200, false)
+    db.actor:set_actor_position(vector():set({w%x:-294.81405639648}, {w%y:0.71730107069016}, {w%z:21.673492431641}), {w%lvid:3145}, {w%gvid:153})
+end
+
+------------------------------------------------------
+-- marsh_pump_water_guid (Guide teleport to Pump Water)
+------------------------------------------------------
+dialogs_mlr.marsh_pump_water_guid = function(first_speaker, second_speaker)
+    level.add_pp_effector("fade_in.ppe", 200, false)
+    db.actor:set_actor_position(vector():set({w%x:-7.9008584022522}, {w%y:0.46835023164749}, {w%z:-38.745407104492}), {w%lvid:138848}, {w%gvid:20})
+end
+
+------------------------------------------------------
+-- marsh_old_church_guid (Guide teleport to Old Church)
+------------------------------------------------------
+dialogs_mlr.marsh_old_church_guid = function(first_speaker, second_speaker)
+    level.add_pp_effector("fade_in.ppe", 200, false)
+    db.actor:set_actor_position(vector():set({w%x:314.69299316406}, {w%y:0.8691970705986}, {w%z:-134.10293579102}), {w%lvid:344628}, {w%gvid:222})
+end
+
+------------------------------------------------------
+-- marsh_tech_yard_guid (Guide teleport to Tech Yard)
+------------------------------------------------------
+dialogs_mlr.marsh_tech_yard_guid = function(first_speaker, second_speaker)
+    level.add_pp_effector("fade_in.ppe", 200, false)
+    db.actor:set_actor_position(vector():set({w%x:381.63909912109}, {w%y:2.7934539318085}, {w%z:243.89410400391}), {w%lvid:392419}, {w%gvid:98})
+end
+
+------------------------------------------------------
+-- teleport_for_totaliz (Arena teleport for Totalizator)
+------------------------------------------------------
+{r%level:l05_bar}
+dialogs_mlr.teleport_for_totaliz = function(first_speaker, second_speaker)
+    local box = get_story_object("bar_arena_inventory_box")
+    if (box) then
+        local function transfer_object_item(item)
+            db.actor:transfer_item(item, box)
+        end
+        db.actor:inventory_for_each(transfer_object_item)
+        level.add_pp_effector("fade_in.ppe", 200, false)
+        db.actor:set_actor_position(vector():set({w%x:139.61517333984}, {w%y:-13.390427589417}, {w%z:100.86038208008}), {w%lvid:37564}, {w%gvid:1710})
+    end
+    local spawn_items = {}
+    if has_alife_info("totaliz_money_has_gone") then
+        table.insert(spawn_items, "wpn_binoc")
+    end
+    local k,v = 0,0
+    for k,v in pairs(spawn_items) do
+        alife_create_item(v, db.actor)
+    end
+end
