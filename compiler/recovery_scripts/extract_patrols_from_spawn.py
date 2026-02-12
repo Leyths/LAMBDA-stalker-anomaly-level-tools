@@ -343,94 +343,127 @@ def map_patrol_to_level(patrol_name: str, patrol_data: bytes,
     if not patrol['points']:
         return 'unknown'
 
-    # Get game_vertex_id from first point
-    first_point = patrol['points'][0]
-    gvid = first_point.get('game_vertex_id', 0xFFFF)
+    # Map level using GVID from patrol points
+    for point in patrol['points']:
+        gvid = point.get('game_vertex_id', 0xFFFF)
+        if gvid != 0xFFFF and gvid != 0:
+            level_name = lookup_level_from_game_graph(gvid, game_graph_data)
+            if level_name:
+                return level_name
 
-    if gvid == 0xFFFF or gvid == 0:
-        # Try to map based on patrol name prefix
-        # Many patrols are named like "level_name_something"
-        return guess_level_from_patrol_name(patrol_name)
-
-    # Look up level from game graph
-    level_name = lookup_level_from_game_graph(gvid, game_graph_data)
-
-    if level_name:
-        return level_name
-
-    # game_vertex_id is out of range - try name-based mapping
+    # GVID lookup failed (corrupt data) - fall back to name prefix
     return guess_level_from_patrol_name(patrol_name)
 
 
 def guess_level_from_patrol_name(patrol_name: str) -> str:
     """
-    Guess level from patrol path name prefix
+    Guess level from patrol path name prefix.
 
-    Many patrol paths are named like "level_prefix_description"
-    e.g., "esc_smart_terrain_5_7_kamp_1" -> l01_escape
+    Only used as a fallback for patrols with corrupt GVIDs.
     """
-    # Common prefixes
+    # Explicit overrides for patrols where the prefix is ambiguous
+    # or too generic to add as a prefix rule
+    name_overrides = {
+        'pri_space_restrictor_to_cop_pripyat_drop': 'l11_pripyat',
+        # l11_hospital zone combat routes (z1/z2/z3 hospital zones)
+        'actors_way': 'l05_bar',
+        'barricade_final_3_look': 'l11_hospital',
+        'barricade_fire_2_look': 'l11_hospital',
+        'barricade_fire_3_look': 'l11_hospital',
+        'barricade_fire_4_look': 'l11_hospital',
+        'enemy_floor2l_look': 'l11_hospital',
+        'heli_death_way': 'l12_stancia',
+        'heli_z2_ne_walk': 'l11_hospital',
+        'heli_z2_se_walk': 'l11_hospital',
+        'minigun_fire_way_1': 'l11_hospital',
+        'minigun_fire_way_5': 'l11_hospital',
+        'minigun_fire_way_bridge_1': 'l11_hospital',
+        'minigun_fire_way_bridge_2': 'l11_hospital',
+        'minigun_fire_way_bridge_5': 'l11_hospital',
+        'sniper_z1_1_look_hide': 'l11_hospital',
+        'sniper_z1_3_look': 'l11_hospital',
+        'teleport_way2': 'l10_limansk',
+        'z1_minigunner_look': 'l11_hospital',
+        'z2_heli_hide': 'l11_hospital',
+        'z2_heli_move': 'l11_hospital',
+        'z2_heli_move_crash': 'l11_hospital',
+        'z2_heli_move_crash_0': 'l11_hospital',
+        'z2_heli_move_crash_look': 'l11_hospital',
+        'z2_heli_move_nw': 'l11_hospital',
+        'z2_heli_move_s': 'l11_hospital',
+        'z2_heli_move_sw_nw': 'l11_hospital',
+        'z2_heli_show_fire_2': 'l11_hospital',
+        'z2_heli_show_fire_3': 'l11_hospital',
+        'z2_heli_show_fire_6': 'l11_hospital',
+        'z2_particle_1': 'l11_hospital',
+        'z2_particle_3': 'l11_hospital',
+        'z3_enemy_floor2_1_look_0': 'l11_hospital',
+        'z3_jump_way_1': 'l11_hospital',
+        'z3_minigun_fire_1': 'l11_hospital',
+        'z3_minigun_fire_3': 'l11_hospital',
+    }
+    if patrol_name in name_overrides:
+        return name_overrides[patrol_name]
+
+    # Common prefixes - mapped to current level names from levels.ini
+    # Longer prefixes must come first to match correctly (e.g. 'aes2_' before 'aes_')
     prefix_to_level = {
+        # Short name prefixes
         'esc_': 'l01_escape',
         'gar_': 'l02_garbage',
         'agr_': 'l03_agroprom',
         'dar_': 'l04_darkvalley',
         'bar_': 'l05_bar',
         'ros_': 'l06_rostok',
-        'mil_': 'l08_military',
-        'yan_': 'l10_yantar',
+        'mil_': 'l07_military',
+        'yan_': 'l08_yantar',
         'jup_': 'jupiter',
         'zat_': 'zaton',
         'pri_': 'pripyat',
-        'mar_': 'l04_marshes',
+        'mar_': 'k00_marsh',
         'val_': 'l11_hospital',
-        'red_': 'l12_stancia',
-        'war': 'l13_generators',
+        'red_': 'l10_red_forest',
         'lim_': 'l10_limansk',
-        'pas_': 'l10_radar',
-        'aes_': 'l12_aes',
-        'aes2_': 'l12_aes2',
+        'pas_': 'l11_pripyat',
+        'rad_': 'l10_radar',
+        'aes2_': 'l12_stancia_2',
+        'aes_': 'l12_stancia',
         'ds_': 'k01_darkscape',
+        'cop_': 'pripyat',
+        'tc_': 'k02_trucks_cemetery',
+        'pol_': 'y04_pole',
+        # Full level name prefixes
         'k00_': 'k00_marsh',
         'k01_': 'k01_darkscape',
         'l01_': 'l01_escape',
         'l02_': 'l02_garbage',
+        'l03u_': 'l03u_agr_underground',
         'l03_': 'l03_agroprom',
-        'l04_': 'l04_darkvalley',
         'l04u_': 'l04u_labx18',
+        'l04_': 'l04_darkvalley',
         'l05_': 'l05_bar',
         'l06_': 'l06_rostok',
-        'l08_': 'l08_military',
-        'l10_': 'l10_yantar',
+        'l07_': 'l07_military',
+        'l08u_': 'l08u_brainlab',
+        'l08_': 'l08_yantar',
+        'l10u_': 'l10u_bunker',
+        'l10_limansk': 'l10_limansk',
+        'l10_': 'l10_radar',
+        'l11_pripyat': 'l11_pripyat',
         'l11_': 'l11_hospital',
+        'l12u_': 'l12u_sarcofag',
         'l12_': 'l12_stancia',
         'l13_': 'l13_generators',
+        # Underground/interior prefixes
         'x16_': 'l03u_agr_underground',
-        'und_': 'l04u_aver',
-        'sar_': 'l05u_bunker',
-        'bun_': 'l05u_bunker',
-        'cit_': 'l10u_bunker',
-        'katacomb_': 'l08u_brainlab',
-        # Additional prefixes from analysis
-        'rad_': 'l10_radar',  # Radar antenna patrols
-        'pol_': 'y04_pole',  # Polish area
-        'cop_': 'cop_pripyat',  # Call of Pripyat version of Pripyat
-        'tc_': 'k02_trucks_cemetery',  # Trucks cemetery
+        'und_': 'l03u_agr_underground',
+        'sar_': 'l12u_sarcofag',
+        'bun_': 'l10u_bunker',
+        'cit_': 'l09_deadcity',
+        'katacomb_': 'l11_hospital',
+        'warlab_': 'l13u_warlab',
         'zaton_': 'zaton',
         'rostok_': 'l06_rostok',
-        # Zone-based prefixes (appear to be test/special areas)
-        'z1_': 'l12_stancia',  # Zone 1 - often related to final levels
-        'z2_': 'l12_stancia',  # Zone 2 - crash site area
-        'z3_': 'l12_stancia',  # Zone 3 - combat areas
-        # Generic/multi-level patrols - assign to a reasonable default
-        'bloodsucker_': 'l04_darkvalley',  # Generic monster patrols
-        'barricade_': 'l12_stancia',  # Defense combat patrols
-        'minigun_': 'l12_stancia',  # Heavy combat patrols
-        'heli_': 'l12_stancia',  # Helicopter paths
-        'sniper_': 'l12_stancia',  # Sniper positions
-        'enemy_': 'l12_stancia',  # Enemy patrols
-        'teleport_': 'l12_stancia',  # Teleport transitions
-        'actors_': 'l12_stancia',  # Special/cutscene paths
     }
 
     # Check each prefix
@@ -553,33 +586,87 @@ def extract_and_split_patrols(spawn_path: Path, output_dir: Path):
         print("No patrol paths found!")
         return
 
-    # Group by level
-    patrols_by_level = {}
+    import re
+
+    # Pass 1: Map patrols by GVID
+    gvid_mapped = {}   # patrol_name -> level_name
+    gvid_unmapped = {} # patrol_name -> patrol_data (GVID lookup failed)
 
     for patrol_name, patrol_data in patrols.items():
-        level_name = map_patrol_to_level(patrol_name, patrol_data, game_graph_data)
+        patrol = parse_patrol_path(patrol_data)
+        level_name = None
 
+        if patrol['points']:
+            for point in patrol['points']:
+                gvid = point.get('game_vertex_id', 0xFFFF)
+                if gvid != 0xFFFF and gvid != 0:
+                    level_name = lookup_level_from_game_graph(gvid, game_graph_data)
+                    if level_name:
+                        break
+
+        if level_name:
+            gvid_mapped[patrol_name] = level_name
+        else:
+            gvid_unmapped[patrol_name] = patrol_data
+
+    # Pass 2: Build smart terrain prefix -> level lookup from GVID-mapped patrols
+    # e.g. "esc_smart_terrain_5_7" -> "l01_escape"
+    smart_terrain_re = re.compile(r'^(.+_smart_terrain_\d+_\d+)')
+    smart_terrain_levels = {}
+
+    for patrol_name, level_name in gvid_mapped.items():
+        m = smart_terrain_re.match(patrol_name)
+        if m:
+            smart_terrain_levels[m.group(1)] = level_name
+
+    # Pass 3: Try to resolve unmapped patrols via smart terrain prefix match,
+    # then fall back to name prefix table
+    smart_terrain_resolved = 0
+    prefix_resolved = 0
+    still_unknown = 0
+
+    for patrol_name in list(gvid_unmapped.keys()):
+        # Check explicit overrides first
+        level_name = None
+
+        # Try smart terrain prefix match
+        m = smart_terrain_re.match(patrol_name)
+        if m and m.group(1) in smart_terrain_levels:
+            level_name = smart_terrain_levels[m.group(1)]
+            smart_terrain_resolved += 1
+
+        # Fall back to name prefix table
+        if not level_name:
+            level_name = guess_level_from_patrol_name(patrol_name)
+            if level_name != 'unknown':
+                prefix_resolved += 1
+            else:
+                still_unknown += 1
+
+        gvid_mapped[patrol_name] = level_name
+        del gvid_unmapped[patrol_name]
+
+    # Group by level
+    patrols_by_level = {}
+    for patrol_name, level_name in gvid_mapped.items():
         if level_name not in patrols_by_level:
             patrols_by_level[level_name] = {}
-
-        patrols_by_level[level_name][patrol_name] = patrol_data
+        patrols_by_level[level_name][patrol_name] = patrols[patrol_name]
 
     # Write per-level files
     output_dir.mkdir(parents=True, exist_ok=True)
 
     print(f"\nWriting level-specific patrol files:")
 
-    # Count how many were mapped by name vs by game_vertex_id
-    name_mapped_count = sum(1 for level, patrols in patrols_by_level.items()
-                            if level != 'unknown' for _ in patrols)
-    total_count = sum(len(patrols) for patrols in patrols_by_level.values())
-    graph_mapped_count = total_count - name_mapped_count - len(patrols_by_level.get('unknown', {}))
+    total_count = len(patrols)
+    gvid_count = total_count - smart_terrain_resolved - prefix_resolved - still_unknown
 
-    if name_mapped_count > 0:
-        print(f"\nNote: {name_mapped_count} patrols had invalid game_vertex_ids and were mapped")
-        print(f"      by name prefix (e.g., 'esc_' -> l01_escape). This is normal for")
-        print(f"      old patrol paths where the game_vertex_ids are outdated.")
-        print(f"      Your build system will recalculate correct IDs from positions.")
+    print(f"\n  Mapped by GVID: {gvid_count}")
+    print(f"  Mapped by smart terrain match: {smart_terrain_resolved}")
+    if prefix_resolved > 0:
+        print(f"  Mapped by name prefix: {prefix_resolved}")
+    if still_unknown > 0:
+        print(f"  Unmapped: {still_unknown}")
 
     for level_name, level_patrols in sorted(patrols_by_level.items()):
         output_file = output_dir / f"{level_name}.patrols"
