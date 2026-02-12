@@ -60,12 +60,36 @@ def extract_patrol_paths_from_level(level_config,
 
     new_patrols = {}
     original_patrols = {}
+    waypoints_only = getattr(level_config, 'base_anomaly_waypoints_only', False)
 
     # 1. Load original patrols if provided
     if original_patrols_path and original_patrols_path.exists():
         logDebug(f"      Loading original patrols from {original_patrols_path.name}")
         original_patrols = read_extracted_patrols(original_patrols_path)
         logDebug(f"        Loaded {len(original_patrols)} original patrol paths")
+
+    # If base_anomaly_waypoints_only, skip level.game and only use original patrols
+    if waypoints_only:
+        log(f"      base_anomaly_waypoints_only: skipping level.game, using original patrols only")
+        if original_patrols:
+            if game_graph:
+                level_ai = game_graph.get_level_ai_for_level(level_name)
+                cross_table = game_graph.get_cross_table_for_level(level_name)
+
+                if level_ai is None:
+                    logError(f"      Cannot update patrol IDs: level.ai not cached for {level_name}")
+                    return original_patrols
+                if cross_table is None:
+                    logError(f"      Cannot update patrol IDs: cross table not cached for {level_name}")
+                    return original_patrols
+
+                return validate_and_remap_patrols(original_patrols, game_graph, level_name)
+            else:
+                logError(f"      Cannot update patrol IDs: GameGraph not provided")
+                return original_patrols
+        if level_name != "fake_start":
+            logError(f"      No original patrol paths found for level: {level_name}")
+        return {}
 
     # 2. Check for level.game file (contains compiled level data)
     level_game = level_dir / "level.game"

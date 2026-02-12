@@ -325,7 +325,7 @@ def validate_and_remap_patrols(patrols: Dict[str, bytes],
             validated_patrols[name] = validated_data
 
     if total_points_filtered > 0:
-        logDebug(f"        Filtered {total_points_filtered} out-of-bounds patrol points")
+        logDebug(f"        Clamped {total_points_filtered} out-of-bounds patrol points to nearest vertex")
     if total_patrols_removed > 0:
         logDebug(f"        Removed {total_patrols_removed} patrol paths (all points invalid)")
 
@@ -562,9 +562,9 @@ def _validate_and_update_vertex(vertex_data: bytes,
 
     position = point['position']
 
-    # Check if position is in bounds
+    # Log if position is outside level bounds (but don't strip - find_nearest_vertex handles this)
     if not is_position_in_bounds(position, min_bounds, max_bounds):
-        return False, vertex_data, old_vertex_id
+        logDebug(f"          Point out of bounds, clamping to nearest vertex")
 
     # Use cached data for fast lookups if available
     if level_ai is not None and cross_table_cache is not None:

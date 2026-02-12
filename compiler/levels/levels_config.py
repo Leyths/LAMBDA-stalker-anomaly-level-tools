@@ -27,6 +27,8 @@ class LevelConfig:
     original_patrols: Optional[str] = None  # Path to original patrols file (.patrols binary)
     original_edges: Optional[str] = None  # Path to original edges file (.edges.json)
     connect_orphans_automatically: bool = False  # Auto-connect orphan nodes (default: preserve existing behavior)
+    base_anomaly_spawns_only: bool = False  # Only use extractedanomalyspawns, skip level.spawn entities/graph points
+    base_anomaly_waypoints_only: bool = False  # Only use extractedanomalyspawns patrols, skip level.game waypoints
     vanilla_hash_ai: Optional[str] = None  # SHA-256 prefix of vanilla level.ai
     vanilla_hash_spawn: Optional[str] = None  # SHA-256 prefix of vanilla level.spawn
     vanilla_hash_game: Optional[str] = None  # SHA-256 prefix of vanilla level.game
@@ -130,6 +132,14 @@ class LevelsConfig:
         connect_orphans_str = data.get('connect_orphans_automatically', 'false')
         connect_orphans_automatically = connect_orphans_str.lower() in ('true', '1', 'yes', 'on')
 
+        # Optional base_anomaly_spawns_only flag (default False)
+        base_anomaly_spawns_only_str = data.get('base_anomaly_spawns_only', 'false')
+        base_anomaly_spawns_only = base_anomaly_spawns_only_str.lower() in ('true', '1', 'yes', 'on')
+
+        # Optional base_anomaly_waypoints_only flag (default False)
+        base_anomaly_waypoints_only_str = data.get('base_anomaly_waypoints_only', 'false')
+        base_anomaly_waypoints_only = base_anomaly_waypoints_only_str.lower() in ('true', '1', 'yes', 'on')
+
         # Optional vanilla file hashes (SHA-256 prefix, 16 hex chars)
         vanilla_hash_ai = data.get('vanilla_hash_ai', None)
         if vanilla_hash_ai:
@@ -152,6 +162,8 @@ class LevelsConfig:
             original_patrols=original_patrols,
             original_edges=original_edges,
             connect_orphans_automatically=connect_orphans_automatically,
+            base_anomaly_spawns_only=base_anomaly_spawns_only,
+            base_anomaly_waypoints_only=base_anomaly_waypoints_only,
             vanilla_hash_ai=vanilla_hash_ai,
             vanilla_hash_spawn=vanilla_hash_spawn,
             vanilla_hash_game=vanilla_hash_game
@@ -272,6 +284,10 @@ class LevelsConfig:
                 log(f"      Original patrols: {level.original_patrols}")
             if level.original_edges:
                 log(f"      Original edges: {level.original_edges}")
+            if level.base_anomaly_spawns_only:
+                log(f"      Base anomaly spawns only: YES")
+            if level.base_anomaly_waypoints_only:
+                log(f"      Base anomaly waypoints only: YES")
 
 
 def main():

@@ -217,7 +217,8 @@ class SpawnGraphBuilder:
             return game_vertex_count
 
     def collect_level_entities_for_level(self, level_name: str, level_spawn_path: Path,
-                                          old_spawn_path=None, base_path: Path = Path('.')):
+                                          old_spawn_path=None, base_path: Path = Path('.'),
+                                          original_only: bool = False):
         """
         Collect and merge entities for a level (Pass 1).
         Delegates to extraction module, then stores results.
@@ -233,7 +234,8 @@ class SpawnGraphBuilder:
             level_spawn_path=level_spawn_path,
             old_spawn_path=old_spawn_path,
             blacklist_exact=self.blacklist_exact,
-            blacklist_patterns=self.blacklist_patterns
+            blacklist_patterns=self.blacklist_patterns,
+            original_only=original_only
         )
 
         # Extract dynamic item spawn restrictors before they enter the build
@@ -322,8 +324,11 @@ class SpawnGraphBuilder:
             level_spawn_path = base_path / level_path / "level.spawn"
             old_spawn_path = getattr(level, 'original_spawn', None)
 
+            original_only = getattr(level, 'base_anomaly_spawns_only', False)
+
             if level_spawn_path.exists():
-                self.collect_level_entities_for_level(level_name, level_spawn_path, old_spawn_path, base_path)
+                self.collect_level_entities_for_level(level_name, level_spawn_path, old_spawn_path, base_path,
+                                                      original_only=original_only)
             else:
                 logWarning(f"{level_spawn_path} not found")
 

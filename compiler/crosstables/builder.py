@@ -126,7 +126,8 @@ def build_cross_table_for_level(
     level_ai_path: Path,
     level_spawn_path: Path,
     output_path: Path,
-    original_spawn_path: Optional[Path] = None
+    original_spawn_path: Optional[Path] = None,
+    original_only: bool = False
 ) -> bool:
     """
     Build cross table for a single level.
@@ -139,6 +140,7 @@ def build_cross_table_for_level(
         level_spawn_path: Path to level.spawn file (binary)
         output_path: Output path for .gct file
         original_spawn_path: Optional path to original spawn file for merging
+        original_only: If True, skip level.spawn graph points and only use original_spawn
 
     Returns:
         True if successful, False otherwise
@@ -151,7 +153,8 @@ def build_cross_table_for_level(
 
         # Extract graph points (merged from both sources)
         logDebug(f"    Extracting graph points...")
-        graph_points = extract_and_merge_graph_points(level_spawn_path, original_spawn_path)
+        graph_points = extract_and_merge_graph_points(level_spawn_path, original_spawn_path,
+                                                      original_only=original_only)
 
         if not graph_points:
             logError(f"    Error: No graph points found!")

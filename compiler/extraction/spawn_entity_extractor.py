@@ -227,7 +227,8 @@ def collect_level_entities(
     level_spawn_path: Path,
     old_spawn_path: Optional[Path],
     blacklist_exact: Set[str],
-    blacklist_patterns: List[str]
+    blacklist_patterns: List[str],
+    original_only: bool = False
 ) -> Tuple[List[Tuple[bytes, Optional[bytes]]], int, int]:
     """
     Collect and merge entities for a level (Phase 1 extraction).
@@ -242,6 +243,7 @@ def collect_level_entities(
         old_spawn_path: Optional path to old spawn file for merging
         blacklist_exact: Set of exact entity/section names to exclude
         blacklist_patterns: List of wildcard patterns to exclude
+        original_only: If True, skip level.spawn and only use old_spawn_path entities
 
     Returns:
         Tuple of:
@@ -274,6 +276,35 @@ def collect_level_entities(
     graph_point_count = 0
     merged_count = 0
     blacklisted_count = 0
+
+    # If original_only, skip level.spawn entirely and use old entities as sole source
+    if original_only:
+        log(f"    base_anomaly_spawns_only: skipping level.spawn, using original spawn only")
+        for key, (old_spawn, old_update) in old_entities.items():
+            name = key[0]
+            section = extract_section_name(old_spawn)
+
+            if section == 'graph_point':
+                graph_point_count += 1
+                continue
+
+            if section == 'actor' and level_name != 'fake_start':
+                blacklisted_count += 1
+                continue
+
+            if is_blacklisted(name, section, blacklist_exact, blacklist_patterns):
+                blacklisted_count += 1
+                log(f"    Blacklisted: '{name}' (section: {section})")
+                continue
+
+            merged_packets.append((old_spawn, old_update))
+
+        log(f"    Graph points: {graph_point_count}")
+        log(f"    Total entities for level: {len(merged_packets)}")
+        if blacklisted_count > 0:
+            log(f"    Blacklisted {blacklisted_count} entities")
+
+        return merged_packets, graph_point_count, blacklisted_count
 
     # 2. Process New Level Spawn
     with open(level_spawn_path, 'rb') as f:

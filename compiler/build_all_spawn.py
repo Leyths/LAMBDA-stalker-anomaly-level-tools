@@ -241,7 +241,8 @@ class GameGraphBuilder:
             raise FileNotFoundError(f"Missing level.spawn: {level_spawn}")
 
         # Build cross table directly from binary spawn files
-        self._build_cross_table(level_ai, level_spawn, cross_table, original_spawn)
+        self._build_cross_table(level_ai, level_spawn, cross_table, original_spawn,
+                                original_only=level.base_anomaly_spawns_only)
 
         # Update dependencies
         self.dep_tracker.update(
@@ -255,7 +256,8 @@ class GameGraphBuilder:
         return cross_table
 
     def _build_cross_table(self, level_ai: Path, level_spawn: Path, output: Path,
-                           original_spawn: Optional[Path] = None):
+                           original_spawn: Optional[Path] = None,
+                           original_only: bool = False):
         """Build cross table from binary spawn files"""
         from crosstables import build_cross_table_for_level
 
@@ -264,7 +266,8 @@ class GameGraphBuilder:
             level_ai_path=level_ai,
             level_spawn_path=level_spawn,
             output_path=output,
-            original_spawn_path=original_spawn if original_spawn and original_spawn.exists() else None
+            original_spawn_path=original_spawn if original_spawn and original_spawn.exists() else None,
+            original_only=original_only
         )
 
         if not success:
@@ -299,7 +302,10 @@ class GameGraphBuilder:
             if level_config.original_spawn:
                 original_spawn_path = self.base_path / level_config.original_spawn
 
-            graph_points_list = extract_and_merge_graph_points(level_spawn_path, original_spawn_path)
+            graph_points_list = extract_and_merge_graph_points(
+                level_spawn_path, original_spawn_path,
+                original_only=level_config.base_anomaly_spawns_only
+            )
 
             # Convert GraphPoint objects to dict format expected by merger
             # IMPORTANT: Preserve the exact order from extract_and_merge_graph_points

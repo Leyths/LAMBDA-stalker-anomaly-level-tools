@@ -259,7 +259,8 @@ def parse_graph_point_packet(packet_data: bytes) -> Optional[GraphPoint]:
 
 
 def extract_and_merge_graph_points(level_spawn_path: Path,
-                                   original_spawn_path: Optional[Path] = None) -> List[GraphPoint]:
+                                   original_spawn_path: Optional[Path] = None,
+                                   original_only: bool = False) -> List[GraphPoint]:
     """
     Extract and merge graph points from level.spawn and optional original_spawn.
 
@@ -274,11 +275,16 @@ def extract_and_merge_graph_points(level_spawn_path: Path,
     4. If not matched: Add OLD graph point as new entry
 
     This ensures: descriptive names from NEW, level_vertex_ids from OLD, no position duplicates.
+
+    Args:
+        level_spawn_path: Path to level.spawn file
+        original_spawn_path: Optional path to original spawn file for merging
+        original_only: If True, skip level.spawn and only use original_spawn_path
     """
     # Load from NEW level.spawn FIRST - these names have priority
     graph_points: List[GraphPoint] = []
     new_count = 0
-    if level_spawn_path.exists():
+    if not original_only and level_spawn_path.exists():
         new_gps = extract_graph_points_from_binary(level_spawn_path)
         new_count = len(new_gps)
         graph_points = list(new_gps.values())
