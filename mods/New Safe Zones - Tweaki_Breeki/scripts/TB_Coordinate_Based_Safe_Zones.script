@@ -1,0 +1,434 @@
+--Tweaki_Breeki's
+----_____--------------------_-_-------------_---------____---------------------_----_____--------__-------______-----------------------
+---/-____|------------------|-(_)-----------|-|-------|--_-\-------------------|-|--/-____|------/-_|-----|___--/-----------------------
+--|-|-----___---___--_-__-__|-|_-_-__---__-_|-|_-___--|-|_)-|-__-_-___--___--__|-|-|-(___---__-_|-|_-___-----/-/-___--_-__---___--___---
+--|-|----/-_-\-/-_-\|-'__/-_`-|-|-'_-\-/-_`-|-__/-_-\-|--_-<-/-_`-/-__|/-_-\/-_`-|--\___-\-/-_`-|--_/-_-\---/-/-/-_-\|-'_-\-/-_-\/-__|--
+--|-|___|-(_)-|-(_)-|-|-|-(_|-|-|-|-|-|-(_|-|-||--__/-|-|_)-|-(_|-\__-\--__/-(_|-|--____)-|-(_|-|-||--__/--/-/_|-(_)-|-|-|-|--__/\__-\--
+---\_____\___/-\___/|_|--\__,_|_|_|-|_|\__,_|\__\___|-|____/-\__,_|___/\___|\__,_|-|_____/-\__,_|_|-\___|-/_____\___/|_|-|_|\___||___/--
+--Version 1.5
+--17/07/2021
+--This file should be in gamedata\scripts\
+--As I don't know how to get Anomaly levels to load in any SDK I can find, I decided to come up with this method.
+--When an emission or psy-storm starts, the script looks to see which level the player is in and does some basic maths to see if they are within any of the given coordinates, if any for that level. If so, the script sets the flag as if the player is underground, forcing the storm scripts to skip their checks. If the player walks out of the coordinates, the PDA will suggest you find shelter as normal.
+--AI NPCs are unaffected and won't hide in the new safe zones (that is a future coding challenge for sure!).
+--The tiny cube objects (used for the map icons) are now placed in the world at emission/psy-storm start, and removed after the event.
+--This was changed so the cubes get removed from the world and people and remove the addon properly.
+
+local tg_update = 0
+local tg_update_step = 1000
+local actorpos,actorposx,actorposy,actorposz
+local msg_a = ""
+local msg_b = ""
+local withinsafebounds = false
+local iconsplaced = false
+local cubesplaced = false
+local sur_ini = ini_file("misc\\surge_manager.ltx")
+local safe_covers_list = utils_data.collect_section(sur_ini,"list",true)
+local mapiconobject = "tb_tiny_cube"
+
+--[TB] ARRAY TO STORE INVISIBLE OBJECTS FOR ADDING MARKERS TO THE PDA MAP
+tbiconobjs = {
+{r%level:l09_deadcity}
+	{{w%x:-173.84014892578}, {w%y:7.6612520217896}, {w%z:-225.28094482422}, {w%lvid:32679}, {w%gvid:2410}}, --dead city southwest red house
+	{{w%x:-96.394798278809}, {w%y:-1.8241307735443}, {w%z:-100.85829162598}, {w%lvid:74820}, {w%gvid:2386}}, --dead city southwest flats
+	{{w%x:-157.99807739258}, {w%y:1.4176292419434}, {w%z:-110.58934020996}, {w%lvid:42008}, {w%gvid:2411}}, --dead city southwest green house
+	{{w%x:-153.51763916016}, {w%y:1.4506330490112}, {w%z:-90.70336151123}, {w%lvid:44764}, {w%gvid:2412}}, --dead city southwest white house
+	{{w%x:-153.24339294434}, {w%y:2.5091569423676}, {w%z:-47.769592285156}, {w%lvid:44819}, {w%gvid:2413}}, --dead city west supermarket
+	{{w%x:-153.57014465332}, {w%y:2.2491862773895}, {w%z:-19.16693687439}, {w%lvid:44853}, {w%gvid:2360}}, --dead city west garage
+	{{w%x:-98.481544494629}, {w%y:19.055006027222}, {w%z:-54.095142364502}, {w%lvid:70959}, {w%gvid:2348}}, --dead city west flats south stairs
+	{{w%x:-121.7673034668}, {w%y:19.049163818359}, {w%z:-19.534187316895}, {w%lvid:69913}, {w%gvid:2360}}, --dead city west flats west stairs
+	{{w%x:-113.39792633057}, {w%y:3.1756725311279}, {w%z:24.075304031372}, {w%lvid:67509}, {w%gvid:2361}}, --dead city northwest white house
+	{{w%x:42.393173217773}, {w%y:24.949106216431}, {w%z:100.73115539551}, {w%lvid:69619}, {w%gvid:2361}}, --dead city northeast flats top
+	{{w%x:39.418869018555}, {w%y:24.977867126465}, {w%z:60.4621925354}, {w%lvid:69619}, {w%gvid:2361}}, --dead city northeast flats middle
+	{{w%x:42.47444152832}, {w%y:24.968975067139}, {w%z:22.121118545532}, {w%lvid:69615}, {w%gvid:2361}}, --dead city northeast flats bottom
+	{{w%x:116.73725891113}, {w%y:1.4194025993347}, {w%z:63.301048278809}, {w%lvid:208784}, {w%gvid:2416}}, --dead city northeast white house
+	{{w%x:113.42926025391}, {w%y:1.4279770851135}, {w%z:20.095323562622}, {w%lvid:206428}, {w%gvid:2415}}, --dead city northeast green house
+{r%level:k00_marsh}
+	{{w%x:-42.178592681885}, {w%y:1.9045604467392}, {w%z:270.24957275391}, {w%lvid:121376}, {w%gvid:76}}, --great swamps northwest bunker
+	{{w%x:516.11499023438}, {w%y:3.3741240501404}, {w%z:-153.53628540039}, {w%lvid:494597}, {w%gvid:253}}, --great swamps southeast bunker
+{r%level:y04_pole}
+	{{w%x:69.757049560547}, {w%y:-1.5019578933716}, {w%z:160.634765625}, {w%lvid:85501}, {w%gvid:5305}}, --the meadow flooded basement
+	{{w%x:-88.229278564453}, {w%y:0.94593930244446}, {w%z:64.59553527832}, {w%lvid:30643}, {w%gvid:5314}}, --the meadow shop by electros
+{r%level:jupiter}
+	{{w%x:68.546226501465}, {w%y:3.2373993396759}, {w%z:336.80999755859}, {w%lvid:832822}, {w%gvid:4656}}, --jupiter under service station
+	{{w%x:-340.42114257813}, {w%y:-2.8598012924194}, {w%z:261.23764038086}, {w%lvid:140978}, {w%gvid:4526}}, --jupiter kopachy
+	{{w%x:322.07189941406}, {w%y:34.592552185059}, {w%z:-225.97982788086}, {w%lvid:1232590}, {w%gvid:4694}}, --jupiter northmost plant building 2F
+	{{w%x:399.58026123047}, {w%y:27.979948043823}, {w%z:-211.11834716797}, {w%lvid:1345485}, {w%gvid:4487}}, --jupiter northmost plant building corridor
+	{{w%x:340.80618286133}, {w%y:34.259426116943}, {w%z:-276.79296875}, {w%lvid:1260187}, {w%gvid:4694}}, --jupiter midnorth plant building GF & 2F
+	{{w%x:449.83190917969}, {w%y:27.314088821411}, {w%z:-460.67965698242}, {w%lvid:1430287}, {w%gvid:4700}}, --jupiter southwest plant building small room
+{r%level:zaton}
+	{{w%x:-314.68417358398}, {w%y:9.7915678024292}, {w%z:418.90582275391}, {w%lvid:320564}, {w%gvid:4137}}, --zaton house at sawmill
+	{{w%x:235.62362670898}, {w%y:11.584729194641}, {w%z:-4.1525192260742}, {w%lvid:1368018}, {w%gvid:4147}}, --zaton dock cranes house
+{r%level:l11_pripyat}
+	{{w%x:170.58749389648}, {w%y:-5.5146474838257}, {w%z:69.969009399414}, {w%lvid:253825}, {w%gvid:2935}}, --pripyat southeastern subway
+	{{w%x:-15.63098526001}, {w%y:-5.5362749099731}, {w%z:69.970832824707}, {w%lvid:83974}, {w%gvid:2955}}, --pripyat southwestern subway
+	{{w%x:-33.121124267578}, {w%y:-1.7326965332031}, {w%z:35.356594085693}, {w%lvid:65587}, {w%gvid:2955}}, --pripyat ground floor building by chopper
+{r%level:l05_bar}
+	{{w%x:153.05656433105}, {w%y:1.5991151332855}, {w%z:110.77601623535}, {w%lvid:40987}, {w%gvid:1710}}, --rostok tower ground floor
+{r%level:pripyat}
+	{{w%x:-13.052764892578}, {w%y:2.4327080249786}, {w%z:-349.6103515625}, {w%lvid:179202}, {w%gvid:4994}}, --outskirts southern green cabin
+	{{w%x:-101.19021606445}, {w%y:0.83981251716614}, {w%z:-96.235885620117}, {w%lvid:90383}, {w%gvid:4948}}, --outskirts kindergarten west under stairs
+	{{w%x:-56.195117950439}, {w%y:0.84070229530334}, {w%z:-96.357955932617}, {w%lvid:133347}, {w%gvid:4947}}, --outskirts kindergarten east under stairs
+	{{w%x:124.07121276855}, {w%y:28.92071723938}, {w%z:248.35722351074}, {w%lvid:350478}, {w%gvid:5024}}, --outskirts top apartment at vine anomaly
+{r%level:l04_darkvalley}
+	{{w%x:132.36140441895}, {w%y:5.8223166465759}, {w%z:-293.93814086914}, {w%lvid:312236}, {w%gvid:1432}}, --dark valley industrial complex southern barn
+	{{w%x:37.879180908203}, {w%y:3.5487730503082}, {w%z:-214.34707641602}, {w%lvid:208986}, {w%gvid:1474}}, --dark valley cabin in middle of level
+}
+
+--[TB] ARRAY OF DEAD CITY COORDINATES
+tbSZ_DC = {
+	{-178.24769592285, 7.6646862030029, -221.11883544922, -169.53253173828, 10.358658790588, -229.21249389648}, --southwest red house
+	{-182.14568786621, 5.898768901825, -220.68852539062, -178.98251647949, 6.6624450683594, -224.48362426758}, --southwest red house cellar
+	{-102.87242584229, 2.8849911689758, -79.666705322266, -88.512873840332, 17.933387756348, -120.94742279053}, --southwest flats
+	{-161.51362304688, 1.6279361248016, -103.9550201416, -154.17099304199, 2.6276440620422, -117.23564605713}, --southwest green house
+	{-158.2169921875, 1.4549105167389, -86.402041625977, -148.90446777344, 2.1479554176331, -95.092251586914}, --southwest white house
+	{-161.81565551758, -0.31286942958832, -86.267939758301, -158.70680541992, -0.57697606086731, -90.003971862793}, --southwest white house cellar
+	{-161.00887756348, 2.6226572990417, -40.059317779541, -143.37709350586, 5.5428185462952, -55.902165222168}, --west supermarket
+	{-162.48785095215, 2.2505040168762, -14.636952590942, -143.24643249512, 5.1515207290649, -23.186764526367}, --west garage
+	{-105.0811126709, 4.4874787330627, -51.572737884521, -98.043894958496, 17.040777206421, -61.752709197998}, --west flats south stairs
+	{-129.23637084961, 2.8849649429321, -20.104043197632, -119.0228225708, 17.054906845093, -27.186753082275}, --west flats west stairs
+	{-117.86443786621, 3.1772592067719, 29.017140197754, -110.76177520752, 4.2941718101501, 18.757741165161}, --northwest white house
+	{-111.13683776855, -0.55959415435791, 24.022984313965, -106.41773529053, 0.77539491653442, 18.223120880127}, --northwest white house cellar
+	{21.635571670532, 2.8857576847076, 107.79086761475, 63.179249572754, 18.061290740967, 93.432002258301}, --northeast flats top
+	{18.680894088745, 2.8853464126587, 67.648503112793, 60.227810668945, 18.194946289063, 53.285994720459}, --northeast flats middle
+	{21.630433273315, 2.8819890022278, 29.391455459595, 63.176220703125, 18.066284179688, 15.032674980164}, --northeast flats bottom
+	{111.91090698242, 1.4238719940186, 67.625790405273, 121.40249328613, 2.1050009727478, 58.898833465576}, --northeast white house
+	{108.30961914063, -0.34125995635986, 67.760304260254, 111.65288238525, -0.59528982639313, 63.79196472168}, --northeast white house cellar
+	{106.75142211914, 1.4278571605682, 23.706141281128, 120.06432800293, 2.6197209358215, 16.292855453491}, --northeast green house
+}
+
+--[TB] ARRAY OF GREAT SWAMPS COORDINATES
+tbSZ_GS = {
+	{-44.160824584961, -1.5210056304932, 270.74081420898, -40.339030456543, 0.77160829305649, 265.69438476562}, --northwest bunker
+	{514.25377197266, 0.84623569250107, -149.00194091797, 518.13135986328, 1.9918670654297, -154.09034729004},--southeast bunker
+}
+
+--[TB] ARRAY OF MEADOW COORDINATES
+tbSZ_ME = {
+	{59.677401733398, -1.5779840946198, 171.15076904297, 78.116314697266, -0.39284414052963, 150.16044921875}, --flooded basement
+	{-91.838650512695, 1.2449088096619, 72.057682800293, -84.884295654297, 3.4152307510376, 57.964088439941}, --shop by electros
+}
+
+--[TB] ARRAY OF JUPITER COORDINATES
+tbSZ_JU = {
+	{65.053088378906, -0.76303219795227, 336.63312988281, 75.748852539062, 2.0795383453369, 328.74116821289}, --under service station
+	{-351.79780273438, -2.8619587421417, 260.2391784668, -342.6873046875, -0.50516891479492, 254.73866577148}, --kopachy west room
+	{-339.07435302734, -2.8618650436401, 268.80256347656, -330.00279541016, -0.51712870597839, 254.73460693359}, --kopachy east rooms
+	{386.49956054687, 4.1886868476868, -84.343707275391, 425.70911865234, 19.037999153137, -138.61864929199}, --eastern tunnel warehouse
+	{312.29582519531, 34.698307037354, -223.60928649902, 338.89829711914, 38.447559356689, -229.05338745117}, --northmost plant building 2F
+	{397.34352416992, 27.980133056641, -188.72868652344, 402.01713256836, 30.770919799805, -232.84048156738}, --northmost plant building corridor
+	{347.43471069336, 27.183853149414, -269.97630615234, 356.47755126953, 30.716825485229, -278.57661132813}, --midnorth plant building GF
+	{318.73201293945, 34.25866317749, -274.34214111328, 359.48414306641, 37.407783508301, -278.57841186523}, --midnorth plant building 2F
+	{447.02272338867, 27.542930603027, -458.68440551758, 452.81870727539, 30.732931137085, -462.38709716797}, --southwest plant building small room
+}
+
+--[TB] ARRAY OF ZATON COORDINATES
+tbSZ_ZA = {
+	{-319.84037475586, 9.7976169586182, 428.44819335938, -309.36030883789, 11.362489700317, 412.45897216797}, --house at sawmill
+	{231.75024414063, 8.0890645980835, -0.30566340684891, 239.8588104248, 9.5831346511841, -8.3532037734985}, --dock cranes house
+}
+
+--[TB] ARRAY OF ROSTOK COORDINATES
+tbSZ_RO = {
+	{228.70849914551, -5.4503493309021, 136.50042419434, 233.42893676758, -1.0519095659256, 126.57520599365}, --duty bunk beds
+	{219.56079406738, -5.0499024391174, 138.83359985352, 228.07172851563, -2.4763352870941, 136.55815429687}, --duty locker room
+	{149.67822570801, 0.3282687664032, 114.43153076172, 157.08332519531, 3.0807070732117, 105.73060150146}, --ground floor tower
+}
+
+--[TB] ARRAY OF PRIPYAT COORDINATES
+tbSZ_PR = {
+	{-130.92065124512, -3.4855844974518, 113.61938171387, -110.18291015625, 5.9668273925781, 88.933901977539}, --west apartments to jupiter
+	{167.72458190918, -5.386682510376, 83.24172668457, 173.4787109375, -3.8845863342285, 57.994097900391}, --southeastern subway
+	{-18.468046951294, -5.4088726043701, 83.191265869141, -12.654755783081, -3.8886969089508, 57.993880462646}, --southwestern subway
+	{188.08757324219, 2.7863442897797, 220.11686401367, 208.81770019531, 5.9649219512939, 195.39094848633}, --east apartments to outskirts
+	{98.297244262695, 3.9985744953156, 155.10070495605, 109.78532104492, 6.7264261245728, 113.66337127686}, --most of hotel
+	{-37.094540405273, -1.7373523712158, 39.181954193115, -24.705437850952, 2.2554223537445, 32.928744506836}, --ground floor building by chopper
+}
+
+--[TB] ARRAY OF OUTSKIRTS COORDINATES
+tbSZ_OU = {
+	{16.138018798828, 4.9052171707153, 371.25361328125, 40.881871032715, 9.375521659851, 354.98381347656}, --theater west stage
+	{55.605578613281, 1.4367532730103, 379.83646850586, 98.840061950684, 12.962801933289, 355.13771362305}, --theater east stage
+	{-18.968991088867, -0.24539467692375, -348.12123413086, -8.0121566772461, 2.1974936008453, -350.84605102539}, --southern green cabin
+	{-103.14957885742, 0.84048211574554, -95.119326782227, -99.05368347168, 1.9545547962189, -97.281140136719}, --kindergarten west under stairs
+	{-58.195603179932, 0.83801019191742, -94.961642456055, -54.106757354736, 1.9545547962189, -97.280583190918}, --kindergarten east under stairs
+	{119.3057434082, 28.910228729248, 252.05163269043, 129.2040222168, 32.191608428955, 244.29698486328}, --top apartment at vine anomaly
+	{132.00854797363, 0.04171930551529, -183.46095581055, 150.07345275879, 0.2544013261795, -207.05494384766}, --laundromat machine room
+	{131.80715942383, 4.8769640922546, -183.22172546387, 142.680859375, 8.7435255050659, -207.06277160645}, --room next to strelok's room + hallway
+}
+
+--[TB] ARRAY OF RADAR COORDINATES
+tbSZ_RA = {
+	{116.95075531006, -9.2693119049072, -21.496211242676, 152.90189819336, -4.2741050720215, -29.651657867432}, --bunker to the lab
+}
+
+--[TB] ARRAY OF RADAR COORDINATES
+tbSZ_DV = {
+	{120.82502288818, 0.15305557847023, -287.81090087891, 140.01662902832, 3.7703151702881, -299.97553710938}, --industrial complex southern barn
+	{36.238188934326, 0.31758350133896, -208.31975097656, 39.523731994629, 3.125338602066, -213.29061584473}, --cabin in middle of level north half
+	{36.241038513184, 0.3166024684906, -216.26665039062, 39.528706359863, 3.125338602066, -221.41585998535}, --cabin in middle of level south half
+}
+
+tb_ug_maps = {
+	["jupiter_underground"] = true,
+	["l03u_agr_underground"] = true,
+	["l04u_labx18"] = true,
+	["l08u_brainlab"] = true,
+	["l10u_bunker"] = true,
+	["l12u_control_monolith"] = true,
+	["l12u_sarcofag"] = true,
+	["l13u_warlab"] = true,
+	["labx8"] = true,
+}
+
+--[TB] MAIN FUNCTION TO CHECK SURGE OR PSYSTORM IS HAPPENING, THEN START CHECKING PLAYER COORDS FOR CURRENT LEVEL
+function actor_on_update()
+	local SurgeManager = surge_manager.get_surge_manager()
+	local PsiStormManager = psi_storm_manager.get_psi_storm_manager()
+
+	if tb_ug_maps[level.name()] == nil then
+		if withinsafebounds == true then
+			SetEvent("underground", true)
+		else
+			SetEvent("underground", false)
+		end
+	end
+
+	local tg = time_global()
+	if tg < tg_update then
+		return
+	end
+	tg_update = tg + tg_update_step
+
+	local surge_state = GetEvent("surge", "state")
+	local psi_storm_state = GetEvent("psi_storm", "state")
+
+	if (surge_state) or (psi_storm_state) then
+
+		if not cubesplaced then
+			add_tiny_cubes_to_world()
+		end
+
+		if surge_state then
+			msg_a = game.translate_string("hide_from_surge_name_1")
+			msg_b = game.translate_string("hide_from_surge_descr_1_a")
+		elseif psi_storm_state then
+			msg_a = game.translate_string("hide_from_psi_storm_name_1")
+			msg_b = game.translate_string("hide_from_psi_storm_descr_1_a")
+		end
+
+		if GetEvent("current_safe_cover") then
+			if iconsplaced then
+				removesafeicons()
+			end
+		else
+			if (not iconsplaced) and (SurgeManager.task_given == true or PsiStormManager.task_given == true) then
+				addsafeicons()
+			end
+		end
+
+		getlevelcoordset()
+	end
+	if not ((surge_state) or (psi_storm_state)) then
+		if iconsplaced then
+			removesafeicons()
+		end
+		if withinsafebounds == true then
+			withinsafebounds = false
+		end
+		if cubesplaced then
+			remove_tiny_cubes_from_world()
+		end
+	end
+end
+
+function getlevelcoordset()
+	actorpos = db.actor:position()
+	actorposx = db.actor:position().x
+	actorposy = db.actor:position().y
+	actorposz = db.actor:position().z
+
+	if (level.name() == "l09_deadcity") then
+		for i=1,#tbSZ_DC do
+			local insafezone = checkifinsafearea(tbSZ_DC[i][1], tbSZ_DC[i][2], tbSZ_DC[i][3], tbSZ_DC[i][4], tbSZ_DC[i][5], tbSZ_DC[i][6])
+			if insafezone == true then
+				break
+			end
+		end
+	elseif (level.name() == "k00_marsh") then
+		for i=1,#tbSZ_GS do
+			local insafezone = checkifinsafearea(tbSZ_GS[i][1], tbSZ_GS[i][2], tbSZ_GS[i][3], tbSZ_GS[i][4], tbSZ_GS[i][5], tbSZ_GS[i][6])
+			if insafezone == true then
+				break
+			end
+		end
+	elseif (level.name() == "y04_pole") then
+		for i=1,#tbSZ_ME do
+			local insafezone = checkifinsafearea(tbSZ_ME[i][1], tbSZ_ME[i][2], tbSZ_ME[i][3], tbSZ_ME[i][4], tbSZ_ME[i][5], tbSZ_ME[i][6])
+			if insafezone == true then
+				break
+			end
+		end
+	elseif (level.name() == "jupiter") then
+		for i=1,#tbSZ_JU do
+			local insafezone = checkifinsafearea(tbSZ_JU[i][1], tbSZ_JU[i][2], tbSZ_JU[i][3], tbSZ_JU[i][4], tbSZ_JU[i][5], tbSZ_JU[i][6])
+			if insafezone == true then
+				break
+			end
+		end
+	elseif (level.name() == "zaton") then
+		for i=1,#tbSZ_ZA do
+			local insafezone = checkifinsafearea(tbSZ_ZA[i][1], tbSZ_ZA[i][2], tbSZ_ZA[i][3], tbSZ_ZA[i][4], tbSZ_ZA[i][5], tbSZ_ZA[i][6])
+			if insafezone == true then
+				break
+			end
+		end
+	elseif (level.name() == "l05_bar") then
+		for i=1,#tbSZ_RO do
+			local insafezone = checkifinsafearea(tbSZ_RO[i][1], tbSZ_RO[i][2], tbSZ_RO[i][3], tbSZ_RO[i][4], tbSZ_RO[i][5], tbSZ_RO[i][6])
+			if insafezone == true then
+				break
+			end
+		end
+	elseif (level.name() == "l11_pripyat") then
+		for i=1,#tbSZ_PR do
+			local insafezone = checkifinsafearea(tbSZ_PR[i][1], tbSZ_PR[i][2], tbSZ_PR[i][3], tbSZ_PR[i][4], tbSZ_PR[i][5], tbSZ_PR[i][6])
+			if insafezone == true then
+				break
+			end
+		end
+	elseif (level.name() == "pripyat") then
+		for i=1,#tbSZ_OU do
+			local insafezone = checkifinsafearea(tbSZ_OU[i][1], tbSZ_OU[i][2], tbSZ_OU[i][3], tbSZ_OU[i][4], tbSZ_OU[i][5], tbSZ_OU[i][6])
+			if insafezone == true then
+				break
+			end
+		end
+	elseif (level.name() == "l10_radar") then
+		for i=1,#tbSZ_RA do
+			local insafezone = checkifinsafearea(tbSZ_RA[i][1], tbSZ_RA[i][2], tbSZ_RA[i][3], tbSZ_RA[i][4], tbSZ_RA[i][5], tbSZ_RA[i][6])
+			if insafezone == true then
+				break
+			end
+		end
+	elseif (level.name() == "l04_darkvalley") then
+		for i=1,#tbSZ_DV do
+			local insafezone = checkifinsafearea(tbSZ_DV[i][1], tbSZ_DV[i][2], tbSZ_DV[i][3], tbSZ_DV[i][4], tbSZ_DV[i][5], tbSZ_DV[i][6])
+			if insafezone == true then
+				break
+			end
+		end
+	end
+end
+
+--[TB] CHECKS IF PLAYER IN SAFE COORDINATES, SETS FLAG IF YES OR NO
+function checkifinsafearea(posaa, posab, posac, posba, posbb, posbc)
+	if (actorposx > posaa) and (actorposz < posac) and (actorposx < posba) and (actorposz > posbc) and (actorposy < posbb) then
+		withinsafebounds = true
+		return true
+	else
+		withinsafebounds = false
+		return false
+	end
+end
+
+--[TB] ADD PDA ICONS TO ALL AVAILABLE SAFE SPOTS INCLUDING THOSE ALREADY IN ANOMALY
+--[TB] HOWEVER THE EXISTING ANOMALY SCRIPT WILL STILL TARGET THE NEAREST DEFAULT SAFE ZONE
+function addsafeicons()
+	local sim = alife()
+	for i=1, 65534 do
+		local se_obj = level.object_by_id(i)
+		if se_obj and (safe_covers_list[se_obj:name()] or se_obj:section() == mapiconobject) then
+			level.map_add_object_spot(i, "secondary_task_location", msg_a .. "\\n \\n" .. msg_b)
+		end
+	end
+	iconsplaced = true
+end
+
+--[TB] REMOVE PDA ICONS IF PLAYER IN SAFE COORDINATES
+function removesafeicons()
+	local sim = alife()
+	for i=1, 65534 do
+		local se_obj = level.object_by_id(i)
+		if se_obj and (safe_covers_list[se_obj:name()] or se_obj:section() == mapiconobject) then
+			level.map_remove_object_spot(i, "secondary_task_location")
+		end
+	end
+	iconsplaced = false
+end
+
+function on_game_load()
+	remove_all_cubes_for_v_1_5()
+end
+
+--[TB] ADD TINY CUBE OBJECTS TO THE WORLD FOR THE MAP ICONS
+function add_tiny_cubes_to_world()
+	for i=1,#tbiconobjs do
+		local tbpos = vector():set(tbiconobjs[i][1],tbiconobjs[i][2],tbiconobjs[i][3])
+		local tblid = tbiconobjs[i][4]
+		local tbgid = tbiconobjs[i][5]
+		alife_create_item(mapiconobject, {tbpos, tblid, tbgid})
+	end
+	cubesplaced = true
+end
+
+--[TB] REMOVE TINY CUBE OBJECTS FROM THE WORLD, ADDED FOR BETTER ADDON REMOVAL
+function remove_tiny_cubes_from_world()
+	for i=1, 65534 do
+		local sim = alife()
+		local se_obj = sim:object(i)
+		if se_obj then
+			local name = se_obj:section_name()
+			if name == "tb_tiny_cube" then
+				safe_release_manager.release(se_obj)
+			end
+		end
+	end
+	cubesplaced = false
+end
+
+--[TB] REMOVE ALL THE CUBE OBJECTS, NOW THEY ARE PLACED AND REMOVED DURING AND AFTER THE STORMS
+function remove_all_cubes_for_v_1_5()
+	local m_data = alife_storage_manager.get_state()
+	if (m_data.tb_remove_all_cubes_for_v_1_5) then
+		return
+	end
+	printf("--- Removing all cubes used for map icons for TB_Coordinate_Based_Safe_Zones v1.5 ---")
+	remove_tiny_cubes_from_world()
+	m_data.tb_remove_all_cubes_for_v_1_5 = true
+end
+
+--[TB] ADDED SO THAT THE PLAYER CAN SLEEP CALCULATED SAFE ZONES (NOT PERFECT, BUT IT WORKS)
+--[TB] USING physic_object_on_use_callback SEEMS TO BE RISKY IF CALLING THE who VARIABLE?
+--[TB] I DON'T THINK NPCS USE SLEEPING BAGS, THIS SHOULD HOPEFULLY WORK
+function physic_object_on_use_callback(obj, who)
+	if obj:section() == "ph_sleepbag" then
+		getlevelcoordset()
+		if withinsafebounds == true then
+			CreateTimeEvent(0,"wait_a_second",1,function()
+				ui_sleep_dialog.main()
+				actor_menu.set_msg(1, game.translate_string("sleep_ok_button"),4)
+				return true
+			end)
+		end
+	end
+end
+
+function save_state(m_data)
+	m_data.cubesplaced = cubesplaced
+	m_data.iconsplaced = iconsplaced
+end
+
+function load_state(m_data)
+	cubesplaced = m_data.cubesplaced
+	iconsplaced = m_data.iconsplaced
+end
+
+--[TB] REQUIRED FUNCTION TO REGISTER CALLBACKS
+function on_game_start()
+	RegisterScriptCallback("on_game_load",on_game_load)
+	RegisterScriptCallback("actor_on_update",actor_on_update)
+	RegisterScriptCallback("physic_object_on_use_callback", physic_object_on_use_callback)
+	RegisterScriptCallback("save_state",save_state)
+	RegisterScriptCallback("load_state",load_state)
+end
