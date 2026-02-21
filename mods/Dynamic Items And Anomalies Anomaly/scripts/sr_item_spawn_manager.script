@@ -232,79 +232,90 @@ function spawn_all_items_for_level(level_name)
         return true
     end
 
-    -- Get difficulty multiplier for spawn chance
+    -- Get difficulty multiplier (used as spawn cap ratio)
     local multi = game_difficulties.get_eco_factor("random_items") or 0.5
     multi = (multi < 1) and multi or 1
 
     -- Get actor's GVID for same-level spawns
     local actor_gvid = db.actor:game_vertex_id()
 
-    local spawn_count = 0
-    local skip_count = 0
+    -- Count active items and collect empty slots
+    local total_slots = size_table(locations)
+    local target = math.ceil(total_slots * multi)
+    local active_count = 0
+    local empty_slots = {}
 
     for name, data in pairs(locations) do
-        -- Check if this location already has an active item
         if spawned_items[name] then
             local tracked = spawned_items[name]
             if tracked.item_id then
                 -- Verify item still exists in simulation
                 local se_obj = alife():object(tracked.item_id)
                 if se_obj then
-                    print_debug("/ sr_item_spawn_manager | %s (id=%s) verified exists, skipping", name, tracked.item_id)
-                    skip_count = skip_count + 1
-                    goto continue
+                    active_count = active_count + 1
                 else
-                    -- Item destroyed outside pickup callback, clean up stale tracking
+                    -- Item destroyed outside pickup callback, clean up
                     print_debug("/ sr_item_spawn_manager | %s (id=%s) no longer exists, cleaning up", name, tracked.item_id)
                     world_itm_on[tracked.item_id] = nil
                     world_itm_num[name] = nil
                     spawned_items[name] = nil
-                    -- Fall through to spawn below
+                    empty_slots[#empty_slots + 1] = {name = name, data = data}
                 end
             else
-                -- item_id is nil = item was picked up, skip (respawn happens elsewhere)
-                print_debug("/ sr_item_spawn_manager | %s was already taken, skipping", name)
-                skip_count = skip_count + 1
+                -- item_id is nil = item was picked up, clear for respawn
+                print_debug("/ sr_item_spawn_manager | %s was previously taken, clearing for respawn", name)
+                spawned_items[name] = nil
+                empty_slots[#empty_slots + 1] = {name = name, data = data}
+            end
+        else
+            empty_slots[#empty_slots + 1] = {name = name, data = data}
+        end
+    end
+
+    -- Determine how many to spawn (top up to target)
+    local to_spawn = math.max(0, target - active_count)
+    if to_spawn == 0 or #empty_slots == 0 then
+        print_debug("/ sr_item_spawn_manager | Level %s: %s/%s active (target %s), nothing to spawn",
+            level_name, active_count, total_slots, target)
+        levels_spawned[level_name] = true
+        return true
+    end
+
+    -- Shuffle empty_slots so item placement varies each visit
+    for i = #empty_slots, 2, -1 do
+        local j = math.random(i)
+        empty_slots[i], empty_slots[j] = empty_slots[j], empty_slots[i]
+    end
+
+    local spawn_count = 0
+    for i = 1, math.min(to_spawn, #empty_slots) do
+        local slot = empty_slots[i]
+        local pos = vector():set(slot.data.x, slot.data.y, slot.data.z)
+        local lvid = level.vertex_id(pos)
+        if lvid == 4294967295 then
+            lvid = level.vertex_in_direction(level.vertex_id(db.actor:position()), pos, 1000)
+            if lvid == 4294967295 then
+                print_debug("! sr_item_spawn_manager | Invalid LVID for %s at %.1f, %.1f, %.1f",
+                    slot.name, slot.data.x, slot.data.y, slot.data.z)
                 goto continue
             end
         end
 
-        -- Difficulty-based spawn chance
-        if math.random() < multi then
-            -- Create position vector
-            local pos = vector():set(data.x, data.y, data.z)
-
-            -- Get LVID from position at runtime
-            local lvid = level.vertex_id(pos)
-            if lvid == 4294967295 then
-                -- Invalid LVID, try to find nearest valid vertex
-                lvid = level.vertex_in_direction(level.vertex_id(db.actor:position()), pos, 1000)
-                if lvid == 4294967295 then
-                    print_debug("! sr_item_spawn_manager | Invalid LVID for %s at %.1f, %.1f, %.1f", name, data.x, data.y, data.z)
-                    skip_count = skip_count + 1
-                    goto continue
-                end
-            end
-
-            -- Spawn the item
-            local item_id, section = spawn_item_at_position(name, data.category, pos, lvid, actor_gvid)
-            if item_id then
-                spawned_items[name] = {
-                    item_id = item_id,
-                    category = data.category
-                }
-                world_itm_on[item_id] = name
-                spawn_count = spawn_count + 1
---                    add_marker(name, section, item_id, data.category)
-            end
-        else
-            skip_count = skip_count + 1
+        local item_id, section = spawn_item_at_position(slot.name, slot.data.category, pos, lvid, actor_gvid)
+        if item_id then
+            spawned_items[slot.name] = {
+                item_id = item_id,
+                category = slot.data.category
+            }
+            world_itm_on[item_id] = slot.name
+            spawn_count = spawn_count + 1
         end
         ::continue::
     end
 
     levels_spawned[level_name] = true
-    print_debug("/ sr_item_spawn_manager | Level %s: spawned %s items, skipped %s (multi=%s)", level_name, spawn_count, skip_count, string.format("%.2f", multi))
+    print_debug("/ sr_item_spawn_manager | Level %s: %s/%s active + %s spawned (target %s, slots %s, multi=%.2f)",
+        level_name, active_count, total_slots, spawn_count, target, #empty_slots, multi)
     return true
 end
 
@@ -387,13 +398,14 @@ local function actor_on_item_take(obj)
         itms_manager.send_itm_msg(section)
     end
 
-    -- Find another location to spawn at (on different level)
+    -- Allow this level to top up on next visit
     local current_level = level.name()
+    levels_spawned[current_level] = nil
+    -- Also allow a random other level to respawn
     local new_location = get_random_location_for_respawn(current_level)
     if new_location then
-        print_debug("/ sr_item_spawn_manager | Respawn will happen at %s on level %s when visited", new_location.name, new_location.level)
-        -- Don't spawn immediately - will spawn when that level is visited
-        -- The level_spawned tracking ensures new items spawn on level visit
+        print_debug("/ sr_item_spawn_manager | Respawn will happen at %s on level %s when visited",
+            new_location.name, new_location.level)
         levels_spawned[new_location.level] = nil
     end
 end
@@ -417,17 +429,46 @@ local function load_state(m_data)
     -- Clean stale entries where tracked items no longer exist
     if alife() then
         local cleaned = 0
+        local to_clean = {}
         for item_id, spawn_name in pairs(world_itm_on) do
             if not alife():object(item_id) then
-                print_debug("/ sr_item_spawn_manager | Cleaning stale item: %s (id=%s)", spawn_name, item_id)
-                world_itm_on[item_id] = nil
-                world_itm_num[spawn_name] = nil
-                if spawned_items[spawn_name] then
-                    spawned_items[spawn_name] = nil
-                end
-                cleaned = cleaned + 1
+                to_clean[#to_clean + 1] = {id = item_id, name = spawn_name}
             end
         end
+        for _, entry in ipairs(to_clean) do
+            print_debug("/ sr_item_spawn_manager | Cleaning stale item: %s (id=%s)", entry.name, entry.id)
+            world_itm_on[entry.id] = nil
+            world_itm_num[entry.name] = nil
+            spawned_items[entry.name] = nil
+            cleaned = cleaned + 1
+        end
+
+        -- Re-evaluate levels_spawned: clear levels below target cap so they respawn on visit
+        init_settings()
+        local levels_to_clear = {}
+        for lvl, _ in pairs(levels_spawned) do
+            local active = 0
+            local total = 0
+            if spawn_locations[lvl] then
+                for loc_name, _ in pairs(spawn_locations[lvl]) do
+                    total = total + 1
+                    if spawned_items[loc_name] and spawned_items[loc_name].item_id then
+                        active = active + 1
+                    end
+                end
+            end
+            local m = game_difficulties.get_eco_factor("random_items") or 0.5
+            m = (m < 1) and m or 1
+            local t = math.ceil(total * m)
+            if active < t then
+                levels_to_clear[#levels_to_clear + 1] = lvl
+            end
+        end
+        for _, lvl in ipairs(levels_to_clear) do
+            print_debug("/ sr_item_spawn_manager | Level %s below target, clearing for respawn on next visit", lvl)
+            levels_spawned[lvl] = nil
+        end
+
         print_debug("# sr_item_spawn_manager LOADING: items [%s] - levels [%s] - cleaned [%s]",
             size_table(spawned_items), size_table(levels_spawned), cleaned)
     else
