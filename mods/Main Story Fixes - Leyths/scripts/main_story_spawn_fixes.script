@@ -57,7 +57,7 @@ end
 ------------------------------------------------------
 -- spawn_monolith_shard (Living Legend)
 ------------------------------------------------------
-{r%level:l12u_sarcofag}
+{r%level:l12u_control_monolith}
 xr_effects.spawn_monolith_shard = function(actor, npc, p)
     local pos = vector():set({w%x:0.072339810431004}, {w%y:-34.356998443604}, {w%z:17.800102233887})
     local se_obj = alife_create("monolith_shard", pos, {w%lvid:1849}, {w%gvid:4055})
