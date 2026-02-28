@@ -29,7 +29,7 @@ An `all.spawn` visualiser tool is included to help debug issues and view maps in
 ```bash
 git clone <repo>
 cd LAMBDA-stalker-anomaly-level-tools
-python3.11 -m venv venv
+python3.12 -m venv venv
 source venv/bin/activate
 pip install numpy
 pip install open3d  # optional, for visualizer
@@ -63,7 +63,7 @@ py -m pip install open3d  :: optional, for visualizer
 ./build_anomaly.sh --force      # Force rebuild all cross tables
 
 # Build for GAMMA mod
-./build_gamma.sh
+./build_gamma_0.94.sh
 
 # Launch 3D visualizer
 ./visualise.sh
@@ -78,7 +78,7 @@ build_anomaly.bat
 :: Build options
 build_anomaly.bat --force      :: Force rebuild all cross tables
 
-:: Build for GAMMA mod
+:: Build for GAMMA 0.94 mod
 build_gamma_0.94.bat
 
 :: Launch 3D visualizer
@@ -101,7 +101,16 @@ id = 01                                             # Unique level ID (0-255)
 original_spawn = extractedanomalyspawns/k00_marsh.spawn      # Original spawn data
 original_patrols = extractedanomalyspawns/k00_marsh.patrols  # Original patrol data
 original_edges = extractedanomalyspawns/k00_marsh.edges.json # Original graph edges
+base_anomaly_spawns_only = true                     # Use only original spawn data (see below)
+base_anomaly_waypoints_only = true                  # Use only original patrol data (see below)
+connect_orphans_automatically = true                # Auto-connect orphan graph nodes (see below)
 ```
+
+#### Level flags
+
+**`base_anomaly_spawns_only`** and **`base_anomaly_waypoints_only`** — When set to `true`, the build pipeline will skip reading the level's compiled `level.spawn` / `level.game` files and instead use only the pre-extracted data from `original_spawn` / `original_patrols`. You should set these flags to `true` for all levels you are not modifying. This ensures the build uses known-good extracted data rather than trying to parse the compiled level files. Leave them unset (or `false`) only for levels you have specifically re-compiled with the SDK (e.g. after editing the AI mesh or adding new spawn points in the level editor).
+
+**`connect_orphans_automatically`** — When set to `true`, the build will automatically connect any orphan graph nodes (nodes with no edges to other levels) to their nearest neighbour. This is useful for levels that have been re-compiled where the game graph edges need to be reconstructed.
 
 ### spawn_blacklist.ini
 
@@ -131,10 +140,9 @@ Level changers **not** listed in this file are removed from all.spawn.
 ## Project Structure
 
 ```
-lambda/
-├── build_anomaly.sh          # Main build for Anomaly mod
-├── build_gamma.sh            # Build for GAMMA mod
-├── visualise.sh              # 3D visualizer launcher
+├── build_anomaly.sh/.bat     # Main build for Anomaly mod
+├── build_gamma_0.94.sh/.bat  # Build for GAMMA 0.94 mod
+├── visualise.sh/.bat         # 3D visualizer launcher
 ├── levels.ini                # Level definitions
 ├── spawn_blacklist.ini       # Entity exclusion patterns
 ├── level_changers.ini        # Cross-level teleport config
