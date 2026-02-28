@@ -67,6 +67,9 @@ class NodeInspectorApp:
         self.selected_spawn = None
         self.selected_graph = None
         self.selected_patrol = None
+        self._orbit_active = False
+        self._orbit_last_x = 0
+        self._orbit_last_y = 0
 
         # Create window
         self.window = gui.Application.instance.create_window(
@@ -92,7 +95,9 @@ class NodeInspectorApp:
             on_patrol_selected=self._on_patrol_selected
         )
         self.control_panel.set_window(self.window)
-        self.window.add_child(self.control_panel.panel)
+        self._panel_wrapper = gui.WidgetProxy()
+        self._panel_wrapper.set_widget(self.control_panel.panel)
+        self.window.add_child(self._panel_wrapper)
 
         # Initialize - select node 0 and focus camera on it
         self.inspect_node(0, reset_camera=True)
@@ -298,24 +303,19 @@ class NodeInspectorApp:
 
         # Control panel on the right
         panel_width = 350
-        self.control_panel.set_frame(
-            r.width - panel_width - 10,
-            10,
-            panel_width,
-            r.height - 20
-        )
+        panel_rect = gui.Rect(r.width - panel_width - 10, 10, panel_width, r.height - 20)
+        self._panel_wrapper.frame = panel_rect
+        self.control_panel.set_frame(panel_rect.x, panel_rect.y, panel_rect.width, panel_rect.height)
 
         # Scene takes the rest
         self.scene.frame = gui.Rect(0, 0, r.width - panel_width - 20, r.height)
 
     def _on_panel_rebuild(self, old_panel, new_panel):
         """Handle control panel rebuild - swap old panel for new one."""
-        # Open3D GUI lacks removeChild(), so simulate panel removal by moving off-screen
-        old_panel.frame = gui.Rect(-10000, -10000, 1, 1)
-
-        self.window.add_child(new_panel)
-        # Trigger a layout update
+        self._panel_wrapper.set_widget(new_panel)
         self.window.set_needs_layout()
+
+    ORBIT_SENSITIVITY = 0.005  # radians per pixel
 
     def _on_mouse(self, event):
         """Handle mouse events."""
@@ -329,6 +329,7 @@ class NodeInspectorApp:
         if event.type == gui.MouseEvent.Type.BUTTON_DOWN and \
            event.is_button_down(gui.MouseButton.LEFT) and \
            event.is_modifier_down(gui.KeyModifier.CTRL):
+            self._orbit_active = False
 
             # OPTIMIZATION: Compute ray ONCE and reuse for all picking methods
             ray_data = self._compute_pick_ray(event.x, event.y)
@@ -379,7 +380,80 @@ class NodeInspectorApp:
 
             return gui.SceneWidget.EventCallbackResult.HANDLED
 
+        # Left click (no modifiers) - start orbit rotation
+        if event.type == gui.MouseEvent.Type.BUTTON_DOWN and \
+           event.is_button_down(gui.MouseButton.LEFT):
+            self._orbit_active = True
+            self._orbit_last_x = event.x
+            self._orbit_last_y = event.y
+            return gui.SceneWidget.EventCallbackResult.HANDLED
+
+        # Orbit drag (check both DRAG and MOVE since we consumed BUTTON_DOWN)
+        if self._orbit_active and event.type in (gui.MouseEvent.Type.DRAG, gui.MouseEvent.Type.MOVE):
+            dx = event.x - self._orbit_last_x
+            dy = event.y - self._orbit_last_y
+            self._orbit_last_x = event.x
+            self._orbit_last_y = event.y
+            if abs(dx) > 0 or abs(dy) > 0:
+                self._apply_orbit_rotation(dx, dy)
+            return gui.SceneWidget.EventCallbackResult.HANDLED
+
+        # Any button release clears orbit state
+        if event.type == gui.MouseEvent.Type.BUTTON_UP:
+            if self._orbit_active:
+                self._orbit_active = False
+                return gui.SceneWidget.EventCallbackResult.HANDLED
+
         return gui.SceneWidget.EventCallbackResult.IGNORED
+
+    def _apply_orbit_rotation(self, dx, dy):
+        """Apply roll-free orbit rotation (yaw around world Y, pitch around camera right)."""
+        target = self._get_camera_target()
+
+        view_matrix = np.array(self.scene.scene.camera.get_view_matrix()).reshape(4, 4)
+        inv_view = np.linalg.inv(view_matrix)
+        eye = inv_view[:3, 3]
+
+        offset = eye - target
+        distance = np.linalg.norm(offset)
+        if distance < 1e-6:
+            return
+
+        world_up = np.array([0.0, 1.0, 0.0])
+
+        # Yaw: rotate offset around world Y axis
+        yaw = -dx * self.ORBIT_SENSITIVITY
+        cos_y, sin_y = np.cos(yaw), np.sin(yaw)
+        offset = np.array([
+            offset[0] * cos_y + offset[2] * sin_y,
+            offset[1],
+            -offset[0] * sin_y + offset[2] * cos_y
+        ])
+
+        # Pitch: rotate offset around camera right axis
+        forward = -offset / np.linalg.norm(offset)
+        right = np.cross(forward, world_up)
+        right_len = np.linalg.norm(right)
+
+        if right_len > 1e-6:
+            right /= right_len
+            pitch = dy * self.ORBIT_SENSITIVITY
+
+            # Clamp pitch to prevent flipping past ~85 degrees from horizontal
+            elevation = np.arcsin(np.clip(offset[1] / distance, -1.0, 1.0))
+            max_elevation = np.radians(85)
+            new_elevation = np.clip(elevation + pitch, -max_elevation, max_elevation)
+            pitch = new_elevation - elevation
+
+            cos_p, sin_p = np.cos(pitch), np.sin(pitch)
+            offset = (offset * cos_p
+                      + np.cross(right, offset) * sin_p
+                      + right * np.dot(right, offset) * (1 - cos_p))
+
+        # Preserve original distance to prevent drift
+        offset = offset / np.linalg.norm(offset) * distance
+
+        self.scene.look_at(target, target + offset, world_up)
 
     def _compute_pick_ray(self, screen_x, screen_y):
         """Compute pick ray from screen coordinates. Returns (ray_origin, ray_direction, ray_length) or None."""
@@ -1095,39 +1169,42 @@ class NodeInspectorApp:
             return
         self._move_camera_to_point(new_target)
 
+    def _get_camera_target(self):
+        """Get the current camera orbit target based on selection priority."""
+        if self.selected_patrol is not None and self.patrol_data is not None:
+            target = self.patrol_data.get_position(self.selected_patrol)
+            if target is not None:
+                return target
+        if self.selected_graph is not None and self.graph_data is not None:
+            target = self.graph_data.get_position(self.selected_graph)
+            if target is not None:
+                return target
+        if self.selected_spawn is not None and self.spawn_data is not None:
+            target = self.spawn_data.get_position(self.selected_spawn)
+            if target is not None:
+                return target
+        if self.selected_node is not None:
+            target = self.level_data.get_point(self.selected_node)
+            if target is not None:
+                return target
+        # Fallback: estimate from view direction
+        view_matrix = np.array(self.scene.scene.camera.get_view_matrix()).reshape(4, 4)
+        inv_view = np.linalg.inv(view_matrix)
+        eye = inv_view[:3, 3]
+        return eye - inv_view[:3, 2] * 10  # 10 units in front
+
     def _move_camera_to_point(self, new_target):
         """Move camera to a point while preserving perspective (viewing angle and distance)."""
-        # Get current camera state from view matrix
         view_matrix = np.array(self.scene.scene.camera.get_view_matrix()).reshape(4, 4)
-
-        # Extract camera position (eye) from inverse view matrix
         inv_view = np.linalg.inv(view_matrix)
         current_eye = inv_view[:3, 3]
 
-        # Get current target - prefer patrol, then graph, then spawn, then node (since node is never cleared)
-        if self.selected_patrol is not None and self.patrol_data is not None:
-            current_target = self.patrol_data.get_position(self.selected_patrol)
-        elif self.selected_graph is not None and self.graph_data is not None:
-            current_target = self.graph_data.get_position(self.selected_graph)
-        elif self.selected_spawn is not None and self.spawn_data is not None:
-            current_target = self.spawn_data.get_position(self.selected_spawn)
-        elif self.selected_node is not None:
-            current_target = self.level_data.get_point(self.selected_node)
-        else:
-            # Fallback: estimate target from view direction
-            current_target = current_eye - inv_view[:3, 2] * 10  # 10 units in front
-
-        # Calculate offset from target to eye (preserves distance and angle)
+        current_target = self._get_camera_target()
         offset = current_eye - current_target
-
-        # Apply same offset to new target
         new_eye = new_target + offset
 
-        # Extract up vector from view matrix
-        up = inv_view[:3, 1]
-
-        # Set new camera position
-        self.scene.look_at(new_target, new_eye, up)
+        # Always use world up to prevent roll accumulation
+        self.scene.look_at(new_target, new_eye, [0, 1, 0])
 
     def run(self):
         """Run the application."""
