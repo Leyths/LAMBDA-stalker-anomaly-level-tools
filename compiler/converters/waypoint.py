@@ -13,7 +13,7 @@ Format (from WayPoint.cpp Export method):
     - For each point: Fvector position (3f), u32 flags
 - Chunk WAYOBJECT_CHUNK_LINKS (0x0003):
     - u16 link_count
-    - For each link: u16 from, u16 to
+    - For each link: u16 from, u16 to, f32 weight
 """
 
 import struct
@@ -245,11 +245,12 @@ def parse_wayobject(data: bytes) -> WayObject:
             link_count = struct.unpack('<H', chunk_data[:2])[0]
             pos = 2
             for i in range(link_count):
-                if pos + 4 > len(chunk_data):
+                if pos + 8 > len(chunk_data):
                     break
                 from_idx, to_idx = struct.unpack('<HH', chunk_data[pos:pos+4])
+                # Skip f32 weight (4 bytes) - recalculated from positions during export
                 obj.links.append((from_idx, to_idx))
-                pos += 4
+                pos += 8
 
     return obj
 
