@@ -318,12 +318,12 @@ class NodeInspectorApp:
     ORBIT_SENSITIVITY = 0.005  # radians per pixel
 
     def _on_mouse(self, event):
-        """Handle mouse events."""
+        """Handle mouse events. Uses CONSUMED to prevent Open3D's default arcball rotation."""
         # Block middle mouse button
         if event.is_button_down(gui.MouseButton.MIDDLE) or \
            event.type == gui.MouseEvent.Type.BUTTON_DOWN and \
            event.is_button_down(gui.MouseButton.MIDDLE):
-            return gui.SceneWidget.EventCallbackResult.HANDLED
+            return gui.SceneWidget.EventCallbackResult.CONSUMED
 
         # Ctrl+Click to pick node, spawn, or graph vertex (moves camera but keeps viewing angle/distance)
         if event.type == gui.MouseEvent.Type.BUTTON_DOWN and \
@@ -338,19 +338,19 @@ class NodeInspectorApp:
             picked_graph_idx, graph_dist = self._pick_graph_with_ray(event.x, event.y, ray_data)
             if picked_graph_idx is not None and graph_dist < self.GRAPH_PRIORITY_THRESHOLD:
                 self.inspect_graph(picked_graph_idx, move_camera=True)
-                return gui.SceneWidget.EventCallbackResult.HANDLED
+                return gui.SceneWidget.EventCallbackResult.CONSUMED
 
             # Try spawn next - early exit if clearly the target
             picked_spawn_idx, spawn_dist = self._pick_spawn_with_ray(event.x, event.y, ray_data)
             if picked_spawn_idx is not None and spawn_dist < self.SPAWN_PRIORITY_THRESHOLD:
                 self.inspect_spawn(picked_spawn_idx, move_camera=True)
-                return gui.SceneWidget.EventCallbackResult.HANDLED
+                return gui.SceneWidget.EventCallbackResult.CONSUMED
 
             # Try patrol - early exit if clearly the target
             picked_patrol_idx, patrol_dist = self._pick_patrol_with_ray(event.x, event.y, ray_data)
             if picked_patrol_idx is not None and patrol_dist < self.PATROL_PRIORITY_THRESHOLD:
                 self.inspect_patrol(picked_patrol_idx, move_camera=True)
-                return gui.SceneWidget.EventCallbackResult.HANDLED
+                return gui.SceneWidget.EventCallbackResult.CONSUMED
 
             # No clear early match - need to compare all candidates including nodes
             picked_node_idx, node_dist = self._pick_node_with_ray(event.x, event.y, ray_data)
@@ -378,7 +378,7 @@ class NodeInspectorApp:
                 else:
                     self.inspect_node(best_idx, move_camera=True)
 
-            return gui.SceneWidget.EventCallbackResult.HANDLED
+            return gui.SceneWidget.EventCallbackResult.CONSUMED
 
         # Left click (no modifiers) - start orbit rotation
         if event.type == gui.MouseEvent.Type.BUTTON_DOWN and \
@@ -386,9 +386,9 @@ class NodeInspectorApp:
             self._orbit_active = True
             self._orbit_last_x = event.x
             self._orbit_last_y = event.y
-            return gui.SceneWidget.EventCallbackResult.HANDLED
+            return gui.SceneWidget.EventCallbackResult.CONSUMED
 
-        # Orbit drag (check both DRAG and MOVE since we consumed BUTTON_DOWN)
+        # Orbit drag
         if self._orbit_active and event.type in (gui.MouseEvent.Type.DRAG, gui.MouseEvent.Type.MOVE):
             dx = event.x - self._orbit_last_x
             dy = event.y - self._orbit_last_y
@@ -396,18 +396,18 @@ class NodeInspectorApp:
             self._orbit_last_y = event.y
             if abs(dx) > 0 or abs(dy) > 0:
                 self._apply_orbit_rotation(dx, dy)
-            return gui.SceneWidget.EventCallbackResult.HANDLED
+            return gui.SceneWidget.EventCallbackResult.CONSUMED
 
-        # Any button release clears orbit state
+        # Button release clears orbit state
         if event.type == gui.MouseEvent.Type.BUTTON_UP:
             if self._orbit_active:
                 self._orbit_active = False
-                return gui.SceneWidget.EventCallbackResult.HANDLED
+                return gui.SceneWidget.EventCallbackResult.CONSUMED
 
         return gui.SceneWidget.EventCallbackResult.IGNORED
 
     def _apply_orbit_rotation(self, dx, dy):
-        """Apply roll-free orbit rotation (yaw around world Y, pitch around camera right)."""
+        """Apply roll-free orbit rotation using spherical coordinates."""
         target = self._get_camera_target()
 
         view_matrix = np.array(self.scene.scene.camera.get_view_matrix()).reshape(4, 4)
@@ -419,41 +419,26 @@ class NodeInspectorApp:
         if distance < 1e-6:
             return
 
-        world_up = np.array([0.0, 1.0, 0.0])
+        # Convert offset to spherical coordinates (Y-up)
+        azimuth = np.arctan2(offset[0], offset[2])
+        elevation = np.arcsin(np.clip(offset[1] / distance, -1.0, 1.0))
 
-        # Yaw: rotate offset around world Y axis
-        yaw = -dx * self.ORBIT_SENSITIVITY
-        cos_y, sin_y = np.cos(yaw), np.sin(yaw)
+        # Apply mouse deltas
+        azimuth -= dx * self.ORBIT_SENSITIVITY
+        elevation += dy * self.ORBIT_SENSITIVITY
+
+        # Clamp elevation to prevent flipping
+        max_elevation = np.radians(85)
+        elevation = np.clip(elevation, -max_elevation, max_elevation)
+
+        # Convert back to Cartesian offset
         offset = np.array([
-            offset[0] * cos_y + offset[2] * sin_y,
-            offset[1],
-            -offset[0] * sin_y + offset[2] * cos_y
+            distance * np.cos(elevation) * np.sin(azimuth),
+            distance * np.sin(elevation),
+            distance * np.cos(elevation) * np.cos(azimuth)
         ])
 
-        # Pitch: rotate offset around camera right axis
-        forward = -offset / np.linalg.norm(offset)
-        right = np.cross(forward, world_up)
-        right_len = np.linalg.norm(right)
-
-        if right_len > 1e-6:
-            right /= right_len
-            pitch = dy * self.ORBIT_SENSITIVITY
-
-            # Clamp pitch to prevent flipping past ~85 degrees from horizontal
-            elevation = np.arcsin(np.clip(offset[1] / distance, -1.0, 1.0))
-            max_elevation = np.radians(85)
-            new_elevation = np.clip(elevation + pitch, -max_elevation, max_elevation)
-            pitch = new_elevation - elevation
-
-            cos_p, sin_p = np.cos(pitch), np.sin(pitch)
-            offset = (offset * cos_p
-                      + np.cross(right, offset) * sin_p
-                      + right * np.dot(right, offset) * (1 - cos_p))
-
-        # Preserve original distance to prevent drift
-        offset = offset / np.linalg.norm(offset) * distance
-
-        self.scene.look_at(target, target + offset, world_up)
+        self.scene.look_at(target, target + offset, [0.0, 1.0, 0.0])
 
     def _compute_pick_ray(self, screen_x, screen_y):
         """Compute pick ray from screen coordinates. Returns (ray_origin, ray_direction, ray_length) or None."""

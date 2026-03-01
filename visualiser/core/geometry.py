@@ -5,8 +5,6 @@ from typing import Optional
 from collections import defaultdict
 import numpy as np
 import open3d as o3d
-import matplotlib.cm as cm
-
 from core.data_loader import LevelData, SpawnData, GraphData, PatrolData
 from core.spawn_meshes import SpawnMeshFactory
 
@@ -206,8 +204,12 @@ class GeometryManager:
         else:
             colors_normalized = np.zeros_like(colors)
 
-        # Convert to RGB using a colormap (plasma)
-        colors_rgb = cm.plasma(colors_normalized)[:, :3]
+        # Convert to RGB using plasma-like colormap (dark blue -> purple -> orange -> yellow)
+        colors_rgb = np.zeros((len(colors_normalized), 3))
+        t = colors_normalized
+        colors_rgb[:, 0] = np.clip(np.where(t < 0.5, 0.05 + t * 1.4, 0.75 + t * 0.5), 0, 1)
+        colors_rgb[:, 1] = np.clip(np.where(t < 0.5, 0.03 + t * 0.3, t * 0.9 - 0.1), 0, 1)
+        colors_rgb[:, 2] = np.clip(np.where(t < 0.5, 0.53 - t * 0.3, 1.0 - t * 1.6), 0, 1)
 
         # Store original colors for reset
         self._original_point_colors = colors_rgb.copy()
