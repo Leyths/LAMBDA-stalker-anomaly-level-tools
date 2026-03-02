@@ -29,6 +29,7 @@ class LevelData:
         self.points[:, 2] = -self.points[:, 2]  # Mirror Z for display
         self.colors = self._parser.get_all_cover_scores()
 
+        self._cached_links = self._parser.get_all_links()
         # Load cross-table mapping if all_spawn_path and level_id are provided
         self._cross_table_gvids: Optional[np.ndarray] = None
         self._gvid_to_level_vertices: dict = {}  # Reverse mapping: gvid -> set of level vertex ids
@@ -91,8 +92,10 @@ class LevelData:
         return None
 
     def get_links(self, idx: int) -> list:
-        """Get the raw link values for a vertex (4 values, including invalid markers)."""
-        return self._parser.get_vertex_raw_links(idx)
+        """Get the raw link values from the memory cache."""
+        if 0 <= idx < self.vertex_count:
+            return self._cached_links[idx].tolist()
+        return [self.INVALID_LINK, self.INVALID_LINK, self.INVALID_LINK, self.INVALID_LINK]
 
     def get_all_links(self) -> np.ndarray:
         """Get all vertex links as (vertex_count, 4) array in single read.

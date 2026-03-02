@@ -455,7 +455,7 @@ class NodeInspectorApp:
         ndc_x = (2.0 * screen_x) / viewport_width - 1.0
         ndc_y = 1.0 - (2.0 * screen_y) / viewport_height
 
-        near_ndc = np.array([ndc_x, ndc_y, -1.0, 1.0])
+        near_ndc = np.array([ndc_x, ndc_y, 0.0, 1.0])
         far_ndc = np.array([ndc_x, ndc_y, 1.0, 1.0])
 
         view_mat = np.array(view_matrix).reshape(4, 4)
@@ -583,55 +583,57 @@ class NodeInspectorApp:
         )
 
     def _pick_by_screen_distance(self, screen_x, screen_y, positions, threshold, return_dist=False):
-        """Generic fallback picking using screen-space distance.
-
-        Args:
-            screen_x, screen_y: Screen coordinates to pick at
-            positions: Array/list of [x,y,z] positions to test
-            threshold: Maximum screen-space distance to consider a hit
-            return_dist: If True, return (idx, dist) tuple; else just idx
-
-        Returns:
-            Index of closest item within threshold, or None
-            If return_dist=True, returns (idx, dist) tuple
-        """
+        """Generic fallback picking using vectorized screen-space distance calculation."""
         viewport_width = self.scene.frame.width
         viewport_height = self.scene.frame.height
-        if viewport_width == 0 or viewport_height == 0:
+
+        if viewport_width == 0 or viewport_height == 0 or positions is None or len(positions) == 0:
             return (None, float('inf')) if return_dist else None
 
+        pos_arr = np.asarray(positions)
         view_mat = np.array(self.scene.scene.camera.get_view_matrix()).reshape(4, 4)
         proj_mat = np.array(self.scene.scene.camera.get_projection_matrix()).reshape(4, 4)
         vp_matrix = proj_mat @ view_mat
 
-        closest_idx = None
-        closest_screen_dist = float('inf')
+        # Convert to homogeneous coordinates
+        pos_h = np.hstack((pos_arr, np.ones((len(pos_arr), 1))))
 
-        for i, point in enumerate(positions):
-            if point is None:
-                continue
-            point_h = np.array([point[0], point[1], point[2], 1.0])
-            clip_pos = vp_matrix @ point_h
+        # Batch transform all points to clip space
+        clip_pos = pos_h @ vp_matrix.T
+        w = clip_pos[:, 3]
 
-            if abs(clip_pos[3]) < 1e-6 or clip_pos[3] < 0:
-                continue
+        # Filter points behind the camera
+        valid_mask = w > 1e-6
+        dist_sq = np.full(len(pos_arr), np.inf)
 
-            ndc = clip_pos[:3] / clip_pos[3]
-            if ndc[2] < -1 or ndc[2] > 1:
-                continue
+        if np.any(valid_mask):
+            valid_clip = clip_pos[valid_mask]
+            valid_w = w[valid_mask]
 
-            screen_pos_x = (ndc[0] + 1.0) * viewport_width / 2.0
-            screen_pos_y = (1.0 - ndc[1]) * viewport_height / 2.0
+            # Perspective divide
+            ndc = valid_clip[:, :3] / valid_w[:, np.newaxis]
+
+            # Depth bounds check
+            depth_mask = (ndc[:, 2] >= -1) & (ndc[:, 2] <= 1)
+
+            final_valid_indices = np.where(valid_mask)[0][depth_mask]
+            valid_ndc = ndc[depth_mask]
+
+            # Map to screen coordinates
+            screen_pos_x = (valid_ndc[:, 0] + 1.0) * viewport_width / 2.0
+            screen_pos_y = (1.0 - valid_ndc[:, 1]) * viewport_height / 2.0
 
             dx = screen_pos_x - screen_x
             dy = screen_pos_y - screen_y
-            screen_dist = np.sqrt(dx*dx + dy*dy)
+            dist_sq[final_valid_indices] = dx * dx + dy * dy
 
-            if screen_dist < closest_screen_dist and screen_dist < threshold:
-                closest_screen_dist = screen_dist
-                closest_idx = i
+        closest_idx = np.argmin(dist_sq)
+        closest_dist_sq = dist_sq[closest_idx]
 
-        return (closest_idx, closest_screen_dist) if return_dist else closest_idx
+        if closest_dist_sq < (threshold * threshold):
+            return (int(closest_idx), float(np.sqrt(closest_dist_sq))) if return_dist else int(closest_idx)
+
+        return (None, float('inf')) if return_dist else None
 
     def _pick_node_screen_distance(self, screen_x, screen_y):
         """Fallback picking using screen-space distance."""
@@ -703,16 +705,54 @@ class NodeInspectorApp:
         )
 
     def _pick_node_with_ray(self, screen_x, screen_y, ray_data):
-        """Pick nav mesh node using pre-computed ray data."""
+        """Pick nav mesh node using a fast vectorized mathematical cylinder intersection."""
         if ray_data is None:
             idx = self._pick_node_screen_distance(screen_x, screen_y)
             return idx, float('inf') if idx is None else 0.0
+
         ray_origin, ray_direction, ray_length = ray_data
-        return self._pick_along_ray_kdtree(
-            ray_origin, ray_direction, ray_length,
-            self._level_kdtree, self.level_data.points,
-            self.NODE_PICK_DISTANCE, self.NODE_PICK_RADIUS
-        )
+        points = self.level_data.points
+
+        # 1. Vector from origin to all points (N, 3)
+        vecs = points - ray_origin
+
+        # 2. Project onto ray direction to get distance along the ray
+        t = np.dot(vecs, ray_direction)
+
+        # 3. Filter out points behind camera or past the far plane
+        valid_mask = (t >= 0) & (t <= ray_length)
+        if not np.any(valid_mask):
+            return None, float('inf')
+
+        valid_indices = np.where(valid_mask)[0]
+        valid_points = points[valid_mask]
+        valid_t = t[valid_mask]
+
+        # 4. Closest point on the ray for each valid point
+        closest_on_ray = ray_origin + valid_t[:, np.newaxis] * ray_direction
+
+        # 5. Squared perpendicular distance to the ray
+        diff = valid_points - closest_on_ray
+        dist_sq = np.sum(diff * diff, axis=1)
+
+        # 6. Strict cylinder radius filter
+        threshold_sq = self.NODE_PICK_DISTANCE * self.NODE_PICK_DISTANCE
+        hit_mask = dist_sq <= threshold_sq
+
+        if not np.any(hit_mask):
+            return None, float('inf')
+
+        # 7. Of the points inside the cylinder, pick the one closest to the camera
+        hit_indices = valid_indices[hit_mask]
+        hit_t = valid_t[hit_mask]
+        hit_dist_sq = dist_sq[hit_mask]
+
+        best_local_idx = np.argmin(hit_t)
+
+        final_idx = int(hit_indices[best_local_idx])
+        final_dist = np.sqrt(hit_dist_sq[best_local_idx])
+
+        return final_idx, final_dist
 
     def _pick_patrol_with_ray(self, screen_x, screen_y, ray_data):
         """Pick patrol point using pre-computed ray data."""

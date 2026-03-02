@@ -286,8 +286,8 @@ class SpawnMeshFactory:
             triangles.append([i, n + i, next_i])
             triangles.append([next_i, n + i, n + next_i])
 
-        combined.vertices = o3d.utility.Vector3dVector(vertices)
-        combined.triangles = o3d.utility.Vector3iVector(triangles)
+        combined.vertices = o3d.utility.Vector3dVector(np.ascontiguousarray(vertices, dtype=np.float64))
+        combined.triangles = o3d.utility.Vector3iVector(np.ascontiguousarray(triangles, dtype=np.int32))
         combined.compute_vertex_normals()
         combined.paint_uniform_color(self.ZONE_COLOR)
         return combined
@@ -433,10 +433,11 @@ class SpawnMeshFactory:
         def create_sandbag(width, height, depth):
             """Create a single sandbag (rounded box shape using a squashed sphere)."""
             bag = o3d.geometry.TriangleMesh.create_sphere(radius=1.0, resolution=8)
-            vertices = np.asarray(bag.vertices)
-            vertices[:, 0] *= width / 2   # X - width
+            vertices = np.asarray(bag.vertices).copy()
+
+            vertices[:, 0] *= width / 2  # X - width
             vertices[:, 1] *= height / 2  # Y - height
-            vertices[:, 2] *= depth / 2   # Z - depth
+            vertices[:, 2] *= depth / 2  # Z - depth
             bag.vertices = o3d.utility.Vector3dVector(vertices)
             return bag
 
