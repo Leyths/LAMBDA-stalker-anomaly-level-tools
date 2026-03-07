@@ -357,9 +357,9 @@ class GameGraph:
         best_dist_sq = float('inf')
         for i in range(count):
             v = self.vertices[offset + i]
-            dx = v.level_point[0] - position[0]
-            dy = v.level_point[1] - position[1]
-            dz = v.level_point[2] - position[2]
+            dx = v.local_point[0] - position[0]
+            dy = v.local_point[1] - position[1]
+            dz = v.local_point[2] - position[2]
             dist_sq = dx * dx + dy * dy + dz * dz
             if dist_sq < best_dist_sq:
                 best_dist_sq = dist_sq
