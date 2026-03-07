@@ -1,0 +1,36 @@
+;STANCIA 2
+[aes2_space_restrictor_to_gen]
+enable = true
+spot = level_changer_up
+text = st_level_changer_descr
+hint = aes2_space_restrictor_to_gen_descr
+path = aes2_space_restrictor_to_gen_drop
+reject_path = aes2_way_if_reject_to_gen
+autosave = true
+
+[aes2_space_restrictor_to_aes1]
+enable = true
+spot = level_changer_down
+text = st_level_changer_descr
+hint = gen_space_restrictor_to_aes2_descr
+path = aes2_space_restrictor_to_aes1_drop
+reject_path = from_aes2_to_aes_way_if_reject
+autosave = true
+
+[aes2_space_restrictor_to_hospital]
+enable = true
+spot = level_changer_left_up
+text = st_level_changer_descr
+hint = space_restrictor_to_hospital
+path = aes2_space_restrictor_to_hospital_drop
+reject_path = aes2_to_hospital_way_if_reject
+autosave = true
+
+[aes2_space_restrictor_to_secret_lab]
+enable = true
+spot = level_changer_down
+text = st_level_changer_descr
+hint = space_restrictor_to_secret_lab_desc
+path = aes2_space_restrictor_to_secret_lab_drop
+reject_path = st2_way_if_reject_to_con
+autosave = true

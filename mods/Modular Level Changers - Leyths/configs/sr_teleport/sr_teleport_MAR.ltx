@@ -1,0 +1,52 @@
+;MARSH
+[mar_space_restrictor_to_escape_1]
+enable = true                                              	;Enable/disable level changer, can take condition list
+spot = level_changer_right                                  ;String from map_spots.xml for marking level changer on global map with icon
+text = st_level_changer_descr								;Text shown with Yes/No display box
+hint = ds_space_restrictor_to_escape_descr					;Map spot hint in st_items_quest.xml
+;hint = mar_space_restrictor_to_escape_descr				;Map spot hint in st_items_quest.xml
+path = mar_space_restrictor_to_escape_1_drop                ;Waypoint to teleport actor if Yes chosen
+reject_path = mar_level_changer_to_escape_1_reject_way      ;Waypoint to teleport actor if No chosen
+
+[mar_space_restrictor_to_escape_2]
+enable = true
+spot = level_changer_right
+text = st_level_changer_descr
+hint = ds_space_restrictor_to_escape_descr
+;hint = mar_space_restrictor2_to_escape_descr
+path = mar_space_restrictor_to_escape_2_drop
+reject_path = mar_level_changer_to_escape_2_reject_way
+autosave = true
+
+[mar_space_restrictor_to_agroprom_1]
+enable = true
+spot = level_changer_up
+text = st_level_changer_descr
+hint = mar_space_restrictor_to_agroprom_descr
+path = mar_space_restrictor_to_agroprom_drop
+reject_path = mar_level_changer_to_agroprom_1_reject_way
+autosave = true
+
+[mar_teleport_from_base_to_north]
+enable = true
+spot = level_changer_up_right
+text = mar_teleport_from_base_to_north_descr
+hint = mar_teleport_from_base_to_north_descr
+path = mar_smart_terrain_5_12_teleport_walk
+reject_path = mar_smart_terrain_base_teleport_walk
+
+[mar_teleport_from_base_to_west]
+enable = true
+spot = level_changer_left_up
+text = mar_teleport_from_base_to_north_descr
+hint = mar_teleport_from_base_to_north_descr
+path = mar_actor_teleport_tutorial_walk
+reject_path = mar_smart_terrain_base_intro_walk
+
+[mar_teleport_to_base]
+enable = true
+spot = level_changer_down_left
+text = st_teleport2_descr
+hint = mar_teleport_to_base_desc
+path = mar_smart_terrain_base_teleport_walk
+reject_path = mar_smart_terrain_5_12_teleport_walk
