@@ -79,13 +79,17 @@ class GameGraphBuilder:
             log(f"Blacklist: {self.blacklist_path}")
         log()
 
-    def build_all(self, force_rebuild: bool = False):
+    def build_all(self, force_rebuild: bool = False, deploy_only: bool = False):
         """
         Build complete game graph
 
         Args:
             force_rebuild: Force rebuild of all cross tables
+            deploy_only: Skip build, only deploy existing output
         """
+        if deploy_only:
+            self._deploy_only()
+            return
         log("=" * 70)
         log("GAME GRAPH BUILDER")
         log("=" * 70)
@@ -607,6 +611,8 @@ Example:
                         help='Override output gamedata directory')
     parser.add_argument('--force', action='store_true',
                         help='Force rebuild of all cross tables')
+    parser.add_argument('--deploy-only', action='store_true',
+                        help='Skip build, only deploy existing output')
     parser.add_argument('--basemod', default='anomaly',
                         help='The base mod you are targeting for this build')
     args = parser.parse_args()
@@ -635,7 +641,7 @@ Example:
 
         # Build
         builder = GameGraphBuilder(config, paths, base_mod=args.basemod)
-        builder.build_all(force_rebuild=args.force)
+        builder.build_all(force_rebuild=args.force, deploy_only=args.deploy_only)
 
     except Exception as e:
         logError(f"{e}")
