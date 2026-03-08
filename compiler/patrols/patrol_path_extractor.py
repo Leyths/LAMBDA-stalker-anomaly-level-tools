@@ -23,7 +23,8 @@ if TYPE_CHECKING:
 
 
 def extract_patrol_paths_from_level(level_config,
-                                    game_graph: 'GameGraph' = None) -> Dict[str, bytes]:
+                                    game_graph: 'GameGraph' = None,
+                                    build_dir: Path = None) -> Dict[str, bytes]:
     """
     Extract patrol paths from a level directory
 
@@ -34,6 +35,7 @@ def extract_patrol_paths_from_level(level_config,
     Args:
         level_config: LevelConfig object with level metadata
         game_graph: GameGraph object for GVID resolution
+        build_dir: Directory containing .gct cross table files
 
     Returns:
         Dictionary of {patrol_name: patrol_data}
@@ -98,7 +100,10 @@ def extract_patrol_paths_from_level(level_config,
         try:
             # Get paths for vertex lookups
             level_ai = level_dir / "level.ai"
-            cross_table = Path(f"../.tmp/{level_name}.gct")
+            if not build_dir:
+                logError(f"      build_dir not provided, cannot find cross table for {level_name}")
+                return {}
+            cross_table = build_dir / f"{level_name}.gct"
 
             if not level_ai.exists():
                 logError(f"      level.ai not found: {level_ai}")
@@ -185,13 +190,15 @@ def _extract_from_level_game(level_game_path: Path,
 
 
 def merge_patrol_paths(level_configs: List = None,
-                       game_graph: 'GameGraph' = None) -> bytes:
+                       game_graph: 'GameGraph' = None,
+                       build_dir: Path = None) -> bytes:
     """
     Merge patrol paths from multiple sources
 
     Args:
         level_configs: List of LevelConfig objects with level info and original_patrols paths
         game_graph: GameGraph object for GVID resolution
+        build_dir: Directory containing .gct cross table files
 
     Returns:
         Binary patrol path data for all.spawn chunk 3
@@ -210,7 +217,8 @@ def merge_patrol_paths(level_configs: List = None,
         # Extract patrols (merging new and original if both exist)
         patrols = extract_patrol_paths_from_level(
             level_config,
-            game_graph
+            game_graph,
+            build_dir=build_dir
         )
 
         if patrols:

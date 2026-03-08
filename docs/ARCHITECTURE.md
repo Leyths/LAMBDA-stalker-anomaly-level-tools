@@ -180,11 +180,10 @@ Defines all levels with their properties:
 name = k00_marsh                                    # Internal level name
 caption = "k00_marsh"                               # Display name (optional)
 offset = 1050.0, 1000.0, 0.0                        # World space offset (x, y, z)
-path = ../levels/k00_marsh                          # Path to level folder
 id = 01                                             # Unique level ID (0-255)
-original_spawn = extractedanomalyspawns/k00_marsh.spawn      # Original spawn data
-original_patrols = extractedanomalyspawns/k00_marsh.patrols  # Original patrol data
-original_edges = extractedanomalyspawns/k00_marsh.edges.json # Original graph edges
+original_spawn = ../anomaly/k00_marsh.spawn         # Original spawn data
+original_patrols = ../anomaly/k00_marsh.patrols     # Original patrol data
+original_edges = ../anomaly/k00_marsh.edges.json    # Original graph edges
 connect_orphans_automatically = true                # Auto-connect orphan graph nodes (optional)
 ```
 

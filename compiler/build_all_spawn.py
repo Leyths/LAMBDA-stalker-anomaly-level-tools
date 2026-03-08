@@ -14,13 +14,12 @@ Pipeline:
 5. Write final all.spawn
 
 Usage:
-    python build_all_spawn.py --config ../levels.ini --output ../gamedata/spawns/all.spawn
+    python build_all_spawn.py --project-root ..
 """
 
 import sys
 import argparse
 import hashlib
-import json
 import shutil
 from pathlib import Path
 from typing import List, Optional
@@ -28,6 +27,7 @@ import time
 
 from levels import LevelsConfig, LevelConfig
 from graph import GameGraph
+from project_paths import ProjectPaths
 from utils import log, logWarning, logError, init_logging, print_summary
 from config import ModConfig, ModCopier
 
@@ -37,35 +37,28 @@ class GameGraphBuilder:
     Orchestrates the full game graph build process
     """
 
-    def __init__(self, config: LevelsConfig, base_path: str = ".",
-                 blacklist_path: str = None, output_path: str = None, base_mod: str = "anomaly"):
+    def __init__(self, config: LevelsConfig, paths: ProjectPaths, base_mod: str = "anomaly"):
         """
         Initialize builder
 
         Args:
             config: Levels configuration
-            base_path: Base path for resolving relative paths
-            blacklist_path: Path to spawn_blacklist.ini file
-            output_path: Path to output all.spawn file
+            paths: Resolved project paths
             base_mod: Base mod name (anomaly, gamma)
         """
         self.config = config
-        self.base_path = Path(base_path)
-        self.build_dir = self.base_path / ".." / ".tmp"
-        self.build_dir.mkdir(exist_ok=True)
+        self.paths = paths
+        self.build_dir = paths.build_dir
         self.base_mod = base_mod
 
-        # Set paths on LevelsConfig for centralized path resolution
-        self.config.set_paths(self.base_path, self.build_dir)
-
         # Output path
-        self.output_path = Path(output_path) if output_path else self.base_path / ".." / "gamedata" / "spawns" / "all.spawn"
+        self.output_path = paths.output_spawn
 
         # Blacklist path
-        self.blacklist_path = Path(blacklist_path) if blacklist_path else None
+        self.blacklist_path = paths.get_blacklist_ini()
 
         # Load mod configuration from {basemod}.ini
-        mod_config_path = self.base_path / ".." / f"{base_mod}.ini"
+        mod_config_path = paths.get_base_mod_ini(base_mod)
         self.mod_config = None
         if mod_config_path.exists():
             self.mod_config = ModConfig(mod_config_path)
@@ -75,15 +68,13 @@ class GameGraphBuilder:
             logWarning(f"Mod config not found: {mod_config_path}")
 
         # Initialize mod copier
-        self.mods_dir = self.base_path / ".." / "mods"
-        self.gamedata_dir = self.base_path / ".." / "gamedata"
-        self.mod_copier = ModCopier(self.mods_dir, self.gamedata_dir)
+        self.mod_copier = ModCopier(paths.mods_dir, paths.output_dir)
 
         # Initialize dependency tracker
         from crosstables import DependencyTracker
         self.dep_tracker = DependencyTracker(self.build_dir)
 
-        log(f"Build directory: {self.build_dir.absolute()}")
+        log(f"Build directory: {self.build_dir}")
         if self.blacklist_path:
             log(f"Blacklist: {self.blacklist_path}")
         log()
@@ -109,7 +100,7 @@ class GameGraphBuilder:
         log("\n" + "=" * 70)
         log("STEP 1: Building Cross Tables")
         log("=" * 70)
-        log(f"Output directory: {self.build_dir.absolute()}")
+        log(f"Output directory: {self.build_dir}")
         log()
 
         cross_table_paths = []
@@ -146,7 +137,7 @@ class GameGraphBuilder:
         log(f"Levels processed: {len(self.config.levels)}")
         log(f"Total level vertices: {total_vertices:,}")
         log(f"Total game vertices: {total_game_vertices}")
-        log(f"Output directory: {self.build_dir.absolute()}")
+        log(f"Output directory: {self.build_dir}")
         log()
 
         # Step 2: Merge game graphs
@@ -168,13 +159,23 @@ class GameGraphBuilder:
         log("STEP 4: Writing Output")
         log("=" * 70)
 
-        self._write_game_graph(game_graph, self.output_path)
+        deferred_exporters = self._write_game_graph(game_graph, self.output_path)
 
         # Step 5: Copy mod variant files (with tag rewriting)
         log("\n" + "=" * 70)
         log("STEP 5: Copying Mod Variant Files")
         log("=" * 70)
         self._copy_mod_variant_files(game_graph)
+
+        # Step 5b: Run deferred exporters (must happen AFTER tag rewriter
+        # so their output isn't overwritten by mod file copies)
+        if deferred_exporters:
+            log("\n" + "=" * 70)
+            log("STEP 5b: Writing Deferred Exporter Configs")
+            log("=" * 70)
+            for name, (exporter, count) in deferred_exporters.items():
+                log(f"  {name}: writing config ({count} entities)")
+                exporter.write_config()
 
         # Step 6: Copy modified level files to gamedata
         log("\n" + "=" * 70)
@@ -185,11 +186,55 @@ class GameGraphBuilder:
         elapsed = time.time() - start_time
         log("\n" + "=" * 70)
         log(f"BUILD COMPLETE in {elapsed:.1f} seconds")
-        log(f"All files needed are in ./gamedata")
+        log(f"All files needed are in {self.paths.output_dir}")
         log("=" * 70)
+
+        # Print level file source table (only when overrides are active)
+        self.config.print_override_summary()
 
         # Print warning/error summary
         print_summary()
+
+    def _deploy_only(self):
+        """
+        Fast deploy: copy mod files to gamedata without rebuilding spawn.
+        Files requiring tag rewriting (rewrite_files) are skipped.
+        """
+        log("=" * 70)
+        log("FAST DEPLOY (mod files only, no spawn rebuild)")
+        log("=" * 70)
+        log()
+
+        start_time = time.time()
+
+        if not self.mod_config:
+            log("No mod configuration loaded, nothing to deploy.")
+            return
+
+        log(f"  Mods directory: {self.paths.mods_dir}")
+        log(f"  Destination: {self.paths.output_dir}")
+        log()
+
+        # Copy mod files, skipping rewrite_files (they need a full build)
+        mod_copier = ModCopier(self.paths.mods_dir, self.paths.output_dir)
+        copied_count = mod_copier.copy_all_enabled_mods(self.mod_config, skip_rewrite=True)
+
+        log(f"\n  Total files deployed: {copied_count}")
+
+        # Also check modified level files (cheap)
+        log("\n" + "=" * 70)
+        log("Checking Level Files For Changes")
+        log("=" * 70)
+        self._copy_modified_level_files()
+
+        elapsed = time.time() - start_time
+        log("\n" + "=" * 70)
+        log(f"FAST DEPLOY COMPLETE in {elapsed:.1f} seconds")
+        log(f"All files needed are in {self.paths.output_dir}")
+        log("=" * 70)
+
+        print_summary()
+
 
     def _build_level_cross_table(self, level: LevelConfig, force: bool) -> Path:
         """
@@ -202,15 +247,12 @@ class GameGraphBuilder:
         Returns:
             Path to generated cross table file
         """
-        # Resolve paths
-        level_path = self.base_path / level.path
-        level_ai = level_path / "level.ai"
-        level_spawn = level_path / "level.spawn"
+        # level.path is absolute
+        level_ai = level.path / "level.ai"
+        level_spawn = level.path / "level.spawn"
 
-        # Original spawn path (if configured)
-        original_spawn = None
-        if level.original_spawn:
-            original_spawn = self.base_path / level.original_spawn
+        # Original spawn path (if configured) — already absolute
+        original_spawn = level.original_spawn
 
         # Output path
         cross_table = self.build_dir / f"{level.name}.gct"
@@ -294,15 +336,11 @@ class GameGraphBuilder:
         graph_points_by_level: Dict[int, List[dict]] = {}
 
         for level_config in successful_levels:
-            level_path = self.base_path / level_config.path
-            level_spawn_path = level_path / "level.spawn"
+            # level_config.path is absolute
+            level_spawn_path = level_config.path / "level.spawn"
 
-            # Extract graph points in the same order as the cross-table builder for GVID consistency.
-            # The cross-table iterates vertices spatially and assigns sequential local GVIDs (0, 1, 2...).
-            # If we iterate differently, our vertex indices won't match cross-table GVID offsets.
-            original_spawn_path = None
-            if level_config.original_spawn:
-                original_spawn_path = self.base_path / level_config.original_spawn
+            # original_spawn is already absolute (or None)
+            original_spawn_path = level_config.original_spawn
 
             graph_points_list = extract_and_merge_graph_points(
                 level_spawn_path, original_spawn_path,
@@ -349,11 +387,8 @@ class GameGraphBuilder:
         )
         game_graph = merger.merge()
 
-        # Set paths for cross table and level AI caching
-        game_graph.set_paths(
-            base_path=self.base_path,
-            cross_table_dir=self.build_dir
-        )
+        # Set cross_table_dir for caching
+        game_graph.cross_table_dir = self.build_dir
 
         return game_graph
 
@@ -364,6 +399,9 @@ class GameGraphBuilder:
         Args:
             game_graph: GameGraph object containing merged data
             output_path: Output file path
+
+        Returns:
+            Dict of deferred exporters that must run after the mod copier/tag rewriter
         """
         from serialization import GameGraphSerializer, build_all_spawn
         from crosstables import CrossTableRemapper
@@ -397,25 +435,25 @@ class GameGraphBuilder:
         # Collect level.spawn files (binary, not JSON)
         level_spawn_paths = []
         for level in self.config.levels:
-            level_path = self.base_path / level.path
-            level_spawn = level_path / "level.spawn"
+            level_spawn = level.path / "level.spawn"
             if level_spawn.exists():
                 level_spawn_paths.append(level_spawn)
 
         # Build complete all.spawn with per-level original spawn merging and blacklist
-        build_all_spawn(
+        deferred_exporters = build_all_spawn(
             game_graph_data=game_graph_data,
             game_graph_guid=game_graph_guid,
             level_spawn_paths=level_spawn_paths,
             level_count=len(self.config.levels),
             output_path=output_path,
             level_configs=self.config.levels,
-            base_path=self.base_path,
-            blacklist_path=self.blacklist_path,
-            game_graph=game_graph
+            paths=self.paths,
+            game_graph=game_graph,
         )
 
         log(f"\nAll.spawn written to: {output_path}")
+
+        return deferred_exporters or {}
 
     def _read_cross_table_stats(self, cross_table_path: Path) -> dict:
         """Read statistics from cross table file"""
@@ -451,7 +489,8 @@ class GameGraphBuilder:
         level_guids = {}
 
         for level in self.config.levels:
-            level_ai_path = self.base_path / level.path / "level.ai"
+            # level.path is absolute
+            level_ai_path = level.path / "level.ai"
 
             if not level_ai_path.exists():
                 logWarning(f"level.ai not found at {level_ai_path}, using zero GUID")
@@ -489,11 +528,11 @@ class GameGraphBuilder:
             log(f"  No mod configuration loaded")
             return
 
-        log(f"  Mods directory: {self.mods_dir}")
-        log(f"  Destination: {self.gamedata_dir}")
+        log(f"  Mods directory: {self.paths.mods_dir}")
+        log(f"  Destination: {self.paths.output_dir}")
 
         # Create ModCopier with game_graph for tag rewriting
-        mod_copier = ModCopier(self.mods_dir, self.gamedata_dir, game_graph)
+        mod_copier = ModCopier(self.paths.mods_dir, self.paths.output_dir, game_graph)
 
         # Copy all enabled mods (files in rewrite_files will be processed by TagRewriter)
         copied_count = mod_copier.copy_all_enabled_mods(self.mod_config)
@@ -509,7 +548,8 @@ class GameGraphBuilder:
         checked = 0
 
         for level in self.config.levels:
-            level_dir = self.base_path / level.path
+            # level.path is absolute
+            level_dir = level.path
 
             files_to_check = [
                 ("level.ai", level.vanilla_hash_ai),
@@ -529,7 +569,7 @@ class GameGraphBuilder:
                 current_hash = hashlib.sha256(filepath.read_bytes()).hexdigest()[:16]
 
                 if current_hash != vanilla_hash:
-                    dest = self.gamedata_dir / "levels" / level.name / filename
+                    dest = self.paths.output_dir / "levels" / level.name / filename
                     dest.parent.mkdir(parents=True, exist_ok=True)
                     shutil.copy2(filepath, dest)
                     copied += 1
@@ -547,60 +587,54 @@ def main():
         formatter_class=argparse.RawDescriptionHelpFormatter,
         epilog="""
 Example:
-    python build_all_spawn.py --config ../levels.ini --output ../gamedata/spawns/all.spawn
-
-    # With blacklist:
-    python build_all_spawn.py --config ../levels.ini --blacklist ../spawn_blacklist.ini
+    python build_all_spawn.py --project-root ..
 
     # Force rebuild all cross tables:
-    python build_all_spawn.py --config ../levels.ini --force
+    python build_all_spawn.py --project-root .. --force
 
-Note: Per-level original_spawn paths are configured in levels.ini:
-    [level27]
-    name = zaton
-    path = levels/zaton
-    id = 27
-    original_spawn = tmp/oldspawnfiles/zaton.spawn
+    # Custom output directory:
+    python build_all_spawn.py --project-root .. --output-dir /path/to/gamedata
         """
     )
 
-    parser.add_argument('--config', default='../levels.ini',
-                        help='Path to levels.ini configuration file')
-    parser.add_argument('--output', default='../gamedata/spawns/all.spawn',
-                        help='Output path for game.graph / all.spawn')
-    parser.add_argument('--base-path', default='.',
-                        help='Base path for resolving relative paths')
-    parser.add_argument('--blacklist', default='../spawn_blacklist.ini',
-                        help='Path to spawn_blacklist.ini file')
+    parser.add_argument('--project-root', default='..',
+                        help='Project root directory (default: ..)')
+    parser.add_argument('--levels-dir', default=None,
+                        help='Override levels directory')
+    parser.add_argument('--levels-override-dir', default=None,
+                        help='Directory with partial level file overrides (per-file fallback to levels-dir)')
+    parser.add_argument('--output-dir', default=None,
+                        help='Override output gamedata directory')
     parser.add_argument('--force', action='store_true',
                         help='Force rebuild of all cross tables')
     parser.add_argument('--basemod', default='anomaly',
                         help='The base mod you are targeting for this build')
     args = parser.parse_args()
 
+    # Build ProjectPaths
+    paths = ProjectPaths.from_root(
+        project_root=Path(args.project_root),
+        levels_dir=Path(args.levels_dir) if args.levels_dir else None,
+        output_dir=Path(args.output_dir) if args.output_dir else None,
+        levels_override_dir=Path(args.levels_override_dir) if args.levels_override_dir else None,
+    )
+
     # Initialize logging
-    init_logging()
+    init_logging(log_path=paths.output_dir / "build.log")
 
     try:
         # Load configuration
-        config = LevelsConfig(args.config)
-
-        # Resolve blacklist
-        blacklist_path = args.blacklist if args.blacklist else None
-
-        # Check if blacklist exists
-        if blacklist_path and not Path(blacklist_path).exists():
-            logWarning(f"Blacklist file not found: {blacklist_path}, continuing without blacklist")
-            blacklist_path = None
+        config = LevelsConfig(
+            config_path=str(paths.get_levels_ini()),
+            levels_dir=paths.levels_dir,
+            cross_table_dir=paths.build_dir,
+            resolve_root=paths.compiler_dir,
+            levels_override_dir=paths.levels_override_dir,
+            build_dir=paths.build_dir,
+        )
 
         # Build
-        builder = GameGraphBuilder(
-            config,
-            args.base_path,
-            blacklist_path=blacklist_path,
-            output_path=args.output,
-            base_mod=args.basemod,
-        )
+        builder = GameGraphBuilder(config, paths, base_mod=args.basemod)
         builder.build_all(force_rebuild=args.force)
 
     except Exception as e:

@@ -395,9 +395,9 @@ Many Anomaly mods expect specific entities to exist at specific positions. The `
 ```ini
 [level01]
 name = l01_escape
-original_spawn = extractedanomalyspawns/l01_escape.spawn
-original_patrols = extractedanomalyspawns/l01_escape.patrols
-original_edges = extractedanomalyspawns/l01_escape.edges.json
+original_spawn = ../anomaly/l01_escape.spawn
+original_patrols = ../anomaly/l01_escape.patrols
+original_edges = ../anomaly/l01_escape.edges.json
 ```
 
 This ensures entities that mods reference (by name or position) remain present in rebuilt all.spawn files.

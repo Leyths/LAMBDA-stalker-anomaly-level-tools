@@ -6,10 +6,7 @@ A 3D inspection tool for viewing level vertices, spawns, game graph data, and pa
 
 The visualiser provides a read-only view of game data for analysis and debugging. It renders level AI navigation meshes, spawn objects, game graph vertices, and patrol paths in an interactive 3D environment.
 
-**Launch command:**
-```bash
-./visualise.sh
-```
+**Launch:** Open `LAMBDA.exe` (Windows) or `python lambda.py` (macOS/Linux), switch to the **Visualiser** tab, select a level, and click **View Level**.
 
 This is a read-only tool - it does not modify any game files.
 

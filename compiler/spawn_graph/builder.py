@@ -87,6 +87,13 @@ try:
 except ImportError:
     DYNAMIC_ANOMALY_EXPORTER_AVAILABLE = False
 
+# Import RF stash exporter (optional)
+try:
+    from converters import RFStashExporter
+    RF_STASH_EXPORTER_AVAILABLE = True
+except ImportError:
+    RF_STASH_EXPORTER_AVAILABLE = False
+
 
 class SpawnGraphBuilder:
     """
@@ -95,14 +102,15 @@ class SpawnGraphBuilder:
 
     def __init__(self, blacklist_exact: Set[str] = None, blacklist_patterns: List[str] = None,
                  game_graph: 'GameGraph' = None, enable_item_restrictors: bool = True,
-                 base_path: Path = None):
+                 paths=None):
         self.entities = []  # List of (spawn_id, spawn_packet, update_packet)
         self.edges = []  # List of (parent_id, child_id, weight)
         self.next_spawn_id = 0
         self.blacklist_exact = blacklist_exact or set()
         self.blacklist_patterns = blacklist_patterns or []
         self.blacklisted_count = 0
-        self.base_path = base_path or Path('.')
+        self.paths = paths
+        self.output_dir = paths.output_dir if paths else Path('.')
 
         # GameGraph object for GVID resolution (contains name_to_gvid, level offsets, cached data)
         self.game_graph = game_graph
@@ -110,11 +118,10 @@ class SpawnGraphBuilder:
         self.name_to_gvid = game_graph.name_to_gvid if game_graph else {}
 
         # Level changer config (authoritative source for level changers)
-        # Config is in project root (same location as levels.ini)
         self.lc_config = None
         self.level_changers_removed = 0
-        config_path = self.base_path / '..' / 'level_changers.ini'
-        if config_path.exists():
+        config_path = paths.get_level_changers_ini() if paths else None
+        if config_path and config_path.exists():
             self.lc_config = LevelChangerConfig(config_path)
             if self.lc_config.override_count > 0:
                 log(f"  Loaded level changer config: {self.lc_config.override_count} entries")
@@ -124,17 +131,21 @@ class SpawnGraphBuilder:
         self.level_entities: Dict[str, List[Tuple[bytes, Optional[bytes]]]] = {}
         self.level_graph_point_counts: Dict[str, int] = {}
 
+        # Mod config for finding config files in mods/
+        mod_config = game_graph.mod_config if game_graph else None
+
         # Item restrictor converter for dynamic item spawn locations
         self.item_restrictor_converter = None
         self.item_restrictor_count = 0
         if enable_item_restrictors and ITEM_RESTRICTORS_AVAILABLE:
             try:
-                source_config = self._find_dynamic_item_config()
-                self.item_restrictor_converter = ItemRestrictorConverter(
-                    base_mod=game_graph.base_mod,
-                    source_config_path=source_config
-                )
-                log("  Item restrictor converter initialized")
+                source_config = paths.find_mod_config(mod_config, "configs/items/settings/dynamic_item_spawn_locations.ltx") if paths and mod_config else None
+                if source_config:
+                    self.item_restrictor_converter = ItemRestrictorConverter(
+                        source_config_path=source_config,
+                        output_dir=self.output_dir
+                    )
+                    log("  Item restrictor converter initialized")
             except Exception as e:
                 logWarning(f"  Warning: Could not initialize dynamic item restrictor converter: {e}")
 
@@ -143,12 +154,13 @@ class SpawnGraphBuilder:
         self.anomaly_restrictor_count = 0
         if ANOMALY_RESTRICTORS_AVAILABLE:
             try:
-                source_config = self._find_dynamic_anomaly_config()
-                self.anomaly_restrictor_converter = AnomalyRestrictorConverter(
-                    base_mod=game_graph.base_mod if game_graph else None,
-                    source_config_path=source_config
-                )
-                log("  Anomaly restrictor converter initialized")
+                source_config = paths.find_mod_config(mod_config, "configs/zones/dynamic_anomaly_locations.ltx") if paths and mod_config else None
+                if source_config:
+                    self.anomaly_restrictor_converter = AnomalyRestrictorConverter(
+                        source_config_path=source_config,
+                        output_dir=self.output_dir
+                    )
+                    log("  Anomaly restrictor converter initialized")
             except Exception as e:
                 logWarning(f"  Warning: Could not initialize dynamic anomaly restrictor converter: {e}")
 
@@ -157,12 +169,13 @@ class SpawnGraphBuilder:
         self.dynamic_item_export_count = 0
         if DYNAMIC_ITEM_EXPORTER_AVAILABLE:
             try:
-                source_config = self._find_dynamic_item_config()
-                self.dynamic_item_exporter = DynamicItemSpawnExporter(
-                    base_mod=game_graph.base_mod if game_graph else None,
-                    source_config_path=source_config
-                )
-                log("  Dynamic item spawn exporter initialized")
+                source_config = paths.find_mod_config(mod_config, "configs/items/settings/dynamic_item_spawn_locations.ltx") if paths and mod_config else None
+                if source_config:
+                    self.dynamic_item_exporter = DynamicItemSpawnExporter(
+                        source_config_path=source_config,
+                        output_dir=self.output_dir
+                    )
+                    log("  Dynamic item spawn exporter initialized")
             except Exception as e:
                 logError(f"  Warning: Could not initialize dynamic item spawn exporter: {e}")
 
@@ -171,38 +184,31 @@ class SpawnGraphBuilder:
         self.dynamic_anomaly_export_count = 0
         if DYNAMIC_ANOMALY_EXPORTER_AVAILABLE:
             try:
-                source_config = self._find_dynamic_anomaly_config()
-                self.dynamic_anomaly_exporter = DynamicAnomalySpawnExporter(
-                    base_mod=game_graph.base_mod if game_graph else None,
-                    source_config_path=source_config
-                )
-                log("  Dynamic anomaly spawn exporter initialized")
+                source_config = paths.find_mod_config(mod_config, "configs/zones/dynamic_anomaly_locations.ltx") if paths and mod_config else None
+                if source_config:
+                    self.dynamic_anomaly_exporter = DynamicAnomalySpawnExporter(
+                        source_config_path=source_config,
+                        output_dir=self.output_dir
+                    )
+                    log("  Dynamic anomaly spawn exporter initialized")
             except Exception as e:
                 logError(f"  Warning: Could not initialize dynamic anomaly spawn exporter: {e}")
 
-    def _find_dynamic_item_config(self) -> Optional[Path]:
-        """Find dynamic_item_spawn_locations.ltx in the enabled mods."""
-        if not self.game_graph or not self.game_graph.mod_config:
-            return None
-        mods_dir = self.base_path / ".." / "mods"
-        config_rel = Path("configs/items/settings/dynamic_item_spawn_locations.ltx")
-        for mod_name in self.game_graph.mod_config.get_enabled_mods():
-            candidate = mods_dir / mod_name / config_rel
-            if candidate.exists():
-                return candidate
-        return None
-
-    def _find_dynamic_anomaly_config(self) -> Optional[Path]:
-        """Find dynamic_anomaly_locations.ltx in the enabled mods."""
-        if not self.game_graph or not self.game_graph.mod_config:
-            return None
-        mods_dir = self.base_path / ".." / "mods"
-        config_rel = Path("configs/zones/dynamic_anomaly_locations.ltx")
-        for mod_name in self.game_graph.mod_config.get_enabled_mods():
-            candidate = mods_dir / mod_name / config_rel
-            if candidate.exists():
-                return candidate
-        return None
+        # RF stash exporter (strips tb_rf_stash_* from build, exports positions)
+        self.rf_stash_exporter = None
+        self.rf_stash_export_count = 0
+        if RF_STASH_EXPORTER_AVAILABLE:
+            try:
+                source_config = paths.find_mod_config(mod_config, "scripts/TB_RF_Receiver_Packages.script") if paths and mod_config else None
+                if source_config:
+                    self.rf_stash_exporter = RFStashExporter(
+                        source_config_path=source_config,
+                        game_graph=game_graph,
+                        output_dir=self.output_dir
+                    )
+                    log("  RF stash exporter initialized")
+            except Exception as e:
+                logError(f"  Warning: Could not initialize RF stash exporter: {e}")
 
     def _read_cross_table_game_vertex_count(self, cross_table_path: Path) -> int:
         """Read game_vertex_count from cross table header"""
@@ -217,7 +223,7 @@ class SpawnGraphBuilder:
             return game_vertex_count
 
     def collect_level_entities_for_level(self, level_name: str, level_spawn_path: Path,
-                                          old_spawn_path=None, base_path: Path = Path('.'),
+                                          old_spawn_path=None,
                                           original_only: bool = False):
         """
         Collect and merge entities for a level (Pass 1).
@@ -282,6 +288,28 @@ class SpawnGraphBuilder:
             if exported_count > 0:
                 log(f"    Exported {exported_count} dynamic anomaly spawn positions")
 
+        # Extract RF stash restrictors before they enter the build
+        if self.rf_stash_exporter:
+            filtered_packets = []
+            exported_count = 0
+            for spawn_packet, update_packet in merged_packets:
+                entity_name = extract_entity_name(spawn_packet)
+                if entity_name.startswith('tb_rf_stash_'):
+                    entity = parse_spawn_packet(spawn_packet)
+                    if entity:
+                        alife = parse_alife_object(entity)
+                        custom_data = alife.ini_string if alife else ""
+                        self.rf_stash_exporter.collect_entity(
+                            level_name, entity_name, entity.position, custom_data
+                        )
+                        exported_count += 1
+                    continue  # Don't include in build
+                filtered_packets.append((spawn_packet, update_packet))
+            merged_packets = filtered_packets
+            self.rf_stash_export_count += exported_count
+            if exported_count > 0:
+                log(f"    Exported {exported_count} RF stash positions")
+
         # Add item spawn restrictors for this level
         if self.item_restrictor_converter:
             restrictor_packets = create_item_restrictors_for_level(
@@ -306,7 +334,7 @@ class SpawnGraphBuilder:
         self.level_entities[level_name] = merged_packets
         self.level_graph_point_counts[level_name] = graph_point_count
 
-    def build_with_resolution(self, level_configs: List, base_path: Path) -> bytes:
+    def build_with_resolution(self, level_configs: List) -> bytes:
         """
         Build spawn graph with proper graph ID resolution.
         """
@@ -319,15 +347,15 @@ class SpawnGraphBuilder:
 
         for level in level_configs:
             level_name = level.name if hasattr(level, 'name') else str(level)
-            level_path = Path(level.path) if hasattr(level, 'path') else Path(f"levels/{level_name}")
 
-            level_spawn_path = base_path / level_path / "level.spawn"
+            # level.path is an absolute Path
+            level_spawn_path = level.path / "level.spawn"
             old_spawn_path = getattr(level, 'original_spawn', None)
 
             original_only = getattr(level, 'base_anomaly_spawns_only', False)
 
             if level_spawn_path.exists():
-                self.collect_level_entities_for_level(level_name, level_spawn_path, old_spawn_path, base_path,
+                self.collect_level_entities_for_level(level_name, level_spawn_path, old_spawn_path,
                                                       original_only=original_only)
             else:
                 logWarning(f"{level_spawn_path} not found")
@@ -645,6 +673,8 @@ class SpawnGraphBuilder:
             log(f"    Dynamic item spawns exported: {self.dynamic_item_export_count}")
         if self.dynamic_anomaly_export_count > 0:
             log(f"    Dynamic anomaly spawns exported: {self.dynamic_anomaly_export_count}")
+        if self.rf_stash_export_count > 0:
+            log(f"    RF stashes exported: {self.rf_stash_export_count}")
         buffer = io.BytesIO()
         write_chunk(buffer, 0, self._build_vertex_count())
         write_chunk(buffer, 1, self._build_vertices())
@@ -653,9 +683,23 @@ class SpawnGraphBuilder:
 
 
 def build_spawn_graph(level_configs: List,
-                      base_path: Path = Path('.'), blacklist_path: Optional[Path] = None,
-                      game_graph: 'GameGraph' = None) -> Tuple[bytes, int]:
-    """Build spawn graph from multiple level.spawn files"""
+                      blacklist_path: Optional[Path] = None,
+                      game_graph: 'GameGraph' = None,
+                      paths=None) -> Tuple[bytes, int, dict]:
+    """Build spawn graph from multiple level.spawn files.
+
+    Args:
+        level_configs: List of LevelConfig objects
+        blacklist_path: Path to spawn_blacklist.ini (or None)
+        game_graph: GameGraph for GVID resolution
+        paths: ProjectPaths instance
+
+    Returns:
+        Tuple of (spawn_graph_bytes, spawn_count, deferred_exporters).
+        deferred_exporters is a dict of exporters whose write_config() must be
+        called AFTER the mod copier / tag rewriter has run, because they write
+        to files that the tag rewriter would otherwise overwrite.
+    """
     blacklist_exact, blacklist_patterns = set(), []
     if blacklist_path and blacklist_path.exists():
         blacklist_exact, blacklist_patterns = load_blacklist(blacklist_path)
@@ -665,7 +709,13 @@ def build_spawn_graph(level_configs: List,
             log(f"  Exact matches: {len(blacklist_exact)}")
             log(f"  Wildcard patterns: {len(blacklist_patterns)}")
 
-    builder = SpawnGraphBuilder(blacklist_exact, blacklist_patterns, game_graph, base_path=base_path)
-    spawn_graph = builder.build_with_resolution(level_configs, base_path)
+    builder = SpawnGraphBuilder(blacklist_exact, blacklist_patterns, game_graph, paths=paths)
+    spawn_graph = builder.build_with_resolution(level_configs)
     spawn_count = len(builder.entities)
-    return (spawn_graph, spawn_count)
+
+    # Collect deferred exporters (must run after tag rewriter)
+    deferred = {}
+    if builder.rf_stash_exporter and builder.rf_stash_export_count > 0:
+        deferred['rf_stash'] = (builder.rf_stash_exporter, builder.rf_stash_export_count)
+
+    return (spawn_graph, spawn_count, deferred)

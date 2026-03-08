@@ -12,7 +12,7 @@ This guide covers how to integrate a modified or rebuilt level into your all.spa
 
 - S.T.A.L.K.E.R. SDK (Level Editor)
 - Exported level files from the SDK
-- L.A.M.B.D.A build tools set up
+- L.A.M.B.D.A — either `LAMBDA.exe` (Windows) or the source repo with Python 3.12 (macOS/Linux)
 
 ## Step 1: Export Level from SDK
 
@@ -34,10 +34,11 @@ This guide covers how to integrate a modified or rebuilt level into your all.spa
 name = k01_darkscape
 caption = "k01_darkscape"
 offset = 3050.0, 1000.0, 0.0
-path = ../levels/my_modified_darkscape    # Point to your folder
 id = 05
 # See Step 3 for original_* options
 ```
+
+The level folder path is derived automatically from `<levels_dir>/k01_darkscape/` at build time. Set the levels directory in the GUI, or pass `--levels-dir` on the command line.
 
 ## Step 3: Original Data (Optional)
 
@@ -47,14 +48,14 @@ Decide whether to keep or disable the original spawn/patrol/edge data.
 
 ```ini
 # OPTION A: Keep originals (better mod compatibility)
-original_spawn = extractedanomalyspawns/k01_darkscape.spawn
-original_patrols = extractedanomalyspawns/k01_darkscape.patrols
-original_edges = extractedanomalyspawns/k01_darkscape.edges.json
+original_spawn = ../anomaly/k01_darkscape.spawn
+original_patrols = ../anomaly/k01_darkscape.patrols
+original_edges = ../anomaly/k01_darkscape.edges.json
 
 # OPTION B: Disable originals (for total overhauls)
-# original_spawn = extractedanomalyspawns/k01_darkscape.spawn
-# original_patrols = extractedanomalyspawns/k01_darkscape.patrols
-# original_edges = extractedanomalyspawns/k01_darkscape.edges.json
+# original_spawn = ../anomaly/k01_darkscape.spawn
+# original_patrols = ../anomaly/k01_darkscape.patrols
+# original_edges = ../anomaly/k01_darkscape.edges.json
 
 # Optional: Auto-connect orphan graph nodes (see Step 6.5)
 connect_orphans_automatically = true
@@ -114,10 +115,11 @@ z       = {w%z:-50.75}
 
 Run the build:
 
+**Windows (EXE):** Open `LAMBDA.exe`, configure your levels/output directories and base mod, then click **Full Build**.
+
+**macOS/Linux:**
 ```bash
-./build_anomaly.sh
-# or
-./build_gamma.sh
+python lambda.py
 ```
 
 ## Step 7: Create Graph Edges (if originals disabled)
@@ -126,21 +128,9 @@ If you disabled `original_edges`, you need to create new graph connections manua
 
 ### Find Connection Points
 
-1. Launch the visualiser:
+1. Launch the visualiser from the GUI: open `LAMBDA.exe` (Windows) or `python lambda.py` (macOS/Linux), switch to the **Visualiser** tab, select a level, and click **View Level**.
 
-Mac
-   ```bash
-   cd LAMBDA-stalker-anomaly-level-tools
-   ./visualise.sh
-   ```
-
-Windows
-   ```bash
-   cd LAMBDA-stalker-anomaly-level-tools
-   ./visualise.bat
-   ```
-
-[See this](../README.md#installation) if you encounter an error about open3d not being installed.
+   Requires `open3d` — see [Getting Started](../README.md#getting-started) if not installed.
 
 2. Open your modified map and find **graph nodes** (blue orbs) near the edges that should connect to adjacent maps
 
@@ -157,7 +147,7 @@ If the orbs are Purple like in the screenshot above it's a sign it already has a
 
 ### Create edges.json
 
-Create a new `<level>.edges.json` file. Use existing files in `compiler/extractedanomalyspawns/` as reference.
+Create a new `<level>.edges.json` file. Use existing files in `anomaly/` as reference.
 
 Example for a modified Darkscape with two outbound connections:
 
@@ -288,10 +278,7 @@ When enabled, you'll see output like:
 
 ## Step 8: Final Build and Verify
 
-1. Rebuild:
-   ```bash
-   ./build_anomaly.sh
-   ```
+1. Rebuild — click **Full Build** in `LAMBDA.exe` or `python lambda.py`.
 
 2. Open the visualiser and verify:
    - Graph nodes appear correctly on your map

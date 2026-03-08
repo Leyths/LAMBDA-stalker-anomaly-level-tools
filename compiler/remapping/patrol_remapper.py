@@ -228,7 +228,7 @@ def _update_patrol_point_data(point_data: bytes,
     if level_config is None:
         return point_data
 
-    level_ai_path = game_graph.base_path / level_config.path / "level.ai"
+    level_ai_path = level_config.path / "level.ai"
     cross_table_path = game_graph.cross_table_dir / f"{level_name}.gct"
 
     # Use same functions as original for position-based GVID resolution
@@ -583,7 +583,7 @@ def _validate_and_update_vertex(vertex_data: bytes,
         if level_config is None:
             return False, vertex_data, old_vertex_id
 
-        level_ai_path = game_graph.base_path / level_config.path / "level.ai"
+        level_ai_path = level_config.path / "level.ai"
         cross_table_path = game_graph.cross_table_dir / f"{level_name}.gct"
 
         new_level_vertex_id = find_nearest_level_vertex(position, level_ai_path)

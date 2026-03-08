@@ -4,8 +4,30 @@ __pycache__/
 /gamedata/
 /build.log
 .idea
-/misc/Universal-ACDC-main/my_unpacked_spawn/
+/misc/
 /my-env/
 /gamesources/
-/misc/
+
+# Ignore levels directory except level.ai, level.spawn, level.game
+/levels/*
+!/levels/*/
+/levels/*/*
+!/levels/*/level.ai
+!/levels/*/level.spawn
+!/levels/*/level.game
+
+# Virtual environments
 /venv/
+/build_venv/
+compiler/my-env/
+
+# PyInstaller
+/build/
+/dist/
+
+# Claude
+.claude/
+
+# GUI settings (user-local)
+.lambda_settings.json
+.lambda_gui_settings.json

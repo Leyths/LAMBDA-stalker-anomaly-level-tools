@@ -31,6 +31,7 @@ class Colors:
     YELLOW = '\033[93m'
     RED = '\033[91m'
     GREEN = '\033[92m'
+    BLUE = '\033[94m'
     BOLD = '\033[1m'
     RESET = '\033[0m'
 
@@ -60,8 +61,9 @@ def init_logging(log_path: Path = None):
     _errors = []
 
     if log_path is None:
-        # Default to project root (one level up from compiler/)
-        log_path = Path(__file__).parent.parent.parent / "build.log"
+        # Default to CWD parent (when CWD is compiler/, this is project root)
+        # This avoids using Path(__file__) which breaks in frozen EXE
+        log_path = Path.cwd().parent / "build.log"
 
     _log_path = Path(log_path)
     _log_path.parent.mkdir(parents=True, exist_ok=True)
@@ -116,23 +118,23 @@ def print_summary():
     if _errors:
         print(f"\n{Colors.RED}{Colors.BOLD}Errors ({len(_errors)}):{Colors.RESET}")
         for err in _errors:
-            print(f"  {Colors.RED}- {err}{Colors.RESET}")
+            print(f"  {Colors.RED}ERROR: {err}{Colors.RESET}")
         # Also write to log file (without colors)
         if _log_file:
             _log_file.write(f"\nErrors ({len(_errors)}):\n")
             for err in _errors:
-                _log_file.write(f"  - {err}\n")
+                _log_file.write(f"  ERROR: {err}\n")
 
     # Print warning details
     if _warnings:
         print(f"\n{Colors.YELLOW}{Colors.BOLD}Warnings ({len(_warnings)}):{Colors.RESET}")
         for warn in _warnings:
-            print(f"  {Colors.YELLOW}- {warn}{Colors.RESET}")
+            print(f"  {Colors.YELLOW}Warning: {warn}{Colors.RESET}")
         # Also write to log file (without colors)
         if _log_file:
             _log_file.write(f"\nWarnings ({len(_warnings)}):\n")
             for warn in _warnings:
-                _log_file.write(f"  - {warn}\n")
+                _log_file.write(f"  Warning: {warn}\n")
 
     # Print final counts
     print()

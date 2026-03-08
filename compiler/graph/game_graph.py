@@ -54,9 +54,8 @@ class GameGraph:
     # Internal mapping: (level_id, local_game_vertex_id) -> global_game_vertex_id
     vertex_mapping: Dict[Tuple[int, int], int] = field(default_factory=dict)
 
-    # Path configuration for caching (set after construction)
+    # Directory containing .gct cross table files
     cross_table_dir: Optional[Path] = None
-    base_path: Optional[Path] = None
 
     # Caches (lazily populated)
     _cross_table_cache: Dict[str, Any] = field(default_factory=dict, repr=False)
@@ -73,17 +72,6 @@ class GameGraph:
     # =========================================================================
     # Cache Management
     # =========================================================================
-
-    def set_paths(self, base_path: Path, cross_table_dir: Path):
-        """
-        Set paths for cache loading.
-
-        Args:
-            base_path: Base path for resolving level paths
-            cross_table_dir: Directory containing .gct files
-        """
-        self.base_path = Path(base_path) if not isinstance(base_path, Path) else base_path
-        self.cross_table_dir = Path(cross_table_dir) if not isinstance(cross_table_dir, Path) else cross_table_dir
 
     def _get_level_config(self, level_name: str) -> Optional['LevelConfig']:
         """Get LevelConfig by name."""
@@ -138,14 +126,12 @@ class GameGraph:
         if level_name in self._level_ai_cache:
             return self._level_ai_cache[level_name]
 
-        if self.base_path is None:
-            return None
-
         level_config = self._get_level_config(level_name)
         if level_config is None:
             return None
 
-        level_ai_path = self.base_path / level_config.path / "level.ai"
+        # level_config.path is an absolute Path
+        level_ai_path = level_config.path / "level.ai"
         if not level_ai_path.exists():
             return None
 
@@ -185,10 +171,11 @@ class GameGraph:
             return self._level_positions_cache[level_name]
 
         level_config = self._get_level_config(level_name)
-        if level_config is None or self.base_path is None:
+        if level_config is None:
             return None
 
-        level_ai_path = self.base_path / level_config.path / "level.ai"
+        # level_config.path is an absolute Path
+        level_ai_path = level_config.path / "level.ai"
         if not level_ai_path.exists():
             return None
 

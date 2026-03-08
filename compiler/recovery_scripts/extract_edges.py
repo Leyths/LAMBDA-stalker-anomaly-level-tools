@@ -221,7 +221,7 @@ def main():
         print("\nExtracts edge data from a compiled game graph into per-level files.")
         print("Output files are named <level_name>.edges.json")
         print("\nAdd to levels.ini:")
-        print("  original_edges = extractedanomalyspawns/<level_name>.edges.json")
+        print("  original_edges = ../anomaly/<level_name>.edges.json")
         sys.exit(1)
 
     all_spawn_path = Path(sys.argv[1])

@@ -30,9 +30,8 @@ def build_all_spawn(game_graph_data: bytes,
                     level_count: int,
                     output_path: Path,
                     level_configs: List = None,
-                    base_path: Path = None,
-                    blacklist_path: Path = None,
-                    game_graph = None):
+                    paths=None,
+                    game_graph=None):
     """
     Build minimal all.spawn file with game graph
 
@@ -43,8 +42,7 @@ def build_all_spawn(game_graph_data: bytes,
         level_count: Number of levels
         output_path: Output file path
         level_configs: Level configuration objects (includes per-level original_spawn paths)
-        base_path: Base path for resolving relative paths
-        blacklist_path: Path to spawn_blacklist.ini file
+        paths: ProjectPaths instance for path resolution
         game_graph: GameGraph object for GVID resolution
     """
     log("\n" + "=" * 70)
@@ -57,22 +55,20 @@ def build_all_spawn(game_graph_data: bytes,
     # Create chunks
     import io
 
-    # Resolve base_path
-    if base_path is None:
-        base_path = Path('.')
-
     # Chunk 1: Spawn graph (build from level.spawn files with ID resolution)
     log("\nBuilding spawn graph...")
     log("  Graph ID resolution: ENABLED")
     log("  Per-level original_spawn: from levels.ini")
+
+    blacklist_path = paths.get_blacklist_ini() if paths else None
     if blacklist_path:
         log(f"  Blacklist: {blacklist_path}")
 
-    (spawn_graph, spawn_count) = build_spawn_graph(
+    (spawn_graph, spawn_count, deferred_exporters) = build_spawn_graph(
         level_configs=level_configs,
-        base_path=base_path,
         blacklist_path=blacklist_path,
-        game_graph=game_graph
+        game_graph=game_graph,
+        paths=paths,
     )
 
     # Chunk 2: Artefact spawns (empty - dynamic artefact spawning not used in this mod)
@@ -83,7 +79,8 @@ def build_all_spawn(game_graph_data: bytes,
 
     # Chunk 3: Patrol paths
     log("Building patrol paths...")
-    patrols = build_patrol_paths(level_configs, game_graph)
+    build_dir = paths.build_dir if paths else None
+    patrols = build_patrol_paths(level_configs, game_graph, build_dir=build_dir)
 
     # Create header
     log("Creating header...")
@@ -127,6 +124,8 @@ def build_all_spawn(game_graph_data: bytes,
     log(f"\nAll.spawn written: {file_size:.2f} MB")
     log(f"  Total chunks: 5")
     log(f"\n  Spawn graph: COMPLETE - {len(level_spawn_paths)} levels merged")
+
+    return deferred_exporters
 
 
 if __name__ == '__main__':

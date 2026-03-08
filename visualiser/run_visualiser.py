@@ -28,8 +28,9 @@ sys.path.insert(0, script_dir)
 def select_level():
     """Show level selection menu and return the selected level.ai path and level_id."""
     config_path = os.path.join(project_root, "levels.ini")
+    levels_dir = os.path.join(project_root, "levels")
     try:
-        config = LevelsConfig(config_path)
+        config = LevelsConfig(config_path, levels_dir=levels_dir)
     except Exception as e:
         print(f"Error loading levels.ini: {e}")
         sys.exit(1)
@@ -42,9 +43,8 @@ def select_level():
     # Build list of levels with existing level.ai files
     available_levels = []
     for level in config.levels:
-        # Convert path from compiler-relative to project-relative
-        level_path = level.path.replace("../", "")
-        ai_path = os.path.join(project_root, level_path, "level.ai")
+        # level.path is an absolute Path
+        ai_path = str(level.path / "level.ai")
         if os.path.exists(ai_path):
             available_levels.append((level, ai_path))
 
@@ -94,10 +94,10 @@ def main():
         # Try to determine level_id from path for command-line usage
         # Load config to find matching level
         try:
-            config = LevelsConfig(os.path.join(project_root, "levels.ini"))
+            levels_dir = os.path.join(project_root, "levels")
+            config = LevelsConfig(os.path.join(project_root, "levels.ini"), levels_dir=levels_dir)
             for level in config.levels:
-                level_path = level.path.replace("../", "")
-                ai_path = os.path.join(project_root, level_path, "level.ai")
+                ai_path = str(level.path / "level.ai")
                 if os.path.abspath(ai_path) == os.path.abspath(level_file):
                     level_id = level.id
                     break
@@ -108,7 +108,7 @@ def main():
 
     if not os.path.exists(level_file):
         print(f"Error: File not found: {level_file}")
-        print("Usage: ./visualise.sh <path/to/level.ai>")
+        print("Usage: python visualiser/run_visualiser.py <path/to/level.ai>")
         sys.exit(1)
 
     print()

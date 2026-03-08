@@ -3,7 +3,7 @@
 
 **Leyths ALife Map Building Data Assembler**
 
-A tool for building and merging game graph data from the X-Ray Engine. 
+A tool for building and merging game graph data from the X-Ray Engine.
 
 This allows for removing or modifying any existing Anomaly level, as well as adding new levels. See [Updating Levels](docs/UPDATING_LEVELS.md) for a guide.
 
@@ -15,75 +15,27 @@ It does this by processing multiple game levels to create a unified `all.spawn` 
 
 An `all.spawn` visualiser tool is included to help debug issues and view maps in ways you never have before. See [Visualiser](docs/VISUALISER.md) for more information.
 
+## Getting Started
 
-## Prerequisites
+Download the latest release from the releases page. Extract the zip and run `LAMBDA.exe`.
 
-- Python 3.12 is recommended (if you want to run the visualiser).
-- S.T.A.L.K.E.R. Anomaly or GAMMA installation (for level data extraction)
-- Git
+The GUI has two tabs:
 
-## Installation
+### Build
 
-### macOS/Linux
+Configure your build settings:
+- **Levels Directory** — path to your `levels/` folder
+- **Output Directory** — where `all.spawn` is written (typically `gamedata/`)
+- **Base Mod** — select anomaly, cultured, or gamma
 
-```bash
-git clone <repo>
-cd LAMBDA-stalker-anomaly-level-tools
-python3.12 -m venv venv
-source venv/bin/activate
-pip install numpy
-pip install open3d  # optional, for visualizer
-```
+Click **Full Build** to compile, or **Deploy Scripts Only** to copy mod scripts without rebuilding.
 
-### Windows
+### Visualiser
 
-First, install Python 3.12 from [python.org](https://www.python.org/downloads/release/python-31212/). Make sure to check "Add Python to PATH" during installation.
-
-Then install pip and dependencies.
-
-Open the start menu and type "cmd", then open the command prompt and paste each of these lines in one by one:
-
-```cmd
-py -m pip install --upgrade pip
-py -m pip install numpy
-py -m pip install open3d  :: optional, for visualizer
-```
-
-## Usage
-
-### Building all.spawn
-
-#### macOS/Linux
-
-```bash
-# Main build - runs the complete pipeline
-./build_anomaly.sh
-
-# Build options
-./build_anomaly.sh --force      # Force rebuild all cross tables
-
-# Build for GAMMA mod
-./build_gamma_0.94.sh
-
-# Launch 3D visualizer
-./visualise.sh
-```
-
-#### Windows
-
-```cmd
-:: Main build - runs the complete pipeline
-build_anomaly.bat
-
-:: Build options
-build_anomaly.bat --force      :: Force rebuild all cross tables
-
-:: Build for GAMMA 0.94 mod
-build_gamma_0.94.bat
-
-:: Launch 3D visualizer
-visualise.bat
-```
+View your levels in 3D after building:
+- **Path to all.spawn** — path to the built `all.spawn` file
+- **Select level** — choose a level from the dropdown
+- Click **View Level** to open the 3D inspector
 
 ## Configuration
 
@@ -96,15 +48,16 @@ Defines which levels are included in the build. Each level entry contains:
 name = k00_marsh                                    # Internal level name
 caption = "k00_marsh"                               # Display name (optional)
 offset = 1050.0, 1000.0, 0.0                        # World space offset (x, y, z)
-path = ../levels/k00_marsh                          # Path to level folder
 id = 01                                             # Unique level ID (0-255)
-original_spawn = extractedanomalyspawns/k00_marsh.spawn      # Original spawn data
-original_patrols = extractedanomalyspawns/k00_marsh.patrols  # Original patrol data
-original_edges = extractedanomalyspawns/k00_marsh.edges.json # Original graph edges
+original_spawn = ../anomaly/k00_marsh.spawn         # Original spawn data
+original_patrols = ../anomaly/k00_marsh.patrols     # Original patrol data
+original_edges = ../anomaly/k00_marsh.edges.json    # Original graph edges
 base_anomaly_spawns_only = true                     # Use only original spawn data (see below)
 base_anomaly_waypoints_only = true                  # Use only original patrol data (see below)
 connect_orphans_automatically = true                # Auto-connect orphan graph nodes (see below)
 ```
+
+The level folder path is derived automatically from `<levels_dir>/<name>` at build time.
 
 #### Level flags
 
@@ -137,28 +90,12 @@ entity_name.dir = pitch, yaw, roll  # Camera orientation in radians
 
 Level changers **not** listed in this file are removed from all.spawn.
 
-## Project Structure
-
-```
-├── build_anomaly.sh/.bat     # Main build for Anomaly mod
-├── build_gamma_0.94.sh/.bat  # Build for GAMMA 0.94 mod
-├── visualise.sh/.bat         # 3D visualizer launcher
-├── levels.ini                # Level definitions
-├── spawn_blacklist.ini       # Entity exclusion patterns
-├── level_changers.ini        # Cross-level teleport config
-├── compiler/                 # Build pipeline (Python)
-├── levels/                   # Level data directories
-├── gamedata/                 # Build output
-├── .tmp/                     # Build cache
-├── visualiser/               # 3D inspector tool
-└── docs/                     # Documentation
-```
-
 ## Documentation
 
 - [Architecture](docs/ARCHITECTURE.md) - Technical documentation and build pipeline details
 - [all.spawn Format](docs/ALL_SPAWN_FORMAT.md) - Deep dive into the all.spawn binary format, entity types, and GVIDs
 - [Updating Levels](docs/UPDATING_LEVELS.md) - Guide for integrating modified or rebuilt levels
+- [Mods System](docs/MODS-SYSTEM.md) - How the mod overlay and tag rewriting system works
 
 ## Disclaimer
 
@@ -176,9 +113,8 @@ Pull requests are welcome.
 
 ## Acknowledgements
 
-Deep thanks to Karobeccary for his knowledge of the STALKER SDK, this wouldn't have been possible without his assistance. 
+Deep thanks to Karobeccary for his knowledge of the STALKER SDK, this wouldn't have been possible without his assistance.
 
 Thank you to [HailTheMonolith](https://www.twitch.tv/hailthemonolith) for saying this was impossible, and for his support throughout.
 
 And thanks to bardak, Kolmogor, K.D. and the other authors of [ACDC](https://github.com/PSIget/Universal-ACDC/) which was extremely helpful in writing this.
-
