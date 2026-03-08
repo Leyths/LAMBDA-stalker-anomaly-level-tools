@@ -12,7 +12,7 @@ This guide covers how to integrate a modified or rebuilt level into your all.spa
 
 - S.T.A.L.K.E.R. SDK (Level Editor)
 - Exported level files from the SDK
-- L.A.M.B.D.A — either `LAMBDA.exe` (Windows) or the source repo with Python 3.12 (macOS/Linux)
+- L.A.M.B.D.A — either `LAMBDA.exe` (Windows) or the source repo with Python 3.11+ (macOS/Linux)
 
 ## Step 1: Export Level from SDK
 
@@ -64,6 +64,23 @@ connect_orphans_automatically = true
 **Keep originals** if you want to maintain compatibility with other mods or preserve the vanilla experience.
 
 **Disable originals** for total level overhauls where vanilla spawns/patrols may conflict with your changes.
+
+### Level Data Flags
+
+Two additional flags control which data sources the build uses for a level:
+
+**`base_anomaly_spawns_only`** — When `true`, the build skips the level's compiled `level.spawn` file and uses only the pre-extracted data from `original_spawn`. Set this to `true` for levels you have not modified. This ensures the build uses known-good extracted data rather than parsing the compiled level files.
+
+**`base_anomaly_waypoints_only`** — Same as above but for patrol/waypoint data. When `true`, the build skips `level.game` and uses only `original_patrols`.
+
+Leave both unset (or `false`) only for levels you have specifically re-compiled with the SDK (e.g. after editing the AI mesh or adding new spawn points in the level editor).
+
+```ini
+[level01]
+name = k00_marsh
+base_anomaly_spawns_only = true      # Use pre-extracted spawn data
+base_anomaly_waypoints_only = true   # Use pre-extracted patrol data
+```
 
 ## Step 4: Configure Level Changers
 

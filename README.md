@@ -37,6 +37,10 @@ View your levels in 3D after building:
 - **Select level** — choose a level from the dropdown
 - Click **View Level** to open the 3D inspector
 
+### Command Line
+
+LAMBDA can also be run from the command line. See [Building from Source](README_BUILD.md#running-from-the-command-line) for CLI usage.
+
 ## Configuration
 
 ### levels.ini
@@ -52,18 +56,18 @@ id = 01                                             # Unique level ID (0-255)
 original_spawn = ../anomaly/k00_marsh.spawn         # Original spawn data
 original_patrols = ../anomaly/k00_marsh.patrols     # Original patrol data
 original_edges = ../anomaly/k00_marsh.edges.json    # Original graph edges
-base_anomaly_spawns_only = true                     # Use only original spawn data (see below)
-base_anomaly_waypoints_only = true                  # Use only original patrol data (see below)
-connect_orphans_automatically = true                # Auto-connect orphan graph nodes (see below)
 ```
 
-The level folder path is derived automatically from `<levels_dir>/<name>` at build time.
+The level folder path is derived automatically from `<levels_dir>/<name>/` at build time.
 
-#### Level flags
+Additional per-level flags are available for controlling how data sources are used during the build:
 
-**`base_anomaly_spawns_only`** and **`base_anomaly_waypoints_only`** — When set to `true`, the build pipeline will skip reading the level's compiled `level.spawn` / `level.game` files and instead use only the pre-extracted data from `original_spawn` / `original_patrols`. You should set these flags to `true` for all levels you are not modifying. This ensures the build uses known-good extracted data rather than trying to parse the compiled level files. Leave them unset (or `false`) only for levels you have specifically re-compiled with the SDK (e.g. after editing the AI mesh or adding new spawn points in the level editor).
+- **`base_anomaly_spawns_only`** / **`base_anomaly_waypoints_only`** — use pre-extracted data instead of compiled level files. Set `true` for unmodified levels. See [Level Data Flags](docs/UPDATING_LEVELS.md#level-data-flags).
+- **`connect_orphans_automatically`** — auto-connect disconnected graph nodes for re-compiled levels. See [Auto-Connect](docs/UPDATING_LEVELS.md#step-75-auto-connect-disconnected-nodes-optional).
 
-**`connect_orphans_automatically`** — When set to `true`, the build will automatically connect any orphan graph nodes (nodes with no edges to other levels) to their nearest neighbour. This is useful for levels that have been re-compiled where the game graph edges need to be reconstructed.
+### Mod Configuration (anomaly.ini / cultured.ini / gamma.ini)
+
+Each base mod has a configuration file that controls which mod overlays are included in the build. Mods can be enabled or disabled, and files that contain LVID/GVID references can be tagged for automatic rewriting during the build. See [Mods System](docs/MODS-SYSTEM.md) for details.
 
 ### spawn_blacklist.ini
 

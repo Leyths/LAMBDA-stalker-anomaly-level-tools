@@ -7,18 +7,26 @@ Technical documentation for the L.A.M.B.D.A build pipeline.
 ```
 compiler/
 ├── build_all_spawn.py          # Master orchestrator (GameGraphBuilder)
+├── project_paths.py            # Path resolution (ProjectPaths dataclass)
+├── constants.py                # Shared constants
 ├── game_graph_merger.py        # Merges per-level graphs
+├── config/                     # Mod configuration and file processing
+│   ├── mod_config.py           #   Mod INI parser
+│   ├── mod_copier.py           #   File copier with exclusion logic
+│   └── tag_rewriter.py         #   LVID/GVID tag processing
+├── converters/                 # Spawn data converters/exporters
+├── crosstables/                # Cross table building
+├── extraction/                 # Spawn entity extraction and merging
+├── generation/                 # Death point generation
+├── graph/                      # GameGraph data structure
+├── levels/                     # Level configuration parser
+├── parsers/                    # Binary format parsers
+├── patrols/                    # Patrol path handling
+├── remapping/                  # GVID remapping
+├── serialization/              # Binary output (all.spawn writer)
 ├── spawn_graph/                # Spawn graph building
 │   └── builder.py              # Builds spawn chunk
-├── extraction/                 # Phase 1: Spawn entity extraction
-├── graph/                      # GameGraph data structure
-├── crosstables/                # Cross table building
-├── remapping/                  # GVID remapping
-├── serialization/              # Binary output
-├── patrols/                    # Patrol path handling
-├── parsers/                    # Binary format parsers
-├── levels/                     # Level configuration
-└── utils/                      # Shared utilities
+└── utils/                      # Logging, shared utilities
 ```
 
 ## Build Pipeline
@@ -171,48 +179,7 @@ Container format for all.spawn file.
 
 ## Configuration Files
 
-### levels.ini
-
-Defines all levels with their properties:
-
-```ini
-[level01]
-name = k00_marsh                                    # Internal level name
-caption = "k00_marsh"                               # Display name (optional)
-offset = 1050.0, 1000.0, 0.0                        # World space offset (x, y, z)
-id = 01                                             # Unique level ID (0-255)
-original_spawn = ../anomaly/k00_marsh.spawn         # Original spawn data
-original_patrols = ../anomaly/k00_marsh.patrols     # Original patrol data
-original_edges = ../anomaly/k00_marsh.edges.json    # Original graph edges
-connect_orphans_automatically = true                # Auto-connect orphan graph nodes (optional)
-```
-
-### spawn_blacklist.ini
-
-Entity names to exclude from the final all.spawn. Supports exact names and prefix wildcards:
-
-```ini
-# Exact match
-zat_b39_anomaly_protect_helmet
-
-# Wildcard - matches any entity starting with "debug_"
-debug_*
-```
-
-### level_changers.ini
-
-Configuration for cross-level teleporters. Each entry defines destination, arrival position, and camera orientation:
-
-```ini
-[level_name]
-entity_name.dest = destination_level
-entity_name.pos = x, y, z           # Local coordinates on destination level
-entity_name.dir = pitch, yaw, roll  # Camera orientation in radians
-```
-
-Direction values are in radians (1.57 rad = 90°, 3.14 rad = 180°).
-
-Level changers **not** listed in this file are removed from all.spawn.
+See [README.md](../README.md#configuration) for configuration file documentation (`levels.ini`, `spawn_blacklist.ini`, `level_changers.ini`, mod configs).
 
 ## Changes from Vanilla
 
@@ -237,6 +204,7 @@ This coordinate-based approach ensures dynamic spawns remain valid regardless of
 | Module | Purpose |
 |--------|---------|
 | `build_all_spawn.py` | Master orchestrator (GameGraphBuilder class) |
+| `project_paths.py` | Path resolution (ProjectPaths frozen dataclass) |
 | `game_graph_merger.py` | Merges per-level graphs; GameVertex/GameEdge/DeathPoint |
 | `spawn_graph/builder.py` | Builds spawn chunk; M_SPAWN/M_UPDATE packets |
 | `graph/game_graph.py` | GameGraph - caches level.ai, cross tables, provides GVID lookups |
@@ -244,3 +212,5 @@ This coordinate-based approach ensures dynamic spawns remain valid regardless of
 | `remapping/patrol_remapper.py` | Updates patrol point GVIDs |
 | `extraction/spawn_entity_extractor.py` | Extracts/merges spawn entities |
 | `crosstables/builder.py` | Builds .gct files; LevelGraphNavigator pathfinding |
+| `config/mod_copier.py` | Copies mod overlay files to gamedata |
+| `config/tag_rewriter.py` | Processes LVID/GVID tags in mod files |
