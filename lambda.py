@@ -47,6 +47,7 @@ else:
 DEFAULTS = {
     "levels_dir": str(PROJECT_ROOT / "levels"),
     "output_dir": str(PROJECT_ROOT / "gamedata"),
+    "levels_override_dir": "",
     "base_mod": "anomaly",
     "window_geometry": "900x650",
     "vis_spawn_path": "",
@@ -93,6 +94,7 @@ class LambdaGUI:
         # Settings variables
         self.levels_dir_var = tk.StringVar(value=DEFAULTS["levels_dir"])
         self.output_dir_var = tk.StringVar(value=DEFAULTS["output_dir"])
+        self.levels_override_dir_var = tk.StringVar(value=DEFAULTS["levels_override_dir"])
         self.base_mod_var = tk.StringVar(value=DEFAULTS["base_mod"])
 
         # Visualiser settings variables
@@ -101,9 +103,6 @@ class LambdaGUI:
         self._vis_levels = []
 
         self._load_settings()
-
-        # CLI-only override (not in GUI)
-        self._levels_override_dir = None
 
         # Apply CLI overrides (from --build mode)
         if build_overrides:
@@ -114,7 +113,7 @@ class LambdaGUI:
             if "base_mod" in build_overrides:
                 self.base_mod_var.set(build_overrides["base_mod"])
             if "levels_override_dir" in build_overrides:
-                self._levels_override_dir = build_overrides["levels_override_dir"]
+                self.levels_override_dir_var.set(build_overrides["levels_override_dir"])
 
         self._create_widgets()
 
@@ -161,7 +160,7 @@ class LambdaGUI:
         settings = ttk.Frame(parent, padding=(0, 0, 0, 8))
         settings.grid(row=0, column=0, sticky="ew")
 
-        # Levels directory
+        # Levels directory (row 0)
         ttk.Label(settings, text="Levels Directory:").grid(row=0, column=0, sticky="w", padx=(0, 8))
         self.levels_entry = ttk.Entry(settings, textvariable=self.levels_dir_var, width=50)
         self.levels_entry.grid(row=0, column=1, sticky="ew", padx=(0, 4))
@@ -169,19 +168,29 @@ class LambdaGUI:
                                             command=lambda: self._browse_dir(self.levels_dir_var))
         self.levels_browse_btn.grid(row=0, column=2)
 
-        # Output directory
-        ttk.Label(settings, text="Output Directory:").grid(row=1, column=0, sticky="w", padx=(0, 8), pady=(4, 0))
+        # Runtime Levels Directory (row 1) — only shown if it has a value
+        self._build_override_label = ttk.Label(settings, text="Runtime Levels Directory:")
+        self.override_entry = ttk.Entry(settings, textvariable=self.levels_override_dir_var, width=50)
+        self.override_browse_btn = ttk.Button(settings, text="...", width=3,
+                                              command=lambda: self._browse_dir(self.levels_override_dir_var))
+        if self.levels_override_dir_var.get():
+            self._build_override_label.grid(row=1, column=0, sticky="w", padx=(0, 8), pady=(4, 0))
+            self.override_entry.grid(row=1, column=1, sticky="ew", padx=(0, 4), pady=(4, 0))
+            self.override_browse_btn.grid(row=1, column=2, pady=(4, 0))
+
+        # Output directory (row 2)
+        ttk.Label(settings, text="Output Directory:").grid(row=2, column=0, sticky="w", padx=(0, 8), pady=(4, 0))
         self.output_entry = ttk.Entry(settings, textvariable=self.output_dir_var, width=50)
-        self.output_entry.grid(row=1, column=1, sticky="ew", padx=(0, 4), pady=(4, 0))
+        self.output_entry.grid(row=2, column=1, sticky="ew", padx=(0, 4), pady=(4, 0))
         self.output_browse_btn = ttk.Button(settings, text="...", width=3,
                                             command=lambda: self._browse_dir(self.output_dir_var))
-        self.output_browse_btn.grid(row=1, column=2, pady=(4, 0))
+        self.output_browse_btn.grid(row=2, column=2, pady=(4, 0))
 
-        # Base mod
-        ttk.Label(settings, text="Base Mod:").grid(row=2, column=0, sticky="w", padx=(0, 8), pady=(4, 0))
+        # Base mod (row 3)
+        ttk.Label(settings, text="Base Mod:").grid(row=3, column=0, sticky="w", padx=(0, 8), pady=(4, 0))
         self.mod_combo = ttk.Combobox(settings, textvariable=self.base_mod_var, values=MOD_FLAVOURS,
                                       state="readonly", width=15)
-        self.mod_combo.grid(row=2, column=1, sticky="w", pady=(4, 0))
+        self.mod_combo.grid(row=3, column=1, sticky="w", pady=(4, 0))
 
         settings.columnconfigure(1, weight=1)
 
@@ -249,29 +258,46 @@ class LambdaGUI:
         vis_settings.grid(row=0, column=0, sticky="ew")
         vis_settings.columnconfigure(1, weight=1)
 
-        # Path to all.spawn
+        # Path to all.spawn (row 0)
         ttk.Label(vis_settings, text="Path to all.spawn:").grid(row=0, column=0, sticky="w", padx=(0, 8))
         self.vis_spawn_entry = ttk.Entry(vis_settings, textvariable=self.vis_spawn_var, width=50)
         self.vis_spawn_entry.grid(row=0, column=1, sticky="ew", padx=(0, 4))
         ttk.Button(vis_settings, text="...", width=3,
                    command=self._browse_spawn_file).grid(row=0, column=2)
 
-        # Level dropdown
-        ttk.Label(vis_settings, text="Select level:").grid(row=1, column=0, sticky="w", padx=(0, 8), pady=(4, 0))
+        # Levels Directory (row 1) — shared with Build tab
+        ttk.Label(vis_settings, text="Levels Directory:").grid(row=1, column=0, sticky="w", padx=(0, 8), pady=(4, 0))
+        self.vis_levels_entry = ttk.Entry(vis_settings, textvariable=self.levels_dir_var, width=50)
+        self.vis_levels_entry.grid(row=1, column=1, sticky="ew", padx=(0, 4), pady=(4, 0))
+        ttk.Button(vis_settings, text="...", width=3,
+                   command=lambda: self._browse_dir(self.levels_dir_var)).grid(row=1, column=2, pady=(4, 0))
+
+        # Runtime Levels Directory (row 2) — only shown if it has a value
+        self._vis_override_label = ttk.Label(vis_settings, text="Runtime Levels Directory:")
+        self._vis_override_entry = ttk.Entry(vis_settings, textvariable=self.levels_override_dir_var, width=50)
+        self._vis_override_browse = ttk.Button(vis_settings, text="...", width=3,
+                                               command=lambda: self._browse_dir(self.levels_override_dir_var))
+        if self.levels_override_dir_var.get():
+            self._vis_override_label.grid(row=2, column=0, sticky="w", padx=(0, 8), pady=(4, 0))
+            self._vis_override_entry.grid(row=2, column=1, sticky="ew", padx=(0, 4), pady=(4, 0))
+            self._vis_override_browse.grid(row=2, column=2, pady=(4, 0))
+
+        # Level dropdown (row 3)
+        ttk.Label(vis_settings, text="Select level:").grid(row=3, column=0, sticky="w", padx=(0, 8), pady=(4, 0))
         self.vis_level_combo = ttk.Combobox(vis_settings, textvariable=self.vis_level_var,
                                             state="readonly", width=30)
-        self.vis_level_combo.grid(row=1, column=1, sticky="ew", pady=(4, 0))
+        self.vis_level_combo.grid(row=3, column=1, sticky="ew", pady=(4, 0))
 
-        # View Level button
+        # View Level button (row 4)
         style = ttk.Style()
         style.configure("ViewLevel.TButton", font=(MONO_FONT[0], 13, "bold"), padding=(20, 12))
         self.view_level_btn = ttk.Button(vis_settings, text="View Level", command=self._on_view_level,
                                          style="ViewLevel.TButton", cursor="hand2")
-        self.view_level_btn.grid(row=2, column=1, sticky="w", pady=(16, 0), ipady=6)
+        self.view_level_btn.grid(row=4, column=1, sticky="w", pady=(16, 0), ipady=6)
 
-        # Loading status label
+        # Loading status label (row 5)
         self.vis_status_label = ttk.Label(vis_settings, text="", font=(MONO_FONT[0], 9))
-        self.vis_status_label.grid(row=3, column=1, sticky="w", pady=(4, 0))
+        self.vis_status_label.grid(row=5, column=1, sticky="w", pady=(4, 0))
 
     # --- Visualiser methods ---
 
@@ -291,11 +317,27 @@ class LambdaGUI:
         if selected == 1:
             self._refresh_vis_levels()
 
+    def _resolve_level_ai_path(self, level_name: str):
+        """Find level.ai for a level, checking override dir first."""
+        override_dir = self.levels_override_dir_var.get()
+        levels_dir = self._resolve_path(self.levels_dir_var.get())
+
+        if override_dir:
+            override_path = Path(override_dir) / level_name / "level.ai"
+            if override_path.exists():
+                return str(override_path)
+
+        base_path = levels_dir / level_name / "level.ai"
+        if base_path.exists():
+            return str(base_path)
+
+        return None
+
     def _refresh_vis_levels(self):
-        levels_dir_str = self.levels_dir_var.get()
-        levels_dir = self._resolve_path(levels_dir_str)
-        config_path = PROJECT_ROOT / "levels.ini"
-        if not config_path.exists():
+        spawn_path = self.vis_spawn_var.get()
+        if not spawn_path or not Path(spawn_path).exists():
+            self._vis_levels = []
+            self.vis_level_combo["values"] = []
             return
 
         try:
@@ -303,16 +345,23 @@ class LambdaGUI:
             compiler_dir = str(COMPILER_DIR)
             if compiler_dir not in sys.path:
                 sys.path.insert(0, compiler_dir)
-            from levels import LevelsConfig
+            from parsers import GameGraphParser
 
-            config = LevelsConfig(str(config_path), levels_dir=levels_dir)
+            gg = GameGraphParser.from_all_spawn(Path(spawn_path))
+            levels = gg.get_levels()
+
             available = []
-            for level in config.levels:
-                ai_path = level.path / "level.ai"
-                if ai_path.exists():
-                    available.append(level)
+            for level_id in sorted(levels.keys()):
+                level = levels[level_id]
+                ai_path = self._resolve_level_ai_path(level.name)
+                available.append({
+                    'name': level.name,
+                    'level_id': level_id,
+                    'ai_path': ai_path,
+                })
+
             self._vis_levels = available
-            level_names = [l.name for l in available]
+            level_names = [l['name'] for l in available]
             self.vis_level_combo["values"] = level_names
 
             # Restore previous selection if still valid
@@ -335,16 +384,52 @@ class LambdaGUI:
             messagebox.showerror("Not found", f"all.spawn not found:\n{all_spawn}")
             return
 
-        level = next((l for l in self._vis_levels if l.name == level_name), None)
-        if level is None:
+        level_info = next((l for l in self._vis_levels if l['name'] == level_name), None)
+        if level_info is None:
             messagebox.showerror("Error", f"Level '{level_name}' not found.")
             return
 
-        ai_path = str(level.path / "level.ai")
+        ai_path = level_info['ai_path']
 
-        if not Path(ai_path).exists():
-            messagebox.showerror("Not found", f"level.ai not found:\n{ai_path}")
+        if ai_path is None or not Path(ai_path).exists():
+            # Build a helpful message showing which directories were checked
+            levels_dir = self._resolve_path(self.levels_dir_var.get())
+            override_dir = self.levels_override_dir_var.get()
+            checked = [str(levels_dir / level_name / "level.ai")]
+            if override_dir:
+                checked.insert(0, str(Path(override_dir) / level_name / "level.ai"))
+            messagebox.showerror("Not found",
+                                 f"level.ai not found for '{level_name}'.\n\n"
+                                 f"Checked:\n" + "\n".join(f"  {p}" for p in checked))
             return
+
+        # GUID validation: check level.ai matches the all.spawn cross table
+        try:
+            compiler_dir = str(COMPILER_DIR)
+            if compiler_dir not in sys.path:
+                sys.path.insert(0, compiler_dir)
+            from parsers import LevelAIParser, GameGraphParser
+
+            ai_parser = LevelAIParser(ai_path, build_adjacency=False)
+            ai_guid = ai_parser.guid
+
+            gg = GameGraphParser.from_all_spawn(Path(all_spawn))
+            cross_table = gg.get_cross_table_for_level(level_info['level_id'])
+
+            if cross_table and 'level_guid' in cross_table:
+                ct_guid = cross_table['level_guid']
+                if ai_guid != ct_guid:
+                    messagebox.showwarning(
+                        "GUID Mismatch",
+                        f"The level.ai for '{level_name}' has a different GUID than "
+                        f"the cross table in all.spawn.\n\n"
+                        f"This means the level.ai was rebuilt after the all.spawn was compiled. "
+                        f"Vertex IDs may not correspond correctly.\n\n"
+                        f"level.ai GUID:     {ai_guid.hex()}\n"
+                        f"cross table GUID:  {ct_guid.hex()}"
+                    )
+        except Exception:
+            pass  # Don't block if validation itself fails
 
         self._save_settings()
 
@@ -356,7 +441,7 @@ class LambdaGUI:
 
         cmd += ["--visualise",
                 "--ai-path", ai_path,
-                "--level-id", str(level.id),
+                "--level-id", str(level_info['level_id']),
                 "--all-spawn", all_spawn]
 
         # Launch with stdout captured for progress display
@@ -409,6 +494,9 @@ class LambdaGUI:
             # Resolve to absolute (handles old relative settings gracefully)
             self.levels_dir_var.set(str(self._resolve_path(data.get("levels_dir", DEFAULTS["levels_dir"]))))
             self.output_dir_var.set(str(self._resolve_path(data.get("output_dir", DEFAULTS["output_dir"]))))
+            override_dir = data.get("levels_override_dir", "")
+            if override_dir:
+                self.levels_override_dir_var.set(str(self._resolve_path(override_dir)))
             mod = data.get("base_mod", DEFAULTS["base_mod"])
             self.base_mod_var.set(mod if mod in MOD_FLAVOURS else DEFAULTS["base_mod"])
             geom = data.get("window_geometry", DEFAULTS["window_geometry"])
@@ -428,6 +516,7 @@ class LambdaGUI:
         data = {
             "levels_dir": self.levels_dir_var.get(),
             "output_dir": self.output_dir_var.get(),
+            "levels_override_dir": self.levels_override_dir_var.get(),
             "base_mod": self.base_mod_var.get(),
             "window_geometry": self.root.geometry(),
             "vis_spawn_path": self.vis_spawn_var.get(),
@@ -479,8 +568,10 @@ class LambdaGUI:
         state = "normal" if enabled else "disabled"
         self.levels_entry.configure(state=state)
         self.output_entry.configure(state=state)
+        self.override_entry.configure(state=state)
         self.levels_browse_btn.configure(state=state)
         self.output_browse_btn.configure(state=state)
+        self.override_browse_btn.configure(state=state)
         self.mod_combo.configure(state="readonly" if enabled else "disabled")
         # Disable/enable Visualiser tab
         self.notebook.tab(1, state="normal" if enabled else "disabled")
@@ -558,7 +649,7 @@ class LambdaGUI:
             from build_all_spawn import GameGraphBuilder
 
             # Build central path config — all paths resolved once here
-            levels_override = self._levels_override_dir
+            levels_override = self.levels_override_dir_var.get() or None
             paths = ProjectPaths.from_root(
                 PROJECT_ROOT,
                 levels_dir=Path(levels_dir),

@@ -541,6 +541,7 @@ class GameGraphParser:
                 # Found our level's cross-table
                 header_offset = offset + 4
                 level_vertex_count = struct.unpack_from('<I', self._data, header_offset + 4)[0]
+                level_guid = self._data[header_offset + 12 : header_offset + 28]
 
                 # Parse all cells
                 cells_offset = offset + 4 + 44
@@ -553,7 +554,8 @@ class GameGraphParser:
 
                 return {
                     'level_vertex_count': level_vertex_count,
-                    'gvids': gvids
+                    'gvids': gvids,
+                    'level_guid': level_guid,
                 }
 
             # Skip to next cross-table
