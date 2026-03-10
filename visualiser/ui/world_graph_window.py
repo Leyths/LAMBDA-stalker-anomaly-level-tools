@@ -597,11 +597,9 @@ class WorldGraphWindow:
         self.scene.force_redraw()
 
     def _focus_on_vertex(self, idx):
-        """Pan camera to center on a vertex, zoom in slightly."""
+        """Pan camera to center on a vertex."""
         pos = self.data.get_position(idx)
         if pos is not None:
             self._cam_x = pos[0]
             self._cam_z = pos[2]
-            # Zoom in to a comfortable level if currently very zoomed out
-            self._cam_height = min(self._cam_height, 200.0)
             self._apply_top_down_camera()
