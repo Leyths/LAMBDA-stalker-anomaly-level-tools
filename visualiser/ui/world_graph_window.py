@@ -273,10 +273,12 @@ class WorldGraphWindow:
                 level = self.data.levels.get(vertex.level_id)
                 level_name = level.name if level else f"Unknown ({vertex.level_id})"
 
+                lp = vertex.local_point
                 info_text = (
                     f"GVID: {vertex.vertex_id}\n"
                     f"Level: {level_name}\n"
-                    f"Position: ({pos[0]:.1f}, {pos[1]:.1f}, {pos[2]:.1f})\n"
+                    f"World: ({pos[0]:.1f}, {pos[1]:.1f}, {pos[2]:.1f})\n"
+                    f"Local: ({lp[0]:.1f}, {lp[1]:.1f}, {lp[2]:.1f})\n"
                     f"Edges: {len(edges_info)}"
                 )
                 info_label = gui.Label(info_text)

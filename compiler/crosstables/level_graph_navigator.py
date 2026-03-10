@@ -9,7 +9,7 @@ import math
 import numpy as np
 import mmap
 from collections import deque
-from typing import List, Tuple, Optional
+from typing import Dict, List, Tuple, Optional
 
 from utils import log, logError
 from constants import FLOAT_EPSILON
@@ -301,6 +301,80 @@ class LevelGraphNavigator:
             total_distance += math.sqrt(dx*dx + dy*dy + dz*dz)
 
         return (total_distance, len(path) - 1)
+
+    def bfs_path_distances_to_targets(
+        self, source: int, targets: List[int]
+    ) -> Dict[int, Tuple[float, int]]:
+        """
+        Single-source BFS finding path distances to multiple targets.
+
+        Runs one BFS from source, terminates early once all targets are found,
+        then reconstructs paths and sums edge distances for each found target.
+
+        Args:
+            source: Starting level vertex ID
+            targets: List of target level vertex IDs
+
+        Returns:
+            Dict mapping target_lvid -> (path_distance_meters, hop_count).
+            Only contains targets that were reachable.
+        """
+        if not self.valid_vertex_id(source):
+            return {}
+
+        target_set = {t for t in targets if self.valid_vertex_id(t) and t != source}
+        if not target_set:
+            # Handle source in targets list
+            return {source: (0.0, 0)} if source in targets else {}
+
+        vertex_count = self.header['vertex_count']
+        INFINITY = np.iinfo(np.uint32).max
+        parent = np.full(vertex_count, -1, dtype=np.int32)
+        distances = np.full(vertex_count, INFINITY, dtype=np.uint32)
+
+        distances[source] = 0
+        parent[source] = source
+        queue = deque([source])
+        remaining = len(target_set)
+
+        while queue and remaining > 0:
+            current = queue.popleft()
+            for neighbor in self.get_neighbors(current):
+                if distances[neighbor] == INFINITY:
+                    distances[neighbor] = distances[current] + 1
+                    parent[neighbor] = current
+                    if neighbor in target_set:
+                        remaining -= 1
+                    queue.append(int(neighbor))
+
+        # Reconstruct paths for reached targets
+        results: Dict[int, Tuple[float, int]] = {}
+        for target in target_set:
+            if distances[target] == INFINITY:
+                continue
+
+            # Reconstruct path
+            path = []
+            current = target
+            while current != source:
+                path.append(current)
+                current = parent[current]
+            path.append(source)
+            path.reverse()
+
+            # Sum edge distances
+            total_distance = 0.0
+            for i in range(len(path) - 1):
+                pos1 = self.vertex_positions[path[i]]
+                pos2 = self.vertex_positions[path[i + 1]]
+                dx = pos2[0] - pos1[0]
+                dy = pos2[1] - pos1[1]
+                dz = pos2[2] - pos1[2]
+                total_distance += math.sqrt(dx*dx + dy*dy + dz*dz)
+
+            results[target] = (total_distance, len(path) - 1)
+
+        return results
 
     def get_vertex_position(self, vertex_id: int) -> Tuple[float, float, float]:
         if not self.valid_vertex_id(vertex_id):

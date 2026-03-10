@@ -169,7 +169,7 @@ class LambdaGUI:
         self.levels_browse_btn.grid(row=0, column=2)
 
         # Runtime Levels Directory (row 1) — only shown if it has a value
-        self._build_override_label = ttk.Label(settings, text="Runtime Levels Directory:")
+        self._build_override_label = ttk.Label(settings, text="Modified Levels Directory:")
         self.override_entry = ttk.Entry(settings, textvariable=self.levels_override_dir_var, width=50)
         self.override_browse_btn = ttk.Button(settings, text="...", width=3,
                                               command=lambda: self._browse_dir(self.levels_override_dir_var))
@@ -273,7 +273,7 @@ class LambdaGUI:
                    command=lambda: self._browse_dir(self.levels_dir_var)).grid(row=1, column=2, pady=(4, 0))
 
         # Runtime Levels Directory (row 2) — only shown if it has a value
-        self._vis_override_label = ttk.Label(vis_settings, text="Runtime Levels Directory:")
+        self._vis_override_label = ttk.Label(vis_settings, text="Modified Levels Directory:")
         self._vis_override_entry = ttk.Entry(vis_settings, textvariable=self.levels_override_dir_var, width=50)
         self._vis_override_browse = ttk.Button(vis_settings, text="...", width=3,
                                                command=lambda: self._browse_dir(self.levels_override_dir_var))

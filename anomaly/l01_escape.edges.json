@@ -4109,16 +4109,6 @@
       "source_x": 67.3098,
       "source_y": -0.7101,
       "source_z": 541.7456,
-      "target_x": -91.798,
-      "target_y": -15.3663,
-      "target_z": -186.6512,
-      "distance": 870.7125,
-      "target_level": "l01_escape"
-    },
-    {
-      "source_x": 67.3098,
-      "source_y": -0.7101,
-      "source_z": 541.7456,
       "target_x": 9.8812,
       "target_y": 16.1755,
       "target_z": 673.3942,

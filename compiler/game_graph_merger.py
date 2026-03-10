@@ -591,39 +591,31 @@ class GameGraphMerger:
             log("  No levels have connect_orphans_automatically enabled")
             return
 
-        connector = OrphanConnector(
-            vertices=self.vertices,
-            level_ai_cache=None,  # Could add level.ai cache for reachability checks
-            require_reachability=False
-        )
+        connector = OrphanConnector(vertices=self.vertices)
 
         total_connections = 0
-        total_pruned = 0
 
         for level in levels_with_flag:
-            # Load level.ai for complexity-based pruning
-            level_ai = None
+            # Load level.ai — required for walkability validation
             level_ai_path = self.levels_config.get_level_ai_path(level)
-            if level_ai_path and level_ai_path.exists():
-                try:
-                    level_ai = LevelGraphNavigator(str(level_ai_path))
-                except Exception as e:
-                    logWarning(f"    Could not load level.ai for {level.name}: {e}")
+            if not level_ai_path or not level_ai_path.exists():
+                raise RuntimeError(
+                    f"level.ai not found for {level.name} at {level_ai_path}. "
+                    f"Cannot connect orphan nodes without level.ai."
+                )
 
-            result = connector.connect_level(level.id, level.name, level_ai=level_ai)
+            level_ai = LevelGraphNavigator(str(level_ai_path))
+            result = connector.connect_level(level.id, level.name, level_ai)
 
-            if result.connections_made > 0 or result.connections_pruned > 0:
+            if result.connections_made > 0:
                 log(f"    {level.name}: made {result.connections_made} connections "
                     f"({result.orphan_count} orphans found)")
                 total_connections += result.connections_made
-                total_pruned += result.connections_pruned
 
             for error in result.errors:
                 logWarning(f"    {level.name}: {error}")
 
         log(f"  Total orphan connections made: {total_connections}")
-        if total_pruned > 0:
-            log(f"  Total high-complexity connections pruned: {total_pruned}")
 
     def _generate_death_points(self):
         """Generate death points for all game vertices"""

@@ -7686,9 +7686,9 @@
       "target_level": "k01_darkscape"
     },
     {
-      "source_x": -427.1214,
-      "source_y": 0.3526,
-      "source_z": 672.4505,
+      "source_x": -132.04,
+      "source_y": 69.45,
+      "source_z": 307.60,
       "target_x": -47.3282,
       "target_y": 0.387,
       "target_z": -601.7765,
@@ -8366,12 +8366,12 @@
       "target_level": "k01_darkscape"
     },
     {
-      "source_x": 116.3936,
-      "source_y": 2.6906,
-      "source_z": 521.6974,
-      "target_x": -46.3205,
-      "target_y": 0.4348,
-      "target_z": -574.2383,
+      "source_x": 64.35,
+      "source_y": 50.93,
+      "source_z": 284.46,
+      "target_x": 189.4,
+      "target_y": 4.6,
+      "target_z": -366.9,
       "distance": 188.9038,
       "target_level": "l04_darkvalley"
     },
@@ -8396,12 +8396,12 @@
       "target_level": "k01_darkscape"
     },
     {
-      "source_x": 239.505,
-      "source_y": -2.7336,
-      "source_z": 661.6935,
-      "target_x": 189.3785,
-      "target_y": 4.5911,
-      "target_z": -366.87,
+      "source_x": -25.52,
+      "source_y": 72.62,
+      "source_z": 262.52,
+      "target_x": -43.6,
+      "target_y": 0.4,
+      "target_z": -574.2,
       "distance": 58.1566,
       "target_level": "l04_darkvalley"
     }
