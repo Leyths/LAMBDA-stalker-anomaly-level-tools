@@ -39,6 +39,8 @@ class NodeInspectorApp:
     PATROL_SCREEN_THRESHOLD = 40.0
 
     def __init__(self, level_file: str, level_id: Optional[int] = None, all_spawn_path: Optional[str] = None):
+        self._all_spawn_path = all_spawn_path
+
         # Load data (pass all_spawn_path and level_id for cross-table loading)
         print("  Loading level data...", flush=True)
         self.level_data = LevelData(level_file, all_spawn_path, level_id)
@@ -92,7 +94,8 @@ class NodeInspectorApp:
             on_panel_rebuild=self._on_panel_rebuild,
             on_spawn_selected=self._on_spawn_selected,
             on_graph_selected=self._on_graph_selected,
-            on_patrol_selected=self._on_patrol_selected
+            on_patrol_selected=self._on_patrol_selected,
+            on_world_graph_clicked=self._open_world_graph if all_spawn_path else None
         )
         self.control_panel.set_window(self.window)
         self._panel_wrapper = gui.WidgetProxy()
@@ -820,6 +823,11 @@ class NodeInspectorApp:
                 return True
 
         return False
+
+    def _open_world_graph(self):
+        """Open the world graph visualization window."""
+        from .world_graph_window import WorldGraphWindow
+        WorldGraphWindow(self._all_spawn_path)
 
     def _on_node_selected(self, node_idx):
         """Callback when user selects a node via Go button."""

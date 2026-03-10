@@ -27,7 +27,8 @@ class ControlPanel:
                  on_panel_rebuild: Optional[Callable] = None,
                  on_spawn_selected: Optional[Callable] = None,
                  on_graph_selected: Optional[Callable] = None,
-                 on_patrol_selected: Optional[Callable] = None):
+                 on_patrol_selected: Optional[Callable] = None,
+                 on_world_graph_clicked: Optional[Callable] = None):
         self.level_data = level_data
         self.spawn_data = spawn_data
         self.graph_data = graph_data
@@ -38,6 +39,7 @@ class ControlPanel:
         self.on_spawn_selected = on_spawn_selected
         self.on_graph_selected = on_graph_selected
         self.on_patrol_selected = on_patrol_selected
+        self.on_world_graph_clicked = on_world_graph_clicked
 
         self.current_node_idx = None
         self.current_spawn_idx = None
@@ -103,6 +105,13 @@ class ControlPanel:
         find_button = gui.Button("Find something")
         find_button.set_on_clicked(self._on_find_clicked)
         self.panel.add_child(find_button)
+        self.panel.add_fixed(5)
+
+        if self.on_world_graph_clicked:
+            world_graph_button = gui.Button("World Graph")
+            world_graph_button.set_on_clicked(self.on_world_graph_clicked)
+            self.panel.add_child(world_graph_button)
+
         self.panel.add_fixed(15)
 
     def _add_node_content(self):

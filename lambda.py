@@ -288,12 +288,17 @@ class LambdaGUI:
                                             state="readonly", width=30)
         self.vis_level_combo.grid(row=3, column=1, sticky="ew", pady=(4, 0))
 
-        # View Level button (row 4)
+        # View Level / World Graph buttons (row 4)
         style = ttk.Style()
         style.configure("ViewLevel.TButton", font=(MONO_FONT[0], 13, "bold"), padding=(20, 12))
-        self.view_level_btn = ttk.Button(vis_settings, text="View Level", command=self._on_view_level,
+        btn_frame = ttk.Frame(vis_settings)
+        btn_frame.grid(row=4, column=1, sticky="w", pady=(16, 0))
+        self.view_level_btn = ttk.Button(btn_frame, text="View Level", command=self._on_view_level,
                                          style="ViewLevel.TButton", cursor="hand2")
-        self.view_level_btn.grid(row=4, column=1, sticky="w", pady=(16, 0), ipady=6)
+        self.view_level_btn.pack(side="left", ipady=6)
+        self.view_world_graph_btn = ttk.Button(btn_frame, text="World Graph", command=self._on_view_world_graph,
+                                                style="ViewLevel.TButton", cursor="hand2")
+        self.view_world_graph_btn.pack(side="left", padx=(8, 0), ipady=6)
 
         # Loading status label (row 5)
         self.vis_status_label = ttk.Label(vis_settings, text="", font=(MONO_FONT[0], 9))
@@ -448,7 +453,9 @@ class LambdaGUI:
         self._vis_proc = subprocess.Popen(cmd, stdout=subprocess.PIPE, stderr=subprocess.STDOUT,
                                           text=True, bufsize=1)
         self._vis_queue = queue.Queue()
+        self._vis_output_lines = []
         self.view_level_btn.configure(state="disabled")
+        self.view_world_graph_btn.configure(state="disabled")
         self.vis_status_label.configure(text="Starting visualiser...")
 
         # Reader thread feeds lines into queue without blocking the GUI
@@ -471,6 +478,7 @@ class LambdaGUI:
                     break
                 stripped = line.strip()
                 if stripped:
+                    self._vis_output_lines.append(stripped)
                     self.vis_status_label.configure(text=stripped)
                     if stripped == "VISUALISER_READY":
                         loading_done = True
@@ -479,11 +487,62 @@ class LambdaGUI:
 
         ret = self._vis_proc.poll()
         if ret is not None or loading_done:
+            # Show error popup if process crashed
+            if ret is not None and ret != 0:
+                # Collect any remaining output
+                try:
+                    while True:
+                        line = self._vis_queue.get_nowait()
+                        if line is None:
+                            break
+                        stripped = line.strip()
+                        if stripped:
+                            self._vis_output_lines.append(stripped)
+                except queue.Empty:
+                    pass
+                error_text = "\n".join(self._vis_output_lines[-50:])  # Last 50 lines
+                messagebox.showerror("Visualiser Crashed",
+                                     f"Process exited with code {ret}.\n\n{error_text}")
             self.vis_status_label.configure(text="")
             self.view_level_btn.configure(state="normal")
+            self.view_world_graph_btn.configure(state="normal")
             self._vis_proc = None
         else:
             self.root.after(100, self._poll_vis_output)
+
+    def _on_view_world_graph(self):
+        """Launch the world graph visualiser."""
+        all_spawn = self.vis_spawn_var.get()
+        if not all_spawn or not Path(all_spawn).exists():
+            messagebox.showerror("Not found", f"all.spawn not found:\n{all_spawn}")
+            return
+
+        self._save_settings()
+
+        # Build command
+        if getattr(sys, 'frozen', False):
+            cmd = [sys.executable]
+        else:
+            cmd = [sys.executable, str(Path(__file__).resolve())]
+
+        cmd += ["--world-graph", "--all-spawn", all_spawn]
+
+        # Launch with stdout captured for progress display
+        self._vis_proc = subprocess.Popen(cmd, stdout=subprocess.PIPE, stderr=subprocess.STDOUT,
+                                          text=True, bufsize=1)
+        self._vis_queue = queue.Queue()
+        self._vis_output_lines = []
+        self.view_level_btn.configure(state="disabled")
+        self.view_world_graph_btn.configure(state="disabled")
+        self.vis_status_label.configure(text="Starting world graph...")
+
+        def _reader():
+            for line in self._vis_proc.stdout:
+                self._vis_queue.put(line)
+            self._vis_queue.put(None)
+
+        threading.Thread(target=_reader, daemon=True).start()
+        self._poll_vis_output()
 
     # --- Settings persistence ---
 
@@ -867,6 +926,50 @@ def _run_visualiser_cli():
     app.run()
 
 
+def _run_world_graph_cli():
+    """Run the world graph visualiser in a standalone process (launched via --world-graph flag)."""
+    import argparse
+    parser = argparse.ArgumentParser()
+    parser.add_argument("--world-graph", action="store_true")
+    parser.add_argument("--all-spawn", required=True)
+    args = parser.parse_args()
+
+    if getattr(sys, 'frozen', False):
+        bundle_dir = Path(sys._MEIPASS)
+    else:
+        bundle_dir = PROJECT_ROOT
+
+    compiler_dir = str(bundle_dir / "compiler")
+    compiler_levels_dir = str(bundle_dir / "compiler" / "levels")
+    for p in [compiler_dir, compiler_levels_dir]:
+        if p not in sys.path:
+            sys.path.insert(0, p)
+
+    if 'utils' in sys.modules:
+        del sys.modules['utils']
+
+    vis_dir = str(bundle_dir / "visualiser")
+    sys.path.insert(0, vis_dir)
+
+    import open3d
+    import open3d.visualization.gui as gui
+    from ui import WorldGraphWindow
+
+    if getattr(sys, 'frozen', False):
+        o3d_dir = Path(open3d.__file__).parent
+        resource_path = str(o3d_dir / "resources")
+        gui.Application.instance.initialize(resource_path)
+    else:
+        gui.Application.instance.initialize()
+
+    wg = WorldGraphWindow(args.all_spawn)
+
+    _set_visualiser_icon()
+
+    print("VISUALISER_READY", flush=True)
+    gui.Application.instance.run()
+
+
 def _set_visualiser_icon():
     """Set the Open3D window icon to the LAMBDA icon."""
     if platform.system() == "Windows":
@@ -949,7 +1052,9 @@ def _parse_build_args():
 if __name__ == "__main__":
     import multiprocessing
     multiprocessing.freeze_support()
-    if "--visualise" in sys.argv:
+    if "--world-graph" in sys.argv:
+        _run_world_graph_cli()
+    elif "--visualise" in sys.argv:
         _run_visualiser_cli()
     elif "--build" in sys.argv:
         overrides = _parse_build_args()
